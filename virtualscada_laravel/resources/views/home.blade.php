@@ -9,8 +9,12 @@
 
 				<div class="panel-body">
 					Click a project below to edit it.
-					{{ link_to_action('App\Http\Controllers\ProjectController@addProject', 'Add Project') }}
-				
+
+					<ul>
+					@foreach ($projects as $prj)
+						<li>{{ $prj->name }}</li>
+					@endforeach
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-
+use DB;
+use Auth;
 class ProjectController extends Controller {
 
     /**
@@ -12,8 +12,11 @@ class ProjectController extends Controller {
      */
     public function showProjects()
     {
-        return view('home');
-        #$addurl = action('App\Http\Controllers\ProjectController@addProject');
+        /* Get all projects */
+        $projects = DB::table('projects')->where('owner_id', Auth::id())->get();
+        #dd($projects); die(var_dump($projects));
+
+        return view('home', compact('projects'));
     }
 
     public function addProject()

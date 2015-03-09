@@ -22,19 +22,19 @@ public function run()
         'password' => Hash::make('awesome'),
     ));
 
-App\User::create(array(
-        'name'     => 'Bill Nooner',
-        'username' => 'bill',
-        'email'    => 'bill@scotch.io',
-        'password' => Hash::make('awesome'),
-    ));
+    App\User::create(array(
+            'name'     => 'Bill Nooner',
+            'username' => 'bill',
+            'email'    => 'bill@scotch.io',
+            'password' => Hash::make('awesome'),
+        ));
 
-App\User::create(array(
-        'name'     => 'Ambers Selleja',
-        'username' => 'amber',
-        'email'    => 'amber@scotch.io',
-        'password' => Hash::make('awesome'),
-    ));
+    App\User::create(array(
+            'name'     => 'Ambers Selleja',
+            'username' => 'amber',
+            'email'    => 'amber@scotch.io',
+            'password' => Hash::make('awesome'),
+        ));
 }
 
 }
