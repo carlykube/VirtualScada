@@ -29,9 +29,13 @@ class ProjectController extends Controller {
         return view('home', compact('projects'));
     }
 
-    public function showProject()
+    public function showProject($id)
     {
         /* display one project */
+        // return $id;
+
+        $project = DB::table('projects')->find($id);
+        return view('project.home', compact('project'));
     }
 
     public function addProject()
