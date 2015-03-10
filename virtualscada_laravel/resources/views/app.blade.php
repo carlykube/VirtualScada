@@ -63,7 +63,7 @@
 
 	@yield('content')
 
-	<footer class="footer" style="background-color:#0b1b3d;">
+	<footer class="footer" style="background-color:#0b1b3d; position:fixed;">
 		<div class="container">
 			<p class="text-muted">©2014-2015 <a href="http://smu.edu/lyle" style="text-transform:uppercase">Southern Methodist University's Lyle School of Engineering</a></p>
 		</div>

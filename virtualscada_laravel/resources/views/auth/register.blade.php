@@ -1,65 +1,74 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+
+<div id="registration-container" class="container" style="margin-top:10%">
+	<div>
+		<div class="panel member_register">
+
+			<div class="panel-body">
+				<div class="fa_user">
+          			<i class="fa fa-dot-circle-o"></i>
+        		</div>
+
+        		@if (count($errors) > 0)
+					<div class="alert alert-danger">
+						<strong>REGISTRATION ISSUES</strong><br/><br/>
 							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
 							</ul>
-						</div>
-					@endif
+					</div>
+				@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<form class="registrationform" role="form" method="POST" action="{{ url('/auth/register') }}">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
-							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
+					<div class="form-group">
+						<label class="sr-only">Name</label>
+						<div class="input-group">
+							<input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="NAME">
 						</div>
+					</div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Register
-								</button>
-							</div>
+					<div class="form-group">
+						<label class="sr-only">E-Mail Address</label>
+						<div class="input-group">
+							<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-MAIL ADDRESS">
 						</div>
-					</form>
-				</div>
+					</div>
+
+					<div class="form-group">
+						<label class="sr-only control-label">Password</label>
+						<div class="input-group">
+							<input type="password" class="form-control" name="password" placeholder="PASSWORD">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="sr-only control-label">Confirm Password</label>
+						<div class="input-group">
+							<input type="password" class="form-control" name="password_confirmation" placeholder="CONFIRM PASSWORD">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="input-group">
+							<button type="submit" class="btn btn-primary btn-md register">Register</button>
+						</div>
+					</div>
+
+
+				</form>
+
 			</div>
-		</div>
+		</div>	
 	</div>
+	<p style="text-transform:uppercase;">Already Have an Account? <a href="{{ url('/auth/login') }}">SIGN IN</a></p>
 </div>
 @endsection
