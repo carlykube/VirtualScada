@@ -38,18 +38,16 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Virtual Scada</a>
+				<a class="navbar-brand" href="/">VIRTUAL SCADA</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-				</ul>
-
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
+					<!--
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
+					-->
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
@@ -64,6 +62,12 @@
 	</nav>
 
 	@yield('content')
+
+	<footer class="footer" style="background-color:#0b1b3d;">
+		<div class="container">
+			<p class="text-muted">©2014-2015 <a href="http://smu.edu/lyle" style="text-transform:uppercase">Southern Methodist University's Lyle School of Engineering</a></p>
+		</div>
+	</footer>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
