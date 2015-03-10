@@ -16,7 +16,7 @@
 				</div>
 
 				<div class="panel-footer">
-					<a href="/home">Back</a>
+					<a href="/project/{{ $project->id }}/edit">Edit</a> | <a href="/home">Back</a>
 				</div>
 			</div>
 		</div>

@@ -11,9 +11,22 @@
 |
 */
 
+Route::bind('project', function($id)
+{
+	var_dump($id);
+	return \App\Project::whereId($id)->first();
+
+});
+
 Route::get('/', 'ProjectController@getProjects');
 Route::get('home', 'ProjectController@getProjects');
-Route::get('project/{id}', 'ProjectController@showProject');
+
+# project functions
+
+Route::get('project/{id}', 'ProjectController@show');
+Route::post('project/add', 'ProjectController@add');
+Route::get('project/{id}/edit', 'ProjectController@edit');
+Route::patch('project/{id}', 'ProjectController@update');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
