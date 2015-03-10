@@ -10,11 +10,17 @@
 				<div class="panel-body">
 					Click a project below to edit it.
 
-					<ul>
-					@foreach ($projects as $prj)
-						<li>{{ $prj->name }}</li>
-					@endforeach
-					</ul>
+					@if (empty($projects))
+						<p>You do not have any projects.</p>
+					@else
+						<ul>
+						@foreach ($projects as $prj)
+							<li>{{ $prj->name }}
+								(ID = {{ $prj->id }} | Owner_ID = {{ $prj->owner_id }})
+							</li>
+						@endforeach
+						</ul>
+					@endif
 				</div>
 			</div>
 		</div>

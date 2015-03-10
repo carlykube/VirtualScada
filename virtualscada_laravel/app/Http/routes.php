@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ProjectController@getProjects');
 
-Route::get('home', 'ProjectController@showProjects');
+Route::get('home', 'ProjectController@getProjects');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

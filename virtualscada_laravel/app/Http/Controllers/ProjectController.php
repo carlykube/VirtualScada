@@ -2,15 +2,25 @@
 
 use DB;
 use Auth;
+
 class ProjectController extends Controller {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the profile for the given user.
      *
-     * @param  int  $id
      * @return Response
      */
-    public function showProjects()
+    public function getProjects()
     {
         /* Get all projects */
         $projects = DB::table('projects')->where('owner_id', Auth::id())->get();
@@ -19,9 +29,14 @@ class ProjectController extends Controller {
         return view('home', compact('projects'));
     }
 
+    public function showProject()
+    {
+        /* display one project */
+    }
+    
     public function addProject()
     {
-        return view('login');
+        return view('home');
     }
 
 }
