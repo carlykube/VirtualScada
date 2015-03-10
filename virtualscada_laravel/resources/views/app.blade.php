@@ -29,7 +29,7 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="position:fixed; top:0; z-index:100;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -63,7 +63,7 @@
 
 	@yield('content')
 
-	<footer class="footer" style="background-color:#0b1b3d;">
+	<footer class="footer" style="background-color:#0b1b3d; position:fixed;">
 		<div class="container">
 			<p class="text-muted">©2014-2015 <a href="http://smu.edu/lyle" style="text-transform:uppercase">Southern Methodist University's Lyle School of Engineering</a></p>
 		</div>
