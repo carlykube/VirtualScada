@@ -13,12 +13,10 @@
 
         		@if (count($errors) > 0)
 					<div class="alert alert-danger">
-						<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
+						<strong>LOGIN ISSUES</strong><br/><br/>
 							@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
+								<p><small>{{ $error }}</small></p>
 							@endforeach
-							</ul>
 					</div>
 				@endif
 

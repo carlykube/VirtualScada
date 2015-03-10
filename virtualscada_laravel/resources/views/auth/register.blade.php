@@ -14,11 +14,9 @@
         		@if (count($errors) > 0)
 					<div class="alert alert-danger">
 						<strong>REGISTRATION ISSUES</strong><br/><br/>
-							<ul>
 							@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
+								<p><small>{{ $error }}</small></p>
 							@endforeach
-							</ul>
 					</div>
 				@endif
 
