@@ -27,6 +27,7 @@ Route::get('project/{id}', 'ProjectController@show');
 Route::post('project/add', 'ProjectController@add');
 Route::get('project/{id}/edit', 'ProjectController@edit');
 Route::patch('project/{id}', 'ProjectController@update');
+Route::get('project', 'ProjectController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

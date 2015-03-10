@@ -16,6 +16,13 @@ class ProjectController extends Controller {
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $projects = Project::get();
+
+        return view('project.index', compact('projects'));
+    }
+
     /**
      * Show the profile for the given user.
      *
@@ -30,7 +37,7 @@ class ProjectController extends Controller {
     public function show($id)
     {
         /* display one project */
-        if($id=="add") {
+        if($id == "add") {
             $blankPrj = new Project();
             return view('project.add', compact('blankPrj'));
         }
