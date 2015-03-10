@@ -22,6 +22,10 @@
 						</ul>
 					@endif
 				</div>
+
+				<div class="panel-footer">
+					<a href="{{ action('ProjectController@addProject') }}">Add A Project</a>
+				</div>
 			</div>
 		</div>
 	</div>

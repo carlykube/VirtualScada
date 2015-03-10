@@ -33,10 +33,10 @@ class ProjectController extends Controller {
     {
         /* display one project */
     }
-    
+
     public function addProject()
     {
-        return view('home');
+        return view('projects.add');
     }
 
 }

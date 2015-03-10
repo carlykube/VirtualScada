@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'ProjectController@getProjects');
-
 Route::get('home', 'ProjectController@getProjects');
 
 Route::controllers([
