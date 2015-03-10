@@ -13,7 +13,7 @@
 					@else
 						<ul>
 						@foreach ($projects as $prj)
-							<li><a href="/project/{{ $prj->id }}">{{ $prj->name }}</a>
+							<li><a href="/project/{{ $prj->id }}"> {{ $prj->name }} </a>
 							</li>
 						@endforeach
 						</ul>

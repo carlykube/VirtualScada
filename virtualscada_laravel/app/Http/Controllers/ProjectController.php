@@ -2,7 +2,6 @@
 
 use Auth;
 use App\Project;
-use DB;
 
 class ProjectController extends Controller {
 
@@ -11,8 +10,8 @@ class ProjectController extends Controller {
      * @return void
      */
     public function __construct(Project $projects)
-    
-        $this->projects = Project::where('owner_id', '=', Auth::id());
+    {
+        $this->projects = Project::where('owner_id', '=', Auth::id())->get();
         $this->middleware('auth');
         /* get id of one project */
 
@@ -26,7 +25,7 @@ class ProjectController extends Controller {
     public function getProjects()
     {
         /* Get all projects */
-        return view('home', compact($this->projects));
+        return view('home', ["projects"=>$this->projects]);
     }
 
     public function showProject($id)
