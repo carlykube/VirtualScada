@@ -1,18 +1,21 @@
 <?php namespace App\Http\Controllers;
 
-use DB;
 use Auth;
+use App\Project;
+use DB;
 
 class ProjectController extends Controller {
 
     /**
      * Create a new controller instance.
-     *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(Project $projects)
+    
+        $this->projects = Project::where('owner_id', '=', Auth::id());
         $this->middleware('auth');
+        /* get id of one project */
+
     }
 
     /**
@@ -23,24 +26,17 @@ class ProjectController extends Controller {
     public function getProjects()
     {
         /* Get all projects */
-        $projects = DB::table('projects')->where('owner_id', Auth::id())->get();
-        #dd($projects); die(var_dump($projects));
-
-        return view('home', compact('projects'));
+        return view('home', compact($this->projects));
     }
 
     public function showProject($id)
     {
         /* display one project */
-        // return $id;
+        if($id=="add") {
+            return view('project.add');
+        }
 
-        $project = DB::table('projects')->find($id);
+        $project = Project::find($id);
         return view('project.home', compact('project'));
     }
-
-    public function addProject()
-    {
-        return view('project.add');
-    }
-
 }

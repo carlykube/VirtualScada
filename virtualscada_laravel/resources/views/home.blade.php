@@ -8,15 +8,12 @@
 				<div class="panel-heading">Current Projects</div>
 
 				<div class="panel-body">
-					Click a project below to edit it.
-
 					@if (empty($projects))
 						<p>You do not have any projects.</p>
 					@else
 						<ul>
 						@foreach ($projects as $prj)
 							<li><a href="/project/{{ $prj->id }}">{{ $prj->name }}</a>
-								(ID = {{ $prj->id }} | Owner_ID = {{ $prj->owner_id }})
 							</li>
 						@endforeach
 						</ul>
@@ -25,6 +22,7 @@
 
 				<div class="panel-footer">
 					<a href="/project/add">Add A Project</a>
+					| Delete Project(s)</a>
 				</div>
 			</div>
 		</div>
