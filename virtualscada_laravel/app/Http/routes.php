@@ -15,6 +15,8 @@ Route::get('/', 'ProjectController@getProjects');
 
 Route::get('home', 'ProjectController@getProjects');
 
+Route::get('project/{id}', 'ProjectController@showProject');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

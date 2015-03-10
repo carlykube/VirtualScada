@@ -15,7 +15,7 @@
 					@else
 						<ul>
 						@foreach ($projects as $prj)
-							<li>{{ $prj->name }}
+							<li><a href="/project/{{ $prj->id }}">{{ $prj->name }}</a>
 								(ID = {{ $prj->id }} | Owner_ID = {{ $prj->owner_id }})
 							</li>
 						@endforeach
