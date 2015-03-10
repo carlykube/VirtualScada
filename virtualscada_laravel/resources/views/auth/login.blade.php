@@ -53,10 +53,6 @@
 	<p>DON'T HAVE AN ACCOUNT? <a href="{{ url('/auth/register') }}">SIGN UP</a></p>
 </div>
 
-	<footer class="footer" style="background-color:#0b1b3d;">
-		<div class="container">
-			<p class="text-muted">Place sticky footer content here.</p>
-		</div>
-	</footer>
+
 
 @endsection
