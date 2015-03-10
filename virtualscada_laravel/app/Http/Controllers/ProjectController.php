@@ -40,7 +40,7 @@ class ProjectController extends Controller {
 
     public function addProject()
     {
-        return view('projects.add');
+        return view('project.add');
     }
 
 }
