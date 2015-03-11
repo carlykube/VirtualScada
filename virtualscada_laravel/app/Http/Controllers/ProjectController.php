@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use Auth;
-use Illuminate\Http\Request;
 use App\Project;
+use App\Http\Requests\CreateProjectRequest;
 
 class ProjectController extends Controller {
 
@@ -12,54 +12,32 @@ class ProjectController extends Controller {
      */
     public function __construct(Project $projects)
     {
-        $this->projects = Project::where('owner_id', '=', Auth::id())->get();
-        $this->middleware('auth');
+        // $this->projects = Project::where('owner_id', '=', Auth::id())->get();
+        // $this->middleware('auth');
     }
 
     public function index()
     {
-        $projects = Project::get();
+        $projects = Project::ofUser(Auth::id())->get();
 
-        return view('project.index', compact('projects'));
+        return view('home', compact('projects'));
     }
 
-    /**
-     * Show the profile for the given user.
-     *
-     * @return Response
-     */
-    public function getProjects()
-    {
-        /* Get all projects */
-        return view('home', ["projects"=>$this->projects]);
-    }
-
+    // show project with id if the user owns that project
     public function show($id)
     {
-        /* display one project */
-        if($id == "add") {
-            $blankPrj = new Project();
-            return view('project.add', compact('blankPrj'));
-        }
+        $project = Project::ofUser(Auth::id())->findOrFail($id);
 
-        $project = Project::find($id);
-        return view('project.home', compact('project'));
+        return view('project.show', compact('project'));
     }
 
-    public function add(Request $request)
+    public function create()
     {
-        $newName = $request->get('name');
-        Project::create(array(
-            'name' => $request->get('name'),
-            'owner_id' => Auth::id()
-        ));
-
-        return redirect('/home');
+        return view('project.create');
     }
 
-    public function edit(Project $project, $id)
+    public function edit(Project $project)
     {
-        $project = Project::find($id);
         return view('project.edit', compact('project'));
     }
 
@@ -70,5 +48,15 @@ class ProjectController extends Controller {
             'name' => $request->get('name')])->save();
         
         return redirect('/home');
+    }
+
+    public function store(CreateProjectRequest $request)
+    {
+        $input = $request->all();
+        $input['owner_id'] = Auth::id();
+
+        Project::create($input);
+
+        return redirect('project');
     }
 }

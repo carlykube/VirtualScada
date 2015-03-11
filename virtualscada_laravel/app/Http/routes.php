@@ -13,21 +13,20 @@
 
 Route::bind('project', function($id)
 {
-	var_dump($id);
 	return \App\Project::whereId($id)->first();
-
 });
 
-Route::get('/', 'ProjectController@getProjects');
-Route::get('home', 'ProjectController@getProjects');
+Route::get('/', 'ProjectController@index');
+Route::get('home', 'ProjectController@index');
 
 # project functions
-
-Route::get('project/{id}', 'ProjectController@show');
-Route::post('project/add', 'ProjectController@add');
-Route::get('project/{id}/edit', 'ProjectController@edit');
-Route::patch('project/{id}', 'ProjectController@update');
 Route::get('project', 'ProjectController@index');
+Route::get('project/create', 'ProjectController@create');
+Route::get('project/{id}', 'ProjectController@show');
+Route::post('project', 'ProjectController@store');
+
+Route::get('project/{project}/edit', 'ProjectController@edit');
+Route::patch('project/{id}', 'ProjectController@update');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -1,10 +1,11 @@
 @extends('app')
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
+
+<div id="login-container" class="container" style="margin-top:10%">
+	<div>
+    	<div class="panel panel-d">
+      		<div class="panel-body">
 				<div class="panel-heading">Current Projects</div>
 
 				<div class="panel-body">
@@ -21,9 +22,9 @@
 				</div>
 
 				<div class="panel-footer">
-					<a href="/project/add">Add A Project</a>
+					<a href="/project/create">Add A Project</a>
 					| Delete Project(s)</a>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</div>

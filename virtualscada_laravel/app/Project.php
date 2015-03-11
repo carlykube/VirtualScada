@@ -18,4 +18,9 @@ class Project extends Model {
 	 * @var array
 	 */
 	protected $fillable = ['name', 'owner_id'];
+
+	public function scopeOfUser($query, $user_id) 
+	{
+		return $query->whereOwnerId($user_id);
+	}
 }

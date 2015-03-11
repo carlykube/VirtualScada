@@ -9,11 +9,11 @@
         		{!! Form::model($project, ['url'=>'/project/' . $project->id, 'method'=>'PATCH']) !!}
 
         		<div class="form-group">
-					{!! Form::text('name', null, ['class'=>'input-group']) !!}
+					Name: {!! Form::text('name', null, ['class'=>'input-group']) !!}
 				</div>
 
 				<div class="form-group">
-					{!! Form::text('owner_id', null, ['class'=>'input-group']) !!}
+					Owner: {!! Form::text('owner_id', null, ['class'=>'input-group']) !!}
 				</div>
 
 				<div class="form-group">
