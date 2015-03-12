@@ -11,17 +11,22 @@ class ProjectTableSeeder extends Seeder {
         $user_ids = DB::table('users')->lists('id');
 
         App\Project::create(array(
-            'owner_id' => $user_ids[0],
+            'user_id' => $user_ids[0],
             'name'    => 'Monayyyy-Money',
          ));
 
         App\Project::create(array(
-            'owner_id' => $user_ids[2],
-            'name'    => 'Nu-New',
+            'user_id' => $user_ids[1],
+            'name'    => 'Proyecto Uno',
          ));
 
         App\Project::create(array(
-            'owner_id' => $user_ids[3],
+            'user_id' => $user_ids[2],
+            'name'    => 'Nu-New',
+        ));
+
+        App\Project::create(array(
+            'user_id' => $user_ids[3],
             'name'    => 'Boom-Bam',
          )); 
     }
