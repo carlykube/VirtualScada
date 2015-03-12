@@ -3,8 +3,7 @@
 @section('content')
 
 <div id="container-fluid" class="container" style="margin-top:10%">
-	<div class="panel panel-d">
-  		<div class="panel-body">
+	<div class="panel">
 			<div class="panel-heading">Current Projects</div>
 
 			<div class="panel-body">
@@ -13,7 +12,7 @@
 				@else
 					<ul>
 					@foreach ( $projects as $prj )
-						<li><a href="/project/{{ $prj->id }}"> {{ $prj->name }} </a>
+						<li><a href="/projects/{{ $prj->id }}"> {{ $prj->name }} </a>
 						</li>
 					@endforeach
 					</ul>
@@ -21,7 +20,7 @@
 			</div>
 
 			<div class="panel-footer">
-				<a href="/project/create">Add A Project</a>
+				<a href="/projects/create">Add A Project</a>
 				| Delete Project(s)</a>
 			</div>				
 		</div>
