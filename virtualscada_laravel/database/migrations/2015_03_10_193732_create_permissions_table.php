@@ -12,13 +12,16 @@ class CreatePermissionsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('virtual_machines', function(Blueprint $table)
+        Schema::create('permissions', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('project_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('permissions', 32);
 
+            // foreign keys
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 	}
 
@@ -29,7 +32,7 @@ class CreatePermissionsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('permissions');
 	}
 
 }

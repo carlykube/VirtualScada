@@ -15,13 +15,14 @@ class CreateVirtualMachinesTable extends Migration {
         Schema::create('virtual_machines', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->integer('project_id')->unsigned();
             $table->string('name', 32);
             $table->string('file_loc', 320);
             $table->string('screen_loc', 32);
-
-            // required for Laravel 4.1.6
             $table->timestamps();
+
+            // foreign keys
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
 	}
 
