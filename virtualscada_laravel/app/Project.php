@@ -23,4 +23,8 @@ class Project extends Model {
 	{
 		return $query->whereOwnerId($user_id);
 	}
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

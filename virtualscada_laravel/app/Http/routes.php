@@ -16,7 +16,9 @@ Route::bind('project', function($id)
 	return \App\Project::whereId($id)->first();
 });
 
-Route::get('/', 'ProjectController@index');
+Route::get('/', function(){
+	return view('auth/login');
+});
 Route::get('home', 'ProjectController@index');
 
 # project functions
