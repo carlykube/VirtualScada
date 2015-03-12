@@ -14,7 +14,8 @@
 			</div>
 
 			<div class="panel-footer">
-				<a href="/projects/{{ $project->id }}/edit">Edit</a> | <a href="/home">Back</a>
+				<a href="/projects/{{ $project->id }}/edit">Edit</a> | 
+				Delete | <a href="/home">Back</a>
 			</div>
 		</div>
 	</div>

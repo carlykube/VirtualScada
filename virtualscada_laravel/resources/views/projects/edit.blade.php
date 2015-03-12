@@ -8,26 +8,10 @@
       		<div class="panel-body">
         		{!! Form::model($project, ['action'=>['ProjectController@update', $project->id], 
         						'method'=>'PATCH']) !!}
-
-        		<div class="form-group">
-        			{!! Form::label('name', 'Project Name:') !!}
-					{!! Form::text('name', null, ['class'=>'input-group']) !!}
-        			
-				</div>
-
-				<div class="form-group">
-					{!! Form::submit('Update Project', ['class'=>'btn btn-primary btn-md']) !!}
-				</div>        		
-
+  					@include ('projects.form', ['submitButtonText' => 'Update Project']) 			
         		{!! Form::close() !!}
 
-        		@if($errors->any())
-        			<ul class="alert alert-danger">
-        			@foreach($errors->all() as $error)
-        				<li>{{ $error }}</li>
-    				@endforeach	
-        			</ul>
-        		@endif
+        		@include ('errors.list')
 			</div>
 		</div>
 	</div>

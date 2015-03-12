@@ -8,26 +8,10 @@
     		<div class="panel-heading">Add a Project</div>
       		<div class="panel-body">
         		{!! Form::open(['url'=>'/projects', 'method'=>'POST']) !!}
-
-        		<div class="form-group">
-        			{!! Form::label('name', 'Name:') !!}
-					{!! Form::text('name', '', ['class'=>'input-group']) !!}
-        			
-				</div>
-
-				<div class="form-group">
-					{!! Form::submit('Add Project', ['class'=>'btn btn-primary btn-md']) !!}
-				</div>        		
-
+                    @include ('projects.form', ['submitButtonText' => 'Add Project'])      		
         		{!! Form::close() !!}
-
-        		@if($errors->any())
-        			<ul class="alert alert-danger">
-        			@foreach($errors->all() as $error)
-        				<li>{{ $error }}</li>
-    				@endforeach	
-        			</ul>
-        		@endif
+        		
+                @include ('errors.list')
 			</div>
 		</div>
 	</div>
