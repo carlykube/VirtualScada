@@ -12,7 +12,7 @@ class ProjectController extends Controller {
      */
     public function __construct(Project $projects)
     {
-        // $this->projects = Project::where('owner_id', '=', Auth::id())->get();
+        // $this->projects = Project::where('user_id', '=', Auth::id())->get();
         $this->middleware('auth');
     }
 
@@ -44,7 +44,7 @@ class ProjectController extends Controller {
     public function update(Project $project, Request $request)
     {
         $project->fill(['id' => $request->get('id'), 
-            'owner_id' => $srequest->get('owner_id'), 
+            'user_id' => $srequest->get('user_id'),
             'name' => $request->get('name')])->save();
         
         return redirect('/home');
@@ -53,7 +53,7 @@ class ProjectController extends Controller {
     public function store(CreateProjectRequest $request)
     {
         $input = $request->all();
-        $input['owner_id'] = Auth::id();
+        $input['user_id'] = Auth::id();
 
         Project::create($input);
 

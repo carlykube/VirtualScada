@@ -13,7 +13,7 @@
 				</div>
 
 				<div class="form-group">
-					Owner: {!! Form::text('owner_id', null, ['class'=>'input-group']) !!}
+					Owner: {!! Form::text('user_id', null, ['class'=>'input-group']) !!}
 				</div>
 
 				<div class="form-group">
