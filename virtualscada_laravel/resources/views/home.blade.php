@@ -3,8 +3,7 @@
 @section('content')
 
 <div id="container-fluid" class="container" style="margin-top:10%">
-	<div class="panel panel-d">
-  		<div class="panel-body">
+	<div class="panel">
 			<div class="panel-heading">Current Projects</div>
 
 			<div class="panel-body">
