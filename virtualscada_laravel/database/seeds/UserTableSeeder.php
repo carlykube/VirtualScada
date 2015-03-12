@@ -9,32 +9,34 @@ public function run()
 {
     DB::table('users')->delete();
     App\User::create(array(
-        'name'     => 'Chris Sevilleja',
-        'username' => 'sevilayha',
-        'email'    => 'chris@scotch.io',
+        'name'     => 'Patrick Brannen',
+        'email'    => 'patrick@smu.edu',
         'password' => Hash::make('awesome'),
     ));
 
     App\User::create(array(
-        'name'     => 'George Clinton',
-        'username' => 'george',
-        'email'    => 'george@smu.edu',
+        'name'     => 'Lauren McManamon',
+        'email'    => 'lauren@smu.edu',
         'password' => Hash::make('awesome'),
     ));
 
     App\User::create(array(
-            'name'     => 'Bill Nooner',
-            'username' => 'bill',
-            'email'    => 'bill@scotch.io',
-            'password' => Hash::make('awesome'),
+        'name'     => 'Ketetha Olengue',
+        'email'    => 'ketetha@smu.edu',
+        'password' => Hash::make('awesome'),
         ));
 
     App\User::create(array(
-            'name'     => 'Ambers Selleja',
-            'username' => 'amber',
-            'email'    => 'amber@scotch.io',
-            'password' => Hash::make('awesome'),
+        'name'     => 'Carly Kubacak',
+        'email'    => 'carly@smu.edu',
+        'password' => Hash::make('awesome'),
         ));
+
+    App\User::create(array(
+        'name'     => 'Austin Heerwagen',
+        'email'    => 'austin@smu.edu',
+        'password' => Hash::make('awesome'),
+    ));
 }
 
 }
