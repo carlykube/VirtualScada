@@ -17,11 +17,11 @@ class Project extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'owner_id'];
+	protected $fillable = ['name', 'user_id'];
 
 	public function scopeOfUser($query, $user_id) 
 	{
-		return $query->whereOwnerId($user_id);
+		return $query->whereUserId($user_id);
 	}
 
     public function user(){

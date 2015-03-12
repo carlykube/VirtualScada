@@ -7,7 +7,7 @@
     		<div class="panel-heading">{{ $project->name }}</div>
       		<div class="panel-body">
 				<ul>
-					<li>Owned by: {{ $project->owner_id }}</li>
+					<li>Owned by: {{ $project->user_id }}</li>
 					<li>Created at: {{ $project->created_at }}</li>
 					<li>Updated at: {{ $project->updated_at }}</li>
 				</ul>

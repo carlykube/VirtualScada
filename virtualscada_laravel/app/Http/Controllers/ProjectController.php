@@ -13,7 +13,7 @@ class ProjectController extends Controller {
      */
     public function __construct(Project $projects)
     {
-        // $this->projects = Project::where('owner_id', '=', Auth::id())->get();
+        // $this->projects = Project::where('user_id', '=', Auth::id())->get();
         $this->middleware('auth');
     }
 
@@ -41,6 +41,7 @@ class ProjectController extends Controller {
 
     public function update(Project $project, Request $request)
     {
+
         $project->update($request->all());
         return redirect('/home');
     }
@@ -48,7 +49,8 @@ class ProjectController extends Controller {
     public function store(CreateProjectRequest $request)
     {
         $input = $request->all();
-        $input['owner_id'] = Auth::id();
+        $input['user_id'] = Auth::id();
+
         Project::create($input);
         return redirect('projects');
     }
