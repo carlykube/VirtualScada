@@ -13,7 +13,7 @@ class ProjectController extends Controller {
     public function __construct(Project $projects)
     {
         // $this->projects = Project::where('owner_id', '=', Auth::id())->get();
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
