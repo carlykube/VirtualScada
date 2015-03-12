@@ -6,18 +6,14 @@
 	<div>
     	<div class="panel">
       		<div class="panel-body">
-        		{!! Form::model($project, ['url'=>'/project/' . $project->id, 'method'=>'PATCH']) !!}
+        		{!! Form::open(['url'=>'/projects/add', 'method'=>'POST']) !!}
 
         		<div class="form-group">
-					Name: {!! Form::text('name', null, ['class'=>'input-group']) !!}
+					{!! Form::text('name', '', ['class'=>'input-group']) !!}
 				</div>
 
 				<div class="form-group">
-					Owner: {!! Form::text('owner_id', null, ['class'=>'input-group']) !!}
-				</div>
-
-				<div class="form-group">
-						{!! Form::submit('Update Project', ['class'=>'btn btn-primary btn-md']) !!}
+						{!! Form::submit('Add Project', ['class'=>'btn btn-primary btn-md']) !!}
 				</div>        		
 
         		{!! Form::close() !!}

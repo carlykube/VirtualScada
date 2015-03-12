@@ -7,7 +7,7 @@
     	<div class="panel">
     		<div class="panel-heading">Add a Project</div>
       		<div class="panel-body">
-        		{!! Form::open(['url'=>'/project', 'method'=>'POST']) !!}
+        		{!! Form::open(['url'=>'/projects', 'method'=>'POST']) !!}
 
         		<div class="form-group">
         			{!! Form::label('name', 'Name:') !!}

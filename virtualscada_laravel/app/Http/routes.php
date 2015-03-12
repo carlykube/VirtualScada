@@ -11,24 +11,18 @@
 |
 */
 
-Route::bind('project', function($id)
+Route::bind('projects', function($id)
 {
 	return \App\Project::whereId($id)->first();
 });
 
-Route::get('/', function(){
-	return view('auth/login');
-});
+Route::get('/', function(){ 
+	// msut put if statement because might already be logged in
+	return view('auth/login'); });
 Route::get('home', 'ProjectController@index');
 
-# project functions
-Route::get('project', 'ProjectController@index');
-Route::get('project/create', 'ProjectController@create');
-Route::get('project/{id}', 'ProjectController@show');
-Route::post('project', 'ProjectController@store');
-
-Route::get('project/{project}/edit', 'ProjectController@edit');
-Route::patch('project/{id}', 'ProjectController@update');
+// type php artisan route:list to see lsit of automated list of routes
+Route::resource('projects', 'ProjectController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

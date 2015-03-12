@@ -12,7 +12,7 @@
 				@else
 					<ul>
 					@foreach ( $projects as $prj )
-						<li><a href="/project/{{ $prj->id }}"> {{ $prj->name }} </a>
+						<li><a href="/projects/{{ $prj->id }}"> {{ $prj->name }} </a>
 						</li>
 					@endforeach
 					</ul>
@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="panel-footer">
-				<a href="/project/create">Add A Project</a>
+				<a href="/projects/create">Add A Project</a>
 				| Delete Project(s)</a>
 			</div>				
 		</div>

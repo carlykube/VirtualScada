@@ -2,6 +2,7 @@
 
 use Auth;
 use App\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateProjectRequest;
 
 class ProjectController extends Controller {
@@ -19,34 +20,28 @@ class ProjectController extends Controller {
     public function index()
     {
         $projects = Project::ofUser(Auth::id())->get();
-
         return view('home', compact('projects'));
     }
 
     // show project with id if the user owns that project
-    public function show($id)
+    public function show(Project $project)
     {
-        $project = Project::ofUser(Auth::id())->findOrFail($id);
-
-        return view('project.show', compact('project'));
+        return view('projects.show', compact('project'));
     }
 
     public function create()
     {
-        return view('project.create');
+        return view('projects.create');
     }
 
     public function edit(Project $project)
     {
-        return view('project.edit', compact('project'));
+        return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project, Request $request)
     {
-        $project->fill(['id' => $request->get('id'), 
-            'owner_id' => $srequest->get('owner_id'), 
-            'name' => $request->get('name')])->save();
-        
+        $project->update($request->all());
         return redirect('/home');
     }
 
@@ -54,9 +49,7 @@ class ProjectController extends Controller {
     {
         $input = $request->all();
         $input['owner_id'] = Auth::id();
-
         Project::create($input);
-
-        return redirect('project');
+        return redirect('projects');
     }
 }
