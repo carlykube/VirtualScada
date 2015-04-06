@@ -19,12 +19,16 @@ class Project extends Model {
 	 */
 	protected $fillable = ['name', 'user_id'];
 
-	public function scopeOfUser($query, $user_id) 
+	public function scopeOfUser($query, $user_id)
 	{
 		return $query->whereUserId($user_id);
 	}
 
     public function user(){
         return $this->belongsTo('App\User');
+    }
+
+    public function modules(){
+        return $this->hasMany('App\Module');
     }
 }

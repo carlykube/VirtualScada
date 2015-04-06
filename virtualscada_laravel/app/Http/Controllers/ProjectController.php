@@ -25,6 +25,12 @@ class ProjectController extends Controller {
     // show project with id if the user owns that project
     public function show(Project $project)
     {
+        // check that user is allowed to view project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+
         return view('projects.show', compact('project'));
     }
 
@@ -35,11 +41,23 @@ class ProjectController extends Controller {
 
     public function edit(Project $project)
     {
+        // check that user is allowed to edit project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project, Request $request)
     {
+        // check that user is allowed to edit project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+
         $project->update($request->all());
         return redirect('/home');
     }
@@ -55,6 +73,12 @@ class ProjectController extends Controller {
 
     public function open(Project $project)
     {
+        // check that user is allowed to view project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+
         // python commands for windows
         // executes relative to virtualscada_laravel/public
         $pyscript = '..\\moduleScripts\\helloworld.py';
@@ -75,14 +99,24 @@ class ProjectController extends Controller {
         $input = Request::all();
         $type = $input['module'];
 
+        $moduleData = ['file_loc' => 'path\to\python\script',
+                       'screen_loc' => 'position1'];
+
         if ($type == 'rtu')
         {
-            //add rtu to project
-            return "ADD RTU (not working yet...)";
+            $moduleData['name'] = 'RTU_name';
         }
         else if ($type == 'hmi')
         {
-            return "ADD HMI (not working yet...)";
+            $moduleData['name'] = 'HMI_name';
         }
+
+        // add project to logged-in user's projects
+        $project = Project::find($input['projectId']);
+        $newModule = $project->modules()->create($moduleData);
+
+        flash()->success('Your module has been added');
+
+        return redirect('/projects/open/' . $project->id);
     }
 }
