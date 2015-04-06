@@ -30,6 +30,18 @@
                 <p> Output from script: {{ $output }} </p>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Current Modules</div>
+                <div class="panel-body">
+                    @foreach($modules as $module)
+                        <span class="module">
+                            <h4>{{ $module->name }}</h4>
+                            <p>{{ $module->file_loc }}</p>
+                        </span>
+                    @endforeach
+                </div>
+        </div>
 	</div>
 </div>
 

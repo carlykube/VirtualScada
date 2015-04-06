@@ -91,7 +91,9 @@ class ProjectController extends Controller {
 
         $output = count($output) > 0 ? $output[0] : "";
 
-        return view('projects.open', ['project' => $project, 'output' => $output]);
+        $modules = $project->modules;
+
+        return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
 
     public function addModule()
