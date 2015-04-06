@@ -19,9 +19,7 @@ Route::bind('projects', function($id)
 
 });
 
-Route::get('/', function(){ 
-	// must put if statement because might already be logged in
-	return view('auth/login'); });
+route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'ProjectController@index');
 
