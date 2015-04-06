@@ -1,9 +1,14 @@
 <?php namespace App\Http\Controllers;
 
+
+require_once __DIR__.'/../../../vendor/autoload.php';
+
 use Auth;
 use App\Project;
 use Request;
 use App\Http\Requests\CreateProjectRequest;
+use Symfony\Component\Process\Process;
+
 
 class ProjectController extends Controller {
 
@@ -79,17 +84,37 @@ class ProjectController extends Controller {
             return redirect('/');
         }
 
-        // python commands for windows
         // executes relative to virtualscada_laravel/public
-        $pyscript = '..\\moduleScripts\\helloworld.py';
-        $cmd = "python $pyscript";
-        exec("$cmd", $output);
+        $pyscript = '../moduleScripts/helloworld.py';
+
+        // creates new process and gets output
+        $process = new Process('python ../moduleScripts/helloworld.py');
+        /*$process->run();
+
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new \RuntimeException($process->getErrorOutput());
+        }
+*/
+        $process->run(function ($type, $buffer) {
+        if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        });
+
+        $output = $process->getOutput();
+        //$cmd = "python $pyscript";
+
+        // executing for Windows Machine
+        //exec("$cmd", $output);
 
         // these commands *should* work to run the script on a linux machine
-        //  $command = escapeshellcmd($cmd);
-        //  $output = shell_exec($command);
+        //$command = escapeshellcmd($cmd);
+        //$output = shell_exec($command);
 
-        $output = count($output) > 0 ? $output[0] : "";
+        //$output = count($output) > 0 ? $output[0] : "";
 
         $modules = $project->modules;
 
