@@ -14,10 +14,14 @@
 			</div>
 
 			<div class="panel-footer">
-				<a href="/projects/{{ $project->id }}/edit">Edit</a> | 
-				Delete |
+				<a href="/projects/{{ $project->id }}/edit">Edit</a> |
                 <a href="/home">Back</a> |
                 <a href="open/{{ $project->id }}">Open</a>
+                {!! Form::open(['method'=>'DELETE']) !!}
+                <div class="form-group">
+                    {!! Form::submit('DELETE', ['class'=>'btn btn-primary btn-md']) !!}
+                </div>
+                {!! Form::close() !!}
 			</div>
 
 		</div>

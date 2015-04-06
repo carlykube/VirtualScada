@@ -76,6 +76,13 @@ class ProjectController extends Controller {
         return redirect('projects');
     }
 
+    public function destroy(Project $project)
+    {
+        flash()->success('Project ' . $project->name . ' has been deleted');
+        $project->delete();
+        return redirect('/home');
+    }
+
     public function open(Project $project)
     {
         // check that user is allowed to view project
