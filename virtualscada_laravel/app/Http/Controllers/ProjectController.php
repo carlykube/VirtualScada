@@ -55,7 +55,7 @@ class ProjectController extends Controller {
         return view('projects.edit', compact('project'));
     }
 
-    public function update(Project $project, Request $request)
+    public function update(Project $project)
     {
         // check that user is allowed to edit project
         if(!Auth::user()->projects->contains($project))
@@ -63,7 +63,7 @@ class ProjectController extends Controller {
             return redirect('/');
         }
 
-        $project->update($request->all());
+        $project->update(Request::all());
         return redirect('/home');
     }
 
