@@ -11,18 +11,25 @@
 |
 */
 
+use App\Project;
+
 Route::bind('projects', function($id)
 {
-	return \App\Project::whereId($id)->first();
+	return Project::whereId($id)->first();
+
 });
 
 Route::get('/', function(){ 
-	// msut put if statement because might already be logged in
+	// must put if statement because might already be logged in
 	return view('auth/login'); });
+
 Route::get('home', 'ProjectController@index');
 
-// type php artisan route:list to see lsit of automated list of routes
+// type php artisan route:list to see list of automated list of routes
 Route::resource('projects', 'ProjectController');
+
+Route::get('projects/open/{projects}', 'ProjectController@open');
+Route::post('projects/addModule', 'ProjectController@addModule');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

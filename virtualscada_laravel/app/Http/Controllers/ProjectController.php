@@ -2,7 +2,7 @@
 
 use Auth;
 use App\Project;
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests\CreateProjectRequest;
 
 class ProjectController extends Controller {
@@ -41,7 +41,6 @@ class ProjectController extends Controller {
 
     public function update(Project $project, Request $request)
     {
-
         $project->update($request->all());
         return redirect('/home');
     }
@@ -53,5 +52,38 @@ class ProjectController extends Controller {
 
         Project::create($input);
         return redirect('projects');
+    }
+
+    public function open(Project $project)
+    {
+        // python commands for windows
+        // executes relative to virtualscada_laravel/public
+        $pyscript = '..\\moduleScripts\\helloworld.py';
+        $cmd = "python $pyscript";
+        exec("$cmd", $output);
+
+        // these commands *should* work to run the script on a linux machine
+        //  $command = escapeshellcmd($cmd);
+        //  $output = shell_exec($command);
+
+        $output = count($output) > 0 ? $output[0] : "";
+
+        return view('projects.open', ['project' => $project, 'output' => $output]);
+    }
+
+    public function addModule()
+    {
+        $input = Request::all();
+        $type = $input['module'];
+
+        if ($type == 'rtu')
+        {
+            //add rtu to project
+            return "ADD RTU (not working yet...)";
+        }
+        else if ($type == 'hmi')
+        {
+            return "ADD HMI (not working yet...)";
+        }
     }
 }
