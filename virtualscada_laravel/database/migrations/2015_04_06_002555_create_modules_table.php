@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVirtualMachinesTable extends Migration {
+class CreateModulesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,8 @@ class CreateVirtualMachinesTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('virtual_machines', function(Blueprint $table)
-        {
+		Schema::create('modules', function(Blueprint $table)
+		{
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->string('name', 32);
@@ -23,7 +23,7 @@ class CreateVirtualMachinesTable extends Migration {
 
             // foreign keys
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-        });
+		});
 	}
 
 	/**
@@ -33,7 +33,7 @@ class CreateVirtualMachinesTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('virtual_machines');
+		Schema::drop('modules');
 	}
 
 }

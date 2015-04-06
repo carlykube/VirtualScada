@@ -8,11 +8,11 @@
 
 use Illuminate\Database\Seeder;
 
-class VirtualMachineSeeder extends Seeder {
+class ModuleSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('virtual_machines')->delete();
+        DB::table('modules')->delete();
 
         $project_ids = DB::table('projects')->lists('id');
 
