@@ -11,7 +11,7 @@
             {{-- can the buttons be side-by-side? --}}
             <div class="panel-body">
                 {{-- Add RTU --}}
-                {!! Form::open(['url'=>'/projects/addModule', 'method'=>'POST']) !!}
+                {!! Form::open(['url'=>'/modules', 'method'=>'POST']) !!}
                 {!! Form::input('hidden', 'module', 'rtu') !!}
                 {!! Form::input('hidden', 'projectId', $project->id) !!}
                 <div class="form-group">
@@ -20,7 +20,7 @@
                 {!! Form::close() !!}
 
                 {{-- Add HMI --}}
-                {!! Form::open(['url'=>'/projects/addModule', 'method'=>'POST']) !!}
+                {!! Form::open(['url'=>'/modules', 'method'=>'POST']) !!}
                 {!! Form::input('hidden', 'module', 'hmi') !!}
                 {!! Form::input('hidden', 'projectId', $project->id) !!}
                 <div class="form-group">

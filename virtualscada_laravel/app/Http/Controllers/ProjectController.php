@@ -173,35 +173,4 @@ class ProjectController extends Controller {
 
         return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
-
-    /**
-     * Adds a module to a project
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function addModule()
-    {
-        $input = Request::all();
-        $type = $input['module'];
-
-        $moduleData = ['file_loc' => 'path\to\python\script',
-                       'screen_loc' => 'position1'];
-
-        if ($type == 'rtu')
-        {
-            $moduleData['name'] = 'RTU_name';
-        }
-        else if ($type == 'hmi')
-        {
-            $moduleData['name'] = 'HMI_name';
-        }
-
-        // add project to logged-in user's projects
-        $project = Project::find($input['projectId']);
-        $newModule = $project->modules()->create($moduleData);
-
-        flash()->success('Your module has been added');
-
-        return redirect('/projects/open/' . $project->id);
-    }
 }
