@@ -40,24 +40,8 @@
 				</button>
 				<a class="navbar-brand" href="/">VIRTUAL SCADA</a>
 			</div>
+
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-				<ul class="nav navbar-nav">
-
-					@if (Auth::guest())
-					@else
-
-					<li>
-						<a href="{{ url('/home') }}">DASHBOARD</a>
-					</li>
-					<li>
-						<a href="#">DOCUMENTATION</a>
-					</li>
-			
-					@endif
-
-				</ul>
-
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 					<!--

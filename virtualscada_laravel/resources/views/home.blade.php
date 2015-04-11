@@ -2,8 +2,6 @@
 
 @section('content')
 
-<!--
-
 <div id="container-fluid" class="container" style="margin-top:10%">
     @include('flash::message')
 
@@ -29,11 +27,4 @@
 		</div>
 	</div>
 </div>
-
--->
-
-<div id="project-container" class="container" style="margin-top:10%; color:white; border-color:red; border-width: 3px; border-style: solid;">
-	BLAHHH
-</div>
-
 @endsection
