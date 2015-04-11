@@ -21,13 +21,22 @@ class ProjectController extends Controller {
         $this->middleware('auth');
     }
 
+    /**
+     * Return all of the logged in user's projects
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $projects = Project::ofUser(Auth::id())->get();
         return view('home', compact('projects'));
     }
 
-    // show project with id if the user owns that project
+    /**
+     * Show some details about the project
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function show(Project $project)
     {
         // check that user is allowed to view project
@@ -39,11 +48,22 @@ class ProjectController extends Controller {
         return view('projects.show', compact('project'));
     }
 
+    /**
+     * Show form to create new project
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         return view('projects.create');
     }
 
+    /**
+     * Allow the user to edit high-level properties of project
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function edit(Project $project)
     {
         // check that user is allowed to edit project
@@ -55,6 +75,12 @@ class ProjectController extends Controller {
         return view('projects.edit', compact('project'));
     }
 
+    /**
+     * Update project in the database
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Project $project)
     {
         // check that user is allowed to edit project
@@ -67,6 +93,12 @@ class ProjectController extends Controller {
         return redirect('/home');
     }
 
+    /**
+     * Store new project in the database
+     *
+     * @param CreateProjectRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(CreateProjectRequest $request)
     {
         $input = $request->all();
@@ -76,6 +108,13 @@ class ProjectController extends Controller {
         return redirect('projects');
     }
 
+    /**
+     * Delete the selected project from database
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
+     */
     public function destroy(Project $project)
     {
         flash()->success('Project ' . $project->name . ' has been deleted');
@@ -83,6 +122,13 @@ class ProjectController extends Controller {
         return redirect('/home');
     }
 
+    /**
+     * Show details of the project
+     * THIS IS WHERE WE WILL RUN SIMULATIONS AND ADD MODULES
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function open(Project $project)
     {
         // check that user is allowed to view project
@@ -128,6 +174,11 @@ class ProjectController extends Controller {
         return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
 
+    /**
+     * Adds a module to a project
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function addModule()
     {
         $input = Request::all();
