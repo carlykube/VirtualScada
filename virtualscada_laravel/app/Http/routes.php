@@ -11,11 +11,18 @@
 |
 */
 
+use App\Module;
 use App\Project;
 
 Route::bind('projects', function($id)
 {
 	return Project::whereId($id)->first();
+
+});
+
+Route::bind('modules', function($id)
+{
+    return Module::find($id);
 
 });
 
@@ -25,6 +32,7 @@ Route::get('home', 'ProjectController@index');
 
 // type php artisan route:list to see list of automated list of routes
 Route::resource('projects', 'ProjectController');
+Route::resource('modules', 'ModuleController');
 
 Route::get('projects/open/{projects}', 'ProjectController@open');
 Route::post('projects/addModule', 'ProjectController@addModule');
