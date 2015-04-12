@@ -120,7 +120,7 @@
             keepAliveURL: 'keepalive.php',
             serverResponseEquals: 'OK',
             onTimeout: function(){
-                window.location = "timeout.htm";
+                window.location = "timeout.htm"
             },
             onIdle: function(){
                 $(this).dialog("open");
