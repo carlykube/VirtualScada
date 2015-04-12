@@ -26,9 +26,21 @@
 
 	<![endif]-->
 
+    <!-- we want to force people to click a button, so hide the close link in the toolbar -->
+    <style type="text/css">a.ui-dialog-titlebar-close { display:none }</style>
 
 </head>
 <body>
+    <!-- dialog window markup -->
+    <div id="dialog" title="Your session is about to expire!">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
+            You will be logged off in <span id="dialog-countdown" style="font-weight:bold"></span> seconds.
+        </p>
+
+        <p>Do you want to continue your session?</p>
+    </div>
+
 	<nav class="navbar navbar-default" style="position:fixed; top:0; z-index:100;">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -72,5 +84,51 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="../js/jquery.idletimer.js" type="text/javascript"></script>
+    <script src="../js/jquery.idletimeout.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // setup the dialog
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 400,
+            height: 200,
+            closeOnEscape: false,
+            draggable: false,
+            resizable: false,
+            buttons: {
+                'Yes, Keep Working': function(){
+                    $(this).dialog('close');
+                },
+                'No, Logoff': function(){
+                    // fire whatever the configured onTimeout callback is.
+                    // using .call(this) keeps the default behavior of "this" being the warning
+                    // element (the dialog in this case) inside the callback.
+                    $.idleTimeout.options.onTimeout.call(this);
+                }
+            }
+        });
+        // cache a reference to the countdown element so we don't have to query the DOM for it on each ping.
+        var $countdown = $("#dialog-countdown");
+        // start the idle timer plugin
+        $.idleTimeout('#dialog', 'div.ui-dialog-buttonpane button:first', {
+            idleAfter: 120,
+            pollingInterval: 2,
+            keepAliveURL: 'keepalive.php',
+            serverResponseEquals: 'OK',
+            onTimeout: function(){
+                window.location = "timeout.htm";
+            },
+            onIdle: function(){
+                $(this).dialog("open");
+            },
+            onCountdown: function(counter){
+                $countdown.html(counter); // update the counter
+            }
+        });
+    </script>
 </body>
 </html>
