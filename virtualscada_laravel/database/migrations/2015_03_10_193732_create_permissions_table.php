@@ -20,6 +20,8 @@ class CreatePermissionsTable extends Migration {
             $table->boolean('open')->default(true);
             $table->boolean('edit')->default(false);
             $table->boolean('share')->default(false);
+            $table->timestamps();
+
 
             // foreign keys
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');

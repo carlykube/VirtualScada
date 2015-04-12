@@ -26,16 +26,18 @@ Route::bind('modules', function($id)
 
 });
 
+// type php artisan route:list to see list of automated list of routes
 route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'ProjectController@index');
 
-// type php artisan route:list to see list of automated list of routes
+Route::get('projects/open/{projects}', 'ProjectController@open');
+
 Route::resource('projects', 'ProjectController');
+
 Route::resource('modules', 'ModuleController');
 
-Route::get('projects/open/{projects}', 'ProjectController@open');
-Route::get('projects/{projects}/editPermissions', 'ProjectController@editPermissions');
+Route::resource('projects.permissions', 'ProjectPermissionController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

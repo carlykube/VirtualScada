@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Module extends Model {
+class Permission extends Model {
 
     /**
      * The database table used by the model.
