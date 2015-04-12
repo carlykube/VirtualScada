@@ -33,6 +33,12 @@ public function run()
         ));
 
     App\User::create(array(
+        'name'     => 'Carly Kubacak',
+        'email'    => 'ckubacak@smu.edu',
+        'password' => Hash::make('awesome'),
+    ));
+
+    App\User::create(array(
         'name'     => 'Austin Heerwagen',
         'email'    => 'austin@smu.edu',
         'password' => Hash::make('awesome'),

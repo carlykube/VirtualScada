@@ -43,8 +43,7 @@
 						</div>
 					</div>
 				</form>
-
-        		<p class="forgotpass"><a href="#" class="small">FORGOT PASSWORD?</a></p>
+        		<p class="forgotpass"><a href="{{ url('/password/email') }}" class="small">FORGOT PASSWORD?</a></p>
     		</div>
 		</div>
 	</div>
