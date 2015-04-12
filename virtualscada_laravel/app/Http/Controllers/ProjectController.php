@@ -173,4 +173,25 @@ class ProjectController extends Controller {
 
         return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
+
+    public function editPermissions(Project $project)
+    {
+        // check that user is allowed to edit project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+
+        return view('projects.editPermissions', compact('project'));
+    }
+
+    public function updatePermissions(Project $project)
+    {
+        // check that user is allowed to edit project
+        if(!Auth::user()->projects->contains($project))
+        {
+            return redirect('/');
+        }
+        dd(Request::all());
+    }
 }

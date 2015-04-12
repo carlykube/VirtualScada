@@ -16,7 +16,8 @@
 			<div class="panel-footer">
 				<a href="/projects/{{ $project->id }}/edit">Edit</a> |
                 <a href="/home">Back</a> |
-                <a href="open/{{ $project->id }}">Open</a>
+                <a href="open/{{ $project->id }}">Open</a> |
+                <a href="/projects/{{ $project->id }}/editPermissions">Edit Permissions</a>
                 {!! Form::open(['method'=>'DELETE']) !!}
                 <div class="form-group">
                     {!! Form::submit('DELETE', ['class'=>'btn btn-primary btn-md']) !!}

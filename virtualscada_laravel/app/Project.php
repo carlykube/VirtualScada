@@ -31,4 +31,9 @@ class Project extends Model {
     public function modules(){
         return $this->hasMany('App\Module');
     }
+
+    public function permissions()
+    {
+        return $this->hasMany('App\Permission');
+    }
 }

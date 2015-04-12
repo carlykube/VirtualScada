@@ -35,7 +35,7 @@ Route::resource('projects', 'ProjectController');
 Route::resource('modules', 'ModuleController');
 
 Route::get('projects/open/{projects}', 'ProjectController@open');
-Route::post('projects/addModule', 'ProjectController@addModule');
+Route::get('projects/{projects}/editPermissions', 'ProjectController@editPermissions');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
