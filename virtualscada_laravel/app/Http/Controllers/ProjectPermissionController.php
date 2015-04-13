@@ -7,7 +7,9 @@ use App\Permission;
 use App\Project;
 use App\User;
 use Auth;
+use DB;
 use Request;
+use Response;
 
 class ProjectPermissionController extends Controller {
 
@@ -18,12 +20,13 @@ class ProjectPermissionController extends Controller {
 	 */
 	public function index(Project $project)
 	{
-        $permissionUserData = [];
-        foreach ($project->permissions as $permission)
-            $permissionUserData[] = User::find($permission->user_id);
-        return view('projects.permissions', ['project' => $project, 'permissionUserData' => $permissionUserData]);
+        $projectUsers = DB::table('permissions')
+                            ->where('permissions.project_id', '=', $project->id)
+                            ->leftJoin('users', 'permissions.user_id', '=', 'users.id')
+                            ->select(['permissions.id', 'user_id', 'open', 'edit', 'share', 'name'  ])
+                            ->get();
 
-//        dd($project->permissions);
+        return view('projects.permissions', ['project' => $project, 'projectUsers' => $projectUsers]);
 	}
 
 	/**
@@ -92,15 +95,25 @@ class ProjectPermissionController extends Controller {
 		//
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the permissions for a project in the database
+     *
+     * @param Project $project
+     * @param $permissionId
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Project $project, $permissionId)
 	{
-		//
+        // update permission table with form input
+        Permission::find($permissionId)->update(Request::all());
+
+        // flash name of update user to screen
+        $username = User::find(Permission::find($permissionId)->user_id)->name;
+        flash()->success("Permissions updated for " . $username);
+
+        // redirect to permissions view
+        return redirect('/projects/'.$project->id.'/permissions');
 	}
 
 	/**
