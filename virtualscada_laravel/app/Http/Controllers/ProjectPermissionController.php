@@ -105,14 +105,31 @@ class ProjectPermissionController extends Controller {
      */
 	public function update(Project $project, $permissionId)
 	{
-        // update permission table with form input
-        Permission::find($permissionId)->update(Request::all());
+        $permission = Permission::find($permissionId);
+        $newPermissions = Request::all();
+        $username = User::find($permission->user_id)->name;
 
-        // flash name of update user to screen
-        $username = User::find(Permission::find($permissionId)->user_id)->name;
-        flash()->success("Permissions updated for " . $username);
+        // Do not allow project owner permissions to be modified
+        if ($project->user_id == $permission->user_id)
+        {
+            flash()->error("Cannot edit the permissions for the project owner.");
+            // redirect to permissions view
+            return redirect('/projects/'.$project->id.'/permissions');
+        }
+        // if user granted edit access, ensure that user can also open project
+        else if ($newPermissions['edit'] == true && $newPermissions['open'] == false)
+        {
+            $newPermissions['open'] = true;
+            flash()->success("Since ".$username." is allowed to edit the project, we also granted 'open' access");
+        }
+        else
+        {
+            // flash name of updated user to screen
+            flash()->success("Permissions updated for " . $username);
+        }
 
-        // redirect to permissions view
+        // update permission and redirect user
+        Permission::find($permissionId)->update($newPermissions);
         return redirect('/projects/'.$project->id.'/permissions');
 	}
 

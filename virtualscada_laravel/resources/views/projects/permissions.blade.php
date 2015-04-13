@@ -8,6 +8,7 @@
     	<div class="panel">
             <div class="panel-heading">
                 <h3 class="panel-title">{{$project->name}}</h3>
+            </div>
             <div class="panel-body">
                 Users who can view project:
                 @foreach($projectUsers as $user)
@@ -16,7 +17,7 @@
                     <div class="form-group">
                         {!! Form::label('open', 'Open:') !!}
                         {!! Form::hidden('open', 0) !!}
-                        {!! Form::checkbox('open', true, $user->open, ['checked' => false]) !!}
+                        {!! Form::checkbox('open', true, $user->open, ['type' => 'checkbox']) !!}
 
                         {!! Form::label('edit', 'Edit:') !!}
                         {!! Form::hidden('edit', 0) !!}
@@ -42,6 +43,9 @@
                 {!! Form::close() !!}
                 @include ('errors.list')
 			</div>
+            <div class="panel-footer">
+                <a href="/projects/{{ $project->id }}">Back to Project</a>
+            </div>
 		</div>
 	</div>
 </div>
