@@ -1,8 +1,10 @@
 @extends('app')
 
 @section('content')
+
 <div id="container-fluid" class="container" style="margin-top:10%">
-    @include('flash::message')
+    <!-- @include('flash::message') -->
+    <!-- Taking this out to replace with main project dashboard
 	<div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -49,6 +51,10 @@
                 </div>
         </div>
 	</div>
+    End takeout-->
+    <div class="panel panel-default">
+        <p>Putting stuff in here</p>
+    </div>
 </div>
 
 @endsection
