@@ -21,6 +21,18 @@
 				@endif
 			</div>
 
+            @if(Auth::user()->admin)
+                <div class="panel-body">
+                    {!! Form::open(['url'=>'/scheduleDownTime', 'method'=>'POST', 'class' => 'form-inline']) !!}
+                    {!! Form::label('startdate', 'Chose date to start downtime:') !!}
+                    {!! Form::input('datetime-local', 'startdate') !!}
+                    {!! Form::label('enddate', 'Chose date to end downtime:') !!}
+                    {!! Form::input('datetime-local', 'enddate') !!}
+                    {!!Form::submit('Save Changes', ['class' => 'btn btn-default']) !!}
+                    {!! Form::close() !!}
+                </div>
+            @endif
+
 			<div class="panel-footer">
 				<a href="/projects/create">Add A Project</a>
 			</div>				
