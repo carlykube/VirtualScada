@@ -1,5 +1,11 @@
 @extends('app')
 
+@section('header')
+
+<link href="{{ asset('/css/projectdash.css') }}" rel="stylesheet">
+
+@endsection
+
 @section('content')
 
 <div id="container-fluid" class="container" style="margin-top:10%">
