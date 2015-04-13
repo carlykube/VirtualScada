@@ -31,7 +31,6 @@
                     {!! Form::close() !!}
                 @endforeach
 
-                <p> Share this project with a user</p>
                 {!! Form::open(['action'=>['ProjectPermissionController@store', $project->id], 'method'=>'POST', 'class' => 'form-inline']) !!}
                 <div class="form-group">
                     {!! Form::label('email', 'New Users Email:') !!}

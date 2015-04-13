@@ -41,7 +41,8 @@ class ModuleController extends Controller {
         $type = $input['module'];
 
         $moduleData = ['file_loc' => 'path\to\python\script',
-            'screen_loc' => 'position1'];
+                       'screen_loc' => 'position1',
+                        'type' => $type];
 
         if ($type == 'rtu')
         {

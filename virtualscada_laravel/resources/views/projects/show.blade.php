@@ -7,9 +7,13 @@
     		<div class="panel-heading">{{ $project->name }}</div>
       		<div class="panel-body">
 				<ul>
-					<li>Owned by: {{ $project->user_id }}</li>
-					<li>Created at: {{ $project->created_at }}</li>
-					<li>Updated at: {{ $project->updated_at }}</li>
+					<li>Owned by: {{ $owner->name }}</li>
+					<li>Created on: {{ date("M d, Y",strtotime($project->created_at )) }}</li>
+                    <li>HMIs: {{ $project->number_hmi}}</li>
+                    <li>RTUs: {{ $project->number_rtu}}</li>
+                    <li>PLCs: {{ $project->number_plc}}</li>
+                    <li>Sensors: {{ $project->number_sensor}}</li>
+					{{--<li>Updated at: {{ $project->updated_at }}</li>--}}
 				</ul>
 			</div>
 

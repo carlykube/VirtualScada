@@ -3,8 +3,10 @@
 
 require_once __DIR__.'/../../../vendor/autoload.php';
 
+use App\User;
 use Auth;
 use App\Project;
+use Illuminate\Database\Eloquent\Model;
 use Request;
 use App\Http\Requests\CreateProjectRequest;
 use Symfony\Component\Process\Process;
@@ -45,7 +47,16 @@ class ProjectController extends Controller {
             return redirect('/');
         }
 
-        return view('projects.show', compact('project'));
+        $owner = $project->user;
+        $owner['password'] = "";
+        $owner['remember_token'] = "";
+
+        $project['number_hmi'] = $project->modules()->where('type', '=', 'hmi')->count();
+        $project['number_rtu'] = $project->modules()->where('type', '=', 'rtu')->count();
+        $project['number_plc'] = $project->modules()->where('type', '=', 'plc')->count();
+        $project['number_sensor'] = $project->modules()->where('type', '=', 'sensor')->count();
+
+        return view('projects.show', ['project' => $project, 'owner' => $owner ]);
     }
 
     /**
