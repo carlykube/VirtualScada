@@ -3,9 +3,11 @@
 
 require_once __DIR__.'/../../../vendor/autoload.php';
 
+use App\Downtime;
 use App\User;
 use Auth;
 use App\Project;
+use DB;
 use Illuminate\Database\Eloquent\Model;
 use Request;
 use App\Http\Requests\CreateProjectRequest;
@@ -30,7 +32,14 @@ class ProjectController extends Controller {
     public function index()
     {
         $projects = Project::ofUser(Auth::id())->get();
-        return view('home', compact('projects'));
+        $downtimes = [];
+
+        if (Auth::user()->admin){
+            $downtimes = Downtime::latest('start_time')->future()->get();
+//                DB::table('downtime')->future()->get();
+        }
+
+        return view('home', ['projects' => $projects, 'downtimes' => $downtimes]);
     }
 
     /**

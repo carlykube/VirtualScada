@@ -23,11 +23,17 @@
 
             @if(Auth::user()->admin)
                 <div class="panel-body">
+                    <p>Scheuled Downtimes</p>
+                    <ul>
+                    @foreach($downtimes as $downtime)
+                        <li>{{ date("M d, Y g:i A",strtotime($downtime->start_time)) }}</li>
+                    @endforeach
+                    </ul>
                     {!! Form::open(['url'=>'/scheduleDownTime', 'method'=>'POST', 'class' => 'form-inline']) !!}
-                    {!! Form::label('startdate', 'Chose date to start downtime:') !!}
-                    {!! Form::input('datetime-local', 'startdate') !!}
-                    {!! Form::label('enddate', 'Chose date to end downtime:') !!}
-                    {!! Form::input('datetime-local', 'enddate') !!}
+                    {!! Form::label('start_time', 'Chose date to start downtime:') !!}
+                    {!! Form::input('datetime-local', 'start_time') !!}
+                    {!! Form::label('end_time', 'Chose date to end downtime:') !!}
+                    {!! Form::input('datetime-local', 'end_time') !!}
                     {!!Form::submit('Save Changes', ['class' => 'btn btn-default']) !!}
                     {!! Form::close() !!}
                 </div>

@@ -17,7 +17,7 @@ class CreateDowntimeTable extends Migration {
 			$table->increments('id');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->boolean('users_notified');
+            $table->boolean('users_notified')->default(false);
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
 
