@@ -1,0 +1,47 @@
+It is possible to convert the A\+S\+T into several textual representations, which serve different uses.
+
+\subsection*{Simple serialization }
+
+It is possible to serialize the node tree using {\ttfamily serialize()} and also unserialize it using {\ttfamily unserialize()}. The output is not human readable and not easily processable from anything but \doxyref{P\+H\+P}{p.}{namespace_p_h_p}, but it is compact and generates fast. The main application thus is in caching.
+
+\subsection*{Human readable dumping }
+
+Furthermore it is possible to dump nodes into a human readable format using the {\ttfamily dump} method of {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Node\+Dumper}. This can be used for debugging.
+
+```php $<$?php \$code = $<$$<$$<$\textquotesingle{}C\+O\+D\+E\textquotesingle{} $<$?php
+
+function print\+Line(\$msg) \{ echo \$msg, \char`\"{}\textbackslash{}n\char`\"{}; \}
+
+print\+Line(\textquotesingle{}Hello World!!!\textquotesingle{}); C\+O\+D\+E;
+
+\$parser = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(new \doxyref{Php\+Parser}{p.}{namespace_php_parser}); \$node\+Dumper = new \doxyref{Php\+Parser}{p.}{namespace_php_parser};
+
+try \{ \$stmts = \$parser-\/$>$parse(\$code);
+
+echo \$node\+Dumper-\/$>$dump(\$stmts), \char`\"{}\textbackslash{}n\char`\"{}; \} catch (\doxyref{Php\+Parser}{p.}{namespace_php_parser} \$e) \{ echo \textquotesingle{}Parse \doxyref{Error}{p.}{class_error}\+: \textquotesingle{}, \$e-\/$>$get\+Message(); \} ```
+
+The above script will have an output looking roughly like this\+:
+
+``` array( 0\+: Stmt\+\_\+\+Function( by\+Ref\+: false params\+: array( 0\+: Param( name\+: msg default\+: null type\+: null by\+Ref\+: false ) ) stmts\+: array( 0\+: Stmt\+\_\+\+Echo( exprs\+: array( 0\+: Expr\+\_\+\+Variable( name\+: msg ) 1\+: Scalar\+\_\+\+String( value\+:
+
+) ) ) ) name\+: print\+Line ) 1\+: Expr\+\_\+\+Func\+Call( name\+: Name( parts\+: array( 0\+: print\+Line ) ) args\+: array( 0\+: Arg( value\+: Scalar\+\_\+\+String( value\+: Hello World!!! ) by\+Ref\+: false ) ) ) ) ```
+
+\subsection*{Serialization to X\+M\+L }
+
+It is also possible to serialize the node tree to X\+M\+L using {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Serializer\textbackslash{}X\+M\+L-\/$>$serialize()} and to unserialize it using {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Unserializer\textbackslash{}X\+M\+L-\/$>$unserialize()}. This is useful for interfacing with other languages and applications or for doing transformation using X\+S\+L\+T.
+
+```php $<$?php \$code = $<$$<$$<$\textquotesingle{}C\+O\+D\+E\textquotesingle{} $<$?php
+
+function print\+Line(\$msg) \{ echo \$msg, \char`\"{}\textbackslash{}n\char`\"{}; \}
+
+print\+Line(\textquotesingle{}Hello World!!!\textquotesingle{}); C\+O\+D\+E;
+
+\$parser = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(new \doxyref{Php\+Parser}{p.}{namespace_php_parser}); \$serializer = new \doxyref{Php\+Parser}{p.}{namespace_php_parser};
+
+try \{ \$stmts = \$parser-\/$>$parse(\$code);
+
+echo \$serializer-\/$>$serialize(\$stmts); \} catch (\doxyref{Php\+Parser}{p.}{namespace_php_parser} \$e) \{ echo \textquotesingle{}Parse \doxyref{Error}{p.}{class_error}\+: \textquotesingle{}, \$e-\/$>$get\+Message(); \} ```
+
+Produces\+:
+
+```xml $<$?xml version=\char`\"{}1.\+0\char`\"{} encoding=\char`\"{}\+U\+T\+F-\/8\char`\"{}?$>$ $<$A\+S\+T xmlns\+:node=\char`\"{}http\+://nikic.\+github.\+com/\+P\+H\+P\+Parser/\+X\+M\+L/node\char`\"{} xmlns\+:sub\+Node=\char`\"{}http\+://nikic.\+github.\+com/\+P\+H\+P\+Parser/\+X\+M\+L/sub\+Node\char`\"{} xmlns\+:scalar=\char`\"{}http\+://nikic.\+github.\+com/\+P\+H\+P\+Parser/\+X\+M\+L/scalar\char`\"{}$>$ $<$scalar\+:array$>$ $<$node\+:Stmt\+\_\+\+Function line=\char`\"{}2\char`\"{}$>$ $<$sub\+Node\+:by\+Ref$>$ $<$scalar\+:false/$>$ $<$/sub\+Node\+:by\+Ref$>$ $<$sub\+Node\+:params$>$ $<$scalar\+:array$>$ $<$node\+:Param line=\char`\"{}2\char`\"{}$>$ $<$sub\+Node\+:name$>$ $<$scalar\+:string$>$msg$<$/scalar\+:string$>$ $<$/sub\+Node\+:name$>$ $<$sub\+Node\+:default$>$ $<$scalar\+:null/$>$ $<$/sub\+Node\+:default$>$ $<$sub\+Node\+:type$>$ $<$scalar\+:null/$>$ $<$/sub\+Node\+:type$>$ $<$sub\+Node\+:by\+Ref$>$ $<$scalar\+:false/$>$ $<$/sub\+Node\+:by\+Ref$>$ $<$/node\+:Param$>$ $<$/scalar\+:array$>$ $<$/sub\+Node\+:params$>$ $<$sub\+Node\+:stmts$>$ $<$scalar\+:array$>$ $<$node\+:Stmt\+\_\+\+Echo line=\char`\"{}3\char`\"{}$>$ $<$sub\+Node\+:exprs$>$ $<$scalar\+:array$>$ $<$node\+:Expr\+\_\+\+Variable line=\char`\"{}3\char`\"{}$>$ $<$sub\+Node\+:name$>$ $<$scalar\+:string$>$msg$<$/scalar\+:string$>$ $<$/sub\+Node\+:name$>$ $<$/node\+:Expr\+\_\+\+Variable$>$ $<$node\+:Scalar\+\_\+\+String line=\char`\"{}3\char`\"{}$>$ $<$sub\+Node\+:value$>$ $<$scalar\+:string$>$ $<$/scalar\+:string$>$ $<$/sub\+Node\+:value$>$ $<$/node\+:Scalar\+\_\+\+String$>$ $<$/scalar\+:array$>$ $<$/sub\+Node\+:exprs$>$ $<$/node\+:Stmt\+\_\+\+Echo$>$ $<$/scalar\+:array$>$ $<$/sub\+Node\+:stmts$>$ $<$sub\+Node\+:name$>$ $<$scalar\+:string$>$print\+Line$<$/scalar\+:string$>$ $<$/sub\+Node\+:name$>$ $<$/node\+:Stmt\+\_\+\+Function$>$ $<$node\+:Expr\+\_\+\+Func\+Call line=\char`\"{}6\char`\"{}$>$ $<$sub\+Node\+:name$>$ $<$node\+:Name line=\char`\"{}6\char`\"{}$>$ $<$sub\+Node\+:parts$>$ $<$scalar\+:array$>$ $<$scalar\+:string$>$print\+Line$<$/scalar\+:string$>$ $<$/scalar\+:array$>$ $<$/sub\+Node\+:parts$>$ $<$/node\+:Name$>$ $<$/sub\+Node\+:name$>$ $<$sub\+Node\+:args$>$ $<$scalar\+:array$>$ $<$node\+:Arg line=\char`\"{}6\char`\"{}$>$ $<$sub\+Node\+:value$>$ $<$node\+:Scalar\+\_\+\+String line=\char`\"{}6\char`\"{}$>$ $<$sub\+Node\+:value$>$ $<$scalar\+:string$>$Hello World!!!$<$/scalar\+:string$>$ $<$/sub\+Node\+:value$>$ $<$/node\+:Scalar\+\_\+\+String$>$ $<$/sub\+Node\+:value$>$ $<$sub\+Node\+:by\+Ref$>$ $<$scalar\+:false/$>$ $<$/sub\+Node\+:by\+Ref$>$ $<$/node\+:Arg$>$ $<$/scalar\+:array$>$ $<$/sub\+Node\+:args$>$ $<$/node\+:Expr\+\_\+\+Func\+Call$>$ $<$/scalar\+:array$>$ $<$/\+A\+S\+T$>$ ``` 

@@ -1,0 +1,280 @@
+\section{Abstract\+Cloner Class Reference}
+\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner}\index{Abstract\+Cloner@{Abstract\+Cloner}}
+Inheritance diagram for Abstract\+Cloner\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$casters=null)
+\item 
+{\bf add\+Casters} (array \$casters)
+\item 
+{\bf set\+Max\+Items} (\$max\+Items)
+\item 
+{\bf set\+Max\+String} (\$max\+String)
+\item 
+{\bf clone\+Var} (\$var)
+\item 
+{\bf handle\+Error} (\$type, \$msg, \$file, \${\bf line}, \$context)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$default\+Casters}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf do\+Clone} (\$var)
+\item 
+{\bf cast\+Object} ({\bf Stub} \$stub, \$is\+Nested)
+\item 
+{\bf cast\+Resource} ({\bf Stub} \$stub, \$is\+Nested)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$max\+Items} = 2500
+\item 
+{\bf \$max\+String} = -\/1
+\item 
+{\bf \$use\+Ext}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Abstract\+Cloner}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner} implements a generic caster mechanism for objects and resources.
+
+\begin{DoxyAuthor}{Author}
+Nicolas Grekas {\tt p@tchwork.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 21 of file Abstract\+Cloner.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$casters = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a53245e1418d2f78f1ac128b463086394}
+
+\begin{DoxyParams}{Parameters}
+{\em callable\mbox{[}$\,$\mbox{]}$\vert$null} & \$casters \doxyref{A}{p.}{class_a} map of casters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Casters}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_ac00193d681def5217ffa183f3874829c} 
+\end{DoxySeeAlso}
+
+
+Definition at line 96 of file Abstract\+Cloner.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!add\+Casters@{add\+Casters}}
+\index{add\+Casters@{add\+Casters}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{add\+Casters}]{\setlength{\rightskip}{0pt plus 5cm}add\+Casters (
+\begin{DoxyParamCaption}
+\item[{array}]{\$casters}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_ac00193d681def5217ffa183f3874829c}
+Adds casters for resources and objects.
+
+Maps resources or objects types to a callback. Types are in the key, with a callable caster for value. Resource types are to be prefixed with a {\ttfamily \+:}, see e.\+g. static\+::\$default\+Casters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em callable\mbox{[}$\,$\mbox{]}} & \$casters \doxyref{A}{p.}{class_a} map of casters. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!cast\+Object@{cast\+Object}}
+\index{cast\+Object@{cast\+Object}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{cast\+Object}]{\setlength{\rightskip}{0pt plus 5cm}cast\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Stub}}]{\$stub, }
+\item[{}]{\$is\+Nested}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a96c399eba98408cf306d2707b41daeaa}
+Casts an object to an array representation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Stub}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_stub} & {\em \$stub} & The \doxyref{Stub}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_stub} for the casted object. \\
+\hline
+bool & {\em \$is\+Nested} & True if the object is nested in the dumped structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The object casted as array. 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!cast\+Resource@{cast\+Resource}}
+\index{cast\+Resource@{cast\+Resource}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{cast\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}cast\+Resource (
+\begin{DoxyParamCaption}
+\item[{{\bf Stub}}]{\$stub, }
+\item[{}]{\$is\+Nested}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a6be17c682e1aacc06ae1db8ccd84e5e9}
+Casts a resource to an array representation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Stub}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_stub} & {\em \$stub} & The \doxyref{Stub}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_stub} for the casted resource. \\
+\hline
+bool & {\em \$is\+Nested} & True if the object is nested in the dumped structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The resource casted as array. 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!clone\+Var@{clone\+Var}}
+\index{clone\+Var@{clone\+Var}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{clone\+Var}]{\setlength{\rightskip}{0pt plus 5cm}clone\+Var (
+\begin{DoxyParamCaption}
+\item[{}]{\$var}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a9585669ab758ae5aafa76b3b73955df3}
+\{Clones a \doxyref{P\+H\+P}{p.}{namespace_p_h_p} variable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$var} & Any \doxyref{P\+H\+P}{p.}{namespace_p_h_p} variable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Data}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_data} The cloned variable represented by a \doxyref{Data}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_data} object.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Cloner\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cloner_interface_a9585669ab758ae5aafa76b3b73955df3}.
+
+
+
+Definition at line 145 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!do\+Clone@{do\+Clone}}
+\index{do\+Clone@{do\+Clone}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{do\+Clone}]{\setlength{\rightskip}{0pt plus 5cm}do\+Clone (
+\begin{DoxyParamCaption}
+\item[{}]{\$var}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a3a5f526269ccf782728ba9330a5b68c4}
+Effectively clones the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} variable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$var} & Any \doxyref{P\+H\+P}{p.}{namespace_p_h_p} variable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The cloned variable represented in an array. 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!handle\+Error@{handle\+Error}}
+\index{handle\+Error@{handle\+Error}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{handle\+Error}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Error (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$msg, }
+\item[{}]{\$file, }
+\item[{}]{\$line, }
+\item[{}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_ada93801cc2614bb1138f96784f9c080d}
+Special handling for errors\+: cloning must be fail-\/safe. 
+
+Definition at line 282 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!set\+Max\+Items@{set\+Max\+Items}}
+\index{set\+Max\+Items@{set\+Max\+Items}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{set\+Max\+Items}]{\setlength{\rightskip}{0pt plus 5cm}set\+Max\+Items (
+\begin{DoxyParamCaption}
+\item[{}]{\$max\+Items}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_ac0509f765fb4ce2a02078ee2dd752643}
+Sets the maximum number of items to clone past the first level in nested structures.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$max\+Items} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!set\+Max\+String@{set\+Max\+String}}
+\index{set\+Max\+String@{set\+Max\+String}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{set\+Max\+String}]{\setlength{\rightskip}{0pt plus 5cm}set\+Max\+String (
+\begin{DoxyParamCaption}
+\item[{}]{\$max\+String}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a1ec0fcbe516576a3be43fa2ff68f9722}
+Sets the maximum cloned length for strings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$max\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file Abstract\+Cloner.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!\$default\+Casters@{\$default\+Casters}}
+\index{\$default\+Casters@{\$default\+Casters}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{\$default\+Casters}]{\setlength{\rightskip}{0pt plus 5cm}\$default\+Casters\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_addcee39d7c035bdcb6828007c3ada11a}
+
+
+Definition at line 23 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!\$max\+Items@{\$max\+Items}}
+\index{\$max\+Items@{\$max\+Items}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{\$max\+Items}]{\setlength{\rightskip}{0pt plus 5cm}\$max\+Items = 2500\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a7891ab712e9f07d9529a6b9a9f3ddde1}
+
+
+Definition at line 83 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!\$max\+String@{\$max\+String}}
+\index{\$max\+String@{\$max\+String}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{\$max\+String}]{\setlength{\rightskip}{0pt plus 5cm}\$max\+String = -\/1\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_a6829eaf9f88edab12b711f69175cb227}
+
+
+Definition at line 84 of file Abstract\+Cloner.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}!\$use\+Ext@{\$use\+Ext}}
+\index{\$use\+Ext@{\$use\+Ext}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Cloner\+::\+Abstract\+Cloner}}
+\subsubsection[{\$use\+Ext}]{\setlength{\rightskip}{0pt plus 5cm}\$use\+Ext\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_abstract_cloner_ada19b5ede649a3d57b6ddacbb19b3c8c}
+
+
+Definition at line 85 of file Abstract\+Cloner.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/var-\/dumper/\+Symfony/\+Component/\+Var\+Dumper/\+Cloner/{\bf Abstract\+Cloner.\+php}\end{DoxyCompactItemize}

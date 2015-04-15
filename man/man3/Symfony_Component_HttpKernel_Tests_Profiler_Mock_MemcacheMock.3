@@ -1,0 +1,254 @@
+.TH "MemcacheMock" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MemcacheMock \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconnect\fP ($host, $port=null, $timeout=null)"
+.br
+.ti -1c
+.RI "\fBpconnect\fP ($host, $port=null, $timeout=null)"
+.br
+.ti -1c
+.RI "\fBaddServer\fP ($host, $port=11211, $persistent=null, $weight=null, $timeout=null, $retry_interval=null, $status=null, $failure_callback=null, $timeoutms=null)"
+.br
+.ti -1c
+.RI "\fBadd\fP ($key, $var, $flag=null, $expire=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($key, $var, $flag=null, $expire=null)"
+.br
+.ti -1c
+.RI "\fBreplace\fP ($key, $var, $flag=null, $expire=null)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key, &$flags=null)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($key)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMemcacheMock\fP for simulating Memcache extension in tests\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Andrej Hudec pulzarraider@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file MemcacheMock\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $key,  $var,  $flag = \fCnull\fP,  $expire = \fCnull\fP)"
+Add an item to the server only if such key doesn't exist at the server yet\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$var\fP 
+.br
+\fI$flag\fP 
+.br
+\fI$expire\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file MemcacheMock\&.php\&.
+.SS "addServer ( $host,  $port = \fC11211\fP,  $persistent = \fCnull\fP,  $weight = \fCnull\fP,  $timeout = \fCnull\fP,  $retry_interval = \fCnull\fP,  $status = \fCnull\fP,  $failure_callback = \fCnull\fP,  $timeoutms = \fCnull\fP)"
+Add a memcached server to connection pool\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.br
+\fI$port\fP 
+.br
+\fI$persistent\fP 
+.br
+\fI$weight\fP 
+.br
+\fI$timeout\fP 
+.br
+\fI$retry_interval\fP 
+.br
+\fI$status\fP 
+.br
+\fI$failure_callback\fP 
+.br
+\fI$timeoutms\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file MemcacheMock\&.php\&.
+.SS "close ()"
+Close memcached server connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file MemcacheMock\&.php\&.
+.SS "connect ( $host,  $port = \fCnull\fP,  $timeout = \fCnull\fP)"
+Open memcached server connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.br
+\fI$port\fP 
+.br
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file MemcacheMock\&.php\&.
+.SS "delete ( $key)"
+Delete item from the server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file MemcacheMock\&.php\&.
+.SS "flush ()"
+Flush all existing items at the server\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file MemcacheMock\&.php\&.
+.SS "get ( $key, & $flags = \fCnull\fP)"
+Retrieve item from the server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$flags\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file MemcacheMock\&.php\&.
+.SS "pconnect ( $host,  $port = \fCnull\fP,  $timeout = \fCnull\fP)"
+Open memcached server persistent connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.br
+\fI$port\fP 
+.br
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file MemcacheMock\&.php\&.
+.SS "replace ( $key,  $var,  $flag = \fCnull\fP,  $expire = \fCnull\fP)"
+Replace value of the existing item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$var\fP 
+.br
+\fI$flag\fP 
+.br
+\fI$expire\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file MemcacheMock\&.php\&.
+.SS "set ( $key,  $var,  $flag = \fCnull\fP,  $expire = \fCnull\fP)"
+Store data at the server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$var\fP 
+.br
+\fI$flag\fP 
+.br
+\fI$expire\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file MemcacheMock\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

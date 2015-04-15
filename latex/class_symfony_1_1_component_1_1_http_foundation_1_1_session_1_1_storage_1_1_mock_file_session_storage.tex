@@ -1,0 +1,154 @@
+\section{Mock\+File\+Session\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage}\index{Mock\+File\+Session\+Storage@{Mock\+File\+Session\+Storage}}
+Inheritance diagram for Mock\+File\+Session\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$save\+Path=null, \${\bf name}= \textquotesingle{}M\+O\+C\+K\+S\+E\+S\+S\+I\+D\textquotesingle{}, {\bf Metadata\+Bag} \$meta\+Bag=null)
+\item 
+{\bf start} ()
+\item 
+{\bf regenerate} (\$destroy=false, \$lifetime=null)
+\item 
+{\bf save} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Mock\+File\+Session\+Storage}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage} is used to mock sessions for functional testing when done in a single \doxyref{P\+H\+P}{p.}{namespace_p_h_p} process.
+
+No \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session is actually started since a session can be initialized and shutdown only once per \doxyref{P\+H\+P}{p.}{namespace_p_h_p} execution cycle and this class does not pollute any session related globals, including session\+\_\+$\ast$() functions or session.$\ast$ \doxyref{P\+H\+P}{p.}{namespace_p_h_p} ini directives.
+
+\begin{DoxyAuthor}{Author}
+Drak {\tt drak@zikula.\+org} 
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Mock\+File\+Session\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$save\+Path = {\ttfamily null}, }
+\item[{}]{\$name = {\ttfamily \textquotesingle{}MOCKSESSID\textquotesingle{}}, }
+\item[{{\bf Metadata\+Bag}}]{\$meta\+Bag = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage_af27d1f05dbebab0724efba12d79ddc95}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$save\+Path} & Path of directory to save session files. \\
+\hline
+string & {\em \$name} & \doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} name. \\
+\hline
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} & {\em \$meta\+Bag} & \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Mock\+File\+Session\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}!regenerate@{regenerate}}
+\index{regenerate@{regenerate}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}}
+\subsubsection[{regenerate}]{\setlength{\rightskip}{0pt plus 5cm}regenerate (
+\begin{DoxyParamCaption}
+\item[{}]{\$destroy = {\ttfamily false}, }
+\item[{}]{\$lifetime = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage_aeb0b5bdaa103935ac1950fd06febc413}
+\{Regenerates id that represents this storage.
+
+This method must invoke session\+\_\+regenerate\+\_\+id(\$destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing.
+
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage.
+
+Care\+: When regenerating the session I\+D no locking is involved in P\+H\+Ps session design. See {\tt https\+://bugs.\+php.\+net/bug.\+php?id=61470} for a discussion. So you must make sure the regenerated session is saved B\+E\+F\+O\+R\+E sending the headers with the new I\+D. Symfonys \doxyref{Http\+Kernel}{p.}{namespace_symfony_1_1_component_1_1_http_kernel} offers a listener for this. See \doxyref{Symfony}{p.}{namespace_symfony}. Otherwise session data could get lost again for concurrent requests with the new I\+D. \doxyref{One}{p.}{class_one} result could be that you get logged out after just logging in.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$destroy} & Destroy session when regenerating? \\
+\hline
+int & {\em \$lifetime} & Sets the cookie lifetime for the session cookie. \doxyref{A}{p.}{class_a} null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session. Time is in seconds, and is not a Unix timestamp.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if session regenerated, false if error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_aeb0b5bdaa103935ac1950fd06febc413}.
+
+
+
+Definition at line 77 of file Mock\+File\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}!save@{save}}
+\index{save@{save}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage_afc8a3c62679cf00ade9f15fb2a6d6132}
+\{Force the session to be saved and closed.
+
+This method must invoke session\+\_\+write\+\_\+close() unless this interface is used for a storage object design for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing, in which case it it should actually persist the session data if required.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_afc8a3c62679cf00ade9f15fb2a6d6132}.
+
+
+
+Definition at line 93 of file Mock\+File\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}!start@{start}}
+\index{start@{start}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+File\+Session\+Storage}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage_af8fa59992209e36dccb3eefb0f75531f}
+\{Starts the session.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 57 of file Mock\+File\+Session\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Session/\+Storage/{\bf Mock\+File\+Session\+Storage.\+php}\end{DoxyCompactItemize}

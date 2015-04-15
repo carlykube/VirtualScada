@@ -1,0 +1,75 @@
+.TH "ChannelLevelActivationStrategy" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChannelLevelActivationStrategy \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBActivationStrategyInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($defaultActionLevel, $channelToActionLevel=array())"
+.br
+.ti -1c
+.RI "\fBisHandlerActivated\fP (array $record)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Channel and \fBError\fP level based monolog activation strategy\&. Allows to trigger activation based on level per channel\&. e\&.g\&. trigger activation on level 'ERROR' by default, except for records of the 'sql' channel; those should trigger activation on level 'WARN'\&.
+.PP
+Example:
+.PP
+\fC $activationStrategy = new \fBChannelLevelActivationStrategy\fP( \fBLogger::CRITICAL\fP, array( 'request' => \fBLogger::ALERT\fP, 'sensitive' => \fBLogger::ERROR\fP, ) ); $handler = new \fBFingersCrossedHandler\fP(new \fBStreamHandler\fP('php://stderr'), $activationStrategy); \fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Meessen netmikey@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file ChannelLevelActivationStrategy\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $defaultActionLevel,  $channelToActionLevel = \fCarray()\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defaultActionLevel\fP The default action level to be used if the record's category doesn't match any 
+.br
+\fI$channelToActionLevel\fP An array that maps channel names to action levels\&. 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file ChannelLevelActivationStrategy\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "isHandlerActivated (array $record)"
+Returns whether the given record activates the handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean 
+.RE
+.PP
+
+.PP
+Implements \fBActivationStrategyInterface\fP\&.
+.PP
+Definition at line 51 of file ChannelLevelActivationStrategy\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

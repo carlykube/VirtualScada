@@ -1,0 +1,58 @@
+.TH "ForkingLoop" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ForkingLoop \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLoop\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrun\fP (\fBShell\fP $shell)"
+.br
+.ti -1c
+.RI "\fBbeforeLoop\fP ()"
+.br
+.ti -1c
+.RI "\fBafterLoop\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP forking version of the \fBPsy\fP \fBShell\fP execution loop\&.
+.PP
+This version is preferred, as it won't die prematurely if user input includes a fatal error, such as redeclaring a class or function\&. 
+.PP
+Definition at line 22 of file ForkingLoop\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "afterLoop ()"
+Clean up old savegames at the end of each loop iteration\&. 
+.PP
+Definition at line 99 of file ForkingLoop\&.php\&.
+.SS "beforeLoop ()"
+Create a savegame at the start of each loop iteration\&. 
+.PP
+Definition at line 91 of file ForkingLoop\&.php\&.
+.SS "run (\fBShell\fP $shell)"
+Run the execution loop\&.
+.PP
+Forks into a master and a loop process\&. The loop process will handle the evaluation of all instructions, then return its state via a socket upon completion\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$shell\fP 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file ForkingLoop\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

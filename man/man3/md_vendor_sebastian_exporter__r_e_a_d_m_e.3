@@ -1,0 +1,94 @@
+.TH "md_vendor_sebastian_exporter__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_sebastian_exporter__r_e_a_d_m_e \- \fBExporter\fP 
+\fC![Build Status](https://secure\&.travis-ci\&.org/sebastianbergmann/exporter\&.png?branch=master)\fP
+.PP
+This component provides the functionality to export \fBPHP\fP variables for visualization\&.
+.PP
+.SS "Usage"
+.PP
+Exporting:
+.PP
+```php <?php use \fBSebastianBergmann\fP;
+.PP
+$exporter = new \fBExporter\fP;
+.PP
+/* Exception Object &0000000078de0f0d000000002003a261 ( 'message' => '' 'string' => '' 'code' => 0 'file' => '/home/sebastianbergmann/test\&.php' 'line' => 34 'trace' => Array &0 () 'previous' => null ) */
+.PP
+print $exporter->export(new Exception); ```
+.PP
+.SS "Data Types"
+.PP
+Exporting simple types:
+.PP
+```php <?php use \fBSebastianBergmann\fP;
+.PP
+$exporter = new \fBExporter\fP;
+.PP
+// 46 print $exporter->export(46);
+.PP
+// 4\&.0 print $exporter->export(4\&.0);
+.PP
+// 'hello, world!' print $exporter->export('hello, world!');
+.PP
+// false print $exporter->export(false);
+.PP
+// NAN print $exporter->export(acos(8));
+.PP
+// -INF print $exporter->export(log(0));
+.PP
+// null print $exporter->export(null);
+.PP
+// resource(13) of type (stream) print $exporter->export(fopen('php://stderr', 'w'));
+.PP
+// Binary String: 0x000102030405 print $exporter->export(chr(0) \&. chr(1) \&. chr(2) \&. chr(3) \&. chr(4) \&. chr(5)); ```
+.PP
+Exporting complex types:
+.PP
+```php <?php use \fBSebastianBergmann\fP;
+.PP
+$exporter = new \fBExporter\fP;
+.PP
+/* Array &0 ( 0 => Array &1 ( 0 => 1 1 => 2 2 => 3 ) 1 => Array &2 ( 0 => '' 1 => 0 2 => false ) ) */
+.PP
+print $exporter->export(array(array(1,2,3), array('',0,FALSE)));
+.PP
+/* Array &0 ( 'self' => Array &1 ( 'self' => Array &1 ) ) */
+.PP
+$array = array(); $array['self'] =  print $exporter->export($array);
+.PP
+/* stdClass Object &0000000003a66dcc0000000025e723e2 ( 'self' => stdClass Object &0000000003a66dcc0000000025e723e2 ) */
+.PP
+$obj = new stdClass(); $obj->self = $obj; print $exporter->export($obj); ```
+.PP
+Compact exports:
+.PP
+```php <?php use \fBSebastianBergmann\fP;
+.PP
+$exporter = new \fBExporter\fP;
+.PP
+// Array () print $exporter->shortenedExport(array());
+.PP
+// Array (\&.\&.\&.) print $exporter->shortenedExport(array(1,2,3,4,5));
+.PP
+// stdClass Object () print $exporter->shortenedExport(new stdClass);
+.PP
+// Exception Object (\&.\&.\&.) print $exporter->shortenedExport(new Exception);
+.PP
+// this\&.\&.\&. print $exporter->shortenedExport( <<<LONG_STRING this is a super long string that wraps a lot and eats up a lot of space LONG_STRING ); ```
+.PP
+.SS "Installation"
+.PP
+To add \fBExporter\fP as a local, per-project dependency to your project, simply add a dependency on \fCsebastian/exporter\fP to your project's \fCcomposer\&.json\fP file\&. Here is a minimal example of a \fCcomposer\&.json\fP file that just defines a dependency on \fBExporter\fP 1\&.0: 
+.PP
+.nf
+{
+    "require": {
+        "sebastian/exporter": "1.0.*"
+    }
+}
+.fi
+.PP
+ 

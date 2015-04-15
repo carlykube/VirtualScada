@@ -1,0 +1,105 @@
+.TH "RequestStack" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RequestStack \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpush\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBpop\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCurrentRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMasterRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetParentRequest\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBRequest\fP stack that controls the lifecycle of requests\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Benjamin Eberlei kontakt@beberlei.de 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file RequestStack\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getCurrentRequest ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+Request|null 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file RequestStack\&.php\&.
+.SS "getMasterRequest ()"
+Gets the master \fBRequest\fP\&.
+.PP
+Be warned that making your code aware of the master request might make it un-compatible with other features of your framework like ESI support\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Request|null 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file RequestStack\&.php\&.
+.SS "getParentRequest ()"
+Returns the parent request of the current\&.
+.PP
+Be warned that making your code aware of the parent request might make it un-compatible with other features of your framework like ESI support\&.
+.PP
+If current \fBRequest\fP is the master request, it returns null\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Request|null 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file RequestStack\&.php\&.
+.SS "pop ()"
+Pops the current request from the stack\&.
+.PP
+This operation lets the current request go out of scope\&.
+.PP
+This method should generally not be called directly as the stack management should be taken care of by the application itself\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Request|null 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file RequestStack\&.php\&.
+.SS "push (\fBRequest\fP $request)"
+Pushes a \fBRequest\fP on the stack\&.
+.PP
+This method should generally not be called directly as the stack management should be taken care of by the application itself\&. 
+.PP
+Definition at line 32 of file RequestStack\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

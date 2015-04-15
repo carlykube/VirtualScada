@@ -1,0 +1,843 @@
+\section{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity Class Reference}
+\label{class_swift___mime___simple_mime_entity}\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+Inheritance diagram for Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.949495cm]{class_swift___mime___simple_mime_entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set} \$headers, {\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder} \$encoder, {\bf Swift\+\_\+\+Key\+Cache} \$cache, {\bf Swift\+\_\+\+Mime\+\_\+\+Grammar} \$grammar)
+\item 
+{\bf generate\+Id} ()
+\item 
+{\bf get\+Headers} ()
+\item 
+{\bf get\+Nesting\+Level} ()
+\item 
+{\bf get\+Content\+Type} ()
+\item 
+{\bf set\+Content\+Type} (\$type)
+\item 
+{\bf get\+Id} ()
+\item 
+{\bf set\+Id} (\$id)
+\item 
+{\bf get\+Description} ()
+\item 
+{\bf set\+Description} (\$description)
+\item 
+{\bf get\+Max\+Line\+Length} ()
+\item 
+{\bf set\+Max\+Line\+Length} (\$length)
+\item 
+{\bf get\+Children} ()
+\item 
+{\bf set\+Children} (array \$children, \$compound\+Level=null)
+\item 
+{\bf get\+Body} ()
+\item 
+{\bf set\+Body} (\$body, \$content\+Type=null)
+\item 
+{\bf get\+Encoder} ()
+\item 
+{\bf set\+Encoder} ({\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder} \$encoder)
+\item 
+{\bf get\+Boundary} ()
+\item 
+{\bf set\+Boundary} (\$boundary)
+\item 
+{\bf charset\+Changed} (\$charset)
+\item 
+{\bf encoder\+Changed} ({\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder} \$encoder)
+\item 
+{\bf to\+String} ()
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\item 
+{\bf to\+Byte\+Stream} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf \+\_\+\+\_\+destruct} ()
+\item 
+{\bf \+\_\+\+\_\+clone} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+body\+To\+String} ()
+\item 
+{\bf \+\_\+body\+To\+Byte\+Stream} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf \+\_\+get\+Id\+Field} ()
+\item 
+{\bf \+\_\+get\+Header\+Field\+Model} (\$field)
+\item 
+{\bf \+\_\+set\+Header\+Field\+Model} (\$field, \$model)
+\item 
+{\bf \+\_\+get\+Header\+Parameter} (\$field, \$parameter)
+\item 
+{\bf \+\_\+set\+Header\+Parameter} (\$field, \$parameter, \$value)
+\item 
+{\bf \+\_\+fix\+Headers} ()
+\item 
+{\bf \+\_\+get\+Cache} ()
+\item 
+{\bf \+\_\+get\+Grammar} ()
+\item 
+{\bf \+\_\+clear\+Cache} ()
+\item 
+{\bf get\+Random\+Id} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$\+\_\+user\+Content\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} M\+I\+M\+E entity, in a multipart message.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Simple\+Mime\+Entity.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set}}]{\$headers, }
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}}]{\$encoder, }
+\item[{{\bf Swift\+\_\+\+Key\+Cache}}]{\$cache, }
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a7368c76c0c4cd27c8af601f020040ff9}
+Create a new Simple\+Mime\+Entity with \$headers, \$encoder and \$cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Header\+Set}{p.}{interface_swift___mime___header_set} & {\em \$headers} & \\
+\hline
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}{p.}{interface_swift___mime___content_encoder} & {\em \$encoder} & \\
+\hline
+\doxyref{Swift\+\_\+\+Key\+Cache}{p.}{interface_swift___key_cache} & {\em \$cache} & \\
+\hline
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Grammar}{p.}{class_swift___mime___grammar} & {\em \$grammar} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
+\index{\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+\+\_\+destruct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+destruct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a421831a265621325e1fdd19aace0c758}
+Empties it\textquotesingle{}s own contents from the cache. 
+
+Definition at line 828 of file Simple\+Mime\+Entity.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}}
+\index{\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+\+\_\+clone}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_ad0cb87b388bc74d63dc884accdca8713}
+Make a deep copy of object 
+
+Definition at line 856 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a7516ca30af0db3cdbf9a7739b48ce91d}
+Returns a string representation of this object.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{to\+String()}{p.}{class_swift___mime___simple_mime_entity_a5558c5d549f41597377fa1ea8a1cefa3}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 517 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+body\+To\+Byte\+Stream@{\+\_\+body\+To\+Byte\+Stream}}
+\index{\+\_\+body\+To\+Byte\+Stream@{\+\_\+body\+To\+Byte\+Stream}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+body\+To\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+body\+To\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_ada957ab295bb41bb32357647dda8a48d}
+Write this entire entity to a \doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream}} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 540 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+body\+To\+String@{\+\_\+body\+To\+String}}
+\index{\+\_\+body\+To\+String@{\+\_\+body\+To\+String}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+body\+To\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+body\+To\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a7242146002e5e80c403461e5ab77173f}
+Get this entire entity as a string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 481 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+clear\+Cache@{\+\_\+clear\+Cache}}
+\index{\+\_\+clear\+Cache@{\+\_\+clear\+Cache}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+clear\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+clear\+Cache (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a8693437e19b358f740bfb9467afe51ef}
+Empty the Key\+Cache for this entity. 
+
+Definition at line 673 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+fix\+Headers@{\+\_\+fix\+Headers}}
+\index{\+\_\+fix\+Headers@{\+\_\+fix\+Headers}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+fix\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+fix\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a834e3ffca208b60396cc905428f300da}
+Re-\/evaluate what content type and encoding should be used on this entity. 
+
+Definition at line 637 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+get\+Cache@{\+\_\+get\+Cache}}
+\index{\+\_\+get\+Cache@{\+\_\+get\+Cache}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+get\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Cache (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a0b08105f3c38fc68c17d8db98e4add31}
+Get the Key\+Cache used in this entity.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Key\+Cache}{p.}{interface_swift___key_cache} 
+\end{DoxyReturn}
+
+
+Definition at line 655 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+get\+Grammar@{\+\_\+get\+Grammar}}
+\index{\+\_\+get\+Grammar@{\+\_\+get\+Grammar}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+get\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_abe5ac7b35def7ab68135608371dd1800}
+Get the grammar used for validation.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Grammar}{p.}{class_swift___mime___grammar} 
+\end{DoxyReturn}
+
+
+Definition at line 665 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+get\+Header\+Field\+Model@{\+\_\+get\+Header\+Field\+Model}}
+\index{\+\_\+get\+Header\+Field\+Model@{\+\_\+get\+Header\+Field\+Model}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+get\+Header\+Field\+Model}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Header\+Field\+Model (
+\begin{DoxyParamCaption}
+\item[{}]{\$field}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a0323c522669ea83dd35329a6842f0cc9}
+Get the model data (usually an array or a string) for \$field. 
+
+Definition at line 589 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+get\+Header\+Parameter@{\+\_\+get\+Header\+Parameter}}
+\index{\+\_\+get\+Header\+Parameter@{\+\_\+get\+Header\+Parameter}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+get\+Header\+Parameter}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Header\+Parameter (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$parameter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_ae5b053b8afc871f4f49663eebf8875ce}
+Get the parameter value of \$parameter on \$field header. 
+
+Definition at line 613 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+get\+Id\+Field@{\+\_\+get\+Id\+Field}}
+\index{\+\_\+get\+Id\+Field@{\+\_\+get\+Id\+Field}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+get\+Id\+Field}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Id\+Field (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_ab7f189c51724f9cd5fe7b30bf92b9f00}
+Get the name of the header that provides the I\+D of this entity 
+
+Definition at line 581 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+set\+Header\+Field\+Model@{\+\_\+set\+Header\+Field\+Model}}
+\index{\+\_\+set\+Header\+Field\+Model@{\+\_\+set\+Header\+Field\+Model}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+set\+Header\+Field\+Model}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+set\+Header\+Field\+Model (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a12dcf14b1b7d1ebeb94a5541a0442842}
+Set the model data for \$field. 
+
+Definition at line 599 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\+\_\+set\+Header\+Parameter@{\+\_\+set\+Header\+Parameter}}
+\index{\+\_\+set\+Header\+Parameter@{\+\_\+set\+Header\+Parameter}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\+\_\+set\+Header\+Parameter}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+set\+Header\+Parameter (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$parameter, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a18e9b9caea7cbc710fb5b8845611868e}
+Set the parameter value of \$parameter on \$field header. 
+
+Definition at line 623 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!charset\+Changed@{charset\+Changed}}
+\index{charset\+Changed@{charset\+Changed}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{charset\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}charset\+Changed (
+\begin{DoxyParamCaption}
+\item[{}]{\$charset}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a642c64487e34084ca8fa4ea115ebdb5f}
+Receive notification that the charset of this entity, or a parent entity has changed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$charset} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Charset\+Observer} \doxyref{}{p.}{interface_swift___mime___charset_observer_a642c64487e34084ca8fa4ea115ebdb5f}.
+
+
+
+Definition at line 447 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!encoder\+Changed@{encoder\+Changed}}
+\index{encoder\+Changed@{encoder\+Changed}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{encoder\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}encoder\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}}]{\$encoder}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a38f42c0e6532cade759c82ae52c3f053}
+Receive notification that the encoder of this entity or a parent entity has changed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}{p.}{interface_swift___mime___content_encoder} & {\em \$encoder} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Encoding\+Observer} \doxyref{}{p.}{interface_swift___mime___encoding_observer_a38f42c0e6532cade759c82ae52c3f053}.
+
+
+
+Definition at line 458 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!generate\+Id@{generate\+Id}}
+\index{generate\+Id@{generate\+Id}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{generate\+Id}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a7d660a436cd4a6931442c41184b6782a}
+Generate a new Content-\/\+I\+D or Message-\/\+I\+D for this M\+I\+M\+E entity.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Body@{get\+Body}}
+\index{get\+Body@{get\+Body}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Body}]{\setlength{\rightskip}{0pt plus 5cm}get\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_ad7bab1db052fb9fcc8bd0b4f3eac29ac}
+Get the body of this entity as a string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_ad7bab1db052fb9fcc8bd0b4f3eac29ac}.
+
+
+
+Definition at line 350 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Boundary@{get\+Boundary}}
+\index{get\+Boundary@{get\+Boundary}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}get\+Boundary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_adcdfcc870b872e0645e6de25d643e2dd}
+Get the boundary used to separate children in this entity.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 415 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Children}]{\setlength{\rightskip}{0pt plus 5cm}get\+Children (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a8650a4f6150ed357d88fa043f1685ac5}
+Get all children added to this entity.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity}{p.}{interface_swift___mime___mime_entity}[] 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a8650a4f6150ed357d88fa043f1685ac5}.
+
+
+
+Definition at line 268 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Content\+Type@{get\+Content\+Type}}
+\index{get\+Content\+Type@{get\+Content\+Type}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Content\+Type}]{\setlength{\rightskip}{0pt plus 5cm}get\+Content\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_aa843137beb02bc2516fe0551c00ff7d7}
+Get the Content-\/type of this entity.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_aa843137beb02bc2516fe0551c00ff7d7}.
+
+
+
+Definition at line 154 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Description}]{\setlength{\rightskip}{0pt plus 5cm}get\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a2e7bb35c71bf1824456ceb944cb7a845}
+Get the description of this entity.
+
+This value comes from the Content-\/\+Description header if set.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Encoder@{get\+Encoder}}
+\index{get\+Encoder@{get\+Encoder}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Encoder}]{\setlength{\rightskip}{0pt plus 5cm}get\+Encoder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_ab2cafaf839a93565624201a958265ec4}
+Get the encoder used for the body of this entity.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}{p.}{interface_swift___mime___content_encoder} 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Headers@{get\+Headers}}
+\index{get\+Headers@{get\+Headers}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a157e0005d82edaa21cbea07fdc5c62da}
+Get the \doxyref{Swift\+\_\+\+Mime\+\_\+\+Header\+Set}{p.}{interface_swift___mime___header_set} for this entity.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Header\+Set}{p.}{interface_swift___mime___header_set} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a157e0005d82edaa21cbea07fdc5c62da}.
+
+
+
+Definition at line 132 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a12251d0c022e9e21c137a105ff683f13}
+Get the C\+I\+D of this entity.
+
+The C\+I\+D will only be present in headers if a Content-\/\+I\+D header is present.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a12251d0c022e9e21c137a105ff683f13}.
+
+
+
+Definition at line 183 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Max\+Line\+Length@{get\+Max\+Line\+Length}}
+\index{get\+Max\+Line\+Length@{get\+Max\+Line\+Length}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Max\+Line\+Length}]{\setlength{\rightskip}{0pt plus 5cm}get\+Max\+Line\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_ac9be5b30d39eed72d13b10fecfcc8561}
+Get the maximum line length of the body of this entity.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Nesting\+Level@{get\+Nesting\+Level}}
+\index{get\+Nesting\+Level@{get\+Nesting\+Level}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Nesting\+Level}]{\setlength{\rightskip}{0pt plus 5cm}get\+Nesting\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a85debda5669a32a6b402cd40650ec8b6}
+Get the nesting level of this entity.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{L\+E\+V\+E\+L\+\_\+\+T\+O\+P}{p.}{interface_swift___mime___mime_entity_ab30d57be6c2888fec3500bbb109460a5}, \doxyref{L\+E\+V\+E\+L\+\_\+\+M\+I\+X\+E\+D}{p.}{interface_swift___mime___mime_entity_acb3797c0d5b31458b88d29e95a1415c6}, \doxyref{L\+E\+V\+E\+L\+\_\+\+R\+E\+L\+A\+T\+E\+D}{p.}{interface_swift___mime___mime_entity_ae7bd38904346eec45a902dd44415b12f}, \doxyref{L\+E\+V\+E\+L\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E}{p.}{interface_swift___mime___mime_entity_a785cdf642d3081a58aae8dff63e6a9f0}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a85debda5669a32a6b402cd40650ec8b6}.
+
+
+
+Definition at line 144 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!get\+Random\+Id@{get\+Random\+Id}}
+\index{get\+Random\+Id@{get\+Random\+Id}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{get\+Random\+Id}]{\setlength{\rightskip}{0pt plus 5cm}get\+Random\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_ab5c3d97a917975f1fc71a38af30619f6}
+Returns a random Content-\/\+I\+D or Message-\/\+I\+D.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 683 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Body@{set\+Body}}
+\index{set\+Body@{set\+Body}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Body}]{\setlength{\rightskip}{0pt plus 5cm}set\+Body (
+\begin{DoxyParamCaption}
+\item[{}]{\$body, }
+\item[{}]{\$content\+Type = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_aaf29c3f2c96366c425d70769f054e429}
+Set the body of this entity, either as a string, or as an instance of \doxyref{Swift\+\_\+\+Output\+Byte\+Stream}{p.}{interface_swift___output_byte_stream}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$body} & \\
+\hline
+string & {\em \$content\+Type} & optional\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_aaf29c3f2c96366c425d70769f054e429}.
+
+
+
+Definition at line 366 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Boundary@{set\+Boundary}}
+\index{set\+Boundary@{set\+Boundary}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}set\+Boundary (
+\begin{DoxyParamCaption}
+\item[{}]{\$boundary}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a395129cb792b33609dac30558e62b0b6}
+Set the boundary used to separate children in this entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$boundary} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Rfc\+Compliance\+Exception}{p.}{class_swift___rfc_compliance_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 433 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Children@{set\+Children}}
+\index{set\+Children@{set\+Children}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Children}]{\setlength{\rightskip}{0pt plus 5cm}set\+Children (
+\begin{DoxyParamCaption}
+\item[{array}]{\$children, }
+\item[{}]{\$compound\+Level = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a6c5a43885c512a28a4ad13a64c04ae63}
+Set all children of this entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity\mbox{[}$\,$\mbox{]}} & \$children \\
+\hline
+int & {\em \$compound\+Level} & For internal use only\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 281 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Content\+Type@{set\+Content\+Type}}
+\index{set\+Content\+Type@{set\+Content\+Type}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Content\+Type}]{\setlength{\rightskip}{0pt plus 5cm}set\+Content\+Type (
+\begin{DoxyParamCaption}
+\item[{}]{\$type}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a6dcde4eabba25c2d428ae6939a5e82b5}
+Set the Content-\/type of this entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 166 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Description@{set\+Description}}
+\index{set\+Description@{set\+Description}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Description}]{\setlength{\rightskip}{0pt plus 5cm}set\+Description (
+\begin{DoxyParamCaption}
+\item[{}]{\$description}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a31fad3e39336ea079ea758e051866627}
+Set the description of this entity.
+
+This method sets a value in the Content-\/\+I\+D header.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$description} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Encoder@{set\+Encoder}}
+\index{set\+Encoder@{set\+Encoder}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Encoder}]{\setlength{\rightskip}{0pt plus 5cm}set\+Encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}}]{\$encoder}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_aa76f7a4cc63ae077ac13702828a8275d}
+Set the encoder used for the body of this entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Content\+Encoder}{p.}{interface_swift___mime___content_encoder} & {\em \$encoder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 397 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Id}]{\setlength{\rightskip}{0pt plus 5cm}set\+Id (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a87313ad678fb2a2a8efb435cf0bdb9a0}
+Set the C\+I\+D of this entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!set\+Max\+Line\+Length@{set\+Max\+Line\+Length}}
+\index{set\+Max\+Line\+Length@{set\+Max\+Line\+Length}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{set\+Max\+Line\+Length}]{\setlength{\rightskip}{0pt plus 5cm}set\+Max\+Line\+Length (
+\begin{DoxyParamCaption}
+\item[{}]{\$length}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_af3e6645fe8f8bb9a80f9edac41c2cf70}
+Set the maximum line length of lines in this body.
+
+Though not enforced by the library, lines should not exceed 1000 chars.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}{p.}{class_swift___mime___simple_mime_entity} 
+\end{DoxyReturn}
+
+
+Definition at line 256 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!to\+Byte\+Stream@{to\+Byte\+Stream}}
+\index{to\+Byte\+Stream@{to\+Byte\+Stream}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{to\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}to\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a458ce073818b635a9a43965fd730e93b}
+Write this entire entity to a \{\begin{DoxySeeAlso}{See also}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream}\}.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream}} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a458ce073818b635a9a43965fd730e93b}.
+
+
+
+Definition at line 527 of file Simple\+Mime\+Entity.\+php.
+
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___mime___simple_mime_entity_a5558c5d549f41597377fa1ea8a1cefa3}
+Get this entire entity as a string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a5558c5d549f41597377fa1ea8a1cefa3}.
+
+
+
+Definition at line 468 of file Simple\+Mime\+Entity.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}!\$\+\_\+user\+Content\+Type@{\$\+\_\+user\+Content\+Type}}
+\index{\$\+\_\+user\+Content\+Type@{\$\+\_\+user\+Content\+Type}!Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity@{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity}}
+\subsubsection[{\$\+\_\+user\+Content\+Type}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+user\+Content\+Type\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___mime___simple_mime_entity_a32b6d5c964ed6992e75a065ca8435423}
+
+
+Definition at line 71 of file Simple\+Mime\+Entity.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Mime/{\bf Simple\+Mime\+Entity.\+php}\end{DoxyCompactItemize}

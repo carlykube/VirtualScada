@@ -1,0 +1,5 @@
+var class_doctrine_test_1_1_instantiator_test_1_1_exception_1_1_unexpected_value_exception_test =
+[
+    [ "testFromSerializationTriggeredException", "class_doctrine_test_1_1_instantiator_test_1_1_exception_1_1_unexpected_value_exception_test.html#a4c13a045980cf58b90a529f65e9c34b5", null ],
+    [ "testFromUncleanUnSerialization", "class_doctrine_test_1_1_instantiator_test_1_1_exception_1_1_unexpected_value_exception_test.html#a24741c6d725c81bc871e5e6763c3338b", null ]
+];

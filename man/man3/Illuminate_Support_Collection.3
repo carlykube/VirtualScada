@@ -1,0 +1,1697 @@
+.TH "Collection" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Collection \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ArrayAccess, \fBArrayable\fP, Countable, IteratorAggregate, \fBJsonable\fP, JsonSerializable, ArrayAccess, \fBArrayable\fP, Countable, IteratorAggregate, \fBJsonable\fP, and JsonSerializable\&.
+.PP
+Inherited by \fBCollection\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($items=array())"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBcollapse\fP ()"
+.br
+.ti -1c
+.RI "\fBcontains\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBdiff\fP ($items)"
+.br
+.ti -1c
+.RI "\fBeach\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBfetch\fP ($key)"
+.br
+.ti -1c
+.RI "\fBfilter\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBwhere\fP ($key, $value, $strict=true)"
+.br
+.ti -1c
+.RI "\fBwhereLoose\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBfirst\fP (callable $\fBcallback\fP=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBflatten\fP ()"
+.br
+.ti -1c
+.RI "\fBflip\fP ()"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgroupBy\fP ($groupBy)"
+.br
+.ti -1c
+.RI "\fBkeyBy\fP ($keyBy)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($key)"
+.br
+.ti -1c
+.RI "\fBimplode\fP ($value, $glue=null)"
+.br
+.ti -1c
+.RI "\fBintersect\fP ($items)"
+.br
+.ti -1c
+.RI "\fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fBkeys\fP ()"
+.br
+.ti -1c
+.RI "\fBlast\fP ()"
+.br
+.ti -1c
+.RI "\fBlists\fP ($value, $key=null)"
+.br
+.ti -1c
+.RI "\fBmap\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBmerge\fP ($items)"
+.br
+.ti -1c
+.RI "\fBforPage\fP ($page, $perPage)"
+.br
+.ti -1c
+.RI "\fBpop\fP ()"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBrandom\fP ($amount=1)"
+.br
+.ti -1c
+.RI "\fBreduce\fP (callable $\fBcallback\fP, $initial=null)"
+.br
+.ti -1c
+.RI "\fBreject\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBreverse\fP ()"
+.br
+.ti -1c
+.RI "\fBsearch\fP ($value, $strict=false)"
+.br
+.ti -1c
+.RI "\fBshift\fP ()"
+.br
+.ti -1c
+.RI "\fBshuffle\fP ()"
+.br
+.ti -1c
+.RI "\fBslice\fP ($offset, $length=null, $preserveKeys=false)"
+.br
+.ti -1c
+.RI "\fBchunk\fP ($\fBsize\fP, $preserveKeys=false)"
+.br
+.ti -1c
+.RI "\fBsort\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsortBy\fP ($\fBcallback\fP, $\fBoptions\fP=SORT_REGULAR, $\fBdescending\fP=false)"
+.br
+.ti -1c
+.RI "\fBsortByDesc\fP ($\fBcallback\fP, $\fBoptions\fP=SORT_REGULAR)"
+.br
+.ti -1c
+.RI "\fBsplice\fP ($offset, $length=0, $replacement=array())"
+.br
+.ti -1c
+.RI "\fBsum\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBtake\fP ($limit=null)"
+.br
+.ti -1c
+.RI "\fBtransform\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBunique\fP ()"
+.br
+.ti -1c
+.RI "\fBvalues\fP ()"
+.br
+.ti -1c
+.RI "\fBtoArray\fP ()"
+.br
+.ti -1c
+.RI "\fBjsonSerialize\fP ()"
+.br
+.ti -1c
+.RI "\fBtoJson\fP ($\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachingIterator\fP ($flags=CachingIterator::CALL_TOSTRING)"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($items=array())"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBcollapse\fP ()"
+.br
+.ti -1c
+.RI "\fBcontains\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBdiff\fP ($items)"
+.br
+.ti -1c
+.RI "\fBeach\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBfetch\fP ($key)"
+.br
+.ti -1c
+.RI "\fBfilter\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBwhere\fP ($key, $value, $strict=true)"
+.br
+.ti -1c
+.RI "\fBwhereLoose\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBfirst\fP (callable $\fBcallback\fP=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBflatten\fP ()"
+.br
+.ti -1c
+.RI "\fBflip\fP ()"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgroupBy\fP ($groupBy)"
+.br
+.ti -1c
+.RI "\fBkeyBy\fP ($keyBy)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($key)"
+.br
+.ti -1c
+.RI "\fBimplode\fP ($value, $glue=null)"
+.br
+.ti -1c
+.RI "\fBintersect\fP ($items)"
+.br
+.ti -1c
+.RI "\fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fBkeys\fP ()"
+.br
+.ti -1c
+.RI "\fBlast\fP ()"
+.br
+.ti -1c
+.RI "\fBlists\fP ($value, $key=null)"
+.br
+.ti -1c
+.RI "\fBmap\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBmerge\fP ($items)"
+.br
+.ti -1c
+.RI "\fBforPage\fP ($page, $perPage)"
+.br
+.ti -1c
+.RI "\fBpop\fP ()"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBrandom\fP ($amount=1)"
+.br
+.ti -1c
+.RI "\fBreduce\fP (callable $\fBcallback\fP, $initial=null)"
+.br
+.ti -1c
+.RI "\fBreject\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBreverse\fP ()"
+.br
+.ti -1c
+.RI "\fBsearch\fP ($value, $strict=false)"
+.br
+.ti -1c
+.RI "\fBshift\fP ()"
+.br
+.ti -1c
+.RI "\fBshuffle\fP ()"
+.br
+.ti -1c
+.RI "\fBslice\fP ($offset, $length=null, $preserveKeys=false)"
+.br
+.ti -1c
+.RI "\fBchunk\fP ($\fBsize\fP, $preserveKeys=false)"
+.br
+.ti -1c
+.RI "\fBsort\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsortBy\fP ($\fBcallback\fP, $\fBoptions\fP=SORT_REGULAR, $\fBdescending\fP=false)"
+.br
+.ti -1c
+.RI "\fBsortByDesc\fP ($\fBcallback\fP, $\fBoptions\fP=SORT_REGULAR)"
+.br
+.ti -1c
+.RI "\fBsplice\fP ($offset, $length=0, $replacement=[])"
+.br
+.ti -1c
+.RI "\fBsum\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBtake\fP ($limit=null)"
+.br
+.ti -1c
+.RI "\fBtransform\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBunique\fP ()"
+.br
+.ti -1c
+.RI "\fBvalues\fP ()"
+.br
+.ti -1c
+.RI "\fBtoArray\fP ()"
+.br
+.ti -1c
+.RI "\fBjsonSerialize\fP ()"
+.br
+.ti -1c
+.RI "\fBtoJson\fP ($\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachingIterator\fP ($flags=CachingIterator::CALL_TOSTRING)"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBmake\fP ($items=null)"
+.br
+.ti -1c
+.RI "static \fBmake\fP ($items=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBuseAsCallable\fP ($value)"
+.br
+.ti -1c
+.RI "\fBvalueRetriever\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetArrayableItems\fP ($items)"
+.br
+.ti -1c
+.RI "\fBuseAsCallable\fP ($value)"
+.br
+.ti -1c
+.RI "\fBvalueRetriever\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetArrayableItems\fP ($items)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$items\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11389 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $items = \fCarray()\fP)"
+
+.PP
+Definition at line 11392 of file compiled\&.php\&.
+.SS "__construct ( $items = \fCarray()\fP)"
+Create a new collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Collection\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Convert the collection to its string representation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 881 of file Collection\&.php\&.
+.SS "__toString ()"
+
+.PP
+Definition at line 11736 of file compiled\&.php\&.
+.SS "all ()"
+Get all of the items in the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Collection\&.php\&.
+.SS "all ()"
+
+.PP
+Definition at line 11401 of file compiled\&.php\&.
+.SS "chunk ( $size,  $preserveKeys = \fCfalse\fP)"
+Chunk the underlying collection array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$size\fP 
+.br
+\fI$preserveKeys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 583 of file Collection\&.php\&.
+.SS "chunk ( $size,  $preserveKeys = \fCfalse\fP)"
+
+.PP
+Definition at line 11615 of file compiled\&.php\&.
+.SS "collapse ()"
+Collapse the collection items into a single array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file Collection\&.php\&.
+.SS "collapse ()"
+
+.PP
+Definition at line 11405 of file compiled\&.php\&.
+.SS "contains ( $key,  $value = \fCnull\fP)"
+Determine if an item exists in the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file Collection\&.php\&.
+.SS "contains ( $key,  $value = \fCnull\fP)"
+
+.PP
+Definition at line 11416 of file compiled\&.php\&.
+.SS "count ()"
+Count the number of items in the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 819 of file Collection\&.php\&.
+.SS "count ()"
+
+.PP
+Definition at line 11712 of file compiled\&.php\&.
+.SS "diff ( $items)"
+\fBDiff\fP the collection with the given items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file Collection\&.php\&.
+.SS "diff ( $items)"
+
+.PP
+Definition at line 11428 of file compiled\&.php\&.
+.SS "each (callable $callback)"
+Execute a callback over each item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file Collection\&.php\&.
+.SS "each (callable $callback)"
+
+.PP
+Definition at line 11432 of file compiled\&.php\&.
+.SS "fetch ( $key)"
+Fetch a nested element of the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file Collection\&.php\&.
+.SS "fetch ( $key)"
+
+.PP
+Definition at line 11437 of file compiled\&.php\&.
+.SS "filter (callable $callback)"
+Run a filter over each of the items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file Collection\&.php\&.
+.SS "filter (callable $callback)"
+
+.PP
+Definition at line 11441 of file compiled\&.php\&.
+.SS "first (callable $callback = \fCnull\fP,  $default = \fCnull\fP)"
+Get the first item from the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|null 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file Collection\&.php\&.
+.SS "first (callable $callback = \fCnull\fP,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11455 of file compiled\&.php\&.
+.SS "flatten ()"
+Get a flattened array of the items in the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Collection\&.php\&.
+.SS "flatten ()"
+
+.PP
+Definition at line 11462 of file compiled\&.php\&.
+.SS "flip ()"
+Flip the items in the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file Collection\&.php\&.
+.SS "flip ()"
+
+.PP
+Definition at line 11466 of file compiled\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the collection by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file Collection\&.php\&.
+.SS "forget ( $key)"
+
+.PP
+Definition at line 11470 of file compiled\&.php\&.
+.SS "forPage ( $page,  $perPage)"
+'Paginate' the collection by slicing it into a smaller collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$page\fP 
+.br
+\fI$perPage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 409 of file Collection\&.php\&.
+.SS "forPage ( $page,  $perPage)"
+
+.PP
+Definition at line 11547 of file compiled\&.php\&.
+.SS "get ( $key,  $default = \fCnull\fP)"
+Get an item from the collection by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file Collection\&.php\&.
+.SS "get ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11474 of file compiled\&.php\&.
+.SS "getArrayableItems ( $items)\fC [protected]\fP"
+Results array of items from \fBCollection\fP or Arrayable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 892 of file Collection\&.php\&.
+.SS "getArrayableItems ( $items)\fC [protected]\fP"
+
+.PP
+Definition at line 11740 of file compiled\&.php\&.
+.SS "getCachingIterator ( $flags = \fCCachingIterator::CALL_TOSTRING\fP)"
+Get a CachingIterator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$flags\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 809 of file Collection\&.php\&.
+.SS "getCachingIterator ( $flags = \fCCachingIterator::CALL_TOSTRING\fP)"
+
+.PP
+Definition at line 11708 of file compiled\&.php\&.
+.SS "getIterator ()"
+Get an iterator for the items\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 798 of file Collection\&.php\&.
+.SS "getIterator ()"
+
+.PP
+Definition at line 11704 of file compiled\&.php\&.
+.SS "groupBy ( $groupBy)"
+Group an associative array by a field or using a callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$groupBy\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 246 of file Collection\&.php\&.
+.SS "groupBy ( $groupBy)"
+
+.PP
+Definition at line 11481 of file compiled\&.php\&.
+.SS "has ( $key)"
+Determine if an item exists in the collection by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file Collection\&.php\&.
+.SS "has ( $key)"
+
+.PP
+Definition at line 11503 of file compiled\&.php\&.
+.SS "implode ( $value,  $glue = \fCnull\fP)"
+Concatenate values of a given key as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$glue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file Collection\&.php\&.
+.SS "implode ( $value,  $glue = \fCnull\fP)"
+
+.PP
+Definition at line 11507 of file compiled\&.php\&.
+.SS "intersect ( $items)"
+Intersect the collection with the given items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file Collection\&.php\&.
+.SS "intersect ( $items)"
+
+.PP
+Definition at line 11515 of file compiled\&.php\&.
+.SS "isEmpty ()"
+Determine if the collection is empty or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 332 of file Collection\&.php\&.
+.SS "isEmpty ()"
+
+.PP
+Definition at line 11519 of file compiled\&.php\&.
+.SS "jsonSerialize ()"
+Convert the object into something JSON serializable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 777 of file Collection\&.php\&.
+.SS "jsonSerialize ()"
+
+.PP
+Definition at line 11696 of file compiled\&.php\&.
+.SS "keyBy ( $keyBy)"
+Key an associative array by a field or using a callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keyBy\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file Collection\&.php\&.
+.SS "keyBy ( $keyBy)"
+
+.PP
+Definition at line 11492 of file compiled\&.php\&.
+.SS "keys ()"
+Get the keys of the collection items\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 353 of file Collection\&.php\&.
+.SS "keys ()"
+
+.PP
+Definition at line 11527 of file compiled\&.php\&.
+.SS "last ()"
+Get the last item from the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|null 
+.RE
+.PP
+
+.PP
+Definition at line 363 of file Collection\&.php\&.
+.SS "last ()"
+
+.PP
+Definition at line 11531 of file compiled\&.php\&.
+.SS "lists ( $value,  $key = \fCnull\fP)"
+Get an array with the values of a given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 375 of file Collection\&.php\&.
+.SS "lists ( $value,  $key = \fCnull\fP)"
+
+.PP
+Definition at line 11535 of file compiled\&.php\&.
+.SS "static make ( $items = \fCnull\fP)\fC [static]\fP"
+Create a new collection instance if the value isn't one already\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file Collection\&.php\&.
+.SS "static make ( $items = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 11397 of file compiled\&.php\&.
+.SS "map (callable $callback)"
+Run a map over each of the items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file Collection\&.php\&.
+.SS "map (callable $callback)"
+
+.PP
+Definition at line 11539 of file compiled\&.php\&.
+.SS "merge ( $items)"
+Merge the collection with the given items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 397 of file Collection\&.php\&.
+.SS "merge ( $items)"
+
+.PP
+Definition at line 11543 of file compiled\&.php\&.
+.SS "offsetExists ( $key)"
+Determine if an item exists at an offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 830 of file Collection\&.php\&.
+.SS "offsetExists ( $key)"
+
+.PP
+Definition at line 11716 of file compiled\&.php\&.
+.SS "offsetGet ( $key)"
+Get an item at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 841 of file Collection\&.php\&.
+.SS "offsetGet ( $key)"
+
+.PP
+Definition at line 11720 of file compiled\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+Set the item at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 853 of file Collection\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+
+.PP
+Definition at line 11724 of file compiled\&.php\&.
+.SS "offsetUnset ( $key)"
+Unset the item at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 871 of file Collection\&.php\&.
+.SS "offsetUnset ( $key)"
+
+.PP
+Definition at line 11732 of file compiled\&.php\&.
+.SS "pop ()"
+Get and remove the last item from the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|null 
+.RE
+.PP
+
+.PP
+Definition at line 419 of file Collection\&.php\&.
+.SS "pop ()"
+
+.PP
+Definition at line 11551 of file compiled\&.php\&.
+.SS "prepend ( $value)"
+Push an item onto the beginning of the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 430 of file Collection\&.php\&.
+.SS "prepend ( $value)"
+
+.PP
+Definition at line 11555 of file compiled\&.php\&.
+.SS "pull ( $key,  $default = \fCnull\fP)"
+Pulls an item from the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 453 of file Collection\&.php\&.
+.SS "pull ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11563 of file compiled\&.php\&.
+.SS "push ( $value)"
+Push an item onto the end of the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 441 of file Collection\&.php\&.
+.SS "push ( $value)"
+
+.PP
+Definition at line 11559 of file compiled\&.php\&.
+.SS "put ( $key,  $value)"
+Put an item in the collection by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 465 of file Collection\&.php\&.
+.SS "put ( $key,  $value)"
+
+.PP
+Definition at line 11567 of file compiled\&.php\&.
+.SS "random ( $amount = \fC1\fP)"
+Get one or more items randomly from the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$amount\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 476 of file Collection\&.php\&.
+.SS "random ( $amount = \fC1\fP)"
+
+.PP
+Definition at line 11571 of file compiled\&.php\&.
+.SS "reduce (callable $callback,  $initial = \fCnull\fP)"
+Reduce the collection to a single value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$initial\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 492 of file Collection\&.php\&.
+.SS "reduce (callable $callback,  $initial = \fCnull\fP)"
+
+.PP
+Definition at line 11579 of file compiled\&.php\&.
+.SS "reject ( $callback)"
+Create a collection of all elements that do not pass a given truth test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 503 of file Collection\&.php\&.
+.SS "reject ( $callback)"
+
+.PP
+Definition at line 11583 of file compiled\&.php\&.
+.SS "reverse ()"
+Reverse items order\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 524 of file Collection\&.php\&.
+.SS "reverse ()"
+
+.PP
+Definition at line 11594 of file compiled\&.php\&.
+.SS "search ( $value,  $strict = \fCfalse\fP)"
+Search the collection for a given value and return the corresponding key if successful\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$strict\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 536 of file Collection\&.php\&.
+.SS "search ( $value,  $strict = \fCfalse\fP)"
+
+.PP
+Definition at line 11598 of file compiled\&.php\&.
+.SS "shift ()"
+Get and remove the first item from the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|null 
+.RE
+.PP
+
+.PP
+Definition at line 546 of file Collection\&.php\&.
+.SS "shift ()"
+
+.PP
+Definition at line 11602 of file compiled\&.php\&.
+.SS "shuffle ()"
+Shuffle the items in the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 556 of file Collection\&.php\&.
+.SS "shuffle ()"
+
+.PP
+Definition at line 11606 of file compiled\&.php\&.
+.SS "slice ( $offset,  $length = \fCnull\fP,  $preserveKeys = \fCfalse\fP)"
+Slice the underlying collection array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.br
+\fI$length\fP 
+.br
+\fI$preserveKeys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 571 of file Collection\&.php\&.
+.SS "slice ( $offset,  $length = \fCnull\fP,  $preserveKeys = \fCfalse\fP)"
+
+.PP
+Definition at line 11611 of file compiled\&.php\&.
+.SS "sort (callable $callback)"
+Sort through each item with a callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 601 of file Collection\&.php\&.
+.SS "sort (callable $callback)"
+
+.PP
+Definition at line 11623 of file compiled\&.php\&.
+.SS "sortBy ( $callback,  $options = \fCSORT_REGULAR\fP,  $descending = \fCfalse\fP)"
+Sort the collection using the given callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$options\fP 
+.br
+\fI$descending\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 616 of file Collection\&.php\&.
+.SS "sortBy ( $callback,  $options = \fCSORT_REGULAR\fP,  $descending = \fCfalse\fP)"
+
+.PP
+Definition at line 11628 of file compiled\&.php\&.
+.SS "sortByDesc ( $callback,  $options = \fCSORT_REGULAR\fP)"
+Sort the collection in descending order using the given callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 656 of file Collection\&.php\&.
+.SS "sortByDesc ( $callback,  $options = \fCSORT_REGULAR\fP)"
+
+.PP
+Definition at line 11644 of file compiled\&.php\&.
+.SS "splice ( $offset,  $length = \fC0\fP,  $replacement = \fC[]\fP)"
+Splice portion of the underlying collection array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.br
+\fI$length\fP 
+.br
+\fI$replacement\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 669 of file Collection\&.php\&.
+.SS "splice ( $offset,  $length = \fC0\fP,  $replacement = \fCarray()\fP)"
+
+.PP
+Definition at line 11648 of file compiled\&.php\&.
+.SS "sum ( $callback = \fCnull\fP)"
+Get the sum of the given values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 680 of file Collection\&.php\&.
+.SS "sum ( $callback = \fCnull\fP)"
+
+.PP
+Definition at line 11652 of file compiled\&.php\&.
+.SS "take ( $limit = \fCnull\fP)"
+Take the first or last {$limit} items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$limit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 704 of file Collection\&.php\&.
+.SS "take ( $limit = \fCnull\fP)"
+
+.PP
+Definition at line 11664 of file compiled\&.php\&.
+.SS "toArray ()"
+Get the collection of items as a plain array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBArrayable\fP\&.
+.PP
+Definition at line 763 of file Collection\&.php\&.
+.SS "toArray ()"
+
+.PP
+Implements \fBArrayable\fP\&.
+.PP
+Definition at line 11690 of file compiled\&.php\&.
+.SS "toJson ( $options = \fC0\fP)"
+Get the collection of items as JSON\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBJsonable\fP\&.
+.PP
+Definition at line 788 of file Collection\&.php\&.
+.SS "toJson ( $options = \fC0\fP)"
+
+.PP
+Implements \fBJsonable\fP\&.
+.PP
+Definition at line 11700 of file compiled\&.php\&.
+.SS "transform (callable $callback)"
+Transform each item in the collection using a callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 717 of file Collection\&.php\&.
+.SS "transform (callable $callback)"
+
+.PP
+Definition at line 11671 of file compiled\&.php\&.
+.SS "unique ()"
+Return only unique items from the collection array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 729 of file Collection\&.php\&.
+.SS "unique ()"
+
+.PP
+Definition at line 11676 of file compiled\&.php\&.
+.SS "useAsCallable ( $value)\fC [protected]\fP"
+Determine if the given value is callable, but not a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file Collection\&.php\&.
+.SS "useAsCallable ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11523 of file compiled\&.php\&.
+.SS "valueRetriever ( $value)\fC [protected]\fP"
+Get a value retrieving callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 750 of file Collection\&.php\&.
+.SS "valueRetriever ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11684 of file compiled\&.php\&.
+.SS "values ()"
+Reset the keys on the underlying array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 739 of file Collection\&.php\&.
+.SS "values ()"
+
+.PP
+Definition at line 11680 of file compiled\&.php\&.
+.SS "where ( $key,  $value,  $strict = \fCtrue\fP)"
+Filter items by the given key value pair\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$strict\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file Collection\&.php\&.
+.SS "where ( $key,  $value,  $strict = \fCtrue\fP)"
+
+.PP
+Definition at line 11445 of file compiled\&.php\&.
+.SS "whereLoose ( $key,  $value)"
+Filter items by the given key value pair using loose comparison\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file Collection\&.php\&.
+.SS "whereLoose ( $key,  $value)"
+
+.PP
+Definition at line 11451 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$items = array()\fC [protected]\fP"
+
+.PP
+Definition at line 11391 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

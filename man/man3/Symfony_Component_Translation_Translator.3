@@ -1,0 +1,380 @@
+.TH "Translator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Translator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTranslatorInterface\fP, and \fBTranslatorBagInterface\fP\&.
+.PP
+Inherited by \fBTranslatorWithInvalidLocale\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBlocale\fP, \fBMessageSelector\fP $selector=null, $cacheDir=null, $debug=false)"
+.br
+.ti -1c
+.RI "\fBaddLoader\fP ($\fBformat\fP, \fBLoaderInterface\fP $loader)"
+.br
+.ti -1c
+.RI "\fBaddResource\fP ($\fBformat\fP, $resource, $\fBlocale\fP, $domain=null)"
+.br
+.ti -1c
+.RI "\fBsetLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFallbackLocale\fP ($locales)"
+.br
+.ti -1c
+.RI "\fBsetFallbackLocales\fP (array $locales)"
+.br
+.ti -1c
+.RI "\fBgetFallbackLocales\fP ()"
+.br
+.ti -1c
+.RI "\fBtrans\fP ($id, array $parameters=array(), $domain=null, $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBtransChoice\fP ($id, $number, array $parameters=array(), $domain=null, $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetCatalogue\fP ($\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetMessages\fP ($\fBlocale\fP=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetLoaders\fP ()"
+.br
+.ti -1c
+.RI "\fBloadCatalogue\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBinitializeCatalogue\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBcomputeFallbackLocales\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBassertValidLocale\fP ($\fBlocale\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$catalogues\fP = array()"
+.br
+.ti -1c
+.RI "\fB$locale\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTranslator\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Translator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $locale, \fBMessageSelector\fP $selector = \fCnull\fP,  $cacheDir = \fCnull\fP,  $debug = \fCfalse\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP The locale 
+.br
+\fI$selector\fP The message selector for pluralization 
+.br
+\fI$cacheDir\fP The directory to use for the cache 
+.br
+\fI$debug\fP Use cache in debug mode ?
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 79 of file Translator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addLoader ( $format, \fBLoaderInterface\fP $loader)"
+Adds a \fBLoader\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The name of the loader (
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBaddResource()\fP) 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loader\fP \fBA\fP LoaderInterface instance
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Translator\&.php\&.
+.SS "addResource ( $format,  $resource,  $locale,  $domain = \fCnull\fP)"
+Adds a Resource\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The name of the loader (
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBaddLoader()\fP) 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP The resource name 
+.br
+\fI$locale\fP The locale 
+.br
+\fI$domain\fP The domain
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 112 of file Translator\&.php\&.
+.SS "assertValidLocale ( $locale)\fC [protected]\fP"
+Asserts that the locale is valid, throws an \fBException\fP if not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP Locale to tests
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 460 of file Translator\&.php\&.
+.SS "computeFallbackLocales ( $locale)\fC [protected]\fP"
+
+.PP
+Definition at line 435 of file Translator\&.php\&.
+.SS "getCatalogue ( $locale = \fCnull\fP)"
+{Gets the catalogue by locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP The locale or null to use the default
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMessageCatalogueInterface\fP
+.RE
+.PP
+} 
+.PP
+Implements \fBTranslatorBagInterface\fP\&.
+.PP
+Definition at line 262 of file Translator\&.php\&.
+.SS "getFallbackLocales ()"
+Gets the fallback locales\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array $locales The fallback locales
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Translator\&.php\&.
+.SS "getLoaders ()\fC [protected]\fP"
+Gets the loaders\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array LoaderInterface[] 
+.RE
+.PP
+
+.PP
+Definition at line 280 of file Translator\&.php\&.
+.SS "getLocale ()"
+{Returns the current locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The locale
+.RE
+.PP
+}
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 145 of file Translator\&.php\&.
+.SS "getMessages ( $locale = \fCnull\fP)"
+Collects all messages for the given locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP Locale of translations, by default is current locale
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array[array] indexed by catalog 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file Translator\&.php\&.
+.SS "initializeCatalogue ( $locale)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+
+.PP
+Definition at line 331 of file Translator\&.php\&.
+.SS "loadCatalogue ( $locale)\fC [protected]\fP"
+
+.PP
+Definition at line 319 of file Translator\&.php\&.
+.SS "setFallbackLocale ( $locales)"
+Sets the fallback locale(s)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locales\fP The fallback locale(s)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 161 of file Translator\&.php\&.
+.SS "setFallbackLocales (array $locales)"
+Sets the fallback locales\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locales\fP The fallback locales
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 175 of file Translator\&.php\&.
+.SS "setLocale ( $locale)"
+{Sets the current locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP The locale
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+}
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 134 of file Translator\&.php\&.
+.SS "trans ( $id, array $parameters = \fCarray()\fP,  $domain = \fCnull\fP,  $locale = \fCnull\fP)"
+{Translates the given message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id (may also be an object that can be cast to string) 
+.br
+\fI$parameters\fP An array of parameters for the message 
+.br
+\fI$domain\fP The domain for the message or null to use the default 
+.br
+\fI$locale\fP The locale or null to use the default
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+}
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 204 of file Translator\&.php\&.
+.SS "transChoice ( $id,  $number, array $parameters = \fCarray()\fP,  $domain = \fCnull\fP,  $locale = \fCnull\fP)"
+{Translates the given choice message by choosing a translation according to a number\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id (may also be an object that can be cast to string) 
+.br
+\fI$number\fP The number to use to find the indice of the message 
+.br
+\fI$parameters\fP An array of parameters for the message 
+.br
+\fI$domain\fP The domain for the message or null to use the default 
+.br
+\fI$locale\fP The locale or null to use the default
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+}
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 228 of file Translator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$catalogues = array()\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file Translator\&.php\&.
+.SS "$\fBlocale\fP\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file Translator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,356 @@
+.TH "CookieJar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CookieJar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueueingFactory\fP, and \fBQueueingFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmake\fP ($\fBname\fP, $value, $\fBminutes\fP=0, $\fBpath\fP=null, $domain=null, $secure=false, $httpOnly=true)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($\fBname\fP, $value, $\fBpath\fP=null, $domain=null, $secure=false, $httpOnly=true)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($\fBname\fP, $\fBpath\fP=null, $domain=null)"
+.br
+.ti -1c
+.RI "\fBhasQueued\fP ($key)"
+.br
+.ti -1c
+.RI "\fBqueued\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBqueue\fP ()"
+.br
+.ti -1c
+.RI "\fBunqueue\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetDefaultPathAndDomain\fP ($\fBpath\fP, $domain)"
+.br
+.ti -1c
+.RI "\fBgetQueuedCookies\fP ()"
+.br
+.ti -1c
+.RI "\fBmake\fP ($\fBname\fP, $value, $\fBminutes\fP=0, $\fBpath\fP=null, $domain=null, $secure=false, $httpOnly=true)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($\fBname\fP, $value, $\fBpath\fP=null, $domain=null, $secure=false, $httpOnly=true)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($\fBname\fP, $\fBpath\fP=null, $domain=null)"
+.br
+.ti -1c
+.RI "\fBhasQueued\fP ($key)"
+.br
+.ti -1c
+.RI "\fBqueued\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBqueue\fP ()"
+.br
+.ti -1c
+.RI "\fBunqueue\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetDefaultPathAndDomain\fP ($\fBpath\fP, $domain)"
+.br
+.ti -1c
+.RI "\fBgetQueuedCookies\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPathAndDomain\fP ($\fBpath\fP, $domain)"
+.br
+.ti -1c
+.RI "\fBgetPathAndDomain\fP ($\fBpath\fP, $domain)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$path\fP = '/'"
+.br
+.ti -1c
+.RI "\fB$domain\fP = null"
+.br
+.ti -1c
+.RI "\fB$queued\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11754 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "forever ( $name,  $value,  $path = \fCnull\fP,  $domain = \fCnull\fP,  $secure = \fCfalse\fP,  $httpOnly = \fCtrue\fP)"
+Create a cookie that lasts 'forever' (five years)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$path\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$secure\fP 
+.br
+\fI$httpOnly\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 61 of file CookieJar\&.php\&.
+.SS "forever ( $name,  $value,  $path = \fCnull\fP,  $domain = \fCnull\fP,  $secure = \fCfalse\fP,  $httpOnly = \fCtrue\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 11765 of file compiled\&.php\&.
+.SS "forget ( $name,  $path = \fCnull\fP,  $domain = \fCnull\fP)"
+Expire the given cookie\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$path\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 74 of file CookieJar\&.php\&.
+.SS "forget ( $name,  $path = \fCnull\fP,  $domain = \fCnull\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 11769 of file compiled\&.php\&.
+.SS "getPathAndDomain ( $path,  $domain)\fC [protected]\fP"
+Get the path and domain, or the default values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 139 of file CookieJar\&.php\&.
+.SS "getPathAndDomain ( $path,  $domain)\fC [protected]\fP"
+
+.PP
+Definition at line 11794 of file compiled\&.php\&.
+.SS "getQueuedCookies ()"
+Get the cookies which have been queued for the next request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 163 of file CookieJar\&.php\&.
+.SS "getQueuedCookies ()"
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 11803 of file compiled\&.php\&.
+.SS "hasQueued ( $key)"
+Determine if a cookie has been queued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file CookieJar\&.php\&.
+.SS "hasQueued ( $key)"
+
+.PP
+Definition at line 11773 of file compiled\&.php\&.
+.SS "make ( $name,  $value,  $minutes = \fC0\fP,  $path = \fCnull\fP,  $domain = \fCnull\fP,  $secure = \fCfalse\fP,  $httpOnly = \fCtrue\fP)"
+Create a new cookie instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.br
+\fI$path\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$secure\fP 
+.br
+\fI$httpOnly\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 41 of file CookieJar\&.php\&.
+.SS "make ( $name,  $value,  $minutes = \fC0\fP,  $path = \fCnull\fP,  $domain = \fCnull\fP,  $secure = \fCfalse\fP,  $httpOnly = \fCtrue\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 11759 of file compiled\&.php\&.
+.SS "queue ()"
+\fBQueue\fP a cookie to send with the next response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 108 of file CookieJar\&.php\&.
+.SS "queue ()"
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 11781 of file compiled\&.php\&.
+.SS "queued ( $key,  $default = \fCnull\fP)"
+Get a queued cookie instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 97 of file CookieJar\&.php\&.
+.SS "queued ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11777 of file compiled\&.php\&.
+.SS "setDefaultPathAndDomain ( $path,  $domain)"
+Set the default path and domain for the jar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file CookieJar\&.php\&.
+.SS "setDefaultPathAndDomain ( $path,  $domain)"
+
+.PP
+Definition at line 11798 of file compiled\&.php\&.
+.SS "unqueue ( $name)"
+Remove a cookie from the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 127 of file CookieJar\&.php\&.
+.SS "unqueue ( $name)"
+
+.PP
+Implements \fBQueueingFactory\fP\&.
+.PP
+Definition at line 11790 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$domain = null\fC [protected]\fP"
+
+.PP
+Definition at line 11757 of file compiled\&.php\&.
+.SS "$\fBpath\fP = '/'\fC [protected]\fP"
+
+.PP
+Definition at line 11756 of file compiled\&.php\&.
+.SS "$\fBqueued\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 11758 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

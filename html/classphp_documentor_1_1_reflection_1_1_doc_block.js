@@ -1,0 +1,26 @@
+var classphp_documentor_1_1_reflection_1_1_doc_block =
+[
+    [ "DescriptionTest", "classphp_documentor_1_1_reflection_1_1_doc_block_1_1_description_test.html", "classphp_documentor_1_1_reflection_1_1_doc_block_1_1_description_test" ],
+    [ "__construct", "classphp_documentor_1_1_reflection_1_1_doc_block.html#aeb2214cb5724dfb516bd1a4dd8d1f02a", null ],
+    [ "__toString", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a7516ca30af0db3cdbf9a7739b48ce91d", null ],
+    [ "appendTag", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a8f73d57d96b5a647c2fddf0d7689e621", null ],
+    [ "cleanInput", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a8fe45436c5d2a6e311c3a1987c455106", null ],
+    [ "getContext", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a51609a8c7faaf9948679e3a291ba4733", null ],
+    [ "getLocation", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a270a747ff748def87f313beeef64f3b3", null ],
+    [ "getLongDescription", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a96d6d10591b2d6d2ff94033a7c7d9eed", null ],
+    [ "getShortDescription", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a6da2d04a1a89a8b29fc486b8499ebb1a", null ],
+    [ "getTags", "classphp_documentor_1_1_reflection_1_1_doc_block.html#ae07173ab06a20e2f5bd928cc0518e01f", null ],
+    [ "getText", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a8a2999b1d846c0a7bc77187e28facd99", null ],
+    [ "isTemplateEnd", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a3a1994a874edbd0ca71db5645acc1944", null ],
+    [ "isTemplateStart", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a98bb0c3ca0dfd8c974980e05af0a4432", null ],
+    [ "parseTags", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a3f6d9f6f2a44160708d8b9af635941fc", null ],
+    [ "setText", "classphp_documentor_1_1_reflection_1_1_doc_block.html#aa2e15b2d7afb7a36fef7420a9b5a3e18", null ],
+    [ "splitDocBlock", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a8abf6ab73e19b792e93228c875f2c861", null ],
+    [ "$context", "classphp_documentor_1_1_reflection_1_1_doc_block.html#ae05dedb802ada0155efdece2044fed64", null ],
+    [ "$isTemplateEnd", "classphp_documentor_1_1_reflection_1_1_doc_block.html#aa91af7c7b2973e4cba724e2ab848fcbf", null ],
+    [ "$isTemplateStart", "classphp_documentor_1_1_reflection_1_1_doc_block.html#ad95de379a7acbb6b2468fd08e17acc60", null ],
+    [ "$location", "classphp_documentor_1_1_reflection_1_1_doc_block.html#ac319193077976bb217112e5a7b7b8022", null ],
+    [ "$long_description", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a61169b8e9df9b03193dbcaf35b4a5fc1", null ],
+    [ "$short_description", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a3b21867b0c99d676735b16552452fc72", null ],
+    [ "$tags", "classphp_documentor_1_1_reflection_1_1_doc_block.html#a475a6a63b85186663d34151bcbd21590", null ]
+];

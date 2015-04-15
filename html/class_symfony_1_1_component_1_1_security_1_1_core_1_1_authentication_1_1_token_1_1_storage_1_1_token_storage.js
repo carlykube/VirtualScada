@@ -1,0 +1,5 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_storage_1_1_token_storage =
+[
+    [ "getToken", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_storage_1_1_token_storage.html#a211a2979c22afcd7d9056a2bb55aa449", null ],
+    [ "setToken", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_storage_1_1_token_storage.html#aa8b23c73b6c4b10303fe30de09c0d169", null ]
+];

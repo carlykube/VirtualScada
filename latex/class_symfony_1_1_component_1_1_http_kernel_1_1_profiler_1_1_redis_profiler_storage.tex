@@ -1,0 +1,298 @@
+\section{Redis\+Profiler\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage}\index{Redis\+Profiler\+Storage@{Redis\+Profiler\+Storage}}
+Inheritance diagram for Redis\+Profiler\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$dsn, \$username= \textquotesingle{}\textquotesingle{}, \$password= \textquotesingle{}\textquotesingle{}, \$lifetime=86400)
+\item 
+{\bf find} (\$ip, \$url, \$limit, \$method, \$start=null, \$end=null)
+\item 
+{\bf purge} ()
+\item 
+{\bf read} (\$token)
+\item 
+{\bf write} ({\bf Profile} \$profile)
+\item 
+{\bf set\+Redis} (\$redis)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X} = \textquotesingle{}sf\+\_\+profiler\+\_\+\textquotesingle{}
+\item 
+const {\bf R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R} = 1
+\item 
+const {\bf R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X} = 2
+\item 
+const {\bf R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E} = 0
+\item 
+const {\bf R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P} = 1
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Redis} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$dsn}
+\item 
+{\bf \$lifetime}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Redis\+Profiler\+Storage}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage} stores profiling information in \doxyref{Redis}{p.}{class_redis}.
+
+\begin{DoxyAuthor}{Author}
+Andrej Hudec {\tt pulzarraider@gmail.\+com} 
+
+Stephane P\+Y {\tt py.\+stephane1@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 20 of file Redis\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$dsn, }
+\item[{}]{\$username = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$password = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$lifetime = {\ttfamily 86400}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a8fee35c4f249b479da1a38214d1f2dc6}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$dsn} & \doxyref{A}{p.}{class_a} data source name \\
+\hline
+string & {\em \$username} & Not used \\
+\hline
+string & {\em \$password} & Not used \\
+\hline
+int & {\em \$lifetime} & The lifetime to use for the purge \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file Redis\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$limit, }
+\item[{}]{\$method, }
+\item[{}]{\$start = {\ttfamily null}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}
+\{Finds profiler tokens for the given criteria.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method \\
+\hline
+int | null & {\em \$start} & The start date to search from \\
+\hline
+int | null & {\em \$end} & The end date to search to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of tokens
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a78e1a362bc3a4a8b1290f3af9541d8b0}.
+
+
+
+Definition at line 54 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!get\+Redis@{get\+Redis}}
+\index{get\+Redis@{get\+Redis}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{get\+Redis}]{\setlength{\rightskip}{0pt plus 5cm}get\+Redis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a49dbec2199d4407441236790f858b40b}
+Internal convenience method that returns the instance of \doxyref{Redis}{p.}{class_redis}.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 203 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_ac400be513972a68ea08ef845d5b16824}
+\{Purges all data from the database.\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_ac400be513972a68ea08ef845d5b16824}.
+
+
+
+Definition at line 107 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}
+\{Reads data associated with the given token.
+
+The method returns false if the token does not exist in the storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \doxyref{A}{p.}{class_a} token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} The profile associated with token
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a2080f7cded6528ace4ee2172e48e5f3c}.
+
+
+
+Definition at line 140 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!set\+Redis@{set\+Redis}}
+\index{set\+Redis@{set\+Redis}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{set\+Redis}]{\setlength{\rightskip}{0pt plus 5cm}set\+Redis (
+\begin{DoxyParamCaption}
+\item[{}]{\$redis}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_ab581aa98fedf5f48f77d46088c58b4d9}
+Set instance of the \doxyref{Redis}{p.}{class_redis}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Redis & {\em \$redis} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 240 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Profile}}]{\$profile}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_aea7881699586bacb79b542561f655a05}
+\{Saves a \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} & {\em \$profile} & \doxyref{A}{p.}{class_a} \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Write operation successful
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_aea7881699586bacb79b542561f655a05}.
+
+
+
+Definition at line 158 of file Redis\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!\$dsn@{\$dsn}}
+\index{\$dsn@{\$dsn}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{\$dsn}]{\setlength{\rightskip}{0pt plus 5cm}\$dsn\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a6441cca8c9fa11e16d2017e8cb733c10}
+
+
+Definition at line 29 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!\$lifetime@{\$lifetime}}
+\index{\$lifetime@{\$lifetime}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{\$lifetime}]{\setlength{\rightskip}{0pt plus 5cm}\$lifetime\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a2900bc497d166ddabb5dd0141a5a7e73}
+
+
+Definition at line 30 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X@{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X}}
+\index{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X@{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+P\+R\+E\+F\+I\+X = 2}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_ac83e0fbf87fe3c31ca4bdac1ad75a284}
+
+
+Definition at line 25 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R@{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R}}
+\index{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R@{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+D\+I\+S\+\_\+\+O\+P\+T\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R = 1}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a8bfeb3d63d2f722fa015961f70d92a14}
+
+
+Definition at line 24 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E@{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E}}
+\index{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E@{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+N\+O\+N\+E = 0}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a83ae842f872c128d0808d988149f46ea}
+
+
+Definition at line 26 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P@{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P}}
+\index{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P@{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+D\+I\+S\+\_\+\+S\+E\+R\+I\+A\+L\+I\+Z\+E\+R\+\_\+\+P\+H\+P = 1}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a6ab5a128359a318305b779b98c34b0f4}
+
+
+Definition at line 27 of file Redis\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}!T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X@{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}}
+\index{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X@{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Redis\+Profiler\+Storage}}
+\subsubsection[{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}]{\setlength{\rightskip}{0pt plus 5cm}const T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X = \textquotesingle{}sf\+\_\+profiler\+\_\+\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_afed9cbf22c5789d0dd6712dabd61e1dc}
+
+
+Definition at line 22 of file Redis\+Profiler\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Profiler/{\bf Redis\+Profiler\+Storage.\+php}\end{DoxyCompactItemize}

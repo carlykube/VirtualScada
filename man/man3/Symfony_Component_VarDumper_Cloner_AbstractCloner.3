@@ -1,0 +1,228 @@
+.TH "AbstractCloner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractCloner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBClonerInterface\fP\&.
+.PP
+Inherited by \fBVarCloner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $casters=null)"
+.br
+.ti -1c
+.RI "\fBaddCasters\fP (array $casters)"
+.br
+.ti -1c
+.RI "\fBsetMaxItems\fP ($maxItems)"
+.br
+.ti -1c
+.RI "\fBsetMaxString\fP ($maxString)"
+.br
+.ti -1c
+.RI "\fBcloneVar\fP ($var)"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($type, $msg, $file, $\fBline\fP, $context)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$defaultCasters\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdoClone\fP ($var)"
+.br
+.ti -1c
+.RI "\fBcastObject\fP (\fBStub\fP $stub, $isNested)"
+.br
+.ti -1c
+.RI "\fBcastResource\fP (\fBStub\fP $stub, $isNested)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$maxItems\fP = 2500"
+.br
+.ti -1c
+.RI "\fB$maxString\fP = -1"
+.br
+.ti -1c
+.RI "\fB$useExt\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBAbstractCloner\fP implements a generic caster mechanism for objects and resources\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file AbstractCloner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $casters = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcallable[]|null\fP $casters \fBA\fP map of casters\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBaddCasters\fP 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file AbstractCloner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addCasters (array $casters)"
+Adds casters for resources and objects\&.
+.PP
+Maps resources or objects types to a callback\&. Types are in the key, with a callable caster for value\&. Resource types are to be prefixed with a \fC:\fP, see e\&.g\&. static::$defaultCasters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcallable[]\fP $casters \fBA\fP map of casters\&. 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file AbstractCloner\&.php\&.
+.SS "castObject (\fBStub\fP $stub,  $isNested)\fC [protected]\fP"
+Casts an object to an array representation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stub\fP The \fBStub\fP for the casted object\&. 
+.br
+\fI$isNested\fP True if the object is nested in the dumped structure\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The object casted as array\&. 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file AbstractCloner\&.php\&.
+.SS "castResource (\fBStub\fP $stub,  $isNested)\fC [protected]\fP"
+Casts a resource to an array representation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stub\fP The \fBStub\fP for the casted resource\&. 
+.br
+\fI$isNested\fP True if the object is nested in the dumped structure\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The resource casted as array\&. 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file AbstractCloner\&.php\&.
+.SS "cloneVar ( $var)"
+{Clones a \fBPHP\fP variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$var\fP Any \fBPHP\fP variable\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBData\fP The cloned variable represented by a \fBData\fP object\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBClonerInterface\fP\&.
+.PP
+Definition at line 145 of file AbstractCloner\&.php\&.
+.SS "doClone ( $var)\fC [abstract]\fP, \fC [protected]\fP"
+Effectively clones the \fBPHP\fP variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$var\fP Any \fBPHP\fP variable\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The cloned variable represented in an array\&. 
+.RE
+.PP
+
+.SS "handleError ( $type,  $msg,  $file,  $line,  $context)"
+Special handling for errors: cloning must be fail-safe\&. 
+.PP
+Definition at line 282 of file AbstractCloner\&.php\&.
+.SS "setMaxItems ( $maxItems)"
+Sets the maximum number of items to clone past the first level in nested structures\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxItems\fP 
+.RE
+.PP
+
+.PP
+Definition at line 127 of file AbstractCloner\&.php\&.
+.SS "setMaxString ( $maxString)"
+Sets the maximum cloned length for strings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxString\fP 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file AbstractCloner\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$defaultCasters\fC [static]\fP"
+
+.PP
+Definition at line 23 of file AbstractCloner\&.php\&.
+.SS "$maxItems = 2500\fC [protected]\fP"
+
+.PP
+Definition at line 83 of file AbstractCloner\&.php\&.
+.SS "$maxString = -1\fC [protected]\fP"
+
+.PP
+Definition at line 84 of file AbstractCloner\&.php\&.
+.SS "$useExt\fC [protected]\fP"
+
+.PP
+Definition at line 85 of file AbstractCloner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

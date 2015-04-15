@@ -1,0 +1,122 @@
+.TH "Swift_InputByteStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_InputByteStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_ByteStream_AbstractFilterableInputStream\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_KeyCache_KeyCacheInputStream\fP, \fBSwift_Plugins_BandwidthMonitorPlugin\fP, \fBSwift_Signers_HeaderSigner\fP, and \fBSwift_Transport_IoBuffer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBunbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBflushBuffers\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract means of writing data\&.
+.PP
+Classes implementing this interface may use a subsystem which requires less memory than working with large strings of data\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file InputByteStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bind (\fBSwift_InputByteStream\fP $is)"
+Attach $is to this stream\&.
+.PP
+The stream acts as an observer, receiving all data that is written\&. All \fBwrite()\fP and \fBflushBuffers()\fP operations will be mirrored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Signers_DKIMSigner\fP, \fBSwift_Signers_DomainKeySigner\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_ByteStream_AbstractFilterableInputStream\fP, \fBSwift_Plugins_BandwidthMonitorPlugin\fP, and \fBSwift_KeyCache_SimpleKeyCacheInputStream\fP\&.
+.SS "commit ()"
+For any bytes that are currently buffered inside the stream, force them off the buffer\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Signers_DKIMSigner\fP, \fBSwift_Signers_DomainKeySigner\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_ByteStream_AbstractFilterableInputStream\fP, \fBSwift_Plugins_BandwidthMonitorPlugin\fP, and \fBSwift_KeyCache_SimpleKeyCacheInputStream\fP\&.
+.SS "flushBuffers ()"
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Signers_DKIMSigner\fP, \fBSwift_Signers_DomainKeySigner\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_ByteStream_AbstractFilterableInputStream\fP, \fBSwift_Plugins_BandwidthMonitorPlugin\fP, and \fBSwift_KeyCache_SimpleKeyCacheInputStream\fP\&.
+.SS "unbind (\fBSwift_InputByteStream\fP $is)"
+Remove an already bound stream\&.
+.PP
+If $is is not bound, no errors will be raised\&. If the stream currently has any buffered data it will be written to $is before unbinding occurs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Signers_DKIMSigner\fP, \fBSwift_Signers_DomainKeySigner\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_ByteStream_AbstractFilterableInputStream\fP, \fBSwift_Plugins_BandwidthMonitorPlugin\fP, and \fBSwift_KeyCache_SimpleKeyCacheInputStream\fP\&.
+.SS "write ( $bytes)"
+Writes $bytes to the end of the stream\&.
+.PP
+Writing may not happen immediately if the stream chooses to buffer\&. If you want to write these bytes with immediate effect, call \fBcommit()\fP after calling \fBwrite()\fP\&.
+.PP
+This method returns the sequence ID of the write (i\&.e\&. 1 for first, 2 for second, etc etc)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Signers_DKIMSigner\fP, \fBSwift_Signers_DomainKeySigner\fP, \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_ByteStream_AbstractFilterableInputStream\fP, and \fBSwift_Plugins_BandwidthMonitorPlugin\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

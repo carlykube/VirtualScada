@@ -1,0 +1,114 @@
+.TH "RouterListener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RouterListener \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventSubscriberInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($matcher, \fBRequestContext\fP $context=null, \fBLoggerInterface\fP $logger=null, \fBRequestStack\fP $requestStack=null)"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request=null)"
+.br
+.ti -1c
+.RI "\fBonKernelFinishRequest\fP (\fBFinishRequestEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBonKernelRequest\fP (\fBGetResponseEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetSubscribedEvents\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Initializes the context from the request and sets request attributes based on a matching route\&.
+.PP
+This listener works in 2 modes:
+.PP
+.IP "\(bu" 2
+2\&.3 compatibility mode where you must call setRequest whenever the \fBRequest\fP changes\&.
+.IP "\(bu" 2
+2\&.4+ mode where you must pass a RequestStack instance in the constructor\&.
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file RouterListener\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $matcher, \fBRequestContext\fP $context = \fCnull\fP, \fBLoggerInterface\fP $logger = \fCnull\fP, \fBRequestStack\fP $requestStack = \fCnull\fP)"
+Constructor\&.
+.PP
+RequestStack will become required in 3\&.0\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$matcher\fP The Url or \fBRequest\fP matcher 
+.br
+\fI$context\fP The RequestContext (can be null when $matcher implements RequestContextAwareInterface) 
+.br
+\fI$logger\fP The logger 
+.br
+\fI$requestStack\fP \fBA\fP RequestStack instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 60 of file RouterListener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static getSubscribedEvents ()\fC [static]\fP"
+
+.PP
+Definition at line 162 of file RouterListener\&.php\&.
+.SS "onKernelFinishRequest (\fBFinishRequestEvent\fP $event)"
+
+.PP
+Definition at line 95 of file RouterListener\&.php\&.
+.SS "onKernelRequest (\fBGetResponseEvent\fP $event)"
+
+.PP
+Definition at line 104 of file RouterListener\&.php\&.
+.SS "setRequest (\fBRequest\fP $request = \fCnull\fP)"
+Sets the current \fBRequest\fP\&.
+.PP
+This method was used to synchronize the \fBRequest\fP, but as the \fBHttpKernel\fP is doing that automatically now, you should never call it directly\&. It is kept public for BC with the 2\&.3 version\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.4, to be moved to a private function in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file RouterListener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

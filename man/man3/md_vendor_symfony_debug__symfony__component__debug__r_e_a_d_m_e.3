@@ -1,0 +1,34 @@
+.TH "md_vendor_symfony_debug__symfony__component__debug__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_debug__symfony__component__debug__r_e_a_d_m_e \- Debug Component 
+Debug provides tools to make debugging easier\&.
+.PP
+Enabling all debug tools is as easy as calling the \fCenable()\fP method on the main \fCDebug\fP class:
+.PP
+```php use \fBSymfony\fP;
+.PP
+Debug::enable(); ```
+.PP
+You can also use the tools individually:
+.PP
+```php use \fBSymfony\fP; use \fBSymfony\fP;
+.PP
+if ('cli' !== php_sapi_name()) { ini_set('display_errors', 0); ExceptionHandler::register(); } elseif (!ini_get('log_errors') || ini_get('error_log')) { ini_set('display_errors', 1); } ErrorHandler::register(); ```
+.PP
+Note that the \fCDebug::enable()\fP call also registers the debug class loader from the \fBSymfony\fP \fBClassLoader\fP component when available\&.
+.PP
+This component can optionally take advantage of the features of the HttpKernel and HttpFoundation components\&.
+.PP
+.SS "Resources "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/Debug/
+$ composer install
+$ phpunit
+.fi
+.PP
+ 

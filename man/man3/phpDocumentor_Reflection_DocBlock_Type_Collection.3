@@ -1,0 +1,248 @@
+.TH "Collection" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Collection \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ArrayObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $types=array(), \fBContext\fP $context=null)"
+.br
+.ti -1c
+.RI "\fBgetContext\fP ()"
+.br
+.ti -1c
+.RI "\fBadd\fP ($type)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBOPERATOR_OR\fP = '|'"
+.br
+.ti -1c
+.RI "const \fBOPERATOR_ARRAY\fP = '[]'"
+.br
+.ti -1c
+.RI "const \fBOPERATOR_NAMESPACE\fP = '\\\\'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexpand\fP ($type)"
+.br
+.ti -1c
+.RI "\fBisTypeAnArray\fP ($type)"
+.br
+.ti -1c
+.RI "\fBisTypeAKeyword\fP ($type)"
+.br
+.ti -1c
+.RI "\fBisRelativeType\fP ($type)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$context\fP = null"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$keywords\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCollection\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike van Riel mike.vanriel@naenius.com 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+2010-2011 Mike van Riel / Naenius (http://www.naenius.com)  http://www.opensource.org/licenses/mit-license.php MIT \fBhttp://phpdoc\&.org\fP
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Collection\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $types = \fCarray()\fP, \fBContext\fP $context = \fCnull\fP)"
+Registers the namespace and aliases; uses that to add and expand the given types\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $types Array containing a list of types to add to this container\&. 
+.br
+\fI$location\fP The current invoking location\&. 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file Collection\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns a string representation of the collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The resolved types across the collection, separated with \fBself::OPERATOR_OR\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file Collection\&.php\&.
+.SS "add ( $type)"
+Adds a new type to the collection and expands it if it contains a relative namespace\&.
+.PP
+If a class in the type contains a relative namespace than this collection will try to expand that into a FQCN\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP \fBA\fP '\fBType\fP' as defined in the \fBphpDocumentor\fP documentation\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 99 of file Collection\&.php\&.
+.SS "expand ( $type)\fC [protected]\fP"
+Analyzes the given type and returns the FQCN variant\&.
+.PP
+When a type is provided this method checks whether it is not a keyword or Fully Qualified Class Name\&. If so it will use the given namespace and aliases to expand the type to a FQCN representation\&.
+.PP
+This method only works as expected if the namespace and aliases are set; no dynamic reflection is being performed here\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP The relative or absolute type\&.
+.RE
+.PP
+getNamespace to determine with what to prefix the type name\&.  getNamespaceAliases to check whether the first part of the relative type name should not be replaced with another namespace\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file Collection\&.php\&.
+.SS "getContext ()"
+Returns the current invoking location\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBContext\fP 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file Collection\&.php\&.
+.SS "isRelativeType ( $type)\fC [protected]\fP"
+Detects whether the given type represents a relative or absolute path\&.
+.PP
+This method will detect keywords as being absolute; even though they are not preceeded by a namespace separator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP \fBA\fP relative or absolute type as defined in the \fBphpDocumentor\fP documentation\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file Collection\&.php\&.
+.SS "isTypeAKeyword ( $type)\fC [protected]\fP"
+Detects whether the given type represents a PHPDoc keyword\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP \fBA\fP relative or absolute type as defined in the \fBphpDocumentor\fP documentation\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file Collection\&.php\&.
+.SS "isTypeAnArray ( $type)\fC [protected]\fP"
+Detects whether the given type represents an array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP \fBA\fP relative or absolute type as defined in the \fBphpDocumentor\fP documentation\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file Collection\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$context = null\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file Collection\&.php\&.
+.SS "$keywords\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'string', 'int', 'integer', 'bool', 'boolean', 'float', 'double',
+        'object', 'mixed', 'array', 'resource', 'void', 'null', 'scalar',
+        'callback', 'callable', 'false', 'true', 'self', '$this', 'static'
+    )
+.fi
+.PP
+Definition at line 37 of file Collection\&.php\&.
+.SS "const OPERATOR_ARRAY = '[]'"
+
+.PP
+Definition at line 31 of file Collection\&.php\&.
+.SS "const OPERATOR_NAMESPACE = '\\\\'"
+
+.PP
+Definition at line 34 of file Collection\&.php\&.
+.SS "const OPERATOR_OR = '|'"
+
+.PP
+Definition at line 28 of file Collection\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

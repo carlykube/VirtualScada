@@ -1,0 +1,113 @@
+\section{sims.\+rtupipe.\+vdevs Namespace Reference}
+\label{namespacesims_1_1rtupipe_1_1vdevs}\index{sims.\+rtupipe.\+vdevs@{sims.\+rtupipe.\+vdevs}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf pidd\+\_\+controller} (value, setpoint, gain, reset\+\_\+time, rate\+\_\+time, deadband, full, zero, cycle\+\_\+time, manual\+\_\+mode\+\_\+output, motor\+\_\+output\+\_\+enabled, output, old\+\_\+value, older\+\_\+value, old\+\_\+error, last\+\_\+run\+\_\+time, on\+\_\+time)
+\item 
+def {\bf slave} (points, args, kwds)
+\item 
+def {\bf master\+\_\+delay\+\_\+time} ()
+\item 
+def {\bf master\+\_\+proper} (points, clients, args, kwds)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf master} = {\bf master\+\_\+proper}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}!master\+\_\+delay\+\_\+time@{master\+\_\+delay\+\_\+time}}
+\index{master\+\_\+delay\+\_\+time@{master\+\_\+delay\+\_\+time}!sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}}
+\subsubsection[{master\+\_\+delay\+\_\+time}]{\setlength{\rightskip}{0pt plus 5cm}def sims.\+rtupipe.\+vdevs.\+master\+\_\+delay\+\_\+time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacesims_1_1rtupipe_1_1vdevs_aeab558aa964c722e1ad89319f68c906a}
+\begin{DoxyVerb}This function models the variable processing delay using a piecewise
+    probabilistic approximation.
+    @returns Amount of time to sleep before completing master logic call\end{DoxyVerb}
+ 
+
+Definition at line 176 of file vdevs.\+py.
+
+\index{sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}!master\+\_\+proper@{master\+\_\+proper}}
+\index{master\+\_\+proper@{master\+\_\+proper}!sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}}
+\subsubsection[{master\+\_\+proper}]{\setlength{\rightskip}{0pt plus 5cm}def sims.\+rtupipe.\+vdevs.\+master\+\_\+proper (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{clients, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{namespacesims_1_1rtupipe_1_1vdevs_af07790e25e90d7fbf2ed8f6b66e9e6e3}
+\begin{DoxyVerb}Function implementing the master functionality emulating the ladder logic
+    as closely as possible.\end{DoxyVerb}
+ 
+
+Definition at line 188 of file vdevs.\+py.
+
+\index{sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}!pidd\+\_\+controller@{pidd\+\_\+controller}}
+\index{pidd\+\_\+controller@{pidd\+\_\+controller}!sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}}
+\subsubsection[{pidd\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}def sims.\+rtupipe.\+vdevs.\+pidd\+\_\+controller (
+\begin{DoxyParamCaption}
+\item[{}]{value, }
+\item[{}]{setpoint, }
+\item[{}]{gain, }
+\item[{}]{reset\+\_\+time, }
+\item[{}]{rate\+\_\+time, }
+\item[{}]{deadband, }
+\item[{}]{full, }
+\item[{}]{zero, }
+\item[{}]{cycle\+\_\+time, }
+\item[{}]{manual\+\_\+mode\+\_\+output, }
+\item[{}]{motor\+\_\+output\+\_\+enabled, }
+\item[{}]{output, }
+\item[{}]{old\+\_\+value, }
+\item[{}]{older\+\_\+value, }
+\item[{}]{old\+\_\+error, }
+\item[{}]{last\+\_\+run\+\_\+time, }
+\item[{}]{on\+\_\+time}
+\end{DoxyParamCaption}
+)}\label{namespacesims_1_1rtupipe_1_1vdevs_aa1218462fa010c92702c0c76cc470f5e}
+\begin{DoxyVerb}Implements the digital PID controller block for a Control Microsystems
+PLC. The functionality is described on page 307 of the Telepace User Manual.
+All arguments are Point-type objects. In the Control Microsystems memory
+model, all the listed registers are floating points and are contiguous and
+consecutive in memory. The arguments are listed in the order in which they
+appear in memory, so a list of these variables in memory order can be 
+provided as the argument list.
+The parameters match directly with the descriptions in the manual. 
+@returns A tuple of booleans of form (increase, decrease), where if increase
+            is true, the process value should be increased, and if decrease
+            is true, the process value should be decreased.
+\end{DoxyVerb}
+ 
+
+Definition at line 19 of file vdevs.\+py.
+
+\index{sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}!slave@{slave}}
+\index{slave@{slave}!sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}}
+\subsubsection[{slave}]{\setlength{\rightskip}{0pt plus 5cm}def sims.\+rtupipe.\+vdevs.\+slave (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{namespacesims_1_1rtupipe_1_1vdevs_a2f4ace94c662215ed5b0c2a1ce4eff78}
+
+
+Definition at line 86 of file vdevs.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}!master@{master}}
+\index{master@{master}!sims\+::rtupipe\+::vdevs@{sims\+::rtupipe\+::vdevs}}
+\subsubsection[{master}]{\setlength{\rightskip}{0pt plus 5cm}master = {\bf master\+\_\+proper}}\label{namespacesims_1_1rtupipe_1_1vdevs_aa5d71c21f7128fa10d49d5842963e583}
+
+
+Definition at line 297 of file vdevs.\+py.
+

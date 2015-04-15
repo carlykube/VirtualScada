@@ -1,0 +1,204 @@
+.TH "ServiceContainer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ServiceContainer \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetParam\fP ($id, $value)"
+.br
+.ti -1c
+.RI "\fBgetParam\fP ($id, $default=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($id, $value)"
+.br
+.ti -1c
+.RI "\fBsetShared\fP ($id, $callable)"
+.br
+.ti -1c
+.RI "\fBget\fP ($id)"
+.br
+.ti -1c
+.RI "\fBisDefined\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetByPrefix\fP ($prefix)"
+.br
+.ti -1c
+.RI "\fBremove\fP ($id)"
+.br
+.ti -1c
+.RI "\fBaddConfigurator\fP ($configurator)"
+.br
+.ti -1c
+.RI "\fBconfigure\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Service Container is a lightweight container based on Pimple to handle object creation of \fBPhpSpec\fP services\&. 
+.PP
+Definition at line 22 of file ServiceContainer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConfigurator ( $configurator)"
+Adds a configurator, that can configure many services in one callable
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$configurator\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 206 of file ServiceContainer\&.php\&.
+.SS "configure ()"
+Loop through all configurators and invoke them 
+.PP
+Definition at line 220 of file ServiceContainer\&.php\&.
+.SS "get ( $id)"
+Retrieves a service from the container
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 134 of file ServiceContainer\&.php\&.
+.SS "getByPrefix ( $prefix)"
+Retrieves a list of services of a given prefix
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file ServiceContainer\&.php\&.
+.SS "getParam ( $id,  $default = \fCnull\fP)"
+Gets a param from the container or a default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file ServiceContainer\&.php\&.
+.SS "isDefined ( $id)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file ServiceContainer\&.php\&.
+.SS "remove ( $id)"
+Removes a service from the container
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 185 of file ServiceContainer\&.php\&.
+.SS "set ( $id,  $value)"
+Sets a object or a callable for the object creation\&. \fBA\fP callable will be invoked every time get is called\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 77 of file ServiceContainer\&.php\&.
+.SS "setParam ( $id,  $value)"
+Sets a param in the container
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file ServiceContainer\&.php\&.
+.SS "setShared ( $id,  $callable)"
+Sets a callable for the object creation\&. The same object will be returned every time
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$callable\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 106 of file ServiceContainer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

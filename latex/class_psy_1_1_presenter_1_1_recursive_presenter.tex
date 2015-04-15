@@ -1,0 +1,233 @@
+\section{Recursive\+Presenter Class Reference}
+\label{class_psy_1_1_presenter_1_1_recursive_presenter}\index{Recursive\+Presenter@{Recursive\+Presenter}}
+Inheritance diagram for Recursive\+Presenter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.964912cm]{class_psy_1_1_presenter_1_1_recursive_presenter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Presenter\+Manager} ({\bf Presenter\+Manager} \$manager)
+\item 
+{\bf present} (\$value, \$depth=null, \${\bf options}=0)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf M\+A\+X\+\_\+\+D\+E\+P\+T\+H} = 5
+\item 
+const {\bf I\+N\+D\+E\+N\+T} = \textquotesingle{} \textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf present\+Value} (\$value)
+\item 
+{\bf set\+Depth} (\$depth=null)
+\item 
+{\bf present\+Sub\+Value} (\$value, \${\bf options}=0)
+\item 
+{\bf indent\+Value} (\$value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$manager}
+\item 
+{\bf \$depth}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} capable of recursively presenting sub-\/values. 
+
+Definition at line 17 of file Recursive\+Presenter.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!indent\+Value@{indent\+Value}}
+\index{indent\+Value@{indent\+Value}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{indent\+Value}]{\setlength{\rightskip}{0pt plus 5cm}indent\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_ac751dc02df5092ba7e5c7006b95a1b82}
+Indent every line of a value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!present@{present}}
+\index{present@{present}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{present}]{\setlength{\rightskip}{0pt plus 5cm}present (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$depth = {\ttfamily null}, }
+\item[{}]{\$options = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_recursive_presenter_af0bf5ba1b834b50cad2f6f06ac4072bf}
+Present the recursive value.
+
+Subclasses should implement {\ttfamily present\+Value} rather than overriding this method.
+
+\begin{DoxySeeAlso}{See also}
+self\+::present\+Value()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+int & {\em \$depth} & (default\+: null) \\
+\hline
+int & {\em \$options} & \doxyref{One}{p.}{class_one} of \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} constants\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Presenter} \doxyref{}{p.}{interface_psy_1_1_presenter_1_1_presenter_af0bf5ba1b834b50cad2f6f06ac4072bf}.
+
+
+
+Definition at line 49 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!present\+Sub\+Value@{present\+Sub\+Value}}
+\index{present\+Sub\+Value@{present\+Sub\+Value}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{present\+Sub\+Value}]{\setlength{\rightskip}{0pt plus 5cm}present\+Sub\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$options = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_a216db0c72879fb2f5e7c742d9359fd61}
+Present a sub-\/value.
+
+If the current recursion depth is greater than self\+::\+M\+A\+X\+\_\+\+D\+E\+P\+T\+H, it will present a reference, otherwise it will present the full representation of the sub-\/value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Presenter\+Manager\+::present()}{p.}{class_psy_1_1_presenter_1_1_presenter_manager_af0bf5ba1b834b50cad2f6f06ac4072bf} 
+
+\doxyref{Presenter\+Manager\+::present\+Ref()}{p.}{class_psy_1_1_presenter_1_1_presenter_manager_a2c9344f377ec5ab4dfabab581d5f97c9}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+int & {\em \$options} & \doxyref{One}{p.}{class_one} of \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} constants\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 93 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!present\+Value@{present\+Value}}
+\index{present\+Value@{present\+Value}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{present\+Value}]{\setlength{\rightskip}{0pt plus 5cm}present\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_a976e21fc21fba6dc8463ab4e8414feee}
+\doxyref{Recursive\+Presenter}{p.}{class_psy_1_1_presenter_1_1_recursive_presenter} subclasses implement a {\ttfamily present\+Value} method for actually doing the presentation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!set\+Depth@{set\+Depth}}
+\index{set\+Depth@{set\+Depth}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{set\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}set\+Depth (
+\begin{DoxyParamCaption}
+\item[{}]{\$depth = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_ac3e68727824002cfba3a039051a3c042}
+Keep track of the remaining recursion depth.
+
+If \$depth is null, set it to {\ttfamily self\+::\+M\+A\+X\+\_\+\+D\+E\+P\+T\+H}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$depth} & (default\+: null) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!set\+Presenter\+Manager@{set\+Presenter\+Manager}}
+\index{set\+Presenter\+Manager@{set\+Presenter\+Manager}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{set\+Presenter\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}set\+Presenter\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Presenter\+Manager}}]{\$manager}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_recursive_presenter_ae4b1c126b2c7db61f5d89e26d98a6d7d}
+\doxyref{Presenter\+Manager\+Aware}{p.}{interface_psy_1_1_presenter_1_1_presenter_manager_aware} interface.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Presenter\+Manager}{p.}{class_psy_1_1_presenter_1_1_presenter_manager} & {\em \$manager} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Presenter\+Manager\+Aware} \doxyref{}{p.}{interface_psy_1_1_presenter_1_1_presenter_manager_aware_ae4b1c126b2c7db61f5d89e26d98a6d7d}.
+
+
+
+Definition at line 30 of file Recursive\+Presenter.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!\$depth@{\$depth}}
+\index{\$depth@{\$depth}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{\$depth}]{\setlength{\rightskip}{0pt plus 5cm}\$depth\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_a0abb04e6a8a04e161eb4657f54848b18}
+
+
+Definition at line 23 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!\$manager@{\$manager}}
+\index{\$manager@{\$manager}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{\$manager}]{\setlength{\rightskip}{0pt plus 5cm}\$manager\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_a4621b1cd69b1417c9fb966c825299de1}
+
+
+Definition at line 22 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!I\+N\+D\+E\+N\+T@{I\+N\+D\+E\+N\+T}}
+\index{I\+N\+D\+E\+N\+T@{I\+N\+D\+E\+N\+T}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{I\+N\+D\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}const I\+N\+D\+E\+N\+T = \textquotesingle{} \textquotesingle{}}\label{class_psy_1_1_presenter_1_1_recursive_presenter_addf34c0cf6e24c7f7af1d8d9fe08dcc8}
+
+
+Definition at line 20 of file Recursive\+Presenter.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}!M\+A\+X\+\_\+\+D\+E\+P\+T\+H@{M\+A\+X\+\_\+\+D\+E\+P\+T\+H}}
+\index{M\+A\+X\+\_\+\+D\+E\+P\+T\+H@{M\+A\+X\+\_\+\+D\+E\+P\+T\+H}!Psy\+::\+Presenter\+::\+Recursive\+Presenter@{Psy\+::\+Presenter\+::\+Recursive\+Presenter}}
+\subsubsection[{M\+A\+X\+\_\+\+D\+E\+P\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const M\+A\+X\+\_\+\+D\+E\+P\+T\+H = 5}\label{class_psy_1_1_presenter_1_1_recursive_presenter_a7179d4980cb9a4483e4c1a963e8906f8}
+
+
+Definition at line 19 of file Recursive\+Presenter.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/\+Presenter/{\bf Recursive\+Presenter.\+php}\end{DoxyCompactItemize}

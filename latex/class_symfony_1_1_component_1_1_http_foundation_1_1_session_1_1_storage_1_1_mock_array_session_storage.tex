@@ -1,0 +1,510 @@
+\section{Mock\+Array\+Session\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage}\index{Mock\+Array\+Session\+Storage@{Mock\+Array\+Session\+Storage}}
+Inheritance diagram for Mock\+Array\+Session\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf name}= \textquotesingle{}M\+O\+C\+K\+S\+E\+S\+S\+I\+D\textquotesingle{}, {\bf Metadata\+Bag} \$meta\+Bag=null)
+\item 
+{\bf set\+Session\+Data} (array \$array)
+\item 
+{\bf start} ()
+\item 
+{\bf regenerate} (\$destroy=false, \$lifetime=null)
+\item 
+{\bf get\+Id} ()
+\item 
+{\bf set\+Id} (\$id)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf set\+Name} (\${\bf name})
+\item 
+{\bf save} ()
+\item 
+{\bf clear} ()
+\item 
+{\bf register\+Bag} ({\bf Session\+Bag\+Interface} \$bag)
+\item 
+{\bf get\+Bag} (\${\bf name})
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf set\+Metadata\+Bag} ({\bf Metadata\+Bag} \$bag=null)
+\item 
+{\bf get\+Metadata\+Bag} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf generate\+Id} ()
+\item 
+{\bf load\+Session} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$id} = \textquotesingle{}\textquotesingle{}
+\item 
+{\bf \$name}
+\item 
+{\bf \$started} = false
+\item 
+{\bf \$closed} = false
+\item 
+{\bf \$data} = array()
+\item 
+{\bf \$metadata\+Bag}
+\item 
+{\bf \$bags}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Mock\+Array\+Session\+Storage}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage} mocks the session for unit tests.
+
+No \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session is actually started since a session can be initialized and shutdown only once per \doxyref{P\+H\+P}{p.}{namespace_p_h_p} execution cycle.
+
+When doing functional testing, you should use \doxyref{Mock\+File\+Session\+Storage}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_file_session_storage} instead.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Bulat Shakirzyanov {\tt mallluhuct@gmail.\+com} 
+
+Drak {\tt drak@zikula.\+org} 
+\end{DoxyAuthor}
+
+
+Definition at line 28 of file Mock\+Array\+Session\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily \textquotesingle{}MOCKSESSID\textquotesingle{}}, }
+\item[{{\bf Metadata\+Bag}}]{\$meta\+Bag = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_ab7e2139204bafc4922736df739b0251b}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} name \\
+\hline
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} & {\em \$meta\+Bag} & \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Mock\+Array\+Session\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!clear@{clear}}
+\index{clear@{clear}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_aa821bec12eaa7e0f649397c9675ff505}
+\{Clear all session data in memory.\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_aa821bec12eaa7e0f649397c9675ff505}.
+
+
+
+Definition at line 172 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!generate\+Id@{generate\+Id}}
+\index{generate\+Id@{generate\+Id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{generate\+Id}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a7d660a436cd4a6931442c41184b6782a}
+Generates a session I\+D.
+
+This doesn\textquotesingle{}t need to be particularly cryptographically secure since this is just a mock.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!get\+Bag@{get\+Bag}}
+\index{get\+Bag@{get\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{get\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bag (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a760b5434be3756081f7e76557e3b50e3}
+\{Gets a \doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a760b5434be3756081f7e76557e3b50e3}.
+
+
+
+Definition at line 197 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a12251d0c022e9e21c137a105ff683f13}
+\{Returns the session I\+D.
+
+\begin{DoxyReturn}{Returns}
+string The session I\+D or empty.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a12251d0c022e9e21c137a105ff683f13}.
+
+
+
+Definition at line 123 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!get\+Metadata\+Bag@{get\+Metadata\+Bag}}
+\index{get\+Metadata\+Bag@{get\+Metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{get\+Metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}get\+Metadata\+Bag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a9a1b173d31b64c649accf679f98ce93c}
+Gets the \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag}.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} 
+\end{DoxyReturn}
+
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a9a1b173d31b64c649accf679f98ce93c}.
+
+
+
+Definition at line 237 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a3d0963e68bb313b163a73f2803c64600}
+\{Returns the session name.
+
+\begin{DoxyReturn}{Returns}
+mixed The session name.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 143 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a1ffe0e26cd53b764f58c5bbed489c278}
+\{Checks if the session is started.
+
+\begin{DoxyReturn}{Returns}
+bool True if started, false otherwise.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 213 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!load\+Session@{load\+Session}}
+\index{load\+Session@{load\+Session}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{load\+Session}]{\setlength{\rightskip}{0pt plus 5cm}load\+Session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a71959af484748ba98b4af07ae3540a9c}
+
+
+Definition at line 255 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!regenerate@{regenerate}}
+\index{regenerate@{regenerate}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{regenerate}]{\setlength{\rightskip}{0pt plus 5cm}regenerate (
+\begin{DoxyParamCaption}
+\item[{}]{\$destroy = {\ttfamily false}, }
+\item[{}]{\$lifetime = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_aeb0b5bdaa103935ac1950fd06febc413}
+\{Regenerates id that represents this storage.
+
+This method must invoke session\+\_\+regenerate\+\_\+id(\$destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing.
+
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage.
+
+Care\+: When regenerating the session I\+D no locking is involved in P\+H\+Ps session design. See {\tt https\+://bugs.\+php.\+net/bug.\+php?id=61470} for a discussion. So you must make sure the regenerated session is saved B\+E\+F\+O\+R\+E sending the headers with the new I\+D. Symfonys \doxyref{Http\+Kernel}{p.}{namespace_symfony_1_1_component_1_1_http_kernel} offers a listener for this. See \doxyref{Symfony}{p.}{namespace_symfony}. Otherwise session data could get lost again for concurrent requests with the new I\+D. \doxyref{One}{p.}{class_one} result could be that you get logged out after just logging in.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$destroy} & Destroy session when regenerating? \\
+\hline
+int & {\em \$lifetime} & Sets the cookie lifetime for the session cookie. \doxyref{A}{p.}{class_a} null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session. Time is in seconds, and is not a Unix timestamp.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if session regenerated, false if error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_aeb0b5bdaa103935ac1950fd06febc413}.
+
+
+
+Definition at line 108 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!register\+Bag@{register\+Bag}}
+\index{register\+Bag@{register\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{register\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}register\+Bag (
+\begin{DoxyParamCaption}
+\item[{{\bf Session\+Bag\+Interface}}]{\$bag}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a2024067b6a9efc942ee5dfe06d5b1ac5}
+\{Registers a \doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} for use.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} & {\em \$bag} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a2024067b6a9efc942ee5dfe06d5b1ac5}.
+
+
+
+Definition at line 189 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!save@{save}}
+\index{save@{save}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_afc8a3c62679cf00ade9f15fb2a6d6132}
+\{Force the session to be saved and closed.
+
+This method must invoke session\+\_\+write\+\_\+close() unless this interface is used for a storage object design for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing, in which case it it should actually persist the session data if required.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_afc8a3c62679cf00ade9f15fb2a6d6132}.
+
+
+
+Definition at line 159 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{set\+Id}]{\setlength{\rightskip}{0pt plus 5cm}set\+Id (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a87313ad678fb2a2a8efb435cf0bdb9a0}
+\{Sets the session I\+D.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a87313ad678fb2a2a8efb435cf0bdb9a0}.
+
+
+
+Definition at line 131 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!set\+Metadata\+Bag@{set\+Metadata\+Bag}}
+\index{set\+Metadata\+Bag@{set\+Metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{set\+Metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}set\+Metadata\+Bag (
+\begin{DoxyParamCaption}
+\item[{{\bf Metadata\+Bag}}]{\$bag = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_ae6be9121778a1af2883f85fe7b885977}
+Sets the \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} & {\em \$bag} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 223 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a2fe666694997d047711d7653eca2f132}
+\{Sets the session name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a2fe666694997d047711d7653eca2f132}.
+
+
+
+Definition at line 151 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!set\+Session\+Data@{set\+Session\+Data}}
+\index{set\+Session\+Data@{set\+Session\+Data}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{set\+Session\+Data}]{\setlength{\rightskip}{0pt plus 5cm}set\+Session\+Data (
+\begin{DoxyParamCaption}
+\item[{array}]{\$array}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a28e6b33ab1e4173b99b50f1c3f47e2cb}
+Sets the session data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!start@{start}}
+\index{start@{start}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_af8fa59992209e36dccb3eefb0f75531f}
+\{Starts the session.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 90 of file Mock\+Array\+Session\+Storage.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$bags@{\$bags}}
+\index{\$bags@{\$bags}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$bags}]{\setlength{\rightskip}{0pt plus 5cm}\$bags\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a7eec098032a7bb391cd9e31b47a1dc6d}
+
+
+Definition at line 63 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$closed@{\$closed}}
+\index{\$closed@{\$closed}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$closed}]{\setlength{\rightskip}{0pt plus 5cm}\$closed = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a520c672fe420e710c7f3b3a3abf76347}
+
+
+Definition at line 48 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$data@{\$data}}
+\index{\$data@{\$data}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$data}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf data} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a6efc15b5a2314dd4b5aaa556a375c6d6}
+
+
+Definition at line 53 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$id@{\$id}}
+\index{\$id@{\$id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$id}]{\setlength{\rightskip}{0pt plus 5cm}\$id = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_ae97941710d863131c700f069b109991e}
+
+
+Definition at line 33 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$metadata\+Bag@{\$metadata\+Bag}}
+\index{\$metadata\+Bag@{\$metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}\$metadata\+Bag\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_aae855fae62d242b40679518f5bb1cfa6}
+
+
+Definition at line 58 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$name@{\$name}}
+\index{\$name@{\$name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf name}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_ab2fc40d43824ea3e1ce5d86dee0d763b}
+
+
+Definition at line 38 of file Mock\+Array\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}!\$started@{\$started}}
+\index{\$started@{\$started}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Mock\+Array\+Session\+Storage}}
+\subsubsection[{\$started}]{\setlength{\rightskip}{0pt plus 5cm}\$started = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_mock_array_session_storage_a026c0305d62db3dbb5ad555bc077f018}
+
+
+Definition at line 43 of file Mock\+Array\+Session\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Session/\+Storage/{\bf Mock\+Array\+Session\+Storage.\+php}\end{DoxyCompactItemize}

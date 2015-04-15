@@ -1,0 +1,328 @@
+.TH "ResponseFactory" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ResponseFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (ViewFactory $\fBview\fP, \fBRedirector\fP $redirector)"
+.br
+.ti -1c
+.RI "\fBmake\fP ($content= '', $status=200, array $headers=array())"
+.br
+.ti -1c
+.RI "\fBview\fP ($view, $\fBdata\fP=array(), $status=200, array $headers=array())"
+.br
+.ti -1c
+.RI "\fBjson\fP ($\fBdata\fP=array(), $status=200, array $headers=array(), $\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBjsonp\fP ($\fBcallback\fP, $\fBdata\fP=array(), $status=200, array $headers=array(), $\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBstream\fP ($\fBcallback\fP, $status=200, array $headers=array())"
+.br
+.ti -1c
+.RI "\fBdownload\fP ($\fBfile\fP, $\fBname\fP=null, array $headers=array(), $disposition= 'attachment')"
+.br
+.ti -1c
+.RI "\fBredirectTo\fP ($\fBpath\fP, $status=302, $headers=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBredirectToRoute\fP ($route, $parameters=array(), $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBredirectToAction\fP ($action, $parameters=array(), $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBredirectGuest\fP ($\fBpath\fP, $status=302, $headers=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBredirectToIntended\fP ($default= '/', $status=302, $headers=array(), $secure=null)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$view\fP"
+.br
+.ti -1c
+.RI "\fB$redirector\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file ResponseFactory\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (ViewFactory $view, \fBRedirector\fP $redirector)"
+Create a new response factory instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$redirector\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file ResponseFactory\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "download ( $file,  $name = \fCnull\fP, array $headers = \fCarray()\fP,  $disposition = \fC'attachment'\fP)"
+Create a new file download response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.br
+\fI$name\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$disposition\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 127 of file ResponseFactory\&.php\&.
+.SS "json ( $data = \fCarray()\fP,  $status = \fC200\fP, array $headers = \fCarray()\fP,  $options = \fC0\fP)"
+Return a new JSON response from the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 80 of file ResponseFactory\&.php\&.
+.SS "jsonp ( $callback,  $data = \fCarray()\fP,  $status = \fC200\fP, array $headers = \fCarray()\fP,  $options = \fC0\fP)"
+Return a new JSONP response from the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$data\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 100 of file ResponseFactory\&.php\&.
+.SS "make ( $content = \fC''\fP,  $status = \fC200\fP, array $headers = \fCarray()\fP)"
+Return a new response from the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$content\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 52 of file ResponseFactory\&.php\&.
+.SS "redirectGuest ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response, while putting the current \fBURL\fP in the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 190 of file ResponseFactory\&.php\&.
+.SS "redirectTo ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response to the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 148 of file ResponseFactory\&.php\&.
+.SS "redirectToAction ( $action,  $parameters = \fCarray()\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to a controller action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 176 of file ResponseFactory\&.php\&.
+.SS "redirectToIntended ( $default = \fC'/'\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response to the previously intended location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$default\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 204 of file ResponseFactory\&.php\&.
+.SS "redirectToRoute ( $route,  $parameters = \fCarray()\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to a named route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 162 of file ResponseFactory\&.php\&.
+.SS "stream ( $callback,  $status = \fC200\fP, array $headers = \fCarray()\fP)"
+Return a new streamed response from the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 113 of file ResponseFactory\&.php\&.
+.SS "view ( $view,  $data = \fCarray()\fP,  $status = \fC200\fP, array $headers = \fCarray()\fP)"
+Return a new view response from the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 66 of file ResponseFactory\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$redirector\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file ResponseFactory\&.php\&.
+.SS "$\fBview\fP\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file ResponseFactory\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

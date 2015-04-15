@@ -1,0 +1,112 @@
+.TH "DumperInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DumperInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAbstractDumper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdumpScalar\fP (\fBCursor\fP $cursor, $type, $value)"
+.br
+.ti -1c
+.RI "\fBdumpString\fP (\fBCursor\fP $cursor, $str, $bin, $cut)"
+.br
+.ti -1c
+.RI "\fBenterHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild)"
+.br
+.ti -1c
+.RI "\fBleaveHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild, $cut)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDumperInterface\fP used by \fBData\fP objects\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file DumperInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "dumpScalar (\fBCursor\fP $cursor,  $type,  $value)"
+Dumps a scalar value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP The \fBPHP\fP type of the value being dumped\&. 
+.br
+\fI$value\fP The scalar value being dumped\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBCliDumper\fP\&.
+.SS "dumpString (\fBCursor\fP $cursor,  $str,  $bin,  $cut)"
+Dumps a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$str\fP The string being dumped\&. 
+.br
+\fI$bin\fP Whether $str is UTF-8 or binary encoded\&. 
+.br
+\fI$cut\fP The number of characters $str has been cut by\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBCliDumper\fP\&.
+.SS "enterHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild)"
+Dumps while entering an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBHtmlDumper\fP, and \fBCliDumper\fP\&.
+.SS "leaveHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild,  $cut)"
+Dumps while leaving an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&. 
+.br
+\fI$cut\fP The number of items the hash has been cut by\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBHtmlDumper\fP, and \fBCliDumper\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

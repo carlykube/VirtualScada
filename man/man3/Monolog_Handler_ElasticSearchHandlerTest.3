@@ -1,0 +1,164 @@
+.TH "ElasticSearchHandlerTest" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ElasticSearchHandlerTest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTestCase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetUp\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHandle\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetFormatterInvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBtestOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBtestConnectionErrors\fP ($ignore, $expectedError)"
+.br
+.ti -1c
+.RI "\fBproviderTestConnectionErrors\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHandleIntegration\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetCreatedDocId\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBgetDocSourceFromElastic\fP (Client $client, $index, $type, $documentId)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$client\fP"
+.br
+.ti -1c
+.RI "\fB$options\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file ElasticSearchHandlerTest\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getCreatedDocId (\fBResponse\fP $response)\fC [protected]\fP"
+Return last created document id from ES response 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP Elastica \fBResponse\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 213 of file ElasticSearchHandlerTest\&.php\&.
+.SS "getDocSourceFromElastic (Client $client,  $index,  $type,  $documentId)\fC [protected]\fP"
+Retrieve document by id from Elasticsearch 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$client\fP Elastica client 
+.br
+\fI$index\fP 
+.br
+\fI$type\fP 
+.br
+\fI$documentId\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 229 of file ElasticSearchHandlerTest\&.php\&.
+.SS "providerTestConnectionErrors ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file ElasticSearchHandlerTest\&.php\&.
+.SS "setUp ()"
+
+.PP
+Definition at line 37 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testConnectionErrors ( $ignore,  $expectedError)"
+\fBMonolog\fP::bulkSend  providerTestConnectionErrors 
+.PP
+Definition at line 129 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testHandle ()"
+\fBMonolog\fP::write  \fBMonolog\fP::handleBatch  \fBMonolog\fP::bulkSend  \fBMonolog\fP::getDefaultFormatter 
+.PP
+Definition at line 57 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testHandleIntegration ()"
+Integration test using localhost Elastic Search server
+.PP
+\fBMonolog\fP::__construct  \fBMonolog\fP::handleBatch  \fBMonolog\fP::bulkSend  \fBMonolog\fP::getDefaultFormatter 
+.PP
+Definition at line 163 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testOptions ()"
+\fBMonolog\fP::__construct  \fBMonolog\fP::getOptions 
+.PP
+Definition at line 114 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testSetFormatter ()"
+\fBMonolog\fP::setFormatter 
+.PP
+Definition at line 88 of file ElasticSearchHandlerTest\&.php\&.
+.SS "testSetFormatterInvalid ()"
+\fBMonolog\fP::setFormatter  InvalidArgumentException  \fBElasticSearchHandler\fP is only compatible with ElasticaFormatter 
+.PP
+Definition at line 103 of file ElasticSearchHandlerTest\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$client\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file ElasticSearchHandlerTest\&.php\&.
+.SS "$\fBoptions\fP\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'index' => 'my_index',
+        'type'  => 'doc_type',
+    )
+.fi
+.PP
+Definition at line 32 of file ElasticSearchHandlerTest\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,242 @@
+.TH "MemcachedSessionHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MemcachedSessionHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionHandlerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\\Memcached $memcached, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($maxlifetime)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetMemcached\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMemcachedSessionHandler\fP\&.
+.PP
+Memcached based session storage handler based on the Memcached class provided by the \fBPHP\fP memcached extension\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/memcached
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Drak drak@zikula.org 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file MemcachedSessionHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\\Memcached $memcached, array $options = \fCarray()\fP)"
+Constructor\&.
+.PP
+List of available options:
+.IP "\(bu" 2
+prefix: The prefix to use for the memcached keys in order to avoid collision
+.IP "\(bu" 2
+expiretime: The time to live in seconds
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$memcached\fP \fBA\fP  instance 
+.br
+\fI$options\fP An associative array of Memcached options
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 53 of file MemcachedSessionHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 78 of file MemcachedSessionHandler\&.php\&.
+.SS "destroy ( $sessionId)"
+{Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 102 of file MemcachedSessionHandler\&.php\&.
+.SS "gc ( $maxlifetime)"
+{Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 110 of file MemcachedSessionHandler\&.php\&.
+.SS "getMemcached ()\fC [protected]\fP"
+Return a Memcached instance
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 121 of file MemcachedSessionHandler\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+{Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 70 of file MemcachedSessionHandler\&.php\&.
+.SS "read ( $sessionId)"
+{Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 86 of file MemcachedSessionHandler\&.php\&.
+.SS "write ( $sessionId,  $data)"
+{Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 94 of file MemcachedSessionHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

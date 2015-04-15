@@ -1,0 +1,684 @@
+.TH "PHPUnit_TextUI_ResultPrinter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_TextUI_ResultPrinter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Util_Printer\fP, and \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Inherited by \fBCustomPrinter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($out=null, $verbose=false, $colors=self::COLOR_DEFAULT, $debug=false, $numberOfColumns=80)"
+.br
+.ti -1c
+.RI "\fBprintResult\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintWaitPrompt\fP ()"
+.br
+.ti -1c
+.RI "\fBaddError\fP (\fBPHPUnit_Framework_Test\fP $test, Exception $\fBe\fP, $time)"
+.br
+.ti -1c
+.RI "\fBaddFailure\fP (\fBPHPUnit_Framework_Test\fP $test, \fBPHPUnit_Framework_AssertionFailedError\fP $\fBe\fP, $time)"
+.br
+.ti -1c
+.RI "\fBaddIncompleteTest\fP (\fBPHPUnit_Framework_Test\fP $test, Exception $\fBe\fP, $time)"
+.br
+.ti -1c
+.RI "\fBaddRiskyTest\fP (\fBPHPUnit_Framework_Test\fP $test, Exception $\fBe\fP, $time)"
+.br
+.ti -1c
+.RI "\fBaddSkippedTest\fP (\fBPHPUnit_Framework_Test\fP $test, Exception $\fBe\fP, $time)"
+.br
+.ti -1c
+.RI "\fBstartTestSuite\fP (\fBPHPUnit_Framework_TestSuite\fP $suite)"
+.br
+.ti -1c
+.RI "\fBendTestSuite\fP (\fBPHPUnit_Framework_TestSuite\fP $suite)"
+.br
+.ti -1c
+.RI "\fBstartTest\fP (\fBPHPUnit_Framework_Test\fP $test)"
+.br
+.ti -1c
+.RI "\fBendTest\fP (\fBPHPUnit_Framework_Test\fP $test, $time)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBEVENT_TEST_START\fP = 0"
+.br
+.ti -1c
+.RI "const \fBEVENT_TEST_END\fP = 1"
+.br
+.ti -1c
+.RI "const \fBEVENT_TESTSUITE_START\fP = 2"
+.br
+.ti -1c
+.RI "const \fBEVENT_TESTSUITE_END\fP = 3"
+.br
+.ti -1c
+.RI "const \fBCOLOR_NEVER\fP = '\fBnever\fP'"
+.br
+.ti -1c
+.RI "const \fBCOLOR_AUTO\fP = 'auto'"
+.br
+.ti -1c
+.RI "const \fBCOLOR_ALWAYS\fP = 'always'"
+.br
+.ti -1c
+.RI "const \fBCOLOR_DEFAULT\fP = self::COLOR_NEVER"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprintDefects\fP (array $defects, $type)"
+.br
+.ti -1c
+.RI "\fBprintDefect\fP (\fBPHPUnit_Framework_TestFailure\fP $defect, $count)"
+.br
+.ti -1c
+.RI "\fBprintDefectHeader\fP (\fBPHPUnit_Framework_TestFailure\fP $defect, $count)"
+.br
+.ti -1c
+.RI "\fBprintDefectTrace\fP (\fBPHPUnit_Framework_TestFailure\fP $defect)"
+.br
+.ti -1c
+.RI "\fBprintErrors\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintFailures\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintIncompletes\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintRisky\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintSkipped\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBprintHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBprintFooter\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBgetCountString\fP ($count, $\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBwriteProgress\fP ($progress)"
+.br
+.ti -1c
+.RI "\fBwriteNewLine\fP ()"
+.br
+.ti -1c
+.RI "\fBformatWithColor\fP ($\fBcolor\fP, $buffer)"
+.br
+.ti -1c
+.RI "\fBwriteWithColor\fP ($\fBcolor\fP, $buffer)"
+.br
+.ti -1c
+.RI "\fBwriteProgressWithColor\fP ($\fBcolor\fP, $buffer)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$column\fP = 0"
+.br
+.ti -1c
+.RI "\fB$maxColumn\fP"
+.br
+.ti -1c
+.RI "\fB$lastTestFailed\fP = false"
+.br
+.ti -1c
+.RI "\fB$numAssertions\fP = 0"
+.br
+.ti -1c
+.RI "\fB$numTests\fP = -1"
+.br
+.ti -1c
+.RI "\fB$numTestsRun\fP = 0"
+.br
+.ti -1c
+.RI "\fB$numTestsWidth\fP"
+.br
+.ti -1c
+.RI "\fB$colors\fP = false"
+.br
+.ti -1c
+.RI "\fB$debug\fP = false"
+.br
+.ti -1c
+.RI "\fB$verbose\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 24 of file ResultPrinter\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $out = \fCnull\fP,  $verbose = \fCfalse\fP,  $colors = \fCself::COLOR_DEFAULT\fP,  $debug = \fCfalse\fP,  $numberOfColumns = \fC80\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$out\fP 
+.br
+\fI$verbose\fP 
+.br
+\fI$colors\fP 
+.br
+\fI$debug\fP 
+.br
+\fI$numberOfColumns\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file ResultPrinter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addError (\fBPHPUnit_Framework_Test\fP $test, Exception $e,  $time)"
+An error occurred\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$e\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 425 of file ResultPrinter\&.php\&.
+.SS "addFailure (\fBPHPUnit_Framework_Test\fP $test, \fBPHPUnit_Framework_AssertionFailedError\fP $e,  $time)"
+\fBA\fP failure occurred\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$e\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 438 of file ResultPrinter\&.php\&.
+.SS "addIncompleteTest (\fBPHPUnit_Framework_Test\fP $test, Exception $e,  $time)"
+Incomplete test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$e\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 451 of file ResultPrinter\&.php\&.
+.SS "addRiskyTest (\fBPHPUnit_Framework_Test\fP $test, Exception $e,  $time)"
+Risky test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$e\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 465 of file ResultPrinter\&.php\&.
+.SS "addSkippedTest (\fBPHPUnit_Framework_Test\fP $test, Exception $e,  $time)"
+Skipped test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$e\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 479 of file ResultPrinter\&.php\&.
+.SS "endTest (\fBPHPUnit_Framework_Test\fP $test,  $time)"
+\fBA\fP test ended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 533 of file ResultPrinter\&.php\&.
+.SS "endTestSuite (\fBPHPUnit_Framework_TestSuite\fP $suite)"
+\fBA\fP testsuite ended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$suite\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.2\&.0 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 506 of file ResultPrinter\&.php\&.
+.SS "formatWithColor ( $color,  $buffer)\fC [protected]\fP"
+Formats a buffer with a specified ANSI color sequence if colors are enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$color\fP 
+.br
+\fI$buffer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 593 of file ResultPrinter\&.php\&.
+.SS "getCountString ( $count,  $name)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 396 of file ResultPrinter\&.php\&.
+.SS "printDefect (\fBPHPUnit_Framework_TestFailure\fP $defect,  $count)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defect\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file ResultPrinter\&.php\&.
+.SS "printDefectHeader (\fBPHPUnit_Framework_TestFailure\fP $defect,  $count)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defect\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file ResultPrinter\&.php\&.
+.SS "printDefects (array $defects,  $type)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defects\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file ResultPrinter\&.php\&.
+.SS "printDefectTrace (\fBPHPUnit_Framework_TestFailure\fP $defect)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defect\fP 
+.RE
+.PP
+
+.PP
+Definition at line 263 of file ResultPrinter\&.php\&.
+.SS "printErrors (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 276 of file ResultPrinter\&.php\&.
+.SS "printFailures (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file ResultPrinter\&.php\&.
+.SS "printFooter (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file ResultPrinter\&.php\&.
+.SS "printHeader ()\fC [protected]\fP"
+
+.PP
+Definition at line 315 of file ResultPrinter\&.php\&.
+.SS "printIncompletes (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file ResultPrinter\&.php\&.
+.SS "printResult (\fBPHPUnit_Framework_TestResult\fP $result)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file ResultPrinter\&.php\&.
+.SS "printRisky (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file ResultPrinter\&.php\&.
+.SS "printSkipped (\fBPHPUnit_Framework_TestResult\fP $result)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file ResultPrinter\&.php\&.
+.SS "printWaitPrompt ()"
+
+.PP
+Definition at line 413 of file ResultPrinter\&.php\&.
+.SS "startTest (\fBPHPUnit_Framework_Test\fP $test)"
+\fBA\fP test started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 515 of file ResultPrinter\&.php\&.
+.SS "startTestSuite (\fBPHPUnit_Framework_TestSuite\fP $suite)"
+\fBA\fP testsuite started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$suite\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.2\&.0 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_TestListener\fP\&.
+.PP
+Definition at line 491 of file ResultPrinter\&.php\&.
+.SS "writeNewLine ()\fC [protected]\fP"
+
+.PP
+Definition at line 578 of file ResultPrinter\&.php\&.
+.SS "writeProgress ( $progress)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$progress\fP 
+.RE
+.PP
+
+.PP
+Definition at line 557 of file ResultPrinter\&.php\&.
+.SS "writeProgressWithColor ( $color,  $buffer)\fC [protected]\fP"
+Writes progress with a color sequence if colors are enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$color\fP 
+.br
+\fI$buffer\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 637 of file ResultPrinter\&.php\&.
+.SS "writeWithColor ( $color,  $buffer)\fC [protected]\fP"
+Writes a buffer out with a color sequence if colors are enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$color\fP 
+.br
+\fI$buffer\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 624 of file ResultPrinter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$colors = false\fC [protected]\fP"
+
+.PP
+Definition at line 89 of file ResultPrinter\&.php\&.
+.SS "$column = 0\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file ResultPrinter\&.php\&.
+.SS "$debug = false\fC [protected]\fP"
+
+.PP
+Definition at line 94 of file ResultPrinter\&.php\&.
+.SS "$lastTestFailed = false\fC [protected]\fP"
+
+.PP
+Definition at line 64 of file ResultPrinter\&.php\&.
+.SS "$maxColumn\fC [protected]\fP"
+
+.PP
+Definition at line 59 of file ResultPrinter\&.php\&.
+.SS "$numAssertions = 0\fC [protected]\fP"
+
+.PP
+Definition at line 69 of file ResultPrinter\&.php\&.
+.SS "$numTests = -1\fC [protected]\fP"
+
+.PP
+Definition at line 74 of file ResultPrinter\&.php\&.
+.SS "$numTestsRun = 0\fC [protected]\fP"
+
+.PP
+Definition at line 79 of file ResultPrinter\&.php\&.
+.SS "$numTestsWidth\fC [protected]\fP"
+
+.PP
+Definition at line 84 of file ResultPrinter\&.php\&.
+.SS "$verbose = false\fC [protected]\fP"
+
+.PP
+Definition at line 99 of file ResultPrinter\&.php\&.
+.SS "const COLOR_ALWAYS = 'always'"
+
+.PP
+Definition at line 33 of file ResultPrinter\&.php\&.
+.SS "const COLOR_AUTO = 'auto'"
+
+.PP
+Definition at line 32 of file ResultPrinter\&.php\&.
+.SS "const COLOR_DEFAULT = self::COLOR_NEVER"
+
+.PP
+Definition at line 34 of file ResultPrinter\&.php\&.
+.SS "const COLOR_NEVER = '\fBnever\fP'"
+
+.PP
+Definition at line 31 of file ResultPrinter\&.php\&.
+.SS "const EVENT_TEST_END = 1"
+
+.PP
+Definition at line 27 of file ResultPrinter\&.php\&.
+.SS "const EVENT_TEST_START = 0"
+
+.PP
+Definition at line 26 of file ResultPrinter\&.php\&.
+.SS "const EVENT_TESTSUITE_END = 3"
+
+.PP
+Definition at line 29 of file ResultPrinter\&.php\&.
+.SS "const EVENT_TESTSUITE_START = 2"
+
+.PP
+Definition at line 28 of file ResultPrinter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

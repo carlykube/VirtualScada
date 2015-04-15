@@ -1,0 +1,385 @@
+\section{Binary\+File\+Response Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response}\index{Binary\+File\+Response@{Binary\+File\+Response}}
+Inheritance diagram for Binary\+File\+Response\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$file, \$status=200, \$headers=array(), \$public=true, \$content\+Disposition=null, \$auto\+Etag=false, \$auto\+Last\+Modified=true)
+\item 
+{\bf set\+File} (\$file, \$content\+Disposition=null, \$auto\+Etag=false, \$auto\+Last\+Modified=true)
+\item 
+{\bf get\+File} ()
+\item 
+{\bf set\+Auto\+Last\+Modified} ()
+\item 
+{\bf set\+Auto\+Etag} ()
+\item 
+{\bf set\+Content\+Disposition} (\$disposition, \$filename= \textquotesingle{}\textquotesingle{}, \$filename\+Fallback= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf prepare} ({\bf Request} \$request)
+\item 
+{\bf send\+Content} ()
+\item 
+{\bf set\+Content} (\$content)
+\item 
+{\bf get\+Content} ()
+\item 
+{\bf delete\+File\+After\+Send} (\$should\+Delete)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf create} (\$file=null, \$status=200, \$headers=array(), \$public=true, \$content\+Disposition=null, \$auto\+Etag=false, \$auto\+Last\+Modified=true)
+\item 
+static {\bf trust\+X\+Sendfile\+Type\+Header} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$file}
+\item 
+{\bf \$offset}
+\item 
+{\bf \$maxlen}
+\item 
+{\bf \$delete\+File\+After\+Send} = false
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$trust\+X\+Sendfile\+Type\+Header} = false
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Binary\+File\+Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response} represents an H\+T\+T\+P response delivering a file.
+
+\begin{DoxyAuthor}{Author}
+Niklas Fiekas {\tt niklas.\+fiekas@tu-\/clausthal.\+de} 
+
+stealth35 {\tt stealth35-\/php@live.\+fr} 
+
+Igor Wiedler {\tt igor@wiedler.\+ch} 
+
+Jordan Alliot {\tt jordan.\+alliot@gmail.\+com} 
+
+Sergey Linnik {\tt linniksa@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 26 of file Binary\+File\+Response.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$file, }
+\item[{}]{\$status = {\ttfamily 200}, }
+\item[{}]{\$headers = {\ttfamily array()}, }
+\item[{}]{\$public = {\ttfamily true}, }
+\item[{}]{\$content\+Disposition = {\ttfamily null}, }
+\item[{}]{\$auto\+Etag = {\ttfamily false}, }
+\item[{}]{\$auto\+Last\+Modified = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a0a1485f9cd11692a1d781f64afcfb8df}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Spl\+File\+Info | string & {\em \$file} & The file to stream \\
+\hline
+int & {\em \$status} & The response status code \\
+\hline
+array & {\em \$headers} & An array of response headers \\
+\hline
+bool & {\em \$public} & Files are public by default \\
+\hline
+null | string & {\em \$content\+Disposition} & The type of Content-\/\+Disposition to set automatically with the filename \\
+\hline
+bool & {\em \$auto\+Etag} & Whether the E\+Tag header should be automatically set \\
+\hline
+bool & {\em \$auto\+Last\+Modified} & Whether the Last-\/\+Modified header should be automatically set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file Binary\+File\+Response.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!create@{create}}
+\index{create@{create}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}static create (
+\begin{DoxyParamCaption}
+\item[{}]{\$file = {\ttfamily null}, }
+\item[{}]{\$status = {\ttfamily 200}, }
+\item[{}]{\$headers = {\ttfamily array()}, }
+\item[{}]{\$public = {\ttfamily true}, }
+\item[{}]{\$content\+Disposition = {\ttfamily null}, }
+\item[{}]{\$auto\+Etag = {\ttfamily false}, }
+\item[{}]{\$auto\+Last\+Modified = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a9d7d580d4bd94458b3eee32fafed56b9}
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Spl\+File\+Info | string & {\em \$file} & The file to stream \\
+\hline
+int & {\em \$status} & The response status code \\
+\hline
+array & {\em \$headers} & An array of response headers \\
+\hline
+bool & {\em \$public} & Files are public by default \\
+\hline
+null | string & {\em \$content\+Disposition} & The type of Content-\/\+Disposition to set automatically with the filename \\
+\hline
+bool & {\em \$auto\+Etag} & Whether the E\+Tag header should be automatically set \\
+\hline
+bool & {\em \$auto\+Last\+Modified} & Whether the Last-\/\+Modified header should be automatically set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Binary\+File\+Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response} The created response 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!delete\+File\+After\+Send@{delete\+File\+After\+Send}}
+\index{delete\+File\+After\+Send@{delete\+File\+After\+Send}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{delete\+File\+After\+Send}]{\setlength{\rightskip}{0pt plus 5cm}delete\+File\+After\+Send (
+\begin{DoxyParamCaption}
+\item[{}]{\$should\+Delete}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a27892697c57d87d4b390189cb2a30dd7}
+If this is set to true, the file will be unlinked after the request is send Note\+: If the X-\/\+Sendfile header is used, the delete\+File\+After\+Send setting will not be used. 
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$should\+Delete} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Binary\+File\+Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response} 
+\end{DoxyReturn}
+
+
+Definition at line 315 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!get\+Content@{get\+Content}}
+\index{get\+Content@{get\+Content}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{get\+Content}]{\setlength{\rightskip}{0pt plus 5cm}get\+Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a58e43f09a06ce4e29b192c4e17ce7915}
+\{\}
+
+\begin{DoxyReturn}{Returns}
+false 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!get\+File@{get\+File}}
+\index{get\+File@{get\+File}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{get\+File}]{\setlength{\rightskip}{0pt plus 5cm}get\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_adf61e733be7f62a3f4bedbe7d2e02ec2}
+Gets the file.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{File}{p.}{namespace_symfony_1_1_component_1_1_http_foundation_1_1_file} The file to stream 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!prepare@{prepare}}
+\index{prepare@{prepare}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{prepare}]{\setlength{\rightskip}{0pt plus 5cm}prepare (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a3070460e27a876baeb69cf85a81b1401}
+\{\} 
+
+Definition at line 170 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!send\+Content@{send\+Content}}
+\index{send\+Content@{send\+Content}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{send\+Content}]{\setlength{\rightskip}{0pt plus 5cm}send\+Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_ab3edae72c871ac25cab152d5022355d4}
+Sends the file. 
+
+Definition at line 253 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!set\+Auto\+Etag@{set\+Auto\+Etag}}
+\index{set\+Auto\+Etag@{set\+Auto\+Etag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{set\+Auto\+Etag}]{\setlength{\rightskip}{0pt plus 5cm}set\+Auto\+Etag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a594cfff81e8c904300264eaddb814725}
+Automatically sets the E\+Tag header according to the checksum of the file. 
+
+Definition at line 139 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!set\+Auto\+Last\+Modified@{set\+Auto\+Last\+Modified}}
+\index{set\+Auto\+Last\+Modified@{set\+Auto\+Last\+Modified}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{set\+Auto\+Last\+Modified}]{\setlength{\rightskip}{0pt plus 5cm}set\+Auto\+Last\+Modified (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a6fe40645e441c82340f724f1d8596d1d}
+Automatically sets the Last-\/\+Modified header according the file modification date. 
+
+Definition at line 129 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!set\+Content@{set\+Content}}
+\index{set\+Content@{set\+Content}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{set\+Content}]{\setlength{\rightskip}{0pt plus 5cm}set\+Content (
+\begin{DoxyParamCaption}
+\item[{}]{\$content}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a04a5eddb7c3abc7bf31fa25b58f046bf}
+\{\}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 283 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!set\+Content\+Disposition@{set\+Content\+Disposition}}
+\index{set\+Content\+Disposition@{set\+Content\+Disposition}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{set\+Content\+Disposition}]{\setlength{\rightskip}{0pt plus 5cm}set\+Content\+Disposition (
+\begin{DoxyParamCaption}
+\item[{}]{\$disposition, }
+\item[{}]{\$filename = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$filename\+Fallback = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a7bd0ef5ae60d63f921d7b4a0a186b1a0}
+Sets the Content-\/\+Disposition header with the given filename.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$disposition} & \doxyref{Response\+Header\+Bag\+::\+D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a060859bf09e05a8c8fdeca834a0d5730} or \doxyref{Response\+Header\+Bag\+::\+D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1d397ced5e9742f72e2b2bea944d3243} \\
+\hline
+string & {\em \$filename} & Optionally use this filename instead of the real name of the file \\
+\hline
+string & {\em \$filename\+Fallback} & \doxyref{A}{p.}{class_a} fallback filename, containing only A\+S\+C\+I\+I characters. Defaults to an automatically encoded filename\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Binary\+File\+Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response} 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!set\+File@{set\+File}}
+\index{set\+File@{set\+File}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{set\+File}]{\setlength{\rightskip}{0pt plus 5cm}set\+File (
+\begin{DoxyParamCaption}
+\item[{}]{\$file, }
+\item[{}]{\$content\+Disposition = {\ttfamily null}, }
+\item[{}]{\$auto\+Etag = {\ttfamily false}, }
+\item[{}]{\$auto\+Last\+Modified = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_a1090c127379969322a17b5f006de096c}
+Sets the file to stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Spl\+File\+Info | string & {\em \$file} & The file to stream \\
+\hline
+string & {\em \$content\+Disposition} & \\
+\hline
+bool & {\em \$auto\+Etag} & \\
+\hline
+bool & {\em \$auto\+Last\+Modified} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Binary\+File\+Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 85 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!trust\+X\+Sendfile\+Type\+Header@{trust\+X\+Sendfile\+Type\+Header}}
+\index{trust\+X\+Sendfile\+Type\+Header@{trust\+X\+Sendfile\+Type\+Header}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{trust\+X\+Sendfile\+Type\+Header}]{\setlength{\rightskip}{0pt plus 5cm}static trust\+X\+Sendfile\+Type\+Header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_af8cfc32cfcdd65fa9ce2250a3f159de2}
+Trust X-\/\+Sendfile-\/\+Type header. 
+
+Definition at line 303 of file Binary\+File\+Response.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\$delete\+File\+After\+Send@{\$delete\+File\+After\+Send}}
+\index{\$delete\+File\+After\+Send@{\$delete\+File\+After\+Send}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\$delete\+File\+After\+Send}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf delete\+File\+After\+Send} = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_ace1a78ca7c09f5d4aee7d1c2ff6b193b}
+
+
+Definition at line 33 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\$file@{\$file}}
+\index{\$file@{\$file}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\$file}]{\setlength{\rightskip}{0pt plus 5cm}\$file\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_aa1bfbd27060176201b271918dff57e8f}
+
+
+Definition at line 30 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\$maxlen@{\$maxlen}}
+\index{\$maxlen@{\$maxlen}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\$maxlen}]{\setlength{\rightskip}{0pt plus 5cm}\$maxlen\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_aa327ae2575ec3edf6b7b30f338ab0e83}
+
+
+Definition at line 32 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\$offset@{\$offset}}
+\index{\$offset@{\$offset}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\$offset}]{\setlength{\rightskip}{0pt plus 5cm}\$offset\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_aec4de82415d7f05cb9748d12d3a95a87}
+
+
+Definition at line 31 of file Binary\+File\+Response.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}!\$trust\+X\+Sendfile\+Type\+Header@{\$trust\+X\+Sendfile\+Type\+Header}}
+\index{\$trust\+X\+Sendfile\+Type\+Header@{\$trust\+X\+Sendfile\+Type\+Header}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Binary\+File\+Response}}
+\subsubsection[{\$trust\+X\+Sendfile\+Type\+Header}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf trust\+X\+Sendfile\+Type\+Header} = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_binary_file_response_ab5b997f55c8632237b84caa6fc87086f}
+
+
+Definition at line 28 of file Binary\+File\+Response.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/{\bf Binary\+File\+Response.\+php}\end{DoxyCompactItemize}

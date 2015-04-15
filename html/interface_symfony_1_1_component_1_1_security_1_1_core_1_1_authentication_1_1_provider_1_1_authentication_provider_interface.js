@@ -1,0 +1,4 @@
+var interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_authentication_provider_interface =
+[
+    [ "supports", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_authentication_provider_interface.html#a2e204766f13f1ebc7962586b23559c44", null ]
+];

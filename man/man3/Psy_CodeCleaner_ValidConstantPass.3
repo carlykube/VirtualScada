@@ -1,0 +1,81 @@
+.TH "ValidConstantPass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ValidConstantPass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNamespaceAwarePass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBleaveNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalidateClassConstFetchExpression\fP (\fBClassConstFetch\fP $stmt)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Validate that namespaced constant references will succeed\&.
+.PP
+This pass throws a FatalErrorException rather than letting \fBPHP\fP run headfirst into a real fatal error and die\&.
+.PP
+\fBTodo\fP
+.RS 4
+Detect constants defined in the current code snippet? \&.\&.\&. Might not be worth it, since it would need to both be defining and referencing a namespaced constant, which doesn't seem like that big of a target for failure\&. 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file ValidConstantPass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "leaveNode (\fBNode\fP $node)"
+Validate that namespaced constant references will succeed\&.
+.PP
+Note that this does not (yet) detect constants defined in the current code snippet\&. It won't happen very often, so we'll punt for now\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if a constant reference is not defined\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 43 of file ValidConstantPass\&.php\&.
+.SS "validateClassConstFetchExpression (\fBClassConstFetch\fP $stmt)\fC [protected]\fP"
+Validate a class constant fetch expression\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if a class constant is not defined\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file ValidConstantPass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

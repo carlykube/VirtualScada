@@ -1,0 +1,98 @@
+\section{Controller\+Resolver\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_interface}\index{Controller\+Resolver\+Interface@{Controller\+Resolver\+Interface}}
+Inheritance diagram for Controller\+Resolver\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.224044cm]{interface_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Controller} ({\bf Request} \$request)
+\item 
+{\bf get\+Arguments} ({\bf Request} \$request, \$controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} \doxyref{Controller\+Resolver\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_interface} implementation knows how to determine the controller to execute based on a \doxyref{Request}{p.}{class_request} object.
+
+It can also determine the arguments to pass to the \doxyref{Controller}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_controller}.
+
+\doxyref{A}{p.}{class_a} \doxyref{Controller}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_controller} can be any valid \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callable.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 28 of file Controller\+Resolver\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface}!get\+Arguments@{get\+Arguments}}
+\index{get\+Arguments@{get\+Arguments}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface}}
+\subsubsection[{get\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}get\+Arguments (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$controller}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_interface_a61317f54973d325edca73ce6ae010ce0}
+Returns the arguments to pass to the controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+callable & {\em \$controller} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of arguments to pass to the controller
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Controller\+Resolver} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_a61317f54973d325edca73ce6ae010ce0}, {\bf Test\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_http_kernel_a61317f54973d325edca73ce6ae010ce0}, {\bf Test\+Multiple\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_multiple_http_kernel_a61317f54973d325edca73ce6ae010ce0}, {\bf Traceable\+Controller\+Resolver} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_traceable_controller_resolver_a61317f54973d325edca73ce6ae010ce0}, and {\bf Test\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_test_http_kernel_a61317f54973d325edca73ce6ae010ce0}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface}!get\+Controller@{get\+Controller}}
+\index{get\+Controller@{get\+Controller}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Controller\+::\+Controller\+Resolver\+Interface}}
+\subsubsection[{get\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}get\+Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_interface_a1ebf316e06119223e2a1930aabe89d77}
+Returns the \doxyref{Controller}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_controller} instance associated with a \doxyref{Request}{p.}{class_request}.
+
+As several resolvers can exist for a single application, a resolver must return false when it is not able to determine the controller.
+
+The resolver must only throw an exception when it should be able to load controller but cannot because of some errors made by the developer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable$\vert$false \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callable representing the \doxyref{Controller}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_controller}, or false if this resolver is not able to determine the controller
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Test\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_http_kernel_a1ebf316e06119223e2a1930aabe89d77}, {\bf Test\+Multiple\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_multiple_http_kernel_a1ebf316e06119223e2a1930aabe89d77}, {\bf Controller\+Resolver} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_controller_resolver_a1ebf316e06119223e2a1930aabe89d77}, {\bf Traceable\+Controller\+Resolver} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_controller_1_1_traceable_controller_resolver_a1ebf316e06119223e2a1930aabe89d77}, and {\bf Test\+Http\+Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_test_http_kernel_a1ebf316e06119223e2a1930aabe89d77}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Controller/{\bf Controller\+Resolver\+Interface.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,183 @@
+\section{Class\+Loader Class Reference}
+\label{class_class_preloader_1_1_class_loader}\index{Class\+Loader@{Class\+Loader}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf \+\_\+\+\_\+destruct} ()
+\item 
+{\bf register} ()
+\item 
+{\bf unregister} ()
+\item 
+{\bf load\+Class} (\$class)
+\item 
+{\bf get\+Filenames} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Includes} (\$func)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$class\+List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the class loader class.
+
+This creates an autoloader that intercepts and keeps track of each include in order that files must be included. This autoloader proxies to all other underlying autoloaders. 
+
+Definition at line 15 of file Class\+Loader.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_a095c5d389db211932136b53f25f39685}
+Create a new class loader.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Class\+Loader.\+php.
+
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
+\index{\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{\+\_\+\+\_\+destruct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+destruct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_a421831a265621325e1fdd19aace0c758}
+Destroy the class loader.
+
+This makes sure we\textquotesingle{}re unregistered from the autoloader.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file Class\+Loader.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!get\+Filenames@{get\+Filenames}}
+\index{get\+Filenames@{get\+Filenames}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{get\+Filenames}]{\setlength{\rightskip}{0pt plus 5cm}get\+Filenames (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_a2b6b82e76d16af67295024d1b12f64f7}
+Get an array of loaded file names in order of loading.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Class\+Loader.\+php.
+
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!get\+Includes@{get\+Includes}}
+\index{get\+Includes@{get\+Includes}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{get\+Includes}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Includes (
+\begin{DoxyParamCaption}
+\item[{}]{\$func}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_class_preloader_1_1_class_loader_a7e9fb8328cf1e8230d59db05b5bd93b9}
+Wrap a block of code in the autoloader and get a list of loaded classes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 53 of file Class\+Loader.\+php.
+
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!load\+Class@{load\+Class}}
+\index{load\+Class@{load\+Class}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{load\+Class}]{\setlength{\rightskip}{0pt plus 5cm}load\+Class (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_a8326a997d0cfe76d80196f60d240d144}
+Loads the given class, interface or trait.
+
+We\textquotesingle{}ll return true if it was loaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Class\+Loader.\+php.
+
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!register@{register}}
+\index{register@{register}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}register (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_acc294a6cc8e69743746820e3d15e3f78}
+Registers this instance as an autoloader.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Class\+Loader.\+php.
+
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!unregister@{unregister}}
+\index{unregister@{unregister}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{unregister}]{\setlength{\rightskip}{0pt plus 5cm}unregister (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_class_preloader_1_1_class_loader_a501cedfa611556a0100e024a0e102d9d}
+Unregisters this instance as an autoloader.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file Class\+Loader.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}!\$class\+List@{\$class\+List}}
+\index{\$class\+List@{\$class\+List}!Class\+Preloader\+::\+Class\+Loader@{Class\+Preloader\+::\+Class\+Loader}}
+\subsubsection[{\$class\+List}]{\setlength{\rightskip}{0pt plus 5cm}\$class\+List}\label{class_class_preloader_1_1_class_loader_a179c6b6e467b41293fb8fcb769c5f8a6}
+
+
+Definition at line 22 of file Class\+Loader.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/classpreloader/classpreloader/src/{\bf Class\+Loader.\+php}\end{DoxyCompactItemize}

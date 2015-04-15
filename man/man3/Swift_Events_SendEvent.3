@@ -1,0 +1,182 @@
+.TH "Swift_Events_SendEvent" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Events_SendEvent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_EventObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Transport\fP $source, \fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBgetTransport\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFailedRecipients\fP ($recipients)"
+.br
+.ti -1c
+.RI "\fBgetFailedRecipients\fP ()"
+.br
+.ti -1c
+.RI "\fBsetResult\fP ($result)"
+.br
+.ti -1c
+.RI "\fBgetResult\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBRESULT_PENDING\fP = 0x0001"
+.br
+.ti -1c
+.RI "const \fBRESULT_SPOOLED\fP = 0x0011"
+.br
+.ti -1c
+.RI "const \fBRESULT_SUCCESS\fP = 0x0010"
+.br
+.ti -1c
+.RI "const \fBRESULT_TENTATIVE\fP = 0x0100"
+.br
+.ti -1c
+.RI "const \fBRESULT_FAILED\fP = 0x1000"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Generated when a message is being sent\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file SendEvent\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Transport\fP $source, \fBSwift_Mime_Message\fP $message)"
+Create a new SendEvent for $source and $message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file SendEvent\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFailedRecipients ()"
+Get an recipient addresses which were not accepted for delivery\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file SendEvent\&.php\&.
+.SS "getMessage ()"
+Get the Message being sent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file SendEvent\&.php\&.
+.SS "getResult ()"
+Get the result of this \fBEvent\fP\&.
+.PP
+The return value is a bitmask from {
+.PP
+\fBSee also:\fP
+.RS 4
+\fBRESULT_PENDING\fP, \fBRESULT_SUCCESS\fP, \fBRESULT_TENTATIVE\fP, \fBRESULT_FAILED\fP}
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file SendEvent\&.php\&.
+.SS "getTransport ()"
+Get the Transport used to send the Message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file SendEvent\&.php\&.
+.SS "setFailedRecipients ( $recipients)"
+Set the array of addresses that failed in sending\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$recipients\fP 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file SendEvent\&.php\&.
+.SS "setResult ( $result)"
+Set the result of sending\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file SendEvent\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const RESULT_FAILED = 0x1000"
+Sending failed 
+.PP
+Definition at line 31 of file SendEvent\&.php\&.
+.SS "const RESULT_PENDING = 0x0001"
+Sending has yet to occur 
+.PP
+Definition at line 19 of file SendEvent\&.php\&.
+.SS "const RESULT_SPOOLED = 0x0011"
+Email is spooled, ready to be sent 
+.PP
+Definition at line 22 of file SendEvent\&.php\&.
+.SS "const RESULT_SUCCESS = 0x0010"
+Sending was successful 
+.PP
+Definition at line 25 of file SendEvent\&.php\&.
+.SS "const RESULT_TENTATIVE = 0x0100"
+Sending worked, but there were some failures 
+.PP
+Definition at line 28 of file SendEvent\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

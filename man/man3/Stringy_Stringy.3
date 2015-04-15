@@ -1,0 +1,1308 @@
+.TH "Stringy" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Stringy \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Countable, IteratorAggregate, and ArrayAccess\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEncoding\fP ()"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($offset, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBchars\fP ()"
+.br
+.ti -1c
+.RI "\fBupperCaseFirst\fP ()"
+.br
+.ti -1c
+.RI "\fBlowerCaseFirst\fP ()"
+.br
+.ti -1c
+.RI "\fBcamelize\fP ()"
+.br
+.ti -1c
+.RI "\fBupperCamelize\fP ()"
+.br
+.ti -1c
+.RI "\fBdasherize\fP ()"
+.br
+.ti -1c
+.RI "\fBunderscored\fP ()"
+.br
+.ti -1c
+.RI "\fBswapCase\fP ()"
+.br
+.ti -1c
+.RI "\fBtitleize\fP ($ignore=null)"
+.br
+.ti -1c
+.RI "\fBhumanize\fP ()"
+.br
+.ti -1c
+.RI "\fBtidy\fP ()"
+.br
+.ti -1c
+.RI "\fBcollapseWhitespace\fP ()"
+.br
+.ti -1c
+.RI "\fBtoAscii\fP ($removeUnsupported=true)"
+.br
+.ti -1c
+.RI "\fBpad\fP ($\fBlength\fP, $padStr= ' ', $padType= 'right')"
+.br
+.ti -1c
+.RI "\fBpadLeft\fP ($\fBlength\fP, $padStr= ' ')"
+.br
+.ti -1c
+.RI "\fBpadRight\fP ($\fBlength\fP, $padStr= ' ')"
+.br
+.ti -1c
+.RI "\fBpadBoth\fP ($\fBlength\fP, $padStr= ' ')"
+.br
+.ti -1c
+.RI "\fBstartsWith\fP ($substring, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBendsWith\fP ($substring, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBtoSpaces\fP ($tabLength=4)"
+.br
+.ti -1c
+.RI "\fBtoTabs\fP ($tabLength=4)"
+.br
+.ti -1c
+.RI "\fBtoTitleCase\fP ()"
+.br
+.ti -1c
+.RI "\fBtoLowerCase\fP ()"
+.br
+.ti -1c
+.RI "\fBtoUpperCase\fP ()"
+.br
+.ti -1c
+.RI "\fBslugify\fP ($replacement= '-')"
+.br
+.ti -1c
+.RI "\fBcontains\fP ($needle, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBcontainsAny\fP ($needles, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBcontainsAll\fP ($needles, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBsurround\fP ($substring)"
+.br
+.ti -1c
+.RI "\fBinsert\fP ($substring, $index)"
+.br
+.ti -1c
+.RI "\fBtruncate\fP ($\fBlength\fP, $substring= '')"
+.br
+.ti -1c
+.RI "\fBsafeTruncate\fP ($\fBlength\fP, $substring= '')"
+.br
+.ti -1c
+.RI "\fBreverse\fP ()"
+.br
+.ti -1c
+.RI "\fBshuffle\fP ()"
+.br
+.ti -1c
+.RI "\fBtrim\fP ()"
+.br
+.ti -1c
+.RI "\fBlongestCommonPrefix\fP ($otherStr)"
+.br
+.ti -1c
+.RI "\fBlongestCommonSuffix\fP ($otherStr)"
+.br
+.ti -1c
+.RI "\fBlongestCommonSubstring\fP ($otherStr)"
+.br
+.ti -1c
+.RI "\fBlength\fP ()"
+.br
+.ti -1c
+.RI "\fBsubstr\fP ($start, $\fBlength\fP=null)"
+.br
+.ti -1c
+.RI "\fBat\fP ($index)"
+.br
+.ti -1c
+.RI "\fBfirst\fP ($\fBn\fP)"
+.br
+.ti -1c
+.RI "\fBlast\fP ($\fBn\fP)"
+.br
+.ti -1c
+.RI "\fBensureLeft\fP ($substring)"
+.br
+.ti -1c
+.RI "\fBensureRight\fP ($substring)"
+.br
+.ti -1c
+.RI "\fBremoveLeft\fP ($substring)"
+.br
+.ti -1c
+.RI "\fBremoveRight\fP ($substring)"
+.br
+.ti -1c
+.RI "\fBhasLowerCase\fP ()"
+.br
+.ti -1c
+.RI "\fBhasUpperCase\fP ()"
+.br
+.ti -1c
+.RI "\fBisAlpha\fP ()"
+.br
+.ti -1c
+.RI "\fBisAlphanumeric\fP ()"
+.br
+.ti -1c
+.RI "\fBisHexadecimal\fP ()"
+.br
+.ti -1c
+.RI "\fBisBlank\fP ()"
+.br
+.ti -1c
+.RI "\fBisJson\fP ()"
+.br
+.ti -1c
+.RI "\fBisLowerCase\fP ()"
+.br
+.ti -1c
+.RI "\fBisUpperCase\fP ()"
+.br
+.ti -1c
+.RI "\fBisSerialized\fP ()"
+.br
+.ti -1c
+.RI "\fBcountSubstr\fP ($substring, $caseSensitive=true)"
+.br
+.ti -1c
+.RI "\fBreplace\fP ($search, $replacement)"
+.br
+.ti -1c
+.RI "\fBregexReplace\fP ($pattern, $replacement, $\fBoptions\fP= 'msr')"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP ($str, $encoding=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBapplyDelimiter\fP ($delimiter)"
+.br
+.ti -1c
+.RI "\fBcharsArray\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$str\fP"
+.br
+.ti -1c
+.RI "\fB$encoding\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file Stringy\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $str,  $encoding = \fCnull\fP)"
+Initializes a \fBStringy\fP object and assigns both str and encoding properties the supplied values\&. $str is cast to a string prior to assignment, and if $encoding is not specified, it defaults to mb_internal_encoding()\&. Throws an InvalidArgumentException if the first argument is an array or object without a __toString method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP Value to modify, after being cast to string 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 34 of file Stringy\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns the value in $str\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current value of the $str property 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file Stringy\&.php\&.
+.SS "applyDelimiter ( $delimiter)\fC [protected]\fP"
+Returns a lowercase and trimmed string separated by the given delimiter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delimiter\fP Sequence used to separate parts of the string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a delimited $str 
+.RE
+.PP
+
+.PP
+Definition at line 302 of file Stringy\&.php\&.
+.SS "at ( $index)"
+Returns the character at $index, with indexes starting at 0\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP Position of the character 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP The character at $index 
+.RE
+.PP
+
+.PP
+Definition at line 1168 of file Stringy\&.php\&.
+.SS "camelize ()"
+Returns a camelCase version of the string\&. Trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, as well as underscores\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with $str in camelCase 
+.RE
+.PP
+
+.PP
+Definition at line 235 of file Stringy\&.php\&.
+.SS "chars ()"
+Returns an array consisting of the characters in the string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of string chars 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file Stringy\&.php\&.
+.SS "charsArray ()\fC [protected]\fP"
+Returns the replacements for the \fBtoAscii()\fP method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of replacements\&. 
+.RE
+.PP
+
+.PP
+Definition at line 449 of file Stringy\&.php\&.
+.SS "collapseWhitespace ()"
+Trims the string and replaces consecutive whitespace characters with a single space\&. This includes tabs and newline characters, as well as multibyte whitespace such as the thin space and ideographic space\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a trimmed $str and condensed whitespace 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file Stringy\&.php\&.
+.SS "contains ( $needle,  $caseSensitive = \fCtrue\fP)"
+Returns true if the string contains $needle, false otherwise\&. By default the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$needle\fP Substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains $needle 
+.RE
+.PP
+
+.PP
+Definition at line 831 of file Stringy\&.php\&.
+.SS "containsAll ( $needles,  $caseSensitive = \fCtrue\fP)"
+Returns true if the string contains all $needles, false otherwise\&. By default the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$needles\fP Substrings to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains $needle 
+.RE
+.PP
+
+.PP
+Definition at line 875 of file Stringy\&.php\&.
+.SS "containsAny ( $needles,  $caseSensitive = \fCtrue\fP)"
+Returns true if the string contains any $needles, false otherwise\&. By default the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$needles\fP Substrings to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains $needle 
+.RE
+.PP
+
+.PP
+Definition at line 851 of file Stringy\&.php\&.
+.SS "count ()"
+Returns the length of the string, implementing the countable interface\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of characters in the string, given the encoding 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file Stringy\&.php\&.
+.SS "countSubstr ( $substring,  $caseSensitive = \fCtrue\fP)"
+Returns the number of occurrences of $substring in the given string\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to search for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of $substring occurrences 
+.RE
+.PP
+
+.PP
+Definition at line 1419 of file Stringy\&.php\&.
+.SS "static create ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Creates a \fBStringy\fP object and assigns both str and encoding properties the supplied values\&. $str is cast to a string prior to assignment, and if $encoding is not specified, it defaults to mb_internal_encoding()\&. It then returns the initialized object\&. Throws an InvalidArgumentException if the first argument is an array or object without a __toString method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP Value to modify, after being cast to string 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP \fBA\fP \fBStringy\fP object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 63 of file Stringy\&.php\&.
+.SS "dasherize ()"
+Returns a lowercase and trimmed string separated by dashes\&. Dashes are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as underscores\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a dasherized $str 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file Stringy\&.php\&.
+.SS "endsWith ( $substring,  $caseSensitive = \fCtrue\fP)"
+Returns true if the string ends with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str ends with $substring 
+.RE
+.PP
+
+.PP
+Definition at line 715 of file Stringy\&.php\&.
+.SS "ensureLeft ( $substring)"
+Ensures that the string begins with $substring\&. If it doesn't, it's prepended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to add if not present 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str prefixed by the $substring 
+.RE
+.PP
+
+.PP
+Definition at line 1218 of file Stringy\&.php\&.
+.SS "ensureRight ( $substring)"
+Ensures that the string begins with $substring\&. If it doesn't, it's appended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to add if not present 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str suffixed by the $substring 
+.RE
+.PP
+
+.PP
+Definition at line 1236 of file Stringy\&.php\&.
+.SS "first ( $n)"
+Returns the first $n characters of the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$n\fP Number of characters to retrieve from the start 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the first $n chars 
+.RE
+.PP
+
+.PP
+Definition at line 1179 of file Stringy\&.php\&.
+.SS "getEncoding ()"
+Returns the encoding used by the \fBStringy\fP object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current value of the $encoding property 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file Stringy\&.php\&.
+.SS "getIterator ()"
+Returns a new ArrayIterator, thus implementing the IteratorAggregate interface\&. The ArrayIterator's constructor is passed an array of chars in the multibyte string\&. This enables the use of foreach with instances of \fBStringy\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+An iterator for the characters in the string 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file Stringy\&.php\&.
+.SS "hasLowerCase ()"
+Returns true if the string contains a lower case char, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not the string contains a lower case character\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1306 of file Stringy\&.php\&.
+.SS "hasUpperCase ()"
+Returns true if the string contains an upper case char, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not the string contains an upper case character\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1317 of file Stringy\&.php\&.
+.SS "humanize ()"
+Capitalizes the first word of the string, replaces underscores with spaces, and strips '_id'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a humanized $str 
+.RE
+.PP
+
+.PP
+Definition at line 377 of file Stringy\&.php\&.
+.SS "insert ( $substring,  $index)"
+Inserts $substring into the string at the $index provided\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP String to be inserted 
+.br
+\fI$index\fP The index at which to insert the substring 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the resulting $str after the insertion 
+.RE
+.PP
+
+.PP
+Definition at line 911 of file Stringy\&.php\&.
+.SS "isAlpha ()"
+Returns true if the string contains only alphabetic chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only alphabetic chars 
+.RE
+.PP
+
+.PP
+Definition at line 1328 of file Stringy\&.php\&.
+.SS "isAlphanumeric ()"
+Returns true if the string contains only alphabetic and numeric chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only alphanumeric chars 
+.RE
+.PP
+
+.PP
+Definition at line 1339 of file Stringy\&.php\&.
+.SS "isBlank ()"
+Returns true if the string contains only whitespace chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only whitespace characters 
+.RE
+.PP
+
+.PP
+Definition at line 1361 of file Stringy\&.php\&.
+.SS "isHexadecimal ()"
+Returns true if the string contains only hexadecimal chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only hexadecimal chars 
+.RE
+.PP
+
+.PP
+Definition at line 1350 of file Stringy\&.php\&.
+.SS "isJson ()"
+Returns true if the string is JSON, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str is JSON 
+.RE
+.PP
+
+.PP
+Definition at line 1371 of file Stringy\&.php\&.
+.SS "isLowerCase ()"
+Returns true if the string contains only lower case chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only lower case characters 
+.RE
+.PP
+
+.PP
+Definition at line 1384 of file Stringy\&.php\&.
+.SS "isSerialized ()"
+Returns true if the string is serialized, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str is serialized 
+.RE
+.PP
+
+.PP
+Definition at line 1405 of file Stringy\&.php\&.
+.SS "isUpperCase ()"
+Returns true if the string contains only lower case chars, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only lower case characters 
+.RE
+.PP
+
+.PP
+Definition at line 1395 of file Stringy\&.php\&.
+.SS "last ( $n)"
+Returns the last $n characters of the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$n\fP Number of characters to retrieve from the end 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the last $n chars 
+.RE
+.PP
+
+.PP
+Definition at line 1198 of file Stringy\&.php\&.
+.SS "length ()"
+Returns the length of the string\&. An alias for \fBPHP\fP's mb_strlen() function\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of characters in $str given the encoding 
+.RE
+.PP
+
+.PP
+Definition at line 1140 of file Stringy\&.php\&.
+.SS "longestCommonPrefix ( $otherStr)"
+Returns the longest common prefix between the string and $otherStr\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$otherStr\fP Second string for comparison 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the longest common prefix 
+.RE
+.PP
+
+.PP
+Definition at line 1042 of file Stringy\&.php\&.
+.SS "longestCommonSubstring ( $otherStr)"
+Returns the longest common substring between the string and $otherStr\&. In the case of ties, it returns that which occurs first\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$otherStr\fP Second string for comparison 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the longest common substring 
+.RE
+.PP
+
+.PP
+Definition at line 1093 of file Stringy\&.php\&.
+.SS "longestCommonSuffix ( $otherStr)"
+Returns the longest common suffix between the string and $otherStr\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$otherStr\fP Second string for comparison 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the longest common suffix 
+.RE
+.PP
+
+.PP
+Definition at line 1067 of file Stringy\&.php\&.
+.SS "lowerCaseFirst ()"
+Converts the first character of the string to lower case\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the first character of $str being lower case 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file Stringy\&.php\&.
+.SS "offsetExists ( $offset)"
+Returns whether or not a character exists at an index\&. Offsets may be negative to count from the last character in the string\&. Implements part of the ArrayAccess interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP The index to check 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean Whether or not the index exists 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file Stringy\&.php\&.
+.SS "offsetGet ( $offset)"
+Returns the character at the given index\&. Offsets may be negative to count from the last character in the string\&. Implements part of the ArrayAccess interface, and throws an OutOfBoundsException if the index does not exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP The index from which to retrieve the char 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The character at the specified index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 142 of file Stringy\&.php\&.
+.SS "offsetSet ( $offset,  $value)"
+Implements part of the ArrayAccess interface, but throws an exception when called\&. This maintains the immutability of \fBStringy\fP objects\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP The index of the character 
+.br
+\fI$value\fP Value to set 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 162 of file Stringy\&.php\&.
+.SS "offsetUnset ( $offset)"
+Implements part of the ArrayAccess interface, but throws an exception when called\&. This maintains the immutability of \fBStringy\fP objects\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP The index of the character 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 175 of file Stringy\&.php\&.
+.SS "pad ( $length,  $padStr = \fC' '\fP,  $padType = \fC'right'\fP)"
+Pads the string to a given length with $padStr\&. If length is less than or equal to the length of the string, no padding takes places\&. The default string used for padding is a space, and the default type (one of 'left', 'right', 'both') is 'right'\&. Throws an InvalidArgumentException if $padType isn't one of those 3 values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.br
+\fI$padType\fP \fBOne\fP of 'left', 'right', 'both' 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a padded $str 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP If $padType isn't one of 'right', 'left' or 'both' 
+.RE
+.PP
+
+.PP
+Definition at line 593 of file Stringy\&.php\&.
+.SS "padBoth ( $length,  $padStr = \fC' '\fP)"
+Returns a new string of a given length such that both sides of the string are padded\&. Alias for \fBpad()\fP with a $padType of 'both'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP String with padding applied 
+.RE
+.PP
+
+.PP
+Definition at line 644 of file Stringy\&.php\&.
+.SS "padLeft ( $length,  $padStr = \fC' '\fP)"
+Returns a new string of a given length such that the beginning of the string is padded\&. Alias for \fBpad()\fP with a $padType of 'left'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP String with left padding 
+.RE
+.PP
+
+.PP
+Definition at line 618 of file Stringy\&.php\&.
+.SS "padRight ( $length,  $padStr = \fC' '\fP)"
+Returns a new string of a given length such that the end of the string is padded\&. Alias for \fBpad()\fP with a $padType of 'right'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP String with right padding 
+.RE
+.PP
+
+.PP
+Definition at line 631 of file Stringy\&.php\&.
+.SS "regexReplace ( $pattern,  $replacement,  $options = \fC'msr'\fP)"
+Replaces all occurrences of $pattern in $str by $replacement\&. An alias for mb_ereg_replace()\&. Note that the 'i' option with multibyte patterns in mb_ereg_replace() requires \fBPHP\fP 5\&.4+\&. This is due to a lack of support in the bundled version of Oniguruma in \fBPHP\fP 5\&.3\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP The regular expression pattern 
+.br
+\fI$replacement\fP The string to replace with 
+.br
+\fI$options\fP Matching conditions to be used 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the resulting $str after the replacements 
+.RE
+.PP
+
+.PP
+Definition at line 1454 of file Stringy\&.php\&.
+.SS "removeLeft ( $substring)"
+Returns a new string with the prefix $substring removed, if present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The prefix to remove 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object having a $str without the prefix $substring 
+.RE
+.PP
+
+.PP
+Definition at line 1253 of file Stringy\&.php\&.
+.SS "removeRight ( $substring)"
+Returns a new string with the suffix $substring removed, if present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The suffix to remove 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object having a $str without the suffix $substring 
+.RE
+.PP
+
+.PP
+Definition at line 1271 of file Stringy\&.php\&.
+.SS "replace ( $search,  $replacement)"
+Replaces all occurrences of $search in $str by $replacement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$search\fP The needle to search for 
+.br
+\fI$replacement\fP The string to replace with 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the resulting $str after the replacements 
+.RE
+.PP
+
+.PP
+Definition at line 1438 of file Stringy\&.php\&.
+.SS "reverse ()"
+Returns a reversed string\&. \fBA\fP multibyte version of strrev()\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a reversed $str 
+.RE
+.PP
+
+.PP
+Definition at line 994 of file Stringy\&.php\&.
+.SS "safeTruncate ( $length,  $substring = \fC''\fP)"
+Truncates the string to a given length, while ensuring that it does not split words\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired length of the truncated string 
+.br
+\fI$substring\fP The substring to append if it can fit 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the resulting $str after truncating 
+.RE
+.PP
+
+.PP
+Definition at line 963 of file Stringy\&.php\&.
+.SS "shuffle ()"
+\fBA\fP multibyte str_shuffle() function\&. It returns a string with its characters in random order\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a shuffled $str 
+.RE
+.PP
+
+.PP
+Definition at line 1013 of file Stringy\&.php\&.
+.SS "slugify ( $replacement = \fC'-'\fP)"
+Converts the string into an \fBURL\fP slug\&. This includes replacing non-ASCII characters with their closest ASCII equivalents, removing remaining non-ASCII and non-alphanumeric characters, and replacing whitespace with $replacement\&. The replacement defaults to a single dash, and the string is also converted to lowercase\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$replacement\fP The string used to replace whitespace 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str has been converted to an \fBURL\fP slug 
+.RE
+.PP
+
+.PP
+Definition at line 810 of file Stringy\&.php\&.
+.SS "startsWith ( $substring,  $caseSensitive = \fCtrue\fP)"
+Returns true if the string begins with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str starts with $substring 
+.RE
+.PP
+
+.PP
+Definition at line 692 of file Stringy\&.php\&.
+.SS "substr ( $start,  $length = \fCnull\fP)"
+Returns the substring beginning at $start with the specified $length\&. It differs from the mb_substr() function in that providing a $length of null will return the rest of the string, rather than an empty string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$start\fP Position of the first character to use 
+.br
+\fI$length\fP Maximum number of characters used 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with its $str being the substring 
+.RE
+.PP
+
+.PP
+Definition at line 1154 of file Stringy\&.php\&.
+.SS "surround ( $substring)"
+Surrounds $str with the given substring\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$substring\fP The substring to add to both sides 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str had the substring both prepended and appended 
+.RE
+.PP
+
+.PP
+Definition at line 897 of file Stringy\&.php\&.
+.SS "swapCase ()"
+Returns a case swapped version of the string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str has each character's case swapped 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file Stringy\&.php\&.
+.SS "tidy ()"
+Returns a string with smart quotes, ellipsis characters, and dashes from Windows-1252 (commonly used in Word documents) replaced by their ASCII equivalents\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str has those characters removed 
+.RE
+.PP
+
+.PP
+Definition at line 391 of file Stringy\&.php\&.
+.SS "titleize ( $ignore = \fCnull\fP)"
+Returns a trimmed string with the first letter of each word capitalized\&. Ignores the case of other letters, preserving any acronyms\&. Also accepts an array, $ignore, allowing you to list words not to be capitalized\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ignore\fP An array of words not to capitalize 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a titleized $str 
+.RE
+.PP
+
+.PP
+Definition at line 350 of file Stringy\&.php\&.
+.SS "toAscii ( $removeUnsupported = \fCtrue\fP)"
+Returns an ASCII version of the string\&. \fBA\fP set of non-ASCII characters are replaced with their closest ASCII counterparts, and the rest are removed unless instructed otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$removeUnsupported\fP Whether or not to remove the unsupported characters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str contains only ASCII characters 
+.RE
+.PP
+
+.PP
+Definition at line 429 of file Stringy\&.php\&.
+.SS "toLowerCase ()"
+Converts all characters in the string to lowercase\&. An alias for \fBPHP\fP's mb_strtolower()\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with all characters of $str being lowercase 
+.RE
+.PP
+
+.PP
+Definition at line 780 of file Stringy\&.php\&.
+.SS "toSpaces ( $tabLength = \fC4\fP)"
+Converts each tab in the string to some number of spaces, as defined by $tabLength\&. By default, each tab is converted to 4 consecutive spaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tabLength\fP Number of spaces to replace each tab with 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str has had tabs switched to spaces 
+.RE
+.PP
+
+.PP
+Definition at line 738 of file Stringy\&.php\&.
+.SS "toTabs ( $tabLength = \fC4\fP)"
+Converts each occurrence of some consecutive number of spaces, as defined by $tabLength, to a tab\&. By default, each 4 consecutive spaces are converted to a tab\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tabLength\fP Number of spaces to replace with a tab 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object whose $str has had spaces switched to tabs 
+.RE
+.PP
+
+.PP
+Definition at line 754 of file Stringy\&.php\&.
+.SS "toTitleCase ()"
+Converts the first character of each word in the string to uppercase\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with all characters of $str being title-cased 
+.RE
+.PP
+
+.PP
+Definition at line 767 of file Stringy\&.php\&.
+.SS "toUpperCase ()"
+Converts all characters in the string to uppercase\&. An alias for \fBPHP\fP's mb_strtoupper()\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with all characters of $str being uppercase 
+.RE
+.PP
+
+.PP
+Definition at line 793 of file Stringy\&.php\&.
+.SS "trim ()"
+Returns the trimmed string\&. An alias for \fBPHP\fP's \fBtrim()\fP function\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with a trimmed $str 
+.RE
+.PP
+
+.PP
+Definition at line 1031 of file Stringy\&.php\&.
+.SS "truncate ( $length,  $substring = \fC''\fP)"
+Truncates the string to a given length\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP Desired length of the truncated string 
+.br
+\fI$substring\fP The substring to append if it can fit 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the resulting $str after truncating 
+.RE
+.PP
+
+.PP
+Definition at line 936 of file Stringy\&.php\&.
+.SS "underscored ()"
+Returns a lowercase and trimmed string separated by underscores\&. Underscores are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as dashes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with an underscored $str 
+.RE
+.PP
+
+.PP
+Definition at line 291 of file Stringy\&.php\&.
+.SS "upperCamelize ()"
+Returns an UpperCamelCase version of the supplied string\&. It trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, underscores\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with $str in UpperCamelCase 
+.RE
+.PP
+
+.PP
+Definition at line 266 of file Stringy\&.php\&.
+.SS "upperCaseFirst ()"
+Converts the first character of the supplied string to upper case\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStringy\fP Object with the first character of $str being upper case 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file Stringy\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$encoding\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Stringy\&.php\&.
+.SS "$str\fC [protected]\fP"
+
+.PP
+Definition at line 12 of file Stringy\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,445 @@
+\section{Job Class Reference}
+\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job}\index{Job@{Job}}
+Inheritance diagram for Job\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.830065cm]{class_illuminate_1_1_queue_1_1_jobs_1_1_job}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf fire} ()
+\item 
+{\bf delete} ()
+\item 
+{\bf is\+Deleted} ()
+\item 
+{\bf release} (\${\bf delay}=0)
+\item 
+{\bf is\+Released} ()
+\item 
+{\bf is\+Deleted\+Or\+Released} ()
+\item 
+{\bf attempts} ()
+\item 
+{\bf get\+Raw\+Body} ()
+\item 
+{\bf failed} ()
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf get\+Queue} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf resolve\+And\+Fire} (array \$payload)
+\item 
+{\bf parse\+Job} (\$job)
+\item 
+{\bf resolve} (\$class)
+\item 
+{\bf resolve\+Queueable\+Entities} (\${\bf data})
+\item 
+{\bf resolve\+Queueable\+Entity} (\$value)
+\item 
+{\bf get\+Entity\+Resolver} ()
+\item 
+{\bf get\+Seconds} (\${\bf delay})
+\item 
+{\bf get\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$instance}
+\item 
+{\bf \$container}
+\item 
+{\bf \$queue}
+\item 
+{\bf \$deleted} = false
+\item 
+{\bf \$released} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 5 of file Job.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!attempts@{attempts}}
+\index{attempts@{attempts}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{attempts}]{\setlength{\rightskip}{0pt plus 5cm}attempts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a8b665278088b7c0d5628e53030d010e5}
+Get the number of times the job has been attempted.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a13bdffdd926f26b825ea57066334ff01}
+Delete the job from the queue.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!failed@{failed}}
+\index{failed@{failed}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{failed}]{\setlength{\rightskip}{0pt plus 5cm}failed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ab3e7c26f41cef1f8169fd263c28e17b3}
+Call the failed method on the job instance.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!fire@{fire}}
+\index{fire@{fire}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{fire}]{\setlength{\rightskip}{0pt plus 5cm}fire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a8262e3bf76dfb0ee769031338948b332}
+Fire the job.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Entity\+Resolver@{get\+Entity\+Resolver}}
+\index{get\+Entity\+Resolver@{get\+Entity\+Resolver}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Entity\+Resolver}]{\setlength{\rightskip}{0pt plus 5cm}get\+Entity\+Resolver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ad64bbda349284fbc78b5e3b912d104ca}
+Get an entity resolver instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 216 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a3d0963e68bb313b163a73f2803c64600}
+Get the name of the queued job class.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Queue@{get\+Queue}}
+\index{get\+Queue@{get\+Queue}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_aa7a8055e5ee1eb792f29443ddb79c4d3}
+Get the name of the queue the job belongs to.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 262 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Raw\+Body@{get\+Raw\+Body}}
+\index{get\+Raw\+Body@{get\+Raw\+Body}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Raw\+Body}]{\setlength{\rightskip}{0pt plus 5cm}get\+Raw\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a5c67cc2000005354c0b21d0fbae309a7}
+Get the raw body string for the job.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Seconds@{get\+Seconds}}
+\index{get\+Seconds@{get\+Seconds}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Seconds}]{\setlength{\rightskip}{0pt plus 5cm}get\+Seconds (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ac4038df3714fca7c770fc06f9fff1af3}
+Calculate the number of seconds with the given delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 227 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{get\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a57c78d9f0aa316ee2fdd6995e2a06ce3}
+Get the current system time.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!is\+Deleted@{is\+Deleted}}
+\index{is\+Deleted@{is\+Deleted}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{is\+Deleted}]{\setlength{\rightskip}{0pt plus 5cm}is\+Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ae7c7709308082027ea2b479a7bc6c980}
+Determine if the job has been deleted.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!is\+Deleted\+Or\+Released@{is\+Deleted\+Or\+Released}}
+\index{is\+Deleted\+Or\+Released@{is\+Deleted\+Or\+Released}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{is\+Deleted\+Or\+Released}]{\setlength{\rightskip}{0pt plus 5cm}is\+Deleted\+Or\+Released (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a7ff234d9fd8095be0dda9fa1ee19bd2a}
+Determine if the job has been deleted or released.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!is\+Released@{is\+Released}}
+\index{is\+Released@{is\+Released}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{is\+Released}]{\setlength{\rightskip}{0pt plus 5cm}is\+Released (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_aac857a82cedd9ee7f50343c590d244cf}
+Determine if the job was released back into the queue.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!parse\+Job@{parse\+Job}}
+\index{parse\+Job@{parse\+Job}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{parse\+Job}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$job}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a7e6819d4f7d9a94fc382019f8adeddfb}
+Parse the job declaration into class and method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!release@{release}}
+\index{release@{release}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}release (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ac5cc2a30abbe3afc2dc664c91489bb2d}
+Release the job back into the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!resolve@{resolve}}
+\index{resolve@{resolve}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{resolve}]{\setlength{\rightskip}{0pt plus 5cm}resolve (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a86387729e6b2ebdbed257672713b5f9b}
+Resolve the given job handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!resolve\+And\+Fire@{resolve\+And\+Fire}}
+\index{resolve\+And\+Fire@{resolve\+And\+Fire}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{resolve\+And\+Fire}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+And\+Fire (
+\begin{DoxyParamCaption}
+\item[{array}]{\$payload}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a944772c47a3784bd762076dbde8ab8e0}
+Resolve and fire the job handler method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$payload} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!resolve\+Queueable\+Entities@{resolve\+Queueable\+Entities}}
+\index{resolve\+Queueable\+Entities@{resolve\+Queueable\+Entities}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{resolve\+Queueable\+Entities}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Queueable\+Entities (
+\begin{DoxyParamCaption}
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a7a04eec231d5047771efe569fc76db8c}
+Resolve all of the queueable entities in the given payload.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!resolve\+Queueable\+Entity@{resolve\+Queueable\+Entity}}
+\index{resolve\+Queueable\+Entity@{resolve\+Queueable\+Entity}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{resolve\+Queueable\+Entity}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Queueable\+Entity (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_af96b0717b620db58bde0fe5f50a8d72c}
+Resolve a single queueable entity from the resolver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 180 of file Job.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!\$container@{\$container}}
+\index{\$container@{\$container}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{\$container}]{\setlength{\rightskip}{0pt plus 5cm}\$container\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ab97dd40df90f4ce6f0fce9091e7c7872}
+
+
+Definition at line 19 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!\$deleted@{\$deleted}}
+\index{\$deleted@{\$deleted}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{\$deleted}]{\setlength{\rightskip}{0pt plus 5cm}\$deleted = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a11310b773f3860a19892b3f681f957f1}
+
+
+Definition at line 33 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!\$instance@{\$instance}}
+\index{\$instance@{\$instance}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{\$instance}]{\setlength{\rightskip}{0pt plus 5cm}\$instance\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_ad9d7ce33ebb142b70e58b68052ca0ea8}
+
+
+Definition at line 12 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!\$queue@{\$queue}}
+\index{\$queue@{\$queue}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{\$queue}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf queue}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a4a0b48f6ae2fcb248a4f0288c7c344a6}
+
+
+Definition at line 26 of file Job.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}!\$released@{\$released}}
+\index{\$released@{\$released}!Illuminate\+::\+Queue\+::\+Jobs\+::\+Job@{Illuminate\+::\+Queue\+::\+Jobs\+::\+Job}}
+\subsubsection[{\$released}]{\setlength{\rightskip}{0pt plus 5cm}\$released = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_jobs_1_1_job_a1a9fdbf4d282a768859c454e38db1642}
+
+
+Definition at line 40 of file Job.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/\+Jobs/{\bf Job.\+php}\end{DoxyCompactItemize}

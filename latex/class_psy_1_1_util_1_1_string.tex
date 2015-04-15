@@ -1,0 +1,122 @@
+\section{String Class Reference}
+\label{class_psy_1_1_util_1_1_string}\index{String@{String}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf unvis} (\$input)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf U\+N\+V\+I\+S\+\_\+\+R\+X}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf unvis\+Replace} (\$match)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{String}{p.}{class_psy_1_1_util_1_1_string} utility methods.
+
+\begin{DoxyAuthor}{Author}
+ju1ius 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file String.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}!unvis@{unvis}}
+\index{unvis@{unvis}!Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}}
+\subsubsection[{unvis}]{\setlength{\rightskip}{0pt plus 5cm}static unvis (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_psy_1_1_util_1_1_string_a1681dd2b18c7fe727d972e2f6b7be246}
+Decodes a string encoded by libsd\textquotesingle{}s strvis.
+
+From {\ttfamily man 3 vis}\+:
+
+Use an ‘\+M’ to represent meta characters (characters with the 8th bit set), and use a caret ‘$^\wedge$’ to represent control characters (see iscntrl(3)). The following formats are used\+: \begin{DoxyVerb} \040    Represents ASCII space.
+
+ \240    Represents Meta-space (&nbsp in HTML).
+
+ \M-C    Represents character ‘C’ with the 8th bit set.
+         Spans characters ‘\241’ through ‘\376’.
+
+ \M^C    Represents control character ‘C’ with the 8th bit set.
+         Spans characters ‘\200’ through ‘\237’, and ‘\377’ (as ‘\M^?’).
+
+ \^C     Represents the control character ‘C’.
+         Spans characters ‘\000’ through ‘\037’, and ‘\177’ (as ‘\^?’).
+\end{DoxyVerb}
+
+
+The other formats are supported by \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s stripcslashes, except for the  sequence (A\+S\+C\+I\+I space).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & The string to decode.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file String.\+php.
+
+\index{Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}!unvis\+Replace@{unvis\+Replace}}
+\index{unvis\+Replace@{unvis\+Replace}!Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}}
+\subsubsection[{unvis\+Replace}]{\setlength{\rightskip}{0pt plus 5cm}static unvis\+Replace (
+\begin{DoxyParamCaption}
+\item[{}]{\$match}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_psy_1_1_util_1_1_string_aa994762528dada9aa26beb9e6f53ef2f}
+Callback for \doxyref{String\+::unvis}{p.}{class_psy_1_1_util_1_1_string_a1681dd2b18c7fe727d972e2f6b7be246}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$match} & The matches passed by preg\+\_\+replace\+\_\+callback\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file String.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}!U\+N\+V\+I\+S\+\_\+\+R\+X@{U\+N\+V\+I\+S\+\_\+\+R\+X}}
+\index{U\+N\+V\+I\+S\+\_\+\+R\+X@{U\+N\+V\+I\+S\+\_\+\+R\+X}!Psy\+::\+Util\+::\+String@{Psy\+::\+Util\+::\+String}}
+\subsubsection[{U\+N\+V\+I\+S\+\_\+\+R\+X}]{\setlength{\rightskip}{0pt plus 5cm}const U\+N\+V\+I\+S\+\_\+\+R\+X}\label{class_psy_1_1_util_1_1_string_aa2d41bc31eb7a851292bd9757c0c76e5}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= <<<\textcolor{stringliteral}{'EOS'}
+/
+    \(\backslash\)\(\backslash\)(?:
+        ((?:040)|s)
+        | (240)
+        | (?: M-(.) )
+        | (?: M\(\backslash\)^(.) )
+        | (?: \(\backslash\)^(.) )
+    )
+/xS
+EOS
+\end{DoxyCode}
+
+
+Definition at line 21 of file String.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/\+Util/{\bf String.\+php}\end{DoxyCompactItemize}

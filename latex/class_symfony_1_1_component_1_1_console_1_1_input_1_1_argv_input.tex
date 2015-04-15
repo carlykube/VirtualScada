@@ -1,0 +1,207 @@
+\section{Argv\+Input Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input}\index{Argv\+Input@{Argv\+Input}}
+Inheritance diagram for Argv\+Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$argv=null, {\bf Input\+Definition} \$definition=null)
+\item 
+{\bf get\+First\+Argument} ()
+\item 
+{\bf has\+Parameter\+Option} (\${\bf values})
+\item 
+{\bf get\+Parameter\+Option} (\${\bf values}, \$default=false)
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Tokens} (array \$tokens)
+\item 
+{\bf parse} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Argv\+Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input} represents an input coming from the C\+L\+I arguments.
+
+Usage\+: \begin{DoxyVerb}$input = new ArgvInput();
+\end{DoxyVerb}
+
+
+By default, the `\$\+\_\+\+S\+E\+R\+V\+E\+R[\textquotesingle{}argv\textquotesingle{}]` array is used for the input values.
+
+This can be overridden by explicitly passing the input values in the constructor\+: \begin{DoxyVerb}$input = new ArgvInput($_SERVER['argv']);
+\end{DoxyVerb}
+
+
+If you pass it yourself, don\textquotesingle{}t forget that the first element of the array is the name of the running application.
+
+When passing an argument to the constructor, be sure that it respects the same rules as the argv one. It\textquotesingle{}s almost always better to use the {\ttfamily \doxyref{String\+Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_string_input}} when you want to provide your own input.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://www.\+gnu.\+org/software/libc/manual/html\+\_\+node/\+Argument-\/\+Syntax.\+html} 
+
+{\tt http\+://www.\+opengroup.\+org/onlinepubs/009695399/basedefs/xbd\+\_\+chap12.\+html\#tag\+\_\+12\+\_\+02}
+\end{DoxySeeAlso}
+
+
+Definition at line 41 of file Argv\+Input.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$argv = {\ttfamily null}, }
+\item[{{\bf Input\+Definition}}]{\$definition = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_a0bf35c6e58f69ff7460b27b4b2f025bc}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$argv} & An array of parameters from the C\+L\+I (in the argv format) \\
+\hline
+\doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} & {\em \$definition} & \doxyref{A}{p.}{class_a} \doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} instance\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Argv\+Input.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_a7516ca30af0db3cdbf9a7739b48ce91d}
+Returns a stringified representation of the args passed to the command.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 336 of file Argv\+Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!get\+First\+Argument@{get\+First\+Argument}}
+\index{get\+First\+Argument@{get\+First\+Argument}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{get\+First\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}get\+First\+Argument (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_af2c0efe177067f350eb7d027d5cb0d48}
+Returns the first argument from the raw parameters (not parsed).
+
+\begin{DoxyReturn}{Returns}
+string The value of the first argument or null otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_af2c0efe177067f350eb7d027d5cb0d48}.
+
+
+
+Definition at line 262 of file Argv\+Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!get\+Parameter\+Option@{get\+Parameter\+Option}}
+\index{get\+Parameter\+Option@{get\+Parameter\+Option}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{get\+Parameter\+Option}]{\setlength{\rightskip}{0pt plus 5cm}get\+Parameter\+Option (
+\begin{DoxyParamCaption}
+\item[{}]{\$values, }
+\item[{}]{\$default = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_a41040d38959c4c0ebf96bacd7b9a78f8}
+Returns the value of a raw option (not parsed).
+
+This method is to be used to introspect the input parameters before they have been validated. It must be used carefully.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$values} & The value(s) to look for in the raw parameters (can be an array) \\
+\hline
+mixed & {\em \$default} & The default value to return if no result is found\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The option value 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a41040d38959c4c0ebf96bacd7b9a78f8}.
+
+
+
+Definition at line 309 of file Argv\+Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!has\+Parameter\+Option@{has\+Parameter\+Option}}
+\index{has\+Parameter\+Option@{has\+Parameter\+Option}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{has\+Parameter\+Option}]{\setlength{\rightskip}{0pt plus 5cm}has\+Parameter\+Option (
+\begin{DoxyParamCaption}
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_a0e8e5ab4feedf51eb06791d59c730463}
+Returns true if the raw parameters (not parsed) contain a value.
+
+This method is to be used to introspect the input parameters before they have been validated. It must be used carefully.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$values} & The value(s) to look for in the raw parameters (can be an array)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the value is contained in the raw parameters 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a0e8e5ab4feedf51eb06791d59c730463}.
+
+
+
+Definition at line 283 of file Argv\+Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!parse@{parse}}
+\index{parse@{parse}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_a38d99acc70a1d8fd8f94455743b2d237}
+Processes command line arguments. 
+
+Definition at line 76 of file Argv\+Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}!set\+Tokens@{set\+Tokens}}
+\index{set\+Tokens@{set\+Tokens}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Argv\+Input}}
+\subsubsection[{set\+Tokens}]{\setlength{\rightskip}{0pt plus 5cm}set\+Tokens (
+\begin{DoxyParamCaption}
+\item[{array}]{\$tokens}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input_aff5a06118bdfe9cedcfb417449b79ee2}
+
+
+Definition at line 68 of file Argv\+Input.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/\+Input/{\bf Argv\+Input.\+php}\end{DoxyCompactItemize}

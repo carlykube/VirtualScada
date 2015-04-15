@@ -1,0 +1,25 @@
+
+\begin{DoxyItemize}
+\item {\ttfamily zend\+\_\+language\+\_\+parser.\+phpy}\+: \doxyref{P\+H\+P}{p.}{namespace_p_h_p} grammer written in a pseudo language
+\item {\ttfamily \doxyref{analyze.\+php}{p.}{analyze_8php}}\+: Analyzes the {\ttfamily .phpy}-\/grammer and outputs some info about it
+\item {\ttfamily \doxyref{rebuild\+Parser.\+php}{p.}{rebuild_parser_8php}}\+: Preprocesses the {\ttfamily .phpy}-\/grammar and builds the parser using {\ttfamily kmyacc}
+\item {\ttfamily kmyacc.\+php.\+parser}\+: \doxyref{A}{p.}{class_a} {\ttfamily kmyacc} parser prototype file for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}
+\end{DoxyItemize}
+
+\section*{.phpy pseudo language }
+
+The {\ttfamily .phpy} file is a normal grammer in {\ttfamily kmyacc} ({\ttfamily yacc}) style, with some transformations applied to it\+:
+
+
+\begin{DoxyItemize}
+\item Nodes are created using the syntax {\ttfamily Name[..., ...]}. This is transformed into {\ttfamily new Node\textbackslash{}Name(..., ..., \$attributes)}
+\item {\ttfamily Name\+::abc} is transformed to {\ttfamily Node\textbackslash{}Name\+::abc}
+\item Some function-\/like constructs are resolved (see {\ttfamily \doxyref{rebuild\+Parser.\+php}{p.}{rebuild_parser_8php}} for a list)
+\item Associative arrays are written as {\ttfamily [key\+: value, ...]}, which is transformed to `array(\textquotesingle{}key\textquotesingle{} =$>$ value, ...)`
+\end{DoxyItemize}
+
+\section*{Building the parser }
+
+In order to rebuild the parser, you need {\tt moriyoshi\textquotesingle{}s fork of kmyacc}. After you compiled/installed it, run the {\ttfamily \doxyref{rebuild\+Parser.\+php}{p.}{rebuild_parser_8php}} script.
+
+By default only the {\ttfamily Parser.\+php} is built. If you want to additionally build {\ttfamily Parser/\+Debug.\+php} and {\ttfamily y.\+output} run the script with {\ttfamily -\/-\/debug}. If you want to retain the preprocessed grammar pass {\ttfamily -\/-\/keep-\/tmp-\/grammar}. 

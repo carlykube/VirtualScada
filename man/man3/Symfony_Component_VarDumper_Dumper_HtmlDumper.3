@@ -1,0 +1,248 @@
+.TH "HtmlDumper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HtmlDumper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCliDumper\fP\&.
+.PP
+Inherited by \fBHtmlDumper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetOutput\fP ($output)"
+.br
+.ti -1c
+.RI "\fBsetStyles\fP (array $styles)"
+.br
+.ti -1c
+.RI "\fBsetDumpHeader\fP ($header)"
+.br
+.ti -1c
+.RI "\fBsetDumpBoundaries\fP ($prefix, $suffix)"
+.br
+.ti -1c
+.RI "\fBdump\fP (\fBData\fP $\fBdata\fP, $output=null)"
+.br
+.ti -1c
+.RI "\fBenterHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild)"
+.br
+.ti -1c
+.RI "\fBleaveHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild, $cut)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$defaultOutput\fP = 'php://output'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDumpHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBstyle\fP ($style, $value, $\fBattr\fP=array())"
+.br
+.ti -1c
+.RI "\fBdumpLine\fP ($depth)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$dumpHeader\fP"
+.br
+.ti -1c
+.RI "\fB$dumpPrefix\fP = '<pre class=sf-\fBdump\fP id=%s \fBdata\fP-indent-pad='%s'>'"
+.br
+.ti -1c
+.RI "\fB$dumpSuffix\fP = '</pre><script>Sfdump('%s')</script>'"
+.br
+.ti -1c
+.RI "\fB$dumpId\fP = 'sf-\fBdump\fP'"
+.br
+.ti -1c
+.RI "\fB$colors\fP = true"
+.br
+.ti -1c
+.RI "\fB$headerIsDumped\fP = false"
+.br
+.ti -1c
+.RI "\fB$lastDepth\fP = -1"
+.br
+.ti -1c
+.RI "\fB$styles\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBHtmlDumper\fP dumps variables as \fBHTML\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file HtmlDumper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "dump (\fBData\fP $data,  $output = \fCnull\fP)"
+{} 
+.PP
+Definition at line 95 of file HtmlDumper\&.php\&.
+.SS "dumpLine ( $depth)\fC [protected]\fP"
+{} 
+.PP
+Definition at line 361 of file HtmlDumper\&.php\&.
+.SS "enterHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild)"
+{Dumps while entering an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 284 of file HtmlDumper\&.php\&.
+.SS "getDumpHeader ()\fC [protected]\fP"
+Dumps the \fBHTML\fP header\&. 
+.PP
+Definition at line 104 of file HtmlDumper\&.php\&.
+.SS "leaveHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild,  $cut)"
+{Dumps while leaving an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&. 
+.br
+\fI$cut\fP The number of items the hash has been cut by\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 304 of file HtmlDumper\&.php\&.
+.SS "setDumpBoundaries ( $prefix,  $suffix)"
+Sets an \fBHTML\fP prefix and suffix that will encapse every single dump\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP The prepended \fBHTML\fP string\&. 
+.br
+\fI$suffix\fP The appended \fBHTML\fP string\&. 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file HtmlDumper\&.php\&.
+.SS "setDumpHeader ( $header)"
+Sets an \fBHTML\fP header that will be dumped once in the output stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$header\fP An \fBHTML\fP string\&. 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file HtmlDumper\&.php\&.
+.SS "setOutput ( $output)"
+{} 
+.PP
+Definition at line 52 of file HtmlDumper\&.php\&.
+.SS "setStyles (array $styles)"
+{} 
+.PP
+Definition at line 64 of file HtmlDumper\&.php\&.
+.SS "style ( $style,  $value,  $attr = \fCarray()\fP)\fC [protected]\fP"
+{} 
+.PP
+Definition at line 316 of file HtmlDumper\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$colors = true\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file HtmlDumper\&.php\&.
+.SS "$defaultOutput = 'php://output'\fC [static]\fP"
+
+.PP
+Definition at line 24 of file HtmlDumper\&.php\&.
+.SS "$dumpHeader\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file HtmlDumper\&.php\&.
+.SS "$dumpId = 'sf-\fBdump\fP'\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file HtmlDumper\&.php\&.
+.SS "$dumpPrefix = '<pre class=sf-\fBdump\fP id=%s \fBdata\fP-indent-pad='%s'>'\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file HtmlDumper\&.php\&.
+.SS "$dumpSuffix = '</pre><script>Sfdump('%s')</script>'\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file HtmlDumper\&.php\&.
+.SS "$headerIsDumped = false\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file HtmlDumper\&.php\&.
+.SS "$lastDepth = -1\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file HtmlDumper\&.php\&.
+.SS "$styles\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'default' => 'background-color:#18171B; color:#FF8400; line-height:1\&.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:100000',
+        'num' => 'font-weight:bold; color:#1299DA',
+        'const' => 'font-weight:bold',
+        'str' => 'font-weight:bold; color:#56DB3A',
+        'cchr' => 'color:#FF8400',
+        'note' => 'color:#1299DA',
+        'ref' => 'color:#A0A0A0',
+        'public' => 'color:#FFFFFF',
+        'protected' => 'color:#FFFFFF',
+        'private' => 'color:#FFFFFF',
+        'meta' => 'color:#B729D9',
+        'key' => 'color:#56DB3A',
+        'index' => 'color:#1299DA',
+    )
+.fi
+.PP
+Definition at line 33 of file HtmlDumper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

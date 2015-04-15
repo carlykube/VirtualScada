@@ -1,0 +1,7 @@
+var namespace_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter =
+[
+    [ "DummyAdapter", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_dummy_adapter.html", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_dummy_adapter" ],
+    [ "FailingAdapter", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_failing_adapter.html", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_failing_adapter" ],
+    [ "NamedAdapter", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_named_adapter.html", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_named_adapter" ],
+    [ "UnsupportedAdapter", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_unsupported_adapter.html", "class_symfony_1_1_component_1_1_finder_1_1_tests_1_1_fake_adapter_1_1_unsupported_adapter" ]
+];

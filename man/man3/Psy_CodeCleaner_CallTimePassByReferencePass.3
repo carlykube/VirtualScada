@@ -1,0 +1,55 @@
+.TH "CallTimePassByReferencePass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CallTimePassByReferencePass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCodeCleanerPass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBenterNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Validate that the user did not use the call-time pass-by-reference that causes a fatal error\&.
+.PP
+As of \fBPHP\fP 5\&.4\&.0, call-time pass-by-reference was removed, so using it will raise a fatal error\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Martin Hasoň martin.hason@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file CallTimePassByReferencePass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "enterNode (\fBNode\fP $node)"
+Validate of use call-time pass-by-reference\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP if the user used call-time pass-by-reference in \fBPHP\fP >= 5\&.4\&.0
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 36 of file CallTimePassByReferencePass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

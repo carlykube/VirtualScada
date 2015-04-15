@@ -1,0 +1,37 @@
+.TH "md_vendor_nikic_php-parser_grammar__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_nikic_php-parser_grammar__r_e_a_d_m_e \- What do all those files mean? 
+
+.IP "\(bu" 2
+\fCzend_language_parser\&.phpy\fP: \fBPHP\fP grammer written in a pseudo language
+.IP "\(bu" 2
+\fC\fBanalyze\&.php\fP\fP: Analyzes the \fC\&.phpy\fP-grammer and outputs some info about it
+.IP "\(bu" 2
+\fC\fBrebuildParser\&.php\fP\fP: Preprocesses the \fC\&.phpy\fP-grammar and builds the parser using \fCkmyacc\fP
+.IP "\(bu" 2
+\fCkmyacc\&.php\&.parser\fP: \fBA\fP \fCkmyacc\fP parser prototype file for \fBPHP\fP
+.PP
+.PP
+.SH "\&.phpy pseudo language "
+.PP
+.PP
+The \fC\&.phpy\fP file is a normal grammer in \fCkmyacc\fP (\fCyacc\fP) style, with some transformations applied to it:
+.PP
+.IP "\(bu" 2
+Nodes are created using the syntax \fCName[\&.\&.\&., \&.\&.\&.]\fP\&. This is transformed into \fCnew Node\\Name(\&.\&.\&., \&.\&.\&., $attributes)\fP
+.IP "\(bu" 2
+\fCName::abc\fP is transformed to \fCNode\\Name::abc\fP
+.IP "\(bu" 2
+Some function-like constructs are resolved (see \fC\fBrebuildParser\&.php\fP\fP for a list)
+.IP "\(bu" 2
+Associative arrays are written as \fC[key: value, \&.\&.\&.]\fP, which is transformed to `array('key' => value, \&.\&.\&.)`
+.PP
+.PP
+.SH "Building the parser "
+.PP
+.PP
+In order to rebuild the parser, you need \fCmoriyoshi's fork of kmyacc\fP\&. After you compiled/installed it, run the \fC\fBrebuildParser\&.php\fP\fP script\&.
+.PP
+By default only the \fCParser\&.php\fP is built\&. If you want to additionally build \fCParser/Debug\&.php\fP and \fCy\&.output\fP run the script with \fC--debug\fP\&. If you want to retain the preprocessed grammar pass \fC--keep-tmp-grammar\fP\&. 

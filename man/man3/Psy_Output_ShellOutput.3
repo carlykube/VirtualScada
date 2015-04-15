@@ -1,0 +1,132 @@
+.TH "ShellOutput" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShellOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBConsoleOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($verbosity=self::VERBOSITY_NORMAL, $decorated=null, OutputFormatterInterface $formatter=null, $pager=null)"
+.br
+.ti -1c
+.RI "\fBpage\fP ($messages, $type=0)"
+.br
+.ti -1c
+.RI "\fBstartPaging\fP ()"
+.br
+.ti -1c
+.RI "\fBstopPaging\fP ()"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($messages, $newline=false, $type=0)"
+.br
+.ti -1c
+.RI "\fBdoWrite\fP ($message, $newline)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBNUMBER_LINES\fP = 128"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP ConsoleOutput subclass specifically for \fBPsy\fP \fBShell\fP output\&. 
+.PP
+Definition at line 20 of file ShellOutput\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $verbosity = \fCself::VERBOSITY_NORMAL\fP,  $decorated = \fCnull\fP, OutputFormatterInterface $formatter = \fCnull\fP,  $pager = \fCnull\fP)"
+Construct a \fBShellOutput\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$verbosity\fP (default: self::VERBOSITY_NORMAL) 
+.br
+\fI$decorated\fP (default: null) 
+.br
+\fI$formatter\fP (default: null) 
+.br
+\fI$pager\fP (default: null) 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file ShellOutput\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "doWrite ( $message,  $newline)"
+Writes a message to the output\&.
+.PP
+Handles paged output, or writes directly to the output stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP \fBA\fP message to write to the output 
+.br
+\fI$newline\fP Whether to add a newline or not 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file ShellOutput\&.php\&.
+.SS "page ( $messages,  $type = \fC0\fP)"
+Page multiple lines of output\&.
+.PP
+The output pager is started
+.PP
+If $messages is callable, it will be called, passing this output instance for rendering\&. Otherwise, all passed $messages are paged to output\&.
+.PP
+Upon completion, the output pager is flushed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP \fBA\fP string, array of strings or a callback\&. 
+.br
+\fI$type\fP (default: 0) 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file ShellOutput\&.php\&.
+.SS "startPaging ()"
+Start sending output to the output pager\&. 
+.PP
+Definition at line 89 of file ShellOutput\&.php\&.
+.SS "stopPaging ()"
+Stop paging output and flush the output pager\&. 
+.PP
+Definition at line 97 of file ShellOutput\&.php\&.
+.SS "write ( $messages,  $newline = \fCfalse\fP,  $type = \fC0\fP)"
+Writes a message to the output\&.
+.PP
+Optionally, pass \fC$type | self::NUMBER_LINES\fP as the $type parameter to number the lines of output\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBOutputInterface\fP\&.
+.PP
+Definition at line 115 of file ShellOutput\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const NUMBER_LINES = 128"
+
+.PP
+Definition at line 22 of file ShellOutput\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

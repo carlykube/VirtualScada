@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+/**
+ * Controller for the welcome screen that the user first loads
+ *
+ * Class WelcomeController
+ * @package App\Http\Controllers
+ */
 class WelcomeController extends Controller {
 
 	/*

@@ -1,0 +1,481 @@
+\section{Tagged\+Cache Class Reference}
+\label{class_illuminate_1_1_cache_1_1_tagged_cache}\index{Tagged\+Cache@{Tagged\+Cache}}
+Inheritance diagram for Tagged\+Cache\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_illuminate_1_1_cache_1_1_tagged_cache}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Store} \$store, {\bf Tag\+Set} \$tags)
+\item 
+{\bf has} (\$key)
+\item 
+{\bf get} (\$key, \$default=null)
+\item 
+{\bf put} (\$key, \$value, \${\bf minutes})
+\item 
+{\bf add} (\$key, \$value, \${\bf minutes})
+\item 
+{\bf increment} (\$key, \$value=1)
+\item 
+{\bf decrement} (\$key, \$value=1)
+\item 
+{\bf forever} (\$key, \$value)
+\item 
+{\bf forget} (\$key)
+\item 
+{\bf flush} ()
+\item 
+{\bf remember} (\$key, \${\bf minutes}, Closure \${\bf callback})
+\item 
+{\bf sear} (\$key, Closure \${\bf callback})
+\item 
+{\bf remember\+Forever} (\$key, Closure \${\bf callback})
+\item 
+{\bf tagged\+Item\+Key} (\$key)
+\item 
+{\bf get\+Prefix} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Minutes} (\${\bf duration})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$store}
+\item 
+{\bf \$tags}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Tagged\+Cache.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Store}}]{\$store, }
+\item[{{\bf Tag\+Set}}]{\$tags}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a60c69306e4fc31b1580d3e8c4bc29182}
+Create a new tagged cache instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Cache\textbackslash{}\+Store & {\em \$store} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Cache\textbackslash{}\+Tag\+Set & {\em \$tags} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file Tagged\+Cache.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!add@{add}}
+\index{add@{add}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a7b71a32e24bbf1c859273ec8463dc6e5}
+Store an item in the cache if the key does not exist.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!decrement@{decrement}}
+\index{decrement@{decrement}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}decrement (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a91b4776ce9b64b515af83f82cb5ba1b8}
+Increment the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a91b4776ce9b64b515af83f82cb5ba1b8}.
+
+
+
+Definition at line 119 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!flush@{flush}}
+\index{flush@{flush}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}flush (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a7751f77b5263bcf940ece6e824a05b38}
+Remove all items from the cache.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a7751f77b5263bcf940ece6e824a05b38}.
+
+
+
+Definition at line 152 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!forever@{forever}}
+\index{forever@{forever}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{forever}]{\setlength{\rightskip}{0pt plus 5cm}forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a9e878bc609488e3718911915829f29a2}
+Store an item in the cache indefinitely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a9e878bc609488e3718911915829f29a2}.
+
+
+
+Definition at line 131 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!forget@{forget}}
+\index{forget@{forget}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{forget}]{\setlength{\rightskip}{0pt plus 5cm}forget (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a56aaa13f3fc2cac361f2c6545644b341}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a56aaa13f3fc2cac361f2c6545644b341}.
+
+
+
+Definition at line 142 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a499d39d1876a05b20e1ca8e8a1c2b466}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!get\+Minutes@{get\+Minutes}}
+\index{get\+Minutes@{get\+Minutes}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{get\+Minutes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Minutes (
+\begin{DoxyParamCaption}
+\item[{}]{\$duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_tagged_cache_ab3eecfb3cddfe90a0ad770b93c622f9d}
+Calculate the number of minutes with the given duration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$duration} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 235 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!get\+Prefix@{get\+Prefix}}
+\index{get\+Prefix@{get\+Prefix}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{get\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a7a333affb97cf092d50f3e59edaa9066}
+Get the cache key prefix.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a7a333affb97cf092d50f3e59edaa9066}.
+
+
+
+Definition at line 224 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a8b23dbb48f0c3c94725695191d06981a}
+Determine if an item exists in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!increment@{increment}}
+\index{increment@{increment}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}increment (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_ae988f454c3a6f948704f0b3c1bd494f8}
+Increment the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_ae988f454c3a6f948704f0b3c1bd494f8}.
+
+
+
+Definition at line 107 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_af2a41d0d02cf7e6757044de79551d036}
+Store an item in the cache for a given number of minutes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_af2a41d0d02cf7e6757044de79551d036}.
+
+
+
+Definition at line 70 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!remember@{remember}}
+\index{remember@{remember}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{remember}]{\setlength{\rightskip}{0pt plus 5cm}remember (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$minutes, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a53c37b0002cdf6c0bd5e6bb8f2711b7d}
+Get an item from the cache, or store the default value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!remember\+Forever@{remember\+Forever}}
+\index{remember\+Forever@{remember\+Forever}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{remember\+Forever}]{\setlength{\rightskip}{0pt plus 5cm}remember\+Forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_ac3a49505d6548f2e0b9b97294044fe49}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 196 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!sear@{sear}}
+\index{sear@{sear}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{sear}]{\setlength{\rightskip}{0pt plus 5cm}sear (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a63cf87dc7fa41b404c2db8dc68f24888}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!tagged\+Item\+Key@{tagged\+Item\+Key}}
+\index{tagged\+Item\+Key@{tagged\+Item\+Key}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{tagged\+Item\+Key}]{\setlength{\rightskip}{0pt plus 5cm}tagged\+Item\+Key (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_tagged_cache_af3a6566077a6ce6ef325fb25f3ea6eee}
+Get a fully qualified key for a tagged item.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file Tagged\+Cache.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!\$store@{\$store}}
+\index{\$store@{\$store}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{\$store}]{\setlength{\rightskip}{0pt plus 5cm}\$store\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a827b42f70d98e1bf51ff54dbbe771421}
+
+
+Definition at line 15 of file Tagged\+Cache.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}!\$tags@{\$tags}}
+\index{\$tags@{\$tags}!Illuminate\+::\+Cache\+::\+Tagged\+Cache@{Illuminate\+::\+Cache\+::\+Tagged\+Cache}}
+\subsubsection[{\$tags}]{\setlength{\rightskip}{0pt plus 5cm}\$tags\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_tagged_cache_a475a6a63b85186663d34151bcbd21590}
+
+
+Definition at line 22 of file Tagged\+Cache.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Cache/{\bf Tagged\+Cache.\+php}\end{DoxyCompactItemize}

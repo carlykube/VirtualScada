@@ -1,0 +1,248 @@
+.TH "TokenInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TokenInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by \fBAbstractToken\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRoles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCredentials\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUser\fP ($user)"
+.br
+.ti -1c
+.RI "\fBgetUsername\fP ()"
+.br
+.ti -1c
+.RI "\fBisAuthenticated\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAuthenticated\fP ($\fBisAuthenticated\fP)"
+.br
+.ti -1c
+.RI "\fBeraseCredentials\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAttributes\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBhasAttribute\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetAttribute\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetAttribute\fP ($\fBname\fP, $value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTokenInterface\fP is the interface for the user authentication information\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file TokenInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns a string representation of the \fBToken\fP\&.
+.PP
+This is only to be used for debugging purposes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "eraseCredentials ()"
+Removes sensitive information from the token\&. 
+.PP
+Implemented in \fBAbstractToken\fP, \fBUsernamePasswordToken\fP, and \fBPreAuthenticatedToken\fP\&.
+.SS "getAttribute ( $name)"
+Returns an attribute value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The attribute value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "getAttributes ()"
+Returns the token attributes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The token attributes 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "getCredentials ()"
+Returns the user credentials\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The user credentials 
+.RE
+.PP
+
+.PP
+Implemented in \fBRememberMeToken\fP, \fBUsernamePasswordToken\fP, \fBPreAuthenticatedToken\fP, \fBConcreteToken\fP, and \fBAnonymousToken\fP\&.
+.SS "getRoles ()"
+Returns the user roles\&.
+.PP
+\fBReturns:\fP
+.RS 4
+RoleInterface[] An array of RoleInterface instances\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "getUser ()"
+Returns a user representation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed Can be a UserInterface instance, an object implementing a __toString method, or the username as a regular string
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBAbstractToken::setUser()\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "getUsername ()"
+Returns the username\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "hasAttribute ( $name)"
+Returns true if the attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the attribute exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "isAuthenticated ()"
+Returns whether the user is authenticated or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the token has been authenticated, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "setAttribute ( $name,  $value)"
+Sets an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name 
+.br
+\fI$value\fP The attribute value 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "setAttributes (array $attributes)"
+Sets the token attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP The token attributes 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+.SS "setAuthenticated ( $isAuthenticated)"
+Sets the authenticated flag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$isAuthenticated\fP The authenticated flag 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP, \fBRememberMeToken\fP, and \fBUsernamePasswordToken\fP\&.
+.SS "setUser ( $user)"
+Sets a user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractToken\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,386 @@
+\section{Kernel\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface}\index{Kernel\+Interface@{Kernel\+Interface}}
+Inheritance diagram for Kernel\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf register\+Bundles} ()
+\item 
+{\bf register\+Container\+Configuration} (Loader\+Interface \$loader)
+\item 
+{\bf boot} ()
+\item 
+{\bf shutdown} ()
+\item 
+{\bf get\+Bundles} ()
+\item 
+{\bf is\+Class\+In\+Active\+Bundle} (\$class)
+\item 
+{\bf get\+Bundle} (\${\bf name}, \$first=true)
+\item 
+{\bf locate\+Resource} (\${\bf name}, \$dir=null, \$first=true)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf get\+Environment} ()
+\item 
+{\bf is\+Debug} ()
+\item 
+{\bf get\+Root\+Dir} ()
+\item 
+{\bf get\+Container} ()
+\item 
+{\bf get\+Start\+Time} ()
+\item 
+{\bf get\+Cache\+Dir} ()
+\item 
+{\bf get\+Log\+Dir} ()
+\item 
+{\bf get\+Charset} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \doxyref{Kernel}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel} is the heart of the \doxyref{Symfony}{p.}{namespace_symfony} system.
+
+It manages an environment made of bundles.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 27 of file Kernel\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!boot@{boot}}
+\index{boot@{boot}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{boot}]{\setlength{\rightskip}{0pt plus 5cm}boot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a8814ea4b5beba763c570b4818980814e}
+Boots the current kernel.
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a8814ea4b5beba763c570b4818980814e}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Bundle@{get\+Bundle}}
+\index{get\+Bundle@{get\+Bundle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Bundle}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bundle (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$first = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a1b52ff7fede2c2aa8c42fb1e49c60589}
+Returns a bundle and optionally its descendants by its name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{Bundle}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_bundle} name \\
+\hline
+bool & {\em \$first} & Whether to return the first bundle only or together with its descendants\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bundle\+Interface$\vert$\+Bundle\+Interface[] \doxyref{A}{p.}{class_a} Bundle\+Interface instance or an array of Bundle\+Interface instances if \$first is false
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a1b52ff7fede2c2aa8c42fb1e49c60589}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Bundles@{get\+Bundles}}
+\index{get\+Bundles@{get\+Bundles}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Bundles}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bundles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_ac95290a5a006d3255b2728363c36d5a6}
+Gets the registered bundle instances.
+
+\begin{DoxyReturn}{Returns}
+Bundle\+Interface[] An array of registered bundle instances
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ac95290a5a006d3255b2728363c36d5a6}, and {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_kernel_for_test_ac95290a5a006d3255b2728363c36d5a6}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Cache\+Dir@{get\+Cache\+Dir}}
+\index{get\+Cache\+Dir@{get\+Cache\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Cache\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cache\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_af1aaf85d6756805f7dabac5feb2fa952}
+Gets the cache directory.
+
+\begin{DoxyReturn}{Returns}
+string The cache directory
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_af1aaf85d6756805f7dabac5feb2fa952}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Charset@{get\+Charset}}
+\index{get\+Charset@{get\+Charset}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Charset}]{\setlength{\rightskip}{0pt plus 5cm}get\+Charset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_abca2d528da8311b6fcfe040768cbaa24}
+Gets the charset of the application.
+
+\begin{DoxyReturn}{Returns}
+string The charset
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_abca2d528da8311b6fcfe040768cbaa24}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Container@{get\+Container}}
+\index{get\+Container@{get\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Container}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a53e2ca32cf29808b0b18cd5accf3c4db}
+Gets the current container.
+
+\begin{DoxyReturn}{Returns}
+Container\+Interface \doxyref{A}{p.}{class_a} Container\+Interface instance
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a53e2ca32cf29808b0b18cd5accf3c4db}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Environment@{get\+Environment}}
+\index{get\+Environment@{get\+Environment}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}get\+Environment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a1a945689f9a90f9029d671ec32262d37}
+Gets the environment.
+
+\begin{DoxyReturn}{Returns}
+string The current environment
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a1a945689f9a90f9029d671ec32262d37}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Log\+Dir@{get\+Log\+Dir}}
+\index{get\+Log\+Dir@{get\+Log\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Log\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Log\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a446ab1862b5838c87c0b692c2268b7d5}
+Gets the log directory.
+
+\begin{DoxyReturn}{Returns}
+string The log directory
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a446ab1862b5838c87c0b692c2268b7d5}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a3d0963e68bb313b163a73f2803c64600}
+Gets the name of the kernel.
+
+\begin{DoxyReturn}{Returns}
+string The kernel name
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a3d0963e68bb313b163a73f2803c64600}, and {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_kernel_for_test_a3d0963e68bb313b163a73f2803c64600}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Root\+Dir@{get\+Root\+Dir}}
+\index{get\+Root\+Dir@{get\+Root\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Root\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Root\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a47a323ba2cd392a6103e94db6fbe9fb0}
+Gets the application root dir.
+
+\begin{DoxyReturn}{Returns}
+string The application root dir
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a47a323ba2cd392a6103e94db6fbe9fb0}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!get\+Start\+Time@{get\+Start\+Time}}
+\index{get\+Start\+Time@{get\+Start\+Time}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{get\+Start\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Start\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a568a7fafd601b520ff8c4bd91c962e29}
+Gets the request start time (not available if debug is disabled).
+
+\begin{DoxyReturn}{Returns}
+int The request start timestamp
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a568a7fafd601b520ff8c4bd91c962e29}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!is\+Class\+In\+Active\+Bundle@{is\+Class\+In\+Active\+Bundle}}
+\index{is\+Class\+In\+Active\+Bundle@{is\+Class\+In\+Active\+Bundle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{is\+Class\+In\+Active\+Bundle}]{\setlength{\rightskip}{0pt plus 5cm}is\+Class\+In\+Active\+Bundle (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a83040797aaf16248cf6a2f6d10780f08}
+Checks if a given class name belongs to an active bundle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \doxyref{A}{p.}{class_a} class name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the class belongs to an active bundle, false otherwise
+\end{DoxyReturn}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a83040797aaf16248cf6a2f6d10780f08}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!is\+Debug@{is\+Debug}}
+\index{is\+Debug@{is\+Debug}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{is\+Debug}]{\setlength{\rightskip}{0pt plus 5cm}is\+Debug (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a017d21b4d0e1ee6f9cdd9d805793f076}
+Checks if debug mode is enabled.
+
+\begin{DoxyReturn}{Returns}
+bool true if debug mode is enabled, false otherwise
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a017d21b4d0e1ee6f9cdd9d805793f076}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!locate\+Resource@{locate\+Resource}}
+\index{locate\+Resource@{locate\+Resource}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{locate\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}locate\+Resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$dir = {\ttfamily null}, }
+\item[{}]{\$first = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_aab014ede62d5444dc71e76f3480074e2}
+Returns the file path for a given resource.
+
+\doxyref{A}{p.}{class_a} Resource can be a file or a directory.
+
+The resource name must follow the following pattern\+: \begin{DoxyVerb}"@BundleName/path/to/a/file.something"
+\end{DoxyVerb}
+
+
+where Bundle\+Name is the name of the bundle and the remaining part is the relative path in the bundle.
+
+If \$dir is passed, and the first segment of the path is \char`\"{}\+Resources\char`\"{}, this method will look for a file named\+: \begin{DoxyVerb}$dir/<BundleName>/path/without/Resources
+\end{DoxyVerb}
+
+
+before looking in the bundle resource folder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{A}{p.}{class_a} resource name to locate \\
+\hline
+string & {\em \$dir} & \doxyref{A}{p.}{class_a} directory where to look for the resource first \\
+\hline
+bool & {\em \$first} & Whether to return the first path or paths for all matching bundles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$array The absolute path of the resource or an array if \$first is false
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_aab014ede62d5444dc71e76f3480074e2}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!register\+Bundles@{register\+Bundles}}
+\index{register\+Bundles@{register\+Bundles}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{register\+Bundles}]{\setlength{\rightskip}{0pt plus 5cm}register\+Bundles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a8dd304e2eccfbe88dd648389c7d4f5eb}
+Returns an array of bundles to register.
+
+\begin{DoxyReturn}{Returns}
+Bundle\+Interface[] An array of bundle instances.
+\end{DoxyReturn}
+
+
+Implemented in {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_kernel_for_test_a8dd304e2eccfbe88dd648389c7d4f5eb}, {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_kernel_for_test_a8dd304e2eccfbe88dd648389c7d4f5eb}, and {\bf Kernel\+For\+Override\+Name} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_kernel_for_override_name_a8dd304e2eccfbe88dd648389c7d4f5eb}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!register\+Container\+Configuration@{register\+Container\+Configuration}}
+\index{register\+Container\+Configuration@{register\+Container\+Configuration}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{register\+Container\+Configuration}]{\setlength{\rightskip}{0pt plus 5cm}register\+Container\+Configuration (
+\begin{DoxyParamCaption}
+\item[{Loader\+Interface}]{\$loader}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_adb6c1a9c35c6a1e5092cd73be6ea15be}
+Loads the container configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Loader\+Interface & {\em \$loader} & \doxyref{A}{p.}{class_a} Loader\+Interface instance\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_kernel_for_test_adb6c1a9c35c6a1e5092cd73be6ea15be}, {\bf Kernel\+For\+Test} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_kernel_for_test_adb6c1a9c35c6a1e5092cd73be6ea15be}, and {\bf Kernel\+For\+Override\+Name} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_kernel_for_override_name_adb6c1a9c35c6a1e5092cd73be6ea15be}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel\+Interface}}
+\subsubsection[{shutdown}]{\setlength{\rightskip}{0pt plus 5cm}shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a482087c71391537bfe6fece68a58d420}
+Shutdowns the kernel.
+
+This method is mainly useful when doing functional testing.
+
+Implemented in {\bf Kernel} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a482087c71391537bfe6fece68a58d420}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/{\bf Kernel\+Interface.\+php}\end{DoxyCompactItemize}

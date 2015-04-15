@@ -1,0 +1,756 @@
+.TH "Swift_Mime_SimpleMessage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_SimpleMessage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_MimePart\fP, and \fBSwift_Mime_Message\fP\&.
+.PP
+Inherited by \fBSwift_Message\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Mime_HeaderSet\fP $headers, \fBSwift_Mime_ContentEncoder\fP $encoder, \fBSwift_KeyCache\fP $cache, \fBSwift_Mime_Grammar\fP $grammar, $charset=null)"
+.br
+.ti -1c
+.RI "\fBgetNestingLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSubject\fP ($subject)"
+.br
+.ti -1c
+.RI "\fBgetSubject\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDate\fP ($date)"
+.br
+.ti -1c
+.RI "\fBgetDate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetReturnPath\fP ($address)"
+.br
+.ti -1c
+.RI "\fBgetReturnPath\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSender\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetSender\fP ()"
+.br
+.ti -1c
+.RI "\fBaddFrom\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetFrom\fP ($addresses, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetFrom\fP ()"
+.br
+.ti -1c
+.RI "\fBaddReplyTo\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetReplyTo\fP ($addresses, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetReplyTo\fP ()"
+.br
+.ti -1c
+.RI "\fBaddTo\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetTo\fP ($addresses, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetTo\fP ()"
+.br
+.ti -1c
+.RI "\fBaddCc\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetCc\fP ($addresses, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetCc\fP ()"
+.br
+.ti -1c
+.RI "\fBaddBcc\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetBcc\fP ($addresses, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetBcc\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPriority\fP ($priority)"
+.br
+.ti -1c
+.RI "\fBgetPriority\fP ()"
+.br
+.ti -1c
+.RI "\fBsetReadReceiptTo\fP ($addresses)"
+.br
+.ti -1c
+.RI "\fBgetReadReceiptTo\fP ()"
+.br
+.ti -1c
+.RI "\fBattach\fP (\fBSwift_Mime_MimeEntity\fP $entity)"
+.br
+.ti -1c
+.RI "\fBdetach\fP (\fBSwift_Mime_MimeEntity\fP $entity)"
+.br
+.ti -1c
+.RI "\fBembed\fP (\fBSwift_Mime_MimeEntity\fP $entity)"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBtoByteStream\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_getIdField\fP ()"
+.br
+.ti -1c
+.RI "\fB_becomeMimePart\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The default email message class\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file SimpleMessage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Mime_HeaderSet\fP $headers, \fBSwift_Mime_ContentEncoder\fP $encoder, \fBSwift_KeyCache\fP $cache, \fBSwift_Mime_Grammar\fP $grammar,  $charset = \fCnull\fP)"
+Create a new SimpleMessage with $headers, $encoder and $cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.br
+\fI$encoder\fP 
+.br
+\fI$cache\fP 
+.br
+\fI$grammar\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file SimpleMessage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns a string representation of this object\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoString()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 594 of file SimpleMessage\&.php\&.
+.SS "_becomeMimePart ()\fC [protected]\fP"
+Turn the body of this message into a child of itself if needed 
+.PP
+Definition at line 622 of file SimpleMessage\&.php\&.
+.SS "_getIdField ()\fC [protected]\fP"
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSwift_Mime_SimpleMimeEntity::_getIdField()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 616 of file SimpleMessage\&.php\&.
+.SS "addBcc ( $address,  $name = \fCnull\fP)"
+Add a Bcc: address to this message\&.
+.PP
+If $name is passed this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 401 of file SimpleMessage\&.php\&.
+.SS "addCc ( $address,  $name = \fCnull\fP)"
+Add a Cc: address to this message\&.
+.PP
+If $name is passed this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file SimpleMessage\&.php\&.
+.SS "addFrom ( $address,  $name = \fCnull\fP)"
+Add a From: address to this message\&.
+.PP
+If $name is passed this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file SimpleMessage\&.php\&.
+.SS "addReplyTo ( $address,  $name = \fCnull\fP)"
+Add a Reply-To: address to this message\&.
+.PP
+If $name is passed this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file SimpleMessage\&.php\&.
+.SS "addTo ( $address,  $name = \fCnull\fP)"
+Add a To: address to this message\&.
+.PP
+If $name is passed this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file SimpleMessage\&.php\&.
+.SS "attach (\fBSwift_Mime_MimeEntity\fP $entity)"
+Attach a \fBSwift_Mime_MimeEntity\fP such as an Attachment or MimePart\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$entity\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 527 of file SimpleMessage\&.php\&.
+.SS "detach (\fBSwift_Mime_MimeEntity\fP $entity)"
+Remove an already attached entity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$entity\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 541 of file SimpleMessage\&.php\&.
+.SS "embed (\fBSwift_Mime_MimeEntity\fP $entity)"
+Attach a \fBSwift_Mime_MimeEntity\fP and return it's CID source\&. This method should be used when embedding images or other data in a message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$entity\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 562 of file SimpleMessage\&.php\&.
+.SS "getBcc ()"
+Get the Bcc addresses of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 438 of file SimpleMessage\&.php\&.
+.SS "getCc ()"
+Get the Cc address of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 386 of file SimpleMessage\&.php\&.
+.SS "getDate ()"
+Get the date at which this message was created\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 112 of file SimpleMessage\&.php\&.
+.SS "getFrom ()"
+Get the from address of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 225 of file SimpleMessage\&.php\&.
+.SS "getNestingLevel ()"
+Always returns \fBLEVEL_TOP\fP for a message instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 60 of file SimpleMessage\&.php\&.
+.SS "getPriority ()"
+Get the priority of this message\&.
+.PP
+The returned value is an integer where 1 is the highest priority and 5 is the lowest\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 484 of file SimpleMessage\&.php\&.
+.SS "getReadReceiptTo ()"
+Get the addresses to which a read-receipt will be sent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 515 of file SimpleMessage\&.php\&.
+.SS "getReplyTo ()"
+Get the reply-to address of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 279 of file SimpleMessage\&.php\&.
+.SS "getReturnPath ()"
+Get the return-path (bounce address) of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 138 of file SimpleMessage\&.php\&.
+.SS "getSender ()"
+Get the sender of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 171 of file SimpleMessage\&.php\&.
+.SS "getSubject ()"
+Get the subject of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 86 of file SimpleMessage\&.php\&.
+.SS "getTo ()"
+Get the To addresses of this message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 334 of file SimpleMessage\&.php\&.
+.SS "setBcc ( $addresses,  $name = \fCnull\fP)"
+Set the Bcc addresses of this message\&.
+.PP
+If $name is passed and the first parameter is a string, this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 420 of file SimpleMessage\&.php\&.
+.SS "setCc ( $addresses,  $name = \fCnull\fP)"
+Set the Cc addresses of this message\&.
+.PP
+If $name is passed and the first parameter is a string, this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 368 of file SimpleMessage\&.php\&.
+.SS "setDate ( $date)"
+Set the date at which this message was created\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 98 of file SimpleMessage\&.php\&.
+.SS "setFrom ( $addresses,  $name = \fCnull\fP)"
+Set the from address of this message\&.
+.PP
+You may pass an array of addresses if this message is from multiple people\&.
+.PP
+If $name is passed and the first parameter is a string, this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 207 of file SimpleMessage\&.php\&.
+.SS "setPriority ( $priority)"
+Set the priority of this message\&.
+.PP
+The value is an integer where 1 is the highest priority and 5 is the lowest\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 452 of file SimpleMessage\&.php\&.
+.SS "setReadReceiptTo ( $addresses)"
+Ask for a delivery receipt from the recipient to be sent to $addresses
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 500 of file SimpleMessage\&.php\&.
+.SS "setReplyTo ( $addresses,  $name = \fCnull\fP)"
+Set the reply-to address of this message\&.
+.PP
+You may pass an array of addresses if replies will go to multiple people\&.
+.PP
+If $name is passed and the first parameter is a string, this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 261 of file SimpleMessage\&.php\&.
+.SS "setReturnPath ( $address)"
+Set the return-path (the bounce address) of this message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 124 of file SimpleMessage\&.php\&.
+.SS "setSender ( $address,  $name = \fCnull\fP)"
+Set the sender of this message\&.
+.PP
+This does not override the From field, but it has a higher significance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 153 of file SimpleMessage\&.php\&.
+.SS "setSubject ( $subject)"
+Set the subject of this message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subject\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 72 of file SimpleMessage\&.php\&.
+.SS "setTo ( $addresses,  $name = \fCnull\fP)"
+Set the to addresses of this message\&.
+.PP
+If multiple recipients will receive the message an array should be used\&. Example: array('receiver@domain.org', 'other@domain.org' => '\fBA\fP name')
+.PP
+If $name is passed and the first parameter is a string, this name will be associated with the address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.br
+\fI$name\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Message\fP\&.
+.PP
+Definition at line 316 of file SimpleMessage\&.php\&.
+.SS "toByteStream (\fBSwift_InputByteStream\fP $is)"
+Write this message to a \fBSwift_InputByteStream\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 604 of file SimpleMessage\&.php\&.
+.SS "toString ()"
+Get this message as a complete string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 574 of file SimpleMessage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

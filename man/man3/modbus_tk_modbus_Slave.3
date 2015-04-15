@@ -1,0 +1,133 @@
+.TH "Slave" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Slave \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self, id)"
+.br
+.ti -1c
+.RI "def \fBhandle_request\fP"
+.br
+.ti -1c
+.RI "def \fBadd_block\fP (self, block_name, block_type, starting_address, \fBsize\fP)"
+.br
+.ti -1c
+.RI "def \fBremove_block\fP (self, block_name)"
+.br
+.ti -1c
+.RI "def \fBremove_all_blocks\fP (self)"
+.br
+.ti -1c
+.RI "def \fBset_values\fP (self, block_name, address, \fBvalues\fP)"
+.br
+.ti -1c
+.RI "def \fBget_values\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+This class define a modbus slave which is in charge of making the action
+asked by a modbus query
+
+.fi
+.PP
+ 
+.PP
+Definition at line 442 of file modbus\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  id)"
+
+.PP
+.nf
+Constructor
+.fi
+.PP
+ 
+.PP
+Definition at line 448 of file modbus\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def add_block ( self,  block_name,  block_type,  starting_address,  size)"
+
+.PP
+.nf
+Add a new block identified by its name
+.fi
+.PP
+ 
+.PP
+Definition at line 662 of file modbus\&.py\&.
+.SS "def get_values ( self,  block_name,  address,  size = \fC1\fP)"
+
+.PP
+.nf
+return the values of n items at the given address of the given block
+
+.fi
+.PP
+ 
+.PP
+Definition at line 749 of file modbus\&.py\&.
+.SS "def handle_request ( self,  request_pdu,  broadcast = \fCFalse\fP)"
+
+.PP
+.nf
+parse the request pdu, makes the corresponding action
+and returns the response pdu
+
+.fi
+.PP
+ 
+.PP
+Definition at line 621 of file modbus\&.py\&.
+.SS "def remove_all_blocks ( self)"
+
+.PP
+.nf
+Remove all the blocks
+
+.fi
+.PP
+ 
+.PP
+Definition at line 704 of file modbus\&.py\&.
+.SS "def remove_block ( self,  block_name)"
+
+.PP
+.nf
+Remove the block with the given name.
+Raise an exception if not found
+
+.fi
+.PP
+ 
+.PP
+Definition at line 692 of file modbus\&.py\&.
+.SS "def set_values ( self,  block_name,  address,  values)"
+
+.PP
+.nf
+Set the values of the items at the given address
+If values is a list or a tuple, the value of every item is written
+If values is a number, only one value is written
+
+.fi
+.PP
+ 
+.PP
+Definition at line 723 of file modbus\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

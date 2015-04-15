@@ -1,0 +1,279 @@
+\section{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin Class Reference}
+\label{class_swift___plugins___bandwidth_monitor_plugin}\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+Inheritance diagram for Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.352941cm]{class_swift___plugins___bandwidth_monitor_plugin}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf before\+Send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\item 
+{\bf send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\item 
+{\bf command\+Sent} ({\bf Swift\+\_\+\+Events\+\_\+\+Command\+Event} \$evt)
+\item 
+{\bf response\+Received} ({\bf Swift\+\_\+\+Events\+\_\+\+Response\+Event} \$evt)
+\item 
+{\bf write} (\$bytes)
+\item 
+{\bf commit} ()
+\item 
+{\bf bind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf unbind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf flush\+Buffers} ()
+\item 
+{\bf get\+Bytes\+Out} ()
+\item 
+{\bf get\+Bytes\+In} ()
+\item 
+{\bf reset} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Reduces network flooding when sending large amounts of mail.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!before\+Send\+Performed@{before\+Send\+Performed}}
+\index{before\+Send\+Performed@{before\+Send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{before\+Send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}before\+Send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a941622ff727bb3121b075a67b09b4a5d}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a941622ff727bb3121b075a67b09b4a5d}.
+
+
+
+Definition at line 38 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!bind@{bind}}
+\index{bind@{bind}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a02ffafc53dcce641baaff3b9c84643a1}
+Attach \$is to this stream.
+
+The stream acts as an observer, receiving all data that is written. All \doxyref{write()}{p.}{class_swift___plugins___bandwidth_monitor_plugin_aa4ea8baf64d864129d4276f76df3b4a0} and \doxyref{flush\+Buffers()}{p.}{class_swift___plugins___bandwidth_monitor_plugin_a77ecc2d8c17e5057cc82509a2dca076e} operations will be mirrored.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_a02ffafc53dcce641baaff3b9c84643a1}.
+
+
+
+Definition at line 103 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!command\+Sent@{command\+Sent}}
+\index{command\+Sent@{command\+Sent}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{command\+Sent}]{\setlength{\rightskip}{0pt plus 5cm}command\+Sent (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Command\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a3f7432ec1503b5fb6d98ad0e47e33a5a}
+Invoked immediately following a command being sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Command\+Event}{p.}{class_swift___events___command_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Command\+Listener} \doxyref{}{p.}{interface_swift___events___command_listener_a3f7432ec1503b5fb6d98ad0e47e33a5a}.
+
+
+
+Definition at line 58 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!commit@{commit}}
+\index{commit@{commit}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_af5674c27d4a92f6228565010eacbb9cb}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_af5674c27d4a92f6228565010eacbb9cb}.
+
+
+
+Definition at line 91 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!flush\+Buffers@{flush\+Buffers}}
+\index{flush\+Buffers@{flush\+Buffers}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{flush\+Buffers}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Buffers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a77ecc2d8c17e5057cc82509a2dca076e}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_a77ecc2d8c17e5057cc82509a2dca076e}.
+
+
+
+Definition at line 129 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!get\+Bytes\+In@{get\+Bytes\+In}}
+\index{get\+Bytes\+In@{get\+Bytes\+In}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{get\+Bytes\+In}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bytes\+In (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_acc4b7989ee833875357f20a1b85b3b12}
+Get the total number of bytes received from the server.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!get\+Bytes\+Out@{get\+Bytes\+Out}}
+\index{get\+Bytes\+Out@{get\+Bytes\+Out}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{get\+Bytes\+Out}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bytes\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a8f0b34627954f7fb4447bdb1c0990935}
+Get the total number of bytes sent to the server.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!reset@{reset}}
+\index{reset@{reset}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a4a20559544fdf4dcb457e258dc976cf8}
+Reset the internal counters to zero. 
+
+Definition at line 159 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!response\+Received@{response\+Received}}
+\index{response\+Received@{response\+Received}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{response\+Received}]{\setlength{\rightskip}{0pt plus 5cm}response\+Received (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Response\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a6bc4c6a078eeca42ae1c06c762e893fc}
+Invoked immediately following a response coming back.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Response\+Event}{p.}{class_swift___events___response_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Response\+Listener} \doxyref{}{p.}{interface_swift___events___response_listener_a6bc4c6a078eeca42ae1c06c762e893fc}.
+
+
+
+Definition at line 69 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!send\+Performed@{send\+Performed}}
+\index{send\+Performed@{send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_a7c3dcdd16f538ba21696e8b27702e19f}
+Invoked immediately after the Message is sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a7c3dcdd16f538ba21696e8b27702e19f}.
+
+
+
+Definition at line 47 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!unbind@{unbind}}
+\index{unbind@{unbind}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{unbind}]{\setlength{\rightskip}{0pt plus 5cm}unbind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_acad3cfddf5b36bb4b9d3cee2d38482b1}
+Remove an already bound stream.
+
+If \$is is not bound, no errors will be raised. If the stream currently has any buffered data it will be written to \$is before unbinding occurs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}.
+
+
+
+Definition at line 117 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}!write@{write}}
+\index{write@{write}!Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$bytes}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___bandwidth_monitor_plugin_aa4ea8baf64d864129d4276f76df3b4a0}
+Called when a message is sent so that the outgoing counter can be increased.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$bytes} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0}.
+
+
+
+Definition at line 80 of file Bandwidth\+Monitor\+Plugin.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Plugins/{\bf Bandwidth\+Monitor\+Plugin.\+php}\end{DoxyCompactItemize}

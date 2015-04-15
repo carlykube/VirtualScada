@@ -1,0 +1,552 @@
+.TH "Encrypter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Encrypter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBEncrypter\fP, and \fBEncrypter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($key)"
+.br
+.ti -1c
+.RI "\fBencrypt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBdecrypt\fP ($payload)"
+.br
+.ti -1c
+.RI "\fBsetKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetCipher\fP ($cipher)"
+.br
+.ti -1c
+.RI "\fBsetMode\fP ($mode)"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($key)"
+.br
+.ti -1c
+.RI "\fBencrypt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBdecrypt\fP ($payload)"
+.br
+.ti -1c
+.RI "\fBsetKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetCipher\fP ($cipher)"
+.br
+.ti -1c
+.RI "\fBsetMode\fP ($mode)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpadAndMcrypt\fP ($value, $iv)"
+.br
+.ti -1c
+.RI "\fBmcryptDecrypt\fP ($value, $iv)"
+.br
+.ti -1c
+.RI "\fBgetJsonPayload\fP ($payload)"
+.br
+.ti -1c
+.RI "\fBvalidMac\fP (array $payload)"
+.br
+.ti -1c
+.RI "\fBhash\fP ($iv, $value)"
+.br
+.ti -1c
+.RI "\fBaddPadding\fP ($value)"
+.br
+.ti -1c
+.RI "\fBstripPadding\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpaddingIsValid\fP ($pad, $value)"
+.br
+.ti -1c
+.RI "\fBinvalidPayload\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBgetIvSize\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRandomizer\fP ()"
+.br
+.ti -1c
+.RI "\fBupdateBlockSize\fP ()"
+.br
+.ti -1c
+.RI "\fBpadAndMcrypt\fP ($value, $iv)"
+.br
+.ti -1c
+.RI "\fBmcryptDecrypt\fP ($value, $iv)"
+.br
+.ti -1c
+.RI "\fBgetJsonPayload\fP ($payload)"
+.br
+.ti -1c
+.RI "\fBvalidMac\fP (array $payload)"
+.br
+.ti -1c
+.RI "\fBhash\fP ($iv, $value)"
+.br
+.ti -1c
+.RI "\fBaddPadding\fP ($value)"
+.br
+.ti -1c
+.RI "\fBstripPadding\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpaddingIsValid\fP ($pad, $value)"
+.br
+.ti -1c
+.RI "\fBinvalidPayload\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBgetIvSize\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRandomizer\fP ()"
+.br
+.ti -1c
+.RI "\fBupdateBlockSize\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$key\fP"
+.br
+.ti -1c
+.RI "\fB$cipher\fP = MCRYPT_RIJNDAEL_128"
+.br
+.ti -1c
+.RI "\fB$mode\fP = MCRYPT_MODE_CBC"
+.br
+.ti -1c
+.RI "\fB$block\fP = 16"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11891 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $key)"
+
+.PP
+Definition at line 11897 of file compiled\&.php\&.
+.SS "__construct ( $key)"
+Create a new encrypter instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file Encrypter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addPadding ( $value)\fC [protected]\fP"
+Add PKCS7 padding to a given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file Encrypter\&.php\&.
+.SS "addPadding ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11949 of file compiled\&.php\&.
+.SS "decrypt ( $payload)"
+Decrypt the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 90 of file Encrypter\&.php\&.
+.SS "decrypt ( $payload)"
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 11913 of file compiled\&.php\&.
+.SS "encrypt ( $value)"
+Encrypt the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 56 of file Encrypter\&.php\&.
+.SS "encrypt ( $value)"
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 11901 of file compiled\&.php\&.
+.SS "getIvSize ()\fC [protected]\fP"
+Get the IV size for the cipher\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file Encrypter\&.php\&.
+.SS "getIvSize ()\fC [protected]\fP"
+
+.PP
+Definition at line 11968 of file compiled\&.php\&.
+.SS "getJsonPayload ( $payload)\fC [protected]\fP"
+Get the JSON array from the given payload\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 133 of file Encrypter\&.php\&.
+.SS "getJsonPayload ( $payload)\fC [protected]\fP"
+
+.PP
+Definition at line 11928 of file compiled\&.php\&.
+.SS "getRandomizer ()\fC [protected]\fP"
+Get the random data source available for the OS\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file Encrypter\&.php\&.
+.SS "getRandomizer ()\fC [protected]\fP"
+
+.PP
+Definition at line 11972 of file compiled\&.php\&.
+.SS "hash ( $iv,  $value)\fC [protected]\fP"
+Create a MAC for the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$iv\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file Encrypter\&.php\&.
+.SS "hash ( $iv,  $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11945 of file compiled\&.php\&.
+.SS "invalidPayload ( $data)\fC [protected]\fP"
+Verify that the encryption payload is valid\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 228 of file Encrypter\&.php\&.
+.SS "invalidPayload ( $data)\fC [protected]\fP"
+
+.PP
+Definition at line 11964 of file compiled\&.php\&.
+.SS "mcryptDecrypt ( $value,  $iv)\fC [protected]\fP"
+Run the mcrypt decryption routine for the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$iv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 113 of file Encrypter\&.php\&.
+.SS "mcryptDecrypt ( $value,  $iv)\fC [protected]\fP"
+
+.PP
+Definition at line 11920 of file compiled\&.php\&.
+.SS "padAndMcrypt ( $value,  $iv)\fC [protected]\fP"
+Pad and use mcrypt on the given value and input vector\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$iv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file Encrypter\&.php\&.
+.SS "padAndMcrypt ( $value,  $iv)\fC [protected]\fP"
+
+.PP
+Definition at line 11908 of file compiled\&.php\&.
+.SS "paddingIsValid ( $pad,  $value)\fC [protected]\fP"
+Determine if the given padding for a value is valid\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pad\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Encrypter\&.php\&.
+.SS "paddingIsValid ( $pad,  $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11959 of file compiled\&.php\&.
+.SS "setCipher ( $cipher)"
+Set the encryption cipher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cipher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 276 of file Encrypter\&.php\&.
+.SS "setCipher ( $cipher)"
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 11987 of file compiled\&.php\&.
+.SS "setKey ( $key)"
+Set the encryption key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 265 of file Encrypter\&.php\&.
+.SS "setKey ( $key)"
+
+.PP
+Definition at line 11983 of file compiled\&.php\&.
+.SS "setMode ( $mode)"
+Set the encryption mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mode\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 289 of file Encrypter\&.php\&.
+.SS "setMode ( $mode)"
+
+.PP
+Implements \fBEncrypter\fP\&.
+.PP
+Definition at line 11992 of file compiled\&.php\&.
+.SS "stripPadding ( $value)\fC [protected]\fP"
+Remove the padding from the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file Encrypter\&.php\&.
+.SS "stripPadding ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 11954 of file compiled\&.php\&.
+.SS "updateBlockSize ()\fC [protected]\fP"
+Update the block size for the current cipher and mode\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file Encrypter\&.php\&.
+.SS "updateBlockSize ()\fC [protected]\fP"
+
+.PP
+Definition at line 11997 of file compiled\&.php\&.
+.SS "validMac (array $payload)\fC [protected]\fP"
+Determine if the MAC for the given payload is valid\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 161 of file Encrypter\&.php\&.
+.SS "validMac (array $payload)\fC [protected]\fP"
+
+.PP
+Definition at line 11939 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$block = 16\fC [protected]\fP"
+
+.PP
+Definition at line 11896 of file compiled\&.php\&.
+.SS "$cipher = MCRYPT_RIJNDAEL_128\fC [protected]\fP"
+
+.PP
+Definition at line 11894 of file compiled\&.php\&.
+.SS "$key\fC [protected]\fP"
+
+.PP
+Definition at line 11893 of file compiled\&.php\&.
+.SS "$mode = MCRYPT_MODE_CBC\fC [protected]\fP"
+
+.PP
+Definition at line 11895 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

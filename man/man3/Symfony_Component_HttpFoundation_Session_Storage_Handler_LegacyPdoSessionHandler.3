@@ -1,0 +1,252 @@
+.TH "LegacyPdoSessionHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LegacyPdoSessionHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionHandlerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\\PDO $pdo, array $dbOptions=array())"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($maxlifetime)"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBSession\fP handler using a PDO connection to read and write data\&.
+.PP
+\fBSession\fP data is a binary string that can contain non-printable characters like the null byte\&. For this reason this handler base64 encodes the data to be able to save it in a character column\&.
+.PP
+This version of the \fBPdoSessionHandler\fP does NOT implement locking\&. So concurrent requests to the same session can result in data loss due to race conditions\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Michael Williams michael.williams@funsational.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. Use \fBPdoSessionHandler\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file LegacyPdoSessionHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\\PDO $pdo, array $dbOptions = \fCarray()\fP)"
+Constructor\&.
+.PP
+List of available options:
+.IP "\(bu" 2
+db_table: The name of the table [required]
+.IP "\(bu" 2
+db_id_col: The column where to store the session id [default: sess_id]
+.IP "\(bu" 2
+db_data_col: The column where to store the session data [default: sess_data]
+.IP "\(bu" 2
+db_time_col: The column where to store the timestamp [default: sess_time]
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP \fBA\fP  instance 
+.br
+\fI$dbOptions\fP An associative array of \fBDB\fP options
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 71 of file LegacyPdoSessionHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 103 of file LegacyPdoSessionHandler\&.php\&.
+.SS "destroy ( $sessionId)"
+{Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 111 of file LegacyPdoSessionHandler\&.php\&.
+.SS "gc ( $maxlifetime)"
+{Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 130 of file LegacyPdoSessionHandler\&.php\&.
+.SS "getConnection ()\fC [protected]\fP"
+Return a PDO instance
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 264 of file LegacyPdoSessionHandler\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+{Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 95 of file LegacyPdoSessionHandler\&.php\&.
+.SS "read ( $sessionId)"
+{Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 149 of file LegacyPdoSessionHandler\&.php\&.
+.SS "write ( $sessionId,  $data)"
+{Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 174 of file LegacyPdoSessionHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,137 @@
+.TH "Inline" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Inline \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBparse\fP ($value, $exceptionOnInvalidType=false, $objectSupport=false, $objectForMap=false, $references=array())"
+.br
+.ti -1c
+.RI "static \fBdump\fP ($value, $exceptionOnInvalidType=false, $objectSupport=false)"
+.br
+.ti -1c
+.RI "static \fBparseScalar\fP ($scalar, $delimiters=null, $stringDelimiters=array(''', '''), &$i = 0, $evaluate = true, $references = array()) "
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBREGEX_QUOTED_STRING\fP = '(?:'([^'\\\\\\\\]*(?:\\\\\\\\\&.[^'\\\\\\\\]*)*)'|\\'([^\\']*(?:\\'\\'[^\\']*)*)\\')'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBInline\fP implements a YAML parser/dumper for the YAML inline syntax\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file Inline\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static dump ( $value,  $exceptionOnInvalidType = \fCfalse\fP,  $objectSupport = \fCfalse\fP)\fC [static]\fP"
+Dumps a given \fBPHP\fP variable to a YAML string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP The \fBPHP\fP variable to convert 
+.br
+\fI$exceptionOnInvalidType\fP true if an exception must be thrown on invalid types (a \fBPHP\fP resource or object), false otherwise 
+.br
+\fI$objectSupport\fP true if object support is enabled, false otherwise
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The YAML string representing the \fBPHP\fP array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIDumpException\fP When trying to dump \fBPHP\fP resource 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file Inline\&.php\&.
+.SS "static parse ( $value,  $exceptionOnInvalidType = \fCfalse\fP,  $objectSupport = \fCfalse\fP,  $objectForMap = \fCfalse\fP,  $references = \fCarray()\fP)\fC [static]\fP"
+Converts a YAML string to a \fBPHP\fP array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP \fBA\fP YAML string 
+.br
+\fI$exceptionOnInvalidType\fP true if an exception must be thrown on invalid types (a \fBPHP\fP resource or object), false otherwise 
+.br
+\fI$objectSupport\fP true if object support is enabled, false otherwise 
+.br
+\fI$objectForMap\fP true if maps should return a stdClass instead of array() 
+.br
+\fI$references\fP Mapping of variable names to values
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array \fBA\fP \fBPHP\fP array representing the YAML string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIParseException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file Inline\&.php\&.
+.SS "static parseScalar ( $scalar,  $delimiters = \fCnull\fP,  $stringDelimiters = \fCarray(''', ''')\fP, & $i = \fC0\fP,  $evaluate = \fCtrue\fP,  $references = \fCarray()\fP)\fC [static]\fP"
+Parses a scalar to a YAML string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scalar\fP 
+.br
+\fI$delimiters\fP 
+.br
+\fI$stringDelimiters\fP 
+.br
+\fI&$i\fP 
+.br
+\fI$evaluate\fP 
+.br
+\fI$references\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP YAML string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIParseException\fP When malformed inline YAML string is parsed 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file Inline\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const REGEX_QUOTED_STRING = '(?:'([^'\\\\\\\\]*(?:\\\\\\\\\&.[^'\\\\\\\\]*)*)'|\\'([^\\']*(?:\\'\\'[^\\']*)*)\\')'"
+
+.PP
+Definition at line 24 of file Inline\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

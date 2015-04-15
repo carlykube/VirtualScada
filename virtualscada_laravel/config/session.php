@@ -15,7 +15,7 @@ return [
 	|            "memcached", "redis", "array"
 	|
 	*/
-
+t
 	'driver' => env('SESSION_DRIVER', 'file'),
 
 	/*
@@ -29,7 +29,7 @@ return [
 	|
 	*/
 
-	'lifetime' => 60,
+	'lifetime' => 1,
 
 	'expire_on_close' => true,
 

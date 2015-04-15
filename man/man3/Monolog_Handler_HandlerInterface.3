@@ -1,0 +1,207 @@
+.TH "HandlerInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HandlerInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisHandling\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.ti -1c
+.RI "\fBpushProcessor\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBpopProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFormatter\fP (\fBFormatterInterface\fP $formatter)"
+.br
+.ti -1c
+.RI "\fBgetFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBisHandling\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.ti -1c
+.RI "\fBpushProcessor\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBpopProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFormatter\fP (\fBFormatterInterface\fP $formatter)"
+.br
+.ti -1c
+.RI "\fBgetFormatter\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface that all \fBMonolog\fP Handlers must implement
+.PP
+\fBAuthor:\fP
+.RS 4
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 12656 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFormatter ()"
+Gets the formatter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+FormatterInterface 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "getFormatter ()"
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "handle (array $record)"
+Handles a record\&.
+.PP
+All records may be passed to this method, and the handler should discard those that it does not want to handle\&.
+.PP
+The return value of this function controls the bubbling process of the handler stack\&. Unless the bubbling is interrupted (by returning true), the \fBLogger\fP class will keep on calling further handlers in the stack with a given log record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP The record to handle 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean true means that this handler handled the record, and that bubbling is not permitted\&. false means the record was either not processed or that this handler allows bubbling\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractProcessingHandler\fP, \fBExceptionTestHandler\fP, \fBFilterHandler\fP, \fBFingersCrossedHandler\fP, \fBSamplingHandler\fP, \fBGroupHandler\fP, \fBBufferHandler\fP, \fBPsrHandler\fP, \fBNullHandler\fP, \fBAbstractProcessingHandler\fP, and \fBWhatFailureGroupHandler\fP\&.
+.SS "handle (array $record)"
+
+.PP
+Implemented in \fBAbstractProcessingHandler\fP, \fBExceptionTestHandler\fP, \fBFilterHandler\fP, \fBFingersCrossedHandler\fP, \fBSamplingHandler\fP, \fBGroupHandler\fP, \fBBufferHandler\fP, \fBPsrHandler\fP, \fBNullHandler\fP, \fBAbstractProcessingHandler\fP, and \fBWhatFailureGroupHandler\fP\&.
+.SS "handleBatch (array $records)"
+Handles a set of records at once\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$records\fP The records to handle (an array of record arrays) 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBHipChatHandler\fP, \fBFilterHandler\fP, \fBElasticSearchHandler\fP, \fBGroupHandler\fP, \fBChromePHPHandler\fP, \fBRavenHandler\fP, \fBLogglyHandler\fP, \fBAbstractHandler\fP, \fBWhatFailureGroupHandler\fP, and \fBMailHandler\fP\&.
+.SS "handleBatch (array $records)"
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBHipChatHandler\fP, \fBFilterHandler\fP, \fBElasticSearchHandler\fP, \fBGroupHandler\fP, \fBChromePHPHandler\fP, \fBRavenHandler\fP, \fBLogglyHandler\fP, \fBAbstractHandler\fP, \fBWhatFailureGroupHandler\fP, and \fBMailHandler\fP\&.
+.SS "isHandling (array $record)"
+Checks whether the given record will be handled by this handler\&.
+.PP
+This is mostly done for performance reasons, to avoid calling processors for nothing\&.
+.PP
+Handlers should still check the record levels within \fBhandle()\fP, returning false in \fBisHandling()\fP is no guarantee that \fBhandle()\fP will not be called, and \fBisHandling()\fP might not be called for a given record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP Partial log record containing only a level key
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBFilterHandler\fP, \fBFingersCrossedHandler\fP, \fBSamplingHandler\fP, \fBAbstractHandler\fP, and \fBGroupHandler\fP\&.
+.SS "isHandling (array $record)"
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBFilterHandler\fP, \fBFingersCrossedHandler\fP, \fBSamplingHandler\fP, \fBAbstractHandler\fP, and \fBGroupHandler\fP\&.
+.SS "popProcessor ()"
+Removes the processor on top of the stack and returns it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+callable 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "popProcessor ()"
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "pushProcessor ( $callback)"
+Adds a processor in the stack\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "pushProcessor ( $callback)"
+
+.PP
+Implemented in \fBAbstractHandler\fP, and \fBAbstractHandler\fP\&.
+.SS "setFormatter (\fBFormatterInterface\fP $formatter)"
+Sets the formatter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$formatter\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self 
+.RE
+.PP
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBAbstractHandler\fP, and \fBElasticSearchHandler\fP\&.
+.SS "setFormatter (\fBFormatterInterface\fP $formatter)"
+
+.PP
+Implemented in \fBAbstractHandler\fP, \fBAbstractHandler\fP, and \fBElasticSearchHandler\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,27 @@
+var class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many =
+[
+    [ "__construct", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#ab79d5bd28b78010c3ec0e30ab3b49b26", null ],
+    [ "addConstraints", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#af6c14d4a0a76ac2ec706cecd64e93df8", null ],
+    [ "addEagerConstraints", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a9716b6a624c8e15497cd4c1057dfca06", null ],
+    [ "buildDictionary", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a65ce2c17a817cc3d3f02c739e8d491bd", null ],
+    [ "create", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#ae224c9a32d9e8d4020b33cc97cd80068", null ],
+    [ "createMany", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a6262a224289d841aa56054f8cceb6326", null ],
+    [ "findOrNew", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a254d1005aeffabac6d4ca31a4a02dccc", null ],
+    [ "firstOrCreate", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a6ff85b19cfeb0195ec039641c7b7bf70", null ],
+    [ "firstOrNew", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a13653ce010775f188784c15a13eca288", null ],
+    [ "getForeignKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a436fa3b5ae3e79b380cbde5bd9f61ef8", null ],
+    [ "getHasCompareKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a3bca6f7a4d8b21dfaefaa8691bdb4964", null ],
+    [ "getParentKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a894f260cf973fe16cfb2920749e370ec", null ],
+    [ "getPlainForeignKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a2c8538f75a63ed2d0cc14753282a542a", null ],
+    [ "getQualifiedParentKeyName", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#ad6fab4ead5cd073edd7c4cab71c29ff9", null ],
+    [ "getRelationValue", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a68911925ae8f581516da27341b842285", null ],
+    [ "matchMany", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a6fb30524ebcfc64c9535a70f516e8271", null ],
+    [ "matchOne", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#aeae7cca3c2c1d7b50c1b6b1ca5ae8eb8", null ],
+    [ "matchOneOrMany", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#aace2e2508a8cbacd62a8ea2dbe0055d1", null ],
+    [ "save", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a5c4103fba774992bcf6d0615b1a63d12", null ],
+    [ "saveMany", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a4b7deb2426a269a0505f4daa18d1dbe6", null ],
+    [ "update", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a7689c3207a7049bc3c9ee09613ff19ae", null ],
+    [ "updateOrCreate", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#a303f47c91ddd9f3c164c39eb8c109709", null ],
+    [ "$foreignKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#af59cb1cfc5aaef93836c92cfe59abc04", null ],
+    [ "$localKey", "class_illuminate_1_1_database_1_1_eloquent_1_1_relations_1_1_has_one_or_many.html#aeb9b1804cec97bbae71de28b5b0cfe17", null ]
+];

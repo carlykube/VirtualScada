@@ -1,0 +1,84 @@
+{\tt ![Build Status](https\+://secure.\+travis-\/ci.\+org/sebastianbergmann/exporter.\+png?branch=master)}
+
+This component provides the functionality to export \doxyref{P\+H\+P}{p.}{namespace_p_h_p} variables for visualization.
+
+\subsection*{Usage}
+
+Exporting\+:
+
+```php $<$?php use \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann};
+
+\$exporter = new \doxyref{Exporter}{p.}{namespace_exporter};
+
+/$\ast$ Exception Object \&0000000078de0f0d000000002003a261 ( \textquotesingle{}message\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{} \textquotesingle{}string\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{} \textquotesingle{}code\textquotesingle{} =$>$ 0 \textquotesingle{}file\textquotesingle{} =$>$ \textquotesingle{}/home/sebastianbergmann/test.php\textquotesingle{} \textquotesingle{}line\textquotesingle{} =$>$ 34 \textquotesingle{}trace\textquotesingle{} =$>$ Array \&0 () \textquotesingle{}previous\textquotesingle{} =$>$ null ) $\ast$/
+
+print \$exporter-\/$>$export(new Exception); ```
+
+\subsection*{Data Types}
+
+Exporting simple types\+:
+
+```php $<$?php use \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann};
+
+\$exporter = new \doxyref{Exporter}{p.}{namespace_exporter};
+
+// 46 print \$exporter-\/$>$export(46);
+
+// 4.\+0 print \$exporter-\/$>$export(4.\+0);
+
+// \textquotesingle{}hello, world!\textquotesingle{} print \$exporter-\/$>$export(\textquotesingle{}hello, world!\textquotesingle{});
+
+// false print \$exporter-\/$>$export(false);
+
+// N\+A\+N print \$exporter-\/$>$export(acos(8));
+
+// -\/\+I\+N\+F print \$exporter-\/$>$export(log(0));
+
+// null print \$exporter-\/$>$export(null);
+
+// resource(13) of type (stream) print \$exporter-\/$>$export(fopen(\textquotesingle{}php\+://stderr\textquotesingle{}, \textquotesingle{}w\textquotesingle{}));
+
+// Binary String\+: 0x000102030405 print \$exporter-\/$>$export(chr(0) . chr(1) . chr(2) . chr(3) . chr(4) . chr(5)); ```
+
+Exporting complex types\+:
+
+```php $<$?php use \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann};
+
+\$exporter = new \doxyref{Exporter}{p.}{namespace_exporter};
+
+/$\ast$ Array \&0 ( 0 =$>$ Array \&1 ( 0 =$>$ 1 1 =$>$ 2 2 =$>$ 3 ) 1 =$>$ Array \&2 ( 0 =$>$ \textquotesingle{}\textquotesingle{} 1 =$>$ 0 2 =$>$ false ) ) $\ast$/
+
+print \$exporter-\/$>$export(array(array(1,2,3), array(\char`\"{}\char`\"{},0,F\+A\+L\+S\+E)));
+
+/$\ast$ Array \&0 ( \textquotesingle{}self\textquotesingle{} =$>$ Array \&1 ( \textquotesingle{}self\textquotesingle{} =$>$ Array \&1 ) ) $\ast$/
+
+\$array = array(); \$array[\textquotesingle{}self\textquotesingle{}] =  print \$exporter-\/$>$export(\$array);
+
+/$\ast$ std\+Class Object \&0000000003a66dcc0000000025e723e2 ( \textquotesingle{}self\textquotesingle{} =$>$ std\+Class Object \&0000000003a66dcc0000000025e723e2 ) $\ast$/
+
+\$obj = new std\+Class(); \$obj-\/$>$self = \$obj; print \$exporter-\/$>$export(\$obj); ```
+
+Compact exports\+:
+
+```php $<$?php use \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann};
+
+\$exporter = new \doxyref{Exporter}{p.}{namespace_exporter};
+
+// Array () print \$exporter-\/$>$shortened\+Export(array());
+
+// Array (...) print \$exporter-\/$>$shortened\+Export(array(1,2,3,4,5));
+
+// std\+Class Object () print \$exporter-\/$>$shortened\+Export(new std\+Class);
+
+// Exception Object (...) print \$exporter-\/$>$shortened\+Export(new Exception);
+
+// this... print \$exporter-\/$>$shortened\+Export( $<$$<$$<$L\+O\+N\+G\+\_\+\+S\+T\+R\+I\+N\+G this is a super long string that wraps a lot and eats up a lot of space L\+O\+N\+G\+\_\+\+S\+T\+R\+I\+N\+G ); ```
+
+\subsection*{Installation}
+
+To add \doxyref{Exporter}{p.}{namespace_exporter} as a local, per-\/project dependency to your project, simply add a dependency on {\ttfamily sebastian/exporter} to your project\textquotesingle{}s {\ttfamily composer.\+json} file. Here is a minimal example of a {\ttfamily composer.\+json} file that just defines a dependency on \doxyref{Exporter}{p.}{namespace_exporter} 1.\+0\+: \begin{DoxyVerb}{
+    "require": {
+        "sebastian/exporter": "1.0.*"
+    }
+}\end{DoxyVerb}
+ 

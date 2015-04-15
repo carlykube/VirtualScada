@@ -1,0 +1,215 @@
+\section{New\+Relic\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_new_relic_handler}\index{New\+Relic\+Handler@{New\+Relic\+Handler}}
+Inheritance diagram for New\+Relic\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.941177cm]{class_monolog_1_1_handler_1_1_new_relic_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$level={\bf Logger\+::\+E\+R\+R\+O\+R}, \$bubble=true, \$app\+Name=null, \$explode\+Arrays=false, \$transaction\+Name=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf write} (array \$record)
+\item 
+{\bf is\+New\+Relic\+Enabled} ()
+\item 
+{\bf get\+App\+Name} (array \$context)
+\item 
+{\bf get\+Transaction\+Name} (array \$context)
+\item 
+{\bf set\+New\+Relic\+App\+Name} (\$app\+Name)
+\item 
+{\bf set\+New\+Relic\+Transaction\+Name} (\$transaction\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$app\+Name}
+\item 
+{\bf \$transaction\+Name}
+\item 
+{\bf \$explode\+Arrays}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to record a log on a New\+Relic application. Enabling New Relic High Security mode may prevent capture of useful information.
+
+\begin{DoxySeeAlso}{See also}
+{\tt https\+://docs.\+newrelic.\+com/docs/agents/php-\/agent} 
+
+{\tt https\+://docs.\+newrelic.\+com/docs/accounts-\/partnerships/accounts/security/high-\/security} 
+\end{DoxySeeAlso}
+
+
+Definition at line 23 of file New\+Relic\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$level = {\ttfamily {\bf Logger\+::\+E\+R\+R\+O\+R}}, }
+\item[{}]{\$bubble = {\ttfamily true}, }
+\item[{}]{\$app\+Name = {\ttfamily null}, }
+\item[{}]{\$explode\+Arrays = {\ttfamily false}, }
+\item[{}]{\$transaction\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_new_relic_handler_ac7ac8cb8f9e025fd7414ed6b9540e457}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$app\+Name} & \\
+\hline
+boolean & {\em \$explode\+Arrays} & \\
+\hline
+string & {\em \$transaction\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file New\+Relic\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!get\+App\+Name@{get\+App\+Name}}
+\index{get\+App\+Name@{get\+App\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{get\+App\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+App\+Name (
+\begin{DoxyParamCaption}
+\item[{array}]{\$context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a366c601caba45460bb68d5b950836788}
+Returns the appname where this log should be sent. Each log can override the default appname, set in this handler\textquotesingle{}s constructor, by providing the appname in it\textquotesingle{}s context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!get\+Transaction\+Name@{get\+Transaction\+Name}}
+\index{get\+Transaction\+Name@{get\+Transaction\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{get\+Transaction\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Transaction\+Name (
+\begin{DoxyParamCaption}
+\item[{array}]{\$context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a20b255b70ef9638708d73d78c407a1ec}
+Returns the name of the current transaction. Each log can override the default transaction name, set in this handler\textquotesingle{}s constructor, by providing the transaction\+\_\+name in it\textquotesingle{}s context
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!is\+New\+Relic\+Enabled@{is\+New\+Relic\+Enabled}}
+\index{is\+New\+Relic\+Enabled@{is\+New\+Relic\+Enabled}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{is\+New\+Relic\+Enabled}]{\setlength{\rightskip}{0pt plus 5cm}is\+New\+Relic\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a2af2e5ddfe34ac014f2b170db7e57cf7}
+Checks whether the New\+Relic extension is enabled in the system.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!set\+New\+Relic\+App\+Name@{set\+New\+Relic\+App\+Name}}
+\index{set\+New\+Relic\+App\+Name@{set\+New\+Relic\+App\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{set\+New\+Relic\+App\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+New\+Relic\+App\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$app\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_af293274147b9246bee9f2dcd9621d728}
+Sets the New\+Relic application that should receive this log.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$app\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 162 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!set\+New\+Relic\+Transaction\+Name@{set\+New\+Relic\+Transaction\+Name}}
+\index{set\+New\+Relic\+Transaction\+Name@{set\+New\+Relic\+Transaction\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{set\+New\+Relic\+Transaction\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+New\+Relic\+Transaction\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$transaction\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a557eb5fbad61a785f2fe313cbb4a6f50}
+Overwrites the name of the current transaction
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$transaction\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 172 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!write@{write}}
+\index{write@{write}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_afa17604fd899fffdc1ee326afe177cb5}
+
+
+Definition at line 71 of file New\+Relic\+Handler.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!\$app\+Name@{\$app\+Name}}
+\index{\$app\+Name@{\$app\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{\$app\+Name}]{\setlength{\rightskip}{0pt plus 5cm}\$app\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a79f75dc0be198bb6d54362f0076eaf20}
+
+
+Definition at line 30 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!\$explode\+Arrays@{\$explode\+Arrays}}
+\index{\$explode\+Arrays@{\$explode\+Arrays}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{\$explode\+Arrays}]{\setlength{\rightskip}{0pt plus 5cm}\$explode\+Arrays\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a0826aff82b037a2c3919027f00273110}
+
+
+Definition at line 45 of file New\+Relic\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}!\$transaction\+Name@{\$transaction\+Name}}
+\index{\$transaction\+Name@{\$transaction\+Name}!Monolog\+::\+Handler\+::\+New\+Relic\+Handler@{Monolog\+::\+Handler\+::\+New\+Relic\+Handler}}
+\subsubsection[{\$transaction\+Name}]{\setlength{\rightskip}{0pt plus 5cm}\$transaction\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_new_relic_handler_a8b9fb35a0785a3fea27eb0c2b83a59d3}
+
+
+Definition at line 37 of file New\+Relic\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf New\+Relic\+Handler.\+php}\end{DoxyCompactItemize}

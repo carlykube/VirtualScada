@@ -1,0 +1,186 @@
+.TH "md_vendor_danielstjules_stringy__c_h_a_n_g_e_l_o_g" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_danielstjules_stringy__c_h_a_n_g_e_l_o_g \- 1\&.9\&.0 (2015-02-09) 
+
+.IP "\(bu" 2
+Added hasUpperCase and hasLowerCase
+.IP "\(bu" 2
+Added $removeUnsupported parameter to toAscii()
+.IP "\(bu" 2
+Improved toAscii support with additional Unicode spaces, Vietnamese chars, and numerous other characters
+.IP "\(bu" 2
+Separated the charsArray from toAscii as a protected method that may be extended by inheriting classes
+.IP "\(bu" 2
+Chars array is cached for better performance
+.PP
+.PP
+.SS "1\&.8\&.1 (2015-01-08)"
+.PP
+.IP "\(bu" 2
+Optimized chars()
+.IP "\(bu" 2
+Added 'ä Ä Ö Ü'" in toAscii()
+.IP "\(bu" 2
+Added support for Unicode spaces in toAscii()
+.IP "\(bu" 2
+Replaced instances of self::create() with static::create()
+.IP "\(bu" 2
+Added missing test cases for safeTruncate() and longestCommonSuffix()
+.IP "\(bu" 2
+Updated \fBStringy\fP() to avoid collision when it already exists
+.PP
+.PP
+.SS "1\&.8\&.0 (2015-01-03)"
+.PP
+.IP "\(bu" 2
+Listed ext-mbstring in composer\&.json
+.IP "\(bu" 2
+Added \fBStringy\fP function for \fBPHP\fP 5\&.6
+.PP
+.PP
+.SS "1\&.7\&.0 (2014-10-14)"
+.PP
+.IP "\(bu" 2
+Added containsAll and containsAny
+.IP "\(bu" 2
+Light cleanup
+.PP
+.PP
+.SS "1\&.6\&.0 (2014-09-14)"
+.PP
+.IP "\(bu" 2
+Added toTitleCase
+.PP
+.PP
+.SS "1\&.5\&.2 (2014-07-09)"
+.PP
+.IP "\(bu" 2
+Announced support for HHVM
+.PP
+.PP
+.SS "1\&.5\&.1 (2014-04-19)"
+.PP
+.IP "\(bu" 2
+Fixed toAscii() failing to remove remaining non-ascii characters
+.IP "\(bu" 2
+Updated slugify() to treat dash and underscore as delimiters by default
+.IP "\(bu" 2
+Updated slugify() to remove leading and trailing delimiter, if present
+.PP
+.PP
+.SS "1\&.5\&.0 (2014-03-19)"
+.PP
+.IP "\(bu" 2
+Made both str and encoding protected, giving property access to subclasses
+.IP "\(bu" 2
+Added getEncoding()
+.IP "\(bu" 2
+Fixed isJSON() giving false negatives
+.IP "\(bu" 2
+Cleaned up and simplified: replace(), collapseWhitespace(), underscored(), dasherize(), pad(), padLeft(), padRight() and padBoth()
+.IP "\(bu" 2
+Fixed handling consecutive invalid chars in slugify()
+.IP "\(bu" 2
+Removed conflicting hard sign transliteration in toAscii()
+.PP
+.PP
+.SS "1\&.4\&.0 (2014-02-12)"
+.PP
+.IP "\(bu" 2
+Implemented the IteratorAggregate interface, added chars()
+.IP "\(bu" 2
+Renamed count() to countSubstr()
+.IP "\(bu" 2
+Updated count() to implement Countable interface
+.IP "\(bu" 2
+Implemented the ArrayAccess interface with positive and negative indices
+.IP "\(bu" 2
+Switched from PSR-0 to PSR-4 autoloading
+.PP
+.PP
+.SS "1\&.3\&.0 (2013-12-16)"
+.PP
+.IP "\(bu" 2
+Additional Bulgarian support for toAscii
+.IP "\(bu" 2
+str property made private
+.IP "\(bu" 2
+Constructor casts first argument to string
+.IP "\(bu" 2
+Constructor throws an InvalidArgumentException when given an array
+.IP "\(bu" 2
+Constructor throws an InvalidArgumentException when given an object without a __toString method
+.PP
+.PP
+.SS "1\&.2\&.2 (2013-12-04)"
+.PP
+.IP "\(bu" 2
+Updated create function to use late static binding
+.IP "\(bu" 2
+Added optional $replacement param to slugify
+.PP
+.PP
+.SS "1\&.2\&.1 (2013-10-11)"
+.PP
+.IP "\(bu" 2
+Cleaned up tests
+.IP "\(bu" 2
+Added homepage to composer\&.json
+.PP
+.PP
+.SS "1\&.2\&.0 (2013-09-15)"
+.PP
+.IP "\(bu" 2
+Fixed pad's use of InvalidArgumentException
+.IP "\(bu" 2
+Fixed replace()\&. It now correctly treats regex special chars as normal chars
+.IP "\(bu" 2
+Added additional Cyrillic letters to toAscii
+.IP "\(bu" 2
+Added $caseSensitive to \fBcontains()\fP and count()
+.IP "\(bu" 2
+Added toLowerCase()
+.IP "\(bu" 2
+Added toUpperCase()
+.IP "\(bu" 2
+Added regexReplace()
+.PP
+.PP
+.SS "1\&.1\&.0 (2013-08-31)"
+.PP
+.IP "\(bu" 2
+Fix for collapseWhitespace()
+.IP "\(bu" 2
+Added isHexadecimal()
+.IP "\(bu" 2
+Added constructor to \fBStringy\fP
+.IP "\(bu" 2
+Added isSerialized()
+.IP "\(bu" 2
+Added \fBisJson()\fP
+.PP
+.PP
+.SS "1\&.0\&.0 (2013-08-1)"
+.PP
+.IP "\(bu" 2
+1\&.0\&.0 release
+.IP "\(bu" 2
+Added test coverage for Stringy::create and method chaining
+.IP "\(bu" 2
+Added tests for returned type
+.IP "\(bu" 2
+Fixed StaticStringy::replace()\&. It was returning a \fBStringy\fP object instead of string
+.IP "\(bu" 2
+Renamed standardize() to the more appropriate toAscii()
+.IP "\(bu" 2
+Cleaned up comments and README
+.PP
+.PP
+.SS "1\&.0\&.0-rc\&.1 (2013-07-28)"
+.PP
+.IP "\(bu" 2
+Release candidate 
+.PP
+

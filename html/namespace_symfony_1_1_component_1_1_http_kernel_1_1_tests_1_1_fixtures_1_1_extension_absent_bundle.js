@@ -1,0 +1,4 @@
+var namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_absent_bundle =
+[
+    [ "ExtensionAbsentBundle", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_absent_bundle_1_1_extension_absent_bundle.html", null ]
+];

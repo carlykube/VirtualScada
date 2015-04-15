@@ -1,0 +1,328 @@
+.TH "CliDumper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CliDumper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractDumper\fP\&.
+.PP
+Inherited by \fBHtmlDumper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($output=null, $charset=null)"
+.br
+.ti -1c
+.RI "\fBsetColors\fP ($colors)"
+.br
+.ti -1c
+.RI "\fBsetMaxStringWidth\fP ($maxStringWidth)"
+.br
+.ti -1c
+.RI "\fBsetStyles\fP (array $styles)"
+.br
+.ti -1c
+.RI "\fBdumpScalar\fP (\fBCursor\fP $cursor, $type, $value)"
+.br
+.ti -1c
+.RI "\fBdumpString\fP (\fBCursor\fP $cursor, $str, $bin, $cut)"
+.br
+.ti -1c
+.RI "\fBenterHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild)"
+.br
+.ti -1c
+.RI "\fBleaveHash\fP (\fBCursor\fP $cursor, $type, $class, $hasChild, $cut)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$defaultColors\fP"
+.br
+.ti -1c
+.RI "static \fB$defaultOutput\fP = 'php://stdout'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdumpEllipsis\fP (\fBCursor\fP $cursor, $hasChild, $cut)"
+.br
+.ti -1c
+.RI "\fBdumpKey\fP (\fBCursor\fP $cursor)"
+.br
+.ti -1c
+.RI "\fBstyle\fP ($style, $value, $\fBattr\fP=array())"
+.br
+.ti -1c
+.RI "\fBsupportsColors\fP ()"
+.br
+.ti -1c
+.RI "\fBdumpLine\fP ($depth)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$colors\fP"
+.br
+.ti -1c
+.RI "\fB$maxStringWidth\fP = 0"
+.br
+.ti -1c
+.RI "\fB$styles\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$controlCharsRx\fP = '/[\\x00-\\x1F\\x7F]/'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCliDumper\fP dumps variables for command line output\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file CliDumper\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $output = \fCnull\fP,  $charset = \fCnull\fP)"
+{} 
+.PP
+Definition at line 50 of file CliDumper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "dumpEllipsis (\fBCursor\fP $cursor,  $hasChild,  $cut)\fC [protected]\fP"
+Dumps an ellipsis for cut children\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The Cursor position in the dump\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&. 
+.br
+\fI$cut\fP The number of items the hash has been cut by\&. 
+.RE
+.PP
+
+.PP
+Definition at line 266 of file CliDumper\&.php\&.
+.SS "dumpKey (\fBCursor\fP $cursor)\fC [protected]\fP"
+Dumps a key in a hash structure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The Cursor position in the dump\&. 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file CliDumper\&.php\&.
+.SS "dumpLine ( $depth)\fC [protected]\fP"
+{} 
+.PP
+Definition at line 421 of file CliDumper\&.php\&.
+.SS "dumpScalar (\fBCursor\fP $cursor,  $type,  $value)"
+{Dumps a scalar value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP The \fBPHP\fP type of the value being dumped\&. 
+.br
+\fI$value\fP The scalar value being dumped\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 105 of file CliDumper\&.php\&.
+.SS "dumpString (\fBCursor\fP $cursor,  $str,  $bin,  $cut)"
+{Dumps a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$str\fP The string being dumped\&. 
+.br
+\fI$bin\fP Whether $str is UTF-8 or binary encoded\&. 
+.br
+\fI$cut\fP The number of characters $str has been cut by\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 155 of file CliDumper\&.php\&.
+.SS "enterHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild)"
+{Dumps while entering an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 221 of file CliDumper\&.php\&.
+.SS "leaveHash (\fBCursor\fP $cursor,  $type,  $class,  $hasChild,  $cut)"
+{Dumps while leaving an hash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cursor\fP The \fBCursor\fP position in the dump\&. 
+.br
+\fI$type\fP \fBA\fP Cursor::HASH_* const for the type of hash\&. 
+.br
+\fI$class\fP The object class, resource type or array count\&. 
+.br
+\fI$hasChild\fP When the dump of the hash has child item\&. 
+.br
+\fI$cut\fP The number of items the hash has been cut by\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 252 of file CliDumper\&.php\&.
+.SS "setColors ( $colors)"
+Enables/disables colored output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$colors\fP 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file CliDumper\&.php\&.
+.SS "setMaxStringWidth ( $maxStringWidth)"
+Sets the maximum number of characters per line for dumped strings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxStringWidth\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file CliDumper\&.php\&.
+.SS "setStyles (array $styles)"
+Configures styles\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$styles\fP \fBA\fP map of style names to style definitions\&. 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file CliDumper\&.php\&.
+.SS "style ( $style,  $value,  $attr = \fCarray()\fP)\fC [protected]\fP"
+Decorates a value with some style\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$style\fP The type of style being applied\&. 
+.br
+\fI$value\fP The value being styled\&. 
+.br
+\fI$attr\fP Optional context information\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The value with style decoration\&. 
+.RE
+.PP
+
+.PP
+Definition at line 356 of file CliDumper\&.php\&.
+.SS "supportsColors ()\fC [protected]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+bool Tells if the current output stream supports ANSI colors or not\&. 
+.RE
+.PP
+
+.PP
+Definition at line 374 of file CliDumper\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$colors\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file CliDumper\&.php\&.
+.SS "$controlCharsRx = '/[\\x00-\\x1F\\x7F]/'\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 45 of file CliDumper\&.php\&.
+.SS "$defaultColors\fC [static]\fP"
+
+.PP
+Definition at line 23 of file CliDumper\&.php\&.
+.SS "$defaultOutput = 'php://stdout'\fC [static]\fP"
+
+.PP
+Definition at line 24 of file CliDumper\&.php\&.
+.SS "$maxStringWidth = 0\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file CliDumper\&.php\&.
+.SS "$styles\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        
+        'default' => '38;5;208',
+        'num' => '1;38;5;38',
+        'const' => '1;38;5;208',
+        'str' => '1;38;5;113',
+        'cchr' => '7',
+        'note' => '38;5;38',
+        'ref' => '38;5;247',
+        'public' => '',
+        'protected' => '',
+        'private' => '',
+        'meta' => '38;5;170',
+        'key' => '38;5;113',
+        'index' => '38;5;38',
+    )
+.fi
+.PP
+Definition at line 28 of file CliDumper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

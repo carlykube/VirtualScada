@@ -1,0 +1,155 @@
+.TH "ClassLoader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ClassLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fBregister\fP ()"
+.br
+.ti -1c
+.RI "\fBunregister\fP ()"
+.br
+.ti -1c
+.RI "\fBloadClass\fP ($class)"
+.br
+.ti -1c
+.RI "\fBgetFilenames\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetIncludes\fP ($func)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$classList\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the class loader class\&.
+.PP
+This creates an autoloader that intercepts and keeps track of each include in order that files must be included\&. This autoloader proxies to all other underlying autoloaders\&. 
+.PP
+Definition at line 15 of file ClassLoader\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Create a new class loader\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file ClassLoader\&.php\&.
+.SS "__destruct ()"
+Destroy the class loader\&.
+.PP
+This makes sure we're unregistered from the autoloader\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file ClassLoader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFilenames ()"
+Get an array of loaded file names in order of loading\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file ClassLoader\&.php\&.
+.SS "static getIncludes ( $func)\fC [static]\fP"
+Wrap a block of code in the autoloader and get a list of loaded classes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$func\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 53 of file ClassLoader\&.php\&.
+.SS "loadClass ( $class)"
+Loads the given class, interface or trait\&.
+.PP
+We'll return true if it was loaded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file ClassLoader\&.php\&.
+.SS "register ()"
+Registers this instance as an autoloader\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file ClassLoader\&.php\&.
+.SS "unregister ()"
+Unregisters this instance as an autoloader\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file ClassLoader\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$classList"
+
+.PP
+Definition at line 22 of file ClassLoader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

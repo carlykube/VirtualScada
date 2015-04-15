@@ -1,0 +1,129 @@
+.TH "AdvancedUserInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AdvancedUserInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBUserInterface\fP\&.
+.PP
+Inherited by \fBUser\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisAccountNonExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBisAccountNonLocked\fP ()"
+.br
+.ti -1c
+.RI "\fBisCredentialsNonExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBisEnabled\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Adds extra features to a user class related to account status flags\&.
+.PP
+This interface can be implemented in place of \fBUserInterface\fP if you'd like the authentication system to consider different account status flags during authentication\&. If any of the methods in this interface return false, authentication will fail\&.
+.PP
+If you need to perform custom logic for any of these situations, then you will need to register an exception listener and watch for the specific exception instances thrown in each case\&. All exceptions are a subclass of AccountStatusException
+.PP
+\fBSee also:\fP
+.RS 4
+\fBUserInterface\fP 
+.PP
+AccountStatusException
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file AdvancedUserInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "isAccountNonExpired ()"
+Checks whether the user's account has expired\&.
+.PP
+Internally, if this method returns false, the authentication system will throw an AccountExpiredException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user's account is non expired, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+AccountExpiredException 
+.RE
+.PP
+
+.PP
+Implemented in \fBUser\fP\&.
+.SS "isAccountNonLocked ()"
+Checks whether the user is locked\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a LockedException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user is not locked, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+LockedException 
+.RE
+.PP
+
+.PP
+Implemented in \fBUser\fP\&.
+.SS "isCredentialsNonExpired ()"
+Checks whether the user's credentials (password) has expired\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a CredentialsExpiredException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user's credentials are non expired, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+CredentialsExpiredException 
+.RE
+.PP
+
+.PP
+Implemented in \fBUser\fP\&.
+.SS "isEnabled ()"
+Checks whether the user is enabled\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a DisabledException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user is enabled, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+DisabledException 
+.RE
+.PP
+
+.PP
+Implemented in \fBUser\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

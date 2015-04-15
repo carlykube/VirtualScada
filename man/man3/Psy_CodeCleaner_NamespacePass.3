@@ -1,0 +1,69 @@
+.TH "NamespacePass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NamespacePass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCodeCleanerPass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBCodeCleaner\fP $cleaner)"
+.br
+.ti -1c
+.RI "\fBbeforeTraverse\fP (array $nodes)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provide implicit namespaces for subsequent execution\&.
+.PP
+The namespace pass remembers the last standalone namespace line encountered: 
+.PP
+.nf
+namespace Foo\Bar;
+
+.fi
+.PP
+.PP
+\&.\&.\&. which it then applies implicitly to all future evaluated code, until the namespace is replaced by another namespace\&. To reset to the top level namespace, enter \fCnamespace {}\fP\&. This is a bit ugly, but it does the trick :) 
+.PP
+Definition at line 29 of file NamespacePass\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBCodeCleaner\fP $cleaner)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cleaner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file NamespacePass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeTraverse (array $nodes)"
+If this is a standalone namespace line, remember it for later\&.
+.PP
+Otherwise, apply remembered namespaces to the code until a new namespace is encountered\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nodes\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 50 of file NamespacePass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

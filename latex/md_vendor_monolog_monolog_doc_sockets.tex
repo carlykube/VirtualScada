@@ -1,0 +1,22 @@
+This handler allows you to write your logs to sockets using {\tt fsockopen} or {\tt pfsockopen}.
+
+Persistent sockets are mainly useful in web environments where you gain some performance not closing/opening the connections between requests.
+
+\subsection*{Basic Example }
+
+```php $<$?php
+
+use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog};
+
+// Create the logger \$logger = new Logger(\textquotesingle{}my\+\_\+logger\textquotesingle{});
+
+// Create the handler \$handler = new Socket\+Handler(\textquotesingle{}unix\+:///var/log/httpd\+\_\+app\+\_\+log.socket\textquotesingle{}); \$handler-\/$>$set\+Persistent(true);
+
+// Now add the handler \$logger-\/$>$push\+Handler(\$handler, Logger\+::\+D\+E\+B\+U\+G);
+
+// You can now use your logger \$logger-\/$>$add\+Info(\textquotesingle{}\doxyref{My}{p.}{namespace_my} logger is now ready\textquotesingle{});
+
+```
+
+In this example, using syslog-\/ng, you should see the log on the log server\+: \begin{DoxyVerb}cweb1 [2012-02-26 00:12:03] my_logger.INFO: My logger is now ready [] []\end{DoxyVerb}
+ 

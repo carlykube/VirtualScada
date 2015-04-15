@@ -1,0 +1,51 @@
+.TH "ValidFunctionNamePass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ValidFunctionNamePass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNamespaceAwarePass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBleaveNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Validate that function calls will succeed\&.
+.PP
+This pass throws a FatalErrorException rather than letting \fBPHP\fP run headfirst into a real fatal error and die\&. 
+.PP
+Definition at line 26 of file ValidFunctionNamePass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "leaveNode (\fBNode\fP $node)"
+Validate that function calls will succeed\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if a function is redefined\&. 
+.br
+\fIFatalErrorException\fP if the function name is a string (not an expression) and is not defined\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 36 of file ValidFunctionNamePass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

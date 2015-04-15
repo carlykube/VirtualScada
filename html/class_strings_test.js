@@ -1,0 +1,26 @@
+var class_strings_test =
+[
+    [ "testExtendedClassToString", "class_strings_test.html#accf75ed21935a46753c9bdf639caa8d7", null ],
+    [ "testResetToStringFormat", "class_strings_test.html#a76920e467878b4c28fb497f2b22d8ee1", null ],
+    [ "testSetToStringFormat", "class_strings_test.html#ad01786a98161236677f80d1cdc6b8e1b", null ],
+    [ "testToAtomString", "class_strings_test.html#a6fa2db699b4bf32373b9139c7abb520b", null ],
+    [ "testToCOOKIEString", "class_strings_test.html#acd18183e3d028f95d56ca0c6d7a32fb6", null ],
+    [ "testToDateString", "class_strings_test.html#a607b362e5ef4037e9f6d0850cd0c9d1e", null ],
+    [ "testToDateTimeString", "class_strings_test.html#af665bbb407cf690f259313fd3acae6a6", null ],
+    [ "testToDateTimeStringWithPaddedZeroes", "class_strings_test.html#a69eee0b69bb619c82495fce49bc48c96", null ],
+    [ "testToDayDateTimeString", "class_strings_test.html#a550e4179e5f43dc2120af07f00f98a71", null ],
+    [ "testToFormattedDateString", "class_strings_test.html#a2b148a1387654d593212ff9324ad44be", null ],
+    [ "testToIso8601String", "class_strings_test.html#ac42eb001a2b67cc78e4170be60d24514", null ],
+    [ "testToLocalizedFormattedDateString", "class_strings_test.html#ac5f56ed191cf4ee7db55cc27a6c670bd", null ],
+    [ "testToLocalizedFormattedTimezonedDateString", "class_strings_test.html#ae283071d58e4ca37778260795dd0a903", null ],
+    [ "testToRC822String", "class_strings_test.html#a03c157afce9d430c46903d121d0d3204", null ],
+    [ "testToRfc1036String", "class_strings_test.html#a7579803cc9d2b2c3624023ad90fa9d5d", null ],
+    [ "testToRfc1123String", "class_strings_test.html#a487b416da3c63638f20e4087c5c3af10", null ],
+    [ "testToRfc2822String", "class_strings_test.html#a66379aefbc19376dc1d28fb952ef0128", null ],
+    [ "testToRfc3339String", "class_strings_test.html#a840521110f6144e1216a7748fb8829c0", null ],
+    [ "testToRfc850String", "class_strings_test.html#ae11d043dd059b08fc6b0714be28ad41e", null ],
+    [ "testToRssString", "class_strings_test.html#a80b7d4c9de5b009a11df4dd75847410c", null ],
+    [ "testToString", "class_strings_test.html#ad0c45cf7077d1d6d8627e47de00e0374", null ],
+    [ "testToTimeString", "class_strings_test.html#ab4583af565619593748d39f3df714021", null ],
+    [ "testToW3cString", "class_strings_test.html#a138e6202bee5e26995dfa5d4ea88c8a0", null ]
+];

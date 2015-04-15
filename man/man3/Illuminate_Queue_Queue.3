@@ -1,0 +1,321 @@
+.TH "Queue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Queue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBeanstalkdQueue\fP, \fBDatabaseQueue\fP, \fBIronQueue\fP, \fBNullQueue\fP, \fBRedisQueue\fP, \fBSqsQueue\fP, and \fBSyncQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpushOn\fP ($\fBqueue\fP, $job, $\fBdata\fP= '')"
+.br
+.ti -1c
+.RI "\fBlaterOn\fP ($\fBqueue\fP, $\fBdelay\fP, $job, $\fBdata\fP= '')"
+.br
+.ti -1c
+.RI "\fBmarshal\fP ()"
+.br
+.ti -1c
+.RI "\fBbulk\fP ($jobs, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBsetContainer\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBsetEncrypter\fP (EncrypterContract $crypt)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreatePayload\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBcreatePlainPayload\fP ($job, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBprepareQueueableEntities\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBprepareQueueableEntity\fP ($value)"
+.br
+.ti -1c
+.RI "\fBcreateClosurePayload\fP ($job, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBsetMeta\fP ($payload, $key, $value)"
+.br
+.ti -1c
+.RI "\fBgetSeconds\fP ($\fBdelay\fP)"
+.br
+.ti -1c
+.RI "\fBgetTime\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11 of file Queue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bulk ( $jobs,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push an array of jobs onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$jobs\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Queue\&.php\&.
+.SS "createClosurePayload ( $job,  $data)\fC [protected]\fP"
+Create a payload string for the given Closure job\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file Queue\&.php\&.
+.SS "createPayload ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [protected]\fP"
+Create a payload string from the given job and data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file Queue\&.php\&.
+.SS "createPlainPayload ( $job,  $data)\fC [protected]\fP"
+Create a typical, 'plain' queue payload array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file Queue\&.php\&.
+.SS "getSeconds ( $delay)\fC [protected]\fP"
+Calculate the number of seconds with the given delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file Queue\&.php\&.
+.SS "getTime ()\fC [protected]\fP"
+Get the current UNIX timestamp\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Queue\&.php\&.
+.SS "laterOn ( $queue,  $delay,  $job,  $data = \fC''\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file Queue\&.php\&.
+.SS "marshal ()"
+Marshal a push queue request and fire the job\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 52 of file Queue\&.php\&.
+.SS "prepareQueueableEntities ( $data)\fC [protected]\fP"
+Prepare any queueable entities for storage in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file Queue\&.php\&.
+.SS "prepareQueueableEntity ( $value)\fC [protected]\fP"
+Prepare a single queueable entity for storage on the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file Queue\&.php\&.
+.SS "pushOn ( $queue,  $job,  $data = \fC''\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Queue\&.php\&.
+.SS "setContainer (\fBContainer\fP $container)"
+Set the IoC container instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file Queue\&.php\&.
+.SS "setEncrypter (EncrypterContract $crypt)"
+Set the encrypter instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$crypt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file Queue\&.php\&.
+.SS "setMeta ( $payload,  $key,  $value)\fC [protected]\fP"
+Set additional meta on a payload string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file Queue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file Queue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,49 @@
+.TH "AstAnalyzer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AstAnalyzer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBClosureAnalyzer\fP\&.
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdetermineCode\fP (array &$\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdetermineContext\fP (array &$\fBdata\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+This is the AST based analyzer\&.
+.PP
+We're using reflection and AST-based code parser to analyze a closure and determine its code and context using the nikic/php-parser library\&. The AST based analyzer and has more capabilities than the token analyzer, but is, unfortunately, about 25 times slower\&. 
+.PP
+Definition at line 22 of file AstAnalyzer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "determineCode (array & $data)\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file AstAnalyzer\&.php\&.
+.SS "determineContext (array & $data)\fC [protected]\fP"
+Returns the variables that in the 'use' clause of the closure definition\&. These are referred to as the 'used variables', 'static variables', or 'closed upon variables', 'context' of the closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file AstAnalyzer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,149 @@
+\section{Swift\+\_\+\+Input\+Byte\+Stream Interface Reference}
+\label{interface_swift___input_byte_stream}\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+Inheritance diagram for Swift\+\_\+\+Input\+Byte\+Stream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.962199cm]{interface_swift___input_byte_stream}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf write} (\$bytes)
+\item 
+{\bf commit} ()
+\item 
+{\bf bind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf unbind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf flush\+Buffers} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract means of writing data.
+
+Classes implementing this interface may use a subsystem which requires less memory than working with large strings of data.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Input\+Byte\+Stream.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}!bind@{bind}}
+\index{bind@{bind}!Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{interface_swift___input_byte_stream_a02ffafc53dcce641baaff3b9c84643a1}
+Attach \$is to this stream.
+
+The stream acts as an observer, receiving all data that is written. All \doxyref{write()}{p.}{interface_swift___input_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0} and \doxyref{flush\+Buffers()}{p.}{interface_swift___input_byte_stream_a77ecc2d8c17e5057cc82509a2dca076e} operations will be mirrored.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer} \doxyref{}{p.}{class_swift___signers___d_k_i_m_signer_a02ffafc53dcce641baaff3b9c84643a1}, {\bf Swift\+\_\+\+Signers\+\_\+\+Domain\+Key\+Signer} \doxyref{}{p.}{class_swift___signers___domain_key_signer_a02ffafc53dcce641baaff3b9c84643a1}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Array\+Byte\+Stream} \doxyref{}{p.}{class_swift___byte_stream___array_byte_stream_a02ffafc53dcce641baaff3b9c84643a1}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Abstract\+Filterable\+Input\+Stream} \doxyref{}{p.}{class_swift___byte_stream___abstract_filterable_input_stream_a02ffafc53dcce641baaff3b9c84643a1}, {\bf Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin} \doxyref{}{p.}{class_swift___plugins___bandwidth_monitor_plugin_a02ffafc53dcce641baaff3b9c84643a1}, and {\bf Swift\+\_\+\+Key\+Cache\+\_\+\+Simple\+Key\+Cache\+Input\+Stream} \doxyref{}{p.}{class_swift___key_cache___simple_key_cache_input_stream_a02ffafc53dcce641baaff3b9c84643a1}.
+
+\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}!commit@{commit}}
+\index{commit@{commit}!Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_swift___input_byte_stream_af5674c27d4a92f6228565010eacbb9cb}
+For any bytes that are currently buffered inside the stream, force them off the buffer.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer} \doxyref{}{p.}{class_swift___signers___d_k_i_m_signer_af5674c27d4a92f6228565010eacbb9cb}, {\bf Swift\+\_\+\+Signers\+\_\+\+Domain\+Key\+Signer} \doxyref{}{p.}{class_swift___signers___domain_key_signer_af5674c27d4a92f6228565010eacbb9cb}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Array\+Byte\+Stream} \doxyref{}{p.}{class_swift___byte_stream___array_byte_stream_af5674c27d4a92f6228565010eacbb9cb}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Abstract\+Filterable\+Input\+Stream} \doxyref{}{p.}{class_swift___byte_stream___abstract_filterable_input_stream_af5674c27d4a92f6228565010eacbb9cb}, {\bf Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin} \doxyref{}{p.}{class_swift___plugins___bandwidth_monitor_plugin_af5674c27d4a92f6228565010eacbb9cb}, and {\bf Swift\+\_\+\+Key\+Cache\+\_\+\+Simple\+Key\+Cache\+Input\+Stream} \doxyref{}{p.}{class_swift___key_cache___simple_key_cache_input_stream_af5674c27d4a92f6228565010eacbb9cb}.
+
+\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}!flush\+Buffers@{flush\+Buffers}}
+\index{flush\+Buffers@{flush\+Buffers}!Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+\subsubsection[{flush\+Buffers}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Buffers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_swift___input_byte_stream_a77ecc2d8c17e5057cc82509a2dca076e}
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer} \doxyref{}{p.}{class_swift___signers___d_k_i_m_signer_a77ecc2d8c17e5057cc82509a2dca076e}, {\bf Swift\+\_\+\+Signers\+\_\+\+Domain\+Key\+Signer} \doxyref{}{p.}{class_swift___signers___domain_key_signer_a77ecc2d8c17e5057cc82509a2dca076e}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Array\+Byte\+Stream} \doxyref{}{p.}{class_swift___byte_stream___array_byte_stream_a77ecc2d8c17e5057cc82509a2dca076e}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Abstract\+Filterable\+Input\+Stream} \doxyref{}{p.}{class_swift___byte_stream___abstract_filterable_input_stream_a77ecc2d8c17e5057cc82509a2dca076e}, {\bf Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin} \doxyref{}{p.}{class_swift___plugins___bandwidth_monitor_plugin_a77ecc2d8c17e5057cc82509a2dca076e}, and {\bf Swift\+\_\+\+Key\+Cache\+\_\+\+Simple\+Key\+Cache\+Input\+Stream} \doxyref{}{p.}{class_swift___key_cache___simple_key_cache_input_stream_a77ecc2d8c17e5057cc82509a2dca076e}.
+
+\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}!unbind@{unbind}}
+\index{unbind@{unbind}!Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+\subsubsection[{unbind}]{\setlength{\rightskip}{0pt plus 5cm}unbind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{interface_swift___input_byte_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}
+Remove an already bound stream.
+
+If \$is is not bound, no errors will be raised. If the stream currently has any buffered data it will be written to \$is before unbinding occurs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer} \doxyref{}{p.}{class_swift___signers___d_k_i_m_signer_acad3cfddf5b36bb4b9d3cee2d38482b1}, {\bf Swift\+\_\+\+Signers\+\_\+\+Domain\+Key\+Signer} \doxyref{}{p.}{class_swift___signers___domain_key_signer_acad3cfddf5b36bb4b9d3cee2d38482b1}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Array\+Byte\+Stream} \doxyref{}{p.}{class_swift___byte_stream___array_byte_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Abstract\+Filterable\+Input\+Stream} \doxyref{}{p.}{class_swift___byte_stream___abstract_filterable_input_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}, {\bf Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin} \doxyref{}{p.}{class_swift___plugins___bandwidth_monitor_plugin_acad3cfddf5b36bb4b9d3cee2d38482b1}, and {\bf Swift\+\_\+\+Key\+Cache\+\_\+\+Simple\+Key\+Cache\+Input\+Stream} \doxyref{}{p.}{class_swift___key_cache___simple_key_cache_input_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}.
+
+\index{Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}!write@{write}}
+\index{write@{write}!Swift\+\_\+\+Input\+Byte\+Stream@{Swift\+\_\+\+Input\+Byte\+Stream}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$bytes}
+\end{DoxyParamCaption}
+)}\label{interface_swift___input_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0}
+Writes \$bytes to the end of the stream.
+
+Writing may not happen immediately if the stream chooses to buffer. If you want to write these bytes with immediate effect, call \doxyref{commit()}{p.}{interface_swift___input_byte_stream_af5674c27d4a92f6228565010eacbb9cb} after calling \doxyref{write()}{p.}{interface_swift___input_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0}.
+
+This method returns the sequence I\+D of the write (i.\+e. 1 for first, 2 for second, etc etc).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$bytes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer} \doxyref{}{p.}{class_swift___signers___d_k_i_m_signer_aa4ea8baf64d864129d4276f76df3b4a0}, {\bf Swift\+\_\+\+Signers\+\_\+\+Domain\+Key\+Signer} \doxyref{}{p.}{class_swift___signers___domain_key_signer_aa4ea8baf64d864129d4276f76df3b4a0}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Array\+Byte\+Stream} \doxyref{}{p.}{class_swift___byte_stream___array_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0}, {\bf Swift\+\_\+\+Byte\+Stream\+\_\+\+Abstract\+Filterable\+Input\+Stream} \doxyref{}{p.}{class_swift___byte_stream___abstract_filterable_input_stream_aa4ea8baf64d864129d4276f76df3b4a0}, and {\bf Swift\+\_\+\+Plugins\+\_\+\+Bandwidth\+Monitor\+Plugin} \doxyref{}{p.}{class_swift___plugins___bandwidth_monitor_plugin_aa4ea8baf64d864129d4276f76df3b4a0}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/{\bf Input\+Byte\+Stream.\+php}\end{DoxyCompactItemize}

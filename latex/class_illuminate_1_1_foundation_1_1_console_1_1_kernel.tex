@@ -1,0 +1,405 @@
+\section{Kernel Class Reference}
+\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel}\index{Kernel@{Kernel}}
+Inheritance diagram for Kernel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_illuminate_1_1_foundation_1_1_console_1_1_kernel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Application} \$app, {\bf Dispatcher} \$events)
+\item 
+{\bf handle} (\$input, \${\bf output}=null)
+\item 
+{\bf terminate} (\$input, \$status)
+\item 
+{\bf call} (\$command, array \$parameters=array())
+\item 
+{\bf queue} (\$command, array \$parameters=array())
+\item 
+{\bf all} ()
+\item 
+{\bf output} ()
+\item 
+{\bf bootstrap} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf define\+Console\+Schedule} ()
+\item 
+{\bf schedule} ({\bf Schedule} \$schedule)
+\item 
+{\bf get\+Artisan} ()
+\item 
+{\bf bootstrappers} ()
+\item 
+{\bf report\+Exception} (Exception \${\bf e})
+\item 
+{\bf render\+Exception} (\${\bf output}, Exception \${\bf e})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$app}
+\item 
+{\bf \$events}
+\item 
+{\bf \$artisan}
+\item 
+{\bf \$bootstrappers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Kernel.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Application}}]{\$app, }
+\item[{{\bf Dispatcher}}]{\$events}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a5b601a8800d3b6dfa67cd46129ecc0cf}
+Create a new console kernel instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$app} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Events\textbackslash{}\+Dispatcher & {\em \$events} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file Kernel.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!all@{all}}
+\index{all@{all}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_af9d14e4ae6227970ad603987781573ca}
+Get all of the commands registered with the console.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!bootstrap@{bootstrap}}
+\index{bootstrap@{bootstrap}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{bootstrap}]{\setlength{\rightskip}{0pt plus 5cm}bootstrap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a1220bc28aca374cd4510d925eb05bccc}
+\doxyref{Bootstrap}{p.}{namespace_illuminate_1_1_foundation_1_1_bootstrap} the application for H\+T\+T\+P requests.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Kernel} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_http_1_1_kernel_a1220bc28aca374cd4510d925eb05bccc}.
+
+
+
+Definition at line 191 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!bootstrappers@{bootstrappers}}
+\index{bootstrappers@{bootstrappers}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{bootstrappers}]{\setlength{\rightskip}{0pt plus 5cm}bootstrappers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a9eb763d7394b0c8eae4f557908d8a8fb}
+Get the bootstrap classes for the application.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!call@{call}}
+\index{call@{call}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}call (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{array}]{\$parameters = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a43d0b2f799c6896f7fe60bb6fe271428}
+Run an \doxyref{Artisan}{p.}{class_artisan} console command by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!define\+Console\+Schedule@{define\+Console\+Schedule}}
+\index{define\+Console\+Schedule@{define\+Console\+Schedule}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{define\+Console\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}define\+Console\+Schedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a3cd2ae22339b46fb6b70875415b9ac30}
+Define the application\textquotesingle{}s command schedule.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!get\+Artisan@{get\+Artisan}}
+\index{get\+Artisan@{get\+Artisan}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{get\+Artisan}]{\setlength{\rightskip}{0pt plus 5cm}get\+Artisan (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a48b0092090ab66f8baf249c21e4ba4ce}
+Get the \doxyref{Artisan}{p.}{class_artisan} application instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 206 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!handle@{handle}}
+\index{handle@{handle}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{}]{\$input, }
+\item[{}]{\$output = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a32d157272da82bdd1a973d953139c25e}
+Run the console application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Input\textbackslash{}\+Input\+Interface & {\em \$input} & \\
+\hline
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Output\textbackslash{}\+Output\+Interface & {\em \$output} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!output@{output}}
+\index{output@{output}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a3939045b11b9aaefdf692feb963f0dfc}
+Get the output for the last run command.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 179 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!queue@{queue}}
+\index{queue@{queue}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{queue}]{\setlength{\rightskip}{0pt plus 5cm}queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{array}]{\$parameters = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a0f8446e921100e756f338ae4750f22c4}
+\doxyref{Queue}{p.}{namespace_illuminate_1_1_queue} the given console command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!render\+Exception@{render\+Exception}}
+\index{render\+Exception@{render\+Exception}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{render\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}render\+Exception (
+\begin{DoxyParamCaption}
+\item[{}]{\$output, }
+\item[{Exception}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_adabf47612369aa6b598b2c1866620186}
+Report the exception to the exception handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Output\textbackslash{}\+Output\+Interface & {\em \$output} & \\
+\hline
+\textbackslash{}\+Exception & {\em \$e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!report\+Exception@{report\+Exception}}
+\index{report\+Exception@{report\+Exception}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{report\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}report\+Exception (
+\begin{DoxyParamCaption}
+\item[{Exception}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_ac33ed2877d971ce2bef6685ddaa95af4}
+Report the exception to the exception handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 233 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!schedule@{schedule}}
+\index{schedule@{schedule}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedule}}]{\$schedule}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_ac8f0af578c80277b7a25381c6a9e268c}
+Define the application\textquotesingle{}s command schedule.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Console\textbackslash{}\+Scheduling\textbackslash{}\+Schedule & {\em \$schedule} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!terminate@{terminate}}
+\index{terminate@{terminate}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}terminate (
+\begin{DoxyParamCaption}
+\item[{}]{\$input, }
+\item[{}]{\$status}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_aa1f372b1a3b6b62d1ba1e757f681d5d0}
+Terminate the application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Input\textbackslash{}\+Input\+Interface & {\em \$input} & \\
+\hline
+int & {\em \$status} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Kernel} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_http_1_1_kernel_a5be91e0ac7682d6a6d073b6c5c85e4d9}.
+
+
+
+Definition at line 113 of file Kernel.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!\$app@{\$app}}
+\index{\$app@{\$app}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{\$app}]{\setlength{\rightskip}{0pt plus 5cm}\$app\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_adfb117f244076aa9bc269269f7e57403}
+
+
+Definition at line 17 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!\$artisan@{\$artisan}}
+\index{\$artisan@{\$artisan}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{\$artisan}]{\setlength{\rightskip}{0pt plus 5cm}\$artisan\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_acb6e1cd62756f05e63bf344bce620e14}
+
+
+Definition at line 31 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!\$bootstrappers@{\$bootstrappers}}
+\index{\$bootstrappers@{\$bootstrappers}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{\$bootstrappers}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf bootstrappers}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_acd6a2a843b6db758554b40650f1cfd21}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= [
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)DetectEnvironment'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)LoadConfiguration'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)ConfigureLogging'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)HandleExceptions'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)RegisterFacades'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)SetRequestForConsole'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)RegisterProviders'},
+        \textcolor{stringliteral}{'Illuminate\(\backslash\)Foundation\(\backslash\)Bootstrap\(\backslash\)BootProviders'},
+    ]
+\end{DoxyCode}
+
+
+Definition at line 38 of file Kernel.\+php.
+
+\index{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel@{Illuminate\+::\+Foundation\+::\+Console\+::\+Kernel}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_foundation_1_1_console_1_1_kernel_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 24 of file Kernel.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Foundation/\+Console/{\bf Kernel.\+php}\end{DoxyCompactItemize}

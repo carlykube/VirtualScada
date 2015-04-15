@@ -1,0 +1,2317 @@
+.TH "Eloquent" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Eloquent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBModel\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBfindMany\fP ($id, $columns=array())"
+.br
+.ti -1c
+.RI "static \fBfirst\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBfirstOrFail\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBget\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBpluck\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBchunk\fP ($\fBcount\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBlists\fP ($column, $key=null)"
+.br
+.ti -1c
+.RI "static \fBpaginate\fP ($perPage=null, $columns=array())"
+.br
+.ti -1c
+.RI "static \fBsimplePaginate\fP ($perPage=null, $columns=array())"
+.br
+.ti -1c
+.RI "static \fBonDelete\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBgetModels\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBeagerLoadRelations\fP ($\fBmodels\fP)"
+.br
+.ti -1c
+.RI "static \fBwhere\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhere\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "static \fBhas\fP ($relation, $operator= '>=', $\fBcount\fP=1, $boolean= 'and', $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "static \fBdoesntHave\fP ($relation, $boolean= 'and', $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "static \fBwhereHas\fP ($relation, $\fBcallback\fP, $operator= '>=', $\fBcount\fP=1)"
+.br
+.ti -1c
+.RI "static \fBwhereDoesntHave\fP ($relation, $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "static \fBorHas\fP ($relation, $operator= '>=', $\fBcount\fP=1)"
+.br
+.ti -1c
+.RI "static \fBorWhereHas\fP ($relation, $\fBcallback\fP, $operator= '>=', $\fBcount\fP=1)"
+.br
+.ti -1c
+.RI "static \fBgetQuery\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetQuery\fP ($\fBquery\fP)"
+.br
+.ti -1c
+.RI "static \fBgetEagerLoads\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetEagerLoads\fP ($eagerLoad)"
+.br
+.ti -1c
+.RI "static \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetModel\fP ($model)"
+.br
+.ti -1c
+.RI "static \fBmacro\fP ($\fBname\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBgetMacro\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBselect\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBselectRaw\fP ($expression)"
+.br
+.ti -1c
+.RI "static \fBaddSelect\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBdistinct\fP ()"
+.br
+.ti -1c
+.RI "static \fBfrom\fP ($table)"
+.br
+.ti -1c
+.RI "static \fBjoin\fP ($table, $one, $operator=null, $two=null, $type= 'inner', $\fBwhere\fP=false)"
+.br
+.ti -1c
+.RI "static \fBjoinWhere\fP ($table, $one, $operator, $two, $type= 'inner')"
+.br
+.ti -1c
+.RI "static \fBleftJoin\fP ($table, $\fBfirst\fP, $operator=null, $\fBsecond\fP=null)"
+.br
+.ti -1c
+.RI "static \fBleftJoinWhere\fP ($table, $one, $operator, $two)"
+.br
+.ti -1c
+.RI "static \fBrightJoin\fP ($table, $\fBfirst\fP, $operator=null, $\fBsecond\fP=null)"
+.br
+.ti -1c
+.RI "static \fBrightJoinWhere\fP ($table, $one, $operator, $two)"
+.br
+.ti -1c
+.RI "static \fBwhereRaw\fP ($sql, $bindings=array(), $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhereRaw\fP ($sql, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBwhereBetween\fP ($column, $\fBvalues\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "static \fBorWhereBetween\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "static \fBwhereNotBetween\fP ($column, $\fBvalues\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhereNotBetween\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "static \fBwhereNested\fP ($\fBcallback\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBaddNestedWhereQuery\fP ($\fBquery\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBwhereExists\fP ($\fBcallback\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "static \fBorWhereExists\fP ($\fBcallback\fP, $not=false)"
+.br
+.ti -1c
+.RI "static \fBwhereNotExists\fP ($\fBcallback\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhereNotExists\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBwhereIn\fP ($column, $\fBvalues\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "static \fBorWhereIn\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "static \fBwhereNotIn\fP ($column, $\fBvalues\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhereNotIn\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "static \fBwhereNull\fP ($column, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "static \fBorWhereNull\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBwhereNotNull\fP ($column, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorWhereNotNull\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBwhereDay\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBwhereMonth\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBwhereYear\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBdynamicWhere\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "static \fBgroupBy\fP ()"
+.br
+.ti -1c
+.RI "static \fBhaving\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorHaving\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "static \fBhavingRaw\fP ($sql, $bindings=array(), $boolean= 'and')"
+.br
+.ti -1c
+.RI "static \fBorHavingRaw\fP ($sql, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBorderBy\fP ($column, $direction= 'asc')"
+.br
+.ti -1c
+.RI "static \fBlatest\fP ($column= 'created_at')"
+.br
+.ti -1c
+.RI "static \fBoldest\fP ($column= 'created_at')"
+.br
+.ti -1c
+.RI "static \fBorderByRaw\fP ($sql, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBoffset\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBskip\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBlimit\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBtake\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBforPage\fP ($page, $perPage=15)"
+.br
+.ti -1c
+.RI "static \fBunion\fP ($\fBquery\fP, $\fBall\fP=false)"
+.br
+.ti -1c
+.RI "static \fBunionAll\fP ($\fBquery\fP)"
+.br
+.ti -1c
+.RI "static \fBlock\fP ($value=true)"
+.br
+.ti -1c
+.RI "static \fBlockForUpdate\fP ()"
+.br
+.ti -1c
+.RI "static \fBsharedLock\fP ()"
+.br
+.ti -1c
+.RI "static \fBtoSql\fP ()"
+.br
+.ti -1c
+.RI "static \fBremember\fP ($\fBminutes\fP, $key=null)"
+.br
+.ti -1c
+.RI "static \fBrememberForever\fP ($key=null)"
+.br
+.ti -1c
+.RI "static \fBcacheTags\fP ($cacheTags)"
+.br
+.ti -1c
+.RI "static \fBcacheDriver\fP ($cacheDriver)"
+.br
+.ti -1c
+.RI "static \fBgetFresh\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBgetCached\fP ($columns=array())"
+.br
+.ti -1c
+.RI "static \fBgetCacheKey\fP ()"
+.br
+.ti -1c
+.RI "static \fBgenerateCacheKey\fP ()"
+.br
+.ti -1c
+.RI "static \fBimplode\fP ($column, $glue=null)"
+.br
+.ti -1c
+.RI "static \fBbuildRawPaginator\fP ($paginator, $results, $perPage)"
+.br
+.ti -1c
+.RI "static \fBgetPaginationCount\fP ()"
+.br
+.ti -1c
+.RI "static \fBexists\fP ()"
+.br
+.ti -1c
+.RI "static \fBcount\fP ($columns= '*')"
+.br
+.ti -1c
+.RI "static \fBmin\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBmax\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBsum\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBavg\fP ($column)"
+.br
+.ti -1c
+.RI "static \fBaggregate\fP ($function, $columns=array())"
+.br
+.ti -1c
+.RI "static \fBinsert\fP ($\fBvalues\fP)"
+.br
+.ti -1c
+.RI "static \fBinsertGetId\fP ($\fBvalues\fP, $sequence=null)"
+.br
+.ti -1c
+.RI "static \fBtruncate\fP ()"
+.br
+.ti -1c
+.RI "static \fBmergeWheres\fP ($wheres, $bindings)"
+.br
+.ti -1c
+.RI "static \fBraw\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBgetBindings\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetRawBindings\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetBindings\fP ($bindings, $type= '\fBwhere\fP')"
+.br
+.ti -1c
+.RI "static \fBaddBinding\fP ($value, $type= '\fBwhere\fP')"
+.br
+.ti -1c
+.RI "static \fBmergeBindings\fP ($\fBquery\fP)"
+.br
+.ti -1c
+.RI "static \fBgetProcessor\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetGrammar\fP ()"
+.br
+.ti -1c
+.RI "static \fBuseWritePdo\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 3545 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static addBinding ( $value,  $type = \fC'\fBwhere\fP'\fP)\fC [static]\fP"
+Add a binding to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 4848 of file _ide_helper\&.php\&.
+.SS "static addNestedWhereQuery ( $query,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add another query builder as a nested where to the query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4118 of file _ide_helper\&.php\&.
+.SS "static addSelect ( $column)\fC [static]\fP"
+Add a new select column to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3910 of file _ide_helper\&.php\&.
+.SS "static aggregate ( $function,  $columns = \fCarray()\fP)\fC [static]\fP"
+Execute an aggregate function on the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$function\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 4746 of file _ide_helper\&.php\&.
+.SS "static avg ( $column)\fC [static]\fP"
+Retrieve the average of the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 4734 of file _ide_helper\&.php\&.
+.SS "static buildRawPaginator ( $paginator,  $results,  $perPage)\fC [static]\fP"
+Build a paginator instance from a raw result array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$paginator\fP 
+.br
+\fI$results\fP 
+.br
+\fI$perPage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4659 of file _ide_helper\&.php\&.
+.SS "static cacheDriver ( $cacheDriver)\fC [static]\fP"
+Indicate that the results, if cached, should use the given cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cacheDriver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4592 of file _ide_helper\&.php\&.
+.SS "static cacheTags ( $cacheTags)\fC [static]\fP"
+Indicate that the results, if cached, should use the given cache tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cacheTags\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4581 of file _ide_helper\&.php\&.
+.SS "static chunk ( $count,  $callback)\fC [static]\fP"
+Chunk the results of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3612 of file _ide_helper\&.php\&.
+.SS "static count ( $columns = \fC'*'\fP)\fC [static]\fP"
+Retrieve the 'count' result of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 4690 of file _ide_helper\&.php\&.
+.SS "static distinct ()\fC [static]\fP"
+Force the query to only return distinct results\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3920 of file _ide_helper\&.php\&.
+.SS "static doesntHave ( $relation,  $boolean = \fC'and'\fP,  $callback = \fCnull\fP)\fC [static]\fP"
+Add a relationship count condition to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3738 of file _ide_helper\&.php\&.
+.SS "static dynamicWhere ( $method,  $parameters)\fC [static]\fP"
+Handles dynamic 'where' clauses to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4318 of file _ide_helper\&.php\&.
+.SS "static eagerLoadRelations ( $models)\fC [static]\fP"
+Eager load the relationships for the models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3683 of file _ide_helper\&.php\&.
+.SS "static exists ()\fC [static]\fP"
+Determine if any rows exist for the current query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 4679 of file _ide_helper\&.php\&.
+.SS "static findMany ( $id,  $columns = \fCarray()\fP)\fC [static]\fP"
+Find a model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+||static 
+.RE
+.PP
+
+.PP
+Definition at line 3555 of file _ide_helper\&.php\&.
+.SS "static first ( $columns = \fCarray()\fP)\fC [static]\fP"
+Execute the query and get the first result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static|null 
+.RE
+.PP
+
+.PP
+Definition at line 3566 of file _ide_helper\&.php\&.
+.SS "static firstOrFail ( $columns = \fCarray()\fP)\fC [static]\fP"
+Execute the query and get the first result or throw an exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3578 of file _ide_helper\&.php\&.
+.SS "static forPage ( $page,  $perPage = \fC15\fP)\fC [static]\fP"
+Set the limit and offset for a given page\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$page\fP 
+.br
+\fI$perPage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4483 of file _ide_helper\&.php\&.
+.SS "static from ( $table)\fC [static]\fP"
+Set the table which the query is targeting\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3931 of file _ide_helper\&.php\&.
+.SS "static generateCacheKey ()\fC [static]\fP"
+Generate the unique cache key for the query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 4634 of file _ide_helper\&.php\&.
+.SS "static get ( $columns = \fCarray()\fP)\fC [static]\fP"
+Execute the query as a 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 3589 of file _ide_helper\&.php\&.
+.SS "static getBindings ()\fC [static]\fP"
+Get the current query value bindings in a flattened array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 4812 of file _ide_helper\&.php\&.
+.SS "static getCached ( $columns = \fCarray()\fP)\fC [static]\fP"
+Execute the query as a cached 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 4614 of file _ide_helper\&.php\&.
+.SS "static getCacheKey ()\fC [static]\fP"
+Get a unique cache key for the complete query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 4624 of file _ide_helper\&.php\&.
+.SS "static getEagerLoads ()\fC [static]\fP"
+Get the relationships being eagerly loaded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3822 of file _ide_helper\&.php\&.
+.SS "static getFresh ( $columns = \fCarray()\fP)\fC [static]\fP"
+Execute the query as a fresh 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 4603 of file _ide_helper\&.php\&.
+.SS "static getGrammar ()\fC [static]\fP"
+Get the query grammar instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4879 of file _ide_helper\&.php\&.
+.SS "static getMacro ( $name)\fC [static]\fP"
+Get the given macro by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3877 of file _ide_helper\&.php\&.
+.SS "static getModel ()\fC [static]\fP"
+Get the model instance being queried\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3843 of file _ide_helper\&.php\&.
+.SS "static getModels ( $columns = \fCarray()\fP)\fC [static]\fP"
+Get the hydrated models without eager loading\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+[] 
+.RE
+.PP
+
+.PP
+Definition at line 3672 of file _ide_helper\&.php\&.
+.SS "static getPaginationCount ()\fC [static]\fP"
+Get the count of the total records for pagination\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 4669 of file _ide_helper\&.php\&.
+.SS "static getProcessor ()\fC [static]\fP"
+Get the database query processor instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4869 of file _ide_helper\&.php\&.
+.SS "static getQuery ()\fC [static]\fP"
+Get the underlying query builder instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3801 of file _ide_helper\&.php\&.
+.SS "static getRawBindings ()\fC [static]\fP"
+Get the raw array of bindings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 4822 of file _ide_helper\&.php\&.
+.SS "static groupBy ()\fC [static]\fP"
+Add a 'group by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column,\&.\&.\&.\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4329 of file _ide_helper\&.php\&.
+.SS "static has ( $relation,  $operator = \fC'>='\fP,  $count = \fC1\fP,  $boolean = \fC'and'\fP,  $callback = \fCnull\fP)\fC [static]\fP"
+Add a relationship count condition to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3725 of file _ide_helper\&.php\&.
+.SS "static having ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'having' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4343 of file _ide_helper\&.php\&.
+.SS "static havingRaw ( $sql,  $bindings = \fCarray()\fP,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a raw having clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4369 of file _ide_helper\&.php\&.
+.SS "static implode ( $column,  $glue = \fCnull\fP)\fC [static]\fP"
+Concatenate values of a given column as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$glue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 4646 of file _ide_helper\&.php\&.
+.SS "static insert ( $values)\fC [static]\fP"
+Insert a new record into the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 4757 of file _ide_helper\&.php\&.
+.SS "static insertGetId ( $values,  $sequence = \fCnull\fP)\fC [static]\fP"
+Insert a new record and get the value of the primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.br
+\fI$sequence\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 4769 of file _ide_helper\&.php\&.
+.SS "static join ( $table,  $one,  $operator = \fCnull\fP,  $two = \fCnull\fP,  $type = \fC'inner'\fP,  $where = \fCfalse\fP)\fC [static]\fP"
+Add a join clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.br
+\fI$type\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3947 of file _ide_helper\&.php\&.
+.SS "static joinWhere ( $table,  $one,  $operator,  $two,  $type = \fC'inner'\fP)\fC [static]\fP"
+Add a 'join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3962 of file _ide_helper\&.php\&.
+.SS "static latest ( $column = \fC'created_at'\fP)\fC [static]\fP"
+Add an 'order by' clause for a timestamp to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4404 of file _ide_helper\&.php\&.
+.SS "static leftJoin ( $table,  $first,  $operator = \fCnull\fP,  $second = \fCnull\fP)\fC [static]\fP"
+Add a left join to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$first\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$second\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3976 of file _ide_helper\&.php\&.
+.SS "static leftJoinWhere ( $table,  $one,  $operator,  $two)\fC [static]\fP"
+Add a 'join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3990 of file _ide_helper\&.php\&.
+.SS "static limit ( $value)\fC [static]\fP"
+Set the 'limit' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4460 of file _ide_helper\&.php\&.
+.SS "static lists ( $column,  $key = \fCnull\fP)\fC [static]\fP"
+Get an array with the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3624 of file _ide_helper\&.php\&.
+.SS "static lock ( $value = \fCtrue\fP)\fC [static]\fP"
+Lock the selected rows in the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4517 of file _ide_helper\&.php\&.
+.SS "static lockForUpdate ()\fC [static]\fP"
+Lock the selected rows in the table for updating\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4527 of file _ide_helper\&.php\&.
+.SS "static macro ( $name,  $callback)\fC [static]\fP"
+Extend the builder with a given callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3866 of file _ide_helper\&.php\&.
+.SS "static max ( $column)\fC [static]\fP"
+Retrieve the maximum value of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 4712 of file _ide_helper\&.php\&.
+.SS "static mergeBindings ( $query)\fC [static]\fP"
+Merge an array of bindings into our bindings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4859 of file _ide_helper\&.php\&.
+.SS "static mergeWheres ( $wheres,  $bindings)\fC [static]\fP"
+Merge an array of where clauses and bindings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$wheres\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 4791 of file _ide_helper\&.php\&.
+.SS "static min ( $column)\fC [static]\fP"
+Retrieve the minimum value of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 4701 of file _ide_helper\&.php\&.
+.SS "static offset ( $value)\fC [static]\fP"
+Set the 'offset' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4438 of file _ide_helper\&.php\&.
+.SS "static oldest ( $column = \fC'created_at'\fP)\fC [static]\fP"
+Add an 'order by' clause for a timestamp to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4415 of file _ide_helper\&.php\&.
+.SS "static onDelete ( $callback)\fC [static]\fP"
+Register a replacement for the default delete function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3661 of file _ide_helper\&.php\&.
+.SS "static orderBy ( $column,  $direction = \fC'asc'\fP)\fC [static]\fP"
+Add an 'order by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$direction\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4393 of file _ide_helper\&.php\&.
+.SS "static orderByRaw ( $sql,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Add a raw 'order by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4427 of file _ide_helper\&.php\&.
+.SS "static orHas ( $relation,  $operator = \fC'>='\fP,  $count = \fC1\fP)\fC [static]\fP"
+Add a relationship count condition to the query with an 'or'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3777 of file _ide_helper\&.php\&.
+.SS "static orHaving ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)\fC [static]\fP"
+Add a 'or having' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4356 of file _ide_helper\&.php\&.
+.SS "static orHavingRaw ( $sql,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Add a raw or having clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4381 of file _ide_helper\&.php\&.
+.SS "static orWhere ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)\fC [static]\fP"
+Add an 'or where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3710 of file _ide_helper\&.php\&.
+.SS "static orWhereBetween ( $column,  $values)\fC [static]\fP"
+Add an or where between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4069 of file _ide_helper\&.php\&.
+.SS "static orWhereExists ( $callback,  $not = \fCfalse\fP)\fC [static]\fP"
+Add an or exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4143 of file _ide_helper\&.php\&.
+.SS "static orWhereHas ( $relation,  $callback,  $operator = \fC'>='\fP,  $count = \fC1\fP)\fC [static]\fP"
+Add a relationship count condition to the query with where clauses and an 'or'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3791 of file _ide_helper\&.php\&.
+.SS "static orWhereIn ( $column,  $values)\fC [static]\fP"
+Add an 'or where in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4192 of file _ide_helper\&.php\&.
+.SS "static orWhereNotBetween ( $column,  $values)\fC [static]\fP"
+Add an or where not between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4094 of file _ide_helper\&.php\&.
+.SS "static orWhereNotExists ( $callback)\fC [static]\fP"
+Add a where not exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4166 of file _ide_helper\&.php\&.
+.SS "static orWhereNotIn ( $column,  $values)\fC [static]\fP"
+Add an 'or where not in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4217 of file _ide_helper\&.php\&.
+.SS "static orWhereNotNull ( $column)\fC [static]\fP"
+Add an 'or where not null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4264 of file _ide_helper\&.php\&.
+.SS "static orWhereNull ( $column)\fC [static]\fP"
+Add an 'or where null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4241 of file _ide_helper\&.php\&.
+.SS "static orWhereRaw ( $sql,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Add a raw or where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4043 of file _ide_helper\&.php\&.
+.SS "static paginate ( $perPage = \fCnull\fP,  $columns = \fCarray()\fP)\fC [static]\fP"
+Get a paginator for the 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3636 of file _ide_helper\&.php\&.
+.SS "static pluck ( $column)\fC [static]\fP"
+Pluck a single column from the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3600 of file _ide_helper\&.php\&.
+.SS "static raw ( $value)\fC [static]\fP"
+Create a raw database expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4802 of file _ide_helper\&.php\&.
+.SS "static remember ( $minutes,  $key = \fCnull\fP)\fC [static]\fP"
+Indicate that the query results should be cached\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$minutes\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4559 of file _ide_helper\&.php\&.
+.SS "static rememberForever ( $key = \fCnull\fP)\fC [static]\fP"
+Indicate that the query results should be cached forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4570 of file _ide_helper\&.php\&.
+.SS "static rightJoin ( $table,  $first,  $operator = \fCnull\fP,  $second = \fCnull\fP)\fC [static]\fP"
+Add a right join to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$first\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$second\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4004 of file _ide_helper\&.php\&.
+.SS "static rightJoinWhere ( $table,  $one,  $operator,  $two)\fC [static]\fP"
+Add a 'right join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4018 of file _ide_helper\&.php\&.
+.SS "static select ( $columns = \fCarray()\fP)\fC [static]\fP"
+Set the columns to be selected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3888 of file _ide_helper\&.php\&.
+.SS "static selectRaw ( $expression)\fC [static]\fP"
+Add a new 'raw' select expression to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expression\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3899 of file _ide_helper\&.php\&.
+.SS "static setBindings ( $bindings,  $type = \fC'\fBwhere\fP'\fP)\fC [static]\fP"
+Set the bindings on the query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 4835 of file _ide_helper\&.php\&.
+.SS "static setEagerLoads ( $eagerLoad)\fC [static]\fP"
+Set the relationships being eagerly loaded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eagerLoad\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3833 of file _ide_helper\&.php\&.
+.SS "static setModel ( $model)\fC [static]\fP"
+Set a model instance for the model being queried\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3854 of file _ide_helper\&.php\&.
+.SS "static setQuery ( $query)\fC [static]\fP"
+Set the underlying query builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3812 of file _ide_helper\&.php\&.
+.SS "static sharedLock ()\fC [static]\fP"
+Share lock the selected rows in the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 4537 of file _ide_helper\&.php\&.
+.SS "static simplePaginate ( $perPage = \fCnull\fP,  $columns = \fCarray()\fP)\fC [static]\fP"
+Get a paginator only supporting simple next and previous links\&.
+.PP
+This is more efficient on larger data-sets, etc\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3650 of file _ide_helper\&.php\&.
+.SS "static skip ( $value)\fC [static]\fP"
+Alias to set the 'offset' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4449 of file _ide_helper\&.php\&.
+.SS "static sum ( $column)\fC [static]\fP"
+Retrieve the sum of the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 4723 of file _ide_helper\&.php\&.
+.SS "static take ( $value)\fC [static]\fP"
+Alias to set the 'limit' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4471 of file _ide_helper\&.php\&.
+.SS "static toSql ()\fC [static]\fP"
+Get the SQL representation of the query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 4547 of file _ide_helper\&.php\&.
+.SS "static truncate ()\fC [static]\fP"
+Run a truncate statement on the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 4779 of file _ide_helper\&.php\&.
+.SS "static union ( $query,  $all = \fCfalse\fP)\fC [static]\fP"
+Add a union statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$all\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4495 of file _ide_helper\&.php\&.
+.SS "static unionAll ( $query)\fC [static]\fP"
+Add a union all statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4506 of file _ide_helper\&.php\&.
+.SS "static useWritePdo ()\fC [static]\fP"
+Use the write pdo for query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4889 of file _ide_helper\&.php\&.
+.SS "static where ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a basic where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3697 of file _ide_helper\&.php\&.
+.SS "static whereBetween ( $column,  $values,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)\fC [static]\fP"
+Add a where between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4057 of file _ide_helper\&.php\&.
+.SS "static whereDay ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'where day' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4278 of file _ide_helper\&.php\&.
+.SS "static whereDoesntHave ( $relation,  $callback = \fCnull\fP)\fC [static]\fP"
+Add a relationship count condition to the query with where clauses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3764 of file _ide_helper\&.php\&.
+.SS "static whereExists ( $callback,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)\fC [static]\fP"
+Add an exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4131 of file _ide_helper\&.php\&.
+.SS "static whereHas ( $relation,  $callback,  $operator = \fC'>='\fP,  $count = \fC1\fP)\fC [static]\fP"
+Add a relationship count condition to the query with where clauses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 3752 of file _ide_helper\&.php\&.
+.SS "static whereIn ( $column,  $values,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)\fC [static]\fP"
+Add a 'where in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4180 of file _ide_helper\&.php\&.
+.SS "static whereMonth ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'where month' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4292 of file _ide_helper\&.php\&.
+.SS "static whereNested ( $callback,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a nested where statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4106 of file _ide_helper\&.php\&.
+.SS "static whereNotBetween ( $column,  $values,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a where not between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4082 of file _ide_helper\&.php\&.
+.SS "static whereNotExists ( $callback,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a where not exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4155 of file _ide_helper\&.php\&.
+.SS "static whereNotIn ( $column,  $values,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'where not in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4205 of file _ide_helper\&.php\&.
+.SS "static whereNotNull ( $column,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'where not null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4253 of file _ide_helper\&.php\&.
+.SS "static whereNull ( $column,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)\fC [static]\fP"
+Add a 'where null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4230 of file _ide_helper\&.php\&.
+.SS "static whereRaw ( $sql,  $bindings = \fCarray()\fP,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a raw where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 4031 of file _ide_helper\&.php\&.
+.SS "static whereYear ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)\fC [static]\fP"
+Add a 'where year' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 4306 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

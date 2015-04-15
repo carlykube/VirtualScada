@@ -1,0 +1,210 @@
+.TH "vendor/nikic/php-parser/grammar/rebuildParser.php" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vendor/nikic/php-parser/grammar/rebuildParser.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP(!$optionKeepTmpGrammar) \fBresolveConstants\fP ($code)"
+.br
+.RI "\fIPreprocessing functions ///\&. \fP"
+.ti -1c
+.RI "\fBresolveNodes\fP ($code)"
+.br
+.ti -1c
+.RI "\fBresolveMacros\fP ($code)"
+.br
+.ti -1c
+.RI "\fBassertArgs\fP ($num, $args, $\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBresolveArrays\fP ($code)"
+.br
+.ti -1c
+.RI "\fBmoveFileWithDirCheck\fP ($fromPath, $toPath)"
+.br
+.ti -1c
+.RI "\fBregex\fP ($regex)"
+.br
+.RI "\fIRegex helper functions ///\&. \fP"
+.ti -1c
+.RI "\fBmagicSplit\fP ($\fBregex\fP, $string)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$grammarFile\fP = __DIR__ \&. '/zend_language_parser\&.phpy'"
+.br
+.ti -1c
+.RI "\fB$skeletonFile\fP = __DIR__ \&. '/kmyacc\&.php\&.parser'"
+.br
+.ti -1c
+.RI "\fB$tmpGrammarFile\fP = __DIR__ \&. '/tmp_parser\&.phpy'"
+.br
+.ti -1c
+.RI "\fB$tmpResultFile\fP = __DIR__ \&. '/tmp_parser\&.php'"
+.br
+.ti -1c
+.RI "\fB$parserResultFile\fP = __DIR__ \&. '/\&.\&./lib/PhpParser/Parser\&.php'"
+.br
+.ti -1c
+.RI "\fB$kmyacc\fP = __DIR__ \&. '/kmyacc\&.exe'"
+.br
+.ti -1c
+.RI "\fBif\fP(!file_exists($kmyacc)) \fB$options\fP = array_flip($argv)"
+.br
+.ti -1c
+.RI "\fB$optionDebug\fP = isset($\fBoptions\fP['--debug'])"
+.br
+.ti -1c
+.RI "\fB$optionKeepTmpGrammar\fP = isset($\fBoptions\fP['--keep-tmp-grammar'])"
+.br
+.ti -1c
+.RI "const \fBLIB\fP"
+.br
+.RI "\fIUtility regex constants ///\&. \fP"
+.ti -1c
+.RI "const \fBPARAMS\fP = '\\[(?<params>[^[\\]]*+(?:\\[(?&params)\\][^[\\]]*+)*+)\\]'"
+.br
+.ti -1c
+.RI "const \fBARGS\fP = '\\((?<args>[^()]*+(?:\\((?&args)\\)[^()]*+)*+)\\)'"
+.br
+.ti -1c
+.RI "\fBn\fP"
+.br
+.ti -1c
+.RI "\fB$grammarCode\fP = file_get_contents($grammarFile)"
+.br
+.ti -1c
+.RI "\fB$additionalArgs\fP = $optionDebug ? '-t -v' : ''"
+.br
+.ti -1c
+.RI "\fB$output\fP = trim(shell_exec('$kmyacc $additionalArgs -l -m $skeletonFile $tmpGrammarFile 2>&1'))"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "assertArgs ( $num,  $args,  $name)"
+
+.PP
+Definition at line 157 of file rebuildParser\&.php\&.
+.SS "magicSplit ( $regex,  $string)"
+
+.PP
+Definition at line 210 of file rebuildParser\&.php\&.
+.SS "moveFileWithDirCheck ( $fromPath,  $toPath)"
+
+.PP
+Definition at line 194 of file rebuildParser\&.php\&.
+.SS "regex ( $regex)"
+
+.PP
+Regex helper functions ///\&. 
+.PP
+Definition at line 206 of file rebuildParser\&.php\&.
+.SS "resolveArrays ( $code)"
+
+.PP
+Definition at line 163 of file rebuildParser\&.php\&.
+.SS "\fBif\fP (!$optionKeepTmpGrammar) resolveConstants ( $code)"
+
+.PP
+Preprocessing functions ///\&. 
+.PP
+Definition at line 65 of file rebuildParser\&.php\&.
+.SS "resolveMacros ( $code)"
+
+.PP
+Definition at line 92 of file rebuildParser\&.php\&.
+.SS "resolveNodes ( $code)"
+
+.PP
+Definition at line 69 of file rebuildParser\&.php\&.
+.SH "Variable Documentation"
+.PP 
+.SS "$additionalArgs = $optionDebug ? '-t -v' : ''"
+
+.PP
+Definition at line 49 of file rebuildParser\&.php\&.
+.SS "$grammarCode = file_get_contents($grammarFile)"
+
+.PP
+Definition at line 40 of file rebuildParser\&.php\&.
+.SS "$grammarFile = __DIR__ \&. '/zend_language_parser\&.phpy'"
+
+.PP
+Definition at line 3 of file rebuildParser\&.php\&.
+.SS "$kmyacc = __DIR__ \&. '/kmyacc\&.exe'"
+
+.PP
+Definition at line 10 of file rebuildParser\&.php\&.
+.SS "$optionDebug = isset($\fBoptions\fP['--debug'])"
+
+.PP
+Definition at line 16 of file rebuildParser\&.php\&.
+.SS "$optionKeepTmpGrammar = isset($\fBoptions\fP['--keep-tmp-grammar'])"
+
+.PP
+Definition at line 17 of file rebuildParser\&.php\&.
+.SS "\fBif\fP (!file_exists($kmyacc)) $\fBoptions\fP = array_flip($argv)"
+
+.PP
+Definition at line 15 of file rebuildParser\&.php\&.
+.SS "$output = trim(shell_exec('$kmyacc $additionalArgs -l -m $skeletonFile $tmpGrammarFile 2>&1'))"
+
+.PP
+Definition at line 52 of file rebuildParser\&.php\&.
+.SS "$parserResultFile = __DIR__ \&. '/\&.\&./lib/PhpParser/Parser\&.php'"
+
+.PP
+Definition at line 7 of file rebuildParser\&.php\&.
+.SS "$skeletonFile = __DIR__ \&. '/kmyacc\&.php\&.parser'"
+
+.PP
+Definition at line 4 of file rebuildParser\&.php\&.
+.SS "$tmpGrammarFile = __DIR__ \&. '/tmp_parser\&.phpy'"
+
+.PP
+Definition at line 5 of file rebuildParser\&.php\&.
+.SS "$tmpResultFile = __DIR__ \&. '/tmp_parser\&.php'"
+
+.PP
+Definition at line 6 of file rebuildParser\&.php\&.
+.SS "const ARGS = '\\((?<args>[^()]*+(?:\\((?&args)\\)[^()]*+)*+)\\)'"
+
+.PP
+Definition at line 32 of file rebuildParser\&.php\&.
+.SS "const LIB"
+\fBInitial value:\fP
+.PP
+.nf
+= '(?(DEFINE)
+    (?<singleQuotedString>\'[^\\\\\']*+(?:\\\\\&.[^\\\\\']*+)*+\')
+    (?<doubleQuotedString>"[^\\\\"]*+(?:\\\\\&.[^\\\\"]*+)*+")
+    (?<string>(?&singleQuotedString)|(?&doubleQuotedString))
+    (?<comment>/\*[^*]*+(?:\*(?!/)[^*]*+)*+\*/)
+    (?<code>\{[^\'"/{}]*+(?:(?:(?&string)|(?&comment)|(?&code)|/)[^\'"/{}]*+)*+})
+)'
+.fi
+.PP
+Utility regex constants ///\&. 
+.PP
+Definition at line 23 of file rebuildParser\&.php\&.
+.SS "n"
+
+.PP
+Definition at line 38 of file rebuildParser\&.php\&.
+.SS "const PARAMS = '\\[(?<params>[^[\\]]*+(?:\\[(?&params)\\][^[\\]]*+)*+)\\]'"
+
+.PP
+Definition at line 31 of file rebuildParser\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

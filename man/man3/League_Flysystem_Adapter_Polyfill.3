@@ -1,0 +1,151 @@
+.TH "League\Flysystem\Adapter\Polyfill" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+League\Flysystem\Adapter\Polyfill \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwriteStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($pash, $contents, \fBConfig\fP $config)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "trait \fBStreamedCopyTrait\fP"
+.br
+.ti -1c
+.RI "trait \fBStreamedReadingTrait\fP"
+.br
+.ti -1c
+.RI "trait \fBStreamedTrait\fP"
+.br
+.ti -1c
+.RI "trait \fBStreamedWritingTrait\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "League\\Flysystem\\Adapter\\Polyfill\\update ( $pash,  $contents, \fBConfig\fP $config)\fC [abstract]\fP"
+
+.SS "League\\Flysystem\\Adapter\\Polyfill\\writeStream ( $path,  $resource, \fBConfig\fP $config)\fC [abstract]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "trait StreamedCopyTrait"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    
+    public function copy($path, $newpath)
+    {
+        $response = $this->readStream($path);
+
+        if ($response === false || ! is_resource($response['stream'])) {
+            return false;
+        }
+
+        $result = $this->writeStream($newpath, $response['stream'], new Config());
+
+        if ($result !== false && is_resource($response['stream'])) {
+            fclose($response['stream']);
+        }
+
+        return $result !== false;
+    }
+
+    
+
+    
+    abstract public function readStream($path)
+.fi
+.PP
+Definition at line 8 of file StreamedCopyTrait\&.php\&.
+.SS "trait StreamedReadingTrait"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    
+    public function readStream($path)
+    {
+        if (! $data = $this->read($path)) {
+            return false;
+        }
+
+        $stream = tmpfile();
+        fwrite($stream, $data['contents']);
+        rewind($stream);
+        $data['stream'] = $stream;
+        unset($data['contents']);
+
+        return $data;
+    }
+
+    
+
+    
+    abstract public function read($path)
+.fi
+.PP
+Definition at line 6 of file StreamedReadingTrait\&.php\&.
+.SS "trait StreamedTrait"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    use StreamedReadingTrait
+.fi
+.PP
+Definition at line 6 of file StreamedTrait\&.php\&.
+.SS "trait StreamedWritingTrait"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    
+    protected function stream($path, $resource, Config $config, $fallback)
+    {
+        Util::rewindStream($resource);
+        $contents = stream_get_contents($resource);
+        $fallbackCall = [$this, $fallback];
+
+        return call_user_func($fallbackCall, $path, $contents, $config);
+    }
+
+    
+    public function writeStream($path, $resource, Config $config)
+    {
+        return $this->stream($path, $resource, $config, 'write');
+    }
+
+    
+    public function updateStream($path, $resource, Config $config)
+    {
+        return $this->stream($path, $resource, $config, 'update');
+    }
+
+    
+    abstract public function write($pash, $contents, Config $config)
+.fi
+.PP
+Definition at line 9 of file StreamedWritingTrait\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

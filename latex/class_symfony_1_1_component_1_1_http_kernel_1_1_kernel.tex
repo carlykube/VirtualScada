@@ -1,0 +1,1021 @@
+\section{Kernel Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel}\index{Kernel@{Kernel}}
+Inheritance diagram for Kernel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$environment, \$debug)
+\item 
+{\bf init} ()
+\item 
+{\bf \+\_\+\+\_\+clone} ()
+\item 
+{\bf boot} ()
+\item 
+{\bf terminate} ({\bf Request} \$request, {\bf Response} \$response)
+\item 
+{\bf shutdown} ()
+\item 
+{\bf handle} ({\bf Request} \$request, \$type={\bf Http\+Kernel\+Interface\+::\+M\+A\+S\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T}, \$catch=true)
+\item 
+{\bf get\+Bundles} ()
+\item 
+{\bf is\+Class\+In\+Active\+Bundle} (\$class)
+\item 
+{\bf get\+Bundle} (\${\bf name}, \$first=true)
+\item 
+{\bf locate\+Resource} (\${\bf name}, \$dir=null, \$first=true)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf get\+Environment} ()
+\item 
+{\bf is\+Debug} ()
+\item 
+{\bf get\+Root\+Dir} ()
+\item 
+{\bf get\+Container} ()
+\item 
+{\bf load\+Class\+Cache} (\${\bf name}= \textquotesingle{}classes\textquotesingle{}, \$extension= \textquotesingle{}.php\textquotesingle{})
+\item 
+{\bf set\+Class\+Cache} (array \$classes)
+\item 
+{\bf get\+Start\+Time} ()
+\item 
+{\bf get\+Cache\+Dir} ()
+\item 
+{\bf get\+Log\+Dir} ()
+\item 
+{\bf get\+Charset} ()
+\item 
+{\bf serialize} ()
+\item 
+{\bf unserialize} (\${\bf data})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf strip\+Comments} (\$source)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}2.\+6.\+6\textquotesingle{}
+\item 
+const {\bf V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D} = \textquotesingle{}20606\textquotesingle{}
+\item 
+const {\bf M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}2\textquotesingle{}
+\item 
+const {\bf M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}6\textquotesingle{}
+\item 
+const {\bf R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}6\textquotesingle{}
+\item 
+const {\bf E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Http\+Kernel} ()
+\item 
+{\bf do\+Load\+Class\+Cache} (\${\bf name}, \$extension)
+\item 
+{\bf initialize\+Bundles} ()
+\item 
+{\bf get\+Container\+Class} ()
+\item 
+{\bf get\+Container\+Base\+Class} ()
+\item 
+{\bf initialize\+Container} ()
+\item 
+{\bf get\+Kernel\+Parameters} ()
+\item 
+{\bf get\+Env\+Parameters} ()
+\item 
+{\bf build\+Container} ()
+\item 
+{\bf prepare\+Container} (Container\+Builder \$container)
+\item 
+{\bf get\+Container\+Builder} ()
+\item 
+{\bf dump\+Container} (Config\+Cache \$cache, Container\+Builder \$container, \$class, \$base\+Class)
+\item 
+{\bf get\+Container\+Loader} (Container\+Interface \$container)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$bundles} = array()
+\item 
+{\bf \$bundle\+Map}
+\item 
+{\bf \$container}
+\item 
+{\bf \$root\+Dir}
+\item 
+{\bf \$environment}
+\item 
+{\bf \$debug}
+\item 
+{\bf \$booted} = false
+\item 
+{\bf \$name}
+\item 
+{\bf \$start\+Time}
+\item 
+{\bf \$load\+Class\+Cache}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Kernel}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel} is the heart of the \doxyref{Symfony}{p.}{namespace_symfony} system.
+
+It manages an environment made of bundles.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 46 of file Kernel.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$environment, }
+\item[{}]{\$debug}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a6088aef34ed9cc8024cd059e447854b6}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$environment} & The environment \\
+\hline
+bool & {\em \$debug} & Whether to enable debugging or not\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file Kernel.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}}
+\index{\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\+\_\+\+\_\+clone}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ad0cb87b388bc74d63dc884accdca8713}
+
+
+Definition at line 99 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!boot@{boot}}
+\index{boot@{boot}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{boot}]{\setlength{\rightskip}{0pt plus 5cm}boot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a8814ea4b5beba763c570b4818980814e}
+Boots the current kernel.
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a8814ea4b5beba763c570b4818980814e}.
+
+
+
+Definition at line 114 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!build\+Container@{build\+Container}}
+\index{build\+Container@{build\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{build\+Container}]{\setlength{\rightskip}{0pt plus 5cm}build\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ac13f5b55b9c6af5f351bb8d32e4a97b6}
+Builds the service container.
+
+\begin{DoxyReturn}{Returns}
+Container\+Builder The compiled service container
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 604 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!do\+Load\+Class\+Cache@{do\+Load\+Class\+Cache}}
+\index{do\+Load\+Class\+Cache@{do\+Load\+Class\+Cache}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{do\+Load\+Class\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}do\+Load\+Class\+Cache (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$extension}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a85073977c8b9e9d8b37435024e2373ee}
+
+
+Definition at line 428 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!dump\+Container@{dump\+Container}}
+\index{dump\+Container@{dump\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{dump\+Container}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Container (
+\begin{DoxyParamCaption}
+\item[{Config\+Cache}]{\$cache, }
+\item[{Container\+Builder}]{\$container, }
+\item[{}]{\$class, }
+\item[{}]{\$base\+Class}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a79ad9872e32f6d2432d7ffce46453fd9}
+Dumps the service container to \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Config\+Cache & {\em \$cache} & The config cache \\
+\hline
+Container\+Builder & {\em \$container} & The service container \\
+\hline
+string & {\em \$class} & The name of the class to generate \\
+\hline
+string & {\em \$base\+Class} & The name of the container\textquotesingle{}s base class \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 680 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Bundle@{get\+Bundle}}
+\index{get\+Bundle@{get\+Bundle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Bundle}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bundle (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$first = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a1b52ff7fede2c2aa8c42fb1e49c60589}
+\{Returns a bundle and optionally its descendants by its name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{Bundle}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_bundle} name \\
+\hline
+bool & {\em \$first} & Whether to return the first bundle only or together with its descendants\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bundle\+Interface$\vert$\+Bundle\+Interface[] \doxyref{A}{p.}{class_a} Bundle\+Interface instance or an array of Bundle\+Interface instances if \$first is false
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a1b52ff7fede2c2aa8c42fb1e49c60589}.
+
+
+
+Definition at line 232 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Bundles@{get\+Bundles}}
+\index{get\+Bundles@{get\+Bundles}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Bundles}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bundles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ac95290a5a006d3255b2728363c36d5a6}
+\{Gets the registered bundle instances.
+
+\begin{DoxyReturn}{Returns}
+Bundle\+Interface[] An array of registered bundle instances
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_ac95290a5a006d3255b2728363c36d5a6}.
+
+
+
+Definition at line 204 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Cache\+Dir@{get\+Cache\+Dir}}
+\index{get\+Cache\+Dir@{get\+Cache\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Cache\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cache\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_af1aaf85d6756805f7dabac5feb2fa952}
+\{Gets the cache directory.
+
+\begin{DoxyReturn}{Returns}
+string The cache directory
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_af1aaf85d6756805f7dabac5feb2fa952}.
+
+
+
+Definition at line 403 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Charset@{get\+Charset}}
+\index{get\+Charset@{get\+Charset}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Charset}]{\setlength{\rightskip}{0pt plus 5cm}get\+Charset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_abca2d528da8311b6fcfe040768cbaa24}
+\{Gets the charset of the application.
+
+\begin{DoxyReturn}{Returns}
+string The charset
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_abca2d528da8311b6fcfe040768cbaa24}.
+
+
+
+Definition at line 423 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Container@{get\+Container}}
+\index{get\+Container@{get\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Container}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a53e2ca32cf29808b0b18cd5accf3c4db}
+\{Gets the current container.
+
+\begin{DoxyReturn}{Returns}
+Container\+Interface \doxyref{A}{p.}{class_a} Container\+Interface instance
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a53e2ca32cf29808b0b18cd5accf3c4db}.
+
+
+
+Definition at line 358 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Container\+Base\+Class@{get\+Container\+Base\+Class}}
+\index{get\+Container\+Base\+Class@{get\+Container\+Base\+Class}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Container\+Base\+Class}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container\+Base\+Class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a7ebae6031bcfb0e575528eedd51feea8}
+Gets the container\textquotesingle{}s base class.
+
+All names except Container must be fully qualified.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 516 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Container\+Builder@{get\+Container\+Builder}}
+\index{get\+Container\+Builder@{get\+Container\+Builder}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Container\+Builder}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container\+Builder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a86721f85aa0fcf3d6d07a8db534a6fbd}
+Gets a new Container\+Builder instance used to build the service container.
+
+\begin{DoxyReturn}{Returns}
+Container\+Builder 
+\end{DoxyReturn}
+
+
+Definition at line 661 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Container\+Class@{get\+Container\+Class}}
+\index{get\+Container\+Class@{get\+Container\+Class}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Container\+Class}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container\+Class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a86569d50a43cfbcfc992f19496f0fdac}
+Gets the container class.
+
+\begin{DoxyReturn}{Returns}
+string The container class 
+\end{DoxyReturn}
+
+
+Definition at line 504 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Container\+Loader@{get\+Container\+Loader}}
+\index{get\+Container\+Loader@{get\+Container\+Loader}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Container\+Loader}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container\+Loader (
+\begin{DoxyParamCaption}
+\item[{Container\+Interface}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a0a976583e72f1b39710b67b3f8b9c6e4}
+Returns a loader for the container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Container\+Interface & {\em \$container} & The service container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Delegating\+Loader The loader 
+\end{DoxyReturn}
+
+
+Definition at line 704 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Environment@{get\+Environment}}
+\index{get\+Environment@{get\+Environment}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}get\+Environment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a1a945689f9a90f9029d671ec32262d37}
+\{Gets the environment.
+
+\begin{DoxyReturn}{Returns}
+string The current environment
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a1a945689f9a90f9029d671ec32262d37}.
+
+
+
+Definition at line 323 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Env\+Parameters@{get\+Env\+Parameters}}
+\index{get\+Env\+Parameters@{get\+Env\+Parameters}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Env\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}get\+Env\+Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a6a1ad42bcc8f57e13ffa734b4732cd2e}
+Gets the environment parameters.
+
+Only the parameters starting with \char`\"{}\+S\+Y\+M\+F\+O\+N\+Y\+\_\+\+\_\+\char`\"{} are considered.
+
+\begin{DoxyReturn}{Returns}
+array An array of parameters 
+\end{DoxyReturn}
+
+
+Definition at line 585 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Http\+Kernel@{get\+Http\+Kernel}}
+\index{get\+Http\+Kernel@{get\+Http\+Kernel}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Http\+Kernel}]{\setlength{\rightskip}{0pt plus 5cm}get\+Http\+Kernel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a473e7ca6feb2a6c2e6080c5161868401}
+Gets a H\+T\+T\+P kernel from the container.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Http\+Kernel}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel} 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Kernel\+Parameters@{get\+Kernel\+Parameters}}
+\index{get\+Kernel\+Parameters@{get\+Kernel\+Parameters}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Kernel\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}get\+Kernel\+Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ad1a46a5acf82baf8d1d2aa56915e2de6}
+Returns the kernel parameters.
+
+\begin{DoxyReturn}{Returns}
+array An array of kernel parameters 
+\end{DoxyReturn}
+
+
+Definition at line 555 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Log\+Dir@{get\+Log\+Dir}}
+\index{get\+Log\+Dir@{get\+Log\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Log\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Log\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a446ab1862b5838c87c0b692c2268b7d5}
+\{Gets the log directory.
+
+\begin{DoxyReturn}{Returns}
+string The log directory
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a446ab1862b5838c87c0b692c2268b7d5}.
+
+
+
+Definition at line 413 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a3d0963e68bb313b163a73f2803c64600}
+\{Gets the name of the kernel.
+
+\begin{DoxyReturn}{Returns}
+string The kernel name
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 309 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Root\+Dir@{get\+Root\+Dir}}
+\index{get\+Root\+Dir@{get\+Root\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Root\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}get\+Root\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a47a323ba2cd392a6103e94db6fbe9fb0}
+\{Gets the application root dir.
+
+\begin{DoxyReturn}{Returns}
+string The application root dir
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a47a323ba2cd392a6103e94db6fbe9fb0}.
+
+
+
+Definition at line 343 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!get\+Start\+Time@{get\+Start\+Time}}
+\index{get\+Start\+Time@{get\+Start\+Time}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{get\+Start\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Start\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a568a7fafd601b520ff8c4bd91c962e29}
+\{Gets the request start time (not available if debug is disabled).
+
+\begin{DoxyReturn}{Returns}
+int The request start timestamp
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a568a7fafd601b520ff8c4bd91c962e29}.
+
+
+
+Definition at line 393 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!handle@{handle}}
+\index{handle@{handle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$type = {\ttfamily {\bf Http\+Kernel\+Interface\+::\+M\+A\+S\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T}}, }
+\item[{}]{\$catch = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a14b95e0aa8ad7f65c587a876736ab5c5}
+\{\}
+
+Implements {\bf Http\+Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface_a96b79e4f11a391bdfc0344889a9ef059}.
+
+
+
+Definition at line 180 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!init@{init}}
+\index{init@{init}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a4be4055f3361d4800e16bc2e2e38cda6}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+3, to be removed in 3.\+0. Move your logic in the constructor instead. \end{DoxyRefDesc}
+
+
+Definition at line 95 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!initialize\+Bundles@{initialize\+Bundles}}
+\index{initialize\+Bundles@{initialize\+Bundles}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{initialize\+Bundles}]{\setlength{\rightskip}{0pt plus 5cm}initialize\+Bundles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a6bb6f64b4b8d5b2468058acd2f1805b1}
+Initializes the data structures related to the bundle management.
+
+
+\begin{DoxyItemize}
+\item the bundles property maps a bundle name to the bundle instance,
+\item the bundle\+Map property maps a bundle name to the bundle inheritance hierarchy (most derived bundle first).
+\end{DoxyItemize}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 446 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!initialize\+Container@{initialize\+Container}}
+\index{initialize\+Container@{initialize\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{initialize\+Container}]{\setlength{\rightskip}{0pt plus 5cm}initialize\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_adef2372d39d504e32a6e07dee9e74e57}
+Initializes the service container.
+
+The cached version of the service container is used when fresh, otherwise the container is built. 
+
+Definition at line 527 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!is\+Class\+In\+Active\+Bundle@{is\+Class\+In\+Active\+Bundle}}
+\index{is\+Class\+In\+Active\+Bundle@{is\+Class\+In\+Active\+Bundle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{is\+Class\+In\+Active\+Bundle}]{\setlength{\rightskip}{0pt plus 5cm}is\+Class\+In\+Active\+Bundle (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a83040797aaf16248cf6a2f6d10780f08}
+\{Checks if a given class name belongs to an active bundle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \doxyref{A}{p.}{class_a} class name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the class belongs to an active bundle, false otherwise
+\end{DoxyReturn}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. \end{DoxyRefDesc}
+\}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a83040797aaf16248cf6a2f6d10780f08}.
+
+
+
+Definition at line 216 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!is\+Debug@{is\+Debug}}
+\index{is\+Debug@{is\+Debug}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{is\+Debug}]{\setlength{\rightskip}{0pt plus 5cm}is\+Debug (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a017d21b4d0e1ee6f9cdd9d805793f076}
+\{Checks if debug mode is enabled.
+
+\begin{DoxyReturn}{Returns}
+bool true if debug mode is enabled, false otherwise
+\end{DoxyReturn}
+\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a017d21b4d0e1ee6f9cdd9d805793f076}.
+
+
+
+Definition at line 333 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!load\+Class\+Cache@{load\+Class\+Cache}}
+\index{load\+Class\+Cache@{load\+Class\+Cache}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{load\+Class\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}load\+Class\+Cache (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily \textquotesingle{}classes\textquotesingle{}}, }
+\item[{}]{\$extension = {\ttfamily \textquotesingle{}.php\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a3d014a53c7909907c280ef748e1f086a}
+Loads the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} class cache.
+
+This methods only registers the fact that you want to load the cache classes. The cache will actually only be loaded when the \doxyref{Kernel}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel} is booted.
+
+That optimization is mainly useful when using the \doxyref{Http\+Cache}{p.}{namespace_symfony_1_1_component_1_1_http_kernel_1_1_http_cache} class in which case the class cache is not loaded if the \doxyref{Response}{p.}{class_response} is in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The cache name prefix \\
+\hline
+string & {\em \$extension} & \doxyref{File}{p.}{class_file} extension of the resulting file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 375 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!locate\+Resource@{locate\+Resource}}
+\index{locate\+Resource@{locate\+Resource}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{locate\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}locate\+Resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$dir = {\ttfamily null}, }
+\item[{}]{\$first = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_aab014ede62d5444dc71e76f3480074e2}
+Returns the file path for a given resource.
+
+\doxyref{A}{p.}{class_a} Resource can be a file or a directory.
+
+The resource name must follow the following pattern\+: \begin{DoxyVerb}"@BundleName/path/to/a/file.something"
+\end{DoxyVerb}
+
+
+where Bundle\+Name is the name of the bundle and the remaining part is the relative path in the bundle.
+
+If \$dir is passed, and the first segment of the path is \char`\"{}\+Resources\char`\"{}, this method will look for a file named\+: \begin{DoxyVerb}$dir/<BundleName>/path/without/Resources
+\end{DoxyVerb}
+
+
+before looking in the bundle resource folder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{A}{p.}{class_a} resource name to locate \\
+\hline
+string & {\em \$dir} & \doxyref{A}{p.}{class_a} directory where to look for the resource first \\
+\hline
+bool & {\em \$first} & Whether to return the first path or paths for all matching bundles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$array The absolute path of the resource or an array if \$first is false
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_aab014ede62d5444dc71e76f3480074e2}.
+
+
+
+Definition at line 250 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!prepare\+Container@{prepare\+Container}}
+\index{prepare\+Container@{prepare\+Container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{prepare\+Container}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Container (
+\begin{DoxyParamCaption}
+\item[{Container\+Builder}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ab2642c03b87b00f8f52f060dcff326cc}
+Prepares the Container\+Builder before it is compiled.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Container\+Builder & {\em \$container} & \doxyref{A}{p.}{class_a} Container\+Builder instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 635 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!serialize@{serialize}}
+\index{serialize@{serialize}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}serialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a4d9813fea8525b19a1d370eeb8fe41d6}
+
+
+Definition at line 774 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!set\+Class\+Cache@{set\+Class\+Cache}}
+\index{set\+Class\+Cache@{set\+Class\+Cache}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{set\+Class\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}set\+Class\+Cache (
+\begin{DoxyParamCaption}
+\item[{array}]{\$classes}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ae8c616c70cabfbbce7c7e24bccc3fa51}
+Used internally. 
+
+Definition at line 383 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{shutdown}]{\setlength{\rightskip}{0pt plus 5cm}shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a482087c71391537bfe6fece68a58d420}
+\{Shutdowns the kernel.
+
+This method is mainly useful when doing functional testing.\}
+
+Implements {\bf Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_kernel_interface_a482087c71391537bfe6fece68a58d420}.
+
+
+
+Definition at line 159 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!strip\+Comments@{strip\+Comments}}
+\index{strip\+Comments@{strip\+Comments}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{strip\+Comments}]{\setlength{\rightskip}{0pt plus 5cm}static strip\+Comments (
+\begin{DoxyParamCaption}
+\item[{}]{\$source}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ae1be9dfbd405455f293bb0f553f668d9}
+Removes comments from a \doxyref{P\+H\+P}{p.}{namespace_p_h_p} source string.
+
+We don\textquotesingle{}t use the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} php\+\_\+strip\+\_\+whitespace() function as we want the content to be readable and well-\/formatted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$source} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The \doxyref{P\+H\+P}{p.}{namespace_p_h_p} string with the comments removed 
+\end{DoxyReturn}
+
+
+Definition at line 728 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!terminate@{terminate}}
+\index{terminate@{terminate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}terminate (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a3200a2698a7cd1cf7a94b0ebfd668af3}
+\{\}
+
+Implements {\bf Terminable\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_terminable_interface_a3200a2698a7cd1cf7a94b0ebfd668af3}.
+
+
+
+Definition at line 143 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!unserialize@{unserialize}}
+\index{unserialize@{unserialize}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{unserialize}]{\setlength{\rightskip}{0pt plus 5cm}unserialize (
+\begin{DoxyParamCaption}
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a91b3cb8a65e42152cacf1cf222bd26f6}
+
+
+Definition at line 779 of file Kernel.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$booted@{\$booted}}
+\index{\$booted@{\$booted}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$booted}]{\setlength{\rightskip}{0pt plus 5cm}\$booted = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_adf7fdb87be41474cab13b68140ace561}
+
+
+Definition at line 58 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$bundle\+Map@{\$bundle\+Map}}
+\index{\$bundle\+Map@{\$bundle\+Map}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$bundle\+Map}]{\setlength{\rightskip}{0pt plus 5cm}\$bundle\+Map\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a431f4c559379c3440c8031cc010421f4}
+
+
+Definition at line 53 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$bundles@{\$bundles}}
+\index{\$bundles@{\$bundles}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$bundles}]{\setlength{\rightskip}{0pt plus 5cm}\$bundles = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a1745aa0f00577a756e384b5401bd8706}
+
+
+Definition at line 51 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$container@{\$container}}
+\index{\$container@{\$container}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$container}]{\setlength{\rightskip}{0pt plus 5cm}\$container\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ab97dd40df90f4ce6f0fce9091e7c7872}
+
+
+Definition at line 54 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$debug@{\$debug}}
+\index{\$debug@{\$debug}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$debug}]{\setlength{\rightskip}{0pt plus 5cm}\$debug\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a85ae3e64cd40e9564adceb010085e9dd}
+
+
+Definition at line 57 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$environment@{\$environment}}
+\index{\$environment@{\$environment}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$environment}]{\setlength{\rightskip}{0pt plus 5cm}\$environment\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ab13dbce1d1d0dfa9e4c429584210cf55}
+
+
+Definition at line 56 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$load\+Class\+Cache@{\$load\+Class\+Cache}}
+\index{\$load\+Class\+Cache@{\$load\+Class\+Cache}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$load\+Class\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf load\+Class\+Cache}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_aa5f061944cadc3c5ff8840bf3ce6185c}
+
+
+Definition at line 61 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$name@{\$name}}
+\index{\$name@{\$name}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf name}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ab2fc40d43824ea3e1ce5d86dee0d763b}
+
+
+Definition at line 59 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$root\+Dir@{\$root\+Dir}}
+\index{\$root\+Dir@{\$root\+Dir}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$root\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}\$root\+Dir\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a68ccc223df2708efe11893f675abdacf}
+
+
+Definition at line 55 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!\$start\+Time@{\$start\+Time}}
+\index{\$start\+Time@{\$start\+Time}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{\$start\+Time}]{\setlength{\rightskip}{0pt plus 5cm}\$start\+Time\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a404df05d2efcd6bb0551ecd8e7ae2315}
+
+
+Definition at line 60 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N@{E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N@{E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const E\+X\+T\+R\+A\+\_\+\+V\+E\+R\+S\+I\+O\+N = \textquotesingle{}\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_aa66e26fb5190d4eae5aa807a51e8599d}
+
+
+Definition at line 68 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N@{M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N@{M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N = \textquotesingle{}2\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a3131af273a7c8eca1728d5b8660bb9c0}
+
+
+Definition at line 65 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N@{M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N@{M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+O\+N = \textquotesingle{}6\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a71fef52dee161026277f7c3e34642b9e}
+
+
+Definition at line 66 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N@{R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N@{R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+L\+E\+A\+S\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N = \textquotesingle{}6\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_ab5f5867fb342cd126faaecf77e3e1497}
+
+
+Definition at line 67 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}}
+\index{V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const V\+E\+R\+S\+I\+O\+N = \textquotesingle{}2.\+6.\+6\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_af71005841ce53adac00581ab0ba24c1f}
+
+
+Definition at line 63 of file Kernel.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}!V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D@{V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D}}
+\index{V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D@{V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Kernel}}
+\subsubsection[{V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}const V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+D = \textquotesingle{}20606\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel_a835ac83b0f0a2c196532f370dc585aa0}
+
+
+Definition at line 64 of file Kernel.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/{\bf Kernel.\+php}\end{DoxyCompactItemize}

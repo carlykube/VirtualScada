@@ -1,0 +1,539 @@
+\section{Worker Class Reference}
+\label{class_illuminate_1_1_queue_1_1_worker}\index{Worker@{Worker}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Queue\+Manager} \$manager, {\bf Failed\+Job\+Provider\+Interface} \$failer=null, {\bf Dispatcher} \$events=null)
+\item 
+{\bf daemon} (\$connection\+Name, \${\bf queue}=null, \${\bf delay}=0, \$memory=128, \${\bf sleep}=3, \$max\+Tries=0)
+\item 
+{\bf pop} (\$connection\+Name, \${\bf queue}=null, \${\bf delay}=0, \${\bf sleep}=3, \$max\+Tries=0)
+\item 
+{\bf process} (\$connection, {\bf Job} \$job, \$max\+Tries=0, \${\bf delay}=0)
+\item 
+{\bf memory\+Exceeded} (\$memory\+Limit)
+\item 
+{\bf stop} ()
+\item 
+{\bf sleep} (\${\bf seconds})
+\item 
+{\bf set\+Daemon\+Exception\+Handler} ({\bf Exception\+Handler} \$handler)
+\item 
+{\bf set\+Cache} (Cache\+Contract \$cache)
+\item 
+{\bf get\+Manager} ()
+\item 
+{\bf set\+Manager} ({\bf Queue\+Manager} \$manager)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf run\+Next\+Job\+For\+Daemon} (\$connection\+Name, \${\bf queue}, \${\bf delay}, \${\bf sleep}, \$max\+Tries)
+\item 
+{\bf daemon\+Should\+Run} ()
+\item 
+{\bf get\+Next\+Job} (\$connection, \${\bf queue})
+\item 
+{\bf log\+Failed\+Job} (\$connection, {\bf Job} \$job)
+\item 
+{\bf raise\+Failed\+Job\+Event} (\$connection, {\bf Job} \$job)
+\item 
+{\bf get\+Timestamp\+Of\+Last\+Queue\+Restart} ()
+\item 
+{\bf queue\+Should\+Restart} (\$last\+Restart)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$manager}
+\item 
+{\bf \$failer}
+\item 
+{\bf \$events}
+\item 
+{\bf \$cache}
+\item 
+{\bf \$exceptions}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Worker.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue\+Manager}}]{\$manager, }
+\item[{{\bf Failed\+Job\+Provider\+Interface}}]{\$failer = {\ttfamily null}, }
+\item[{{\bf Dispatcher}}]{\$events = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a4a661b03a8c0e9db7589d4554b03c95a}
+Create a new queue worker.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Queue\textbackslash{}\+Queue\+Manager & {\em \$manager} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Queue\textbackslash{}\+Failed\textbackslash{}\+Failed\+Job\+Provider\+Interface & {\em \$failer} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Events\textbackslash{}\+Dispatcher & {\em \$events} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Worker.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!daemon@{daemon}}
+\index{daemon@{daemon}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{daemon}]{\setlength{\rightskip}{0pt plus 5cm}daemon (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection\+Name, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{}]{\$delay = {\ttfamily 0}, }
+\item[{}]{\$memory = {\ttfamily 128}, }
+\item[{}]{\$sleep = {\ttfamily 3}, }
+\item[{}]{\$max\+Tries = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a2112d0eeb6cde95c2059f6df4bd63036}
+Listen to the given queue in a loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection\+Name} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+int & {\em \$memory} & \\
+\hline
+int & {\em \$sleep} & \\
+\hline
+int & {\em \$max\+Tries} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!daemon\+Should\+Run@{daemon\+Should\+Run}}
+\index{daemon\+Should\+Run@{daemon\+Should\+Run}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{daemon\+Should\+Run}]{\setlength{\rightskip}{0pt plus 5cm}daemon\+Should\+Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a2286e70d5d3d150cb97bd7682eea1411}
+Determine if the daemon should process on this iteration.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!get\+Manager@{get\+Manager}}
+\index{get\+Manager@{get\+Manager}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{get\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}get\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a362a87534635a8d4c3c18d54a3dd01b4}
+Get the queue manager instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 348 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!get\+Next\+Job@{get\+Next\+Job}}
+\index{get\+Next\+Job@{get\+Next\+Job}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{get\+Next\+Job}]{\setlength{\rightskip}{0pt plus 5cm}get\+Next\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a8af867ca7189f1d2e7a97573d5439b9e}
+Get the next job from the queue connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Queue\textbackslash{}\+Queue & {\em \$connection} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!get\+Timestamp\+Of\+Last\+Queue\+Restart@{get\+Timestamp\+Of\+Last\+Queue\+Restart}}
+\index{get\+Timestamp\+Of\+Last\+Queue\+Restart@{get\+Timestamp\+Of\+Last\+Queue\+Restart}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{get\+Timestamp\+Of\+Last\+Queue\+Restart}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timestamp\+Of\+Last\+Queue\+Restart (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a8b9c756ee2139ecda96b5280c6cc346d}
+Get the last queue restart timestamp, or null.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 302 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!log\+Failed\+Job@{log\+Failed\+Job}}
+\index{log\+Failed\+Job@{log\+Failed\+Job}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{log\+Failed\+Job}]{\setlength{\rightskip}{0pt plus 5cm}log\+Failed\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{{\bf Job}}]{\$job}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a36ecd4f3f1446149b8c33984c4ef4231}
+\doxyref{Log}{p.}{namespace_illuminate_1_1_log} a failed job into storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Queue\textbackslash{}\+Job & {\em \$job} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 230 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!memory\+Exceeded@{memory\+Exceeded}}
+\index{memory\+Exceeded@{memory\+Exceeded}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{memory\+Exceeded}]{\setlength{\rightskip}{0pt plus 5cm}memory\+Exceeded (
+\begin{DoxyParamCaption}
+\item[{}]{\$memory\+Limit}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a2c7620bf0d0a073b003ad9680abc4865}
+Determine if the memory limit has been exceeded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$memory\+Limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 269 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!pop@{pop}}
+\index{pop@{pop}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}pop (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection\+Name, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{}]{\$delay = {\ttfamily 0}, }
+\item[{}]{\$sleep = {\ttfamily 3}, }
+\item[{}]{\$max\+Tries = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a6d222ebf2b692657e4dfe219e93028bd}
+Listen to the given queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection\+Name} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+int & {\em \$sleep} & \\
+\hline
+int & {\em \$max\+Tries} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!process@{process}}
+\index{process@{process}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}process (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{{\bf Job}}]{\$job, }
+\item[{}]{\$max\+Tries = {\ttfamily 0}, }
+\item[{}]{\$delay = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a3005cf64cd23a4905b38e1fc2a9c5212}
+Process a given job from the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Queue\textbackslash{}\+Job & {\em \$job} & \\
+\hline
+int & {\em \$max\+Tries} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 195 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!queue\+Should\+Restart@{queue\+Should\+Restart}}
+\index{queue\+Should\+Restart@{queue\+Should\+Restart}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{queue\+Should\+Restart}]{\setlength{\rightskip}{0pt plus 5cm}queue\+Should\+Restart (
+\begin{DoxyParamCaption}
+\item[{}]{\$last\+Restart}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a9315bace8fb1e377ec57aced6efc5e08}
+Determine if the queue worker should restart.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int | null & {\em \$last\+Restart} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 316 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!raise\+Failed\+Job\+Event@{raise\+Failed\+Job\+Event}}
+\index{raise\+Failed\+Job\+Event@{raise\+Failed\+Job\+Event}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{raise\+Failed\+Job\+Event}]{\setlength{\rightskip}{0pt plus 5cm}raise\+Failed\+Job\+Event (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{{\bf Job}}]{\$job}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_ae0e137848c09376738254914b18272a7}
+Raise the failed queue job event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Queue\textbackslash{}\+Job & {\em \$job} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!run\+Next\+Job\+For\+Daemon@{run\+Next\+Job\+For\+Daemon}}
+\index{run\+Next\+Job\+For\+Daemon@{run\+Next\+Job\+For\+Daemon}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{run\+Next\+Job\+For\+Daemon}]{\setlength{\rightskip}{0pt plus 5cm}run\+Next\+Job\+For\+Daemon (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection\+Name, }
+\item[{}]{\$queue, }
+\item[{}]{\$delay, }
+\item[{}]{\$sleep, }
+\item[{}]{\$max\+Tries}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_aaadc8c1c195ee5277f4b44df419cb41c}
+Run the next job for the daemon worker.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection\+Name} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+int & {\em \$sleep} & \\
+\hline
+int & {\em \$max\+Tries} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!set\+Cache@{set\+Cache}}
+\index{set\+Cache@{set\+Cache}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{set\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}set\+Cache (
+\begin{DoxyParamCaption}
+\item[{Cache\+Contract}]{\$cache}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a172ce3386e75727e40085e6ef9fbafae}
+Set the cache repository implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Cache\textbackslash{}\+Repository & {\em \$cache} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 338 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!set\+Daemon\+Exception\+Handler@{set\+Daemon\+Exception\+Handler}}
+\index{set\+Daemon\+Exception\+Handler@{set\+Daemon\+Exception\+Handler}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{set\+Daemon\+Exception\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\+Daemon\+Exception\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf Exception\+Handler}}]{\$handler}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_aa36a1ba7042c102e84f58e03a639b58c}
+Set the exception handler to use in Daemon mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Debug\textbackslash{}\+Exception\+Handler & {\em \$handler} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 327 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!set\+Manager@{set\+Manager}}
+\index{set\+Manager@{set\+Manager}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{set\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}set\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue\+Manager}}]{\$manager}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_ab526f664e7ea8163bfb697fac34becf0}
+Set the queue manager instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Queue\textbackslash{}\+Queue\+Manager & {\em \$manager} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 359 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!sleep@{sleep}}
+\index{sleep@{sleep}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{sleep}]{\setlength{\rightskip}{0pt plus 5cm}sleep (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a176bcee0424f978cd9da5de434bde676}
+Sleep the script for a given number of seconds.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!stop@{stop}}
+\index{stop@{stop}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_worker_a8b6fc76a620d7557d06e9a11a9ffb509}
+Stop listening and bail out of the script.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 279 of file Worker.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\$cache@{\$cache}}
+\index{\$cache@{\$cache}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\$cache}]{\setlength{\rightskip}{0pt plus 5cm}\$cache\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_ac2dc76d756ec398393d4b1d23659276c}
+
+
+Definition at line 38 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 31 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\$exceptions@{\$exceptions}}
+\index{\$exceptions@{\$exceptions}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\$exceptions}]{\setlength{\rightskip}{0pt plus 5cm}\$exceptions\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a7b3cdaf64a0a391d40bc8ecd4008218a}
+
+
+Definition at line 45 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\$failer@{\$failer}}
+\index{\$failer@{\$failer}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\$failer}]{\setlength{\rightskip}{0pt plus 5cm}\$failer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a5dd2acebd47c9cd903736c34a9ca393a}
+
+
+Definition at line 24 of file Worker.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}!\$manager@{\$manager}}
+\index{\$manager@{\$manager}!Illuminate\+::\+Queue\+::\+Worker@{Illuminate\+::\+Queue\+::\+Worker}}
+\subsubsection[{\$manager}]{\setlength{\rightskip}{0pt plus 5cm}\$manager\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_worker_a4621b1cd69b1417c9fb966c825299de1}
+
+
+Definition at line 17 of file Worker.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Worker.\+php}\end{DoxyCompactItemize}

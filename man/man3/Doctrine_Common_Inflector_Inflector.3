@@ -1,0 +1,165 @@
+.TH "Inflector" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Inflector \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBtableize\fP ($word)"
+.br
+.ti -1c
+.RI "static \fBclassify\fP ($word)"
+.br
+.ti -1c
+.RI "static \fBcamelize\fP ($word)"
+.br
+.ti -1c
+.RI "static \fBreset\fP ()"
+.br
+.ti -1c
+.RI "static \fBrules\fP ($type, $rules, $\fBreset\fP=false)"
+.br
+.ti -1c
+.RI "static \fBpluralize\fP ($word)"
+.br
+.ti -1c
+.RI "static \fBsingularize\fP ($word)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDoctrine\fP inflector has static methods for inflecting text\&.
+.PP
+The methods in these classes are from several different sources collected across several different php projects and several different authors\&. The original author names and emails are not known\&.
+.PP
+Pluralize & Singularize implementation are borrowed from CakePHP with some modifications\&.
+.PP
+\fB1\&.0  Konsta Vesterinen kvesteri@cc.hut.fi  Jonathan H\&. Wage jonwage@gmail.com \fP
+.PP
+Definition at line 36 of file Inflector\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static camelize ( $word)\fC [static]\fP"
+Camelizes a word\&. This uses the \fBclassify()\fP method and turns the first character to lowercase\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$word\fP The word to camelize\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The camelized word\&. 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file Inflector\&.php\&.
+.SS "static classify ( $word)\fC [static]\fP"
+Converts a word into the format for a \fBDoctrine\fP class name\&. Converts 'table_name' to 'TableName'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$word\fP The word to classify\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The classified word\&. 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Inflector\&.php\&.
+.SS "static pluralize ( $word)\fC [static]\fP"
+Returns a word in plural form\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$word\fP The word in singular form\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The word in plural form\&. 
+.RE
+.PP
+
+.PP
+Definition at line 319 of file Inflector\&.php\&.
+.SS "static reset ()\fC [static]\fP"
+Clears Inflectors inflected value caches, and resets the inflection rules to the initial values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Inflector\&.php\&.
+.SS "static rules ( $type,  $rules,  $reset = \fCfalse\fP)\fC [static]\fP"
+Adds custom inflection $rules, of either 'plural' or 'singular' $type\&.
+.PP
+.SS "Usage:"
+.PP
+{{{ \fBInflector::rules\fP('plural', array('/^(inflect)or$/i' => '\\1ables')); \fBInflector::rules\fP('plural', array( 'rules' => array('/^(inflect)ors$/i' => '\\1ables'), 'uninflected' => array('dontinflectme'), 'irregular' => array('red' => 'redlings') )); }}}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP The type of inflection, either 'plural' or 'singular' 
+.br
+\fI$rules\fP An array of rules to be added\&. 
+.br
+\fI$reset\fP If true, will unset default inflections for all new rules that are being defined in $rules\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file Inflector\&.php\&.
+.SS "static singularize ( $word)\fC [static]\fP"
+Returns a word in singular form\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$word\fP The word in plural form\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The word in singular form\&. 
+.RE
+.PP
+
+.PP
+Definition at line 366 of file Inflector\&.php\&.
+.SS "static tableize ( $word)\fC [static]\fP"
+Converts a word into the format for a \fBDoctrine\fP table name\&. Converts 'ModelName' to 'model_name'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$word\fP The word to tableize\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The tableized word\&. 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Inflector\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

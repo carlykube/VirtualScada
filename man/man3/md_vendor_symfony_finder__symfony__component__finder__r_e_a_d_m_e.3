@@ -1,0 +1,35 @@
+.TH "md_vendor_symfony_finder__symfony__component__finder__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_finder__symfony__component__finder__r_e_a_d_m_e \- Finder Component 
+Finder finds files and directories via an intuitive fluent interface\&.
+.PP
+```php use \fBSymfony\fP;
+.PP
+$finder = new Finder();
+.PP
+$iterator = $finder ->files() ->name('*\&.php') ->depth(0) ->size('>= 1K') ->in(\fBDIR\fP);
+.PP
+foreach ($iterator as $file) { print $file->getRealpath()\&.'\\n'; } ```
+.PP
+The iterator returns instances of \fCSymfony\fP\&. Besides the build-in methods inherited from \fC\fP (\fCgetPerms()\fP, \fCgetSize()\fP, \&.\&.\&.), you can also use \fCgetRelativePath()\fP and \fCgetRelativePathname()\fP\&. Read the \fCofficial documentation\fP for more information\&.
+.PP
+But you can also use it to find files stored remotely like in this example where we are looking for files on Amazon S3:
+.PP
+```php $s3 = new ($key, $secret); $s3->registerStreamWrapper('s3');
+.PP
+$finder = new Finder(); $finder->name('photos*')->size('< 100K')->date('since 1 hour ago'); foreach ($finder->in('s3://bucket-name') as $file) { print $file->getFilename()\&.'\\n'; } ```
+.PP
+.SS "Resources "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/Finder/
+$ composer install
+$ phpunit
+
+.fi
+.PP
+ 

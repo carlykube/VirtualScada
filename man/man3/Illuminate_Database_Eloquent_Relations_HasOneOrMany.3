@@ -1,0 +1,463 @@
+.TH "HasOneOrMany" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HasOneOrMany \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRelation\fP\&.
+.PP
+Inherited by \fBHasMany\fP, \fBHasOne\fP, and \fBMorphOneOrMany\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent, $foreignKey, $localKey)"
+.br
+.ti -1c
+.RI "\fBaddConstraints\fP ()"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBmatchOne\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBmatchMany\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBsaveMany\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBfindOrNew\fP ($id, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfirstOrNew\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBfirstOrCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBupdateOrCreate\fP (array $attributes, array $\fBvalues\fP=[])"
+.br
+.ti -1c
+.RI "\fBcreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBcreateMany\fP (array $records)"
+.br
+.ti -1c
+.RI "\fBupdate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBgetHasCompareKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetForeignKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPlainForeignKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetParentKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQualifiedParentKeyName\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmatchOneOrMany\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation, $type)"
+.br
+.ti -1c
+.RI "\fBgetRelationValue\fP (array $dictionary, $key, $type)"
+.br
+.ti -1c
+.RI "\fBbuildDictionary\fP (\fBCollection\fP $results)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$foreignKey\fP"
+.br
+.ti -1c
+.RI "\fB$localKey\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file HasOneOrMany\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent,  $foreignKey,  $localKey)"
+Create a new has one or many relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file HasOneOrMany\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConstraints ()"
+Set the base constraints on the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file HasOneOrMany\&.php\&.
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file HasOneOrMany\&.php\&.
+.SS "buildDictionary (\fBCollection\fP $results)\fC [protected]\fP"
+Build model dictionary keyed by the relation's foreign key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$results\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 144 of file HasOneOrMany\&.php\&.
+.SS "create (array $attributes)"
+Create a new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 264 of file HasOneOrMany\&.php\&.
+.SS "createMany (array $records)"
+Create an array of new instances of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$records\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file HasOneOrMany\&.php\&.
+.SS "findOrNew ( $id,  $columns = \fC['*']\fP)"
+Find a model by its primary key or return new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+| 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file HasOneOrMany\&.php\&.
+.SS "firstOrCreate (array $attributes)"
+Get the first related record matching the attributes or create it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 230 of file HasOneOrMany\&.php\&.
+.SS "firstOrNew (array $attributes)"
+Get the first related model record matching the attributes or instantiate it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 212 of file HasOneOrMany\&.php\&.
+.SS "getForeignKey ()"
+Get the foreign key for the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 327 of file HasOneOrMany\&.php\&.
+.SS "getHasCompareKey ()"
+Get the key for comparing against the parent key in 'has' query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file HasOneOrMany\&.php\&.
+.SS "getParentKey ()"
+Get the key value of the parent's local key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file HasOneOrMany\&.php\&.
+.SS "getPlainForeignKey ()"
+Get the plain foreign key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 337 of file HasOneOrMany\&.php\&.
+.SS "getQualifiedParentKeyName ()"
+Get the fully qualified parent key name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file HasOneOrMany\&.php\&.
+.SS "getRelationValue (array $dictionary,  $key,  $type)\fC [protected]\fP"
+Get the value of a relationship by one or many type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dictionary\fP 
+.br
+\fI$key\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file HasOneOrMany\&.php\&.
+.SS "matchMany (array $models, \fBCollection\fP $results,  $relation)"
+Match the eagerly loaded results to their many parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file HasOneOrMany\&.php\&.
+.SS "matchOne (array $models, \fBCollection\fP $results,  $relation)"
+Match the eagerly loaded results to their single parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file HasOneOrMany\&.php\&.
+.SS "matchOneOrMany (array $models, \fBCollection\fP $results,  $relation,  $type)\fC [protected]\fP"
+Match the eagerly loaded results to their many parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file HasOneOrMany\&.php\&.
+.SS "save (\fBModel\fP $model)"
+Attach a model instance to the parent model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 167 of file HasOneOrMany\&.php\&.
+.SS "saveMany (array $models)"
+Attach an array of models to the parent instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file HasOneOrMany\&.php\&.
+.SS "update (array $attributes)"
+Perform an update on all the related models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 302 of file HasOneOrMany\&.php\&.
+.SS "updateOrCreate (array $attributes, array $values = \fC[]\fP)"
+Create or update a related record matching the attributes, and fill it with values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 247 of file HasOneOrMany\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$foreignKey\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file HasOneOrMany\&.php\&.
+.SS "$localKey\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file HasOneOrMany\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

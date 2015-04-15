@@ -1,0 +1,163 @@
+.TH "StreamedResponse" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StreamedResponse \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBResponse\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBcallback\fP=null, $status=200, $headers=array())"
+.br
+.ti -1c
+.RI "\fBsetCallback\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsendContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContent\fP ($content)"
+.br
+.ti -1c
+.RI "\fBgetContent\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP ($\fBcallback\fP=null, $status=200, $headers=array())"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$callback\fP"
+.br
+.ti -1c
+.RI "\fB$streamed\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBStreamedResponse\fP represents a streamed HTTP response\&.
+.PP
+\fBA\fP \fBStreamedResponse\fP uses a callback for its content\&.
+.PP
+The callback should use the standard \fBPHP\fP functions like echo to stream the response back to the client\&. The \fBflush()\fP method can also be used if needed\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBflush()\fP
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 29 of file StreamedResponse\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $callback = \fCnull\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP valid \fBPHP\fP callback or null to set it later 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers
+.RE
+.PP
+
+.PP
+Definition at line 43 of file StreamedResponse\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static create ( $callback = \fCnull\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)\fC [static]\fP"
+Factory method for chainability
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP valid \fBPHP\fP callback or null to set it later 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStreamedResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file StreamedResponse\&.php\&.
+.SS "getContent ()"
+{}
+.PP
+\fBReturns:\fP
+.RS 4
+false 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file StreamedResponse\&.php\&.
+.SS "sendContent ()"
+{}
+.PP
+This method only sends the content once\&. 
+.PP
+Definition at line 87 of file StreamedResponse\&.php\&.
+.SS "setCallback ( $callback)"
+Sets the \fBPHP\fP callback associated with this \fBResponse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP valid \fBPHP\fP callback
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 74 of file StreamedResponse\&.php\&.
+.SS "setContent ( $content)"
+{}
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 107 of file StreamedResponse\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBcallback\fP\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file StreamedResponse\&.php\&.
+.SS "$streamed\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file StreamedResponse\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

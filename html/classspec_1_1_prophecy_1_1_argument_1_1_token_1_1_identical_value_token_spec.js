@@ -1,0 +1,26 @@
+var classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec =
+[
+    [ "it_generates_proper_string_representation_for_array", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a7a2c95466087804c28cd9be89dd4fc43", null ],
+    [ "it_generates_proper_string_representation_for_boolean_false", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#afa2bfa1891fe8e69afc886bda44e0fb5", null ],
+    [ "it_generates_proper_string_representation_for_boolean_true", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#afb9b8746a27f56889526e3c13188bedf", null ],
+    [ "it_generates_proper_string_representation_for_double", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a35fcc367607e6a0c003b7ce3e08887d3", null ],
+    [ "it_generates_proper_string_representation_for_empty_array", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a06c1a8cd97d3ed25a46cd39833b4be21", null ],
+    [ "it_generates_proper_string_representation_for_integer", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#ae062316d7ad6f50e3dd802c522844b73", null ],
+    [ "it_generates_proper_string_representation_for_null", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a6bf0562e168ee962fb5c8490bac154b8", null ],
+    [ "it_generates_proper_string_representation_for_object", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a71bd67f54d3a381226e97cc9c9c46210", null ],
+    [ "it_generates_proper_string_representation_for_resource", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a74f32f47c3780743bf5b425dfc66a2e8", null ],
+    [ "it_generates_proper_string_representation_for_string", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#abaedbe9e6fc62b62e908d066fe29d892", null ],
+    [ "it_generates_single_line_representation_for_multiline_string", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#ad587b18dc9ca546568edef7d1f019b3d", null ],
+    [ "it_is_initializable", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#afdf5007aa47052bca735a25ca2d30d6a", null ],
+    [ "it_is_not_last", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#af730fd0fa5f338607740d3c09e4865d2", null ],
+    [ "it_scores_11_if_array_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a08aa2f7844e2324d886bf1479b73552b", null ],
+    [ "it_scores_11_if_boolean_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a63fe18ef713705878ace299a7eb36dd6", null ],
+    [ "it_scores_11_if_float_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a2ac2462e6e8a740067e519ef36487065", null ],
+    [ "it_scores_11_if_integer_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a729c27ab40b2a2acbb006a256db213d9", null ],
+    [ "it_scores_11_if_object_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a1fb61d9ed620853e68576d23caa0f6a8", null ],
+    [ "it_scores_11_if_string_value_is_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#afba765d65d20d8b1473efa9fe823bfa7", null ],
+    [ "it_scores_false_if_integer_value_is_not_identical_to_boolean_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#ae4ff355c2233212559e337329d0cb60e", null ],
+    [ "it_scores_false_if_object_value_is_not_the_same_instance_than_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a8fac8e36e79f0418ec7c3af3d0f7f463", null ],
+    [ "it_scores_false_if_value_is_not_identical_to_argument", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#ade9abb84924af61cd6b92b3c43116c31", null ],
+    [ "let", "classspec_1_1_prophecy_1_1_argument_1_1_token_1_1_identical_value_token_spec.html#a92b2066910462455a57bc11dc790894a", null ]
+];

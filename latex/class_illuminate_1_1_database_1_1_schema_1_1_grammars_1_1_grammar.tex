@@ -1,0 +1,610 @@
+\section{Grammar Class Reference}
+\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar}\index{Grammar@{Grammar}}
+Inheritance diagram for Grammar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf compile\+Rename\+Column} ({\bf Blueprint} \$blueprint, {\bf Fluent} \$command, {\bf Connection} \$connection)
+\item 
+{\bf compile\+Foreign} ({\bf Blueprint} \$blueprint, {\bf Fluent} \$command)
+\item 
+{\bf prefix\+Array} (\$prefix, array \${\bf values})
+\item 
+{\bf wrap\+Table} (\$table)
+\item 
+{\bf wrap} (\$value, \$prefix\+Alias=false)
+\item 
+{\bf compile\+Change} ({\bf Blueprint} \$blueprint, {\bf Fluent} \$command, {\bf Connection} \$connection)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Renamed\+Diff} ({\bf Blueprint} \$blueprint, {\bf Fluent} \$command, Column \$column, Schema\+Manager \$schema)
+\item 
+{\bf set\+Renamed\+Columns} (Table\+Diff \$table\+Diff, {\bf Fluent} \$command, Column \$column)
+\item 
+{\bf get\+Columns} ({\bf Blueprint} \$blueprint)
+\item 
+{\bf add\+Modifiers} (\$sql, {\bf Blueprint} \$blueprint, {\bf Fluent} \$column)
+\item 
+{\bf get\+Command\+By\+Name} ({\bf Blueprint} \$blueprint, \${\bf name})
+\item 
+{\bf get\+Commands\+By\+Name} ({\bf Blueprint} \$blueprint, \${\bf name})
+\item 
+{\bf get\+Type} ({\bf Fluent} \$column)
+\item 
+{\bf get\+Default\+Value} (\$value)
+\item 
+{\bf get\+Doctrine\+Table\+Diff} ({\bf Blueprint} \$blueprint, Schema\+Manager \$schema)
+\item 
+{\bf get\+Changed\+Diff} ({\bf Blueprint} \$blueprint, Schema\+Manager \$schema)
+\item 
+{\bf get\+Table\+With\+Column\+Changes} ({\bf Blueprint} \$blueprint, Table \$table)
+\item 
+{\bf get\+Doctrine\+Column\+For\+Change} (Table \$table, {\bf Fluent} \$fluent)
+\item 
+{\bf get\+Doctrine\+Column\+Change\+Options} ({\bf Fluent} \$fluent)
+\item 
+{\bf get\+Doctrine\+Column\+Type} (\$type)
+\item 
+{\bf calculate\+Doctrine\+Text\+Length} (\$type)
+\item 
+{\bf map\+Fluent\+Option\+To\+Doctrine} (\${\bf attribute})
+\item 
+{\bf map\+Fluent\+Value\+To\+Doctrine} (\$option, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 15 of file Grammar.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!add\+Modifiers@{add\+Modifiers}}
+\index{add\+Modifiers@{add\+Modifiers}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{add\+Modifiers}]{\setlength{\rightskip}{0pt plus 5cm}add\+Modifiers (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{{\bf Fluent}}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a864f1bd18d2a3c8025e6d87de1f1e995}
+Add the column modifiers to the definition.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!calculate\+Doctrine\+Text\+Length@{calculate\+Doctrine\+Text\+Length}}
+\index{calculate\+Doctrine\+Text\+Length@{calculate\+Doctrine\+Text\+Length}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{calculate\+Doctrine\+Text\+Length}]{\setlength{\rightskip}{0pt plus 5cm}calculate\+Doctrine\+Text\+Length (
+\begin{DoxyParamCaption}
+\item[{}]{\$type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a1484bd25ed8cce7c122e88a72fa6223f}
+Calculate the proper column length to force the \doxyref{Doctrine}{p.}{namespace_doctrine} text type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 403 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!compile\+Change@{compile\+Change}}
+\index{compile\+Change@{compile\+Change}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{compile\+Change}]{\setlength{\rightskip}{0pt plus 5cm}compile\+Change (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{{\bf Fluent}}]{\$command, }
+\item[{{\bf Connection}}]{\$connection}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a480f98826e4c9bbe17b5dede831c44e6}
+Compile a change column command into a series of S\+Q\+L statements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$command} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 278 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!compile\+Foreign@{compile\+Foreign}}
+\index{compile\+Foreign@{compile\+Foreign}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{compile\+Foreign}]{\setlength{\rightskip}{0pt plus 5cm}compile\+Foreign (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{{\bf Fluent}}]{\$command}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_ade455e059a35b928da33846c8c17cc74}
+Compile a foreign key command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$command} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!compile\+Rename\+Column@{compile\+Rename\+Column}}
+\index{compile\+Rename\+Column@{compile\+Rename\+Column}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{compile\+Rename\+Column}]{\setlength{\rightskip}{0pt plus 5cm}compile\+Rename\+Column (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{{\bf Fluent}}]{\$command, }
+\item[{{\bf Connection}}]{\$connection}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a1da79c8abc13e257aa7fda553d21c5b7}
+Compile a rename column command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$command} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Changed\+Diff@{get\+Changed\+Diff}}
+\index{get\+Changed\+Diff@{get\+Changed\+Diff}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Changed\+Diff}]{\setlength{\rightskip}{0pt plus 5cm}get\+Changed\+Diff (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{Schema\+Manager}]{\$schema}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a5c59b38a01a6933395ac7b4518ac7797}
+Get the \doxyref{Doctrine}{p.}{namespace_doctrine} table difference for the given changes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Abstract\+Schema\+Manager & {\em \$schema} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$bool 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Columns@{get\+Columns}}
+\index{get\+Columns@{get\+Columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Columns (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a0470593e4c1de8da055fb5edb124377c}
+Compile the blueprint\textquotesingle{}s column definitions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Command\+By\+Name@{get\+Command\+By\+Name}}
+\index{get\+Command\+By\+Name@{get\+Command\+By\+Name}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Command\+By\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Command\+By\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_af03d389c465abfb6bf586232fa1e2e95}
+Get the primary key command if it exists on the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Commands\+By\+Name@{get\+Commands\+By\+Name}}
+\index{get\+Commands\+By\+Name@{get\+Commands\+By\+Name}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Commands\+By\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Commands\+By\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a0ca8d8ca12e5a967448471523920fdf6}
+Get all of the commands with a given name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 179 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Default\+Value@{get\+Default\+Value}}
+\index{get\+Default\+Value@{get\+Default\+Value}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Default\+Value}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a663441b597c9ad03cf80568cd83f46a0}
+Format a value so that it can be used in \char`\"{}default\char`\"{} clauses.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 243 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Doctrine\+Column\+Change\+Options@{get\+Doctrine\+Column\+Change\+Options}}
+\index{get\+Doctrine\+Column\+Change\+Options@{get\+Doctrine\+Column\+Change\+Options}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Doctrine\+Column\+Change\+Options}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Column\+Change\+Options (
+\begin{DoxyParamCaption}
+\item[{{\bf Fluent}}]{\$fluent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a131f6e7f066bf62f5a6296d68a56fe48}
+Get the \doxyref{Doctrine}{p.}{namespace_doctrine} column change options.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$fluent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 359 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Doctrine\+Column\+For\+Change@{get\+Doctrine\+Column\+For\+Change}}
+\index{get\+Doctrine\+Column\+For\+Change@{get\+Doctrine\+Column\+For\+Change}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Doctrine\+Column\+For\+Change}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Column\+For\+Change (
+\begin{DoxyParamCaption}
+\item[{Table}]{\$table, }
+\item[{{\bf Fluent}}]{\$fluent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a5cf7dde9de6b96564988d2b29c82c346}
+Get the \doxyref{Doctrine}{p.}{namespace_doctrine} column instance for a column change.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Table & {\em \$table} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$fluent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 346 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Doctrine\+Column\+Type@{get\+Doctrine\+Column\+Type}}
+\index{get\+Doctrine\+Column\+Type@{get\+Doctrine\+Column\+Type}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Doctrine\+Column\+Type}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Column\+Type (
+\begin{DoxyParamCaption}
+\item[{}]{\$type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a81506ad84c8f3c8a74ca70368260798c}
+Get the doctrine column type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 377 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Doctrine\+Table\+Diff@{get\+Doctrine\+Table\+Diff}}
+\index{get\+Doctrine\+Table\+Diff@{get\+Doctrine\+Table\+Diff}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Doctrine\+Table\+Diff}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Table\+Diff (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{Schema\+Manager}]{\$schema}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a05294d6cadf7b7b96b1a5f84b7bb7361}
+Create an empty \doxyref{Doctrine}{p.}{namespace_doctrine} D\+B\+A\+L Table\+Diff from the \doxyref{Blueprint}{p.}{class_illuminate_1_1_database_1_1_schema_1_1_blueprint}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Abstract\+Schema\+Manager & {\em \$schema} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 259 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Renamed\+Diff@{get\+Renamed\+Diff}}
+\index{get\+Renamed\+Diff@{get\+Renamed\+Diff}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Renamed\+Diff}]{\setlength{\rightskip}{0pt plus 5cm}get\+Renamed\+Diff (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{{\bf Fluent}}]{\$command, }
+\item[{Column}]{\$column, }
+\item[{Schema\+Manager}]{\$schema}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_ad0ae0f88b3cbeb904266db9d63f34767}
+Get a new column instance with the new column name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$command} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Column & {\em \$column} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Abstract\+Schema\+Manager & {\em \$schema} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 47 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Table\+With\+Column\+Changes@{get\+Table\+With\+Column\+Changes}}
+\index{get\+Table\+With\+Column\+Changes@{get\+Table\+With\+Column\+Changes}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Table\+With\+Column\+Changes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Table\+With\+Column\+Changes (
+\begin{DoxyParamCaption}
+\item[{{\bf Blueprint}}]{\$blueprint, }
+\item[{Table}]{\$table}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a1e38516e29aed805d19c5acf9d3fcc6c}
+Get a copy of the given \doxyref{Doctrine}{p.}{namespace_doctrine} table after making the column changes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Blueprint & {\em \$blueprint} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Table & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 313 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{get\+Type}]{\setlength{\rightskip}{0pt plus 5cm}get\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Fluent}}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a7ebd97ab3628b9ac55d04d0a60890a5f}
+Get the S\+Q\+L for the column data type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 193 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!map\+Fluent\+Option\+To\+Doctrine@{map\+Fluent\+Option\+To\+Doctrine}}
+\index{map\+Fluent\+Option\+To\+Doctrine@{map\+Fluent\+Option\+To\+Doctrine}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{map\+Fluent\+Option\+To\+Doctrine}]{\setlength{\rightskip}{0pt plus 5cm}map\+Fluent\+Option\+To\+Doctrine (
+\begin{DoxyParamCaption}
+\item[{}]{\$attribute}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_ac2ec3bcf9fc9c496c776a97c479c28e6}
+Get the matching \doxyref{Doctrine}{p.}{namespace_doctrine} option for a given Fluent attribute name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$attribute} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 424 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!map\+Fluent\+Value\+To\+Doctrine@{map\+Fluent\+Value\+To\+Doctrine}}
+\index{map\+Fluent\+Value\+To\+Doctrine@{map\+Fluent\+Value\+To\+Doctrine}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{map\+Fluent\+Value\+To\+Doctrine}]{\setlength{\rightskip}{0pt plus 5cm}map\+Fluent\+Value\+To\+Doctrine (
+\begin{DoxyParamCaption}
+\item[{}]{\$option, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a28c112160bf47184bf6a7b88522d4878}
+Get the matching \doxyref{Doctrine}{p.}{namespace_doctrine} value for a given Fluent attribute.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$option} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 453 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!prefix\+Array@{prefix\+Array}}
+\index{prefix\+Array@{prefix\+Array}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{prefix\+Array}]{\setlength{\rightskip}{0pt plus 5cm}prefix\+Array (
+\begin{DoxyParamCaption}
+\item[{}]{\$prefix, }
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a8d546d668a604a1deb1d5e046e1c32c3}
+Add a prefix to an array of values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$prefix} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!set\+Renamed\+Columns@{set\+Renamed\+Columns}}
+\index{set\+Renamed\+Columns@{set\+Renamed\+Columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{set\+Renamed\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}set\+Renamed\+Columns (
+\begin{DoxyParamCaption}
+\item[{Table\+Diff}]{\$table\+Diff, }
+\item[{{\bf Fluent}}]{\$command, }
+\item[{Column}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_af894b41a7ad8a0861e5486187966c9c1}
+Set the renamed columns on the table diff.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Table\+Diff & {\em \$table\+Diff} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Support\textbackslash{}\+Fluent & {\em \$command} & \\
+\hline
+\textbackslash{}\+Doctrine\textbackslash{}\+D\+B\+A\+L\textbackslash{}\+Schema\textbackslash{}\+Column & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!wrap@{wrap}}
+\index{wrap@{wrap}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{wrap}]{\setlength{\rightskip}{0pt plus 5cm}wrap (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$prefix\+Alias = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a6731820c2c68c8cd3e5592dc5e39d681}
+\{\} 
+
+Definition at line 230 of file Grammar.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}!wrap\+Table@{wrap\+Table}}
+\index{wrap\+Table@{wrap\+Table}!Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar@{Illuminate\+::\+Database\+::\+Schema\+::\+Grammars\+::\+Grammar}}
+\subsubsection[{wrap\+Table}]{\setlength{\rightskip}{0pt plus 5cm}wrap\+Table (
+\begin{DoxyParamCaption}
+\item[{}]{\$table}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_grammars_1_1_grammar_a59e05f77e50b596a69132f305bab6a7e}
+Wrap a table in keyword identifiers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file Grammar.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Schema/\+Grammars/{\bf Grammar.\+php}\end{DoxyCompactItemize}

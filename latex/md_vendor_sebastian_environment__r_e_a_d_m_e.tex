@@ -1,0 +1,61 @@
+This component provides functionality that helps writing \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code that has runtime-\/specific (\doxyref{P\+H\+P}{p.}{namespace_p_h_p} / H\+H\+V\+M) execution paths.
+
+{\tt ![Latest Stable Version](https\+://poser.\+pugx.\+org/sebastian/environment/v/stable.\+png)} {\tt ![Build Status](https\+://travis-\/ci.\+org/sebastianbergmann/environment.\+png?branch=master)}
+
+\subsection*{Installation}
+
+To add \doxyref{Environment}{p.}{namespace_environment} as a local, per-\/project dependency to your project, simply add a dependency on {\ttfamily sebastian/environment} to your project\textquotesingle{}s {\ttfamily composer.\+json} file. Here is a minimal example of a {\ttfamily composer.\+json} file that just defines a dependency on \doxyref{Environment}{p.}{namespace_environment} 1.\+0\+: \begin{DoxyVerb}{
+    "require": {
+        "sebastian/environment": "1.0.*"
+    }
+}
+\end{DoxyVerb}
+
+
+\subsection*{Usage}
+
+```php $<$?php use \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann};
+
+\$runtime = new Runtime;
+
+var\+\_\+dump(\$runtime-\/$>$get\+Name\+With\+Version()); var\+\_\+dump(\$runtime-\/$>$get\+Name()); var\+\_\+dump(\$runtime-\/$>$get\+Version()); var\+\_\+dump(\$runtime-\/$>$get\+Binary()); var\+\_\+dump(\$runtime-\/$>$is\+H\+H\+V\+M()); var\+\_\+dump(\$runtime-\/$>$is\+P\+H\+P()); var\+\_\+dump(\$runtime-\/$>$has\+Xdebug()); var\+\_\+dump(\$runtime-\/$>$can\+Collect\+Code\+Coverage()); ```
+
+\subsubsection*{Output on \doxyref{P\+H\+P}{p.}{namespace_p_h_p}}
+
+\begin{DoxyVerb}$ php --version
+PHP 5.5.8 (cli) (built: Jan  9 2014 08:33:30)
+Copyright (c) 1997-2013 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2013 Zend Technologies
+    with Xdebug v2.2.3, Copyright (c) 2002-2013, by Derick Rethans
+
+
+$ php example.php
+string(9) "PHP 5.5.8"
+string(3) "PHP"
+string(5) "5.5.8"
+string(14) "'/usr/bin/php'"
+bool(false)
+bool(true)
+bool(true)
+bool(true)
+\end{DoxyVerb}
+
+
+\subsubsection*{Output on H\+H\+V\+M}
+
+\begin{DoxyVerb}$ hhvm --version
+HipHop VM 2.4.0-dev (rel)
+Compiler: heads/master-0-ga98e57cabee7e7f0d14493ab17d5c7ab0157eb98
+Repo schema: 8d6e69287c41c1f09bb4d327421720d1922cfc67
+
+
+$ hhvm example.php
+string(14) "HHVM 2.4.0-dev"
+string(4) "HHVM"
+string(9) "2.4.0-dev"
+string(42) "'/usr/local/src/hhvm/hphp/hhvm/hhvm' --php"
+bool(true)
+bool(false)
+bool(false)
+bool(true)\end{DoxyVerb}
+ 

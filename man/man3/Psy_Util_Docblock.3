@@ -1,0 +1,244 @@
+.TH "Docblock" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Docblock \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\\Reflector $reflector)"
+.br
+.ti -1c
+.RI "\fBhasTag\fP ($\fBtag\fP)"
+.br
+.ti -1c
+.RI "\fBtag\fP ($tag)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisTagged\fP ($str)"
+.br
+.ti -1c
+.RI "static \fBstrTag\fP ($str)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$desc\fP"
+.br
+.ti -1c
+.RI "\fB$tags\fP"
+.br
+.ti -1c
+.RI "\fB$comment\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$vectors\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetComment\fP ($comment)"
+.br
+.ti -1c
+.RI "\fBparseComment\fP ($comment)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBprefixLength\fP (array $lines)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$reflector\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP docblock representation\&.
+.PP
+Based on PHP-DocBlock-Parser by Paul Scott:
+.PP
+\fBhttp://www\&.github\&.com/icio/PHP-DocBlock-Parser\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Paul Scott paul@duedil.com 
+.PP
+Justin Hileman justin@justinhileman.info 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file Docblock\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\\Reflector $reflector)"
+\fBDocblock\fP constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$reflector\fP 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Docblock\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "hasTag ( $tag)"
+Whether or not a docblock contains a given \&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tag\fP The name of the  to check for
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file Docblock\&.php\&.
+.SS "static isTagged ( $str)\fC [static]\fP"
+Whether or not a string begins with a \&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file Docblock\&.php\&.
+.SS "parseComment ( $comment)\fC [protected]\fP"
+Parse the comment into the component parts and set the state of the object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$comment\fP The docblock 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file Docblock\&.php\&.
+.SS "static prefixLength (array $lines)\fC [static]\fP, \fC [protected]\fP"
+Find the length of the docblock prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lines\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int Prefix length 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file Docblock\&.php\&.
+.SS "setComment ( $comment)\fC [protected]\fP"
+Set and parse the docblock comment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$comment\fP The docblock 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file Docblock\&.php\&.
+.SS "static strTag ( $str)\fC [static]\fP"
+The tag at the beginning of a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 235 of file Docblock\&.php\&.
+.SS "tag ( $tag)"
+The value of a tag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tag\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file Docblock\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$comment"
+
+.PP
+Definition at line 67 of file Docblock\&.php\&.
+.SS "$desc"
+
+.PP
+Definition at line 46 of file Docblock\&.php\&.
+.SS "$reflector\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file Docblock\&.php\&.
+.SS "$tags"
+
+.PP
+Definition at line 60 of file Docblock\&.php\&.
+.SS "$vectors\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'throws' => array('type', 'desc'),
+        'param'  => array('type', 'var', 'desc'),
+        'return' => array('type', 'desc'),
+    )
+.fi
+.PP
+Definition at line 33 of file Docblock\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

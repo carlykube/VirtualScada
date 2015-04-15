@@ -1,0 +1,201 @@
+.TH "Swift_Plugins_LoggerPlugin" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Plugins_LoggerPlugin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_CommandListener\fP, \fBSwift_Events_ResponseListener\fP, \fBSwift_Events_TransportChangeListener\fP, \fBSwift_Events_TransportExceptionListener\fP, and \fBSwift_Plugins_Logger\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Plugins_Logger\fP $logger)"
+.br
+.ti -1c
+.RI "\fBadd\fP ($entry)"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBdump\fP ()"
+.br
+.ti -1c
+.RI "\fBcommandSent\fP (\fBSwift_Events_CommandEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBresponseReceived\fP (\fBSwift_Events_ResponseEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBbeforeTransportStarted\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBtransportStarted\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBbeforeTransportStopped\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBtransportStopped\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBexceptionThrown\fP (\fBSwift_Events_TransportExceptionEvent\fP $evt)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Does real time logging of Transport level information\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file LoggerPlugin\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Plugins_Logger\fP $logger)"
+Create a new LoggerPlugin using $logger\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file LoggerPlugin\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $entry)"
+Add a log entry\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$entry\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Logger\fP\&.
+.PP
+Definition at line 36 of file LoggerPlugin\&.php\&.
+.SS "beforeTransportStarted (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Invoked just before a Transport is started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 86 of file LoggerPlugin\&.php\&.
+.SS "beforeTransportStopped (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Invoked just before a Transport is stopped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 108 of file LoggerPlugin\&.php\&.
+.SS "clear ()"
+Clear the log contents\&. 
+.PP
+Implements \fBSwift_Plugins_Logger\fP\&.
+.PP
+Definition at line 44 of file LoggerPlugin\&.php\&.
+.SS "commandSent (\fBSwift_Events_CommandEvent\fP $evt)"
+Invoked immediately following a command being sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_CommandListener\fP\&.
+.PP
+Definition at line 64 of file LoggerPlugin\&.php\&.
+.SS "dump ()"
+Get this log as a string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Logger\fP\&.
+.PP
+Definition at line 54 of file LoggerPlugin\&.php\&.
+.SS "exceptionThrown (\fBSwift_Events_TransportExceptionEvent\fP $evt)"
+Invoked as a TransportException is thrown in the Transport system\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportExceptionListener\fP\&.
+.PP
+Definition at line 130 of file LoggerPlugin\&.php\&.
+.SS "responseReceived (\fBSwift_Events_ResponseEvent\fP $evt)"
+Invoked immediately following a response coming back\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_ResponseListener\fP\&.
+.PP
+Definition at line 75 of file LoggerPlugin\&.php\&.
+.SS "transportStarted (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Invoked immediately after the Transport is started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 97 of file LoggerPlugin\&.php\&.
+.SS "transportStopped (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Invoked immediately after the Transport is stopped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 119 of file LoggerPlugin\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

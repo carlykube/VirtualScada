@@ -1,0 +1,139 @@
+.TH "ChainUserProvider" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChainUserProvider \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBUserProviderInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $providers)"
+.br
+.ti -1c
+.RI "\fBgetProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBloadUserByUsername\fP ($username)"
+.br
+.ti -1c
+.RI "\fBrefreshUser\fP (\fBUserInterface\fP $user)"
+.br
+.ti -1c
+.RI "\fBsupportsClass\fP ($class)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Chain \fBUser\fP Provider\&.
+.PP
+This provider calls several leaf providers in a chain until one is able to handle the request\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file ChainUserProvider\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $providers)"
+
+.PP
+Definition at line 29 of file ChainUserProvider\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getProviders ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file ChainUserProvider\&.php\&.
+.SS "loadUserByUsername ( $username)"
+{Loads the user for the given username\&.
+.PP
+This method must throw UsernameNotFoundException if the user is not found\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP The username
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBUserInterface\fP
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+UsernameNotFoundException
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUsernameNotFoundException\fP if the user is not found
+.RE
+.PP
+} 
+.PP
+Implements \fBUserProviderInterface\fP\&.
+.PP
+Definition at line 45 of file ChainUserProvider\&.php\&.
+.SS "refreshUser (\fBUserInterface\fP $user)"
+{Refreshes the user for the account interface\&.
+.PP
+It is up to the implementation to decide if the user data should be totally reloaded (e\&.g\&. from the database), or if the \fBUserInterface\fP object can just be merged into some internal array of users / identity map\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBUserInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUnsupportedUserException\fP if the account is not supported
+.RE
+.PP
+} 
+.PP
+Implements \fBUserProviderInterface\fP\&.
+.PP
+Definition at line 63 of file ChainUserProvider\&.php\&.
+.SS "supportsClass ( $class)"
+{Whether this provider supports the given user class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBUserProviderInterface\fP\&.
+.PP
+Definition at line 90 of file ChainUserProvider\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

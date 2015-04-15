@@ -1,0 +1,260 @@
+.TH "MongoDbSessionHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MongoDbSessionHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionHandlerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($mongo, array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($maxlifetime)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetMongo\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+MongoDB session handler\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Markus Bachmann markus.bachmann@bachi.biz 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file MongoDbSessionHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $mongo, array $options)"
+Constructor\&.
+.PP
+List of available options:
+.IP "\(bu" 2
+database: The name of the database [required]
+.IP "\(bu" 2
+collection: The name of the collection [required]
+.IP "\(bu" 2
+id_field: The field name for storing the session id [default: _id]
+.IP "\(bu" 2
+data_field: The field name for storing the session data [default: data]
+.IP "\(bu" 2
+time_field: The field name for storing the timestamp [default: time]
+.IP "\(bu" 2
+expiry_field: The field name for storing the expiry-timestamp [default: expires_at]
+.PP
+.PP
+It is strongly recommended to put an index on the \fCexpiry_field\fP for garbage-collection\&. Alternatively it's possible to automatically expire the sessions in the database as described below:
+.PP
+\fBA\fP TTL collections can be used on MongoDB 2\&.2+ to cleanup expired sessions automatically\&. Such an index can for example look like this: 
+.PP
+.nf
+db.<session-collection>.ensureIndex(
+    { "<expiry-field>": 1 },
+    { "expireAfterSeconds": 0 }
+)
+
+.fi
+.PP
+.PP
+More details on: http://docs.mongodb.org/manual/tutorial/expire-data/
+.PP
+If you use such an index, you can drop \fCgc_probability\fP to 0 since no garbage-collection is required\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mongo\fP \fBA\fP MongoClient or Mongo instance 
+.br
+\fI$options\fP An associative array of field options
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 70 of file MongoDbSessionHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 101 of file MongoDbSessionHandler\&.php\&.
+.SS "destroy ( $sessionId)"
+{Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 109 of file MongoDbSessionHandler\&.php\&.
+.SS "gc ( $maxlifetime)"
+{Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 121 of file MongoDbSessionHandler\&.php\&.
+.SS "getMongo ()\fC [protected]\fP"
+Return a Mongo instance
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 184 of file MongoDbSessionHandler\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+{Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 93 of file MongoDbSessionHandler\&.php\&.
+.SS "read ( $sessionId)"
+{Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 155 of file MongoDbSessionHandler\&.php\&.
+.SS "write ( $sessionId,  $data)"
+{Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 133 of file MongoDbSessionHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

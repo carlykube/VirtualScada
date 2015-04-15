@@ -1,0 +1,28 @@
+var class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test =
+[
+    [ "setProvider", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a178020cd5ae704f5436dd7ba9c06540a", null ],
+    [ "setUp", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "tearDown", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a80fe3d17e658907fc75346a0ec9d6fc7", null ],
+    [ "testAll", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a27df0e7fee8918b7bac181eb1bd9495c", null ],
+    [ "testClear", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a2606808e3c9f42668b758d792c93c616", null ],
+    [ "testGet", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#ac2d7c7125d2d3749e9ede4aa2ba6ba3b", null ],
+    [ "testGetCount", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a5820b3f48af3133e0a7afdc6cff90e01", null ],
+    [ "testGetFlashBag", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a38c1ab5781e698b9212c586c892009ec", null ],
+    [ "testGetId", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#af36458d4c1e8f5bbc4f1e6662380e302", null ],
+    [ "testGetIterator", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#abd07cce01a49dd4ff73af36724305053", null ],
+    [ "testGetMeta", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a9fa91c99d257d928b3b6f6d1883e0ddf", null ],
+    [ "testHas", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a605d194af40bde12c0f1cd28650220d7", null ],
+    [ "testInvalidate", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#aa2b0d5ae10c3d83eea02587ea3b63b3d", null ],
+    [ "testIsStarted", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a318a26a5c6a4caa10d25032782af8532", null ],
+    [ "testMigrate", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#ab9a277254bbd4304c93154be996a6a85", null ],
+    [ "testMigrateDestroy", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#af143415fd33c777c653ef230518daada", null ],
+    [ "testRemove", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a9bab3ec809908a9a541ee759f3f2812c", null ],
+    [ "testReplace", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#af28fe28f391ab70a63e34b644f0d4f01", null ],
+    [ "testSave", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a4bb61b425a88f48de213af3e001ac361", null ],
+    [ "testSet", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a1157553e28e92c0568a2e1bf8cd2fe28", null ],
+    [ "testSetId", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#acdb679daf19b2fbcaac5771a17d6b3b3", null ],
+    [ "testSetName", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a80fc2a8d59a91b882a746166e0baccd5", null ],
+    [ "testStart", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#aa7178645f2e281e856a823b197b0a54a", null ],
+    [ "$session", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#abefb3c26429d514777313e9a63d7cbac", null ],
+    [ "$storage", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_session_test.html#a23658d9b796eebdea4cee5c9f0046894", null ]
+];

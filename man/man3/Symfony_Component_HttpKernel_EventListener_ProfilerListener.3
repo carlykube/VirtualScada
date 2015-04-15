@@ -1,0 +1,185 @@
+.TH "ProfilerListener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProfilerListener \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventSubscriberInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBProfiler\fP $profiler, \fBRequestMatcherInterface\fP $matcher=null, $onlyException=false, $onlyMasterRequests=false, \fBRequestStack\fP $requestStack=null)"
+.br
+.ti -1c
+.RI "\fBonKernelException\fP (\fBGetResponseForExceptionEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBonKernelRequest\fP (\fBGetResponseEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBonKernelResponse\fP (\fBFilterResponseEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBonKernelTerminate\fP (\fBPostResponseEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetSubscribedEvents\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$profiler\fP"
+.br
+.ti -1c
+.RI "\fB$matcher\fP"
+.br
+.ti -1c
+.RI "\fB$onlyException\fP"
+.br
+.ti -1c
+.RI "\fB$onlyMasterRequests\fP"
+.br
+.ti -1c
+.RI "\fB$exception\fP"
+.br
+.ti -1c
+.RI "\fB$requests\fP = array()"
+.br
+.ti -1c
+.RI "\fB$profiles\fP"
+.br
+.ti -1c
+.RI "\fB$requestStack\fP"
+.br
+.ti -1c
+.RI "\fB$parents\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProfilerListener\fP collects data for the current request by listening to the onKernelResponse event\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file ProfilerListener\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBProfiler\fP $profiler, \fBRequestMatcherInterface\fP $matcher = \fCnull\fP,  $onlyException = \fCfalse\fP,  $onlyMasterRequests = \fCfalse\fP, \fBRequestStack\fP $requestStack = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profiler\fP \fBA\fP \fBProfiler\fP instance 
+.br
+\fI$matcher\fP \fBA\fP RequestMatcher instance 
+.br
+\fI$onlyException\fP true if the profiler only collects data when an exception occurs, false otherwise 
+.br
+\fI$onlyMasterRequests\fP true if the profiler only collects data when the request is a master request, false otherwise 
+.br
+\fI$requestStack\fP \fBA\fP RequestStack instance 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file ProfilerListener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static getSubscribedEvents ()\fC [static]\fP"
+
+.PP
+Definition at line 147 of file ProfilerListener\&.php\&.
+.SS "onKernelException (\fBGetResponseForExceptionEvent\fP $event)"
+Handles the onKernelException event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP \fBA\fP GetResponseForExceptionEvent instance 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file ProfilerListener\&.php\&.
+.SS "onKernelRequest (\fBGetResponseEvent\fP $event)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.4, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file ProfilerListener\&.php\&.
+.SS "onKernelResponse (\fBFilterResponseEvent\fP $event)"
+Handles the onKernelResponse event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP \fBA\fP FilterResponseEvent instance 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file ProfilerListener\&.php\&.
+.SS "onKernelTerminate (\fBPostResponseEvent\fP $event)"
+
+.PP
+Definition at line 125 of file ProfilerListener\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$exception\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file ProfilerListener\&.php\&.
+.SS "$matcher\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file ProfilerListener\&.php\&.
+.SS "$onlyException\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file ProfilerListener\&.php\&.
+.SS "$onlyMasterRequests\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file ProfilerListener\&.php\&.
+.SS "$parents\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file ProfilerListener\&.php\&.
+.SS "$profiler\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file ProfilerListener\&.php\&.
+.SS "$profiles\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file ProfilerListener\&.php\&.
+.SS "$requests = array()\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file ProfilerListener\&.php\&.
+.SS "$requestStack\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file ProfilerListener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

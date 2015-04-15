@@ -1,0 +1,533 @@
+.TH "PHP_Token_Stream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHP_Token_Stream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ArrayAccess, Countable, and SeekableIterator\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($sourceCode)"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFilename\fP ()"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBtokens\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClasses\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFunctions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetInterfaces\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTraits\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIncludes\fP ($categorize=FALSE, $category=NULL)"
+.br
+.ti -1c
+.RI "\fBgetFunctionForLine\fP ($\fBline\fP)"
+.br
+.ti -1c
+.RI "\fBgetLinesOfCode\fP ()"
+.br
+.ti -1c
+.RI "\fBrewind\fP ()"
+.br
+.ti -1c
+.RI "\fBvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBkey\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBnext\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($offset, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBseek\fP ($position)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBscan\fP ($sourceCode)"
+.br
+.ti -1c
+.RI "\fBparse\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$filename\fP"
+.br
+.ti -1c
+.RI "\fB$tokens\fP = array()"
+.br
+.ti -1c
+.RI "\fB$position\fP = 0"
+.br
+.ti -1c
+.RI "\fB$linesOfCode\fP = array('loc' => 0, 'cloc' => 0, 'ncloc' => 0)"
+.br
+.ti -1c
+.RI "\fB$classes\fP"
+.br
+.ti -1c
+.RI "\fB$functions\fP"
+.br
+.ti -1c
+.RI "\fB$includes\fP"
+.br
+.ti -1c
+.RI "\fB$interfaces\fP"
+.br
+.ti -1c
+.RI "\fB$traits\fP"
+.br
+.ti -1c
+.RI "\fB$lineToFunctionMap\fP = array()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$customTokens\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP stream of \fBPHP\fP tokens\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Sebastian Bergmann sebastian@phpunit.de 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+Sebastian Bergmann sebastian@phpunit.de  http://www.opensource.org/licenses/BSD-3-Clause The BSD 3-Clause License 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+Release: @ \fBClass available since Release 1\&.0\&.0 \fP
+.RE
+.PP
+
+.PP
+Definition at line 21 of file Stream\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $sourceCode)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sourceCode\fP 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file Stream\&.php\&.
+.SS "__destruct ()"
+Destructor\&. 
+.PP
+Definition at line 125 of file Stream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file Stream\&.php\&.
+.SS "count ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Stream\&.php\&.
+.SS "current ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHP_Token\fP 
+.RE
+.PP
+
+.PP
+Definition at line 527 of file Stream\&.php\&.
+.SS "getClasses ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file Stream\&.php\&.
+.SS "getFilename ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Stream\&.php\&.
+.SS "getFunctionForLine ( $line)"
+Returns the name of the function or method a line belongs to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string or null if the line is not in a function or method 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 348 of file Stream\&.php\&.
+.SS "getFunctions ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Stream\&.php\&.
+.SS "getIncludes ( $categorize = \fCFALSE\fP,  $category = \fCNULL\fP)"
+Gets the names of all files that have been included using include(), include_once(), require() or require_once()\&.
+.PP
+Parameter $categorize set to TRUE causing this function to return a multi-dimensional array with categories in the keys of the first dimension and constants and their values in the second dimension\&.
+.PP
+Parameter $category allow to filter following specific inclusion type
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$categorize\fP OPTIONAL 
+.br
+\fI$category\fP OPTIONAL Either 'require_once', 'require', 'include_once', 'include'\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file Stream\&.php\&.
+.SS "getInterfaces ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file Stream\&.php\&.
+.SS "getLinesOfCode ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 496 of file Stream\&.php\&.
+.SS "getTraits ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file Stream\&.php\&.
+.SS "key ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file Stream\&.php\&.
+.SS "next ()"
+
+.PP
+Definition at line 534 of file Stream\&.php\&.
+.SS "offsetExists ( $offset)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 542 of file Stream\&.php\&.
+.SS "offsetGet ( $offset)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 551 of file Stream\&.php\&.
+.SS "offsetSet ( $offset,  $value)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 560 of file Stream\&.php\&.
+.SS "offsetUnset ( $offset)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 568 of file Stream\&.php\&.
+.SS "parse ()\fC [protected]\fP"
+
+.PP
+Definition at line 357 of file Stream\&.php\&.
+.SS "rewind ()"
+
+.PP
+Definition at line 503 of file Stream\&.php\&.
+.SS "scan ( $sourceCode)\fC [protected]\fP"
+Scans the source for sequences of characters and converts them into a stream of tokens\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sourceCode\fP 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file Stream\&.php\&.
+.SS "seek ( $position)"
+Seek to an absolute position\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$position\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIOutOfBoundsException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 579 of file Stream\&.php\&.
+.SS "tokens ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHP_Token\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file Stream\&.php\&.
+.SS "valid ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 511 of file Stream\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$classes\fC [protected]\fP"
+
+.PP
+Definition at line 80 of file Stream\&.php\&.
+.SS "$customTokens\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+      '(' => 'PHP_Token_OPEN_BRACKET',
+      ')' => 'PHP_Token_CLOSE_BRACKET',
+      '[' => 'PHP_Token_OPEN_SQUARE',
+      ']' => 'PHP_Token_CLOSE_SQUARE',
+      '{' => 'PHP_Token_OPEN_CURLY',
+      '}' => 'PHP_Token_CLOSE_CURLY',
+      ';' => 'PHP_Token_SEMICOLON',
+      '\&.' => 'PHP_Token_DOT',
+      ',' => 'PHP_Token_COMMA',
+      '=' => 'PHP_Token_EQUAL',
+      '<' => 'PHP_Token_LT',
+      '>' => 'PHP_Token_GT',
+      '+' => 'PHP_Token_PLUS',
+      '-' => 'PHP_Token_MINUS',
+      '*' => 'PHP_Token_MULT',
+      '/' => 'PHP_Token_DIV',
+      '?' => 'PHP_Token_QUESTION_MARK',
+      '!' => 'PHP_Token_EXCLAMATION_MARK',
+      ':' => 'PHP_Token_COLON',
+      '"' => 'PHP_Token_DOUBLE_QUOTES',
+      '@' => 'PHP_Token_AT',
+      '&' => 'PHP_Token_AMPERSAND',
+      '%' => 'PHP_Token_PERCENT',
+      '|' => 'PHP_Token_PIPE',
+      '$' => 'PHP_Token_DOLLAR',
+      '^' => 'PHP_Token_CARET',
+      '~' => 'PHP_Token_TILDE',
+      '`' => 'PHP_Token_BACKTICK'
+    )
+.fi
+.PP
+Definition at line 26 of file Stream\&.php\&.
+.SS "$filename\fC [protected]\fP"
+
+.PP
+Definition at line 60 of file Stream\&.php\&.
+.SS "$functions\fC [protected]\fP"
+
+.PP
+Definition at line 85 of file Stream\&.php\&.
+.SS "$includes\fC [protected]\fP"
+
+.PP
+Definition at line 90 of file Stream\&.php\&.
+.SS "$interfaces\fC [protected]\fP"
+
+.PP
+Definition at line 95 of file Stream\&.php\&.
+.SS "$linesOfCode = array('loc' => 0, 'cloc' => 0, 'ncloc' => 0)\fC [protected]\fP"
+
+.PP
+Definition at line 75 of file Stream\&.php\&.
+.SS "$lineToFunctionMap = array()\fC [protected]\fP"
+
+.PP
+Definition at line 105 of file Stream\&.php\&.
+.SS "$position = 0\fC [protected]\fP"
+
+.PP
+Definition at line 70 of file Stream\&.php\&.
+.SS "$\fBtokens\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 65 of file Stream\&.php\&.
+.SS "$traits\fC [protected]\fP"
+
+.PP
+Definition at line 100 of file Stream\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,329 @@
+.TH "Kernel" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Kernel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBKernel\fP\&.
+.PP
+Inherited by \fBKernel\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBApplication\fP $app, \fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBhandle\fP ($input, $\fBoutput\fP=null)"
+.br
+.ti -1c
+.RI "\fBterminate\fP ($input, $status)"
+.br
+.ti -1c
+.RI "\fBcall\fP ($command, array $parameters=array())"
+.br
+.ti -1c
+.RI "\fBqueue\fP ($command, array $parameters=array())"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBoutput\fP ()"
+.br
+.ti -1c
+.RI "\fBbootstrap\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdefineConsoleSchedule\fP ()"
+.br
+.ti -1c
+.RI "\fBschedule\fP (\fBSchedule\fP $schedule)"
+.br
+.ti -1c
+.RI "\fBgetArtisan\fP ()"
+.br
+.ti -1c
+.RI "\fBbootstrappers\fP ()"
+.br
+.ti -1c
+.RI "\fBreportException\fP (Exception $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBrenderException\fP ($\fBoutput\fP, Exception $\fBe\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$app\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$artisan\fP"
+.br
+.ti -1c
+.RI "\fB$bootstrappers\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file Kernel\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBApplication\fP $app, \fBDispatcher\fP $events)"
+Create a new console kernel instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.br
+\fI$events\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file Kernel\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "all ()"
+Get all of the commands registered with the console\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file Kernel\&.php\&.
+.SS "bootstrap ()"
+\fBBootstrap\fP the application for HTTP requests\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBKernel\fP\&.
+.PP
+Definition at line 191 of file Kernel\&.php\&.
+.SS "bootstrappers ()\fC [protected]\fP"
+Get the bootstrap classes for the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Kernel\&.php\&.
+.SS "call ( $command, array $parameters = \fCarray()\fP)"
+Run an \fBArtisan\fP console command by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file Kernel\&.php\&.
+.SS "defineConsoleSchedule ()\fC [protected]\fP"
+Define the application's command schedule\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Kernel\&.php\&.
+.SS "getArtisan ()\fC [protected]\fP"
+Get the \fBArtisan\fP application instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 206 of file Kernel\&.php\&.
+.SS "handle ( $input,  $output = \fCnull\fP)"
+Run the console application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$output\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file Kernel\&.php\&.
+.SS "output ()"
+Get the output for the last run command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 179 of file Kernel\&.php\&.
+.SS "queue ( $command, array $parameters = \fCarray()\fP)"
+\fBQueue\fP the given console command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file Kernel\&.php\&.
+.SS "renderException ( $output, Exception $e)\fC [protected]\fP"
+Report the exception to the exception handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP 
+.br
+\fI$e\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Kernel\&.php\&.
+.SS "reportException (Exception $e)\fC [protected]\fP"
+Report the exception to the exception handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file Kernel\&.php\&.
+.SS "schedule (\fBSchedule\fP $schedule)\fC [protected]\fP"
+Define the application's command schedule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$schedule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file Kernel\&.php\&.
+.SS "terminate ( $input,  $status)"
+Terminate the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$status\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBKernel\fP\&.
+.PP
+Definition at line 113 of file Kernel\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$app\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file Kernel\&.php\&.
+.SS "$artisan\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Kernel\&.php\&.
+.SS "$\fBbootstrappers\fP\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= [
+        'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+        'Illuminate\Foundation\Bootstrap\LoadConfiguration',
+        'Illuminate\Foundation\Bootstrap\ConfigureLogging',
+        'Illuminate\Foundation\Bootstrap\HandleExceptions',
+        'Illuminate\Foundation\Bootstrap\RegisterFacades',
+        'Illuminate\Foundation\Bootstrap\SetRequestForConsole',
+        'Illuminate\Foundation\Bootstrap\RegisterProviders',
+        'Illuminate\Foundation\Bootstrap\BootProviders',
+    ]
+.fi
+.PP
+Definition at line 38 of file Kernel\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file Kernel\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

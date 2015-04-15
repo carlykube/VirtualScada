@@ -1,0 +1,310 @@
+.TH "Factory" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Factory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBTranslatorInterface\fP $translator, \fBContainer\fP $container=null)"
+.br
+.ti -1c
+.RI "\fBmake\fP (array $\fBdata\fP, array $rules, array $messages=array(), array $customAttributes=array())"
+.br
+.ti -1c
+.RI "\fBextend\fP ($rule, $extension, $message=null)"
+.br
+.ti -1c
+.RI "\fBextendImplicit\fP ($rule, $extension, $message=null)"
+.br
+.ti -1c
+.RI "\fBreplacer\fP ($rule, $replacer)"
+.br
+.ti -1c
+.RI "\fBresolver\fP (Closure $resolver)"
+.br
+.ti -1c
+.RI "\fBgetTranslator\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPresenceVerifier\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPresenceVerifier\fP (\fBPresenceVerifierInterface\fP $presenceVerifier)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddExtensions\fP (\fBValidator\fP $validator)"
+.br
+.ti -1c
+.RI "\fBresolve\fP (array $\fBdata\fP, array $rules, array $messages, array $customAttributes)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$translator\fP"
+.br
+.ti -1c
+.RI "\fB$verifier\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$extensions\fP = array()"
+.br
+.ti -1c
+.RI "\fB$implicitExtensions\fP = array()"
+.br
+.ti -1c
+.RI "\fB$replacers\fP = array()"
+.br
+.ti -1c
+.RI "\fB$fallbackMessages\fP = array()"
+.br
+.ti -1c
+.RI "\fB$resolver\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file Factory\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBTranslatorInterface\fP $translator, \fBContainer\fP $container = \fCnull\fP)"
+Create a new \fBValidator\fP factory instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$translator\fP 
+.br
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file Factory\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addExtensions (\fBValidator\fP $validator)\fC [protected]\fP"
+Add the extensions to a validator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$validator\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file Factory\&.php\&.
+.SS "extend ( $rule,  $extension,  $message = \fCnull\fP)"
+Register a custom validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$extension\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file Factory\&.php\&.
+.SS "extendImplicit ( $rule,  $extension,  $message = \fCnull\fP)"
+Register a custom implicit validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$extension\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file Factory\&.php\&.
+.SS "getPresenceVerifier ()"
+Get the Presence Verifier implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Factory\&.php\&.
+.SS "getTranslator ()"
+Get the Translator implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 212 of file Factory\&.php\&.
+.SS "make (array $data, array $rules, array $messages = \fCarray()\fP, array $customAttributes = \fCarray()\fP)"
+Create a new \fBValidator\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$rules\fP 
+.br
+\fI$messages\fP 
+.br
+\fI$customAttributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 88 of file Factory\&.php\&.
+.SS "replacer ( $rule,  $replacer)"
+Register a custom implicit validator message replacer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$replacer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file Factory\&.php\&.
+.SS "resolve (array $data, array $rules, array $messages, array $customAttributes)\fC [protected]\fP"
+Resolve a new \fBValidator\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$rules\fP 
+.br
+\fI$messages\fP 
+.br
+\fI$customAttributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 144 of file Factory\&.php\&.
+.SS "resolver (Closure $resolver)"
+Set the \fBValidator\fP instance resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 202 of file Factory\&.php\&.
+.SS "setPresenceVerifier (\fBPresenceVerifierInterface\fP $presenceVerifier)"
+Set the Presence Verifier implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$presenceVerifier\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file Factory\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file Factory\&.php\&.
+.SS "$extensions = array()\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file Factory\&.php\&.
+.SS "$fallbackMessages = array()\fC [protected]\fP"
+
+.PP
+Definition at line 57 of file Factory\&.php\&.
+.SS "$implicitExtensions = array()\fC [protected]\fP"
+
+.PP
+Definition at line 43 of file Factory\&.php\&.
+.SS "$replacers = array()\fC [protected]\fP"
+
+.PP
+Definition at line 50 of file Factory\&.php\&.
+.SS "$\fBresolver\fP\fC [protected]\fP"
+
+.PP
+Definition at line 64 of file Factory\&.php\&.
+.SS "$translator\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file Factory\&.php\&.
+.SS "$verifier\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file Factory\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,289 @@
+\section{Mongo\+Db\+Session\+Handler Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler}\index{Mongo\+Db\+Session\+Handler@{Mongo\+Db\+Session\+Handler}}
+Inheritance diagram for Mongo\+Db\+Session\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$mongo, array \${\bf options})
+\item 
+{\bf open} (\$save\+Path, \$session\+Name)
+\item 
+{\bf close} ()
+\item 
+{\bf destroy} (\$session\+Id)
+\item 
+{\bf gc} (\$maxlifetime)
+\item 
+{\bf write} (\$session\+Id, \${\bf data})
+\item 
+{\bf read} (\$session\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Mongo} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mongo\+D\+B session handler.
+
+\begin{DoxyAuthor}{Author}
+Markus Bachmann {\tt markus.\+bachmann@bachi.\+biz} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Mongo\+Db\+Session\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$mongo, }
+\item[{array}]{\$options}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a640a11f9c57922e3bd8f7f7d9f43469b}
+Constructor.
+
+List of available options\+:
+\begin{DoxyItemize}
+\item database\+: The name of the database [required]
+\item collection\+: The name of the collection [required]
+\item id\+\_\+field\+: The field name for storing the session id [default\+: \+\_\+id]
+\item data\+\_\+field\+: The field name for storing the session data [default\+: data]
+\item time\+\_\+field\+: The field name for storing the timestamp [default\+: time]
+\item expiry\+\_\+field\+: The field name for storing the expiry-\/timestamp [default\+: expires\+\_\+at]
+\end{DoxyItemize}
+
+It is strongly recommended to put an index on the {\ttfamily expiry\+\_\+field} for garbage-\/collection. Alternatively it\textquotesingle{}s possible to automatically expire the sessions in the database as described below\+:
+
+\doxyref{A}{p.}{class_a} T\+T\+L collections can be used on Mongo\+D\+B 2.\+2+ to cleanup expired sessions automatically. Such an index can for example look like this\+: \begin{DoxyVerb}db.<session-collection>.ensureIndex(
+    { "<expiry-field>": 1 },
+    { "expireAfterSeconds": 0 }
+)
+\end{DoxyVerb}
+
+
+More details on\+: {\tt http\+://docs.\+mongodb.\+org/manual/tutorial/expire-\/data/}
+
+If you use such an index, you can drop {\ttfamily gc\+\_\+probability} to 0 since no garbage-\/collection is required.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Mongo | \textbackslash{}\+Mongo\+Client & {\em \$mongo} & \doxyref{A}{p.}{class_a} Mongo\+Client or Mongo instance \\
+\hline
+array & {\em \$options} & An associative array of field options\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 70 of file Mongo\+Db\+Session\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!close@{close}}
+\index{close@{close}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}
+\{Closes the current session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+close}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e}.
+
+
+
+Definition at line 101 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!destroy@{destroy}}
+\index{destroy@{destroy}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}destroy (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a7976894a2e2239ff937a9203c383c9c1}
+\{Destroys a session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+destroy}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a7976894a2e2239ff937a9203c383c9c1}.
+
+
+
+Definition at line 109 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!gc@{gc}}
+\index{gc@{gc}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{gc}]{\setlength{\rightskip}{0pt plus 5cm}gc (
+\begin{DoxyParamCaption}
+\item[{}]{\$maxlifetime}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}
+\{Cleans up expired sessions (garbage collection).
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+gc}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string | int & {\em \$maxlifetime} & Sessions that have not updated for the last maxlifetime seconds will be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a57aff7ee0656d8aa75d545fb8b3ae35d}.
+
+
+
+Definition at line 121 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!get\+Mongo@{get\+Mongo}}
+\index{get\+Mongo@{get\+Mongo}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{get\+Mongo}]{\setlength{\rightskip}{0pt plus 5cm}get\+Mongo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_ab73b381ebda7cab0ad57f69bfa0686c4}
+Return a Mongo instance
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 184 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!open@{open}}
+\index{open@{open}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}open (
+\begin{DoxyParamCaption}
+\item[{}]{\$save\+Path, }
+\item[{}]{\$session\+Name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_ac70d1623e67e5b6d1859856dcef15d82}
+\{Re-\/initializes existing session, or creates a new one.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+open}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$save\+Path} & Save path \\
+\hline
+string & {\em \$session\+Name} & \doxyref{Session}{p.}{class_session} name, see {\tt http\+://php.\+net/function.\+session-\/name.\+php}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_ac70d1623e67e5b6d1859856dcef15d82}.
+
+
+
+Definition at line 93 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a379d9c87c852c5901ff1976be29a5048}
+\{Reads the session data.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+read}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Same session data as passed in \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} or empty string when non-\/existent or on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048}.
+
+
+
+Definition at line 155 of file Mongo\+Db\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Mongo\+Db\+Session\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}
+\{Writes the session data to the storage.
+
+Care, the session I\+D passed to \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} can be different from the one previously received in \doxyref{read()}{p.}{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048} when the session I\+D changed due to session\+\_\+regenerate\+\_\+id().
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+write}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D , see {\tt http\+://php.\+net/function.\+session-\/id} \\
+\hline
+string & {\em \$data} & Serialized session data to save\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed}.
+
+
+
+Definition at line 133 of file Mongo\+Db\+Session\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Session/\+Storage/\+Handler/{\bf Mongo\+Db\+Session\+Handler.\+php}\end{DoxyCompactItemize}

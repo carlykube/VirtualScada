@@ -1,0 +1,961 @@
+\section{Application Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_application}\index{Application@{Application}}
+Inheritance diagram for Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{class_symfony_1_1_component_1_1_console_1_1_application}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf name}= \textquotesingle{}U\+N\+K\+N\+O\+W\+N\textquotesingle{}, \${\bf version}= \textquotesingle{}U\+N\+K\+N\+O\+W\+N\textquotesingle{})
+\item 
+{\bf set\+Dispatcher} ({\bf Event\+Dispatcher\+Interface} \$dispatcher)
+\item 
+{\bf run} ({\bf Input\+Interface} \$input=null, {\bf Output\+Interface} \$output=null)
+\item 
+{\bf do\+Run} ({\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf set\+Helper\+Set} ({\bf Helper\+Set} \$helper\+Set)
+\item 
+{\bf get\+Helper\+Set} ()
+\item 
+{\bf set\+Definition} ({\bf Input\+Definition} \$definition)
+\item 
+{\bf get\+Definition} ()
+\item 
+{\bf get\+Help} ()
+\item 
+{\bf set\+Catch\+Exceptions} (\$boolean)
+\item 
+{\bf set\+Auto\+Exit} (\$boolean)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf set\+Name} (\${\bf name})
+\item 
+{\bf get\+Version} ()
+\item 
+{\bf set\+Version} (\${\bf version})
+\item 
+{\bf get\+Long\+Version} ()
+\item 
+{\bf register} (\${\bf name})
+\item 
+{\bf add\+Commands} (array \$commands)
+\item 
+{\bf add} ({\bf Command} \$command)
+\item 
+{\bf get} (\${\bf name})
+\item 
+{\bf has} (\${\bf name})
+\item 
+{\bf get\+Namespaces} ()
+\item 
+{\bf find\+Namespace} (\$namespace)
+\item 
+{\bf find} (\${\bf name})
+\item 
+{\bf all} (\$namespace=null)
+\item 
+{\bf as\+Text} (\$namespace=null, \$raw=false)
+\item 
+{\bf as\+Xml} (\$namespace=null, \$as\+Dom=false)
+\item 
+{\bf render\+Exception} (\${\bf e}, \$output)
+\item 
+{\bf get\+Terminal\+Dimensions} ()
+\item 
+{\bf set\+Terminal\+Dimensions} (\$width, \$height)
+\item 
+{\bf extract\+Namespace} (\${\bf name}, \$limit=null)
+\item 
+{\bf set\+Default\+Command} (\$command\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Abbreviations} (\$names)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Terminal\+Width} ()
+\item 
+{\bf get\+Terminal\+Height} ()
+\item 
+{\bf configure\+I\+O} ({\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf do\+Run\+Command} ({\bf Command} \$command, {\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf get\+Command\+Name} ({\bf Input\+Interface} \$input)
+\item 
+{\bf get\+Default\+Input\+Definition} ()
+\item 
+{\bf get\+Default\+Commands} ()
+\item 
+{\bf get\+Default\+Helper\+Set} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application} is the container for a collection of commands.
+
+It is the main entry point of a \doxyref{Console}{p.}{namespace_symfony_1_1_component_1_1_console} application.
+
+This class is optimized for a standard C\+L\+I environment.
+
+Usage\+: \begin{DoxyVerb}$app = new Application('myapp', '1.0 (stable)');
+$app->add(new SimpleCommand());
+$app->run();
+\end{DoxyVerb}
+
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 60 of file Application.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily \textquotesingle{}UNKNOWN\textquotesingle{}}, }
+\item[{}]{\$version = {\ttfamily \textquotesingle{}UNKNOWN\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a2c2cde4c3396cc255d813a9582a238c9}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The name of the application \\
+\hline
+string & {\em \$version} & The version of the application\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file Application.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!add@{add}}
+\index{add@{add}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{{\bf Command}}]{\$command}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad02a14485938972f0a2b798c57dda347}
+Adds a command object.
+
+If a command with the same name already exists, it will be overridden.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} & {\em \$command} & \doxyref{A}{p.}{class_a} \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} The registered command
+\end{DoxyReturn}
+
+
+Definition at line 384 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!add\+Commands@{add\+Commands}}
+\index{add\+Commands@{add\+Commands}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{add\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}add\+Commands (
+\begin{DoxyParamCaption}
+\item[{array}]{\$commands}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a100be9f539383d7e2d91d749f761e898}
+Adds an array of command objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Command\mbox{[}$\,$\mbox{]}} & \$commands An array of commands\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 366 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!all@{all}}
+\index{all@{all}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}all (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ac32ffae416a1673394299523beec3d07}
+Gets the commands (registered in the given namespace if provided).
+
+The array keys are the full names and the values the command instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \doxyref{A}{p.}{class_a} namespace name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command}[] An array of \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} instances
+\end{DoxyReturn}
+
+
+Definition at line 583 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!as\+Text@{as\+Text}}
+\index{as\+Text@{as\+Text}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{as\+Text}]{\setlength{\rightskip}{0pt plus 5cm}as\+Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace = {\ttfamily null}, }
+\item[{}]{\$raw = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a936d93054f69028ee8bf28caa6eace0a}
+Returns a text representation of the \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & An optional namespace name \\
+\hline
+bool & {\em \$raw} & Whether to return raw command list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \doxyref{A}{p.}{class_a} string representing the \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application}
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+3, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Definition at line 629 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!as\+Xml@{as\+Xml}}
+\index{as\+Xml@{as\+Xml}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{as\+Xml}]{\setlength{\rightskip}{0pt plus 5cm}as\+Xml (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace = {\ttfamily null}, }
+\item[{}]{\$as\+Dom = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_acfa83755eeb86c10dcce1a83f0306c9e}
+Returns an X\+M\+L representation of the \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & An optional namespace name \\
+\hline
+bool & {\em \$as\+Dom} & Whether to return a D\+O\+M or an X\+M\+L string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$ An X\+M\+L string representing the \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application}
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+3, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Definition at line 648 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!configure\+I\+O@{configure\+I\+O}}
+\index{configure\+I\+O@{configure\+I\+O}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{configure\+I\+O}]{\setlength{\rightskip}{0pt plus 5cm}configure\+I\+O (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_a624edb7ee96baea6adbddbeb6123fe04}
+Configures the input and output instances based on the user arguments and options.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & An Input\+Interface instance \\
+\hline
+Output\+Interface & {\em \$output} & An Output\+Interface instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 821 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!do\+Run@{do\+Run}}
+\index{do\+Run@{do\+Run}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{do\+Run}]{\setlength{\rightskip}{0pt plus 5cm}do\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a6474e644924bebff81f50225990f6079}
+Runs the current application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & An \doxyref{Input}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_input} instance \\
+\hline
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if everything went fine, or an error code 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!do\+Run\+Command@{do\+Run\+Command}}
+\index{do\+Run\+Command@{do\+Run\+Command}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{do\+Run\+Command}]{\setlength{\rightskip}{0pt plus 5cm}do\+Run\+Command (
+\begin{DoxyParamCaption}
+\item[{{\bf Command}}]{\$command, }
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad5aa8d500e24b1bba8e2120f50981dfc}
+Runs the current command.
+
+If an event dispatcher has been attached to the application, events are also dispatched during the life-\/cycle of the command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} & {\em \$command} & \doxyref{A}{p.}{class_a} \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} instance \\
+\hline
+Input\+Interface & {\em \$input} & An \doxyref{Input}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_input} instance \\
+\hline
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if everything went fine, or an error code
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 865 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!extract\+Namespace@{extract\+Namespace}}
+\index{extract\+Namespace@{extract\+Namespace}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{extract\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}extract\+Namespace (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$limit = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad50b24b342f8083927bdf8df26846c6a}
+Returns the namespace part of the command name.
+
+This method is not part of public A\+P\+I and should not be used directly.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The full name of the command \\
+\hline
+string & {\em \$limit} & The maximum number of parts of the namespace\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The namespace of the command 
+\end{DoxyReturn}
+
+
+Definition at line 1032 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a9902ee19688017f178aedddc8ed8e4d4}
+Finds a command by name or alias.
+
+Contrary to get, this command tries to find the best match if you give it an abbreviation of a name or alias.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \doxyref{A}{p.}{class_a} command name or a command alias\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} \doxyref{A}{p.}{class_a} \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} instance
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 526 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!find\+Namespace@{find\+Namespace}}
+\index{find\+Namespace@{find\+Namespace}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{find\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}find\+Namespace (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a7c7000f4b0ec0984865dc6f29a78b727}
+Finds a registered namespace by a name or an abbreviation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \doxyref{A}{p.}{class_a} namespace or abbreviation to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \doxyref{A}{p.}{class_a} registered namespace
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 482 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get@{get}}
+\index{get@{get}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_af5ea6a083ddb07beb8a30dd32e309ceb}
+Returns a registered command by name or alias.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The command name or alias\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} \doxyref{A}{p.}{class_a} \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} object
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 418 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Abbreviations@{get\+Abbreviations}}
+\index{get\+Abbreviations@{get\+Abbreviations}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Abbreviations}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Abbreviations (
+\begin{DoxyParamCaption}
+\item[{}]{\$names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad5691ed3805986ab7ad909dfd0500688}
+Returns an array of possible abbreviations given a set of names.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$names} & An array of names\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of abbreviations 
+\end{DoxyReturn}
+
+
+Definition at line 606 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Command\+Name@{get\+Command\+Name}}
+\index{get\+Command\+Name@{get\+Command\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Command\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Command\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_a658f11c885260b6923a9eadfe664321e}
+Gets the name of the command based on input.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & The input interface\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The command name 
+\end{DoxyReturn}
+
+
+Definition at line 909 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Default\+Commands@{get\+Default\+Commands}}
+\index{get\+Default\+Commands@{get\+Default\+Commands}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Default\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad81f2593505f08a7f041b9f8f1e22326}
+Gets the default commands that should always be available.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command}[] An array of default \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} instances 
+\end{DoxyReturn}
+
+
+Definition at line 939 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Default\+Helper\+Set@{get\+Default\+Helper\+Set}}
+\index{get\+Default\+Helper\+Set@{get\+Default\+Helper\+Set}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Default\+Helper\+Set}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Helper\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_a8374e09ee27f99f5cb0b85705f9e33da}
+Gets the default helper set with the helpers that should always be available.
+
+\begin{DoxyReturn}{Returns}
+Helper\+Set \doxyref{A}{p.}{class_a} Helper\+Set instance 
+\end{DoxyReturn}
+
+
+Definition at line 949 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Default\+Input\+Definition@{get\+Default\+Input\+Definition}}
+\index{get\+Default\+Input\+Definition@{get\+Default\+Input\+Definition}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Default\+Input\+Definition}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Input\+Definition (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad134976d6a592eb596114fd87959aa2c}
+Gets the default input definition.
+
+\begin{DoxyReturn}{Returns}
+Input\+Definition An Input\+Definition instance 
+\end{DoxyReturn}
+
+
+Definition at line 919 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Definition@{get\+Definition}}
+\index{get\+Definition@{get\+Definition}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Definition}]{\setlength{\rightskip}{0pt plus 5cm}get\+Definition (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ada012e6c80eda0d807425b598b1dc611}
+Gets the Input\+Definition related to this \doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application}.
+
+\begin{DoxyReturn}{Returns}
+Input\+Definition The Input\+Definition instance 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Help@{get\+Help}}
+\index{get\+Help@{get\+Help}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Help}]{\setlength{\rightskip}{0pt plus 5cm}get\+Help (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a4cc928ef4def3a84c181608d31bf7608}
+Gets the help message.
+
+\begin{DoxyReturn}{Returns}
+string \doxyref{A}{p.}{class_a} help message. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Helper\+Set@{get\+Helper\+Set}}
+\index{get\+Helper\+Set@{get\+Helper\+Set}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Helper\+Set}]{\setlength{\rightskip}{0pt plus 5cm}get\+Helper\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ab1ffe5022cd0569add0ffdd3493e8ff0}
+Get the helper set associated with the command.
+
+\begin{DoxyReturn}{Returns}
+Helper\+Set The Helper\+Set instance associated with this command
+\end{DoxyReturn}
+
+
+Definition at line 220 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Long\+Version@{get\+Long\+Version}}
+\index{get\+Long\+Version@{get\+Long\+Version}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Long\+Version}]{\setlength{\rightskip}{0pt plus 5cm}get\+Long\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_af4e7eb26e0c5936fac59418995c5b693}
+Returns the long version of the application.
+
+\begin{DoxyReturn}{Returns}
+string The long application version
+\end{DoxyReturn}
+
+
+Definition at line 336 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a3d0963e68bb313b163a73f2803c64600}
+Gets the name of the application.
+
+\begin{DoxyReturn}{Returns}
+string The application name
+\end{DoxyReturn}
+
+
+Definition at line 288 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Namespaces@{get\+Namespaces}}
+\index{get\+Namespaces@{get\+Namespaces}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Namespaces}]{\setlength{\rightskip}{0pt plus 5cm}get\+Namespaces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ae4c74dabb3e9ba4103ffd4e8febcac21}
+Returns an array of all unique namespaces used by currently registered commands.
+
+It does not returns the global namespace which always exists.
+
+\begin{DoxyReturn}{Returns}
+array An array of namespaces 
+\end{DoxyReturn}
+
+
+Definition at line 459 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Terminal\+Dimensions@{get\+Terminal\+Dimensions}}
+\index{get\+Terminal\+Dimensions@{get\+Terminal\+Dimensions}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Terminal\+Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}get\+Terminal\+Dimensions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a5cbfe0a912addea8e236f8244d128d55}
+Tries to figure out the terminal dimensions based on the current environment.
+
+\begin{DoxyReturn}{Returns}
+array Array containing width and height 
+\end{DoxyReturn}
+
+
+Definition at line 767 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Terminal\+Height@{get\+Terminal\+Height}}
+\index{get\+Terminal\+Height@{get\+Terminal\+Height}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Terminal\+Height}]{\setlength{\rightskip}{0pt plus 5cm}get\+Terminal\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_ad669f715c6db54da96d6bf0f2afb927d}
+Tries to figure out the terminal height in which this application runs.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 755 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Terminal\+Width@{get\+Terminal\+Width}}
+\index{get\+Terminal\+Width@{get\+Terminal\+Width}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Terminal\+Width}]{\setlength{\rightskip}{0pt plus 5cm}get\+Terminal\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_application_a3b4c9d56388891aa1cf71c5285acd3ec}
+Tries to figure out the terminal width in which this application runs.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 743 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!get\+Version@{get\+Version}}
+\index{get\+Version@{get\+Version}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{get\+Version}]{\setlength{\rightskip}{0pt plus 5cm}get\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_afa8e7a3a646144eab50188b7a805a389}
+Gets the application version.
+
+\begin{DoxyReturn}{Returns}
+string The application version
+\end{DoxyReturn}
+
+
+Definition at line 312 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!has@{has}}
+\index{has@{has}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a623d004aa083376c599112f235c0af9d}
+Returns true if the command exists, false otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The command name or alias\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the command exists, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line 447 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!register@{register}}
+\index{register@{register}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}register (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ac0158baadeaa610d39ae9bd3a121e81a}
+Registers a new command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The command name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} The newly created command
+\end{DoxyReturn}
+
+
+Definition at line 354 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!render\+Exception@{render\+Exception}}
+\index{render\+Exception@{render\+Exception}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{render\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}render\+Exception (
+\begin{DoxyParamCaption}
+\item[{}]{\$e, }
+\item[{}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a89177ce418ff23122bdf68150fe8433c}
+Renders a caught exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$e} & An exception instance \\
+\hline
+Output\+Interface & {\em \$output} & An Output\+Interface instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 668 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!run@{run}}
+\index{run@{run}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input = {\ttfamily null}, }
+\item[{{\bf Output\+Interface}}]{\$output = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a05dd9c0ddaec72a715c26082770151e1}
+Runs the current application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & An \doxyref{Input}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_input} instance \\
+\hline
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if everything went fine, or an error code
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 113 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Auto\+Exit@{set\+Auto\+Exit}}
+\index{set\+Auto\+Exit@{set\+Auto\+Exit}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Auto\+Exit}]{\setlength{\rightskip}{0pt plus 5cm}set\+Auto\+Exit (
+\begin{DoxyParamCaption}
+\item[{}]{\$boolean}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_af67aefd288fa1bc43b22866547ef7a78}
+Sets whether to automatically exit after a command execution or not.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$boolean} & Whether to automatically exit after a command execution or not\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Catch\+Exceptions@{set\+Catch\+Exceptions}}
+\index{set\+Catch\+Exceptions@{set\+Catch\+Exceptions}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Catch\+Exceptions}]{\setlength{\rightskip}{0pt plus 5cm}set\+Catch\+Exceptions (
+\begin{DoxyParamCaption}
+\item[{}]{\$boolean}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a79946ad13cad5932fbd270bc93e05ec2}
+Sets whether to catch exceptions or not during commands execution.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$boolean} & Whether to catch exceptions or not during commands execution\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 264 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Default\+Command@{set\+Default\+Command}}
+\index{set\+Default\+Command@{set\+Default\+Command}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Default\+Command}]{\setlength{\rightskip}{0pt plus 5cm}set\+Default\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$command\+Name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_ac5e30169359375e04493333a26b40d27}
+Sets the default \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command\+Name} & The \doxyref{Command}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_command} name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1096 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Definition@{set\+Definition}}
+\index{set\+Definition@{set\+Definition}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Definition}]{\setlength{\rightskip}{0pt plus 5cm}set\+Definition (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Definition}}]{\$definition}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_af2e5fbe94e6bfd7533371bf8b16af44d}
+Set an input definition set to be used with this application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Definition & {\em \$definition} & The input definition\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 232 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Dispatcher@{set\+Dispatcher}}
+\index{set\+Dispatcher@{set\+Dispatcher}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}set\+Dispatcher (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\+Dispatcher\+Interface}}]{\$dispatcher}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a252ca50faa2dd791f777a5ee40ee27ae}
+
+
+Definition at line 96 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Helper\+Set@{set\+Helper\+Set}}
+\index{set\+Helper\+Set@{set\+Helper\+Set}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Helper\+Set}]{\setlength{\rightskip}{0pt plus 5cm}set\+Helper\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf Helper\+Set}}]{\$helper\+Set}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_aecf1f6a1602177835dc036e8b4fef061}
+Set a helper set to be used with the command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Helper\+Set & {\em \$helper\+Set} & The helper set\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a2fe666694997d047711d7653eca2f132}
+Sets the application name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The application name\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 300 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Terminal\+Dimensions@{set\+Terminal\+Dimensions}}
+\index{set\+Terminal\+Dimensions@{set\+Terminal\+Dimensions}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Terminal\+Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}set\+Terminal\+Dimensions (
+\begin{DoxyParamCaption}
+\item[{}]{\$width, }
+\item[{}]{\$height}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a365ceeee81ff9339635c875911845c7a}
+Sets terminal dimensions.
+
+Can be useful to force terminal dimensions for functional tests.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$width} & The width \\
+\hline
+int & {\em \$height} & The height\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Application}{p.}{class_symfony_1_1_component_1_1_console_1_1_application} The current application 
+\end{DoxyReturn}
+
+
+Definition at line 808 of file Application.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}!set\+Version@{set\+Version}}
+\index{set\+Version@{set\+Version}!Symfony\+::\+Component\+::\+Console\+::\+Application@{Symfony\+::\+Component\+::\+Console\+::\+Application}}
+\subsubsection[{set\+Version}]{\setlength{\rightskip}{0pt plus 5cm}set\+Version (
+\begin{DoxyParamCaption}
+\item[{}]{\$version}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_application_a6a2f870d59df617e76c79a9996646832}
+Sets the application version.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$version} & The application version\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 324 of file Application.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/{\bf Application.\+php}\end{DoxyCompactItemize}

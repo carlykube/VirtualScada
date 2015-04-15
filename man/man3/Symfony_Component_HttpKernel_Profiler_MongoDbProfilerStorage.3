@@ -1,0 +1,217 @@
+.TH "MongoDbProfilerStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MongoDbProfilerStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProfilerStorageInterface\fP\&.
+.PP
+Inherited by \fBDummyMongoDbProfilerStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($dsn, $username= '', $password= '', $lifetime=86400)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetMongo\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateProfileFromData\fP (array $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBreadChildren\fP ($token)"
+.br
+.ti -1c
+.RI "\fBcleanup\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$dsn\fP"
+.br
+.ti -1c
+.RI "\fB$lifetime\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 14 of file MongoDbProfilerStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $dsn,  $username = \fC''\fP,  $password = \fC''\fP,  $lifetime = \fC86400\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dsn\fP \fBA\fP data source name 
+.br
+\fI$username\fP Not used 
+.br
+\fI$password\fP Not used 
+.br
+\fI$lifetime\fP The lifetime to use for the purge 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file MongoDbProfilerStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "cleanup ()\fC [protected]\fP"
+
+.PP
+Definition at line 155 of file MongoDbProfilerStorage\&.php\&.
+.SS "createProfileFromData (array $data)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file MongoDbProfilerStorage\&.php\&.
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+{Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 37 of file MongoDbProfilerStorage\&.php\&.
+.SS "getMongo ()\fC [protected]\fP"
+Internal convenience method that returns the instance of the MongoDB Collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 100 of file MongoDbProfilerStorage\&.php\&.
+.SS "purge ()"
+{Purges all data from the database\&.} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 52 of file MongoDbProfilerStorage\&.php\&.
+.SS "read ( $token)"
+{Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 60 of file MongoDbProfilerStorage\&.php\&.
+.SS "readChildren ( $token)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP[] An array of \fBProfile\fP instances 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file MongoDbProfilerStorage\&.php\&.
+.SS "write (\fBProfile\fP $profile)"
+{Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 74 of file MongoDbProfilerStorage\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$dsn\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file MongoDbProfilerStorage\&.php\&.
+.SS "$lifetime\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file MongoDbProfilerStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

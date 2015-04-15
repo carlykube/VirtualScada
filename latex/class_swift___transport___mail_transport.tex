@@ -1,0 +1,229 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport Class Reference}
+\label{class_swift___transport___mail_transport}\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_swift___transport___mail_transport}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Swift\+\_\+\+Transport\+\_\+\+Mail\+Invoker} \$invoker, {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \$event\+Dispatcher)
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf start} ()
+\item 
+{\bf stop} ()
+\item 
+{\bf set\+Extra\+Params} (\$params)
+\item 
+{\bf get\+Extra\+Params} ()
+\item 
+{\bf send} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message, \&\$failed\+Recipients=null)
+\item 
+{\bf register\+Plugin} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener} \$plugin)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+throw\+Exception} ({\bf Swift\+\_\+\+Transport\+Exception} \${\bf e})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sends Messages using the mail() function.
+
+It is advised that users do not use this transport if at all possible since a number of plugin features cannot be used in conjunction with this transport due to the internal interface in \doxyref{P\+H\+P}{p.}{namespace_p_h_p} itself.
+
+The level of error reporting with this transport is incredibly weak, again due to limitations of \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s internal mail() function. You\textquotesingle{}ll get an all-\/or-\/nothing result from sending.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 24 of file Mail\+Transport.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Mail\+Invoker}}]{\$invoker, }
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}}]{\$event\+Dispatcher}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_a8d3bcc52500396f06522c071f54a6d5e}
+Create a new Mail\+Transport with the \$log.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Mail\+Invoker}{p.}{interface_swift___transport___mail_invoker} & {\em \$invoker} & \\
+\hline
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}{p.}{interface_swift___events___event_dispatcher} & {\em \$event\+Dispatcher} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file Mail\+Transport.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!\+\_\+throw\+Exception@{\+\_\+throw\+Exception}}
+\index{\+\_\+throw\+Exception@{\+\_\+throw\+Exception}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{\+\_\+throw\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+throw\+Exception (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+Exception}}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___mail_transport_afe58ca7220dcbc2a7150c81bed91c4d4}
+Throw a Transport\+Exception, first sending it to any listeners 
+
+Definition at line 206 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!get\+Extra\+Params@{get\+Extra\+Params}}
+\index{get\+Extra\+Params@{get\+Extra\+Params}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{get\+Extra\+Params}]{\setlength{\rightskip}{0pt plus 5cm}get\+Extra\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_ae5c8ee644fb26b48ebcb6f10d1d137a4}
+Get the additional parameters used on the mail() function.
+
+This string is formatted for sprintf() where s is the sender address.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_a1ffe0e26cd53b764f58c5bbed489c278}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 50 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!register\+Plugin@{register\+Plugin}}
+\index{register\+Plugin@{register\+Plugin}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{register\+Plugin}]{\setlength{\rightskip}{0pt plus 5cm}register\+Plugin (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener}}]{\$plugin}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_ab89f0e56e80b5a21c0f09004a418ae92}
+Register a plugin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Listener}{p.}{interface_swift___events___event_listener} & {\em \$plugin} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_ab89f0e56e80b5a21c0f09004a418ae92}.
+
+
+
+Definition at line 200 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!send@{send}}
+\index{send@{send}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}send (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_a7e179b57bf0cbb197139cf583e7c427e}
+Send the given Message.
+
+Recipient/sender data will be retrieved from the Message A\+P\+I. The return value is the number of recipients who were accepted for delivery.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message} & {\em \$message} & \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failed\+Recipients An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a7e179b57bf0cbb197139cf583e7c427e}.
+
+
+
+Definition at line 108 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!set\+Extra\+Params@{set\+Extra\+Params}}
+\index{set\+Extra\+Params@{set\+Extra\+Params}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{set\+Extra\+Params}]{\setlength{\rightskip}{0pt plus 5cm}set\+Extra\+Params (
+\begin{DoxyParamCaption}
+\item[{}]{\$params}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_aa9ef329d0e2979b8677f0d06210bf809}
+Set the additional parameters used on the mail() function.
+
+This string is formatted for sprintf() where s is the sender address.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}{p.}{class_swift___transport___mail_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!start@{start}}
+\index{start@{start}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_af8fa59992209e36dccb3eefb0f75531f}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 58 of file Mail\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}!stop@{stop}}
+\index{stop@{stop}!Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Mail\+Transport}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___mail_transport_a8b6fc76a620d7557d06e9a11a9ffb509}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a8b6fc76a620d7557d06e9a11a9ffb509}.
+
+
+
+Definition at line 65 of file Mail\+Transport.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/{\bf Mail\+Transport.\+php}\end{DoxyCompactItemize}

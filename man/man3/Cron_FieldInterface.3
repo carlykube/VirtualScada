@@ -1,0 +1,86 @@
+.TH "FieldInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FieldInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAbstractField\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisSatisfiedBy\fP (\\DateTime $date, $value)"
+.br
+.ti -1c
+.RI "\fBincrement\fP (\\DateTime $date, $invert=false)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ($value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CRON field interface 
+.PP
+Definition at line 8 of file FieldInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "increment (\\DateTime $date,  $invert = \fCfalse\fP)"
+When a CRON expression is not satisfied, this method is used to increment or decrement a DateTime object by the unit of the cron field
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP DateTime object to change 
+.br
+\fI$invert\fP (optional) Set to TRUE to decrement
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFieldInterface\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBDayOfWeekField\fP, \fBDayOfMonthField\fP, \fBHoursField\fP, \fBMinutesField\fP, and \fBYearField\fP\&.
+.SS "isSatisfiedBy (\\DateTime $date,  $value)"
+Check if the respective value of a DateTime field satisfies a CRON exp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP DateTime object to check 
+.br
+\fI$value\fP CRON expression to test against
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns TRUE if satisfied, FALSE otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBDayOfMonthField\fP, \fBDayOfWeekField\fP, \fBHoursField\fP, \fBMinutesField\fP, and \fBYearField\fP\&.
+.SS "validate ( $value)"
+Validates a CRON expression for a given field
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP CRON expression value to validate
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns TRUE if valid, FALSE otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBDayOfWeekField\fP, \fBDayOfMonthField\fP, \fBMonthField\fP, \fBHoursField\fP, \fBYearField\fP, and \fBMinutesField\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

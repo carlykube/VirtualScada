@@ -1,0 +1,84 @@
+.TH "Swift_OutputByteStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_OutputByteStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_ByteStream_ArrayByteStream\fP, \fBSwift_FileStream\fP, and \fBSwift_Transport_IoBuffer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBread\fP ($length)"
+.br
+.ti -1c
+.RI "\fBsetReadPointer\fP ($byteOffset)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract means of reading data\&.
+.PP
+Classes implementing this interface may use a subsystem which requires less memory than working with large strings of data\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file OutputByteStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "read ( $length)"
+Reads $length bytes from the stream into a string and moves the pointer through the stream by $length\&.
+.PP
+If less bytes exist than are requested the remaining bytes are given instead\&. If no bytes are remaining at all, boolean false is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP, \fBSwift_ByteStream_FileByteStream\fP, and \fBSwift_ByteStream_ArrayByteStream\fP\&.
+.SS "setReadPointer ( $byteOffset)"
+Move the internal read pointer to $byteOffset in the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$byteOffset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP, \fBSwift_ByteStream_ArrayByteStream\fP, and \fBSwift_ByteStream_FileByteStream\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

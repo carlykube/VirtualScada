@@ -1,0 +1,94 @@
+.TH "StaticConstructorPass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StaticConstructorPass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCodeCleanerPass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBbeforeTraverse\fP (array $nodes)"
+.br
+.ti -1c
+.RI "\fBenterNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Validate that the old-style constructor function is not static\&.
+.PP
+As of \fBPHP\fP 5\&.3\&.3, methods with the same name as the last element of a namespaced class name will no longer be treated as constructor\&. This change doesn't affect non-namespaced classes\&.
+.PP
+Validation of the __construct method ensures the \fBPHP\fP Parser\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Martin Hasoň martin.hason@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file StaticConstructorPass\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+
+.PP
+Definition at line 35 of file StaticConstructorPass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeTraverse (array $nodes)"
+Called once before traversal\&.
+.PP
+Return value semantics:
+.IP "\(bu" 2
+null: $nodes stays as-is
+.IP "\(bu" 2
+otherwise: $nodes is set to the return value
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Node[] Array of nodes 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 40 of file StaticConstructorPass\&.php\&.
+.SS "enterNode (\fBNode\fP $node)"
+Validate that the old-style constructor function is not static\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if the old-style constructor function is static\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 52 of file StaticConstructorPass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

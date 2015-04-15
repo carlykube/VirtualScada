@@ -1,0 +1,127 @@
+.TH "ErrorHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ErrorHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (LoggerInterface $logger)"
+.br
+.ti -1c
+.RI "\fBregisterExceptionHandler\fP ($level=null, $callPrevious=true)"
+.br
+.ti -1c
+.RI "\fBregisterErrorHandler\fP (array $levelMap=array(), $callPrevious=true, $errorTypes=-1)"
+.br
+.ti -1c
+.RI "\fBregisterFatalHandler\fP ($level=null, $reservedMemorySize=20)"
+.br
+.ti -1c
+.RI "\fBhandleException\fP (\\Exception $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($code, $message, $file= '', $\fBline\fP=0, $context=array())"
+.br
+.ti -1c
+.RI "\fBhandleFatalError\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBregister\fP (LoggerInterface $logger, $errorLevelMap=array(), $exceptionLevel=null, $fatalLevel=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdefaultErrorLevelMap\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMonolog\fP error handler
+.PP
+\fBA\fP facility to enable logging of runtime errors, exceptions and fatal errors\&.
+.PP
+Quick setup: \fC\fBErrorHandler::register\fP($logger);\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file ErrorHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (LoggerInterface $logger)"
+
+.PP
+Definition at line 40 of file ErrorHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "defaultErrorLevelMap ()\fC [protected]\fP"
+
+.PP
+Definition at line 98 of file ErrorHandler\&.php\&.
+.SS "handleError ( $code,  $message,  $file = \fC''\fP,  $line = \fC0\fP,  $context = \fCarray()\fP)"
+
+.PP
+Definition at line 138 of file ErrorHandler\&.php\&.
+.SS "handleException (\\Exception $e)"
+
+.PP
+Definition at line 122 of file ErrorHandler\&.php\&.
+.SS "handleFatalError ()"
+
+.PP
+Definition at line 157 of file ErrorHandler\&.php\&.
+.SS "static register (LoggerInterface $logger,  $errorLevelMap = \fCarray()\fP,  $exceptionLevel = \fCnull\fP,  $fatalLevel = \fCnull\fP)\fC [static]\fP"
+Registers a new \fBErrorHandler\fP for a given \fBLogger\fP
+.PP
+By default it will handle errors, exceptions and fatal errors
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP 
+.br
+\fI$errorLevelMap\fP an array of E_* constant to LogLevel::* constant mapping, or false to disable error handling 
+.br
+\fI$exceptionLevel\fP a LogLevel::* constant, or false to disable exception handling 
+.br
+\fI$fatalLevel\fP a LogLevel::* constant, or false to disable fatal error handling 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBErrorHandler\fP 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file ErrorHandler\&.php\&.
+.SS "registerErrorHandler (array $levelMap = \fCarray()\fP,  $callPrevious = \fCtrue\fP,  $errorTypes = \fC-1\fP)"
+
+.PP
+Definition at line 81 of file ErrorHandler\&.php\&.
+.SS "registerExceptionHandler ( $level = \fCnull\fP,  $callPrevious = \fCtrue\fP)"
+
+.PP
+Definition at line 72 of file ErrorHandler\&.php\&.
+.SS "registerFatalHandler ( $level = \fCnull\fP,  $reservedMemorySize = \fC20\fP)"
+
+.PP
+Definition at line 90 of file ErrorHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

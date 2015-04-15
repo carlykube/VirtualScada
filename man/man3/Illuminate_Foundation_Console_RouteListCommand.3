@@ -1,0 +1,314 @@
+.TH "RouteListCommand" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RouteListCommand \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCommand\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRouter\fP $router)"
+.br
+.ti -1c
+.RI "\fBfire\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRoutes\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRouteInformation\fP (\fBRoute\fP $route)"
+.br
+.ti -1c
+.RI "\fBdisplayRoutes\fP (array $routes)"
+.br
+.ti -1c
+.RI "\fBgetMiddleware\fP ($route)"
+.br
+.ti -1c
+.RI "\fBgetControllerMiddleware\fP ($actionName)"
+.br
+.ti -1c
+.RI "\fBgetControllerMiddlewareFromInstance\fP ($controller, $method)"
+.br
+.ti -1c
+.RI "\fBmethodExcludedByOptions\fP ($method, array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetPatternFilters\fP ($route)"
+.br
+.ti -1c
+.RI "\fBgetMethodPatterns\fP ($uri, $method)"
+.br
+.ti -1c
+.RI "\fBfilterRoute\fP (array $route)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$name\fP = 'route:list'"
+.br
+.ti -1c
+.RI "\fB$description\fP = 'List all registered routes'"
+.br
+.ti -1c
+.RI "\fB$router\fP"
+.br
+.ti -1c
+.RI "\fB$routes\fP"
+.br
+.ti -1c
+.RI "\fB$headers\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file RouteListCommand\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRouter\fP $router)"
+Create a new route command instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$router\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file RouteListCommand\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "displayRoutes (array $routes)\fC [protected]\fP"
+Display the route information on the console\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file RouteListCommand\&.php\&.
+.SS "filterRoute (array $route)\fC [protected]\fP"
+Filter the route by URI and / or name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|null 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file RouteListCommand\&.php\&.
+.SS "fire ()"
+Execute the console command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file RouteListCommand\&.php\&.
+.SS "getControllerMiddleware ( $actionName)\fC [protected]\fP"
+Get the middleware for the given \fBController\fP name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$actionName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file RouteListCommand\&.php\&.
+.SS "getControllerMiddlewareFromInstance ( $controller,  $method)\fC [protected]\fP"
+Get the middlewares for the given controller instance and method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$controller\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file RouteListCommand\&.php\&.
+.SS "getMethodPatterns ( $uri,  $method)\fC [protected]\fP"
+Get the pattern filters for a given URI and method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file RouteListCommand\&.php\&.
+.SS "getMiddleware ( $route)\fC [protected]\fP"
+Get before filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file RouteListCommand\&.php\&.
+.SS "getOptions ()\fC [protected]\fP"
+Get the console command options\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file RouteListCommand\&.php\&.
+.SS "getPatternFilters ( $route)\fC [protected]\fP"
+Get all of the pattern filters matching the route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file RouteListCommand\&.php\&.
+.SS "getRouteInformation (\fBRoute\fP $route)\fC [protected]\fP"
+Get the route information for a given route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file RouteListCommand\&.php\&.
+.SS "getRoutes ()\fC [protected]\fP"
+Compile the routes into a displayable format\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file RouteListCommand\&.php\&.
+.SS "methodExcludedByOptions ( $method, array $options)\fC [protected]\fP"
+Determine if the given options exclude a particular method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file RouteListCommand\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$description = 'List all registered routes'\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file RouteListCommand\&.php\&.
+.SS "$headers\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'Domain', 'Method', 'URI', 'Name', 'Action', 'Middleware',
+    )
+.fi
+.PP
+Definition at line 45 of file RouteListCommand\&.php\&.
+.SS "$\fBname\fP = 'route:list'\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file RouteListCommand\&.php\&.
+.SS "$router\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file RouteListCommand\&.php\&.
+.SS "$routes\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file RouteListCommand\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

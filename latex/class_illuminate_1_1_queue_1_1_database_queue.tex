@@ -1,0 +1,473 @@
+\section{Database\+Queue Class Reference}
+\label{class_illuminate_1_1_queue_1_1_database_queue}\index{Database\+Queue@{Database\+Queue}}
+Inheritance diagram for Database\+Queue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_queue_1_1_database_queue}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Connection} \$database, \$table, \$default= \textquotesingle{}default\textquotesingle{}, \$expire=60)
+\item 
+{\bf push} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf push\+Raw} (\$payload, \${\bf queue}=null, array \${\bf options}=array())
+\item 
+{\bf later} (\${\bf delay}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf release} (\${\bf queue}, \$job, \${\bf delay})
+\item 
+{\bf pop} (\${\bf queue}=null)
+\item 
+{\bf delete\+Reserved} (\${\bf queue}, \$id)
+\item 
+{\bf get\+Database} ()
+\item 
+{\bf get\+Expire} ()
+\item 
+{\bf set\+Expire} (\${\bf seconds})
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf push\+To\+Database} (\${\bf delay}, \${\bf queue}, \$payload, \${\bf attempts}=0)
+\item 
+{\bf release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long} (\${\bf queue})
+\item 
+{\bf get\+Next\+Available\+Job} (\${\bf queue})
+\item 
+{\bf mark\+Job\+As\+Reserved} (\$id)
+\item 
+{\bf get\+Queue} (\${\bf queue})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$database}
+\item 
+{\bf \$table}
+\item 
+{\bf \$default}
+\item 
+{\bf \$expire} = 60
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Database\+Queue.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Connection}}]{\$database, }
+\item[{}]{\$table, }
+\item[{}]{\$default = {\ttfamily \textquotesingle{}default\textquotesingle{}}, }
+\item[{}]{\$expire = {\ttfamily 60}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_a448878c885ae861550610977a524a4f2}
+Create a new database queue instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection & {\em \$database} & \\
+\hline
+string & {\em \$table} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+int & {\em \$expire} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file Database\+Queue.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!delete\+Reserved@{delete\+Reserved}}
+\index{delete\+Reserved@{delete\+Reserved}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{delete\+Reserved}]{\setlength{\rightskip}{0pt plus 5cm}delete\+Reserved (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_a03719201a457fb6e0999089d9ceefaf1}
+Delete a reserved job from the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 225 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!get\+Database@{get\+Database}}
+\index{get\+Database@{get\+Database}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{get\+Database}]{\setlength{\rightskip}{0pt plus 5cm}get\+Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_a728138a9219e8751278542c3a8c5e3a9}
+Get the underlying database instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!get\+Expire@{get\+Expire}}
+\index{get\+Expire@{get\+Expire}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{get\+Expire}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_afccec99390039d80aff5a2e7ef9d301b}
+Get the expiration time in seconds.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 256 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!get\+Next\+Available\+Job@{get\+Next\+Available\+Job}}
+\index{get\+Next\+Available\+Job@{get\+Next\+Available\+Job}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{get\+Next\+Available\+Job}]{\setlength{\rightskip}{0pt plus 5cm}get\+Next\+Available\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a9e15bc1f1be1aa3a2c9dc5860a3060f6}
+Get the next available job for the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!get\+Queue@{get\+Queue}}
+\index{get\+Queue@{get\+Queue}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{get\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a1def6924b6f6288613a0c963e9127e6d}
+Get the queue or return the default.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!later@{later}}
+\index{later@{later}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{later}]{\setlength{\rightskip}{0pt plus 5cm}later (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_a3df041896a4b350861479a68426fae1e}
+Push a new job onto the queue after a delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a3df041896a4b350861479a68426fae1e}.
+
+
+
+Definition at line 92 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!mark\+Job\+As\+Reserved@{mark\+Job\+As\+Reserved}}
+\index{mark\+Job\+As\+Reserved@{mark\+Job\+As\+Reserved}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{mark\+Job\+As\+Reserved}]{\setlength{\rightskip}{0pt plus 5cm}mark\+Job\+As\+Reserved (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_af712512ed4a1d650ea6bdb1af33dbdd9}
+Mark the given job I\+D as reserved.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!pop@{pop}}
+\index{pop@{pop}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}pop (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_afc9c07aeca2efd28a0968de45ea1d023}
+Pop the next job off of the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_afc9c07aeca2efd28a0968de45ea1d023}.
+
+
+
+Definition at line 140 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!push@{push}}
+\index{push@{push}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}push (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_ab4a57e4ee77634277452242fb44af86f}
+Push a new job onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_ab4a57e4ee77634277452242fb44af86f}.
+
+
+
+Definition at line 65 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!push\+Raw@{push\+Raw}}
+\index{push\+Raw@{push\+Raw}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{push\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}push\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_a04e227c6d96e2e49a0989f4aab87ef21}
+Push a raw payload onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a04e227c6d96e2e49a0989f4aab87ef21}.
+
+
+
+Definition at line 78 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!push\+To\+Database@{push\+To\+Database}}
+\index{push\+To\+Database@{push\+To\+Database}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{push\+To\+Database}]{\setlength{\rightskip}{0pt plus 5cm}push\+To\+Database (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$queue, }
+\item[{}]{\$payload, }
+\item[{}]{\$attempts = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a37b1edb51c54681dcd15ea9a332a4227}
+Push a raw payload to the database with a given delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string | null & {\em \$queue} & \\
+\hline
+string & {\em \$payload} & \\
+\hline
+int & {\em \$attempts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!release@{release}}
+\index{release@{release}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}release (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$job, }
+\item[{}]{\$delay}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_ae6c9e4f452bedcdbbbe72f4cb9f974a5}
+Release a reserved job back onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\textbackslash{}\+Std\+Class & {\em \$job} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long@{release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long}}
+\index{release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long@{release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long}]{\setlength{\rightskip}{0pt plus 5cm}release\+Jobs\+That\+Have\+Been\+Reserved\+Too\+Long (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a444b4c8dcb58e9a5cfd0a4207e557233}
+Release the jobs that have been reserved for too long.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!set\+Expire@{set\+Expire}}
+\index{set\+Expire@{set\+Expire}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{set\+Expire}]{\setlength{\rightskip}{0pt plus 5cm}set\+Expire (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_database_queue_ae9c186d43d52e0bd2fed6ed0863b7a81}
+Set the expiration time in seconds.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int | null & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Database\+Queue.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!\$database@{\$database}}
+\index{\$database@{\$database}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{\$database}]{\setlength{\rightskip}{0pt plus 5cm}\$database\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a7691c0162d89de0b6ba47edcd8ba8878}
+
+
+Definition at line 17 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!\$default@{\$default}}
+\index{\$default@{\$default}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{\$default}]{\setlength{\rightskip}{0pt plus 5cm}\$default\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a9df479534ecf05fd7575c6275d381687}
+
+
+Definition at line 31 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!\$expire@{\$expire}}
+\index{\$expire@{\$expire}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{\$expire}]{\setlength{\rightskip}{0pt plus 5cm}\$expire = 60\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_a5d0f068533ab8205b0e7cb0d19ad03d7}
+
+
+Definition at line 38 of file Database\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}!\$table@{\$table}}
+\index{\$table@{\$table}!Illuminate\+::\+Queue\+::\+Database\+Queue@{Illuminate\+::\+Queue\+::\+Database\+Queue}}
+\subsubsection[{\$table}]{\setlength{\rightskip}{0pt plus 5cm}\$table\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_database_queue_ae8876a14058f368335baccf35af4a22b}
+
+
+Definition at line 24 of file Database\+Queue.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Database\+Queue.\+php}\end{DoxyCompactItemize}

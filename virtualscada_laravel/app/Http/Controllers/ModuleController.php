@@ -8,6 +8,12 @@ use App\Module;
 use App\Project;
 use Response;
 
+/**
+ * Controller for the Module class
+ *
+ * Class ModuleController
+ * @package App\Http\Controllers
+ */
 class ModuleController extends Controller {
 
 	/**

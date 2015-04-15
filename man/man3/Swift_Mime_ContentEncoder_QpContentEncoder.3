@@ -1,0 +1,131 @@
+.TH "Swift_Mime_ContentEncoder_QpContentEncoder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_ContentEncoder_QpContentEncoder \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Encoder_QpEncoder\fP, and \fBSwift_Mime_ContentEncoder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_CharacterStream\fP $charStream, \fBSwift_StreamFilter\fP $\fBfilter\fP=null, $dotEscape=false)"
+.br
+.ti -1c
+.RI "\fB__sleep\fP ()"
+.br
+.ti -1c
+.RI "\fBencodeByteStream\fP (\fBSwift_OutputByteStream\fP $os, \fBSwift_InputByteStream\fP $is, $firstLineOffset=0, $maxLineLength=0)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetSafeMapShareId\fP ()"
+.br
+.ti -1c
+.RI "\fBinitSafeMap\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_dotEscape\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Handles Quoted Printable (QP) Transfer Encoding in \fBSwift\fP Mailer\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file QpContentEncoder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_CharacterStream\fP $charStream, \fBSwift_StreamFilter\fP $filter = \fCnull\fP,  $dotEscape = \fCfalse\fP)"
+Creates a new QpContentEncoder for the given CharacterStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charStream\fP to use for reading characters 
+.br
+\fI$filter\fP if canonicalization should occur 
+.br
+\fI$dotEscape\fP if dot stuffing workaround must be enabled 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file QpContentEncoder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__sleep ()"
+
+.PP
+Definition at line 33 of file QpContentEncoder\&.php\&.
+.SS "encodeByteStream (\fBSwift_OutputByteStream\fP $os, \fBSwift_InputByteStream\fP $is,  $firstLineOffset = \fC0\fP,  $maxLineLength = \fC0\fP)"
+Encode stream $in to stream $out\&.
+.PP
+QP encoded strings have a maximum line length of 76 characters\&. If the first line needs to be shorter, indicate the difference with $firstLineOffset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$os\fP output stream 
+.br
+\fI$is\fP input stream 
+.br
+\fI$firstLineOffset\fP 
+.br
+\fI$maxLineLength\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ContentEncoder\fP\&.
+.PP
+Definition at line 64 of file QpContentEncoder\&.php\&.
+.SS "getName ()"
+Get the name of this encoding scheme\&. Returns the string 'quoted-printable'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ContentEncoder\fP\&.
+.PP
+Definition at line 119 of file QpContentEncoder\&.php\&.
+.SS "getSafeMapShareId ()\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file QpContentEncoder\&.php\&.
+.SS "initSafeMap ()\fC [protected]\fP"
+
+.PP
+Definition at line 43 of file QpContentEncoder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_dotEscape\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file QpContentEncoder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

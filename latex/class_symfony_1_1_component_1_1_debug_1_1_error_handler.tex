@@ -1,0 +1,785 @@
+\section{Error\+Handler Class Reference}
+\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler}\index{Error\+Handler@{Error\+Handler}}
+Inheritance diagram for Error\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_debug_1_1_error_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Default\+Logger} ({\bf Logger\+Interface} \$logger, \$levels=null, \$replace=false)
+\item 
+{\bf set\+Loggers} (array \$loggers)
+\item 
+{\bf set\+Exception\+Handler} (\$handler)
+\item 
+{\bf throw\+At} (\$levels, \$replace=false)
+\item 
+{\bf scope\+At} (\$levels, \$replace=false)
+\item 
+{\bf trace\+At} (\$levels, \$replace=false)
+\item 
+{\bf scream\+At} (\$levels, \$replace=false)
+\item 
+{\bf handle\+Error} (\$type, \$message, \$file, \${\bf line}, array \$context)
+\item 
+{\bf handle\+Exception} (\textbackslash{}Exception \$exception, array \$error=null)
+\item 
+{\bf set\+Level} (\$level)
+\item 
+{\bf set\+Display\+Errors} (\$display\+Errors)
+\item 
+{\bf handle} (\$level, \$message, \$file= \textquotesingle{}unknown\textquotesingle{}, \${\bf line}=0, \$context=array())
+\item 
+{\bf handle\+Fatal} ()
+\item 
+{\bf set\+Default\+Logger} ({\bf Logger\+Interface} \$logger, \$levels=null, \$replace=false)
+\item 
+{\bf set\+Loggers} (array \$loggers)
+\item 
+{\bf set\+Exception\+Handler} (\$handler)
+\item 
+{\bf throw\+At} (\$levels, \$replace=false)
+\item 
+{\bf scope\+At} (\$levels, \$replace=false)
+\item 
+{\bf trace\+At} (\$levels, \$replace=false)
+\item 
+{\bf scream\+At} (\$levels, \$replace=false)
+\item 
+{\bf handle\+Error} (\$type, \$message, \$file, \${\bf line}, array \$context)
+\item 
+{\bf handle\+Exception} (\textbackslash{}Exception \$exception, array \$error=null)
+\item 
+{\bf set\+Level} (\$level)
+\item 
+{\bf set\+Display\+Errors} (\$display\+Errors)
+\item 
+{\bf handle} (\$level, \$message, \$file= \textquotesingle{}unknown\textquotesingle{}, \${\bf line}=0, \$context=array())
+\item 
+{\bf handle\+Fatal} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf register} (\$handler=null, \$replace=true)
+\item 
+static {\bf handle\+Fatal\+Error} (array \$error=null)
+\item 
+static {\bf stack\+Errors} ()
+\item 
+static {\bf unstack\+Errors} ()
+\item 
+static {\bf set\+Logger} ({\bf Logger\+Interface} \$logger, \$channel= \textquotesingle{}deprecation\textquotesingle{})
+\item 
+static {\bf register} (\$handler=null, \$replace=true)
+\item 
+static {\bf handle\+Fatal\+Error} (array \$error=null)
+\item 
+static {\bf stack\+Errors} ()
+\item 
+static {\bf unstack\+Errors} ()
+\item 
+static {\bf set\+Logger} ({\bf Logger\+Interface} \$logger, \$channel= \textquotesingle{}deprecation\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N} = -\/100
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Fatal\+Error\+Handlers} ()
+\item 
+{\bf get\+Fatal\+Error\+Handlers} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} generic \doxyref{Error\+Handler}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler} for the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} engine.
+
+Provides five bit fields that control how errors are handled\+:
+\begin{DoxyItemize}
+\item thrown\+Errors\+: errors thrown as 
+\item logged\+Errors\+: logged errors, when not @-\/silenced
+\item scoped\+Errors\+: errors thrown or logged with their local context
+\item traced\+Errors\+: errors logged with their stack trace, only once for repeated errors
+\item screamed\+Errors\+: never @-\/silenced errors
+\end{DoxyItemize}
+
+Each error level can be logged by a dedicated P\+S\+R-\/3 logger object. Screaming only applies to logging. Throwing takes precedence over logging. Uncaught exceptions are logged as E\+\_\+\+E\+R\+R\+O\+R. E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+E\+D and E\+\_\+\+U\+S\+E\+R\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+E\+D levels never throw. E\+\_\+\+R\+E\+C\+O\+V\+E\+R\+A\+B\+L\+E\+\_\+\+E\+R\+R\+O\+R and E\+\_\+\+U\+S\+E\+R\+\_\+\+E\+R\+R\+O\+R levels always throw. Non catchable errors that can be detected at shutdown time are logged when the scream bit field allows so. As errors have a performance cost, repeated errors are all logged, so that the developer can see them and weight them as more important to fix than others of the same level.
+
+\begin{DoxyAuthor}{Author}
+Nicolas Grekas {\tt p@tchwork.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 5754 of file compiled.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!get\+Fatal\+Error\+Handlers@{get\+Fatal\+Error\+Handlers}}
+\index{get\+Fatal\+Error\+Handlers@{get\+Fatal\+Error\+Handlers}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{get\+Fatal\+Error\+Handlers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fatal\+Error\+Handlers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a139f33c3c9f19f2b566ff740e44a81a2}
+Gets the fatal error handlers.
+
+Override this method if you want to define more fatal error handlers.
+
+\begin{DoxyReturn}{Returns}
+Fatal\+Error\+Handler\+Interface[] An array of Fatal\+Error\+Handler\+Interface 
+\end{DoxyReturn}
+
+
+Definition at line 575 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!get\+Fatal\+Error\+Handlers@{get\+Fatal\+Error\+Handlers}}
+\index{get\+Fatal\+Error\+Handlers@{get\+Fatal\+Error\+Handlers}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{get\+Fatal\+Error\+Handlers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fatal\+Error\+Handlers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a139f33c3c9f19f2b566ff740e44a81a2}
+
+
+Definition at line 6052 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle@{handle}}
+\index{handle@{handle}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{}]{\$level, }
+\item[{}]{\$message, }
+\item[{}]{\$file = {\ttfamily \textquotesingle{}unknown\textquotesingle{}}, }
+\item[{}]{\$line = {\ttfamily 0}, }
+\item[{}]{\$context = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_aa39dc421ed65c22651d3aee203fd46e6}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. Use \doxyref{handle\+Error()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a61073f1512e26de763b6747e9ce5c83a} instead. \end{DoxyRefDesc}
+
+
+Definition at line 646 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle@{handle}}
+\index{handle@{handle}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{}]{\$level, }
+\item[{}]{\$message, }
+\item[{}]{\$file = {\ttfamily \textquotesingle{}unknown\textquotesingle{}}, }
+\item[{}]{\$line = {\ttfamily 0}, }
+\item[{}]{\$context = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_aa39dc421ed65c22651d3aee203fd46e6}
+
+
+Definition at line 6090 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Error@{handle\+Error}}
+\index{handle\+Error@{handle\+Error}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Error}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Error (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$message, }
+\item[{}]{\$file, }
+\item[{}]{\$line, }
+\item[{array}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a61073f1512e26de763b6747e9ce5c83a}
+Handles errors by filtering then logging them according to the configured bit fields.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$type} & \doxyref{One}{p.}{class_one} of the E\+\_\+$\ast$ constants \\
+\hline
+string & {\em \$file} & \\
+\hline
+int & {\em \$line} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns false when no handling happens so that the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} engine can handle the error itself.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 352 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Error@{handle\+Error}}
+\index{handle\+Error@{handle\+Error}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Error}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Error (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$message, }
+\item[{}]{\$file, }
+\item[{}]{\$line, }
+\item[{array}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a61073f1512e26de763b6747e9ce5c83a}
+
+
+Definition at line 5904 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Exception@{handle\+Exception}}
+\index{handle\+Exception@{handle\+Exception}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Exception (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Exception}]{\$exception, }
+\item[{array}]{\$error = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ad361c9b6420f0ee5d4762e7df3941115}
+Handles an exception by logging then forwarding it to an other handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$exception} & An exception to handle \\
+\hline
+array & {\em \$error} & An array as returned by error\+\_\+get\+\_\+last() \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 436 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Exception@{handle\+Exception}}
+\index{handle\+Exception@{handle\+Exception}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Exception (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Exception}]{\$exception, }
+\item[{array}]{\$error = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ad361c9b6420f0ee5d4762e7df3941115}
+
+
+Definition at line 5962 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Fatal@{handle\+Fatal}}
+\index{handle\+Fatal@{handle\+Fatal}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Fatal}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Fatal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a6cff32adc5c05905eb1f7e4c11d0d95b}
+Handles \doxyref{P\+H\+P}{p.}{namespace_p_h_p} fatal errors.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. Use \doxyref{handle\+Fatal\+Error()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a3433bbc8258d6c1bfe7be3de416622be} instead. \end{DoxyRefDesc}
+
+
+Definition at line 656 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Fatal@{handle\+Fatal}}
+\index{handle\+Fatal@{handle\+Fatal}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Fatal}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Fatal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a6cff32adc5c05905eb1f7e4c11d0d95b}
+
+
+Definition at line 6094 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Fatal\+Error@{handle\+Fatal\+Error}}
+\index{handle\+Fatal\+Error@{handle\+Fatal\+Error}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Fatal\+Error}]{\setlength{\rightskip}{0pt plus 5cm}static handle\+Fatal\+Error (
+\begin{DoxyParamCaption}
+\item[{array}]{\$error = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a3433bbc8258d6c1bfe7be3de416622be}
+Shutdown registered function for handling \doxyref{P\+H\+P}{p.}{namespace_p_h_p} fatal errors.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$error} & An array as returned by error\+\_\+get\+\_\+last() \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 487 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!handle\+Fatal\+Error@{handle\+Fatal\+Error}}
+\index{handle\+Fatal\+Error@{handle\+Fatal\+Error}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{handle\+Fatal\+Error}]{\setlength{\rightskip}{0pt plus 5cm}static handle\+Fatal\+Error (
+\begin{DoxyParamCaption}
+\item[{array}]{\$error = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a3433bbc8258d6c1bfe7be3de416622be}
+
+
+Definition at line 5999 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!register@{register}}
+\index{register@{register}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}static register (
+\begin{DoxyParamCaption}
+\item[{}]{\$handler = {\ttfamily null}, }
+\item[{}]{\$replace = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ac01fde6c42dfbed95ea9b070cdccad72}
+Registers the error handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+self | null | int & {\em \$handler} & The handler to register, or\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}](since 2.\+6, to be removed in 3.\+0) bit field of thrown levels 
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$replace} & Whether to replace or not any existing handler\\
+\hline
+\end{DoxyParams}
+\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+self The registered error handler 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!register@{register}}
+\index{register@{register}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}static register (
+\begin{DoxyParamCaption}
+\item[{}]{\$handler = {\ttfamily null}, }
+\item[{}]{\$replace = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ac01fde6c42dfbed95ea9b070cdccad72}
+
+
+Definition at line 5771 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!scope\+At@{scope\+At}}
+\index{scope\+At@{scope\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{scope\+At}]{\setlength{\rightskip}{0pt plus 5cm}scope\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ae39f44133613a774327e98723c4b9cf0}
+Sets the error levels that are logged or thrown with their local scope.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$levels} & \doxyref{A}{p.}{class_a} bit field of E\+\_\+$\ast$ constants for scoped errors \\
+\hline
+bool & {\em \$replace} & Replace or amend the previous value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The previous value 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!scope\+At@{scope\+At}}
+\index{scope\+At@{scope\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{scope\+At}]{\setlength{\rightskip}{0pt plus 5cm}scope\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ae39f44133613a774327e98723c4b9cf0}
+
+
+Definition at line 5865 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!scream\+At@{scream\+At}}
+\index{scream\+At@{scream\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{scream\+At}]{\setlength{\rightskip}{0pt plus 5cm}scream\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a2ab04d709ed4eab59db43bdebbb4a06a}
+Sets the error levels where the @-\/operator is ignored.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$levels} & \doxyref{A}{p.}{class_a} bit field of E\+\_\+$\ast$ constants for screamed errors \\
+\hline
+bool & {\em \$replace} & Replace or amend the previous value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The previous value 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!scream\+At@{scream\+At}}
+\index{scream\+At@{scream\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{scream\+At}]{\setlength{\rightskip}{0pt plus 5cm}scream\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a2ab04d709ed4eab59db43bdebbb4a06a}
+
+
+Definition at line 5883 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Default\+Logger@{set\+Default\+Logger}}
+\index{set\+Default\+Logger@{set\+Default\+Logger}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Default\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}set\+Default\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger\+Interface}}]{\$logger, }
+\item[{}]{\$levels = {\ttfamily null}, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a09c6f0a2d9f9bcaf2f0e9813b10d1f4f}
+Sets a logger to non assigned errors levels.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Logger\+Interface & {\em \$logger} & \doxyref{A}{p.}{class_a} P\+S\+R-\/3 logger to put as default for the given levels \\
+\hline
+array | int & {\em \$levels} & An array map of E\+\_\+$\ast$ to Log\+Level\+:\+:$\ast$ or an integer bit field of E\+\_\+$\ast$ constants \\
+\hline
+bool & {\em \$replace} & Whether to replace or not any existing logger \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 160 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Default\+Logger@{set\+Default\+Logger}}
+\index{set\+Default\+Logger@{set\+Default\+Logger}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Default\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}set\+Default\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger\+Interface}}]{\$logger, }
+\item[{}]{\$levels = {\ttfamily null}, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a09c6f0a2d9f9bcaf2f0e9813b10d1f4f}
+
+
+Definition at line 5798 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Display\+Errors@{set\+Display\+Errors}}
+\index{set\+Display\+Errors@{set\+Display\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Display\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}set\+Display\+Errors (
+\begin{DoxyParamCaption}
+\item[{}]{\$display\+Errors}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a59a5a3b00e555041eca8d5cc7ffd7ddc}
+Sets the display\+\_\+errors flag value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$display\+Errors} & The display\+\_\+errors flag value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. Use \doxyref{throw\+At()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a9938c04e394391d1fa67cbbc7b4c82ec} instead. \end{DoxyRefDesc}
+
+
+Definition at line 604 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Display\+Errors@{set\+Display\+Errors}}
+\index{set\+Display\+Errors@{set\+Display\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Display\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}set\+Display\+Errors (
+\begin{DoxyParamCaption}
+\item[{}]{\$display\+Errors}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a59a5a3b00e555041eca8d5cc7ffd7ddc}
+
+
+Definition at line 6061 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Exception\+Handler@{set\+Exception\+Handler}}
+\index{set\+Exception\+Handler@{set\+Exception\+Handler}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Exception\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\+Exception\+Handler (
+\begin{DoxyParamCaption}
+\item[{}]{\$handler}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ae7af45d61d378db9181a0cc751fbd114}
+Sets a user exception handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$handler} & \doxyref{A}{p.}{class_a} handler that will be called on \doxyref{Exception}{p.}{namespace_symfony_1_1_component_1_1_debug_1_1_exception}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable$\vert$null The previous exception handler
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 231 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Exception\+Handler@{set\+Exception\+Handler}}
+\index{set\+Exception\+Handler@{set\+Exception\+Handler}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Exception\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\+Exception\+Handler (
+\begin{DoxyParamCaption}
+\item[{}]{\$handler}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_ae7af45d61d378db9181a0cc751fbd114}
+
+
+Definition at line 5845 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Level@{set\+Level}}
+\index{set\+Level@{set\+Level}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Level}]{\setlength{\rightskip}{0pt plus 5cm}set\+Level (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a0b759f4af85ea8fe8967823a30d54f0c}
+Sets the level at which the conversion to \doxyref{Exception}{p.}{namespace_symfony_1_1_component_1_1_debug_1_1_exception} is done.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int | null & {\em \$level} & The level (null to use the error\+\_\+reporting() value and 0 to disable)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. Use \doxyref{throw\+At()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a9938c04e394391d1fa67cbbc7b4c82ec} instead. \end{DoxyRefDesc}
+
+
+Definition at line 591 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Level@{set\+Level}}
+\index{set\+Level@{set\+Level}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Level}]{\setlength{\rightskip}{0pt plus 5cm}set\+Level (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a0b759f4af85ea8fe8967823a30d54f0c}
+
+
+Definition at line 6056 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Logger@{set\+Logger}}
+\index{set\+Logger@{set\+Logger}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger\+Interface}}]{\$logger, }
+\item[{}]{\$channel = {\ttfamily \textquotesingle{}deprecation\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a1fd8342f63908bf42fd402933df709a7}
+Sets a logger for the given channel.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Logger\+Interface & {\em \$logger} & \doxyref{A}{p.}{class_a} logger interface \\
+\hline
+string & {\em \$channel} & The channel associated with the logger (deprecation, emergency or scream)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. Use \doxyref{set\+Loggers()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a51a1316f38cc9c98ee6bb12027cb5b06} or \doxyref{set\+Default\+Logger()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a09c6f0a2d9f9bcaf2f0e9813b10d1f4f} instead. \end{DoxyRefDesc}
+
+
+Definition at line 623 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Logger@{set\+Logger}}
+\index{set\+Logger@{set\+Logger}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger\+Interface}}]{\$logger, }
+\item[{}]{\$channel = {\ttfamily \textquotesingle{}deprecation\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a1fd8342f63908bf42fd402933df709a7}
+
+
+Definition at line 6071 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Loggers@{set\+Loggers}}
+\index{set\+Loggers@{set\+Loggers}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Loggers}]{\setlength{\rightskip}{0pt plus 5cm}set\+Loggers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$loggers}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a51a1316f38cc9c98ee6bb12027cb5b06}
+Sets a logger for each error level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$loggers} & \doxyref{Error}{p.}{class_error} levels to [Logger\+Interface$\vert$null, Log\+Level\+:\+:$\ast$] map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The previous map
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 194 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!set\+Loggers@{set\+Loggers}}
+\index{set\+Loggers@{set\+Loggers}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{set\+Loggers}]{\setlength{\rightskip}{0pt plus 5cm}set\+Loggers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$loggers}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a51a1316f38cc9c98ee6bb12027cb5b06}
+
+
+Definition at line 5820 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!stack\+Errors@{stack\+Errors}}
+\index{stack\+Errors@{stack\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{stack\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}static stack\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a8577fca93c05d89b05322dd280f444d6}
+Configures the error handler for delayed handling. Ensures also that non-\/catchable fatal errors are never silenced.
+
+As shown by {\tt http\+://bugs.\+php.\+net/42098} and {\tt http\+://bugs.\+php.\+net/60724} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} has a compile stage where it behaves unusually. To workaround it, we plug an error handler that only stacks errors for later.
+
+The most important feature of this is to prevent autoloading until \doxyref{unstack\+Errors()}{p.}{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a96c6d2c4a2717341e39ab597cb13d28a} is called. 
+
+Definition at line 538 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!stack\+Errors@{stack\+Errors}}
+\index{stack\+Errors@{stack\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{stack\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}static stack\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a8577fca93c05d89b05322dd280f444d6}
+
+
+Definition at line 6031 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!throw\+At@{throw\+At}}
+\index{throw\+At@{throw\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{throw\+At}]{\setlength{\rightskip}{0pt plus 5cm}throw\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a9938c04e394391d1fa67cbbc7b4c82ec}
+Sets the error levels that are to be thrown.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$levels} & \doxyref{A}{p.}{class_a} bit field of E\+\_\+$\ast$ constants for thrown errors \\
+\hline
+bool & {\em \$replace} & Replace or amend the previous value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The previous value 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!throw\+At@{throw\+At}}
+\index{throw\+At@{throw\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{throw\+At}]{\setlength{\rightskip}{0pt plus 5cm}throw\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a9938c04e394391d1fa67cbbc7b4c82ec}
+
+
+Definition at line 5854 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!trace\+At@{trace\+At}}
+\index{trace\+At@{trace\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{trace\+At}]{\setlength{\rightskip}{0pt plus 5cm}trace\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_aee7256d297205659e6a47dd8c74671cd}
+Sets the error levels that are logged with their stack trace.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$levels} & \doxyref{A}{p.}{class_a} bit field of E\+\_\+$\ast$ constants for traced errors \\
+\hline
+bool & {\em \$replace} & Replace or amend the previous value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The previous value 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!trace\+At@{trace\+At}}
+\index{trace\+At@{trace\+At}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{trace\+At}]{\setlength{\rightskip}{0pt plus 5cm}trace\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$levels, }
+\item[{}]{\$replace = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_aee7256d297205659e6a47dd8c74671cd}
+
+
+Definition at line 5874 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!unstack\+Errors@{unstack\+Errors}}
+\index{unstack\+Errors@{unstack\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{unstack\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}static unstack\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a96c6d2c4a2717341e39ab597cb13d28a}
+Unstacks stacked errors and forwards to the logger 
+
+Definition at line 546 of file Error\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!unstack\+Errors@{unstack\+Errors}}
+\index{unstack\+Errors@{unstack\+Errors}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{unstack\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}static unstack\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_a96c6d2c4a2717341e39ab597cb13d28a}
+
+
+Definition at line 6035 of file compiled.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}!T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N@{T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N}}
+\index{T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N@{T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N}!Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler@{Symfony\+::\+Component\+::\+Debug\+::\+Error\+Handler}}
+\subsubsection[{T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const T\+Y\+P\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N = -\/100}\label{class_symfony_1_1_component_1_1_debug_1_1_error_handler_afcb80612517f98beafe30c19b6737c36}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]since 2.\+6, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Definition at line 5756 of file compiled.\+php.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vendor/{\bf compiled.\+php}\item 
+vendor/symfony/debug/\+Symfony/\+Component/\+Debug/{\bf Error\+Handler.\+php}\end{DoxyCompactItemize}

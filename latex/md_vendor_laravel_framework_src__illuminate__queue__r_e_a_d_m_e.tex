@@ -1,0 +1,21 @@
+The \doxyref{Laravel}{p.}{namespace_laravel} \doxyref{Queue}{p.}{class_queue} component provides a unified A\+P\+I across a variety of different queue services. Queues allow you to defer the processing of a time consuming task, such as sending an e-\/mail, until a later time, thus drastically speeding up the web requests to your application.
+
+\subsubsection*{Usage Instructions}
+
+First, create a new \doxyref{Queue}{p.}{class_queue} {\ttfamily Capsule} manager instance. Similar to the \char`\"{}\+Capsule\char`\"{} provided for the \doxyref{Eloquent}{p.}{class_eloquent} O\+R\+M, the queue Capsule aims to make configuring the library for usage outside of the \doxyref{Laravel}{p.}{namespace_laravel} framework as easy as possible.
+
+```\+P\+H\+P use \doxyref{Illuminate}{p.}{namespace_illuminate} as \doxyref{Queue}{p.}{class_queue};
+
+\$queue = new \doxyref{Queue}{p.}{class_queue};
+
+\$queue-\/$>$add\+Connection([ \textquotesingle{}driver\textquotesingle{} =$>$ \textquotesingle{}beanstalkd\textquotesingle{}, \textquotesingle{}host\textquotesingle{} =$>$ \textquotesingle{}localhost\textquotesingle{}, \textquotesingle{}queue\textquotesingle{} =$>$ \textquotesingle{}default\textquotesingle{}, ]);
+
+// Make this Capsule instance available globally via static methods... (optional) \$queue-\/$>$\doxyref{set\+As\+Global()}{p.}{namespace_illuminate_1_1_support_1_1_traits_a93d494bed4892616de88f21fa6e271cc}; ```
+
+Once the Capsule instance has been registered. You may use it like so\+:
+
+```\+P\+H\+P // As an instance... \$queue-\/$>$push(\textquotesingle{}Send\+Email\textquotesingle{}, array(\textquotesingle{}message\textquotesingle{} =$>$ \$message));
+
+// If set\+As\+Global has been called... \doxyref{Queue\+::push}{p.}{class_queue_aa7143b2397eaae8a23540c34607c663e}(\textquotesingle{}Send\+Email\textquotesingle{}, array(\textquotesingle{}message\textquotesingle{} =$>$ \$message)); ```
+
+For further documentation on using the queue, consult the {\tt Laravel framework documentation}. 

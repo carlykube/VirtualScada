@@ -1,0 +1,247 @@
+\section{Swift\+\_\+\+File\+Spool Class Reference}
+\label{class_swift___file_spool}\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+Inheritance diagram for Swift\+\_\+\+File\+Spool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_swift___file_spool}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf path})
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf start} ()
+\item 
+{\bf stop} ()
+\item 
+{\bf set\+Retry\+Limit} (\$limit)
+\item 
+{\bf queue\+Message} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message)
+\item 
+{\bf recover} (\$timeout=900)
+\item 
+{\bf flush\+Queue} ({\bf Swift\+\_\+\+Transport} \$transport, \&\$failed\+Recipients=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Random\+String} (\$count)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores Messages on the filesystem.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier 
+
+Xavier De Cock {\tt xdecock@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 17 of file File\+Spool.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a03853ceaa393e487835b287de58aba5a}
+Create a new File\+Spool.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 36 of file File\+Spool.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!flush\+Queue@{flush\+Queue}}
+\index{flush\+Queue@{flush\+Queue}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{flush\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$transport, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a36cb9b4369999eb8a08b0ccff35a0591}
+Sends messages using the given transport instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$transport} & \doxyref{A}{p.}{class_a} transport instance \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failed\+Recipients An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The number of sent e-\/mail\textquotesingle{}s 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Spool} \doxyref{}{p.}{interface_swift___spool_a36cb9b4369999eb8a08b0ccff35a0591}.
+
+
+
+Definition at line 141 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!get\+Random\+String@{get\+Random\+String}}
+\index{get\+Random\+String@{get\+Random\+String}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{get\+Random\+String}]{\setlength{\rightskip}{0pt plus 5cm}get\+Random\+String (
+\begin{DoxyParamCaption}
+\item[{}]{\$count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___file_spool_a17531d5aeaf7b530c60e30a8f2d2217c}
+Returns a random string needed to generate a file\+Name for the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 196 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a1ffe0e26cd53b764f58c5bbed489c278}
+Tests if this Spool mechanism has started.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Spool} \doxyref{}{p.}{interface_swift___spool_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 52 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!queue\+Message@{queue\+Message}}
+\index{queue\+Message@{queue\+Message}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{queue\+Message}]{\setlength{\rightskip}{0pt plus 5cm}queue\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a1cc04aa27eab276ec76dac32f9c01243}
+Queues a message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message} & {\em \$message} & The message to store\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Swift\+\_\+\+Spool} \doxyref{}{p.}{interface_swift___spool_a1cc04aa27eab276ec76dac32f9c01243}.
+
+
+
+Definition at line 92 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!recover@{recover}}
+\index{recover@{recover}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{recover}]{\setlength{\rightskip}{0pt plus 5cm}recover (
+\begin{DoxyParamCaption}
+\item[{}]{\$timeout = {\ttfamily 900}}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_aa57cb1c44363429e9328b7c0e2d43736}
+Execute a recovery if for any reason a process is sending for too long.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$timeout} & in second Defaults is for very slow smtp responses \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!set\+Retry\+Limit@{set\+Retry\+Limit}}
+\index{set\+Retry\+Limit@{set\+Retry\+Limit}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{set\+Retry\+Limit}]{\setlength{\rightskip}{0pt plus 5cm}set\+Retry\+Limit (
+\begin{DoxyParamCaption}
+\item[{}]{\$limit}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a5207133b3f8fd9ee29eb654813120d63}
+Allow to manage the enqueuing retry limit.
+
+Default, is ten and allows over 64$^\wedge$20 different file\+Names
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!start@{start}}
+\index{start@{start}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_af8fa59992209e36dccb3eefb0f75531f}
+Starts this Spool mechanism. 
+
+Implements {\bf Swift\+\_\+\+Spool} \doxyref{}{p.}{interface_swift___spool_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 60 of file File\+Spool.\+php.
+
+\index{Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}!stop@{stop}}
+\index{stop@{stop}!Swift\+\_\+\+File\+Spool@{Swift\+\_\+\+File\+Spool}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___file_spool_a8b6fc76a620d7557d06e9a11a9ffb509}
+Stops this Spool mechanism. 
+
+Implements {\bf Swift\+\_\+\+Spool} \doxyref{}{p.}{interface_swift___spool_a8b6fc76a620d7557d06e9a11a9ffb509}.
+
+
+
+Definition at line 67 of file File\+Spool.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/{\bf File\+Spool.\+php}\end{DoxyCompactItemize}

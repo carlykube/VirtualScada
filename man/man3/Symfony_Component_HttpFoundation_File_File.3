@@ -1,0 +1,176 @@
+.TH "File" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+File \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits SplFileInfo\&.
+.PP
+Inherited by \fBUploadedFile\fP, and \fBFakeFile\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP, $checkPath=true)"
+.br
+.ti -1c
+.RI "\fBguessExtension\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMimeType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExtension\fP ()"
+.br
+.ti -1c
+.RI "\fBmove\fP ($directory, $\fBname\fP=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetTargetFile\fP ($directory, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ($\fBname\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP file in the file system\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bernhard Schussek bschussek@gmail.com
+.RE
+.PP
+
+.PP
+Definition at line 26 of file File\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path,  $checkPath = \fCtrue\fP)"
+Constructs a new file from the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path to the file 
+.br
+\fI$checkPath\fP Whether to check the path or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileNotFoundException\fP If the given path is not a file
+.RE
+.PP
+
+.PP
+Definition at line 38 of file File\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getExtension ()"
+Returns the extension of the file\&.
+.PP
+::getExtension() is not available before \fBPHP\fP 5\&.3\&.6
+.PP
+\fBReturns:\fP
+.RS 4
+string The extension
+.RE
+.PP
+
+.PP
+Definition at line 99 of file File\&.php\&.
+.SS "getMimeType ()"
+Returns the mime type of the file\&.
+.PP
+The mime type is guessed using a MimeTypeGuesser instance, which uses finfo(), mime_content_type() and the system binary 'file' (in this order), depending on which of those are available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The guessed mime type (i\&.e\&. 'application/pdf')
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+MimeTypeGuesser
+.RE
+.PP
+
+.PP
+Definition at line 83 of file File\&.php\&.
+.SS "getName ( $name)\fC [protected]\fP"
+Returns locale independent base name of the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The new file name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string containing 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file File\&.php\&.
+.SS "getTargetFile ( $directory,  $name = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 130 of file File\&.php\&.
+.SS "guessExtension ()"
+Returns the extension based on the mime type\&.
+.PP
+If the mime type is unknown, returns null\&.
+.PP
+This method uses the mime type as guessed by \fBgetMimeType()\fP to guess the file extension\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The guessed extension or null if it cannot be guessed
+.RE
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+ExtensionGuesser 
+.PP
+\fBgetMimeType()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file File\&.php\&.
+.SS "move ( $directory,  $name = \fCnull\fP)"
+Moves the file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP The destination folder 
+.br
+\fI$name\fP The new file name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFile\fP \fBA\fP \fBFile\fP object representing the new file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileException\fP if the target file could not be created
+.RE
+.PP
+
+.PP
+Definition at line 116 of file File\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

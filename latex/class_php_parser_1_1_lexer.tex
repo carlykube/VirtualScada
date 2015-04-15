@@ -1,0 +1,286 @@
+\section{Lexer Class Reference}
+\label{class_php_parser_1_1_lexer}\index{Lexer@{Lexer}}
+Inheritance diagram for Lexer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_php_parser_1_1_lexer}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Emulative\+Test}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \${\bf options}=array())
+\item 
+{\bf start\+Lexing} (\$code)
+\item 
+{\bf get\+Next\+Token} (\&\$value=null, \&\$start\+Attributes=null, \&\$end\+Attributes=null)
+\item 
+{\bf get\+Tokens} ()
+\item 
+{\bf handle\+Halt\+Compiler} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf reset\+Errors} ()
+\item 
+{\bf handle\+Errors} ()
+\item 
+{\bf create\+Token\+Map} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$code}
+\item 
+{\bf \$tokens}
+\item 
+{\bf \$pos}
+\item 
+{\bf \$line}
+\item 
+{\bf \$file\+Pos}
+\item 
+{\bf \$token\+Map}
+\item 
+{\bf \$drop\+Tokens}
+\item 
+{\bf \$used\+Attributes}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 5 of file Lexer.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_lexer_a2d2b2afcd896367c740d1eb4b486614b}
+Creates a \doxyref{Lexer}{p.}{class_php_parser_1_1_lexer}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$options} & Options array. Currently only the \textquotesingle{}used\+Attributes\textquotesingle{} option is supported, which is an array of attributes to add to the A\+S\+T nodes. Possible attributes are\+: \textquotesingle{}comments\textquotesingle{}, \textquotesingle{}start\+Line\textquotesingle{}, \textquotesingle{}end\+Line\textquotesingle{}, \textquotesingle{}start\+Token\+Pos\textquotesingle{}, \textquotesingle{}end\+Token\+Pos\textquotesingle{}, \textquotesingle{}start\+File\+Pos\textquotesingle{}, \textquotesingle{}end\+File\+Pos\textquotesingle{}. The option defaults to the first three. For more info see \doxyref{get\+Next\+Token()}{p.}{class_php_parser_1_1_lexer_a1761f26dc6c72475616f4688c00029fc} docs. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file Lexer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!create\+Token\+Map@{create\+Token\+Map}}
+\index{create\+Token\+Map@{create\+Token\+Map}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{create\+Token\+Map}]{\setlength{\rightskip}{0pt plus 5cm}create\+Token\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_aac88a2f15ec4d7418846f116b62db8b1}
+Creates the token map.
+
+The token map maps the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} internal token identifiers to the identifiers used by the \doxyref{Parser}{p.}{class_php_parser_1_1_parser}. Additionally it maps T\+\_\+\+O\+P\+E\+N\+\_\+\+T\+A\+G\+\_\+\+W\+I\+T\+H\+\_\+\+E\+C\+H\+O to T\+\_\+\+E\+C\+H\+O and T\+\_\+\+C\+L\+O\+S\+E\+\_\+\+T\+A\+G to \textquotesingle{};\textquotesingle{}.
+
+\begin{DoxyReturn}{Returns}
+array The token map 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!get\+Next\+Token@{get\+Next\+Token}}
+\index{get\+Next\+Token@{get\+Next\+Token}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{get\+Next\+Token}]{\setlength{\rightskip}{0pt plus 5cm}get\+Next\+Token (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$value = {\ttfamily null}, }
+\item[{\&}]{\$start\+Attributes = {\ttfamily null}, }
+\item[{\&}]{\$end\+Attributes = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_lexer_a1761f26dc6c72475616f4688c00029fc}
+Fetches the next token.
+
+The available attributes are determined by the \textquotesingle{}used\+Attributes\textquotesingle{} option, which can be specified in the constructor. The following attributes are supported\+:
+
+
+\begin{DoxyItemize}
+\item \textquotesingle{}comments\textquotesingle{} =$>$ Array of \doxyref{Php\+Parser}{p.}{namespace_php_parser} or \doxyref{Php\+Parser}{p.}{namespace_php_parser} instances, representing all comments that occurred between the previous non-\/discarded token and the current one.
+\item \textquotesingle{}start\+Line\textquotesingle{} =$>$ Line in which the node starts.
+\item \textquotesingle{}end\+Line\textquotesingle{} =$>$ Line in which the node ends.
+\item \textquotesingle{}start\+Token\+Pos\textquotesingle{} =$>$ Offset into the token array of the first token in the node.
+\item \textquotesingle{}end\+Token\+Pos\textquotesingle{} =$>$ Offset into the token array of the last token in the node.
+\item \textquotesingle{}start\+File\+Pos\textquotesingle{} =$>$ Offset into the code string of the first character that is part of the node.
+\item \textquotesingle{}end\+File\+Pos\textquotesingle{} =$>$ Offset into the code string of the last character that is part of the node
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & Variable to store token content in \\
+\hline
+mixed & {\em \$start\+Attributes} & Variable to store start attributes in \\
+\hline
+mixed & {\em \$end\+Attributes} & Variable to store end attributes in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Token id 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!get\+Tokens@{get\+Tokens}}
+\index{get\+Tokens@{get\+Tokens}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{get\+Tokens}]{\setlength{\rightskip}{0pt plus 5cm}get\+Tokens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_lexer_acf2f05f60b57bd67020d2259a2cf9982}
+Returns the token array for current code.
+
+The token array is in the same format as provided by the token\+\_\+get\+\_\+all() function and does not discard tokens (i.\+e. whitespace and comments are included). The token position attributes are against this token array.
+
+\begin{DoxyReturn}{Returns}
+array Array of tokens in token\+\_\+get\+\_\+all() format 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!handle\+Errors@{handle\+Errors}}
+\index{handle\+Errors@{handle\+Errors}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{handle\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a4d0852911819a5e126f915eeb7af11a8}
+
+
+Definition at line 74 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!handle\+Halt\+Compiler@{handle\+Halt\+Compiler}}
+\index{handle\+Halt\+Compiler@{handle\+Halt\+Compiler}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{handle\+Halt\+Compiler}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Halt\+Compiler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_lexer_ac83469b13bec28fe92b00b833344ce57}
+Handles \+\_\+\+\_\+halt\+\_\+compiler() by returning the text after it.
+
+\begin{DoxyReturn}{Returns}
+string Remaining text 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!reset\+Errors@{reset\+Errors}}
+\index{reset\+Errors@{reset\+Errors}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{reset\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}reset\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a79b8e49c138fd6c77dd084a487bcad94}
+
+
+Definition at line 67 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!start\+Lexing@{start\+Lexing}}
+\index{start\+Lexing@{start\+Lexing}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{start\+Lexing}]{\setlength{\rightskip}{0pt plus 5cm}start\+Lexing (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_lexer_a4f03d35f86724c1bc311a45d3f07adaa}
+Initializes the lexer for lexing the provided source code.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$code} & The source code to lex\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Error}{p.}{class_php_parser_1_1_error}} & on lexing errors (unterminated comment or unexpected character) \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 50 of file Lexer.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$code@{\$code}}
+\index{\$code@{\$code}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$code}]{\setlength{\rightskip}{0pt plus 5cm}\$code\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a7949acdaecc70b9f035c12a7069db132}
+
+
+Definition at line 7 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$drop\+Tokens@{\$drop\+Tokens}}
+\index{\$drop\+Tokens@{\$drop\+Tokens}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$drop\+Tokens}]{\setlength{\rightskip}{0pt plus 5cm}\$drop\+Tokens\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_ad43f53661b5171fe263fe5d22c9b3b90}
+
+
+Definition at line 14 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$file\+Pos@{\$file\+Pos}}
+\index{\$file\+Pos@{\$file\+Pos}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$file\+Pos}]{\setlength{\rightskip}{0pt plus 5cm}\$file\+Pos\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a6cfadcd69d77fb8bded90b5de852710f}
+
+
+Definition at line 11 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$line@{\$line}}
+\index{\$line@{\$line}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$line}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf line}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a52f469b0182d9abac2d0f20548680c9c}
+
+
+Definition at line 10 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$pos@{\$pos}}
+\index{\$pos@{\$pos}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$pos}]{\setlength{\rightskip}{0pt plus 5cm}\$pos\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a5de51f0c80b3bb3b39a57b23f6b9ea9f}
+
+
+Definition at line 9 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$token\+Map@{\$token\+Map}}
+\index{\$token\+Map@{\$token\+Map}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$token\+Map}]{\setlength{\rightskip}{0pt plus 5cm}\$token\+Map\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_ac268457fe29add64a1b2ea609c8b7393}
+
+
+Definition at line 13 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$tokens@{\$tokens}}
+\index{\$tokens@{\$tokens}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$tokens}]{\setlength{\rightskip}{0pt plus 5cm}\$tokens\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a72ead29e4317fbc4335fd3ba764e8b59}
+
+
+Definition at line 8 of file Lexer.\+php.
+
+\index{Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}!\$used\+Attributes@{\$used\+Attributes}}
+\index{\$used\+Attributes@{\$used\+Attributes}!Php\+Parser\+::\+Lexer@{Php\+Parser\+::\+Lexer}}
+\subsubsection[{\$used\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}\$used\+Attributes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_lexer_a8e1104d2dc6ab38c11ac3d4a146bcc4e}
+
+
+Definition at line 16 of file Lexer.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/nikic/php-\/parser/lib/\+Php\+Parser/{\bf Lexer.\+php}\end{DoxyCompactItemize}

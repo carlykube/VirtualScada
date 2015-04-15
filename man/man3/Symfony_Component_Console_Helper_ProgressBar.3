@@ -1,0 +1,476 @@
+.TH "ProgressBar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgressBar \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBOutputInterface\fP $output, $\fBmax\fP=0)"
+.br
+.ti -1c
+.RI "\fBsetMessage\fP ($message, $\fBname\fP= 'message')"
+.br
+.ti -1c
+.RI "\fBgetMessage\fP ($\fBname\fP= 'message')"
+.br
+.ti -1c
+.RI "\fBgetStartTime\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMaxSteps\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStep\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProgress\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStepWidth\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProgressPercent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBarWidth\fP ($\fBsize\fP)"
+.br
+.ti -1c
+.RI "\fBgetBarWidth\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBarCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBgetBarCharacter\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEmptyBarCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBgetEmptyBarCharacter\fP ()"
+.br
+.ti -1c
+.RI "\fBsetProgressCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBgetProgressCharacter\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFormat\fP ($\fBformat\fP)"
+.br
+.ti -1c
+.RI "\fBsetRedrawFrequency\fP ($freq)"
+.br
+.ti -1c
+.RI "\fBstart\fP ($\fBmax\fP=null)"
+.br
+.ti -1c
+.RI "\fBadvance\fP ($step=1)"
+.br
+.ti -1c
+.RI "\fBsetCurrent\fP ($step)"
+.br
+.ti -1c
+.RI "\fBsetOverwrite\fP ($overwrite)"
+.br
+.ti -1c
+.RI "\fBsetProgress\fP ($step)"
+.br
+.ti -1c
+.RI "\fBfinish\fP ()"
+.br
+.ti -1c
+.RI "\fBdisplay\fP ()"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBsetPlaceholderFormatterDefinition\fP ($\fBname\fP, $callable)"
+.br
+.ti -1c
+.RI "static \fBgetPlaceholderFormatterDefinition\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBsetFormatDefinition\fP ($\fBname\fP, $\fBformat\fP)"
+.br
+.ti -1c
+.RI "static \fBgetFormatDefinition\fP ($\fBname\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBProgressBar\fP provides helpers to display progress output\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Chris Jones leeked@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file ProgressBar\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBOutputInterface\fP $output,  $max = \fC0\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An OutputInterface instance 
+.br
+\fI$max\fP Maximum steps (0 if unknown) 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file ProgressBar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "advance ( $step = \fC1\fP)"
+Advances the progress output X steps\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$step\fP Number of steps to advance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 353 of file ProgressBar\&.php\&.
+.SS "clear ()"
+Removes the progress bar from the current line\&.
+.PP
+This is useful if you wish to write some output while a progress bar is running\&. Call \fBdisplay()\fP to show the progress bar again\&. 
+.PP
+Definition at line 463 of file ProgressBar\&.php\&.
+.SS "display ()"
+Outputs the current progress string\&. 
+.PP
+Definition at line 429 of file ProgressBar\&.php\&.
+.SS "finish ()"
+Finishes the progress output\&. 
+.PP
+Definition at line 412 of file ProgressBar\&.php\&.
+.SS "getBarCharacter ()"
+Gets the bar character\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file ProgressBar\&.php\&.
+.SS "getBarWidth ()"
+Gets the progress bar width\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The progress bar size 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file ProgressBar\&.php\&.
+.SS "getEmptyBarCharacter ()"
+Gets the empty bar character\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file ProgressBar\&.php\&.
+.SS "static getFormatDefinition ( $name)\fC [static]\fP"
+Gets the format for a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The format name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null \fBA\fP format string 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file ProgressBar\&.php\&.
+.SS "getMaxSteps ()"
+Gets the progress bar maximal steps\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The progress bar max steps 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file ProgressBar\&.php\&.
+.SS "getMessage ( $name = \fC'message'\fP)"
+
+.PP
+Definition at line 146 of file ProgressBar\&.php\&.
+.SS "static getPlaceholderFormatterDefinition ( $name)\fC [static]\fP"
+Gets the placeholder formatter for a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The placeholder name (including the delimiter char like %)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable|null \fBA\fP \fBPHP\fP callable 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file ProgressBar\&.php\&.
+.SS "getProgress ()"
+Gets the current step position\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The progress bar step 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file ProgressBar\&.php\&.
+.SS "getProgressCharacter ()"
+Gets the progress bar character\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file ProgressBar\&.php\&.
+.SS "getProgressPercent ()"
+Gets the current progress bar percent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+float The current progress bar percent 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file ProgressBar\&.php\&.
+.SS "getStartTime ()"
+Gets the progress bar start time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The progress bar start time 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file ProgressBar\&.php\&.
+.SS "getStep ()"
+Gets the progress bar step\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBgetProgress()\fP instead\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+int The progress bar step 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file ProgressBar\&.php\&.
+.SS "getStepWidth ()"
+Gets the progress bar step width\&. 
+.PP
+Definition at line 200 of file ProgressBar\&.php\&.
+.SS "setBarCharacter ( $char)"
+Sets the bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file ProgressBar\&.php\&.
+.SS "setBarWidth ( $size)"
+Sets the progress bar width\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$size\fP The progress bar size 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file ProgressBar\&.php\&.
+.SS "setCurrent ( $step)"
+Sets the current progress\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBsetProgress()\fP instead\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$step\fP The current progress
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 367 of file ProgressBar\&.php\&.
+.SS "setEmptyBarCharacter ( $char)"
+Sets the empty bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file ProgressBar\&.php\&.
+.SS "setFormat ( $format)"
+Sets the progress bar format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The format 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file ProgressBar\&.php\&.
+.SS "static setFormatDefinition ( $name,  $format)\fC [static]\fP"
+Sets a format for a given name\&.
+.PP
+This method also allow you to override an existing format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The format name 
+.br
+\fI$format\fP \fBA\fP format string 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file ProgressBar\&.php\&.
+.SS "setMessage ( $message,  $name = \fC'message'\fP)"
+
+.PP
+Definition at line 141 of file ProgressBar\&.php\&.
+.SS "setOverwrite ( $overwrite)"
+Sets whether to overwrite the progressbar, false for new line
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$overwrite\fP 
+.RE
+.PP
+
+.PP
+Definition at line 377 of file ProgressBar\&.php\&.
+.SS "static setPlaceholderFormatterDefinition ( $name,  $callable)\fC [static]\fP"
+Sets a placeholder formatter for a given name\&.
+.PP
+This method also allow you to override an existing placeholder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The placeholder name (including the delimiter char like %) 
+.br
+\fI$callable\fP \fBA\fP \fBPHP\fP callable 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file ProgressBar\&.php\&.
+.SS "setProgress ( $step)"
+Sets the current progress\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$step\fP The current progress
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 389 of file ProgressBar\&.php\&.
+.SS "setProgressCharacter ( $char)"
+Sets the progress bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file ProgressBar\&.php\&.
+.SS "setRedrawFrequency ( $freq)"
+Sets the redraw frequency\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$freq\fP The frequency in steps 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file ProgressBar\&.php\&.
+.SS "start ( $max = \fCnull\fP)"
+Starts the progress output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$max\fP Number of steps to complete the bar (0 if indeterminate), null to leave unchanged 
+.RE
+.PP
+
+.PP
+Definition at line 333 of file ProgressBar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

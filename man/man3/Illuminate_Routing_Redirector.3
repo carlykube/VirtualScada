@@ -1,0 +1,342 @@
+.TH "Redirector" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Redirector \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBUrlGenerator\fP $generator)"
+.br
+.ti -1c
+.RI "\fBhome\fP ($status=302)"
+.br
+.ti -1c
+.RI "\fBback\fP ($status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBrefresh\fP ($status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBguest\fP ($\fBpath\fP, $status=302, $headers=array(), $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBintended\fP ($default= '/', $status=302, $headers=array(), $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBto\fP ($\fBpath\fP, $status=302, $headers=array(), $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBaway\fP ($\fBpath\fP, $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBsecure\fP ($\fBpath\fP, $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBroute\fP ($route, $parameters=array(), $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBaction\fP ($action, $parameters=array(), $status=302, $headers=array())"
+.br
+.ti -1c
+.RI "\fBgetUrlGenerator\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSession\fP (SessionStore $session)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreateRedirect\fP ($\fBpath\fP, $status, $headers)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$generator\fP"
+.br
+.ti -1c
+.RI "\fB$session\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Redirector\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBUrlGenerator\fP $generator)"
+Create a new \fBRedirector\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$generator\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Redirector\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "action ( $action,  $parameters = \fCarray()\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to a controller action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 169 of file Redirector\&.php\&.
+.SS "away ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to an external \fBURL\fP (no validation)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 126 of file Redirector\&.php\&.
+.SS "back ( $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to the previous location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Redirector\&.php\&.
+.SS "createRedirect ( $path,  $status,  $headers)\fC [protected]\fP"
+Create a new redirect response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 184 of file Redirector\&.php\&.
+.SS "getUrlGenerator ()"
+Get the \fBURL\fP generator instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 203 of file Redirector\&.php\&.
+.SS "guest ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response, while putting the current \fBURL\fP in the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 79 of file Redirector\&.php\&.
+.SS "home ( $status = \fC302\fP)"
+Create a new redirect response to the 'home' route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$status\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 39 of file Redirector\&.php\&.
+.SS "intended ( $default = \fC'/'\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response to the previously intended location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$default\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Redirector\&.php\&.
+.SS "refresh ( $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to the current URI\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Redirector\&.php\&.
+.SS "route ( $route,  $parameters = \fCarray()\fP,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to a named route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 153 of file Redirector\&.php\&.
+.SS "secure ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP)"
+Create a new redirect response to the given HTTPS path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 139 of file Redirector\&.php\&.
+.SS "setSession (SessionStore $session)"
+Set the active session store\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$session\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 214 of file Redirector\&.php\&.
+.SS "to ( $path,  $status = \fC302\fP,  $headers = \fCarray()\fP,  $secure = \fCnull\fP)"
+Create a new redirect response to the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$status\fP 
+.br
+\fI$headers\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 111 of file Redirector\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$generator\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Redirector\&.php\&.
+.SS "$session\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Redirector\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,341 @@
+.TH "FileStore" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FileStore \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBFilesystem\fP $files, $directory)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFilesystem\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDirectory\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPrefix\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPayload\fP ($key)"
+.br
+.ti -1c
+.RI "\fBcreateCacheDirectory\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBpath\fP ($key)"
+.br
+.ti -1c
+.RI "\fBexpiration\fP ($\fBminutes\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$files\fP"
+.br
+.ti -1c
+.RI "\fB$directory\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file FileStore\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBFilesystem\fP $files,  $directory)"
+Create a new file cache store instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP 
+.br
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file FileStore\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createCacheDirectory ( $path)\fC [protected]\fP"
+Create the file cache directory if necessary\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file FileStore\&.php\&.
+.SS "decrement ( $key,  $value = \fC1\fP)"
+Decrement the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 149 of file FileStore\&.php\&.
+.SS "expiration ( $minutes)\fC [protected]\fP"
+Get the expiration time based on the given minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file FileStore\&.php\&.
+.SS "flush ()"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 189 of file FileStore\&.php\&.
+.SS "forever ( $key,  $value)"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 161 of file FileStore\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 172 of file FileStore\&.php\&.
+.SS "get ( $key)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 42 of file FileStore\&.php\&.
+.SS "getDirectory ()"
+Get the working directory of the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 241 of file FileStore\&.php\&.
+.SS "getFilesystem ()"
+Get the \fBFilesystem\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 231 of file FileStore\&.php\&.
+.SS "getPayload ( $key)\fC [protected]\fP"
+Retrieve an item and expiry time from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file FileStore\&.php\&.
+.SS "getPrefix ()"
+Get the cache key prefix\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 251 of file FileStore\&.php\&.
+.SS "increment ( $key,  $value = \fC1\fP)"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 131 of file FileStore\&.php\&.
+.SS "path ( $key)\fC [protected]\fP"
+Get the full path for the given cache key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file FileStore\&.php\&.
+.SS "put ( $key,  $value,  $minutes)"
+Store an item in the cache for a given number of minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 97 of file FileStore\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$directory\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file FileStore\&.php\&.
+.SS "$files\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file FileStore\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

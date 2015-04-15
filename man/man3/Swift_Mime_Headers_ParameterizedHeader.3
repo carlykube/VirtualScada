@@ -1,0 +1,214 @@
+.TH "Swift_Mime_Headers_ParameterizedHeader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_Headers_ParameterizedHeader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_Headers_UnstructuredHeader\fP, and \fBSwift_Mime_ParameterizedHeader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, \fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Encoder\fP $paramEncoder=null, \fBSwift_Mime_Grammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBgetFieldType\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCharset\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBsetParameter\fP ($parameter, $value)"
+.br
+.ti -1c
+.RI "\fBgetParameter\fP ($parameter)"
+.br
+.ti -1c
+.RI "\fBsetParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetParameters\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFieldBody\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTOKEN_REGEX\fP = '(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2E\\x30-\\x39\\x41-\\x5A\\x5E-\\x7E]+)'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtoTokens\fP ($string=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract base MIME Header\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file ParameterizedHeader\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name, \fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Encoder\fP $paramEncoder = \fCnull\fP, \fBSwift_Mime_Grammar\fP $grammar)"
+Creates a new ParameterizedHeader with $name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$encoder\fP 
+.br
+\fI$paramEncoder,optional\fP 
+.br
+\fI$grammar\fP 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file ParameterizedHeader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFieldBody ()"
+Get the value of this header prepared for rendering\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 132 of file ParameterizedHeader\&.php\&.
+.SS "getFieldType ()"
+Get the type of Header that this instance represents\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBTYPE_TEXT\fP, \fBTYPE_PARAMETERIZED\fP, \fBTYPE_MAILBOX\fP 
+.PP
+\fBTYPE_DATE\fP, \fBTYPE_ID\fP, \fBTYPE_PATH\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 61 of file ParameterizedHeader\&.php\&.
+.SS "getParameter ( $parameter)"
+Get the value of $parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameter\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ParameterizedHeader\fP\&.
+.PP
+Definition at line 97 of file ParameterizedHeader\&.php\&.
+.SS "getParameters ()"
+Returns an associative array of parameter names mapped to values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file ParameterizedHeader\&.php\&.
+.SS "setCharset ( $charset)"
+Set the character set used in this Header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 71 of file ParameterizedHeader\&.php\&.
+.SS "setParameter ( $parameter,  $value)"
+Set the value of $parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameter\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ParameterizedHeader\fP\&.
+.PP
+Definition at line 85 of file ParameterizedHeader\&.php\&.
+.SS "setParameters (array $parameters)"
+Set an associative array of parameter names mapped to values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $parameters 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file ParameterizedHeader\&.php\&.
+.SS "toTokens ( $string = \fCnull\fP)\fC [protected]\fP"
+Generate a list of all tokens in the final header\&.
+.PP
+This doesn't need to be overridden in theory, but it is for implementation reasons to prevent potential breakage of attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP The string to tokenize
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens as strings 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file ParameterizedHeader\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const TOKEN_REGEX = '(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2E\\x30-\\x39\\x41-\\x5A\\x5E-\\x7E]+)'"
+
+.PP
+Definition at line 23 of file ParameterizedHeader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

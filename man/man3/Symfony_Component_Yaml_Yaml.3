@@ -1,0 +1,93 @@
+.TH "Yaml" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Yaml \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBparse\fP ($input, $exceptionOnInvalidType=false, $objectSupport=false)"
+.br
+.ti -1c
+.RI "static \fBdump\fP ($array, $inline=2, $indent=4, $exceptionOnInvalidType=false, $objectSupport=false)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBYaml\fP offers convenience methods to load and dump YAML\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 23 of file Yaml\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static dump ( $array,  $inline = \fC2\fP,  $indent = \fC4\fP,  $exceptionOnInvalidType = \fCfalse\fP,  $objectSupport = \fCfalse\fP)\fC [static]\fP"
+Dumps a \fBPHP\fP array to a YAML string\&.
+.PP
+The dump method, when supplied with an array, will do its best to convert the array into friendly YAML\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$array\fP \fBPHP\fP array 
+.br
+\fI$inline\fP The level where you switch to inline YAML 
+.br
+\fI$indent\fP The amount of spaces to use for indentation of nested nodes\&. 
+.br
+\fI$exceptionOnInvalidType\fP true if an exception must be thrown on invalid types (a \fBPHP\fP resource or object), false otherwise 
+.br
+\fI$objectSupport\fP true if object support is enabled, false otherwise
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP YAML string representing the original \fBPHP\fP array
+.RE
+.PP
+
+.PP
+Definition at line 93 of file Yaml\&.php\&.
+.SS "static parse ( $input,  $exceptionOnInvalidType = \fCfalse\fP,  $objectSupport = \fCfalse\fP)\fC [static]\fP"
+Parses YAML into a \fBPHP\fP array\&.
+.PP
+The parse method, when supplied with a YAML stream (string or file), will do its best to convert YAML in a file into a \fBPHP\fP array\&.
+.PP
+Usage: \fC $array = \fBYaml::parse\fP('config\&.yml'); print_r($array); \fP
+.PP
+As this method accepts both plain strings and file names as an input, you must validate the input before calling this method\&. Passing a file as an input is a deprecated feature and will be removed in 3\&.0\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP Path to a YAML file or a string containing YAML 
+.br
+\fI$exceptionOnInvalidType\fP True if an exception must be thrown on invalid types false otherwise 
+.br
+\fI$objectSupport\fP True if object support is enabled, false otherwise
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The YAML converted to a \fBPHP\fP array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIParseException\fP If the YAML is not valid
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Yaml\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

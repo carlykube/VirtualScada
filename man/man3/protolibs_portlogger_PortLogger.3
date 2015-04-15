@@ -1,0 +1,276 @@
+.TH "PortLogger" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PortLogger \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Thread, and object\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.ti -1c
+.RI "def \fBmake_symlinks\fP"
+.br
+.ti -1c
+.RI "def \fBstart_log\fP (self)"
+.br
+.ti -1c
+.RI "def \fBlog_packet\fP"
+.br
+.ti -1c
+.RI "def \fBrun\fP (self)"
+.br
+.ti -1c
+.RI "def \fBstop\fP (self)"
+.br
+.ti -1c
+.RI "def \fBport_names\fP (self)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBbaud\fP"
+.br
+.RI "\fISet up baud rate delay for ptys\&. \fP"
+.ti -1c
+.RI "\fBemulate\fP"
+.br
+.ti -1c
+.RI "\fBbyte_delay\fP"
+.br
+.ti -1c
+.RI "\fBmasters\fP"
+.br
+.RI "\fICreate Pseudoterminals\&. \fP"
+.ti -1c
+.RI "\fBslaves\fP"
+.br
+.ti -1c
+.RI "\fBserials\fP"
+.br
+.RI "\fICreate symlinks to the slave ports before adding serial objects\&. \fP"
+.ti -1c
+.RI "\fBserial_fds\fP"
+.br
+.ti -1c
+.RI "\fBmasters_to_slaves\fP"
+.br
+.ti -1c
+.RI "\fBleader\fP"
+.br
+.ti -1c
+.RI "\fBfollowers\fP"
+.br
+.ti -1c
+.RI "\fBrs485_mode\fP"
+.br
+.ti -1c
+.RI "\fBdone\fP"
+.br
+.ti -1c
+.RI "\fBlog\fP"
+.br
+.RI "\fIStart logging\&. \fP"
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBBUF_LEN\fP = 1024"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Port logger objects create two or more connected pseudoterminal devices 
+    that are connected together; each write to any of the devices is logged.
+.fi
+.PP
+ 
+.PP
+Definition at line 32 of file portlogger\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  number_of_ports = \fC2\fP,  logfile = \fCNone\fP,  symlinks = \fCNone\fP,  ports = \fCNone\fP,  baud = \fC9600\fP,  force_symlinks = \fCFalse\fP,  emulate = \fCFalse\fP,  rs485 = \fCFalse\fP)"
+
+.PP
+.nf
+Creates the portLogger object. 
+self. masters and self.slaves hold file descriptors of corresponding
+master and slave sides of the pseudoterminals.
+@param numberOfPorts Number of pseudoterminals to create. Default is 2.
+@param logfile Name of the logfile. 
+@param symlinks Iterable of filenames to symlink the slaves to
+@param ports List of filenames of physical serial ports to connect&log 
+@param baud Baud rate for the links. If pty is used, a wait is used to
+    simulate transmission times.
+@param emulate Emulate a baud rate delay for communicating between
+@param rs485 RS-485 emulation. If true, the first pty is selected to 
+        broadcast to other
+        ports, and other ports only send responses to the first
+        pty. 
+pseudoterminal devices. Serial ports are unaffected.
+@param force_symlinks If true, if a file name given to
+            be created as a symlink is already a link, a new 
+            link will be forced in its place. If it exists and 
+            is not a link, the program will halt.
+.fi
+.PP
+ 
+.PP
+Definition at line 39 of file portlogger\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def log_packet ( self,  port_fd,  packet,  timestamp = \fCNone\fP)"
+
+.PP
+.nf
+Writes a packet entry to the log
+.fi
+.PP
+ 
+.PP
+Definition at line 135 of file portlogger\&.py\&.
+.SS "def make_symlinks ( self,  symlinks,  force_symlinks = \fCFalse\fP)"
+
+.PP
+.nf
+Creates symlinks from the names of the slave ptys to the targets
+    in the iterable symlinks. This is useful to have constant names 
+    for the ports created with the port logger. There is no guarantee
+    that a given pty will be linked to a specific symlink.
+    @param symlinks Iterable of filenames to symlink the slaves to.
+    @param force_symlinks If true, if a file name given to
+            be created as a symlink is already a link, a new 
+            link will be forced in its place. If it exists and 
+            is not a link, the program will halt.
+.fi
+.PP
+ 
+.PP
+Definition at line 106 of file portlogger\&.py\&.
+.SS "def port_names ( self)"
+
+.PP
+.nf
+Returns a list of filenames of ports made available by this 
+    object.
+    @returns a list of filenames
+.fi
+.PP
+ 
+.PP
+Definition at line 185 of file portlogger\&.py\&.
+.SS "def run ( self)"
+
+.PP
+.nf
+Function that executes when this thread is started.
+    run() listens to on all pty objects and echoes incoming data
+    to all other ports.
+.fi
+.PP
+ 
+.PP
+Definition at line 144 of file portlogger\&.py\&.
+.SS "def start_log ( self)"
+
+.PP
+.nf
+Writes a header to the log file
+.fi
+.PP
+ 
+.PP
+Definition at line 128 of file portlogger\&.py\&.
+.SS "def stop ( self)"
+
+.PP
+.nf
+Stops execution of the logger. The logger is closed and the 
+    thread exits
+.fi
+.PP
+ 
+.PP
+Definition at line 177 of file portlogger\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "baud"
+
+.PP
+Set up baud rate delay for ptys\&. 
+.PP
+Definition at line 60 of file portlogger\&.py\&.
+.SS "int BUF_LEN = 1024\fC [static]\fP"
+
+.PP
+Definition at line 36 of file portlogger\&.py\&.
+.SS "byte_delay"
+
+.PP
+Definition at line 62 of file portlogger\&.py\&.
+.SS "done"
+
+.PP
+Definition at line 96 of file portlogger\&.py\&.
+.SS "emulate"
+
+.PP
+Definition at line 61 of file portlogger\&.py\&.
+.SS "followers"
+
+.PP
+Definition at line 92 of file portlogger\&.py\&.
+.SS "leader"
+
+.PP
+Definition at line 91 of file portlogger\&.py\&.
+.SS "log"
+
+.PP
+Start logging\&. 
+.PP
+Definition at line 101 of file portlogger\&.py\&.
+.SS "masters"
+
+.PP
+Create Pseudoterminals\&. 
+.PP
+Definition at line 66 of file portlogger\&.py\&.
+.SS "masters_to_slaves"
+
+.PP
+Definition at line 86 of file portlogger\&.py\&.
+.SS "rs485_mode"
+
+.PP
+Definition at line 93 of file portlogger\&.py\&.
+.SS "serial_fds"
+
+.PP
+Definition at line 81 of file portlogger\&.py\&.
+.SS "serials"
+
+.PP
+Create symlinks to the slave ports before adding serial objects\&. Create serial objects 
+.PP
+Definition at line 78 of file portlogger\&.py\&.
+.SS "slaves"
+
+.PP
+Definition at line 67 of file portlogger\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

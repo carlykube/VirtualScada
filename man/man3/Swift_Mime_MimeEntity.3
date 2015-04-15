@@ -1,0 +1,227 @@
+.TH "Swift_Mime_MimeEntity" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_MimeEntity \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_CharsetObserver\fP, and \fBSwift_Mime_EncodingObserver\fP\&.
+.PP
+Inherited by \fBMimeEntityFixture\fP, \fBSwift_Mime_Message\fP, and \fBSwift_Mime_SimpleMimeEntity\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetNestingLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContentType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetChildren\fP ()"
+.br
+.ti -1c
+.RI "\fBsetChildren\fP (array $children)"
+.br
+.ti -1c
+.RI "\fBgetHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBody\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBody\fP ($body, $contentType=null)"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBtoByteStream\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBLEVEL_TOP\fP = 16"
+.br
+.ti -1c
+.RI "const \fBLEVEL_MIXED\fP = 256"
+.br
+.ti -1c
+.RI "const \fBLEVEL_ALTERNATIVE\fP = 4096"
+.br
+.ti -1c
+.RI "const \fBLEVEL_RELATED\fP = 65536"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP MIME entity, such as an attachment\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file MimeEntity\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getBody ()"
+Get the body content of this entity as a string\&.
+.PP
+Returns NULL if no body has been set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "getChildren ()"
+Get all children nested inside this entity\&.
+.PP
+These are not just the immediate children, but all children\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimeEntity\fP[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "getContentType ()"
+Get the qualified content-type of this mime entity\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "getHeaders ()"
+Get the collection of Headers in this Mime entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_HeaderSet\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "getId ()"
+Returns a unique ID for this entity\&.
+.PP
+For most entities this will likely be the Content-ID, though it has no explicit semantic meaning and can be considered an identifier for programming logic purposes\&.
+.PP
+If a Content-ID header is present, this value SHOULD match the value of the header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "getNestingLevel ()"
+Get the level at which this entity shall be nested in final document\&.
+.PP
+The lower the value, the more outermost the entity will be nested\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBLEVEL_TOP\fP, \fBLEVEL_MIXED\fP, \fBLEVEL_RELATED\fP, \fBLEVEL_ALTERNATIVE\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_MimePart\fP, \fBSwift_Mime_SimpleMimeEntity\fP, \fBSwift_Mime_SimpleMessage\fP, \fBSwift_Mime_Attachment\fP, \fBSwift_Mime_EmbeddedFile\fP, and \fBMimeEntityFixture\fP\&.
+.SS "setBody ( $body,  $contentType = \fCnull\fP)"
+Set the body content of this entity as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$body\fP 
+.br
+\fI$contentType\fP optional 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMimeEntity\fP, and \fBMimeEntityFixture\fP\&.
+.SS "setChildren (array $children)"
+Set all children nested inside this entity\&.
+.PP
+This includes grandchildren\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fISwift_Mime_MimeEntity[]\fP $children 
+.RE
+.PP
+
+.PP
+Implemented in \fBMimeEntityFixture\fP\&.
+.SS "toByteStream (\fBSwift_InputByteStream\fP $is)"
+Get this entire entity as a ByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP to write to 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMessage\fP, \fBSwift_Mime_SimpleMimeEntity\fP, \fBSwift_Message\fP, and \fBMimeEntityFixture\fP\&.
+.SS "toString ()"
+Get this entire entity in its string form\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_SimpleMessage\fP, \fBSwift_Mime_SimpleMimeEntity\fP, \fBSwift_Message\fP, and \fBMimeEntityFixture\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const LEVEL_ALTERNATIVE = 4096"
+An entity which nests with the same precedence as a mime part 
+.PP
+Definition at line 25 of file MimeEntity\&.php\&.
+.SS "const LEVEL_MIXED = 256"
+An entity which nests with the same precedence as an attachment 
+.PP
+Definition at line 22 of file MimeEntity\&.php\&.
+.SS "const LEVEL_RELATED = 65536"
+An entity which nests with the same precedence as embedded content 
+.PP
+Definition at line 28 of file MimeEntity\&.php\&.
+.SS "const LEVEL_TOP = 16"
+Main message document; there can only be one of these 
+.PP
+Definition at line 19 of file MimeEntity\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

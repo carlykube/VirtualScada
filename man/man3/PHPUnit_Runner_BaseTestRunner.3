@@ -1,0 +1,159 @@
+.TH "PHPUnit_Runner_BaseTestRunner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Runner_BaseTestRunner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBMockRunner\fP, and \fBPHPUnit_TextUI_TestRunner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetLoader\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTest\fP ($suiteClassName, $suiteClassFile= '', $suffixes= '')"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBSTATUS_PASSED\fP = 0"
+.br
+.ti -1c
+.RI "const \fBSTATUS_SKIPPED\fP = 1"
+.br
+.ti -1c
+.RI "const \fBSTATUS_INCOMPLETE\fP = 2"
+.br
+.ti -1c
+.RI "const \fBSTATUS_FAILURE\fP = 3"
+.br
+.ti -1c
+.RI "const \fBSTATUS_ERROR\fP = 4"
+.br
+.ti -1c
+.RI "const \fBSTATUS_RISKY\fP = 5"
+.br
+.ti -1c
+.RI "const \fBSUITE_METHODNAME\fP = 'suite'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBloadSuiteClass\fP ($suiteClassName, $suiteClassFile= '')"
+.br
+.ti -1c
+.RI "\fBclearStatus\fP ()"
+.br
+.ti -1c
+.RI "\fBrunFailed\fP ($message)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file BaseTestRunner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clearStatus ()\fC [protected]\fP"
+Clears the status message\&. 
+.PP
+Definition at line 134 of file BaseTestRunner\&.php\&.
+.SS "getLoader ()"
+Returns the loader to be used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Runner_TestSuiteLoader\fP 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file BaseTestRunner\&.php\&.
+.SS "getTest ( $suiteClassName,  $suiteClassFile = \fC''\fP,  $suffixes = \fC''\fP)"
+Returns the Test corresponding to the given suite\&. This is a template method, subclasses override the \fBrunFailed()\fP and \fBclearStatus()\fP methods\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$suiteClassName\fP 
+.br
+\fI$suiteClassFile\fP 
+.br
+\fI$suffixes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_Test\fP 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file BaseTestRunner\&.php\&.
+.SS "loadSuiteClass ( $suiteClassName,  $suiteClassFile = \fC''\fP)\fC [protected]\fP"
+Returns the loaded ReflectionClass for a suite name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$suiteClassName\fP 
+.br
+\fI$suiteClassFile\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+ReflectionClass 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file BaseTestRunner\&.php\&.
+.SS "runFailed ( $message)\fC [abstract]\fP, \fC [protected]\fP"
+Override to define how to handle a failed loading of a test suite\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "const STATUS_ERROR = 4"
+
+.PP
+Definition at line 28 of file BaseTestRunner\&.php\&.
+.SS "const STATUS_FAILURE = 3"
+
+.PP
+Definition at line 27 of file BaseTestRunner\&.php\&.
+.SS "const STATUS_INCOMPLETE = 2"
+
+.PP
+Definition at line 26 of file BaseTestRunner\&.php\&.
+.SS "const STATUS_PASSED = 0"
+
+.PP
+Definition at line 24 of file BaseTestRunner\&.php\&.
+.SS "const STATUS_RISKY = 5"
+
+.PP
+Definition at line 29 of file BaseTestRunner\&.php\&.
+.SS "const STATUS_SKIPPED = 1"
+
+.PP
+Definition at line 25 of file BaseTestRunner\&.php\&.
+.SS "const SUITE_METHODNAME = 'suite'"
+
+.PP
+Definition at line 30 of file BaseTestRunner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

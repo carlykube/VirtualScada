@@ -1,0 +1,119 @@
+.TH "moduleScripts/RTUscripts/vdev.py" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moduleScripts/RTUscripts/vdev.py \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBvdev\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBprocessUpdate\fP (\fBupdate\fP)"
+.br
+.ti -1c
+.RI "def \fBapplyUpdate\fP (\fBupdate\fP, state)"
+.br
+.ti -1c
+.RI "def \fBcompileUpdate\fP (state)"
+.br
+.ti -1c
+.RI "def \fBlogic\fP (procControl, interface)"
+.br
+.ti -1c
+.RI "def \fBsimComm\fP (interface)"
+.br
+.ti -1c
+.RI "def \fBq\fP ()"
+.br
+.RI "\fI--Start all threads \fP"
+.ti -1c
+.RI "def \fBshwpts\fP ()"
+.br
+.ti -1c
+.RI "def \fBshwwtr\fP ()"
+.br
+.ti -1c
+.RI "def \fBwaterstart\fP ()"
+.br
+.ti -1c
+.RI "def \fBgasstart\fP ()"
+.br
+.ti -1c
+.RI "def \fBhalp\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "tuple \fBupdateQ\fP = Queue\&.Queue()"
+.br
+.ti -1c
+.RI "list \fBthreadList\fP = []"
+.br
+.ti -1c
+.RI "\fBconfig\fP = None"
+.br
+.ti -1c
+.RI "\fBdevconfig\fP = None"
+.br
+.ti -1c
+.RI "dictionary \fBpoints\fP = {}"
+.br
+.ti -1c
+.RI "string \fBprogramDescription\fP = '''This program implements \fBa\fP virtual ICS device\&.'''"
+.br
+.RI "\fI--Parse command line options \fP"
+.ti -1c
+.RI "tuple \fBparser\fP = OptionParser(description=programDescription)"
+.br
+.ti -1c
+.RI "string \fBaction\fP = 'store'"
+.br
+.ti -1c
+.RI "\fBvdevname\fP = opts\&.device"
+.br
+.ti -1c
+.RI "\fBsystem\fP = opts\&.system"
+.br
+.ti -1c
+.RI "string \fBconfigfile\fP = '/'"
+.br
+.RI "\fI--Open config\&. \fP"
+.ti -1c
+.RI "\fBsimiface\fP = None"
+.br
+.RI "\fI--Set up points \fP"
+.ti -1c
+.RI "list \fBifaceinfo\fP = devconfig['simiface']"
+.br
+.ti -1c
+.RI "tuple \fBifacetype\fP = getattr(ifaces, ifaceinfo['typ'])"
+.br
+.RI "\fI--Create ICS Comm Threads \fP"
+.ti -1c
+.RI "tuple \fBsimifaceThread\fP"
+.br
+.ti -1c
+.RI "tuple \fBicsiface\fP = ifacetype(ifaceinfo, \fBpoints\&.values\fP())"
+.br
+.ti -1c
+.RI "tuple \fBlogicThread\fP = threading\&.Thread(target=logic, \fBname\fP = 'logicThread', args=(procControl, simiface))"
+.br
+.RI "\fI--Create logic thread get sim logic from model \fP"
+.ti -1c
+.RI "string \fBbanner\fP = '''Virtual Device [%s]\&. Type halp() \fBfor\fP info'''"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

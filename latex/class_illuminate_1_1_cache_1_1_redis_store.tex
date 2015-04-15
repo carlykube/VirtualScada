@@ -1,0 +1,394 @@
+\section{Redis\+Store Class Reference}
+\label{class_illuminate_1_1_cache_1_1_redis_store}\index{Redis\+Store@{Redis\+Store}}
+Inheritance diagram for Redis\+Store\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_cache_1_1_redis_store}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Redis} \$redis, \$prefix= \textquotesingle{}\textquotesingle{}, \${\bf connection}= \textquotesingle{}default\textquotesingle{})
+\item 
+{\bf get} (\$key)
+\item 
+{\bf put} (\$key, \$value, \${\bf minutes})
+\item 
+{\bf increment} (\$key, \$value=1)
+\item 
+{\bf decrement} (\$key, \$value=1)
+\item 
+{\bf forever} (\$key, \$value)
+\item 
+{\bf forget} (\$key)
+\item 
+{\bf flush} ()
+\item 
+{\bf tags} (\$names)
+\item 
+{\bf connection} ()
+\item 
+{\bf set\+Connection} (\${\bf connection})
+\item 
+{\bf get\+Redis} ()
+\item 
+{\bf get\+Prefix} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$redis}
+\item 
+{\bf \$prefix}
+\item 
+{\bf \$connection}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file Redis\+Store.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Redis}}]{\$redis, }
+\item[{}]{\$prefix = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$connection = {\ttfamily \textquotesingle{}default\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_ae072a43a682c55bc4a5e17f868866398}
+Create a new \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} store.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Redis\textbackslash{}\+Database & {\em \$redis} & \\
+\hline
+string & {\em \$prefix} & \\
+\hline
+string & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Redis\+Store.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!connection@{connection}}
+\index{connection@{connection}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a7fa48f6882eccec91ea9c433e1ad2a57}
+Get the \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} connection instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!decrement@{decrement}}
+\index{decrement@{decrement}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}decrement (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a91b4776ce9b64b515af83f82cb5ba1b8}
+Increment the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a91b4776ce9b64b515af83f82cb5ba1b8}.
+
+
+
+Definition at line 94 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!flush@{flush}}
+\index{flush@{flush}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}flush (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a7751f77b5263bcf940ece6e824a05b38}
+Remove all items from the cache.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a7751f77b5263bcf940ece6e824a05b38}.
+
+
+
+Definition at line 129 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!forever@{forever}}
+\index{forever@{forever}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{forever}]{\setlength{\rightskip}{0pt plus 5cm}forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a9e878bc609488e3718911915829f29a2}
+Store an item in the cache indefinitely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a9e878bc609488e3718911915829f29a2}.
+
+
+
+Definition at line 106 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!forget@{forget}}
+\index{forget@{forget}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{forget}]{\setlength{\rightskip}{0pt plus 5cm}forget (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a56aaa13f3fc2cac361f2c6545644b341}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a56aaa13f3fc2cac361f2c6545644b341}.
+
+
+
+Definition at line 119 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a24a9bf83a1002d46ece83a93d14bd921}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a24a9bf83a1002d46ece83a93d14bd921}.
+
+
+
+Definition at line 50 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!get\+Prefix@{get\+Prefix}}
+\index{get\+Prefix@{get\+Prefix}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{get\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a7a333affb97cf092d50f3e59edaa9066}
+Get the cache key prefix.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_a7a333affb97cf092d50f3e59edaa9066}.
+
+
+
+Definition at line 181 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!get\+Redis@{get\+Redis}}
+\index{get\+Redis@{get\+Redis}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{get\+Redis}]{\setlength{\rightskip}{0pt plus 5cm}get\+Redis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a49dbec2199d4407441236790f858b40b}
+Get the \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} database instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 171 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!increment@{increment}}
+\index{increment@{increment}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}increment (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_ae988f454c3a6f948704f0b3c1bd494f8}
+Increment the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_ae988f454c3a6f948704f0b3c1bd494f8}.
+
+
+
+Definition at line 82 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_af2a41d0d02cf7e6757044de79551d036}
+Store an item in the cache for a given number of minutes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Store} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_store_af2a41d0d02cf7e6757044de79551d036}.
+
+
+
+Definition at line 66 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!set\+Connection@{set\+Connection}}
+\index{set\+Connection@{set\+Connection}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{set\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}set\+Connection (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a54b8adbc3d7be54ccffcb0d01a512312}
+Set the connection name to be used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!tags@{tags}}
+\index{tags@{tags}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{tags}]{\setlength{\rightskip}{0pt plus 5cm}tags (
+\begin{DoxyParamCaption}
+\item[{}]{\$names}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_redis_store_a5c93f390501a110af5ee104099e65261}
+Begin executing a new tags operation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | mixed & {\em \$names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Redis\+Store.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!\$connection@{\$connection}}
+\index{\$connection@{\$connection}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{\$connection}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf connection}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_redis_store_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+
+Definition at line 27 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!\$prefix@{\$prefix}}
+\index{\$prefix@{\$prefix}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{\$prefix}]{\setlength{\rightskip}{0pt plus 5cm}\$prefix\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_redis_store_a09e8cf95b9d29955a0bfabca9b420edc}
+
+
+Definition at line 20 of file Redis\+Store.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}!\$redis@{\$redis}}
+\index{\$redis@{\$redis}!Illuminate\+::\+Cache\+::\+Redis\+Store@{Illuminate\+::\+Cache\+::\+Redis\+Store}}
+\subsubsection[{\$redis}]{\setlength{\rightskip}{0pt plus 5cm}\$redis\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_redis_store_a7e7e7dbbfe52839237c99924e35f2717}
+
+
+Definition at line 13 of file Redis\+Store.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Cache/{\bf Redis\+Store.\+php}\end{DoxyCompactItemize}

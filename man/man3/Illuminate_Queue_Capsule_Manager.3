@@ -1,0 +1,294 @@
+.TH "Manager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Manager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBContainer\fP $container=null)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBaddConnection\fP (array $config, $\fBname\fP= 'default')"
+.br
+.ti -1c
+.RI "\fBgetQueueManager\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBconnection\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null, $\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fBbulk\fP ($jobs, $\fBdata\fP= '', $\fBqueue\fP=null, $\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null, $\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fB__callStatic\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetupDefaultConfiguration\fP ()"
+.br
+.ti -1c
+.RI "\fBsetupManager\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterConnectors\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$manager\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file Manager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBContainer\fP $container = \fCnull\fP)"
+Create a new queue capsule manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Manager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Pass dynamic instance methods to the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file Manager\&.php\&.
+.SS "static __callStatic ( $method,  $parameters)\fC [static]\fP"
+Dynamically pass methods to the default connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file Manager\&.php\&.
+.SS "addConnection (array $config,  $name = \fC'default'\fP)"
+Register a connection with the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Manager\&.php\&.
+.SS "static bulk ( $jobs,  $data = \fC''\fP,  $queue = \fCnull\fP,  $connection = \fCnull\fP)\fC [static]\fP"
+Push a new an array of jobs onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$jobs\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file Manager\&.php\&.
+.SS "static connection ( $connection = \fCnull\fP)\fC [static]\fP"
+Get a connection instance from the global manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 77 of file Manager\&.php\&.
+.SS "getConnection ( $name = \fCnull\fP)"
+Get a registered connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 131 of file Manager\&.php\&.
+.SS "getQueueManager ()"
+Get the queue manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 153 of file Manager\&.php\&.
+.SS "static later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP,  $connection = \fCnull\fP)\fC [static]\fP"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file Manager\&.php\&.
+.SS "static push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP,  $connection = \fCnull\fP)\fC [static]\fP"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file Manager\&.php\&.
+.SS "registerConnectors ()\fC [protected]\fP"
+Register the default connectors that the component ships with\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file Manager\&.php\&.
+.SS "setupDefaultConfiguration ()\fC [protected]\fP"
+Setup the default queue configuration options\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file Manager\&.php\&.
+.SS "setupManager ()\fC [protected]\fP"
+Build the queue manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file Manager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$manager\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file Manager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

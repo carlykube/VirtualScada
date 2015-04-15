@@ -1,0 +1,460 @@
+\section{Input Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input}\index{Input@{Input}}
+Inheritance diagram for Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Input\+Definition} \$definition=null)
+\item 
+{\bf bind} ({\bf Input\+Definition} \$definition)
+\item 
+{\bf validate} ()
+\item 
+{\bf is\+Interactive} ()
+\item 
+{\bf set\+Interactive} (\$interactive)
+\item 
+{\bf get\+Arguments} ()
+\item 
+{\bf get\+Argument} (\${\bf name})
+\item 
+{\bf set\+Argument} (\${\bf name}, \$value)
+\item 
+{\bf has\+Argument} (\${\bf name})
+\item 
+{\bf get\+Options} ()
+\item 
+{\bf get\+Option} (\${\bf name})
+\item 
+{\bf set\+Option} (\${\bf name}, \$value)
+\item 
+{\bf has\+Option} (\${\bf name})
+\item 
+{\bf escape\+Token} (\$token)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf parse} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$definition}
+\item 
+{\bf \$options} = array()
+\item 
+{\bf \$arguments} = array()
+\item 
+{\bf \$interactive} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input} is the base class for all concrete \doxyref{Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input} classes.
+
+Three concrete classes are provided by default\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxyref{Argv\+Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_argv_input}}\+: The input comes from the C\+L\+I arguments (argv)
+\item {\ttfamily \doxyref{String\+Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_string_input}}\+: The input is provided as a string
+\item {\ttfamily \doxyref{Array\+Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_array_input}}\+: The input is provided as an array
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Input.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Definition}}]{\$definition = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_abeb784e0b44c875c2f2d9b8f29cbf339}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} & {\em \$definition} & \doxyref{A}{p.}{class_a} \doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file Input.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!bind@{bind}}
+\index{bind@{bind}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Definition}}]{\$definition}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_adeccafc40674c113fca92360646172e7}
+Binds the current \doxyref{Input}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input} instance with the given arguments and options.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} & {\em \$definition} & \doxyref{A}{p.}{class_a} \doxyref{Input\+Definition}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_definition} instance \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_adeccafc40674c113fca92360646172e7}.
+
+
+
+Definition at line 55 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!escape\+Token@{escape\+Token}}
+\index{escape\+Token@{escape\+Token}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{escape\+Token}]{\setlength{\rightskip}{0pt plus 5cm}escape\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_aedd2e512bd428d40c08b732c692a698f}
+Escapes a token through escapeshellarg if it contains unsafe chars.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!get\+Argument@{get\+Argument}}
+\index{get\+Argument@{get\+Argument}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{get\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}get\+Argument (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_aa2048ce7fc84dc4f18393a0b0cc6d311}
+Returns the argument value for a given argument name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The argument name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The argument value
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_aa2048ce7fc84dc4f18393a0b0cc6d311}.
+
+
+
+Definition at line 120 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!get\+Arguments@{get\+Arguments}}
+\index{get\+Arguments@{get\+Arguments}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{get\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}get\+Arguments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a1d4c324c5a088be98d99d3efbf3502e1}
+Returns the argument values.
+
+\begin{DoxyReturn}{Returns}
+array An array of argument values 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a1d4c324c5a088be98d99d3efbf3502e1}.
+
+
+
+Definition at line 106 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!get\+Option@{get\+Option}}
+\index{get\+Option@{get\+Option}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{get\+Option}]{\setlength{\rightskip}{0pt plus 5cm}get\+Option (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a86acce3c002ca1af709fd1b04f2f82fa}
+Returns the option value for a given option name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The option name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The option value
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a86acce3c002ca1af709fd1b04f2f82fa}.
+
+
+
+Definition at line 177 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!get\+Options@{get\+Options}}
+\index{get\+Options@{get\+Options}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{get\+Options}]{\setlength{\rightskip}{0pt plus 5cm}get\+Options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a1a49b8dded6e91a52e2fd07195d334da}
+Returns the options values.
+
+\begin{DoxyReturn}{Returns}
+array An array of option values 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a1a49b8dded6e91a52e2fd07195d334da}.
+
+
+
+Definition at line 163 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!has\+Argument@{has\+Argument}}
+\index{has\+Argument@{has\+Argument}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{has\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}has\+Argument (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a1739ff4835ce8b49da97341e16a8b4cc}
+Returns true if an \doxyref{Input\+Argument}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument} object exists by name or position.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | int & {\em \$name} & The \doxyref{Input\+Argument}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument} name or position\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the \doxyref{Input\+Argument}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument} object exists, false otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a1739ff4835ce8b49da97341e16a8b4cc}.
+
+
+
+Definition at line 153 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!has\+Option@{has\+Option}}
+\index{has\+Option@{has\+Option}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{has\+Option}]{\setlength{\rightskip}{0pt plus 5cm}has\+Option (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a93cc4c82c649f5685d81ed5c3327e913}
+Returns true if an \doxyref{Input\+Option}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_option} object exists by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The \doxyref{Input\+Option}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_option} name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the \doxyref{Input\+Option}{p.}{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_option} object exists, false otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a93cc4c82c649f5685d81ed5c3327e913}.
+
+
+
+Definition at line 210 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!is\+Interactive@{is\+Interactive}}
+\index{is\+Interactive@{is\+Interactive}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{is\+Interactive}]{\setlength{\rightskip}{0pt plus 5cm}is\+Interactive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a86591f361b2876ecec9e5537cd5f7247}
+Checks if the input is interactive.
+
+\begin{DoxyReturn}{Returns}
+bool Returns true if the input is interactive 
+\end{DoxyReturn}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a86591f361b2876ecec9e5537cd5f7247}.
+
+
+
+Definition at line 86 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!parse@{parse}}
+\index{parse@{parse}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a38d99acc70a1d8fd8f94455743b2d237}
+Processes command line arguments. \index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!set\+Argument@{set\+Argument}}
+\index{set\+Argument@{set\+Argument}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{set\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}set\+Argument (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a29321b949fe519107d5ccefa4ea87401}
+Sets an argument value by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The argument name \\
+\hline
+string & {\em \$value} & The argument value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a29321b949fe519107d5ccefa4ea87401}.
+
+
+
+Definition at line 137 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!set\+Interactive@{set\+Interactive}}
+\index{set\+Interactive@{set\+Interactive}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{set\+Interactive}]{\setlength{\rightskip}{0pt plus 5cm}set\+Interactive (
+\begin{DoxyParamCaption}
+\item[{}]{\$interactive}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_ae9da0afb3c02ed98c93ca90721cd5f06}
+Sets the input interactivity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$interactive} & If the input should be interactive \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_ae9da0afb3c02ed98c93ca90721cd5f06}.
+
+
+
+Definition at line 96 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!set\+Option@{set\+Option}}
+\index{set\+Option@{set\+Option}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{set\+Option}]{\setlength{\rightskip}{0pt plus 5cm}set\+Option (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a7184fec9134a57cae6ef66b3588513d1}
+Sets an option value by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The option name \\
+\hline
+string | bool & {\em \$value} & The option value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a7184fec9134a57cae6ef66b3588513d1}.
+
+
+
+Definition at line 194 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!validate@{validate}}
+\index{validate@{validate}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}validate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a184909dab34698899937d810a9f5d393}
+Validates the input.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Input\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_input_1_1_input_interface_a184909dab34698899937d810a9f5d393}.
+
+
+
+Definition at line 74 of file Input.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!\$arguments@{\$arguments}}
+\index{\$arguments@{\$arguments}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{\$arguments}]{\setlength{\rightskip}{0pt plus 5cm}\$arguments = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a61eded163d962fc248b3cf209000979b}
+
+
+Definition at line 32 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!\$definition@{\$definition}}
+\index{\$definition@{\$definition}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{\$definition}]{\setlength{\rightskip}{0pt plus 5cm}\$definition\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a1835bcd0ed2fc8d9ed387d652c403747}
+
+
+Definition at line 30 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!\$interactive@{\$interactive}}
+\index{\$interactive@{\$interactive}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{\$interactive}]{\setlength{\rightskip}{0pt plus 5cm}\$interactive = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a3aaa6994c28453a23335df4ed09859ef}
+
+
+Definition at line 33 of file Input.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}!\$options@{\$options}}
+\index{\$options@{\$options}!Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input@{Symfony\+::\+Component\+::\+Console\+::\+Input\+::\+Input}}
+\subsubsection[{\$options}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf options} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_a011800c63ece4cbbfa77136a20607023}
+
+
+Definition at line 31 of file Input.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/\+Input/{\bf Input.\+php}\end{DoxyCompactItemize}

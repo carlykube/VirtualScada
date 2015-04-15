@@ -1,0 +1,246 @@
+.TH "vis" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vis \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBvis\fP"
+.br
+.ti -1c
+.RI "def \fBunvis\fP (src)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "list \fB__all__\fP"
+.br
+.ti -1c
+.RI "int \fBVIS_OCTAL\fP = 0x0001"
+.br
+.RI "\fIConstants from bsd/vis\&.h\&. \fP"
+.ti -1c
+.RI "int \fBVIS_CSTYLE\fP = 0x0002"
+.br
+.ti -1c
+.RI "int \fBVIS_SP\fP = 0x0004"
+.br
+.ti -1c
+.RI "int \fBVIS_TAB\fP = 0x0008"
+.br
+.ti -1c
+.RI "int \fBVIS_NL\fP = 0x0010"
+.br
+.ti -1c
+.RI "\fBVIS_WHITE\fP = \fBVIS_SP\fP|\fBVIS_TAB\fP|\fBVIS_NL\fP"
+.br
+.ti -1c
+.RI "int \fBVIS_SAFE\fP = 0x0020"
+.br
+.ti -1c
+.RI "int \fBVIS_NOSLASH\fP = 0x0040"
+.br
+.ti -1c
+.RI "int \fBVIS_HTTP1808\fP = 0x0080"
+.br
+.ti -1c
+.RI "int \fBVIS_HTTPSTYLE\fP = 0x0080"
+.br
+.ti -1c
+.RI "int \fBVIS_MIMESTYLE\fP = 0x0100"
+.br
+.ti -1c
+.RI "int \fBVIS_HTTP1866\fP = 0x0200"
+.br
+.ti -1c
+.RI "int \fBVIS_NOESCAPE\fP = 0x0400"
+.br
+.ti -1c
+.RI "int \fBVIS_GLOB\fP = 0x1000"
+.br
+.ti -1c
+.RI "tuple \fB_libbsd\fP = CDLL(find_library('bsd'))"
+.br
+.RI "\fIImport libbsd/vis functions\&. \fP"
+.ti -1c
+.RI "\fB_strvis\fP = _libbsd\&.strvis"
+.br
+.ti -1c
+.RI "\fB_strunvis\fP = _libbsd\&.strunvis"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+vis.py
+======
+
+Ctypes based module to access libbsd's strvis & strunvis functions.
+
+The `vis` function is the equivalent of strvis.
+The `unvis` function is the equivalent of strunvis.
+All functions accept unicode string as input and return a unicode string.
+
+Constants:
+----------
+
+* to select alternate encoding format
+  `VIS_OCTAL`:      use octal \ddd format
+  `VIS_CSTYLE`:     use \[nrft0..] where appropiate
+
+* to alter set of characters encoded
+  (default is to encode all non-graphic except space, tab, and newline).
+  `VIS_SP`:         also encode space
+  `VIS_TAB`:        also encode tab
+  `VIS_NL`:         also encode newline
+  `VIS_WHITE`:      same as (VIS_SP | VIS_TAB | VIS_NL)
+  `VIS_SAFE`:       only encode "unsafe" characters
+
+* other
+  `VIS_NOSLASH`:    inhibit printing '\'
+  `VIS_HTTP1808`:   http-style escape % hex hex
+  `VIS_HTTPSTYLE`:  http-style escape % hex hex
+  `VIS_MIMESTYLE`:  mime-style escape = HEX HEX
+  `VIS_HTTP1866`:   http-style &#num; or &string;
+  `VIS_NOESCAPE`:   don't decode `\'
+  `VIS_GLOB`:       encode glob(3) magic characters
+
+:Authors:
+- ju1ius (http://github.com/ju1ius)
+:Version: 1
+:Date: 2014-01-05
+
+.fi
+.PP
+ 
+.SH "Function Documentation"
+.PP 
+.SS "def vis\&.unvis ( src)"
+
+.PP
+.nf
+Decodes a string encoded by vis.
+
+C definition:
+int strunvis(char *dst, char *src);
+
+.fi
+.PP
+ 
+.PP
+Definition at line 111 of file vis\&.py\&.
+.SS "def vis\&.vis ( src,  flags = \fC\fBVIS_WHITE\fP\fP)"
+
+.PP
+.nf
+Encodes the string `src` into libbsd's vis encoding.
+`flags` must be one of the VIS_* constants
+
+C definition:
+int strvis(char *dst, char *src, int flags);
+
+.fi
+.PP
+ 
+.PP
+Definition at line 91 of file vis\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "list __all__"
+\fBInitial value:\fP
+.PP
+.nf
+1 = [
+2     'vis', 'unvis',
+3     'VIS_OCTAL', 'VIS_CSTYLE',
+4     'VIS_SP', 'VIS_TAB', 'VIS_NL', 'VIS_WHITE', 'VIS_SAFE',
+5     'VIS_NOSLASH', 'VIS_HTTP1808', 'VIS_HTTPSTYLE', 'VIS_MIMESTYLE',
+6     'VIS_HTTP1866', 'VIS_NOESCAPE', 'VIS_GLOB'
+7 ]
+.fi
+.PP
+Definition at line 44 of file vis\&.py\&.
+.SS "tuple _libbsd = CDLL(find_library('bsd'))"
+
+.PP
+Import libbsd/vis functions\&. 
+.PP
+Definition at line 80 of file vis\&.py\&.
+.SS "_strunvis = _libbsd\&.strunvis"
+
+.PP
+Definition at line 86 of file vis\&.py\&.
+.SS "_strvis = _libbsd\&.strvis"
+
+.PP
+Definition at line 82 of file vis\&.py\&.
+.SS "int VIS_CSTYLE = 0x0002"
+
+.PP
+Definition at line 59 of file vis\&.py\&.
+.SS "int VIS_GLOB = 0x1000"
+
+.PP
+Definition at line 74 of file vis\&.py\&.
+.SS "int VIS_HTTP1808 = 0x0080"
+
+.PP
+Definition at line 69 of file vis\&.py\&.
+.SS "int VIS_HTTP1866 = 0x0200"
+
+.PP
+Definition at line 72 of file vis\&.py\&.
+.SS "int VIS_HTTPSTYLE = 0x0080"
+
+.PP
+Definition at line 70 of file vis\&.py\&.
+.SS "int VIS_MIMESTYLE = 0x0100"
+
+.PP
+Definition at line 71 of file vis\&.py\&.
+.SS "int VIS_NL = 0x0010"
+
+.PP
+Definition at line 64 of file vis\&.py\&.
+.SS "int VIS_NOESCAPE = 0x0400"
+
+.PP
+Definition at line 73 of file vis\&.py\&.
+.SS "int VIS_NOSLASH = 0x0040"
+
+.PP
+Definition at line 68 of file vis\&.py\&.
+.SS "int VIS_OCTAL = 0x0001"
+
+.PP
+Constants from bsd/vis\&.h\&. 
+.PP
+Definition at line 58 of file vis\&.py\&.
+.SS "int VIS_SAFE = 0x0020"
+
+.PP
+Definition at line 66 of file vis\&.py\&.
+.SS "int VIS_SP = 0x0004"
+
+.PP
+Definition at line 62 of file vis\&.py\&.
+.SS "int VIS_TAB = 0x0008"
+
+.PP
+Definition at line 63 of file vis\&.py\&.
+.SS "VIS_WHITE = \fBVIS_SP\fP|\fBVIS_TAB\fP|\fBVIS_NL\fP"
+
+.PP
+Definition at line 65 of file vis\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,37 @@
+.TH "md_vendor_sebastian_comparator__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_sebastian_comparator__r_e_a_d_m_e \- README 
+\fC![Build Status](https://travis-ci\&.org/sebastianbergmann/comparator\&.svg?branch=master)\fP
+.PP
+.SH "\fBComparator\fP"
+.PP
+.PP
+This component provides the functionality to compare \fBPHP\fP values for equality\&.
+.PP
+.SS "Usage"
+.PP
+```php <?php use \fBSebastianBergmann\fP; use \fBSebastianBergmann\fP;
+.PP
+$date1 = new DateTime('2013-03-29 04:13:35', new DateTimeZone('America/New_York')); $date2 = new DateTime('2013-03-29 03:13:35', new DateTimeZone('America/Chicago'));
+.PP
+$factory = new Factory; $comparator = $factory->getComparatorFor($date1, $date2);
+.PP
+try { $comparator->assertEquals($date1, $date2); print 'Dates match'; }
+.PP
+catch (ComparisonFailure $failure) { print 'Dates don't match'; } ```
+.PP
+.SS "Installation"
+.PP
+To add \fBComparator\fP as a local, per-project dependency to your project, simply add a dependency on \fCsebastian/comparator\fP to your project's \fCcomposer\&.json\fP file\&. Here is a minimal example of a \fCcomposer\&.json\fP file that just defines a dependency on \fBComparator\fP 1\&.0: 
+.PP
+.nf
+{
+    "require": {
+        "sebastian/comparator": "1.0.*"
+    }
+}
+.fi
+.PP
+ 

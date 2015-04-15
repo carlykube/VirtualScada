@@ -1,0 +1,749 @@
+.TH "Filesystem" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Filesystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFilesystemInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBAdapterInterface\fP $adapter, $config=null)"
+.br
+.ti -1c
+.RI "\fBgetAdapter\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($\fBpath\fP, $contents, array $config=[])"
+.br
+.ti -1c
+.RI "\fBwriteStream\fP ($\fBpath\fP, $resource, array $config=[])"
+.br
+.ti -1c
+.RI "\fBput\fP ($\fBpath\fP, $contents, array $config=[])"
+.br
+.ti -1c
+.RI "\fBputStream\fP ($\fBpath\fP, $resource, array $config=[])"
+.br
+.ti -1c
+.RI "\fBreadAndDelete\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($\fBpath\fP, $contents, array $config=[])"
+.br
+.ti -1c
+.RI "\fBupdateStream\fP ($\fBpath\fP, $resource, array $config=[])"
+.br
+.ti -1c
+.RI "\fBread\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBreadStream\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBdeleteDir\fP ($dirname)"
+.br
+.ti -1c
+.RI "\fBcreateDir\fP ($dirname, array $config=[])"
+.br
+.ti -1c
+.RI "\fBlistContents\fP ($directory= '', $recursive=false)"
+.br
+.ti -1c
+.RI "\fBgetMimetype\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetTimestamp\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetVisibility\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetSize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.ti -1c
+.RI "\fBgetMetadata\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBpath\fP, \fBHandler\fP $handler=null)"
+.br
+.ti -1c
+.RI "\fBassertPresent\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBassertAbsent\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, array $arguments)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprepareConfig\fP (array $config)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$adapter\fP"
+.br
+.ti -1c
+.RI "\fB$config\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+array getWithMetadata(string $path, array $metadata)  array listFiles(string $path = '', boolean $recursive = false)  array listPaths(string $path = '', boolean $recursive = false)  array listWith(array $keys = [], $directory = '', $recursive = false) 
+.PP
+Definition at line 16 of file Filesystem\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBAdapterInterface\fP $adapter,  $config = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$adapter\fP 
+.br
+\fI$config\fP 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file Filesystem\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method, array $arguments)"
+Plugins pass-through\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIBadMethodCallException\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 561 of file Filesystem\&.php\&.
+.SS "assertAbsent ( $path)"
+Assert a file is absent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileExistsException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 544 of file Filesystem\&.php\&.
+.SS "assertPresent ( $path)"
+Assert a file is present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 530 of file Filesystem\&.php\&.
+.SS "copy ( $path,  $newpath)"
+Copy a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 284 of file Filesystem\&.php\&.
+.SS "createDir ( $dirname, array $config = \fC[]\fP)"
+{Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP directory name 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 332 of file Filesystem\&.php\&.
+.SS "delete ( $path)"
+Delete a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 303 of file Filesystem\&.php\&.
+.SS "deleteDir ( $dirname)"
+Delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP path to directory
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 318 of file Filesystem\&.php\&.
+.SS "get ( $path, \fBHandler\fP $handler = \fCnull\fP)"
+Get a file/directory handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$handler\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBHandler\fP file or directory handler 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 493 of file Filesystem\&.php\&.
+.SS "getAdapter ()"
+Get the \fBAdapter\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBAdapterInterface\fP adapter 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file Filesystem\&.php\&.
+.SS "getConfig ()"
+Get the \fBConfig\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBConfig\fP config object 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Filesystem\&.php\&.
+.SS "getMetadata ( $path)"
+Get a file's metadata\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false file metadata or FALSE when fails to fetch it from existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 477 of file Filesystem\&.php\&.
+.SS "getMimetype ( $path)"
+Get a file's mime-type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false file mime-type or FALSE when fails to fetch mime-type from existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 379 of file Filesystem\&.php\&.
+.SS "getSize ( $path)"
+Get a file's size\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|false file size or FALSE when fails to check size of existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 441 of file Filesystem\&.php\&.
+.SS "getTimestamp ( $path)"
+Get a file's timestamp\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false timestamp or FALSE when fails to fetch timestamp from existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 401 of file Filesystem\&.php\&.
+.SS "getVisibility ( $path)"
+Get a file's visibility\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false visibility (public|private) or FALSE when fails to check it in existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 421 of file Filesystem\&.php\&.
+.SS "has ( $path)"
+{Check whether a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 65 of file Filesystem\&.php\&.
+.SS "listContents ( $directory = \fC''\fP,  $recursive = \fCfalse\fP)"
+List the filesystem contents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array contents 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 348 of file Filesystem\&.php\&.
+.SS "prepareConfig (array $config)\fC [protected]\fP"
+Convert a config array to a \fBConfig\fP object with the correct fallback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBConfig\fP 
+.RE
+.PP
+
+.PP
+Definition at line 515 of file Filesystem\&.php\&.
+.SS "put ( $path,  $contents, array $config = \fC[]\fP)"
+Create a file or update if exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file 
+.br
+\fI$contents\fP file contents 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileExistsException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 113 of file Filesystem\&.php\&.
+.SS "putStream ( $path,  $resource, array $config = \fC[]\fP)"
+Create a file or update if exists using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 133 of file Filesystem\&.php\&.
+.SS "read ( $path)"
+Read a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false file contents or FALSE when fails to read existing file 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 224 of file Filesystem\&.php\&.
+.SS "readAndDelete ( $path)"
+Read and delete a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string file contents 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 153 of file Filesystem\&.php\&.
+.SS "readStream ( $path)"
+Retrieves a read-stream for a path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+resource|false path resource or false when on failure 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 243 of file Filesystem\&.php\&.
+.SS "rename ( $path,  $newpath)"
+Rename a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file 
+.br
+\fI$newpath\fP new path
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileExistsException\fP\fP 
+.br
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 266 of file Filesystem\&.php\&.
+.SS "setVisibility ( $path,  $visibility)"
+Get a file's size\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file 
+.br
+\fI$visibility\fP visibility
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 460 of file Filesystem\&.php\&.
+.SS "update ( $path,  $contents, array $config = \fC[]\fP)"
+Update a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP path to file 
+.br
+\fI$contents\fP file contents 
+.br
+\fI$config\fP \fBConfig\fP object or visibility setting
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFileNotFoundException\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 179 of file Filesystem\&.php\&.
+.SS "updateStream ( $path,  $resource, array $config = \fC[]\fP)"
+Update a file with the contents of a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object or visibility setting
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 200 of file Filesystem\&.php\&.
+.SS "write ( $path,  $contents, array $config = \fC[]\fP)"
+{Write a new file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean
+.RE
+.PP
+} 
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 75 of file Filesystem\&.php\&.
+.SS "writeStream ( $path,  $resource, array $config = \fC[]\fP)"
+{Write a new file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP config array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool success boolean
+.RE
+.PP
+} 
+.PP
+Implements \fBFilesystemInterface\fP\&.
+.PP
+Definition at line 87 of file Filesystem\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$adapter\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file Filesystem\&.php\&.
+.SS "$config\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file Filesystem\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

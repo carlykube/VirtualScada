@@ -1,0 +1,181 @@
+.TH "RequestMatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RequestMatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRequestMatcherInterface\fP\&.
+.PP
+Inherited by \fBExpressionRequestMatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP=null, $host=null, $methods=null, $ips=null, array $attributes=array(), $schemes=null)"
+.br
+.ti -1c
+.RI "\fBmatchScheme\fP ($scheme)"
+.br
+.ti -1c
+.RI "\fBmatchHost\fP ($regexp)"
+.br
+.ti -1c
+.RI "\fBmatchPath\fP ($regexp)"
+.br
+.ti -1c
+.RI "\fBmatchIp\fP ($ip)"
+.br
+.ti -1c
+.RI "\fBmatchIps\fP ($ips)"
+.br
+.ti -1c
+.RI "\fBmatchMethod\fP ($method)"
+.br
+.ti -1c
+.RI "\fBmatchAttribute\fP ($key, $regexp)"
+.br
+.ti -1c
+.RI "\fBmatches\fP (\fBRequest\fP $request)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBRequestMatcher\fP compares a pre-defined set of checks against a \fBRequest\fP instance\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 21 of file RequestMatcher\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path = \fCnull\fP,  $host = \fCnull\fP,  $methods = \fCnull\fP,  $ips = \fCnull\fP, array $attributes = \fCarray()\fP,  $schemes = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$host\fP 
+.br
+\fIstring|string[]|null\fP $methods 
+.br
+\fIstring|string[]|null\fP $ips 
+.br
+\fI$attributes\fP 
+.br
+\fIstring|string[]|null\fP $schemes 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file RequestMatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "matchAttribute ( $key,  $regexp)"
+Adds a check for request attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The request attribute name 
+.br
+\fI$regexp\fP \fBA\fP Regexp 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file RequestMatcher\&.php\&.
+.SS "matches (\fBRequest\fP $request)"
+{Decides whether the rule(s) implemented by the strategy matches the supplied request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP The request to check for a match
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the request matches, false otherwise
+.RE
+.PP
+}
+.PP
+Implements \fBRequestMatcherInterface\fP\&.
+.PP
+Definition at line 150 of file RequestMatcher\&.php\&.
+.SS "matchHost ( $regexp)"
+Adds a check for the \fBURL\fP host name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$regexp\fP \fBA\fP Regexp 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file RequestMatcher\&.php\&.
+.SS "matchIp ( $ip)"
+Adds a check for the client IP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP \fBA\fP specific IP address or a range specified using IP/netmask like 192\&.168\&.1\&.0/24 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file RequestMatcher\&.php\&.
+.SS "matchIps ( $ips)"
+Adds a check for the client IP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|string[]\fP $ips \fBA\fP specific IP address or a range specified using IP/netmask like 192\&.168\&.1\&.0/24 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file RequestMatcher\&.php\&.
+.SS "matchMethod ( $method)"
+Adds a check for the HTTP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|string[]\fP $method An HTTP method or an array of HTTP methods 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file RequestMatcher\&.php\&.
+.SS "matchPath ( $regexp)"
+Adds a check for the \fBURL\fP path info\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$regexp\fP \fBA\fP Regexp 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file RequestMatcher\&.php\&.
+.SS "matchScheme ( $scheme)"
+Adds a check for the HTTP scheme\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|string[]|null\fP $scheme An HTTP scheme or an array of HTTP schemes 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file RequestMatcher\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

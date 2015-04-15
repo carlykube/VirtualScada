@@ -1,0 +1,269 @@
+.TH "SocketHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.PP
+Inherited by \fBFleepHookHandler\fP, \fBFlowdockHandler\fP, \fBHipChatHandler\fP, \fBLogEntriesHandler\fP, \fBPushoverHandler\fP, and \fBSlackHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($connectionString, $level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBcloseSocket\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPersistent\fP ($boolean)"
+.br
+.ti -1c
+.RI "\fBsetConnectionTimeout\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBgetConnectionString\fP ()"
+.br
+.ti -1c
+.RI "\fBisPersistent\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConnectionTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBisConnected\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBpfsockopen\fP ()"
+.br
+.ti -1c
+.RI "\fBfsockopen\fP ()"
+.br
+.ti -1c
+.RI "\fBstreamSetTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBfwrite\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBstreamGetMetadata\fP ()"
+.br
+.ti -1c
+.RI "\fBgenerateDataStream\fP ($record)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Stores to any socket - uses \fBfsockopen()\fP or \fBpfsockopen()\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Pablo de Leon Belloc pablolb@gmail.com 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/function.fsockopen.php 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file SocketHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $connectionString,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connectionString\fP Socket connection string 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file SocketHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+We will not close a PersistentSocket instance so it can be reused in other requests\&. 
+.PP
+Definition at line 62 of file SocketHandler\&.php\&.
+.SS "closeSocket ()"
+Close socket, if open 
+.PP
+Definition at line 72 of file SocketHandler\&.php\&.
+.SS "fsockopen ()\fC [protected]\fP"
+Wrapper to allow mocking 
+.PP
+Definition at line 180 of file SocketHandler\&.php\&.
+.SS "fwrite ( $data)\fC [protected]\fP"
+Wrapper to allow mocking 
+.PP
+Definition at line 201 of file SocketHandler\&.php\&.
+.SS "generateDataStream ( $record)\fC [protected]\fP"
+
+.PP
+Definition at line 230 of file SocketHandler\&.php\&.
+.SS "getConnectionString ()"
+Get current connection string
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file SocketHandler\&.php\&.
+.SS "getConnectionTimeout ()"
+Get current connection timeout setting
+.PP
+\fBReturns:\fP
+.RS 4
+float 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file SocketHandler\&.php\&.
+.SS "getTimeout ()"
+Get current in-transfer timeout
+.PP
+\fBReturns:\fP
+.RS 4
+float 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file SocketHandler\&.php\&.
+.SS "isConnected ()"
+Check to see if the socket is currently available\&.
+.PP
+UDP might appear to be connected but might fail when writing\&. See http://php.net/fsockopen for details\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file SocketHandler\&.php\&.
+.SS "isPersistent ()"
+Get persistent setting
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file SocketHandler\&.php\&.
+.SS "pfsockopen ()\fC [protected]\fP"
+Wrapper to allow mocking 
+.PP
+Definition at line 172 of file SocketHandler\&.php\&.
+.SS "setConnectionTimeout ( $seconds)"
+Set connection timeout\&. Only has effect before we connect\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/function.fsockopen.php 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file SocketHandler\&.php\&.
+.SS "setPersistent ( $boolean)"
+Set socket connection to nbe persistent\&. It only has effect before the connection is initiated\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$boolean\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file SocketHandler\&.php\&.
+.SS "setTimeout ( $seconds)"
+Set write timeout\&. Only has effect before we connect\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/function.stream-set-timeout.php 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file SocketHandler\&.php\&.
+.SS "streamGetMetadata ()\fC [protected]\fP"
+Wrapper to allow mocking 
+.PP
+Definition at line 209 of file SocketHandler\&.php\&.
+.SS "streamSetTimeout ()\fC [protected]\fP"
+Wrapper to allow mocking
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/function.stream-set-timeout.php 
+.RE
+.PP
+
+.PP
+Definition at line 190 of file SocketHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+Connect (if necessary) and write to the socket
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 52 of file SocketHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

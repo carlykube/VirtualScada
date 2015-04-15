@@ -1,0 +1,173 @@
+.TH "ModbusTCPTest" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ModbusTCPTest \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBprint_tb\fP (self)"
+.br
+.ti -1c
+.RI "def \fBtestExecute\fP (self)"
+.br
+.ti -1c
+.RI "def \fBtestICSFactory\fP"
+.br
+.ti -1c
+.RI "def \fBtestSingleRead\fP"
+.br
+.ti -1c
+.RI "def \fBtestAllRead\fP (self)"
+.br
+.ti -1c
+.RI "def \fBtestAllWrite\fP (self)"
+.br
+.ti -1c
+.RI "def \fBtestSingleWrite\fP"
+.br
+.ti -1c
+.RI "def \fBtearDown\fP (self)"
+.br
+.ti -1c
+.RI "def \fBsetUp\fP (self)"
+.br
+.ti -1c
+.RI "def \fBruntest\fP (self, _test, args)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBconfig\fP"
+.br
+.ti -1c
+.RI "\fBserver\fP"
+.br
+.RI "\fI--Set up points \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+@ internal
+   Contains methods for testing a ModbusTCP client. Subclassing unittest 
+        didn't work  with the master-slave network paradigm for some reason.
+    To run, use create a new ModbusTCPTest object and call runTest(). This
+    method will return True if the test passes, false otherwise. It will
+    catch errors and exit gracefully. 
+    
+    Be sure the Python interpreter has root priviledges in order to open
+    port 502.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 374 of file ics_clients\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def print_tb ( self)"
+
+.PP
+Definition at line 385 of file ics_clients\&.py\&.
+.SS "def runtest ( self,  _test,  args)"
+
+.PP
+Definition at line 522 of file ics_clients\&.py\&.
+.SS "def setUp ( self)"
+
+.PP
+.nf
+This method sets up a server for testing
+.fi
+.PP
+ 
+.PP
+Definition at line 501 of file ics_clients\&.py\&.
+.SS "def tearDown ( self)"
+
+.PP
+Definition at line 498 of file ics_clients\&.py\&.
+.SS "def testAllRead ( self)"
+
+.PP
+.nf
+Test reading all points
+.fi
+.PP
+ 
+.PP
+Definition at line 448 of file ics_clients\&.py\&.
+.SS "def testAllWrite ( self)"
+
+.PP
+.nf
+Test writing all writable points
+.fi
+.PP
+ 
+.PP
+Definition at line 466 of file ics_clients\&.py\&.
+.SS "def testExecute ( self)"
+
+.PP
+.nf
+Test using the execute() method of the ICSClient for Modbus
+.fi
+.PP
+ 
+.PP
+Definition at line 393 of file ics_clients\&.py\&.
+.SS "def testICSFactory ( self,  point = \fC'pressure'\fP,  expectedValue = \fC17\fP)"
+
+.PP
+.nf
+Test reading a single point using the ICS factory
+.fi
+.PP
+ 
+.PP
+Definition at line 427 of file ics_clients\&.py\&.
+.SS "def testSingleRead ( self,  point = \fC'pressure'\fP,  expectedValue = \fC17\&.0\fP)"
+
+.PP
+.nf
+Test reading a single point
+.fi
+.PP
+ 
+.PP
+Definition at line 437 of file ics_clients\&.py\&.
+.SS "def testSingleWrite ( self,  point = \fC'setpoint'\fP,  newValue = \fC54\&.0\fP)"
+
+.PP
+.nf
+Test writing a single point
+.fi
+.PP
+ 
+.PP
+Definition at line 486 of file ics_clients\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "config"
+
+.PP
+Definition at line 510 of file ics_clients\&.py\&.
+.SS "server"
+
+.PP
+--Set up points 
+.PP
+Definition at line 519 of file ics_clients\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

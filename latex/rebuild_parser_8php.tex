@@ -1,0 +1,288 @@
+\section{vendor/nikic/php-\/parser/grammar/rebuild\+Parser.php File Reference}
+\label{rebuild_parser_8php}\index{vendor/nikic/php-\/parser/grammar/rebuild\+Parser.\+php@{vendor/nikic/php-\/parser/grammar/rebuild\+Parser.\+php}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf if}(!\$option\+Keep\+Tmp\+Grammar) {\bf resolve\+Constants} (\$code)
+\begin{DoxyCompactList}\small\item\em Preprocessing functions ///. \end{DoxyCompactList}\item 
+{\bf resolve\+Nodes} (\$code)
+\item 
+{\bf resolve\+Macros} (\$code)
+\item 
+{\bf assert\+Args} (\$num, \$args, \${\bf name})
+\item 
+{\bf resolve\+Arrays} (\$code)
+\item 
+{\bf move\+File\+With\+Dir\+Check} (\$from\+Path, \$to\+Path)
+\item 
+{\bf regex} (\$regex)
+\begin{DoxyCompactList}\small\item\em Regex helper functions ///. \end{DoxyCompactList}\item 
+{\bf magic\+Split} (\${\bf regex}, \$string)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$grammar\+File} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/zend\+\_\+language\+\_\+parser.\+phpy\textquotesingle{}
+\item 
+{\bf \$skeleton\+File} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/kmyacc.\+php.\+parser\textquotesingle{}
+\item 
+{\bf \$tmp\+Grammar\+File} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/tmp\+\_\+parser.\+phpy\textquotesingle{}
+\item 
+{\bf \$tmp\+Result\+File} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/tmp\+\_\+parser.\+php\textquotesingle{}
+\item 
+{\bf \$parser\+Result\+File} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/../lib/Php\+Parser/Parser.\+php\textquotesingle{}
+\item 
+{\bf \$kmyacc} = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/kmyacc.\+exe\textquotesingle{}
+\item 
+{\bf if}(!file\+\_\+exists(\$kmyacc)) {\bf \$options} = array\+\_\+flip(\$argv)
+\item 
+{\bf \$option\+Debug} = isset(\${\bf options}[\textquotesingle{}-\/-\/debug\textquotesingle{}])
+\item 
+{\bf \$option\+Keep\+Tmp\+Grammar} = isset(\${\bf options}[\textquotesingle{}-\/-\/keep-\/tmp-\/grammar\textquotesingle{}])
+\item 
+const {\bf L\+I\+B}
+\begin{DoxyCompactList}\small\item\em Utility regex constants ///. \end{DoxyCompactList}\item 
+const {\bf P\+A\+R\+A\+M\+S} = \textquotesingle{}\textbackslash{}[(?$<$params$>$[$^\wedge$[\textbackslash{}]]$\ast$+(?\+:\textbackslash{}[(?\&params)\textbackslash{}][$^\wedge$[\textbackslash{}]]$\ast$+)$\ast$+)\textbackslash{}]\textquotesingle{}
+\item 
+const {\bf A\+R\+G\+S} = \textquotesingle{}\textbackslash{}((?$<$args$>$[$^\wedge$()]$\ast$+(?\+:\textbackslash{}((?\&args)\textbackslash{})[$^\wedge$()]$\ast$+)$\ast$+)\textbackslash{})\textquotesingle{}
+\item 
+{\bf n}
+\item 
+{\bf \$grammar\+Code} = file\+\_\+get\+\_\+contents(\$grammar\+File)
+\item 
+{\bf \$additional\+Args} = \$option\+Debug ? \textquotesingle{}-\/t -\/v\textquotesingle{} \+: \textquotesingle{}\textquotesingle{}
+\item 
+{\bf \$output} = trim(shell\+\_\+exec(\char`\"{}\$kmyacc \$additional\+Args -\/l -\/m \$skeleton\+File \$tmp\+Grammar\+File 2$>$\&1\char`\"{}))
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!assert\+Args@{assert\+Args}}
+\index{assert\+Args@{assert\+Args}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{assert\+Args}]{\setlength{\rightskip}{0pt plus 5cm}assert\+Args (
+\begin{DoxyParamCaption}
+\item[{}]{\$num, }
+\item[{}]{\$args, }
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a20aa9727d9a067e11421c69d1e603d98}
+
+
+Definition at line 157 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!magic\+Split@{magic\+Split}}
+\index{magic\+Split@{magic\+Split}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{magic\+Split}]{\setlength{\rightskip}{0pt plus 5cm}magic\+Split (
+\begin{DoxyParamCaption}
+\item[{}]{\$regex, }
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a25eb33394ee65a5dc07a221380d331f0}
+
+
+Definition at line 210 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!move\+File\+With\+Dir\+Check@{move\+File\+With\+Dir\+Check}}
+\index{move\+File\+With\+Dir\+Check@{move\+File\+With\+Dir\+Check}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{move\+File\+With\+Dir\+Check}]{\setlength{\rightskip}{0pt plus 5cm}move\+File\+With\+Dir\+Check (
+\begin{DoxyParamCaption}
+\item[{}]{\$from\+Path, }
+\item[{}]{\$to\+Path}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_afd874e54e1784754c5ca021924310b5c}
+
+
+Definition at line 194 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!regex@{regex}}
+\index{regex@{regex}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{regex}]{\setlength{\rightskip}{0pt plus 5cm}regex (
+\begin{DoxyParamCaption}
+\item[{}]{\$regex}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a0c152f032743a1c15e57f5df931ea94a}
+
+
+Regex helper functions ///. 
+
+
+
+Definition at line 206 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!resolve\+Arrays@{resolve\+Arrays}}
+\index{resolve\+Arrays@{resolve\+Arrays}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{resolve\+Arrays}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Arrays (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a4db330952e20997c0b9520c6d312e616}
+
+
+Definition at line 163 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!resolve\+Constants@{resolve\+Constants}}
+\index{resolve\+Constants@{resolve\+Constants}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{resolve\+Constants}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (!\$option\+Keep\+Tmp\+Grammar) resolve\+Constants (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a6c5330487bec7087078245bcf181c84e}
+
+
+Preprocessing functions ///. 
+
+
+
+Definition at line 65 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!resolve\+Macros@{resolve\+Macros}}
+\index{resolve\+Macros@{resolve\+Macros}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{resolve\+Macros}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Macros (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_a248dfbf2a8149ac6410418c03d7e93b1}
+
+
+Definition at line 92 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!resolve\+Nodes@{resolve\+Nodes}}
+\index{resolve\+Nodes@{resolve\+Nodes}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{resolve\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Nodes (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{rebuild_parser_8php_ada9460fbe68750debc0a62d5bc80b699}
+
+
+Definition at line 69 of file rebuild\+Parser.\+php.
+
+
+
+\subsection{Variable Documentation}
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$additional\+Args@{\$additional\+Args}}
+\index{\$additional\+Args@{\$additional\+Args}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$additional\+Args}]{\setlength{\rightskip}{0pt plus 5cm}\$additional\+Args = \$option\+Debug ? \textquotesingle{}-\/t -\/v\textquotesingle{} \+: \textquotesingle{}\textquotesingle{}}\label{rebuild_parser_8php_afeb76c28b295d831fd7ab121e8795030}
+
+
+Definition at line 49 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$grammar\+Code@{\$grammar\+Code}}
+\index{\$grammar\+Code@{\$grammar\+Code}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$grammar\+Code}]{\setlength{\rightskip}{0pt plus 5cm}\$grammar\+Code = file\+\_\+get\+\_\+contents(\$grammar\+File)}\label{rebuild_parser_8php_a6412bf361f04c7df759bf97a5f30e269}
+
+
+Definition at line 40 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$grammar\+File@{\$grammar\+File}}
+\index{\$grammar\+File@{\$grammar\+File}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$grammar\+File}]{\setlength{\rightskip}{0pt plus 5cm}\$grammar\+File = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/zend\+\_\+language\+\_\+parser.\+phpy\textquotesingle{}}\label{rebuild_parser_8php_af5826199b3e0becad54ea858168721e0}
+
+
+Definition at line 3 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$kmyacc@{\$kmyacc}}
+\index{\$kmyacc@{\$kmyacc}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$kmyacc}]{\setlength{\rightskip}{0pt plus 5cm}\$kmyacc = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/kmyacc.\+exe\textquotesingle{}}\label{rebuild_parser_8php_a3bcbef238ae7ed75f89567466ee4c005}
+
+
+Definition at line 10 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$option\+Debug@{\$option\+Debug}}
+\index{\$option\+Debug@{\$option\+Debug}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$option\+Debug}]{\setlength{\rightskip}{0pt plus 5cm}\$option\+Debug = isset(\${\bf options}[\textquotesingle{}-\/-\/debug\textquotesingle{}])}\label{rebuild_parser_8php_a04f0dc88e3d1ffaa9907b0b189aac208}
+
+
+Definition at line 16 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$option\+Keep\+Tmp\+Grammar@{\$option\+Keep\+Tmp\+Grammar}}
+\index{\$option\+Keep\+Tmp\+Grammar@{\$option\+Keep\+Tmp\+Grammar}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$option\+Keep\+Tmp\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}\$option\+Keep\+Tmp\+Grammar = isset(\${\bf options}[\textquotesingle{}-\/-\/keep-\/tmp-\/grammar\textquotesingle{}])}\label{rebuild_parser_8php_ad2d5e1d85cadf957af699ffbaca1cb23}
+
+
+Definition at line 17 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$options@{\$options}}
+\index{\$options@{\$options}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (!file\+\_\+exists(\$kmyacc)) \${\bf options} = array\+\_\+flip(\$argv)}\label{rebuild_parser_8php_ad485bdc644c889fcb77db6edc8323836}
+
+
+Definition at line 15 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$output@{\$output}}
+\index{\$output@{\$output}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$output}]{\setlength{\rightskip}{0pt plus 5cm}\$output = trim(shell\+\_\+exec(\char`\"{}\$kmyacc \$additional\+Args -\/l -\/m \$skeleton\+File \$tmp\+Grammar\+File 2$>$\&1\char`\"{}))}\label{rebuild_parser_8php_a73004ce9cd673c1bfafd1dc351134797}
+
+
+Definition at line 52 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$parser\+Result\+File@{\$parser\+Result\+File}}
+\index{\$parser\+Result\+File@{\$parser\+Result\+File}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$parser\+Result\+File}]{\setlength{\rightskip}{0pt plus 5cm}\$parser\+Result\+File = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/../lib/Php\+Parser/Parser.\+php\textquotesingle{}}\label{rebuild_parser_8php_a6bee4175dfc0abe6d906bd2fb9e11777}
+
+
+Definition at line 7 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$skeleton\+File@{\$skeleton\+File}}
+\index{\$skeleton\+File@{\$skeleton\+File}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$skeleton\+File}]{\setlength{\rightskip}{0pt plus 5cm}\$skeleton\+File = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/kmyacc.\+php.\+parser\textquotesingle{}}\label{rebuild_parser_8php_a1f702d16d6d09d3c3da7219813c565d8}
+
+
+Definition at line 4 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$tmp\+Grammar\+File@{\$tmp\+Grammar\+File}}
+\index{\$tmp\+Grammar\+File@{\$tmp\+Grammar\+File}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$tmp\+Grammar\+File}]{\setlength{\rightskip}{0pt plus 5cm}\$tmp\+Grammar\+File = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/tmp\+\_\+parser.\+phpy\textquotesingle{}}\label{rebuild_parser_8php_a4d8e050e3170aa76e75c3fbf86cd2131}
+
+
+Definition at line 5 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!\$tmp\+Result\+File@{\$tmp\+Result\+File}}
+\index{\$tmp\+Result\+File@{\$tmp\+Result\+File}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{\$tmp\+Result\+File}]{\setlength{\rightskip}{0pt plus 5cm}\$tmp\+Result\+File = \+\_\+\+\_\+\+D\+I\+R\+\_\+\+\_\+ . \textquotesingle{}/tmp\+\_\+parser.\+php\textquotesingle{}}\label{rebuild_parser_8php_a5643cdc417b0bbcbeb029aea093166b2}
+
+
+Definition at line 6 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!A\+R\+G\+S@{A\+R\+G\+S}}
+\index{A\+R\+G\+S@{A\+R\+G\+S}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{A\+R\+G\+S}]{\setlength{\rightskip}{0pt plus 5cm}const A\+R\+G\+S = \textquotesingle{}\textbackslash{}((?$<$args$>$[$^\wedge$()]$\ast$+(?\+:\textbackslash{}((?\&args)\textbackslash{})[$^\wedge$()]$\ast$+)$\ast$+)\textbackslash{})\textquotesingle{}}\label{rebuild_parser_8php_a55c1adb4af354e4d00fc05d4e76d42ce}
+
+
+Definition at line 32 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!L\+I\+B@{L\+I\+B}}
+\index{L\+I\+B@{L\+I\+B}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{L\+I\+B}]{\setlength{\rightskip}{0pt plus 5cm}const L\+I\+B}\label{rebuild_parser_8php_a514527ec3eba1a596624e43baa4c9373}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{'(?(DEFINE)}
+\textcolor{stringliteral}{    (?<singleQuotedString>\(\backslash\)'[^\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)']*+(?:\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\).[^\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)']*+)*+\(\backslash\)')}
+\textcolor{stringliteral}{    (?<doubleQuotedString>"[^\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"]*+(?:\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\).[^\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"]*+)*+")}
+\textcolor{stringliteral}{    (?<string>(?&singleQuotedString)|(?&doubleQuotedString))}
+\textcolor{stringliteral}{    (?<comment>/\(\backslash\)*[^*]*+(?:\(\backslash\)*(?!/)[^*]*+)*+\(\backslash\)*/)}
+\textcolor{stringliteral}{    (?<code>\(\backslash\)\{[^\(\backslash\)'"/\{\}]*+(?:(?:(?&string)|(?&comment)|(?&code)|/)[^\(\backslash\)'"/\{\}]*+)*+\})}
+\textcolor{stringliteral}{)'}
+\end{DoxyCode}
+
+
+Utility regex constants ///. 
+
+
+
+Definition at line 23 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!n@{n}}
+\index{n@{n}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}n}\label{rebuild_parser_8php_aeab71244afb687f16d8c4f5ee9d6ef0e}
+
+
+Definition at line 38 of file rebuild\+Parser.\+php.
+
+\index{rebuild\+Parser.\+php@{rebuild\+Parser.\+php}!P\+A\+R\+A\+M\+S@{P\+A\+R\+A\+M\+S}}
+\index{P\+A\+R\+A\+M\+S@{P\+A\+R\+A\+M\+S}!rebuild\+Parser.\+php@{rebuild\+Parser.\+php}}
+\subsubsection[{P\+A\+R\+A\+M\+S}]{\setlength{\rightskip}{0pt plus 5cm}const P\+A\+R\+A\+M\+S = \textquotesingle{}\textbackslash{}[(?$<$params$>$[$^\wedge$[\textbackslash{}]]$\ast$+(?\+:\textbackslash{}[(?\&params)\textbackslash{}][$^\wedge$[\textbackslash{}]]$\ast$+)$\ast$+)\textbackslash{}]\textquotesingle{}}\label{rebuild_parser_8php_aacd3e6bbd2d882356c0e48999f57d83a}
+
+
+Definition at line 31 of file rebuild\+Parser.\+php.
+

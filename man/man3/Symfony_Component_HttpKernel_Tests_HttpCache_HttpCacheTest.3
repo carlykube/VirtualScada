@@ -1,0 +1,416 @@
+.TH "HttpCacheTest" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HttpCacheTest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHttpCacheTestCase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtestTerminateDelegatesTerminationOnlyForTerminableInterface\fP ()"
+.br
+.ti -1c
+.RI "\fBtestPassesOnNonGetHeadRequests\fP ()"
+.br
+.ti -1c
+.RI "\fBtestInvalidatesOnPostPutDeleteRequests\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheWithAuthorizationRequestHeaderAndNonPublicResponse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesCacheWithAuthorizationRequestHeaderAndPublicResponse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheWithCookieHeaderAndNonPublicResponse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheRequestsWithACookieHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBtestRespondsWith304WhenIfModifiedSinceMatchesLastModified\fP ()"
+.br
+.ti -1c
+.RI "\fBtestRespondsWith304WhenIfNoneMatchMatchesETag\fP ()"
+.br
+.ti -1c
+.RI "\fBtestRespondsWith304OnlyIfIfNoneMatchAndIfModifiedSinceBothMatch\fP ()"
+.br
+.ti -1c
+.RI "\fBtestValidatesPrivateResponsesCachedOnTheClient\fP ()"
+.br
+.ti -1c
+.RI "\fBtestStoresResponsesWhenNoCacheRequestDirectivePresent\fP ()"
+.br
+.ti -1c
+.RI "\fBtestReloadsResponsesWhenCacheHitsButNoCacheRequestDirectivePresentWhenAllowReloadIsSetTrue\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotReloadResponsesWhenAllowReloadIsSetFalseDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBtestRevalidatesFreshCacheEntryWhenMaxAgeRequestDirectiveIsExceededWhenAllowRevalidateOptionIsSetTrue\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotRevalidateFreshCacheEntryWhenEnableRevalidateOptionIsSetFalseDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBtestFetchesResponseFromBackendWhenCacheMisses\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheSomeStatusCodeResponses\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheResponsesWithExplicitNoStoreDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotCacheResponsesWithoutFreshnessInformationOrAValidator\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithExplicitNoCacheDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithAnExpirationHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithAMaxAgeDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithASMaxAgeDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithALastModifiedValidatorButNoFreshnessInformation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCachesResponsesWithAnETagValidatorButNoFreshnessInformation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHitsCachedResponsesWithExpiresHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHitsCachedResponseWithMaxAgeDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHitsCachedResponseWithSMaxAgeDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAssignsDefaultTtlWhenResponseHasNoFreshnessInformation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAssignsDefaultTtlWhenResponseHasNoFreshnessInformationAndAfterTtlWasExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAssignsDefaultTtlWhenResponseHasNoFreshnessInformationAndAfterTtlWasExpiredWithStatus304\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDoesNotAssignDefaultTtlWhenResponseHasMustRevalidateDirective\fP ()"
+.br
+.ti -1c
+.RI "\fBtestFetchesFullResponseWhenCacheStaleAndNoValidatorsPresent\fP ()"
+.br
+.ti -1c
+.RI "\fBtestValidatesCachedResponsesWithLastModifiedAndNoFreshnessInformation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestValidatesCachedResponsesWithETagAndNoFreshnessInformation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestReplacesCachedResponsesWhenValidationResultsInNon304Response\fP ()"
+.br
+.ti -1c
+.RI "\fBtestPassesHeadRequestsThroughDirectlyOnPass\fP ()"
+.br
+.ti -1c
+.RI "\fBtestUsesCacheToRespondToHeadRequestsWhenFresh\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSendsNoContentWhenFresh\fP ()"
+.br
+.ti -1c
+.RI "\fBtestInvalidatesCachedResponsesOnPost\fP ()"
+.br
+.ti -1c
+.RI "\fBtestServesFromCacheWhenHeadersMatch\fP ()"
+.br
+.ti -1c
+.RI "\fBtestStoresMultipleResponsesWhenHeadersDiffer\fP ()"
+.br
+.ti -1c
+.RI "\fBtestShouldCatchExceptions\fP ()"
+.br
+.ti -1c
+.RI "\fBtestShouldCatchExceptionsWhenReloadingAndNoCacheRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBtestShouldNotCatchExceptions\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEsiCacheSendsTheLowestTtl\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEsiCacheForceValidation\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEsiRecalculateContentLengthHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBtestClientIpIsAlwaysLocalhostForForwardedRequests\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpCacheIsSetAsATrustedProxy\fP (array $existing, array $expected)"
+.br
+.ti -1c
+.RI "\fBgetTrustedProxyData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestXForwarderForHeaderForForwardedRequests\fP ($xForwardedFor, $expected)"
+.br
+.ti -1c
+.RI "\fBgetXForwardedForData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestXForwarderForHeaderForPassRequests\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEsiCacheRemoveValidationHeadersIfEmbeddedResponses\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 18 of file HttpCacheTest\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getTrustedProxyData ()"
+
+.PP
+Definition at line 1156 of file HttpCacheTest\&.php\&.
+.SS "getXForwardedForData ()"
+
+.PP
+Definition at line 1180 of file HttpCacheTest\&.php\&.
+.SS "testAssignsDefaultTtlWhenResponseHasNoFreshnessInformation ()"
+
+.PP
+Definition at line 564 of file HttpCacheTest\&.php\&.
+.SS "testAssignsDefaultTtlWhenResponseHasNoFreshnessInformationAndAfterTtlWasExpired ()"
+
+.PP
+Definition at line 586 of file HttpCacheTest\&.php\&.
+.SS "testAssignsDefaultTtlWhenResponseHasNoFreshnessInformationAndAfterTtlWasExpiredWithStatus304 ()"
+
+.PP
+Definition at line 636 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithALastModifiedValidatorButNoFreshnessInformation ()"
+
+.PP
+Definition at line 468 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithAMaxAgeDirective ()"
+
+.PP
+Definition at line 436 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithAnETagValidatorButNoFreshnessInformation ()"
+
+.PP
+Definition at line 480 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithAnExpirationHeader ()"
+
+.PP
+Definition at line 419 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithASMaxAgeDirective ()"
+
+.PP
+Definition at line 452 of file HttpCacheTest\&.php\&.
+.SS "testCachesResponsesWithExplicitNoCacheDirective ()"
+
+.PP
+Definition at line 409 of file HttpCacheTest\&.php\&.
+.SS "testClientIpIsAlwaysLocalhostForForwardedRequests ()"
+
+.PP
+Definition at line 1135 of file HttpCacheTest\&.php\&.
+.SS "testDoesCacheWithAuthorizationRequestHeaderAndPublicResponse ()"
+
+.PP
+Definition at line 87 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotAssignDefaultTtlWhenResponseHasMustRevalidateDirective ()"
+
+.PP
+Definition at line 684 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheRequestsWithACookieHeader ()"
+
+.PP
+Definition at line 113 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheResponsesWithExplicitNoStoreDirective ()"
+
+.PP
+Definition at line 390 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheResponsesWithoutFreshnessInformationOrAValidator ()"
+
+.PP
+Definition at line 400 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheSomeStatusCodeResponses ()"
+
+.PP
+Definition at line 377 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheWithAuthorizationRequestHeaderAndNonPublicResponse ()"
+
+.PP
+Definition at line 73 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotCacheWithCookieHeaderAndNonPublicResponse ()"
+
+.PP
+Definition at line 100 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotReloadResponsesWhenAllowReloadIsSetFalseDefault ()"
+
+.PP
+Definition at line 268 of file HttpCacheTest\&.php\&.
+.SS "testDoesNotRevalidateFreshCacheEntryWhenEnableRevalidateOptionIsSetFalseDefault ()"
+
+.PP
+Definition at line 329 of file HttpCacheTest\&.php\&.
+.SS "testEsiCacheForceValidation ()"
+
+.PP
+Definition at line 1076 of file HttpCacheTest\&.php\&.
+.SS "testEsiCacheRemoveValidationHeadersIfEmbeddedResponses ()"
+
+.PP
+Definition at line 1198 of file HttpCacheTest\&.php\&.
+.SS "testEsiCacheSendsTheLowestTtl ()"
+
+.PP
+Definition at line 1044 of file HttpCacheTest\&.php\&.
+.SS "testEsiRecalculateContentLengthHeader ()"
+
+.PP
+Definition at line 1109 of file HttpCacheTest\&.php\&.
+.SS "testFetchesFullResponseWhenCacheStaleAndNoValidatorsPresent ()"
+
+.PP
+Definition at line 698 of file HttpCacheTest\&.php\&.
+.SS "testFetchesResponseFromBackendWhenCacheMisses ()"
+
+.PP
+Definition at line 366 of file HttpCacheTest\&.php\&.
+.SS "testHitsCachedResponsesWithExpiresHeader ()"
+
+.PP
+Definition at line 491 of file HttpCacheTest\&.php\&.
+.SS "testHitsCachedResponseWithMaxAgeDirective ()"
+
+.PP
+Definition at line 516 of file HttpCacheTest\&.php\&.
+.SS "testHitsCachedResponseWithSMaxAgeDirective ()"
+
+.PP
+Definition at line 540 of file HttpCacheTest\&.php\&.
+.SS "testHttpCacheIsSetAsATrustedProxy (array $existing, array $expected)"
+getTrustedProxyData 
+.PP
+Definition at line 1146 of file HttpCacheTest\&.php\&.
+.SS "testInvalidatesCachedResponsesOnPost ()"
+
+.PP
+Definition at line 903 of file HttpCacheTest\&.php\&.
+.SS "testInvalidatesOnPostPutDeleteRequests ()"
+
+.PP
+Definition at line 60 of file HttpCacheTest\&.php\&.
+.SS "testPassesHeadRequestsThroughDirectlyOnPass ()"
+
+.PP
+Definition at line 849 of file HttpCacheTest\&.php\&.
+.SS "testPassesOnNonGetHeadRequests ()"
+
+.PP
+Definition at line 50 of file HttpCacheTest\&.php\&.
+.SS "testReloadsResponsesWhenCacheHitsButNoCacheRequestDirectivePresentWhenAllowReloadIsSetTrue ()"
+
+.PP
+Definition at line 241 of file HttpCacheTest\&.php\&.
+.SS "testReplacesCachedResponsesWhenValidationResultsInNon304Response ()"
+
+.PP
+Definition at line 810 of file HttpCacheTest\&.php\&.
+.SS "testRespondsWith304OnlyIfIfNoneMatchAndIfModifiedSinceBothMatch ()"
+
+.PP
+Definition at line 155 of file HttpCacheTest\&.php\&.
+.SS "testRespondsWith304WhenIfModifiedSinceMatchesLastModified ()"
+
+.PP
+Definition at line 126 of file HttpCacheTest\&.php\&.
+.SS "testRespondsWith304WhenIfNoneMatchMatchesETag ()"
+
+.PP
+Definition at line 141 of file HttpCacheTest\&.php\&.
+.SS "testRevalidatesFreshCacheEntryWhenMaxAgeRequestDirectiveIsExceededWhenAllowRevalidateOptionIsSetTrue ()"
+
+.PP
+Definition at line 299 of file HttpCacheTest\&.php\&.
+.SS "testSendsNoContentWhenFresh ()"
+
+.PP
+Definition at line 884 of file HttpCacheTest\&.php\&.
+.SS "testServesFromCacheWhenHeadersMatch ()"
+
+.PP
+Definition at line 951 of file HttpCacheTest\&.php\&.
+.SS "testShouldCatchExceptions ()"
+
+.PP
+Definition at line 1013 of file HttpCacheTest\&.php\&.
+.SS "testShouldCatchExceptionsWhenReloadingAndNoCacheRequest ()"
+
+.PP
+Definition at line 1023 of file HttpCacheTest\&.php\&.
+.SS "testShouldNotCatchExceptions ()"
+
+.PP
+Definition at line 1034 of file HttpCacheTest\&.php\&.
+.SS "testStoresMultipleResponsesWhenHeadersDiffer ()"
+
+.PP
+Definition at line 975 of file HttpCacheTest\&.php\&.
+.SS "testStoresResponsesWhenNoCacheRequestDirectivePresent ()"
+
+.PP
+Definition at line 229 of file HttpCacheTest\&.php\&.
+.SS "testTerminateDelegatesTerminationOnlyForTerminableInterface ()"
+
+.PP
+Definition at line 20 of file HttpCacheTest\&.php\&.
+.SS "testUsesCacheToRespondToHeadRequestsWhenFresh ()"
+
+.PP
+Definition at line 863 of file HttpCacheTest\&.php\&.
+.SS "testValidatesCachedResponsesWithETagAndNoFreshnessInformation ()"
+
+.PP
+Definition at line 775 of file HttpCacheTest\&.php\&.
+.SS "testValidatesCachedResponsesWithLastModifiedAndNoFreshnessInformation ()"
+
+.PP
+Definition at line 738 of file HttpCacheTest\&.php\&.
+.SS "testValidatesPrivateResponsesCachedOnTheClient ()"
+
+.PP
+Definition at line 184 of file HttpCacheTest\&.php\&.
+.SS "testXForwarderForHeaderForForwardedRequests ( $xForwardedFor,  $expected)"
+getXForwardedForData 
+.PP
+Definition at line 1168 of file HttpCacheTest\&.php\&.
+.SS "testXForwarderForHeaderForPassRequests ()"
+
+.PP
+Definition at line 1189 of file HttpCacheTest\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

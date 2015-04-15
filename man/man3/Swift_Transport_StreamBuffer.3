@@ -1,0 +1,202 @@
+.TH "Swift_Transport_StreamBuffer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_StreamBuffer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_ByteStream_AbstractFilterableInputStream\fP, and \fBSwift_Transport_IoBuffer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_ReplacementFilterFactory\fP $replacementFactory)"
+.br
+.ti -1c
+.RI "\fBinitialize\fP (array $params)"
+.br
+.ti -1c
+.RI "\fBsetParam\fP ($param, $value)"
+.br
+.ti -1c
+.RI "\fBstartTLS\fP ()"
+.br
+.ti -1c
+.RI "\fBterminate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetWriteTranslations\fP (array $replacements)"
+.br
+.ti -1c
+.RI "\fBreadLine\fP ($sequence)"
+.br
+.ti -1c
+.RI "\fBread\fP ($length)"
+.br
+.ti -1c
+.RI "\fBsetReadPointer\fP ($byteOffset)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_flush\fP ()"
+.br
+.ti -1c
+.RI "\fB_commit\fP ($bytes)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP generic IoBuffer implementation supporting remote sockets and local processes\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file StreamBuffer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_ReplacementFilterFactory\fP $replacementFactory)"
+Create a new StreamBuffer using $replacementFactory for transformations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$replacementFactory\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file StreamBuffer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_commit ( $bytes)\fC [protected]\fP"
+Write this bytes to the stream 
+.PP
+Definition at line 225 of file StreamBuffer\&.php\&.
+.SS "_flush ()\fC [protected]\fP"
+Flush the stream contents 
+.PP
+Definition at line 217 of file StreamBuffer\&.php\&.
+.SS "initialize (array $params)"
+Perform any initialization needed, using the given $params\&.
+.PP
+Parameters will vary depending upon the type of IoBuffer used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_IoBuffer\fP\&.
+.PP
+Definition at line 53 of file StreamBuffer\&.php\&.
+.SS "read ( $length)"
+Reads $length bytes from the stream into a string and moves the pointer through the stream by $length\&.
+.PP
+If less bytes exist than are requested the remaining bytes are given instead\&. If no bytes are remaining at all, boolean false is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 192 of file StreamBuffer\&.php\&.
+.SS "readLine ( $sequence)"
+Get a line of output (including any CRLF)\&.
+.PP
+The $sequence number comes from any writes and may or may not be used depending upon the implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sequence\fP of last write to scan from
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_IoBuffer\fP\&.
+.PP
+Definition at line 160 of file StreamBuffer\&.php\&.
+.SS "setParam ( $param,  $value)"
+Set an individual param on the buffer (e\&.g\&. switching to SSL)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$param\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_IoBuffer\fP\&.
+.PP
+Definition at line 73 of file StreamBuffer\&.php\&.
+.SS "setReadPointer ( $byteOffset)"
+Not implemented 
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 212 of file StreamBuffer\&.php\&.
+.SS "setWriteTranslations (array $replacements)"
+Set an array of string replacements which should be made on data written to the buffer\&.
+.PP
+This could replace LF with CRLF for example\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $replacements 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_IoBuffer\fP\&.
+.PP
+Definition at line 129 of file StreamBuffer\&.php\&.
+.SS "startTLS ()"
+
+.PP
+Definition at line 93 of file StreamBuffer\&.php\&.
+.SS "terminate ()"
+Perform any shutdown logic needed\&. 
+.PP
+Implements \fBSwift_Transport_IoBuffer\fP\&.
+.PP
+Definition at line 101 of file StreamBuffer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

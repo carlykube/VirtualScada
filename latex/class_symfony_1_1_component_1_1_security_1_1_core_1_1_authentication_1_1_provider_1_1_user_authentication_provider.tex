@@ -1,0 +1,178 @@
+\section{User\+Authentication\+Provider Class Reference}
+\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider}\index{User\+Authentication\+Provider@{User\+Authentication\+Provider}}
+Inheritance diagram for User\+Authentication\+Provider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf User\+Checker\+Interface} \$user\+Checker, \$provider\+Key, \$hide\+User\+Not\+Found\+Exceptions=true)
+\item 
+{\bf authenticate} ({\bf Token\+Interface} \$token)
+\item 
+{\bf supports} ({\bf Token\+Interface} \$token)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf retrieve\+User} (\$username, {\bf Username\+Password\+Token} \$token)
+\item 
+{\bf check\+Authentication} ({\bf User\+Interface} \$user, {\bf Username\+Password\+Token} \$token)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+User\+Provider\+Interface retrieves users for Username\+Password\+Token tokens.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 29 of file User\+Authentication\+Provider.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf User\+Checker\+Interface}}]{\$user\+Checker, }
+\item[{}]{\$provider\+Key, }
+\item[{}]{\$hide\+User\+Not\+Found\+Exceptions = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider_a158607e51ae2a5ac0bdb3d06fc5bd7a0}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+User\+Checker\+Interface & {\em \$user\+Checker} & An User\+Checker\+Interface interface \\
+\hline
+string & {\em \$provider\+Key} & \doxyref{A}{p.}{class_a} provider key \\
+\hline
+bool & {\em \$hide\+User\+Not\+Found\+Exceptions} & Whether to hide user not found exception or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 44 of file User\+Authentication\+Provider.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}}
+\subsubsection[{authenticate}]{\setlength{\rightskip}{0pt plus 5cm}authenticate (
+\begin{DoxyParamCaption}
+\item[{{\bf Token\+Interface}}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider_a100b8248a886c4c0aa712eb8ad8970bb}
+\{Attempts to authenticate a Token\+Interface object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Token\+Interface & {\em \$token} & The Token\+Interface instance to authenticate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Token\+Interface An authenticated Token\+Interface instance, never null
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Authentication\+Exception} & if the authentication fails\\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Authentication\+Manager\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_manager_interface_a100b8248a886c4c0aa712eb8ad8970bb}.
+
+
+
+Definition at line 58 of file User\+Authentication\+Provider.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}!check\+Authentication@{check\+Authentication}}
+\index{check\+Authentication@{check\+Authentication}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}}
+\subsubsection[{check\+Authentication}]{\setlength{\rightskip}{0pt plus 5cm}check\+Authentication (
+\begin{DoxyParamCaption}
+\item[{{\bf User\+Interface}}]{\$user, }
+\item[{{\bf Username\+Password\+Token}}]{\$token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider_af7c2dbd21c1664c1164b15f70bdda722}
+Does additional checks on the user and token (like validating the credentials).
+
+
+\begin{DoxyParams}[1]{Parameters}
+User\+Interface & {\em \$user} & The retrieved User\+Interface instance \\
+\hline
+Username\+Password\+Token & {\em \$token} & The Username\+Password\+Token token to be authenticated\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Authentication\+Exception} & if the credentials could not be validated \\
+\hline
+\end{DoxyExceptions}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}!retrieve\+User@{retrieve\+User}}
+\index{retrieve\+User@{retrieve\+User}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}}
+\subsubsection[{retrieve\+User}]{\setlength{\rightskip}{0pt plus 5cm}retrieve\+User (
+\begin{DoxyParamCaption}
+\item[{}]{\$username, }
+\item[{{\bf Username\+Password\+Token}}]{\$token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider_ae4fdf5d946418eccec20f09afcd4cd69}
+Retrieves the user from an implementation-\/specific location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & The username to retrieve \\
+\hline
+Username\+Password\+Token & {\em \$token} & The \doxyref{Token}{p.}{namespace_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User\+Interface The user
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Authentication\+Exception} & if the credentials could not be validated \\
+\hline
+\end{DoxyExceptions}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}!supports@{supports}}
+\index{supports@{supports}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authentication\+::\+Provider\+::\+User\+Authentication\+Provider}}
+\subsubsection[{supports}]{\setlength{\rightskip}{0pt plus 5cm}supports (
+\begin{DoxyParamCaption}
+\item[{{\bf Token\+Interface}}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_user_authentication_provider_a2e204766f13f1ebc7962586b23559c44}
+\{Checks whether this provider supports the given token.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Token\+Interface & {\em \$token} & \doxyref{A}{p.}{class_a} Token\+Interface instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the implementation supports the \doxyref{Token}{p.}{namespace_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token}, false otherwise
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Authentication\+Provider\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_authentication_provider_interface_a2e204766f13f1ebc7962586b23559c44}.
+
+
+
+Definition at line 105 of file User\+Authentication\+Provider.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/security-\/core/\+Symfony/\+Component/\+Security/\+Core/\+Authentication/\+Provider/{\bf User\+Authentication\+Provider.\+php}\end{DoxyCompactItemize}

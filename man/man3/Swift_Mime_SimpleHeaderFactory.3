@@ -1,0 +1,217 @@
+.TH "Swift_Mime_SimpleHeaderFactory" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_SimpleHeaderFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_HeaderFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Encoder\fP $paramEncoder, \fBSwift_Mime_Grammar\fP $grammar, $charset=null)"
+.br
+.ti -1c
+.RI "\fBcreateMailboxHeader\fP ($\fBname\fP, $addresses=null)"
+.br
+.ti -1c
+.RI "\fBcreateDateHeader\fP ($\fBname\fP, $timestamp=null)"
+.br
+.ti -1c
+.RI "\fBcreateTextHeader\fP ($\fBname\fP, $value=null)"
+.br
+.ti -1c
+.RI "\fBcreateParameterizedHeader\fP ($\fBname\fP, $value=null, $params=array())"
+.br
+.ti -1c
+.RI "\fBcreateIdHeader\fP ($\fBname\fP, $ids=null)"
+.br
+.ti -1c
+.RI "\fBcreatePathHeader\fP ($\fBname\fP, $\fBpath\fP=null)"
+.br
+.ti -1c
+.RI "\fBcharsetChanged\fP ($charset)"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Creates MIME headers\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file SimpleHeaderFactory\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Encoder\fP $paramEncoder, \fBSwift_Mime_Grammar\fP $grammar,  $charset = \fCnull\fP)"
+Creates a new SimpleHeaderFactory using $encoder and $paramEncoder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$encoder\fP 
+.br
+\fI$paramEncoder\fP 
+.br
+\fI$grammar\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file SimpleHeaderFactory\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+Make a deep copy of object 
+.PP
+Definition at line 184 of file SimpleHeaderFactory\&.php\&.
+.SS "charsetChanged ( $charset)"
+Notify this observer that the entity's charset has changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_CharsetObserver\fP\&.
+.PP
+Definition at line 174 of file SimpleHeaderFactory\&.php\&.
+.SS "createDateHeader ( $name,  $timestamp = \fCnull\fP)"
+Create a new Date header using $timestamp (UNIX time)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$timestamp\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Header\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 72 of file SimpleHeaderFactory\&.php\&.
+.SS "createIdHeader ( $name,  $ids = \fCnull\fP)"
+Create a new ID header for Message-ID or Content-ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$ids\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Header\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 139 of file SimpleHeaderFactory\&.php\&.
+.SS "createMailboxHeader ( $name,  $addresses = \fCnull\fP)"
+Create a new Mailbox Header with a list of $addresses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$addresses\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Header\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 54 of file SimpleHeaderFactory\&.php\&.
+.SS "createParameterizedHeader ( $name,  $value = \fCnull\fP,  $params = \fCarray()\fP)"
+Create a new ParameterizedHeader with $name, $value and $params\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_ParameterizedHeader\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 111 of file SimpleHeaderFactory\&.php\&.
+.SS "createPathHeader ( $name,  $path = \fCnull\fP)"
+Create a new Path header with an address (path) in it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Header\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 158 of file SimpleHeaderFactory\&.php\&.
+.SS "createTextHeader ( $name,  $value = \fCnull\fP)"
+Create a new basic text header with $name and $value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_Header\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_HeaderFactory\fP\&.
+.PP
+Definition at line 91 of file SimpleHeaderFactory\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

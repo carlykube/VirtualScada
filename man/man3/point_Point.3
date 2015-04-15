@@ -1,0 +1,200 @@
+.TH "Point" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Point \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits object\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self, \fBname\fP, \fBtyp\fP=0, value=0, \fBmetadata\fP=dict(), kwds)"
+.br
+.ti -1c
+.RI "def \fBadd_set_callback\fP (self, \fBf\fP)"
+.br
+.ti -1c
+.RI "def \fBset\fP (self, val)"
+.br
+.ti -1c
+.RI "def \fBreset\fP (self)"
+.br
+.ti -1c
+.RI "def \fBget\fP (self)"
+.br
+.ti -1c
+.RI "def \fB__str__\fP (self)"
+.br
+.ti -1c
+.RI "def \fB__repr__\fP (self)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBname\fP"
+.br
+.ti -1c
+.RI "\fBtyp\fP"
+.br
+.ti -1c
+.RI "\fBdefault\fP"
+.br
+.ti -1c
+.RI "\fBmetadata\fP"
+.br
+.ti -1c
+.RI "\fBprotocols\fP"
+.br
+.ti -1c
+.RI "\fBset_callbacks\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+    The point class maintains process information local to the virtual 
+    device in an ICS protocol-independent manner. It maintains names for
+    each point for each supported protocol, as well as notes whether a point
+    is for internal use, an device input, or a device output.
+    
+    As an aside, "point" is an ICS term for a variable. Point names are
+    protocol specific. Points may be inputs (like an analog or digital 
+    port), outputs (also analog or digital), or internal variables used to
+    store a state or a calculation. It is a common paradigm for devices to
+    poll other devices for other devices' points.
+.fi
+.PP
+ 
+.PP
+Definition at line 16 of file point\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  name,  typ = \fC0\fP,  value = \fC0\fP,  metadata = \fCdict()\fP,  kwds)"
+
+.PP
+.nf
+Constructor for the point class
+.fi
+.PP
+ 
+.PP
+Definition at line 34 of file point\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def __repr__ ( self)"
+
+.PP
+.nf
+Returns self.__str__()
+.fi
+.PP
+ 
+.PP
+Definition at line 98 of file point\&.py\&.
+.SS "def __str__ ( self)"
+
+.PP
+.nf
+String representation of a point.
+    @returns a string giving the type, value, and names of the point
+.fi
+.PP
+ 
+.PP
+Definition at line 94 of file point\&.py\&.
+.SS "def add_set_callback ( self,  f)"
+
+.PP
+.nf
+Adds a function to the list of callbacks run when the value changes.
+    Such a call back may be useful for initiating external, logging, or
+    debugging or for ensuring that values are maintained in an 
+    appropriate range, like ensuring that an integer remains 
+    within 16-bits. 
+
+    Developers should be careful if more than one callback is
+registered that modifies the new value that the order of
+callbacks is appropriate and watch for unintended side effects.
+
+    @param f a function of form f(point, newvalue) that returns a value
+to be stored as the value of the point. If a callback intends to
+do nothing to the point value, it should return newvalue.
+.fi
+.PP
+ 
+.PP
+Definition at line 55 of file point\&.py\&.
+.SS "def get ( self)"
+
+.PP
+.nf
+This is a get function for the value of this point.
+@returns self.value
+.fi
+.PP
+ 
+.PP
+Definition at line 89 of file point\&.py\&.
+.SS "def reset ( self)"
+
+.PP
+.nf
+Returns the point value to the default
+.fi
+.PP
+ 
+.PP
+Definition at line 85 of file point\&.py\&.
+.SS "def set ( self,  val)"
+
+.PP
+.nf
+Used to set the value of the point. Before assigning the new
+    value val to the point, all the set callbacks registered with
+    the point are called in the order that they are present in 
+    the set_callbacks list.
+
+    @param val the new point value
+.fi
+.PP
+ 
+.PP
+Definition at line 72 of file point\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "default"
+
+.PP
+Definition at line 39 of file point\&.py\&.
+.SS "metadata"
+
+.PP
+Definition at line 43 of file point\&.py\&.
+.SS "name"
+
+.PP
+Definition at line 37 of file point\&.py\&.
+.SS "protocols"
+
+.PP
+Definition at line 46 of file point\&.py\&.
+.SS "set_callbacks"
+
+.PP
+Definition at line 50 of file point\&.py\&.
+.SS "typ"
+
+.PP
+Definition at line 38 of file point\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

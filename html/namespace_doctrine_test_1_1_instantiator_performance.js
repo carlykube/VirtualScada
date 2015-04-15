@@ -1,0 +1,4 @@
+var namespace_doctrine_test_1_1_instantiator_performance =
+[
+    [ "InstantiatorPerformanceEvent", "class_doctrine_test_1_1_instantiator_performance_1_1_instantiator_performance_event.html", "class_doctrine_test_1_1_instantiator_performance_1_1_instantiator_performance_event" ]
+];

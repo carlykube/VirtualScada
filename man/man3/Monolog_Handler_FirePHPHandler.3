@@ -1,0 +1,236 @@
+.TH "FirePHPHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FirePHPHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.PP
+Inherited by \fBTestFirePHPHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__get\fP ($\fBproperty\fP)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($\fBproperty\fP, $value)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBPROTOCOL_URI\fP = 'http://meta\&.wildfirehq\&.org/Protocol/JsonStream/0\&.2'"
+.br
+.ti -1c
+.RI "const \fBSTRUCTURE_URI\fP = 'http://meta\&.firephp\&.org/Wildfire/Structure/FirePHP/FirebugConsole/0\&.1'"
+.br
+.ti -1c
+.RI "const \fBPLUGIN_URI\fP = 'http://meta\&.firephp\&.org/Wildfire/Plugin/FirePHP/Library-FirePHPCore/0\&.3'"
+.br
+.ti -1c
+.RI "const \fBHEADER_PREFIX\fP = 'X-Wf'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreateHeader\fP (array $meta, $message)"
+.br
+.ti -1c
+.RI "\fBcreateRecordHeader\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBgetInitHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBsendHeader\fP ($header, $content)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBheadersAccepted\fP ()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$initialized\fP = false"
+.br
+.ti -1c
+.RI "static \fB$messageIndex\fP = 1"
+.br
+.ti -1c
+.RI "static \fB$sendHeaders\fP = true"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Simple FirePHP \fBHandler\fP (http://www.firephp.org/), which uses the Wildfire protocol\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Eric Clemmons () eric@uxdriven.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file FirePHPHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__get ( $property)"
+BC getter for the sendHeaders property that has been made static 
+.PP
+Definition at line 175 of file FirePHPHandler\&.php\&.
+.SS "__set ( $property,  $value)"
+BC setter for the sendHeaders property that has been made static 
+.PP
+Definition at line 187 of file FirePHPHandler\&.php\&.
+.SS "createHeader (array $meta,  $message)\fC [protected]\fP"
+Base header creation function used by init headers & record headers
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$meta\fP Wildfire Plugin, Protocol & Structure Indexes 
+.br
+\fI$message\fP \fBLog\fP message 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array Complete header string ready for the client as key and message as value 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file FirePHPHandler\&.php\&.
+.SS "createRecordHeader (array $record)\fC [protected]\fP"
+Creates message header from record
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcreateHeader()\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file FirePHPHandler\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+
+.PP
+Definition at line 90 of file FirePHPHandler\&.php\&.
+.SS "getInitHeaders ()\fC [protected]\fP"
+Wildfire initialization headers to enable message parsing
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcreateHeader()\fP 
+.PP
+\fBsendHeader()\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file FirePHPHandler\&.php\&.
+.SS "headersAccepted ()\fC [protected]\fP"
+Verifies if the headers are accepted by the current user agent
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file FirePHPHandler\&.php\&.
+.SS "sendHeader ( $header,  $content)\fC [protected]\fP"
+Send header string to the client
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$header\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file FirePHPHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+Creates & sends header for a record, ensuring init headers have been sent prior
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsendHeader()\fP 
+.PP
+sendInitHeaders() 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file FirePHPHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$initialized = false\fC [static]\fP, \fC [protected]\fP"
+Whether or not Wildfire vendor-specific headers have been generated & sent yet 
+.PP
+Definition at line 46 of file FirePHPHandler\&.php\&.
+.SS "$messageIndex = 1\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 52 of file FirePHPHandler\&.php\&.
+.SS "$sendHeaders = true\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 54 of file FirePHPHandler\&.php\&.
+.SS "const HEADER_PREFIX = 'X-Wf'"
+Header prefix for Wildfire to recognize & parse headers 
+.PP
+Definition at line 41 of file FirePHPHandler\&.php\&.
+.SS "const PLUGIN_URI = 'http://meta\&.firephp\&.org/Wildfire/Plugin/FirePHP/Library-FirePHPCore/0\&.3'"
+Must reference a 'known' plugin, otherwise headers won't display in FirePHP 
+.PP
+Definition at line 36 of file FirePHPHandler\&.php\&.
+.SS "const PROTOCOL_URI = 'http://meta\&.wildfirehq\&.org/Protocol/JsonStream/0\&.2'"
+WildFire JSON header message format 
+.PP
+Definition at line 26 of file FirePHPHandler\&.php\&.
+.SS "const STRUCTURE_URI = 'http://meta\&.firephp\&.org/Wildfire/Structure/FirePHP/FirebugConsole/0\&.1'"
+FirePHP structure for parsing messages & their presentation 
+.PP
+Definition at line 31 of file FirePHPHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

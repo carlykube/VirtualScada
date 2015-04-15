@@ -1,0 +1,1786 @@
+.TH "PHPUnit_Framework_TestCase" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Framework_TestCase \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Framework_Assert\fP, \fBPHPUnit_Framework_Test\fP, and \fBPHPUnit_Framework_SelfDescribing\fP\&.
+.PP
+Inherited by \fBAbstractTest\fP, \fBBankAccountTest\fP, \fBBankAccountTest\fP, \fBBankAccountWithCustomExtensionTest\fP, \fBBeforeAndAfterTest\fP, \fBBeforeClassAndAfterClassTest\fP, \fBChangeCurrentWorkingDirectoryTest\fP, \fBCommonTest\fP, \fBConsoleColorTest\fP, \fBCountTest\fP, \fBCoverageClassExtendedTest\fP, \fBCoverageClassExtendedTest\fP, \fBCoverageClassTest\fP, \fBCoverageClassTest\fP, \fBCoverageFunctionParenthesesTest\fP, \fBCoverageFunctionParenthesesTest\fP, \fBCoverageFunctionParenthesesWhitespaceTest\fP, \fBCoverageFunctionParenthesesWhitespaceTest\fP, \fBCoverageFunctionTest\fP, \fBCoverageFunctionTest\fP, \fBCoverageMethodOneLineAnnotationTest\fP, \fBCoverageMethodOneLineAnnotationTest\fP, \fBCoverageMethodParenthesesTest\fP, \fBCoverageMethodParenthesesTest\fP, \fBCoverageMethodParenthesesWhitespaceTest\fP, \fBCoverageMethodParenthesesWhitespaceTest\fP, \fBCoverageMethodTest\fP, \fBCoverageMethodTest\fP, \fBCoverageNoneTest\fP, \fBCoverageNoneTest\fP, \fBCoverageNothingTest\fP, \fBCoverageNothingTest\fP, \fBCoverageNotPrivateTest\fP, \fBCoverageNotPrivateTest\fP, \fBCoverageNotProtectedTest\fP, \fBCoverageNotProtectedTest\fP, \fBCoverageNotPublicTest\fP, \fBCoverageNotPublicTest\fP, \fBCoveragePrivateTest\fP, \fBCoveragePrivateTest\fP, \fBCoverageProtectedTest\fP, \fBCoverageProtectedTest\fP, \fBCoveragePublicTest\fP, \fBCoveragePublicTest\fP, \fBCreateTestCase\fP, \fBAbstractFieldTest\fP, \fBCronExpressionTest\fP, \fBDayOfMonthFieldTest\fP, \fBDayOfWeekFieldTest\fP, \fBFieldFactoryTest\fP, \fBHoursFieldTest\fP, \fBMinutesFieldTest\fP, \fBMonthFieldTest\fP, \fBYearFieldTest\fP, \fBDataProviderDebugTest\fP, \fBDataProviderFilterTest\fP, \fBDataProviderIncompleteTest\fP, \fBDataProviderSkippedTest\fP, \fBDataProviderTest\fP, \fBDependencyFailureTest\fP, \fBDependencySuccessTest\fP, \fBDoctrineTestCase\fP, \fBInvalidArgumentExceptionTest\fP, \fBUnexpectedValueExceptionTest\fP, \fBInstantiatorTest\fP, \fBDotenvTest\fP, \fBEmptyTestCaseTest\fP, \fBError\fP, \fBExceptionInAssertPostConditionsTest\fP, \fBExceptionInAssertPreConditionsTest\fP, \fBExceptionInSetUpTest\fP, \fBExceptionInTearDownTest\fP, \fBExceptionInTest\fP, \fBExceptionMessageRegExpTest\fP, \fBExceptionMessageTest\fP, \fBExceptionStackTest\fP, \fBExceptionTest\fP, \fBExtensions_RepeatedTestTest\fP, \fBFailure\fP, \fBFailureTest\fP, \fBFatalTest\fP, \fBFlashTest\fP, \fBFoo_Bar_Issue684Test\fP, \fBFramework_AssertTest\fP, \fBFramework_BaseTestListenerTest\fP, \fBFramework_Constraint_JsonMatches_ErrorMessageProviderTest\fP, \fBFramework_Constraint_JsonMatchesTest\fP, \fBFramework_ConstraintTest\fP, \fBFramework_MockBuilderTest\fP, \fBFramework_MockObject_GeneratorTest\fP, \fBFramework_MockObject_Invocation_ObjectTest\fP, \fBFramework_MockObject_Invocation_StaticTest\fP, \fBFramework_MockObject_Matcher_ConsecutiveParametersTest\fP, \fBFramework_MockObjectTest\fP, \fBFramework_ProxyObjectTest\fP, \fBFramework_SuiteTest\fP, \fBFramework_TestCaseTest\fP, \fBFramework_TestFailureTest\fP, \fBFramework_TestImplementorTest\fP, \fBFramework_TestListenerTest\fP, \fBTestCase\fP, \fBIncompleteTest\fP, \fBInheritanceB\fP, \fBIniTest\fP, \fBIsolationTest\fP, \fBIssue1021Test\fP, \fBIssue1149Test\fP, \fBIssue1216Test\fP, \fBIssue1265Test\fP, \fBIssue1330Test\fP, \fBIssue1335Test\fP, \fBIssue1337Test\fP, \fBIssue1340Test\fP, \fBIssue1348Test\fP, \fBIssue1351Test\fP, \fBIssue1374Test\fP, \fBIssue1437Test\fP, \fBIssue1468Test\fP, \fBIssue1471Test\fP, \fBIssue1472Test\fP, \fBIssue1570Test\fP, \fBIssue244Test\fP, \fBIssue322Test\fP, \fBIssue433Test\fP, \fBIssue445Test\fP, \fBIssue498Test\fP, \fBIssue503Test\fP, \fBIssue523Test\fP, \fBIssue578Test\fP, \fBIssue581Test\fP, \fBIssue74Test\fP, \fBIssue765Test\fP, \fBIssue797Test\fP, \fBHighlighterTest\fP, \fBErrorHandlerTest\fP, \fBChromePHPFormatterTest\fP, \fBElasticaFormatterTest\fP, \fBGelfMessageFormatterTest\fP, \fBLineFormatterTest\fP, \fBLogstashFormatterTest\fP, \fBMongoDBFormatterTest\fP, \fBNormalizerFormatterTest\fP, \fBScalarFormatterTest\fP, \fBWildfireFormatterTest\fP, \fBSyslogHandlerTest\fP, \fBSyslogUdpHandlerTest\fP, \fBLoggerTest\fP, \fBPsrLogMessageProcessorTest\fP, \fBRegistryTest\fP, \fBTestCase\fP, \fBMultiDependencyTest\fP, \fBExceptionNamespaceTest\fP, \fBNamespaceCoverageClassExtendedTest\fP, \fBNamespaceCoverageClassExtendedTest\fP, \fBNamespaceCoverageClassTest\fP, \fBNamespaceCoverageClassTest\fP, \fBNamespaceCoverageCoversClassPublicTest\fP, \fBNamespaceCoverageCoversClassPublicTest\fP, \fBNamespaceCoverageCoversClassTest\fP, \fBNamespaceCoverageCoversClassTest\fP, \fBNamespaceCoverageMethodTest\fP, \fBNamespaceCoverageMethodTest\fP, \fBNamespaceCoverageNotPrivateTest\fP, \fBNamespaceCoverageNotPrivateTest\fP, \fBNamespaceCoverageNotProtectedTest\fP, \fBNamespaceCoverageNotProtectedTest\fP, \fBNamespaceCoverageNotPublicTest\fP, \fBNamespaceCoverageNotPublicTest\fP, \fBNamespaceCoveragePrivateTest\fP, \fBNamespaceCoveragePrivateTest\fP, \fBNamespaceCoverageProtectedTest\fP, \fBNamespaceCoverageProtectedTest\fP, \fBNamespaceCoveragePublicTest\fP, \fBNamespaceCoveragePublicTest\fP, \fBNoArgTestCaseTest\fP, \fBNoTestCases\fP, \fBNotExistingCoveredElementTest\fP, \fBNotExistingCoveredElementTest\fP, \fBNothingTest\fP, \fBNotPublicTestCase\fP, \fBNotVoidTestCase\fP, \fBOneTest\fP, \fBOneTestCase\fP, \fBOutputTestCase\fP, \fBPHP_CodeCoverage_FilterTest\fP, \fBPHP_CodeCoverage_TestCase\fP, \fBPHP_CodeCoverage_UtilTest\fP, \fBPHP_TimerTest\fP, \fBPHP_Token_ClassTest\fP, \fBPHP_Token_ClosureTest\fP, \fBPHP_Token_FunctionTest\fP, \fBPHP_Token_IncludeTest\fP, \fBPHP_Token_InterfaceTest\fP, \fBPHP_Token_NamespaceTest\fP, \fBPHP_TokenTest\fP, \fBDocBlock\\DescriptionTest\fP, \fBCoversTagTest\fP, \fBDeprecatedTagTest\fP, \fBExampleTagTest\fP, \fBLinkTagTest\fP, \fBMethodTagTest\fP, \fBParamTagTest\fP, \fBReturnTagTest\fP, \fBSeeTagTest\fP, \fBSinceTagTest\fP, \fBSourceTagTest\fP, \fBThrowsTagTest\fP, \fBUsesTagTest\fP, \fBVarTagTest\fP, \fBVersionTagTest\fP, \fBTagTest\fP, \fBCollectionTest\fP, \fBDocBlockTest\fP, \fBAutoloaderTest\fP, \fBBuilder\\ClassTest\fP, \fBBuilder\\FunctionTest\fP, \fBBuilder\\InterfaceTest\fP, \fBBuilder\\MethodTest\fP, \fBBuilder\\NamespaceTest\fP, \fBBuilder\\ParamTest\fP, \fBBuilder\\PropertyTest\fP, \fBBuilder\\TraitTest\fP, \fBBuilderFactoryTest\fP, \fBCodeTestAbstract\fP, \fBCommentTest\fP, \fBErrorTest\fP, \fBLexerTest\fP, \fBNode\\NameTest\fP, \fBMagicConstTest\fP, \fBStringTest\fP, \fBStmt\\ClassMethodTest\fP, \fBStmt\\ClassTest\fP, \fBStmt\\InterfaceTest\fP, \fBStmt\\PropertyTest\fP, \fBNodeAbstractTest\fP, \fBNodeDumperTest\fP, \fBNodeTraverserTest\fP, \fBNodeVisitor\\NameResolverTest\fP, \fBSerializer\\XMLTest\fP, \fBUnserializer\\XMLTest\fP, \fBPHPUnit_Framework_IncompleteTestCase\fP, \fBPHPUnit_Framework_SkippedTestCase\fP, \fBPHPUnit_Framework_Warning\fP, \fBLoggerInterfaceTest\fP, \fBAutoloaderTest\fP, \fBCodeCleanerTestCase\fP, \fBCodeCleanerTest\fP, \fBConfigurationTest\fP, \fBBreakExceptionTest\fP, \fBErrorExceptionTest\fP, \fBFatalErrorExceptionTest\fP, \fBParseErrorExceptionTest\fP, \fBRuntimeExceptionTest\fP, \fBCodeFormatterTest\fP, \fBDocblockFormatterTest\fP, \fBSignatureFormatterTest\fP, \fBArrayPresenterTest\fP, \fBClosurePresenterTest\fP, \fBObjectPresenterTest\fP, \fBResourcePresenterTest\fP, \fBScalarPresenterTest\fP, \fBGNUReadlineTest\fP, \fBLibeditTest\fP, \fBTransientTest\fP, \fBReflectionConstantTest\fP, \fBShellTest\fP, \fBAutoCompleterTest\fP, \fBDocblockTest\fP, \fBMirrorTest\fP, \fBStringTest\fP, \fBRequirementsClassBeforeClassHookTest\fP, \fBRequirementsTest\fP, \fBRunner_BaseTestRunnerTest\fP, \fBArrayComparatorTest\fP, \fBDateTimeComparatorTest\fP, \fBDOMNodeComparatorTest\fP, \fBDoubleComparatorTest\fP, \fBExceptionComparatorTest\fP, \fBFactoryTest\fP, \fBMockObjectComparatorTest\fP, \fBNumericComparatorTest\fP, \fBObjectComparatorTest\fP, \fBResourceComparatorTest\fP, \fBScalarComparatorTest\fP, \fBSplObjectStorageComparatorTest\fP, \fBTypeComparatorTest\fP, \fBDifferTest\fP, \fBTimeEfficientImplementationTest\fP, \fBParserTest\fP, \fBConsoleTest\fP, \fBRuntimeTest\fP, \fBExporterTest\fP, \fBBlacklistTest\fP, \fBContextTest\fP, \fBStackTest\fP, \fBSuccess\fP, \fBSwift_Bug111Test\fP, \fBSwift_Bug118Test\fP, \fBSwift_Bug206Test\fP, \fBSwift_Bug274Test\fP, \fBSwift_Bug34Test\fP, \fBSwift_Bug35Test\fP, \fBSwift_Bug38Test\fP, \fBSwift_Bug518Test\fP, \fBSwift_Bug534Test\fP, \fBSwift_Bug71Test\fP, \fBSwift_Bug76Test\fP, \fBSwift_ByteStream_ArrayByteStreamTest\fP, \fBSwift_ByteStream_FileByteStreamAcceptanceTest\fP, \fBSwift_CharacterReader_GenericFixedWidthReaderTest\fP, \fBSwift_CharacterReader_UsAsciiReaderTest\fP, \fBSwift_CharacterReader_Utf8ReaderTest\fP, \fBSwift_CharacterReaderFactory_SimpleCharacterReaderFactoryAcceptanceTest\fP, \fBSwift_DependencyContainerAcceptanceTest\fP, \fBSwift_DependencyContainerTest\fP, \fBSwift_Encoder_Base64EncoderAcceptanceTest\fP, \fBSwift_Encoder_Base64EncoderTest\fP, \fBSwift_Encoder_QpEncoderAcceptanceTest\fP, \fBSwift_Encoder_Rfc2231EncoderAcceptanceTest\fP, \fBSwift_EncodingAcceptanceTest\fP, \fBSwift_Events_CommandEventTest\fP, \fBSwift_Events_EventObjectTest\fP, \fBSwift_Events_ResponseEventTest\fP, \fBSwift_Events_SendEventTest\fP, \fBSwift_Events_SimpleEventDispatcherTest\fP, \fBSwift_Events_TransportChangeEventTest\fP, \fBSwift_Events_TransportExceptionEventTest\fP, \fBSwift_KeyCache_ArrayKeyCacheAcceptanceTest\fP, \fBSwift_KeyCache_ArrayKeyCacheTest\fP, \fBSwift_KeyCache_DiskKeyCacheAcceptanceTest\fP, \fBSwift_KeyCache_SimpleKeyCacheInputStreamTest\fP, \fBSwift_Mailer_ArrayRecipientIteratorTest\fP, \fBSwift_MessageTest\fP, \fBSwift_Mime_AttachmentAcceptanceTest\fP, \fBSwift_Mime_ContentEncoder_Base64ContentEncoderAcceptanceTest\fP, \fBSwift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest\fP, \fBSwift_Mime_ContentEncoder_PlainContentEncoderAcceptanceTest\fP, \fBSwift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest\fP, \fBSwift_Mime_EmbeddedFileAcceptanceTest\fP, \fBSwift_Mime_HeaderEncoder_Base64HeaderEncoderAcceptanceTest\fP, \fBSwift_Mime_HeaderEncoder_Base64HeaderEncoderTest\fP, \fBSwift_Mime_Headers_DateHeaderTest\fP, \fBSwift_Mime_Headers_IdentificationHeaderTest\fP, \fBSwift_Mime_Headers_PathHeaderTest\fP, \fBSwift_Mime_MimePartAcceptanceTest\fP, \fBSwift_Mime_SimpleHeaderFactoryTest\fP, \fBSwift_Mime_SimpleHeaderSetTest\fP, \fBSwift_Mime_SimpleMessageAcceptanceTest\fP, \fBSwift_Plugins_AntiFloodPluginTest\fP, \fBSwift_Plugins_BandwidthMonitorPluginTest\fP, \fBSwift_Plugins_Loggers_ArrayLoggerTest\fP, \fBSwift_Plugins_Loggers_EchoLoggerTest\fP, \fBSwift_Plugins_PopBeforeSmtpPluginTest\fP, \fBSwift_Plugins_RedirectingPluginTest\fP, \fBSwift_Plugins_Reporters_HitReporterTest\fP, \fBSwift_Plugins_Reporters_HtmlReporterTest\fP, \fBSwift_Signers_SMimeSignerTest\fP, \fBSwift_StreamFilters_ByteArrayReplacementFilterTest\fP, \fBSwift_StreamFilters_StringReplacementFilterFactoryTest\fP, \fBSwift_StreamFilters_StringReplacementFilterTest\fP, \fBSwift_Transport_StreamBuffer_AbstractStreamBufferAcceptanceTest\fP, \fBSwift_Transport_StreamBuffer_SocketTimeoutTest\fP, \fBSwift_Transport_StreamBufferTest\fP, \fBSwiftMailerTestCase\fP, \fBApplicationTest\fP, \fBCommandTest\fP, \fBHelpCommandTest\fP, \fBListCommandTest\fP, \fBAbstractDescriptorTest\fP, \fBOutputFormatterStyleStackTest\fP, \fBOutputFormatterStyleTest\fP, \fBOutputFormatterTest\fP, \fBFormatterHelperTest\fP, \fBHelperSetTest\fP, \fBLegacyDialogHelperTest\fP, \fBLegacyProgressHelperTest\fP, \fBLegacyTableHelperTest\fP, \fBProcessHelperTest\fP, \fBProgressBarTest\fP, \fBQuestionHelperTest\fP, \fBTableTest\fP, \fBArgvInputTest\fP, \fBArrayInputTest\fP, \fBInputArgumentTest\fP, \fBInputDefinitionTest\fP, \fBInputOptionTest\fP, \fBInputTest\fP, \fBStringInputTest\fP, \fBConsoleOutputTest\fP, \fBNullOutputTest\fP, \fBOutputTest\fP, \fBStreamOutputTest\fP, \fBApplicationTesterTest\fP, \fBCommandTesterTest\fP, \fBDebugClassLoaderTest\fP, \fBErrorHandlerTest\fP, \fBFlattenExceptionTest\fP, \fBExceptionHandlerTest\fP, \fBClassNotFoundFatalErrorHandlerTest\fP, \fBUndefinedFunctionFatalErrorHandlerTest\fP, \fBUndefinedMethodFatalErrorHandlerTest\fP, \fBAbstractEventDispatcherTest\fP, \fBTraceableEventDispatcherTest\fP, \fBRegisterListenersPassTest\fP, \fBEventTest\fP, \fBGenericEventTest\fP, \fBImmutableEventDispatcherTest\fP, \fBExceptionTest\fP, \fBFilesystemTestCase\fP, \fBLockHandlerTest\fP, \fBComparatorTest\fP, \fBDateComparatorTest\fP, \fBNumberComparatorTest\fP, \fBExpressionTest\fP, \fBGlobTest\fP, \fBRegexTest\fP, \fBIteratorTestCase\fP, \fBMultiplePcreFilterIteratorTest\fP, \fBAcceptHeaderItemTest\fP, \fBAcceptHeaderTest\fP, \fBApacheRequestTest\fP, \fBCookieTest\fP, \fBExpressionRequestMatcherTest\fP, \fBFileTest\fP, \fBMimeTypeTest\fP, \fBUploadedFileTest\fP, \fBFileBagTest\fP, \fBHeaderBagTest\fP, \fBIpUtilsTest\fP, \fBJsonResponseTest\fP, \fBParameterBagTest\fP, \fBRedirectResponseTest\fP, \fBRequestMatcherTest\fP, \fBRequestStackTest\fP, \fBRequestTest\fP, \fBResponseHeaderBagTest\fP, \fBResponseTestCase\fP, \fBServerBagTest\fP, \fBAttributeBagTest\fP, \fBNamespacedAttributeBagTest\fP, \fBAutoExpireFlashBagTest\fP, \fBFlashBagTest\fP, \fBSessionTest\fP, \fBLegacyPdoSessionHandlerTest\fP, \fBMemcachedSessionHandlerTest\fP, \fBMemcacheSessionHandlerTest\fP, \fBMongoDbSessionHandlerTest\fP, \fBNativeFileSessionHandlerTest\fP, \fBNativeSessionHandlerTest\fP, \fBNullSessionHandlerTest\fP, \fBPdoSessionHandlerTest\fP, \fBWriteCheckSessionHandlerTest\fP, \fBMetadataBagTest\fP, \fBMockArraySessionStorageTest\fP, \fBMockFileSessionStorageTest\fP, \fBNativeSessionStorageTest\fP, \fBPhpBridgeSessionStorageTest\fP, \fBAbstractProxyTest\fP, \fBNativeProxyTest\fP, \fBSessionHandlerProxyTest\fP, \fBStreamedResponseTest\fP, \fBBundleTest\fP, \fBChainCacheClearerTest\fP, \fBCacheWarmerAggregateTest\fP, \fBCacheWarmerTest\fP, \fBClientTest\fP, \fBEnvParametersResourceTest\fP, \fBFileLocatorTest\fP, \fBControllerResolverTest\fP, \fBConfigDataCollectorTest\fP, \fBDumpDataCollectorTest\fP, \fBExceptionDataCollectorTest\fP, \fBLoggerDataCollectorTest\fP, \fBMemoryDataCollectorTest\fP, \fBRequestDataCollectorTest\fP, \fBTimeDataCollectorTest\fP, \fBValueExporterTest\fP, \fBTraceableEventDispatcherTest\fP, \fBContainerAwareHttpKernelTest\fP, \fBMergeExtensionConfigurationPassTest\fP, \fBAddRequestFormatsListenerTest\fP, \fBDebugHandlersListenerTest\fP, \fBDumpListenerTest\fP, \fBExceptionListenerTest\fP, \fBFragmentListenerTest\fP, \fBLocaleListenerTest\fP, \fBProfilerListenerTest\fP, \fBResponseListenerTest\fP, \fBRouterListenerTest\fP, \fBSurrogateListenerTest\fP, \fBTestSessionListenerTest\fP, \fBTranslatorListenerTest\fP, \fBEsiFragmentRendererTest\fP, \fBFragmentHandlerTest\fP, \fBHIncludeFragmentRendererTest\fP, \fBInlineFragmentRendererTest\fP, \fBRoutableFragmentRendererTest\fP, \fBEsiTest\fP, \fBHttpCacheTestCase\fP, \fBSsiTest\fP, \fBStoreTest\fP, \fBHttpKernelTest\fP, \fBKernelTest\fP, \fBAbstractProfilerStorageTest\fP, \fBProfilerTest\fP, \fBUriSignerTest\fP, \fBAbstractProcessTest\fP, \fBExecutableFinderTest\fP, \fBPhpExecutableFinderTest\fP, \fBPhpProcessTest\fP, \fBProcessBuilderTest\fP, \fBProcessFailedExceptionTest\fP, \fBProcessUtilsTest\fP, \fBRouteTest\fP, \fBCompiledRouteTest\fP, \fBPhpGeneratorDumperTest\fP, \fBUrlGeneratorTest\fP, \fBAbstractAnnotationLoaderTest\fP, \fBClosureLoaderTest\fP, \fBPhpFileLoaderTest\fP, \fBXmlFileLoaderTest\fP, \fBYamlFileLoaderTest\fP, \fBDumperCollectionTest\fP, \fBDumperPrefixCollectionTest\fP, \fBLegacyApacheMatcherDumperTest\fP, \fBPhpMatcherDumperTest\fP, \fBLegacyApacheUrlMatcherTest\fP, \fBRedirectableUrlMatcherTest\fP, \fBTraceableUrlMatcherTest\fP, \fBUrlMatcherTest\fP, \fBRequestContextTest\fP, \fBRouteCollectionTest\fP, \fBRouteCompilerTest\fP, \fBRouterTest\fP, \fBRouteTest\fP, \fBAuthenticationProviderManagerTest\fP, \fBAuthenticationTrustResolverTest\fP, \fBAnonymousAuthenticationProviderTest\fP, \fBDaoAuthenticationProviderTest\fP, \fBPreAuthenticatedAuthenticationProviderTest\fP, \fBRememberMeAuthenticationProviderTest\fP, \fBUserAuthenticationProviderTest\fP, \fBInMemoryTokenProviderTest\fP, \fBPersistentTokenTest\fP, \fBAbstractTokenTest\fP, \fBAnonymousTokenTest\fP, \fBPreAuthenticatedTokenTest\fP, \fBRememberMeTokenTest\fP, \fBTokenStorageTest\fP, \fBUsernamePasswordTokenTest\fP, \fBAccessDecisionManagerTest\fP, \fBAuthorizationCheckerTest\fP, \fBExpressionLanguageTest\fP, \fBAuthenticatedVoterTest\fP, \fBExpressionVoterTest\fP, \fBRoleVoterTest\fP, \fBBasePasswordEncoderTest\fP, \fBBCryptPasswordEncoderTest\fP, \fBEncoderFactoryTest\fP, \fBMessageDigestPasswordEncoderTest\fP, \fBPbkdf2PasswordEncoderTest\fP, \fBPlaintextPasswordEncoderTest\fP, \fBUserPasswordEncoderTest\fP, \fBUsernameNotFoundExceptionTest\fP, \fBRoleHierarchyTest\fP, \fBRoleTest\fP, \fBSwitchUserRoleTest\fP, \fBSecurityContextTest\fP, \fBChainUserProviderTest\fP, \fBInMemoryUserProviderTest\fP, \fBUserCheckerTest\fP, \fBUserTest\fP, \fBClassUtilsTest\fP, \fBSecureRandomTest\fP, \fBStringUtilsTest\fP, \fBAbstractOperationTest\fP, \fBCsvFileDumperTest\fP, \fBFileDumperTest\fP, \fBIcuResFileDumperTest\fP, \fBIniFileDumperTest\fP, \fBJsonFileDumperTest\fP, \fBMoFileDumperTest\fP, \fBPhpFileDumperTest\fP, \fBPoFileDumperTest\fP, \fBQtFileDumperTest\fP, \fBXliffFileDumperTest\fP, \fBYamlFileDumperTest\fP, \fBIdentityTranslatorTest\fP, \fBIntervalTest\fP, \fBCsvFileLoaderTest\fP, \fBIniFileLoaderTest\fP, \fBJsonFileLoaderTest\fP, \fBLocalizedTestCase\fP, \fBMoFileLoaderTest\fP, \fBPhpFileLoaderTest\fP, \fBPoFileLoaderTest\fP, \fBQtFileLoaderTest\fP, \fBXliffFileLoaderTest\fP, \fBYamlFileLoaderTest\fP, \fBLoggingTranslatorTest\fP, \fBMessageCatalogueTest\fP, \fBMessageSelectorTest\fP, \fBPluralizationRulesTest\fP, \fBTranslatorCacheTest\fP, \fBTranslatorTest\fP, \fBPdoCasterTest\fP, \fBCliDumperTest\fP, \fBHtmlDumperTest\fP, \fBVarClonerTest\fP, \fBDumperTest\fP, \fBInlineTest\fP, \fBParseExceptionTest\fP, \fBParserTest\fP, \fBYamlTest\fP, \fBTemplateMethodsTest\fP, \fBTestFixture\fP, \fBThrowExceptionTestCase\fP, \fBThrowNoExceptionTestCase\fP, \fBTwoTest\fP, \fBUseTest\fP, \fBUtil_ConfigurationTest\fP, \fBUtil_GlobalStateTest\fP, \fBUtil_RegexTest\fP, \fBUtil_TestDox_NamePrettifierTest\fP, \fBUtil_TestTest\fP, \fBUtil_XMLTest\fP, \fBWasRun\fP, and \fBXdgTest\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP=null, array $\fBdata\fP=array(), $dataName= '')"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAnnotations\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ($withDataSet=true)"
+.br
+.ti -1c
+.RI "\fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "\fBgetActualOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBhasOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBexpectOutputRegex\fP ($expectedRegex)"
+.br
+.ti -1c
+.RI "\fBexpectOutputString\fP ($expectedString)"
+.br
+.ti -1c
+.RI "\fBhasPerformedExpectationsOnOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBhasExpectationOnOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpectedException\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExpectedException\fP ($exceptionName, $exceptionMessage= '', $exceptionCode=null)"
+.br
+.ti -1c
+.RI "\fBsetExpectedExceptionRegExp\fP ($exceptionName, $exceptionMessageRegExp= '', $exceptionCode=null)"
+.br
+.ti -1c
+.RI "\fBsetUseErrorHandler\fP ($useErrorHandler)"
+.br
+.ti -1c
+.RI "\fBgetStatus\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStatusMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBhasFailed\fP ()"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBPHPUnit_Framework_TestResult\fP $result=null)"
+.br
+.ti -1c
+.RI "\fBrunBare\fP ()"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetDependencies\fP (array $dependencies)"
+.br
+.ti -1c
+.RI "\fBhasDependencies\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDependencyInput\fP (array $dependencyInput)"
+.br
+.ti -1c
+.RI "\fBsetDisallowChangesToGlobalState\fP ($disallowChangesToGlobalState)"
+.br
+.ti -1c
+.RI "\fBsetBackupGlobals\fP ($backupGlobals)"
+.br
+.ti -1c
+.RI "\fBsetBackupStaticAttributes\fP ($backupStaticAttributes)"
+.br
+.ti -1c
+.RI "\fBsetRunTestInSeparateProcess\fP ($runTestInSeparateProcess)"
+.br
+.ti -1c
+.RI "\fBsetPreserveGlobalState\fP ($preserveGlobalState)"
+.br
+.ti -1c
+.RI "\fBsetInIsolation\fP ($inIsolation)"
+.br
+.ti -1c
+.RI "\fBisInIsolation\fP ()"
+.br
+.ti -1c
+.RI "\fBgetResult\fP ()"
+.br
+.ti -1c
+.RI "\fBsetResult\fP ($result)"
+.br
+.ti -1c
+.RI "\fBsetOutputCallback\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetTestResultObject\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTestResultObject\fP (\fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBgetMock\fP ($originalClassName, $methods=array(), array $arguments=array(), $mockClassName= '', $callOriginalConstructor=true, $callOriginalClone=true, $callAutoload=true, $cloneArguments=false, $callOriginalMethods=false)"
+.br
+.ti -1c
+.RI "\fBgetMockBuilder\fP ($className)"
+.br
+.ti -1c
+.RI "\fBgetMockForAbstractClass\fP ($originalClassName, array $arguments=array(), $mockClassName= '', $callOriginalConstructor=true, $callOriginalClone=true, $callAutoload=true, $mockedMethods=array(), $cloneArguments=false)"
+.br
+.ti -1c
+.RI "\fBgetMockForTrait\fP ($traitName, array $arguments=array(), $mockClassName= '', $callOriginalConstructor=true, $callOriginalClone=true, $callAutoload=true, $mockedMethods=array(), $cloneArguments=false)"
+.br
+.ti -1c
+.RI "\fBaddToAssertionCount\fP ($\fBcount\fP)"
+.br
+.ti -1c
+.RI "\fBgetNumAssertions\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBany\fP ()"
+.br
+.ti -1c
+.RI "static \fBnever\fP ()"
+.br
+.ti -1c
+.RI "static \fBatLeast\fP ($requiredInvocations)"
+.br
+.ti -1c
+.RI "static \fBatLeastOnce\fP ()"
+.br
+.ti -1c
+.RI "static \fBonce\fP ()"
+.br
+.ti -1c
+.RI "static \fBexactly\fP ($\fBcount\fP)"
+.br
+.ti -1c
+.RI "static \fBatMost\fP ($allowedInvocations)"
+.br
+.ti -1c
+.RI "static \fBat\fP ($index)"
+.br
+.ti -1c
+.RI "static \fBreturnValue\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBreturnValueMap\fP (array $valueMap)"
+.br
+.ti -1c
+.RI "static \fBreturnArgument\fP ($argumentIndex)"
+.br
+.ti -1c
+.RI "static \fBreturnCallback\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBreturnSelf\fP ()"
+.br
+.ti -1c
+.RI "static \fBthrowException\fP (Exception $exception)"
+.br
+.ti -1c
+.RI "static \fBonConsecutiveCalls\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetUpBeforeClass\fP ()"
+.br
+.ti -1c
+.RI "static \fBtearDownAfterClass\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetExpectedExceptionFromAnnotation\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUseErrorHandlerFromAnnotation\fP ()"
+.br
+.ti -1c
+.RI "\fBcheckRequirements\fP ()"
+.br
+.ti -1c
+.RI "\fBrunTest\fP ()"
+.br
+.ti -1c
+.RI "\fBverifyMockObjects\fP ()"
+.br
+.ti -1c
+.RI "\fBiniSet\fP ($varName, $newValue)"
+.br
+.ti -1c
+.RI "\fBsetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMockClass\fP ($originalClassName, $methods=array(), array $arguments=array(), $mockClassName= '', $callOriginalConstructor=false, $callOriginalClone=true, $callAutoload=true, $cloneArguments=false)"
+.br
+.ti -1c
+.RI "\fBgetMockFromWsdl\fP ($wsdlFile, $originalClassName= '', $mockClassName= '', array $methods=array(), $callOriginalConstructor=true, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgetObjectForTrait\fP ($traitName, array $arguments=array(), $traitClassName= '', $callOriginalConstructor=true, $callOriginalClone=true, $callAutoload=true, $cloneArguments=false)"
+.br
+.ti -1c
+.RI "\fBprophesize\fP ($classOrInterface=null)"
+.br
+.ti -1c
+.RI "\fBgetDataSetAsString\fP ($includeData=true)"
+.br
+.ti -1c
+.RI "\fBcreateResult\fP ()"
+.br
+.ti -1c
+.RI "\fBhandleDependencies\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUp\fP ()"
+.br
+.ti -1c
+.RI "\fBassertPreConditions\fP ()"
+.br
+.ti -1c
+.RI "\fBassertPostConditions\fP ()"
+.br
+.ti -1c
+.RI "\fBtearDown\fP ()"
+.br
+.ti -1c
+.RI "\fBonNotSuccessfulTest\fP (Exception $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBprepareTemplate\fP (\fBText_Template\fP $template)"
+.br
+.ti -1c
+.RI "\fBgetMockObjectGenerator\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$backupGlobals\fP = null"
+.br
+.ti -1c
+.RI "\fB$backupGlobalsBlacklist\fP = array()"
+.br
+.ti -1c
+.RI "\fB$backupStaticAttributes\fP = null"
+.br
+.ti -1c
+.RI "\fB$backupStaticAttributesBlacklist\fP = array()"
+.br
+.ti -1c
+.RI "\fB$runTestInSeparateProcess\fP = null"
+.br
+.ti -1c
+.RI "\fB$preserveGlobalState\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 71 of file TestCase\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name = \fCnull\fP, array $data = \fCarray()\fP,  $dataName = \fC''\fP)"
+Constructs a test case with the given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$data\fP 
+.br
+\fI$dataName\fP 
+.RE
+.PP
+
+.PP
+Definition at line 280 of file TestCase\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addToAssertionCount ( $count)"
+Adds a value to the assertion counter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.3 
+.RE
+.PP
+
+.PP
+Definition at line 1473 of file TestCase\&.php\&.
+.SS "static any ()\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed zero or more times\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_AnyInvokedCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1496 of file TestCase\&.php\&.
+.SS "assertPostConditions ()\fC [protected]\fP"
+Performs assertions shared by all tests of a test case\&.
+.PP
+This method is called before the execution of a test ends and before \fBtearDown()\fP is called\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.8 
+.RE
+.PP
+
+.PP
+Definition at line 1820 of file TestCase\&.php\&.
+.SS "assertPreConditions ()\fC [protected]\fP"
+Performs assertions shared by all tests of a test case\&.
+.PP
+This method is called before the execution of a test starts and after \fBsetUp()\fP is called\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.8 
+.RE
+.PP
+
+.PP
+Definition at line 1808 of file TestCase\&.php\&.
+.SS "static at ( $index)\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is invoked at the given $index\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedAtIndex\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1588 of file TestCase\&.php\&.
+.SS "static atLeast ( $requiredInvocations)\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed at least N times\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$requiredInvocations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1521 of file TestCase\&.php\&.
+.SS "static atLeastOnce ()\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed at least once\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1535 of file TestCase\&.php\&.
+.SS "static atMost ( $allowedInvocations)\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed at most N times\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$allowedInvocations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1573 of file TestCase\&.php\&.
+.SS "checkRequirements ()\fC [protected]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 536 of file TestCase\&.php\&.
+.SS "count ()"
+Counts the number of test cases executed by run(TestResult result)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 313 of file TestCase\&.php\&.
+.SS "createResult ()\fC [protected]\fP"
+Creates a default TestResult object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1713 of file TestCase\&.php\&.
+.SS "static exactly ( $count)\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed exactly $count times\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1560 of file TestCase\&.php\&.
+.SS "expectOutputRegex ( $expectedRegex)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expectedRegex\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 396 of file TestCase\&.php\&.
+.SS "expectOutputString ( $expectedString)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expectedString\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 411 of file TestCase\&.php\&.
+.SS "getActualOutput ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file TestCase\&.php\&.
+.SS "getAnnotations ()"
+Returns the annotations for this test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 324 of file TestCase\&.php\&.
+.SS "getDataSetAsString ( $includeData = \fCtrue\fP)\fC [protected]\fP"
+Gets the data set description of a \fBTestCase\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$includeData\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1687 of file TestCase\&.php\&.
+.SS "getExpectedException ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 445 of file TestCase\&.php\&.
+.SS "getMock ( $originalClassName,  $methods = \fCarray()\fP, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCtrue\fP,  $callOriginalClone = \fCtrue\fP,  $callAutoload = \fCtrue\fP,  $cloneArguments = \fCfalse\fP,  $callOriginalMethods = \fCfalse\fP)"
+Returns a mock object for the specified class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originalClassName\fP Name of the class to mock\&. 
+.br
+\fI$methods\fP When provided, only methods whose names are in the array are replaced with a configurable test double\&. The behavior of the other methods is not changed\&. Providing null means that no methods will be replaced\&. 
+.br
+\fI$arguments\fP Parameters to pass to the original class' constructor\&. 
+.br
+\fI$mockClassName\fP Class name for the generated test double class\&. 
+.br
+\fI$callOriginalConstructor\fP Can be used to disable the call to the original class' constructor\&. 
+.br
+\fI$callOriginalClone\fP Can be used to disable the call to the original class' clone constructor\&. 
+.br
+\fI$callAutoload\fP Can be used to disable __autoload() during the generation of the test double class\&. 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_MockObject\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1257 of file TestCase\&.php\&.
+.SS "getMockBuilder ( $className)"
+Returns a builder object to create mock objects using a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$className\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_MockBuilder\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.5\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1283 of file TestCase\&.php\&.
+.SS "getMockClass ( $originalClassName,  $methods = \fCarray()\fP, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCfalse\fP,  $callOriginalClone = \fCtrue\fP,  $callAutoload = \fCtrue\fP,  $cloneArguments = \fCfalse\fP)\fC [protected]\fP"
+Mocks the specified class and returns the name of the mocked class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originalClassName\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.5\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1303 of file TestCase\&.php\&.
+.SS "getMockForAbstractClass ( $originalClassName, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCtrue\fP,  $callOriginalClone = \fCtrue\fP,  $callAutoload = \fCtrue\fP,  $mockedMethods = \fCarray()\fP,  $cloneArguments = \fCfalse\fP)"
+Returns a mock object for the specified abstract class with all abstract methods of the class mocked\&. Concrete methods are not mocked by default\&. To mock concrete methods, use the 7th parameter ($mockedMethods)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originalClassName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$mockedMethods\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_MockObject\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1336 of file TestCase\&.php\&.
+.SS "getMockForTrait ( $traitName, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCtrue\fP,  $callOriginalClone = \fCtrue\fP,  $callAutoload = \fCtrue\fP,  $mockedMethods = \fCarray()\fP,  $cloneArguments = \fCfalse\fP)"
+Returns a mock object for the specified trait with all abstract methods of the trait mocked\&. Concrete methods to mock can be specified with the \fC$mockedMethods\fP parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$traitName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$mockedMethods\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_MockObject\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1411 of file TestCase\&.php\&.
+.SS "getMockFromWsdl ( $wsdlFile,  $originalClassName = \fC''\fP,  $mockClassName = \fC''\fP, array $methods = \fCarray()\fP,  $callOriginalConstructor = \fCtrue\fP, array $options = \fCarray()\fP)\fC [protected]\fP"
+Returns a mock object based on the given WSDL file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$wsdlFile\fP 
+.br
+\fI$originalClassName\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$options\fP An array of options passed to SOAPClient::_construct 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_MockObject\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1366 of file TestCase\&.php\&.
+.SS "getMockObjectGenerator ()\fC [protected]\fP"
+Get the mock object generator, creating it if it doesn't exist\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Generator\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1868 of file TestCase\&.php\&.
+.SS "getName ( $withDataSet = \fCtrue\fP)"
+Gets the name of a \fBTestCase\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$withDataSet\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 338 of file TestCase\&.php\&.
+.SS "getNumAssertions ()"
+Returns the number of assertions performed by this test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1484 of file TestCase\&.php\&.
+.SS "getObjectForTrait ( $traitName, array $arguments = \fCarray()\fP,  $traitClassName = \fC''\fP,  $callOriginalConstructor = \fCtrue\fP,  $callOriginalClone = \fCtrue\fP,  $callAutoload = \fCtrue\fP,  $cloneArguments = \fCfalse\fP)\fC [protected]\fP"
+Returns an object for the specified trait\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$traitName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$traitClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1443 of file TestCase\&.php\&.
+.SS "getResult ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1112 of file TestCase\&.php\&.
+.SS "getSize ()"
+Returns the size of the test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 353 of file TestCase\&.php\&.
+.SS "getStatus ()"
+Returns the status of this test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 558 of file TestCase\&.php\&.
+.SS "getStatusMessage ()"
+Returns the status message of this test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 569 of file TestCase\&.php\&.
+.SS "getTestResultObject ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.5\&.7 
+.RE
+.PP
+
+.PP
+Definition at line 1144 of file TestCase\&.php\&.
+.SS "handleDependencies ()\fC [protected]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.5\&.4 
+.RE
+.PP
+
+.PP
+Definition at line 1721 of file TestCase\&.php\&.
+.SS "hasDependencies ()"
+Returns true if the tests has dependencies
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1003 of file TestCase\&.php\&.
+.SS "hasExpectationOnOutput ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.3\&.3 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file TestCase\&.php\&.
+.SS "hasFailed ()"
+Returns whether or not this test has failed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 580 of file TestCase\&.php\&.
+.SS "hasOutput ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 378 of file TestCase\&.php\&.
+.SS "hasPerformedExpectationsOnOutput ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.5 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 427 of file TestCase\&.php\&.
+.SS "iniSet ( $varName,  $newValue)\fC [protected]\fP"
+This method is a wrapper for the ini_set() function that automatically resets the modified php\&.ini setting to its original value after the test is run\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$varName\fP 
+.br
+\fI$newValue\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1168 of file TestCase\&.php\&.
+.SS "isInIsolation ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1103 of file TestCase\&.php\&.
+.SS "static never ()\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is never executed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1508 of file TestCase\&.php\&.
+.SS "static once ()\fC [static]\fP"
+Returns a matcher that matches when the method it is evaluated for is executed exactly once\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Matcher_InvokedCount\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1547 of file TestCase\&.php\&.
+.SS "static onConsecutiveCalls ()\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value,\&.\&.\&.\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_ConsecutiveCalls\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1673 of file TestCase\&.php\&.
+.SS "onNotSuccessfulTest (Exception $e)\fC [protected]\fP"
+This method is called when a test method did not execute successfully\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1848 of file TestCase\&.php\&.
+.SS "prepareTemplate (\fBText_Template\fP $template)\fC [protected]\fP"
+Performs custom preparations on the process isolation template\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$template\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1859 of file TestCase\&.php\&.
+.SS "prophesize ( $classOrInterface = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$classOrInterface\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 1462 of file TestCase\&.php\&.
+.SS "static returnArgument ( $argumentIndex)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$argumentIndex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_ReturnArgument\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1624 of file TestCase\&.php\&.
+.SS "static returnCallback ( $callback)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_ReturnCallback\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1638 of file TestCase\&.php\&.
+.SS "static returnSelf ()\fC [static]\fP"
+Returns the current object\&.
+.PP
+This method is useful when mocking a fluent interface\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_ReturnSelf\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1651 of file TestCase\&.php\&.
+.SS "static returnValue ( $value)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_Return\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1600 of file TestCase\&.php\&.
+.SS "static returnValueMap (array $valueMap)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$valueMap\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_ReturnValueMap\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1612 of file TestCase\&.php\&.
+.SS "run (\fBPHPUnit_Framework_TestResult\fP $result = \fCnull\fP)"
+Runs the test case and collects the results in a TestResult object\&. If no TestResult object is passed a new one will be created\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_Test\fP\&.
+.PP
+Definition at line 596 of file TestCase\&.php\&.
+.SS "runBare ()"
+Runs the bare test sequence\&. 
+.PP
+Definition at line 714 of file TestCase\&.php\&.
+.SS "runTest ()\fC [protected]\fP"
+Override to run the test and assert its state\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIException|PHPUnit_Framework_Exception\fP 
+.br
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 847 of file TestCase\&.php\&.
+.SS "setBackupGlobals ( $backupGlobals)"
+Calling this method in \fBsetUp()\fP has no effect!
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$backupGlobals\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1034 of file TestCase\&.php\&.
+.SS "setBackupStaticAttributes ( $backupStaticAttributes)"
+Calling this method in \fBsetUp()\fP has no effect!
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$backupStaticAttributes\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1047 of file TestCase\&.php\&.
+.SS "setDependencies (array $dependencies)"
+Sets the dependencies of a \fBTestCase\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dependencies\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 992 of file TestCase\&.php\&.
+.SS "setDependencyInput (array $dependencyInput)"
+Sets
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dependencyInput\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1014 of file TestCase\&.php\&.
+.SS "setDisallowChangesToGlobalState ( $disallowChangesToGlobalState)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$disallowChangesToGlobalState\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1023 of file TestCase\&.php\&.
+.SS "setExpectedException ( $exceptionName,  $exceptionMessage = \fC''\fP,  $exceptionCode = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exceptionName\fP 
+.br
+\fI$exceptionMessage\fP 
+.br
+\fI$exceptionCode\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 456 of file TestCase\&.php\&.
+.SS "setExpectedExceptionFromAnnotation ()\fC [protected]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 479 of file TestCase\&.php\&.
+.SS "setExpectedExceptionRegExp ( $exceptionName,  $exceptionMessageRegExp = \fC''\fP,  $exceptionCode = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exceptionName\fP 
+.br
+\fI$exceptionMessageRegExp\fP 
+.br
+\fI$exceptionCode\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file TestCase\&.php\&.
+.SS "setInIsolation ( $inIsolation)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$inIsolation\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1090 of file TestCase\&.php\&.
+.SS "setLocale ()\fC [protected]\fP"
+This method is a wrapper for the setlocale() function that automatically resets the locale to its original value after the test is run\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$category\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1198 of file TestCase\&.php\&.
+.SS "setName ( $name)"
+Sets the name of a \fBTestCase\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP 
+.RE
+.PP
+
+.PP
+Definition at line 981 of file TestCase\&.php\&.
+.SS "setOutputCallback ( $callback)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1131 of file TestCase\&.php\&.
+.SS "setPreserveGlobalState ( $preserveGlobalState)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$preserveGlobalState\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1076 of file TestCase\&.php\&.
+.SS "setResult ( $result)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1121 of file TestCase\&.php\&.
+.SS "setRunTestInSeparateProcess ( $runTestInSeparateProcess)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$runTestInSeparateProcess\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1060 of file TestCase\&.php\&.
+.SS "setTestResultObject (\fBPHPUnit_Framework_TestResult\fP $result)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1153 of file TestCase\&.php\&.
+.SS "setUp ()\fC [protected]\fP"
+Sets up the fixture, for example, open a network connection\&. This method is called before a test is executed\&. 
+.PP
+Definition at line 1796 of file TestCase\&.php\&.
+.SS "static setUpBeforeClass ()\fC [static]\fP"
+This method is called before the first test of this test class is run\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1787 of file TestCase\&.php\&.
+.SS "setUseErrorHandler ( $useErrorHandler)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$useErrorHandler\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file TestCase\&.php\&.
+.SS "setUseErrorHandlerFromAnnotation ()\fC [protected]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 518 of file TestCase\&.php\&.
+.SS "tearDown ()\fC [protected]\fP"
+Tears down the fixture, for example, close a network connection\&. This method is called after a test is executed\&. 
+.PP
+Definition at line 1828 of file TestCase\&.php\&.
+.SS "static tearDownAfterClass ()\fC [static]\fP"
+This method is called after the last test of this test class is run\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1837 of file TestCase\&.php\&.
+.SS "static throwException (Exception $exception)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exception\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_MockObject_Stub_Exception\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1663 of file TestCase\&.php\&.
+.SS "toString ()"
+Returns a string representation of the test case\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_SelfDescribing\fP\&.
+.PP
+Definition at line 295 of file TestCase\&.php\&.
+.SS "verifyMockObjects ()\fC [protected]\fP"
+Verifies the mock object expectations\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.5\&.0 
+.RE
+.PP
+Intentionally left empty 
+.PP
+Definition at line 945 of file TestCase\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$backupGlobals = null\fC [protected]\fP"
+
+.PP
+Definition at line 80 of file TestCase\&.php\&.
+.SS "$backupGlobalsBlacklist = array()\fC [protected]\fP"
+
+.PP
+Definition at line 85 of file TestCase\&.php\&.
+.SS "$backupStaticAttributes = null\fC [protected]\fP"
+
+.PP
+Definition at line 94 of file TestCase\&.php\&.
+.SS "$backupStaticAttributesBlacklist = array()\fC [protected]\fP"
+
+.PP
+Definition at line 99 of file TestCase\&.php\&.
+.SS "$preserveGlobalState = true\fC [protected]\fP"
+
+.PP
+Definition at line 114 of file TestCase\&.php\&.
+.SS "$runTestInSeparateProcess = null\fC [protected]\fP"
+
+.PP
+Definition at line 106 of file TestCase\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

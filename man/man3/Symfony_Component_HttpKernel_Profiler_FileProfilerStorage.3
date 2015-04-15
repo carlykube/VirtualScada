@@ -1,0 +1,203 @@
+.TH "FileProfilerStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FileProfilerStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProfilerStorageInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($dsn)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetFilename\fP ($token)"
+.br
+.ti -1c
+.RI "\fBgetIndexFilename\fP ()"
+.br
+.ti -1c
+.RI "\fBreadLineFromFile\fP ($file)"
+.br
+.ti -1c
+.RI "\fBcreateProfileFromData\fP ($token, $\fBdata\fP, $parent=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Storage for profiler using files\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Alexandre Salomé alexandre.salome@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file FileProfilerStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $dsn)"
+Constructs the file storage using a 'dsn-like' path\&.
+.PP
+Example : 'file:/path/to/the/storage/folder'
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dsn\fP The DSN
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 37 of file FileProfilerStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createProfileFromData ( $token,  $data,  $parent = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 251 of file FileProfilerStorage\&.php\&.
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+{Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 52 of file FileProfilerStorage\&.php\&.
+.SS "getFilename ( $token)\fC [protected]\fP"
+Gets filename to store data, associated to the token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The profile filename 
+.RE
+.PP
+
+.PP
+Definition at line 185 of file FileProfilerStorage\&.php\&.
+.SS "getIndexFilename ()\fC [protected]\fP"
+Gets the index filename\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The index filename 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file FileProfilerStorage\&.php\&.
+.SS "purge ()"
+{Purges all data from the database\&.} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 99 of file FileProfilerStorage\&.php\&.
+.SS "read ( $token)"
+{Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 117 of file FileProfilerStorage\&.php\&.
+.SS "readLineFromFile ( $file)\fC [protected]\fP"
+Reads a line in the file, backward\&.
+.PP
+This function automatically skips the empty lines and do not include the line return in result value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP The file resource, with the pointer placed at the end of the line to read
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed \fBA\fP string representing the line or null if beginning of file is reached 
+.RE
+.PP
+
+.PP
+Definition at line 213 of file FileProfilerStorage\&.php\&.
+.SS "write (\fBProfile\fP $profile)"
+{Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 129 of file FileProfilerStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

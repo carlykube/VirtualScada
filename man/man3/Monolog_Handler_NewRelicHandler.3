@@ -1,0 +1,174 @@
+.TH "NewRelicHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewRelicHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.PP
+Inherited by \fBStubNewRelicHandler\fP, and \fBStubNewRelicHandlerWithoutExtension\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($level=\fBLogger::ERROR\fP, $bubble=true, $appName=null, $explodeArrays=false, $transactionName=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBisNewRelicEnabled\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAppName\fP (array $context)"
+.br
+.ti -1c
+.RI "\fBgetTransactionName\fP (array $context)"
+.br
+.ti -1c
+.RI "\fBsetNewRelicAppName\fP ($appName)"
+.br
+.ti -1c
+.RI "\fBsetNewRelicTransactionName\fP ($transactionName)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$appName\fP"
+.br
+.ti -1c
+.RI "\fB$transactionName\fP"
+.br
+.ti -1c
+.RI "\fB$explodeArrays\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to record a log on a NewRelic application\&. Enabling New Relic High Security mode may prevent capture of useful information\&.
+.PP
+\fBSee also:\fP
+.RS 4
+https://docs.newrelic.com/docs/agents/php-agent 
+.PP
+https://docs.newrelic.com/docs/accounts-partnerships/accounts/security/high-security 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file NewRelicHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $level = \fC\fBLogger::ERROR\fP\fP,  $bubble = \fCtrue\fP,  $appName = \fCnull\fP,  $explodeArrays = \fCfalse\fP,  $transactionName = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$appName\fP 
+.br
+\fI$explodeArrays\fP 
+.br
+\fI$transactionName\fP 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file NewRelicHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getAppName (array $context)\fC [protected]\fP"
+Returns the appname where this log should be sent\&. Each log can override the default appname, set in this handler's constructor, by providing the appname in it's context\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|string 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file NewRelicHandler\&.php\&.
+.SS "getTransactionName (array $context)\fC [protected]\fP"
+Returns the name of the current transaction\&. Each log can override the default transaction name, set in this handler's constructor, by providing the transaction_name in it's context
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|string 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file NewRelicHandler\&.php\&.
+.SS "isNewRelicEnabled ()\fC [protected]\fP"
+Checks whether the NewRelic extension is enabled in the system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file NewRelicHandler\&.php\&.
+.SS "setNewRelicAppName ( $appName)\fC [protected]\fP"
+Sets the NewRelic application that should receive this log\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$appName\fP 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file NewRelicHandler\&.php\&.
+.SS "setNewRelicTransactionName ( $transactionName)\fC [protected]\fP"
+Overwrites the name of the current transaction
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transactionName\fP 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file NewRelicHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+
+.PP
+Definition at line 71 of file NewRelicHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$appName\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file NewRelicHandler\&.php\&.
+.SS "$explodeArrays\fC [protected]\fP"
+
+.PP
+Definition at line 45 of file NewRelicHandler\&.php\&.
+.SS "$transactionName\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file NewRelicHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

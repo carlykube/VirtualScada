@@ -1,0 +1,78 @@
+.TH "md_vendor_mtdowling_cron-expression__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_mtdowling_cron-expression__r_e_a_d_m_e \- \fBPHP\fP \fBCron\fP Expression Parser 
+\fC![Latest Stable Version](https://poser\&.pugx\&.org/mtdowling/cron-expression/v/stable\&.png)\fP \fC![Total Downloads](https://poser\&.pugx\&.org/mtdowling/cron-expression/downloads\&.png)\fP \fC![Build Status](https://secure\&.travis-ci\&.org/mtdowling/cron-expression\&.png)\fP
+.PP
+The \fBPHP\fP cron expression parser can parse a CRON expression, determine if it is due to run, calculate the next run date of the expression, and calculate the previous run date of the expression\&. You can calculate dates far into the future or past by skipping n number of matching dates\&.
+.PP
+The parser can handle increments of ranges (e\&.g\&. */12, 2-59/3), intervals (e\&.g\&. 0-9), lists (e\&.g\&. 1,2,3), W to find the nearest weekday for a given day of the month, L to find the last day of the month, L to find the last given weekday of a month, and hash (#) to find the nth weekday of a given month\&.
+.PP
+.SH "Installing "
+.PP
+.PP
+Add the dependency to your project:
+.PP
+```bash composer require mtdowling/cron-expression ```
+.PP
+.SH "Usage "
+.PP
+.PP
+```php <?php
+.PP
+require_once '/vendor/autoload\&.php';
+.PP
+// Works with predefined scheduling definitions $cron = \fBCron\fP\fBfactory\fP(''); $cron->isDue(); echo $cron->getNextRunDate()->format('Y-m-d H:i:s'); echo $cron->getPreviousRunDate()->format('Y-m-d H:i:s');
+.PP
+// Works with complex expressions $cron = \fBCron\fP\fBfactory\fP('3-59/15 2,6-12 */15 1 2-5'); echo $cron->getNextRunDate()->format('Y-m-d H:i:s');
+.PP
+// Calculate a run date two iterations into the future $cron = \fBCron\fP\fBfactory\fP(''); echo $cron->getNextRunDate(null, 2)->format('Y-m-d H:i:s');
+.PP
+// Calculate a run date relative to a specific time $cron = \fBCron\fP\fBfactory\fP(''); echo $cron->getNextRunDate('2010-01-12 00:00:00')->format('Y-m-d H:i:s'); ```
+.PP
+.SH "CRON Expressions "
+.PP
+.PP
+\fBA\fP CRON expression is a string representing the schedule for a particular command to execute\&. The parts of a CRON schedule are as follows: 
+.PP
+.nf
+*    *    *    *    *    *
+-    -    -    -    -    -
+|    |    |    |    |    |
+|    |    |    |    |    + year [optional]
+|    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
+|    |    |    +---------- month (1 - 12)
+|    |    +--------------- day of month (1 - 31)
+|    +-------------------- hour (0 - 23)
++------------------------- min (0 - 59)
+
+.fi
+.PP
+.PP
+.SH "Requirements "
+.PP
+.PP
+.IP "\(bu" 2
+\fBPHP\fP 5\&.3+
+.IP "\(bu" 2
+\fBPHPUnit\fP is required to run the unit tests
+.IP "\(bu" 2
+\fBComposer\fP is required to run the unit tests
+.PP
+.PP
+.SH "CHANGELOG "
+.PP
+.PP
+.SS "1\&.0\&.3 (2013-11-23) "
+.PP
+.IP "\(bu" 2
+Only set default timezone if the given $currentTime is not a DateTime instance (\fC#34\fP)
+.IP "\(bu" 2
+Fixes issue \fC#28\fP where \fBPHP\fP increments of ranges were failing due to \fBPHP\fP casting hyphens to 0
+.IP "\(bu" 2
+Now supports expressions with any number of extra spaces, tabs, or newlines
+.IP "\(bu" 2
+Using static instead of self in \fCCronExpression::factory\fP 
+.PP
+

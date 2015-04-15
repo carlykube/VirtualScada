@@ -1,0 +1,87 @@
+.TH "Swift_Transport_FailoverTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_FailoverTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport_LoadBalancedTransport\fP\&.
+.PP
+Inherited by \fBSwift_FailoverTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_getNextTransport\fP ()"
+.br
+.ti -1c
+.RI "\fB_killCurrentTransport\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Contains a list of redundant Transports so when one fails, the next is used\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file FailoverTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Creates a new FailoverTransport\&. 
+.PP
+Definition at line 28 of file FailoverTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_getNextTransport ()\fC [protected]\fP"
+
+.PP
+Definition at line 71 of file FailoverTransport\&.php\&.
+.SS "_killCurrentTransport ()\fC [protected]\fP"
+
+.PP
+Definition at line 80 of file FailoverTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 44 of file FailoverTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

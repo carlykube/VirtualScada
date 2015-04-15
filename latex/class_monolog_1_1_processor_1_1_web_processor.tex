@@ -1,0 +1,128 @@
+\section{Web\+Processor Class Reference}
+\label{class_monolog_1_1_processor_1_1_web_processor}\index{Web\+Processor@{Web\+Processor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$server\+Data=null, array \$extra\+Fields=null)
+\item 
+{\bf \+\_\+\+\_\+invoke} (array \$record)
+\item 
+{\bf add\+Extra\+Field} (\$extra\+Name, \$server\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$server\+Data}
+\item 
+{\bf \$extra\+Fields}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Injects url/method and remote I\+P of the current web request in all records
+
+\begin{DoxyAuthor}{Author}
+Jordi Boggiano {\tt j.\+boggiano@seld.\+be} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Web\+Processor.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$server\+Data = {\ttfamily null}, }
+\item[{array}]{\$extra\+Fields = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_processor_1_1_web_processor_a76e6207b563612a95f7c9b5761123047}
+
+\begin{DoxyParams}[1]{Parameters}
+array | \textbackslash{}\+Array\+Access & {\em \$server\+Data} & Array or object w/ Array\+Access that provides access to the \$\+\_\+\+S\+E\+R\+V\+E\+R data \\
+\hline
+array | null & {\em \$extra\+Fields} & Extra field names to be added (all available by default) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file Web\+Processor.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}!\+\_\+\+\_\+invoke@{\+\_\+\+\_\+invoke}}
+\index{\+\_\+\+\_\+invoke@{\+\_\+\+\_\+invoke}!Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}}
+\subsubsection[{\+\_\+\+\_\+invoke}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+invoke (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_processor_1_1_web_processor_af6bdfd8d87fb85ab75b06b34a3f3c1af}
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Web\+Processor.\+php.
+
+\index{Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}!add\+Extra\+Field@{add\+Extra\+Field}}
+\index{add\+Extra\+Field@{add\+Extra\+Field}!Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}}
+\subsubsection[{add\+Extra\+Field}]{\setlength{\rightskip}{0pt plus 5cm}add\+Extra\+Field (
+\begin{DoxyParamCaption}
+\item[{}]{\$extra\+Name, }
+\item[{}]{\$server\+Name}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_processor_1_1_web_processor_a3a6dfbcf2065efce6e851e7ed44f24e7}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$extra\+Name} & \\
+\hline
+string & {\em \$server\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file Web\+Processor.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}!\$extra\+Fields@{\$extra\+Fields}}
+\index{\$extra\+Fields@{\$extra\+Fields}!Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}}
+\subsubsection[{\$extra\+Fields}]{\setlength{\rightskip}{0pt plus 5cm}\$extra\+Fields\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_processor_1_1_web_processor_aa538d431942d99bc6aab145efadc5670}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{stringliteral}{'url'}         => \textcolor{stringliteral}{'REQUEST\_URI'},
+        \textcolor{stringliteral}{'ip'}          => \textcolor{stringliteral}{'REMOTE\_ADDR'},
+        \textcolor{stringliteral}{'http\_method'} => \textcolor{stringliteral}{'REQUEST\_METHOD'},
+        \textcolor{stringliteral}{'server'}      => \textcolor{stringliteral}{'SERVER\_NAME'},
+        \textcolor{stringliteral}{'referrer'}    => \textcolor{stringliteral}{'HTTP\_REFERER'},
+    )
+\end{DoxyCode}
+
+
+Definition at line 29 of file Web\+Processor.\+php.
+
+\index{Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}!\$server\+Data@{\$server\+Data}}
+\index{\$server\+Data@{\$server\+Data}!Monolog\+::\+Processor\+::\+Web\+Processor@{Monolog\+::\+Processor\+::\+Web\+Processor}}
+\subsubsection[{\$server\+Data}]{\setlength{\rightskip}{0pt plus 5cm}\$server\+Data\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_processor_1_1_web_processor_a6f16692663cf52942db3e7a25ee9f4c8}
+
+
+Definition at line 24 of file Web\+Processor.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Processor/{\bf Web\+Processor.\+php}\end{DoxyCompactItemize}

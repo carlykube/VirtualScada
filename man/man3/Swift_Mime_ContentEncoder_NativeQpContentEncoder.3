@@ -1,0 +1,160 @@
+.TH "Swift_Mime_ContentEncoder_NativeQpContentEncoder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_ContentEncoder_NativeQpContentEncoder \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_ContentEncoder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($charset=null)"
+.br
+.ti -1c
+.RI "\fBcharsetChanged\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBencodeByteStream\fP (\fBSwift_OutputByteStream\fP $os, \fBSwift_InputByteStream\fP $is, $firstLineOffset=0, $maxLineLength=0)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBencodeString\fP ($string, $firstLineOffset=0, $maxLineLength=0)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_standardize\fP ($string)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles Quoted Printable (QP) Transfer Encoding in \fBSwift\fP Mailer using the \fBPHP\fP core function\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Lars Strojny 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file NativeQpContentEncoder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $charset = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file NativeQpContentEncoder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_standardize ( $string)\fC [protected]\fP"
+Make sure CRLF is correct and HT/SPACE are in valid places\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file NativeQpContentEncoder\&.php\&.
+.SS "charsetChanged ( $charset)"
+Notify this observer that the entity's charset has changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_CharsetObserver\fP\&.
+.PP
+Definition at line 36 of file NativeQpContentEncoder\&.php\&.
+.SS "encodeByteStream (\fBSwift_OutputByteStream\fP $os, \fBSwift_InputByteStream\fP $is,  $firstLineOffset = \fC0\fP,  $maxLineLength = \fC0\fP)"
+Encode $in to $out\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$os\fP to read from 
+.br
+\fI$is\fP to write to 
+.br
+\fI$firstLineOffset\fP 
+.br
+\fI$maxLineLength\fP 0 indicates the default length for this encoding
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ContentEncoder\fP\&.
+.PP
+Definition at line 51 of file NativeQpContentEncoder\&.php\&.
+.SS "encodeString ( $string,  $firstLineOffset = \fC0\fP,  $maxLineLength = \fC0\fP)"
+Encode a given string to produce an encoded string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.br
+\fI$firstLineOffset\fP if first line needs to be shorter 
+.br
+\fI$maxLineLength\fP 0 indicates the default length for this encoding
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Encoder\fP\&.
+.PP
+Definition at line 88 of file NativeQpContentEncoder\&.php\&.
+.SS "getName ()"
+Get the MIME name of this content encoding scheme\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_ContentEncoder\fP\&.
+.PP
+Definition at line 72 of file NativeQpContentEncoder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

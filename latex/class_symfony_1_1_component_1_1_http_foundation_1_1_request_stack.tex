@@ -1,0 +1,120 @@
+\section{Request\+Stack Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack}\index{Request\+Stack@{Request\+Stack}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf push} ({\bf Request} \$request)
+\item 
+{\bf pop} ()
+\item 
+{\bf get\+Current\+Request} ()
+\item 
+{\bf get\+Master\+Request} ()
+\item 
+{\bf get\+Parent\+Request} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Request}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_request} stack that controls the lifecycle of requests.
+
+\begin{DoxyAuthor}{Author}
+Benjamin Eberlei {\tt kontakt@beberlei.\+de} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Request\+Stack.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}!get\+Current\+Request@{get\+Current\+Request}}
+\index{get\+Current\+Request@{get\+Current\+Request}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}}
+\subsubsection[{get\+Current\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Current\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack_ab5ea9169d54bd7cabaa4e469f0d69714}
+\begin{DoxyReturn}{Returns}
+Request$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Request\+Stack.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}!get\+Master\+Request@{get\+Master\+Request}}
+\index{get\+Master\+Request@{get\+Master\+Request}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}}
+\subsubsection[{get\+Master\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Master\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack_a8a3fa9684953fcf8a3827914a7b006bd}
+Gets the master \doxyref{Request}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_request}.
+
+Be warned that making your code aware of the master request might make it un-\/compatible with other features of your framework like E\+S\+I support.
+
+\begin{DoxyReturn}{Returns}
+Request$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file Request\+Stack.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}!get\+Parent\+Request@{get\+Parent\+Request}}
+\index{get\+Parent\+Request@{get\+Parent\+Request}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}}
+\subsubsection[{get\+Parent\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Parent\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack_a9aa22f90a3765abcc6656ad3fcd25ac4}
+Returns the parent request of the current.
+
+Be warned that making your code aware of the parent request might make it un-\/compatible with other features of your framework like E\+S\+I support.
+
+If current \doxyref{Request}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_request} is the master request, it returns null.
+
+\begin{DoxyReturn}{Returns}
+Request$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 93 of file Request\+Stack.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}!pop@{pop}}
+\index{pop@{pop}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack_af08a41a567567d62f673b57214644195}
+Pops the current request from the stack.
+
+This operation lets the current request go out of scope.
+
+This method should generally not be called directly as the stack management should be taken care of by the application itself.
+
+\begin{DoxyReturn}{Returns}
+Request$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file Request\+Stack.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}!push@{push}}
+\index{push@{push}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Request\+Stack}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}push (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_request_stack_a1804e43fc17f3f18cdbfc5fc3871bd30}
+Pushes a \doxyref{Request}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_request} on the stack.
+
+This method should generally not be called directly as the stack management should be taken care of by the application itself. 
+
+Definition at line 32 of file Request\+Stack.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/{\bf Request\+Stack.\+php}\end{DoxyCompactItemize}

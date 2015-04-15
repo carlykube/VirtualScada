@@ -1,0 +1,366 @@
+.TH "Swift_DependencyContainer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_DependencyContainer \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBlistItems\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($itemName)"
+.br
+.ti -1c
+.RI "\fBlookup\fP ($itemName)"
+.br
+.ti -1c
+.RI "\fBcreateDependenciesFor\fP ($itemName)"
+.br
+.ti -1c
+.RI "\fBregister\fP ($itemName)"
+.br
+.ti -1c
+.RI "\fBasValue\fP ($value)"
+.br
+.ti -1c
+.RI "\fBasAliasOf\fP ($\fBlookup\fP)"
+.br
+.ti -1c
+.RI "\fBasNewInstanceOf\fP ($className)"
+.br
+.ti -1c
+.RI "\fBasSharedInstanceOf\fP ($className)"
+.br
+.ti -1c
+.RI "\fBwithDependencies\fP (array $lookups)"
+.br
+.ti -1c
+.RI "\fBaddConstructorValue\fP ($value)"
+.br
+.ti -1c
+.RI "\fBaddConstructorLookup\fP ($\fBlookup\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTYPE_VALUE\fP = 0x0001"
+.br
+.ti -1c
+.RI "const \fBTYPE_INSTANCE\fP = 0x0010"
+.br
+.ti -1c
+.RI "const \fBTYPE_SHARED\fP = 0x0100"
+.br
+.ti -1c
+.RI "const \fBTYPE_ALIAS\fP = 0x1000"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Dependency Injection container\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file DependencyContainer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Constructor should not be used\&.
+.PP
+Use \fBgetInstance()\fP instead\&. 
+.PP
+Definition at line 44 of file DependencyContainer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConstructorLookup ( $lookup)"
+Specify a dependency lookup for the constructor of the previously registered item\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBwithDependencies()\fP, \fBaddConstructorValue()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lookup\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file DependencyContainer\&.php\&.
+.SS "addConstructorValue ( $value)"
+Specify a literal (non looked up) value for the constructor of the previously registered item\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBwithDependencies()\fP, \fBaddConstructorLookup()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file DependencyContainer\&.php\&.
+.SS "asAliasOf ( $lookup)"
+Specify the previously registered item as an alias of another item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lookup\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file DependencyContainer\&.php\&.
+.SS "asNewInstanceOf ( $className)"
+Specify the previously registered item as a new instance of $className\&.
+.PP
+\fBregister()\fP must be called before this will work\&. Any arguments can be set with \fBwithDependencies()\fP, \fBaddConstructorValue()\fP or \fBaddConstructorLookup()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBwithDependencies()\fP, \fBaddConstructorValue()\fP, \fBaddConstructorLookup()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$className\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 202 of file DependencyContainer\&.php\&.
+.SS "asSharedInstanceOf ( $className)"
+Specify the previously registered item as a shared instance of $className\&.
+.PP
+\fBregister()\fP must be called before this will work\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$className\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file DependencyContainer\&.php\&.
+.SS "asValue ( $value)"
+Specify the previously registered item as a literal value\&.
+.PP
+\fBregister()\fP must be called before this will work\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file DependencyContainer\&.php\&.
+.SS "createDependenciesFor ( $itemName)"
+Create an array of arguments passed to the constructor of $itemName\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$itemName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file DependencyContainer\&.php\&.
+.SS "static getInstance ()\fC [static]\fP"
+Returns a singleton of the DependencyContainer\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file DependencyContainer\&.php\&.
+.SS "has ( $itemName)"
+Test if an item is registered in this container with the given name\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBregister()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$itemName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file DependencyContainer\&.php\&.
+.SS "listItems ()"
+List the names of all items stored in the Container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file DependencyContainer\&.php\&.
+.SS "lookup ( $itemName)"
+Lookup the item with the given $itemName\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBregister()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$itemName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_DependencyException\fP\fP If the dependency is not found 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file DependencyContainer\&.php\&.
+.SS "register ( $itemName)"
+Register a new dependency with $itemName\&.
+.PP
+This method returns the current DependencyContainer instance because it requires the use of the fluid interface to set the specific details for the dependency\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBasNewInstanceOf()\fP, \fBasSharedInstanceOf()\fP, \fBasValue()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$itemName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file DependencyContainer\&.php\&.
+.SS "withDependencies (array $lookups)"
+Specify a list of injected dependencies for the previously registered item\&.
+.PP
+This method takes an array of lookup names\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBaddConstructorValue()\fP, \fBaddConstructorLookup()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lookups\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_DependencyContainer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file DependencyContainer\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const TYPE_ALIAS = 0x1000"
+Constant for aliases 
+.PP
+Definition at line 28 of file DependencyContainer\&.php\&.
+.SS "const TYPE_INSTANCE = 0x0010"
+Constant for new instance types 
+.PP
+Definition at line 22 of file DependencyContainer\&.php\&.
+.SS "const TYPE_SHARED = 0x0100"
+Constant for shared instance types 
+.PP
+Definition at line 25 of file DependencyContainer\&.php\&.
+.SS "const TYPE_VALUE = 0x0001"
+Constant for literal value types 
+.PP
+Definition at line 19 of file DependencyContainer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

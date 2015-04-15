@@ -1,0 +1,27 @@
+var class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test =
+[
+    [ "testConstructorAddsContentTypeHeader", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a8d19e225833812dd27ac747eafbc1f97", null ],
+    [ "testConstructorEmptyCreatesJsonObject", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a401858b3ed76429e43e6c8b6e1e92f08", null ],
+    [ "testConstructorWithArrayCreatesJsonArray", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a5b117bf4465f5e3af10669fd0bd2eb67", null ],
+    [ "testConstructorWithAssocArrayCreatesJsonObject", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a92b7986234e05e083a63133951c7d002", null ],
+    [ "testConstructorWithCustomContentType", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a5ed5b75a2a3ee3142365acd05ce3921f", null ],
+    [ "testConstructorWithCustomHeaders", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#ae78ca28a6c4a0ffcad0a8d9f0ef6d4a7", null ],
+    [ "testConstructorWithCustomStatus", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a04d2c878be306de9637edccb359e918c", null ],
+    [ "testConstructorWithSimpleTypes", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a7f65f3f13a65de2c2a9cf690ec973e5c", null ],
+    [ "testCreate", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a01b0e1f0559ad137431680aa564b84d3", null ],
+    [ "testGetEncodingOptions", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#aa7709c57c497aad3cd84dc0caa420d89", null ],
+    [ "testJsonEncodeFlags", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a99a36bf13491abc757ddae18066c40c1", null ],
+    [ "testSetCallback", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a769ec2ba76930ffa87872f551b1cc40e", null ],
+    [ "testSetCallbackInvalidIdentifier", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a22610dee2ddff5b19c0518892af06378", null ],
+    [ "testSetContent", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a389aac0fc5a939b70ec25e9a798c9c66", null ],
+    [ "testSetContentJsonSerializeError", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a4519d1d421dc8c3521af2447c05543c6", null ],
+    [ "testSetEncodingOptions", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a265b5d2c9535d0fb849d223b60d0c9d8", null ],
+    [ "testStaticCreateAddsContentTypeHeader", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#aa6b1b74ffffb6e857cbc2bd6a29f0a01", null ],
+    [ "testStaticCreateEmptyJsonObject", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#ad5001b870541726b5893858fd942b756", null ],
+    [ "testStaticCreateJsonArray", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#adffd7bd4347f0138469144e3a4f72e5d", null ],
+    [ "testStaticCreateJsonObject", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a873f1dd1c5194b8b54d7ead1e28d28ae", null ],
+    [ "testStaticCreateWithCustomContentType", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#ab2d4d2519d0a6a87549d871414f57ed7", null ],
+    [ "testStaticCreateWithCustomHeaders", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a0e915ca770194beb18a91d340ed85081", null ],
+    [ "testStaticCreateWithCustomStatus", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a1e1af654ff66f48770b8a68278bea240", null ],
+    [ "testStaticCreateWithSimpleTypes", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html#a8bc367ea3b524f91dd02baf8d3004d8c", null ]
+];

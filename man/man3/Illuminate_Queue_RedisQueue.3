@@ -1,0 +1,454 @@
+.TH "RedisQueue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RedisQueue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP, and \fBQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBDatabase\fP $redis, $default= 'default', $connection=null)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBrelease\fP ($\fBqueue\fP, $payload, $\fBdelay\fP, $\fBattempts\fP)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteReserved\fP ($\fBqueue\fP, $job)"
+.br
+.ti -1c
+.RI "\fBmigrateExpiredJobs\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBgetRedis\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpire\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExpire\fP ($\fBseconds\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmigrateAllExpiredJobs\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetExpiredJobs\fP ($transaction, $from, $time)"
+.br
+.ti -1c
+.RI "\fBremoveExpiredJobs\fP ($transaction, $from, $time)"
+.br
+.ti -1c
+.RI "\fBpushExpiredJobsOntoNewQueue\fP ($transaction, $\fBto\fP, $jobs)"
+.br
+.ti -1c
+.RI "\fBcreatePayload\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetRandomId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$redis\fP"
+.br
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP"
+.br
+.ti -1c
+.RI "\fB$expire\fP = 60"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file RedisQueue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBDatabase\fP $redis,  $default = \fC'default'\fP,  $connection = \fCnull\fP)"
+Create a new \fBRedis\fP queue instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$redis\fP 
+.br
+\fI$default\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file RedisQueue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createPayload ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [protected]\fP"
+Create a payload string from the given job and data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file RedisQueue\&.php\&.
+.SS "deleteReserved ( $queue,  $job)"
+Delete a reserved job from the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$job\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file RedisQueue\&.php\&.
+.SS "getConnection ()\fC [protected]\fP"
+Get the connection for the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 284 of file RedisQueue\&.php\&.
+.SS "getExpire ()"
+Get the expiration time in seconds\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file RedisQueue\&.php\&.
+.SS "getExpiredJobs ( $transaction,  $from,  $time)\fC [protected]\fP"
+Get the expired jobs from a given queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transaction\fP 
+.br
+\fI$from\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file RedisQueue\&.php\&.
+.SS "getQueue ( $queue)\fC [protected]\fP"
+Get the queue or return the default\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file RedisQueue\&.php\&.
+.SS "getRandomId ()\fC [protected]\fP"
+Get a random ID string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 263 of file RedisQueue\&.php\&.
+.SS "getRedis ()"
+Get the underlying \fBRedis\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 294 of file RedisQueue\&.php\&.
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 89 of file RedisQueue\&.php\&.
+.SS "migrateAllExpiredJobs ( $queue)\fC [protected]\fP"
+Migrate all of the waiting jobs in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file RedisQueue\&.php\&.
+.SS "migrateExpiredJobs ( $from,  $to)"
+Migrate the delayed jobs that are ready to the regular queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file RedisQueue\&.php\&.
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 122 of file RedisQueue\&.php\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 60 of file RedisQueue\&.php\&.
+.SS "pushExpiredJobsOntoNewQueue ( $transaction,  $to,  $jobs)\fC [protected]\fP"
+Push all of the given jobs onto another queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transaction\fP 
+.br
+\fI$to\fP 
+.br
+\fI$jobs\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file RedisQueue\&.php\&.
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 73 of file RedisQueue\&.php\&.
+.SS "release ( $queue,  $payload,  $delay,  $attempts)"
+Release a reserved job back onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$payload\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$attempts\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file RedisQueue\&.php\&.
+.SS "removeExpiredJobs ( $transaction,  $from,  $time)\fC [protected]\fP"
+Remove the expired jobs from a given queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transaction\fP 
+.br
+\fI$from\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file RedisQueue\&.php\&.
+.SS "setExpire ( $seconds)"
+Set the expiration time in seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file RedisQueue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file RedisQueue\&.php\&.
+.SS "$default\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file RedisQueue\&.php\&.
+.SS "$expire = 60\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file RedisQueue\&.php\&.
+.SS "$redis\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file RedisQueue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

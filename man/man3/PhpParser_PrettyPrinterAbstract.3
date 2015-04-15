@@ -1,0 +1,286 @@
+.TH "PrettyPrinterAbstract" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PrettyPrinterAbstract \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBStandard\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBprettyPrint\fP (array $stmts)"
+.br
+.ti -1c
+.RI "\fBprettyPrintExpr\fP (\fBExpr\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBprettyPrintFile\fP (array $stmts)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpreprocessNodes\fP (array $nodes)"
+.br
+.ti -1c
+.RI "\fBpStmts\fP (array $nodes, $indent=true)"
+.br
+.ti -1c
+.RI "\fBp\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBpInfixOp\fP ($type, \fBNode\fP $leftNode, $operatorString, \fBNode\fP $rightNode)"
+.br
+.ti -1c
+.RI "\fBpPrefixOp\fP ($type, $operatorString, \fBNode\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBpPostfixOp\fP ($type, \fBNode\fP $\fBnode\fP, $operatorString)"
+.br
+.ti -1c
+.RI "\fBpPrec\fP (\fBNode\fP $\fBnode\fP, $parentPrecedence, $parentAssociativity, $childPosition)"
+.br
+.ti -1c
+.RI "\fBpImplode\fP (array $nodes, $glue= '')"
+.br
+.ti -1c
+.RI "\fBpCommaSeparated\fP (array $nodes)"
+.br
+.ti -1c
+.RI "\fBpNoIndent\fP ($string)"
+.br
+.ti -1c
+.RI "\fBpComments\fP (array $comments)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$precedenceMap\fP"
+.br
+.ti -1c
+.RI "\fB$noIndentToken\fP"
+.br
+.ti -1c
+.RI "\fB$canUseSemicolonNamespaces\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file PrettyPrinterAbstract\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+
+.PP
+Definition at line 78 of file PrettyPrinterAbstract\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "p (\fBNode\fP $node)\fC [protected]\fP"
+Pretty prints a node\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP \fBNode\fP to be pretty printed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pretty printed node 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file PrettyPrinterAbstract\&.php\&.
+.SS "pCommaSeparated (array $nodes)\fC [protected]\fP"
+Pretty prints an array of nodes and implodes the printed values with commas\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of Nodes to be printed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Comma separated pretty printed nodes 
+.RE
+.PP
+
+.PP
+Definition at line 244 of file PrettyPrinterAbstract\&.php\&.
+.SS "pComments (array $comments)\fC [protected]\fP"
+
+.PP
+Definition at line 259 of file PrettyPrinterAbstract\&.php\&.
+.SS "pImplode (array $nodes,  $glue = \fC''\fP)\fC [protected]\fP"
+Pretty prints an array of nodes and implodes the printed values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of Nodes to be printed 
+.br
+\fI$glue\fP Character to implode with
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Imploded pretty printed nodes 
+.RE
+.PP
+
+.PP
+Definition at line 228 of file PrettyPrinterAbstract\&.php\&.
+.SS "pInfixOp ( $type, \fBNode\fP $leftNode,  $operatorString, \fBNode\fP $rightNode)\fC [protected]\fP"
+
+.PP
+Definition at line 176 of file PrettyPrinterAbstract\&.php\&.
+.SS "pNoIndent ( $string)\fC [protected]\fP"
+Signals the pretty printer that a string shall not be indented\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP Not to be indented string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed String marked with $this->noIndentToken's\&. 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file PrettyPrinterAbstract\&.php\&.
+.SS "pPostfixOp ( $type, \fBNode\fP $node,  $operatorString)\fC [protected]\fP"
+
+.PP
+Definition at line 189 of file PrettyPrinterAbstract\&.php\&.
+.SS "pPrec (\fBNode\fP $node,  $parentPrecedence,  $parentAssociativity,  $childPosition)\fC [protected]\fP"
+Prints an expression node with the least amount of parentheses necessary to preserve the meaning\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP \fBNode\fP to pretty print 
+.br
+\fI$parentPrecedence\fP Precedence of the parent operator 
+.br
+\fI$parentAssociativity\fP Associativity of parent operator (-1 is left, 0 is nonassoc, 1 is right) 
+.br
+\fI$childPosition\fP Position of the node relative to the operator (-1 is left, 1 is right)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The pretty printed node 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file PrettyPrinterAbstract\&.php\&.
+.SS "pPrefixOp ( $type,  $operatorString, \fBNode\fP $node)\fC [protected]\fP"
+
+.PP
+Definition at line 184 of file PrettyPrinterAbstract\&.php\&.
+.SS "preprocessNodes (array $nodes)\fC [protected]\fP"
+Preprocesses the top-level nodes to initialize pretty printer state\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file PrettyPrinterAbstract\&.php\&.
+.SS "prettyPrint (array $stmts)"
+Pretty prints an array of statements\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $stmts Array of statements
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pretty printed statements 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file PrettyPrinterAbstract\&.php\&.
+.SS "prettyPrintExpr (\fBExpr\fP $node)"
+Pretty prints an expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP Expression node
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pretty printed node 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file PrettyPrinterAbstract\&.php\&.
+.SS "prettyPrintFile (array $stmts)"
+Pretty prints a file of statements (includes the opening <?php tag if it is required)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $stmts Array of statements
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pretty printed statements 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file PrettyPrinterAbstract\&.php\&.
+.SS "pStmts (array $nodes,  $indent = \fCtrue\fP)\fC [protected]\fP"
+Pretty prints an array of nodes (statements) and indents them optionally\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes 
+.br
+\fI$indent\fP Whether to indent the printed nodes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pretty printed statements 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file PrettyPrinterAbstract\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$canUseSemicolonNamespaces\fC [protected]\fP"
+
+.PP
+Definition at line 76 of file PrettyPrinterAbstract\&.php\&.
+.SS "$noIndentToken\fC [protected]\fP"
+
+.PP
+Definition at line 75 of file PrettyPrinterAbstract\&.php\&.
+.SS "$precedenceMap\fC [protected]\fP"
+
+.PP
+Definition at line 10 of file PrettyPrinterAbstract\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

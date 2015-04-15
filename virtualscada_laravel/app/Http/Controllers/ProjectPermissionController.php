@@ -11,6 +11,12 @@ use DB;
 use Request;
 use Response;
 
+/**
+ * Controller that handles the permissions of the Project class
+ *
+ * Class ProjectPermissionController
+ * @package App\Http\Controllers
+ */
 class ProjectPermissionController extends Controller {
 
 	/**

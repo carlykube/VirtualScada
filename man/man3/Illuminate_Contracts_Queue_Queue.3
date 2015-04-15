@@ -1,0 +1,157 @@
+.TH "Queue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Queue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBeanstalkdQueue\fP, \fBDatabaseQueue\fP, \fBIronQueue\fP, \fBNullQueue\fP, \fBRedisQueue\fP, \fBSqsQueue\fP, and \fBSyncQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushOn\fP ($\fBqueue\fP, $job, $\fBdata\fP= '')"
+.br
+.ti -1c
+.RI "\fBlaterOn\fP ($\fBqueue\fP, $\fBdelay\fP, $job, $\fBdata\fP= '')"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file Queue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBIronQueue\fP, \fBDatabaseQueue\fP, \fBRedisQueue\fP, \fBBeanstalkdQueue\fP, \fBSqsQueue\fP, \fBSyncQueue\fP, and \fBNullQueue\fP\&.
+.SS "laterOn ( $queue,  $delay,  $job,  $data = \fC''\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implemented in \fBDatabaseQueue\fP, \fBIronQueue\fP, \fBRedisQueue\fP, \fBBeanstalkdQueue\fP, \fBSqsQueue\fP, \fBSyncQueue\fP, and \fBNullQueue\fP\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBDatabaseQueue\fP, \fBIronQueue\fP, \fBRedisQueue\fP, \fBBeanstalkdQueue\fP, \fBSqsQueue\fP, \fBNullQueue\fP, and \fBSyncQueue\fP\&.
+.SS "pushOn ( $queue,  $job,  $data = \fC''\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBDatabaseQueue\fP, \fBIronQueue\fP, \fBRedisQueue\fP, \fBBeanstalkdQueue\fP, \fBSqsQueue\fP, \fBSyncQueue\fP, and \fBNullQueue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,84 @@
+.TH "TestSessionListener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TestSessionListener \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventSubscriberInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBonKernelRequest\fP (\fBGetResponseEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBonKernelResponse\fP (\fBFilterResponseEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetSubscribedEvents\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetSession\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTestSessionListener\fP\&.
+.PP
+Saves session in test environment\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bulat Shakirzyanov mallluhuct@gmail.com 
+.PP
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file TestSessionListener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getSession ()\fC [abstract]\fP, \fC [protected]\fP"
+Gets the session object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SessionInterface|null \fBA\fP SessionInterface instance or null if no session is available 
+.RE
+.PP
+
+.SS "static getSubscribedEvents ()\fC [static]\fP"
+
+.PP
+Definition at line 69 of file TestSessionListener\&.php\&.
+.SS "onKernelRequest (\fBGetResponseEvent\fP $event)"
+
+.PP
+Definition at line 30 of file TestSessionListener\&.php\&.
+.SS "onKernelResponse (\fBFilterResponseEvent\fP $event)"
+Checks if session was initialized and saves if current request is master Runs on 'kernel\&.response' in test environment
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file TestSessionListener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

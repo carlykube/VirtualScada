@@ -1,0 +1,26 @@
+var class_is_test =
+[
+    [ "testIsFutureFalse", "class_is_test.html#ab923d7d60a8898157407f271cc898b6a", null ],
+    [ "testIsFutureFalseInThePast", "class_is_test.html#ad68d7a2b1f8287cc7b41fc565bdf420f", null ],
+    [ "testIsFutureTrue", "class_is_test.html#a53d933e7dde11684f7da285802bee851", null ],
+    [ "testIsLeapYearFalse", "class_is_test.html#a6e8384ec941143b0ff90b48beace05a8", null ],
+    [ "testIsLeapYearTrue", "class_is_test.html#a72a580aa82daf73e88f05f94c2b34e85", null ],
+    [ "testIsPastFalse", "class_is_test.html#af414b41c7479c646267c9deb9032f89a", null ],
+    [ "testIsPastTrue", "class_is_test.html#a10f9a0b07dcdba01ca858fb1bb3769b0", null ],
+    [ "testIsSameDayFalse", "class_is_test.html#a6def5798542eac6ec23664acffe435f4", null ],
+    [ "testIsSameDayTrue", "class_is_test.html#a2d4a45cb096b17a9789c9a9539a9687a", null ],
+    [ "testIsTodayFalseWithTomorrow", "class_is_test.html#ac47496115439bb0de78e9e5ef7556ebf", null ],
+    [ "testIsTodayFalseWithYesterday", "class_is_test.html#a016721aafbd36505ebcc82b26a909969", null ],
+    [ "testIsTodayTrue", "class_is_test.html#ad729b08e27aab2b4764cbf2f00da69f8", null ],
+    [ "testIsTodayWithTimezone", "class_is_test.html#a9b65e66eec4b49bc1b2b3ec126931d0f", null ],
+    [ "testIsTomorrowFalseWith2Days", "class_is_test.html#a66b4b3a70653b6db4d6ecbe0e308e670", null ],
+    [ "testIsTomorrowFalseWithToday", "class_is_test.html#a012d77358b06cf581b40c7ffc0b7e171", null ],
+    [ "testIsTomorrowTrue", "class_is_test.html#a9549446e3a3ff291fe11863c679e0a59", null ],
+    [ "testIsWeekdayFalse", "class_is_test.html#a8ed35fc344bd13a05c7308628ac9be0e", null ],
+    [ "testIsWeekdayTrue", "class_is_test.html#aba64cb081162f2584ff397dae16b9685", null ],
+    [ "testIsWeekendFalse", "class_is_test.html#a5cb7ea5417a5aa76e72b2c7459c8c13f", null ],
+    [ "testIsWeekendTrue", "class_is_test.html#a5e6c922608ac83d43a188d06a8891420", null ],
+    [ "testIsYesterdayFalseWith2Days", "class_is_test.html#a664aa46dd696ca014d7d127b6360f36d", null ],
+    [ "testIsYesterdayFalseWithToday", "class_is_test.html#a30f1db15548a696c95faee49947c76b1", null ],
+    [ "testIsYesterdayTrue", "class_is_test.html#a3e01b2fc8c1a503920083f091af27eaa", null ]
+];

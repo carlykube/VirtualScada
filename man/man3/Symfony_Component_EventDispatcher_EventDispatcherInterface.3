@@ -1,0 +1,155 @@
+.TH "EventDispatcherInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EventDispatcherInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBTraceableEventDispatcherInterface\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdispatch\fP ($eventName, \fBEvent\fP $\fBevent\fP=null)"
+.br
+.ti -1c
+.RI "\fBaddListener\fP ($eventName, $listener, $priority=0)"
+.br
+.ti -1c
+.RI "\fBaddSubscriber\fP (EventSubscriberInterface $subscriber)"
+.br
+.ti -1c
+.RI "\fBremoveListener\fP ($eventName, $listener)"
+.br
+.ti -1c
+.RI "\fBremoveSubscriber\fP (EventSubscriberInterface $subscriber)"
+.br
+.ti -1c
+.RI "\fBgetListeners\fP ($eventName=null)"
+.br
+.ti -1c
+.RI "\fBhasListeners\fP ($eventName=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBEventDispatcherInterface\fP is the central point of \fBSymfony\fP's event listener system\&. Listeners are registered on the manager and events are dispatched through the manager\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bernhard Schussek bschussek@gmail.com
+.RE
+.PP
+
+.PP
+Definition at line 23 of file EventDispatcherInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addListener ( $eventName,  $listener,  $priority = \fC0\fP)"
+Adds an event listener that listens on the specified events\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The event to listen on 
+.br
+\fI$listener\fP The listener 
+.br
+\fI$priority\fP The higher this value, the earlier an event listener will be triggered in the chain (defaults to 0)
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "addSubscriber (EventSubscriberInterface $subscriber)"
+Adds an event subscriber\&.
+.PP
+The subscriber is asked for all the events he is interested in and added as a listener for these events\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subscriber\fP The subscriber\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "dispatch ( $eventName, \fBEvent\fP $event = \fCnull\fP)"
+Dispatches an event to all registered listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The name of the event to dispatch\&. The name of the event is the name of the method that is invoked on listeners\&. 
+.br
+\fI$event\fP The event to pass to the event handlers/listeners\&. If not supplied, an empty \fBEvent\fP instance is created\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEvent\fP
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "getListeners ( $eventName = \fCnull\fP)"
+Gets the listeners of a specific event or all listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The name of the event
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The event listeners for the specified event, or all event listeners by event name 
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "hasListeners ( $eventName = \fCnull\fP)"
+Checks whether an event has any registered listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The name of the event
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the specified event has any listeners, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "removeListener ( $eventName,  $listener)"
+Removes an event listener from the specified events\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The event to remove a listener from 
+.br
+\fI$listener\fP The listener to remove 
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+.SS "removeSubscriber (EventSubscriberInterface $subscriber)"
+Removes an event subscriber\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subscriber\fP The subscriber 
+.RE
+.PP
+
+.PP
+Implemented in \fBTraceableEventDispatcher\fP, and \fBImmutableEventDispatcher\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

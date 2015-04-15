@@ -1,0 +1,27 @@
+var class_swift___mime___headers___mailbox_header_test =
+[
+    [ "testAddressCanBeReturnedForAddress", "class_swift___mime___headers___mailbox_header_test.html#ae5b2b457f28adfa4de0018703e6dcee9", null ],
+    [ "testAddressCanBeReturnedForNameAddress", "class_swift___mime___headers___mailbox_header_test.html#a98e56aa7f7be320d76a93661f0eb9c0a", null ],
+    [ "testEncodingLineLengthCalculations", "class_swift___mime___headers___mailbox_header_test.html#a1a858ac12f8437d87db01928892f5bd6", null ],
+    [ "testEscapeCharsInNameAreQuoted", "class_swift___mime___headers___mailbox_header_test.html#a93947d35722710f077dde4f882cc6e3d", null ],
+    [ "testGetBodyModel", "class_swift___mime___headers___mailbox_header_test.html#a42bb0d0ef00981e57c873d2bbad2c0af", null ],
+    [ "testGetMailboxesReturnsNameValuePairs", "class_swift___mime___headers___mailbox_header_test.html#aa4e18305f57a3576cdf7f5aab001bc1f", null ],
+    [ "testGetValueReturnsMailboxStringValue", "class_swift___mime___headers___mailbox_header_test.html#ac72199a640ed508da58b1a9857587bfd", null ],
+    [ "testGetValueReturnsMailboxStringValueForMultipleMailboxes", "class_swift___mime___headers___mailbox_header_test.html#adfdd35b815b8490d7b8324459accb9b5", null ],
+    [ "testMailboxIsRenderedForNameAddress", "class_swift___mime___headers___mailbox_header_test.html#a119a7747fa596228bb3095a783f1de66", null ],
+    [ "testMailboxIsSetForAddress", "class_swift___mime___headers___mailbox_header_test.html#aabb13698224849b37568213a5c2b5387", null ],
+    [ "testMultipleAddressesAsMailboxes", "class_swift___mime___headers___mailbox_header_test.html#a3757ede38522b824b26b2c1cc06e55c7", null ],
+    [ "testMultipleAddressesAsMailboxStrings", "class_swift___mime___headers___mailbox_header_test.html#a6f0e568356fdb708db074fb45a916d4c", null ],
+    [ "testMultipleAddressesCanBeSetAndFetched", "class_swift___mime___headers___mailbox_header_test.html#af6a88bad78765893c7e9cd93b47d9952", null ],
+    [ "testMultipleMailboxesProducesMultipleMailboxStrings", "class_swift___mime___headers___mailbox_header_test.html#a6fc750810b47ff5dad4c45da8697d577", null ],
+    [ "testMultipleNamedMailboxesReturnsMultipleAddresses", "class_swift___mime___headers___mailbox_header_test.html#a87e6a8f3f4e72037fba8e5afaf05c25f", null ],
+    [ "testMultipleNamedMailboxesReturnsMultipleMailboxes", "class_swift___mime___headers___mailbox_header_test.html#a04d9a74137b24ad7f6716949169656fc", null ],
+    [ "testNameIsEncodedIfNonAscii", "class_swift___mime___headers___mailbox_header_test.html#ac0344e2ac97377dcfbcc1efd85769e43", null ],
+    [ "testQuotesInNameAreQuoted", "class_swift___mime___headers___mailbox_header_test.html#af757d67d40c029ff1948768a34804293", null ],
+    [ "testRemoveAddressesWithList", "class_swift___mime___headers___mailbox_header_test.html#aa6f51810ef73da3ac02aa9166b638f11", null ],
+    [ "testRemoveAddressesWithSingleValue", "class_swift___mime___headers___mailbox_header_test.html#a75183d7a7073e918a9a70b423669c359", null ],
+    [ "testSetAddressesOverwritesAnyMailboxes", "class_swift___mime___headers___mailbox_header_test.html#a45f5f68bd76e6d3d9d51ad1228c4befc", null ],
+    [ "testSetBodyModel", "class_swift___mime___headers___mailbox_header_test.html#a134916f21e5eab49df4ecb674a0dab5c", null ],
+    [ "testToString", "class_swift___mime___headers___mailbox_header_test.html#ad0c45cf7077d1d6d8627e47de00e0374", null ],
+    [ "testTypeIsMailboxHeader", "class_swift___mime___headers___mailbox_header_test.html#a4f9e3d5f12e64a6dbd298141fa84e01b", null ]
+];

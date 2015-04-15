@@ -1,0 +1,123 @@
+.TH "Swift_MemorySpool" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_MemorySpool \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Spool\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBqueueMessage\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBflushQueue\fP (\fBSwift_Transport\fP $transport, &$failedRecipients=null)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$messages\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Stores Messages in memory\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file MemorySpool\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "flushQueue (\fBSwift_Transport\fP $transport, & $failedRecipients = \fCnull\fP)"
+Sends messages using the given transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transport\fP \fBA\fP transport instance 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of sent emails 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 67 of file MemorySpool\&.php\&.
+.SS "isStarted ()"
+Tests if this Transport mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 25 of file MemorySpool\&.php\&.
+.SS "queueMessage (\fBSwift_Mime_Message\fP $message)"
+Stores a message in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The message to store
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether the operation has succeeded 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 51 of file MemorySpool\&.php\&.
+.SS "start ()"
+Starts this Transport mechanism\&. 
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 33 of file MemorySpool\&.php\&.
+.SS "stop ()"
+Stops this Transport mechanism\&. 
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 40 of file MemorySpool\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$messages = array()\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file MemorySpool\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

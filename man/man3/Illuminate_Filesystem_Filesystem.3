@@ -1,0 +1,759 @@
+.TH "Filesystem" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Filesystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexists\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequire\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBrequireOnce\fP ($file)"
+.br
+.ti -1c
+.RI "\fBput\fP ($\fBpath\fP, $contents, $lock=false)"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBappend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($paths)"
+.br
+.ti -1c
+.RI "\fBmove\fP ($\fBpath\fP, $target)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($\fBpath\fP, $target)"
+.br
+.ti -1c
+.RI "\fBname\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBextension\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBtype\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBmimeType\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlastModified\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBisDirectory\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBisWritable\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBisFile\fP ($file)"
+.br
+.ti -1c
+.RI "\fBglob\fP ($pattern, $flags=0)"
+.br
+.ti -1c
+.RI "\fBfiles\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBallFiles\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBdirectories\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBmakeDirectory\fP ($\fBpath\fP, $mode=493, $recursive=false, $\fBforce\fP=false)"
+.br
+.ti -1c
+.RI "\fBcopyDirectory\fP ($directory, $destination, $\fBoptions\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteDirectory\fP ($directory, $preserve=false)"
+.br
+.ti -1c
+.RI "\fBcleanDirectory\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBexists\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequire\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBrequireOnce\fP ($file)"
+.br
+.ti -1c
+.RI "\fBput\fP ($\fBpath\fP, $contents, $lock=false)"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBappend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($paths)"
+.br
+.ti -1c
+.RI "\fBmove\fP ($\fBpath\fP, $target)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($\fBpath\fP, $target)"
+.br
+.ti -1c
+.RI "\fBname\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBextension\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBtype\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBmimeType\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlastModified\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBisDirectory\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBisWritable\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBisFile\fP ($file)"
+.br
+.ti -1c
+.RI "\fBglob\fP ($pattern, $flags=0)"
+.br
+.ti -1c
+.RI "\fBfiles\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBallFiles\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBdirectories\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBmakeDirectory\fP ($\fBpath\fP, $mode=0755, $recursive=false, $\fBforce\fP=false)"
+.br
+.ti -1c
+.RI "\fBcopyDirectory\fP ($directory, $destination, $\fBoptions\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteDirectory\fP ($directory, $preserve=false)"
+.br
+.ti -1c
+.RI "\fBcleanDirectory\fP ($directory)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6230 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "allFiles ( $directory)"
+Get all of the files from the given directory (recursive)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 285 of file Filesystem\&.php\&.
+.SS "allFiles ( $directory)"
+
+.PP
+Definition at line 6339 of file compiled\&.php\&.
+.SS "append ( $path,  $data)"
+Append to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file Filesystem\&.php\&.
+.SS "append ( $path,  $data)"
+
+.PP
+Definition at line 6266 of file compiled\&.php\&.
+.SS "cleanDirectory ( $directory)"
+Empty the specified directory of all files and folders\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 422 of file Filesystem\&.php\&.
+.SS "cleanDirectory ( $directory)"
+
+.PP
+Definition at line 6401 of file compiled\&.php\&.
+.SS "copy ( $path,  $target)"
+Copy a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$target\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file Filesystem\&.php\&.
+.SS "copy ( $path,  $target)"
+
+.PP
+Definition at line 6285 of file compiled\&.php\&.
+.SS "copyDirectory ( $directory,  $destination,  $options = \fCnull\fP)"
+Copy a directory from one location to another\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$destination\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 335 of file Filesystem\&.php\&.
+.SS "copyDirectory ( $directory,  $destination,  $options = \fCnull\fP)"
+
+.PP
+Definition at line 6358 of file compiled\&.php\&.
+.SS "delete ( $paths)"
+Delete the file at a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$paths\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file Filesystem\&.php\&.
+.SS "delete ( $paths)"
+
+.PP
+Definition at line 6270 of file compiled\&.php\&.
+.SS "deleteDirectory ( $directory,  $preserve = \fCfalse\fP)"
+Recursively delete a directory\&.
+.PP
+The directory itself may be optionally preserved\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$preserve\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file Filesystem\&.php\&.
+.SS "deleteDirectory ( $directory,  $preserve = \fCfalse\fP)"
+
+.PP
+Definition at line 6383 of file compiled\&.php\&.
+.SS "directories ( $directory)"
+Get all of the directories within a given directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 296 of file Filesystem\&.php\&.
+.SS "directories ( $directory)"
+
+.PP
+Definition at line 6343 of file compiled\&.php\&.
+.SS "exists ( $path)"
+Determine if a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file Filesystem\&.php\&.
+.SS "exists ( $path)"
+
+.PP
+Definition at line 6233 of file compiled\&.php\&.
+.SS "extension ( $path)"
+Extract the file extension from a file path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file Filesystem\&.php\&.
+.SS "extension ( $path)"
+
+.PP
+Definition at line 6293 of file compiled\&.php\&.
+.SS "files ( $directory)"
+Get an array of all files in a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file Filesystem\&.php\&.
+.SS "files ( $directory)"
+
+.PP
+Definition at line 6329 of file compiled\&.php\&.
+.SS "get ( $path)"
+Get the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 31 of file Filesystem\&.php\&.
+.SS "get ( $path)"
+
+.PP
+Definition at line 6237 of file compiled\&.php\&.
+.SS "getRequire ( $path)"
+Get the returned value of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 46 of file Filesystem\&.php\&.
+.SS "getRequire ( $path)"
+
+.PP
+Definition at line 6244 of file compiled\&.php\&.
+.SS "glob ( $pattern,  $flags = \fC0\fP)"
+Find path names matching a given pattern\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP 
+.br
+\fI$flags\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file Filesystem\&.php\&.
+.SS "glob ( $pattern,  $flags = \fC0\fP)"
+
+.PP
+Definition at line 6325 of file compiled\&.php\&.
+.SS "isDirectory ( $directory)"
+Determine if the given path is a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file Filesystem\&.php\&.
+.SS "isDirectory ( $directory)"
+
+.PP
+Definition at line 6313 of file compiled\&.php\&.
+.SS "isFile ( $file)"
+Determine if the given path is a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 241 of file Filesystem\&.php\&.
+.SS "isFile ( $file)"
+
+.PP
+Definition at line 6321 of file compiled\&.php\&.
+.SS "isWritable ( $path)"
+Determine if the given path is writable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file Filesystem\&.php\&.
+.SS "isWritable ( $path)"
+
+.PP
+Definition at line 6317 of file compiled\&.php\&.
+.SS "lastModified ( $path)"
+Get the file's last modification time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file Filesystem\&.php\&.
+.SS "lastModified ( $path)"
+
+.PP
+Definition at line 6309 of file compiled\&.php\&.
+.SS "makeDirectory ( $path,  $mode = \fC0755\fP,  $recursive = \fCfalse\fP,  $force = \fCfalse\fP)"
+Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$mode\fP 
+.br
+\fI$recursive\fP 
+.br
+\fI$force\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file Filesystem\&.php\&.
+.SS "makeDirectory ( $path,  $mode = \fC493\fP,  $recursive = \fCfalse\fP,  $force = \fCfalse\fP)"
+
+.PP
+Definition at line 6351 of file compiled\&.php\&.
+.SS "mimeType ( $path)"
+Get the mime-type of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file Filesystem\&.php\&.
+.SS "mimeType ( $path)"
+
+.PP
+Definition at line 6301 of file compiled\&.php\&.
+.SS "move ( $path,  $target)"
+Move a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$target\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file Filesystem\&.php\&.
+.SS "move ( $path,  $target)"
+
+.PP
+Definition at line 6281 of file compiled\&.php\&.
+.SS "name ( $path)"
+Extract the file name from a file path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file Filesystem\&.php\&.
+.SS "name ( $path)"
+
+.PP
+Definition at line 6289 of file compiled\&.php\&.
+.SS "prepend ( $path,  $data)"
+Prepend to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file Filesystem\&.php\&.
+.SS "prepend ( $path,  $data)"
+
+.PP
+Definition at line 6259 of file compiled\&.php\&.
+.SS "put ( $path,  $contents,  $lock = \fCfalse\fP)"
+Write the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$lock\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Filesystem\&.php\&.
+.SS "put ( $path,  $contents,  $lock = \fCfalse\fP)"
+
+.PP
+Definition at line 6255 of file compiled\&.php\&.
+.SS "requireOnce ( $file)"
+Require the given file once\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file Filesystem\&.php\&.
+.SS "requireOnce ( $file)"
+
+.PP
+Definition at line 6251 of file compiled\&.php\&.
+.SS "size ( $path)"
+Get the file size of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Filesystem\&.php\&.
+.SS "size ( $path)"
+
+.PP
+Definition at line 6305 of file compiled\&.php\&.
+.SS "type ( $path)"
+Get the file type of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file Filesystem\&.php\&.
+.SS "type ( $path)"
+
+.PP
+Definition at line 6297 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,217 @@
+.TH "Swift_KeyCache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_KeyCache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_KeyCache_ArrayKeyCache\fP, \fBSwift_KeyCache_DiskKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetString\fP ($nsKey, $itemKey, $string, $mode)"
+.br
+.ti -1c
+.RI "\fBimportFromByteStream\fP ($nsKey, $itemKey, \fBSwift_OutputByteStream\fP $os, $mode)"
+.br
+.ti -1c
+.RI "\fBgetInputByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $is=null)"
+.br
+.ti -1c
+.RI "\fBgetString\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBexportToByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBhasKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearAll\fP ($nsKey)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBMODE_WRITE\fP = 1"
+.br
+.ti -1c
+.RI "const \fBMODE_APPEND\fP = 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides a mechanism for storing data using two keys\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file KeyCache\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clearAll ( $nsKey)"
+Clear all data in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "clearKey ( $nsKey,  $itemKey)"
+Clear data for $itemKey in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "exportToByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $is)"
+Get data back out of the cache as a ByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$is\fP stream to write the data to 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "getInputByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $is = \fCnull\fP)"
+Provides a ByteStream which when written to, writes data to $itemKey\&.
+.PP
+NOTE: The stream will always write in append mode\&. If the optional third parameter is passed all writes will go through $is\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$is\fP optional input stream
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_InputByteStream\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "getString ( $nsKey,  $itemKey)"
+Get data back out of the cache as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "hasKey ( $nsKey,  $itemKey)"
+Check if the given $itemKey exists in the namespace $nsKey\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "importFromByteStream ( $nsKey,  $itemKey, \fBSwift_OutputByteStream\fP $os,  $mode)"
+Set a ByteStream into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$os\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SS "setString ( $nsKey,  $itemKey,  $string,  $mode)"
+Set a string into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$string\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_KeyCache_DiskKeyCache\fP, \fBSwift_KeyCache_ArrayKeyCache\fP, and \fBSwift_KeyCache_NullKeyCache\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const MODE_APPEND = 2"
+Mode for appending data to the end of existing cached data 
+.PP
+Definition at line 22 of file KeyCache\&.php\&.
+.SS "const MODE_WRITE = 1"
+Mode for replacing existing cached data 
+.PP
+Definition at line 19 of file KeyCache\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,577 @@
+\section{Response\+Header\+Bag Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag}\index{Response\+Header\+Bag@{Response\+Header\+Bag}}
+Inheritance diagram for Response\+Header\+Bag\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$headers=array())
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\item 
+{\bf all\+Preserve\+Case} ()
+\item 
+{\bf replace} (array \$headers=array())
+\item 
+{\bf set} (\$key, \${\bf values}, \${\bf replace}=true)
+\item 
+{\bf remove} (\$key)
+\item 
+{\bf has\+Cache\+Control\+Directive} (\$key)
+\item 
+{\bf get\+Cache\+Control\+Directive} (\$key)
+\item 
+{\bf set\+Cookie} ({\bf Cookie} \$cookie)
+\item 
+{\bf remove\+Cookie} (\${\bf name}, \${\bf path}= \textquotesingle{}/\textquotesingle{}, \$domain=null)
+\item 
+{\bf get\+Cookies} (\${\bf format}=self\+::\+C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T)
+\item 
+{\bf clear\+Cookie} (\${\bf name}, \${\bf path}= \textquotesingle{}/\textquotesingle{}, \$domain=null, \$secure=false, \$http\+Only=true)
+\item 
+{\bf make\+Disposition} (\$disposition, \$filename, \$filename\+Fallback= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$headers=array())
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\item 
+{\bf all\+Preserve\+Case} ()
+\item 
+{\bf replace} (array \$headers=array())
+\item 
+{\bf set} (\$key, \${\bf values}, \${\bf replace}=true)
+\item 
+{\bf remove} (\$key)
+\item 
+{\bf has\+Cache\+Control\+Directive} (\$key)
+\item 
+{\bf get\+Cache\+Control\+Directive} (\$key)
+\item 
+{\bf set\+Cookie} ({\bf Cookie} \$cookie)
+\item 
+{\bf remove\+Cookie} (\${\bf name}, \${\bf path}= \textquotesingle{}/\textquotesingle{}, \$domain=null)
+\item 
+{\bf get\+Cookies} (\${\bf format}=self\+::\+C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T)
+\item 
+{\bf clear\+Cookie} (\${\bf name}, \${\bf path}= \textquotesingle{}/\textquotesingle{}, \$domain=null, \$secure=false, \$http\+Only=true)
+\item 
+{\bf make\+Disposition} (\$disposition, \$filename, \$filename\+Fallback= \textquotesingle{}\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T} = \textquotesingle{}flat\textquotesingle{}
+\item 
+const {\bf C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y} = \textquotesingle{}array\textquotesingle{}
+\item 
+const {\bf D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T} = \textquotesingle{}attachment\textquotesingle{}
+\item 
+const {\bf D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E} = \textquotesingle{}inline\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf compute\+Cache\+Control\+Value} ()
+\item 
+{\bf compute\+Cache\+Control\+Value} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$computed\+Cache\+Control} = array()
+\item 
+{\bf \$cookies} = array()
+\item 
+{\bf \$header\+Names} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Response\+Header\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag} is a container for \doxyref{Response}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_response} H\+T\+T\+P headers.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 14706 of file compiled.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$headers = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aa157640d8b60c9dcba9df4c2770a3963}
+
+
+Definition at line 14715 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$headers = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aa157640d8b60c9dcba9df4c2770a3963}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$headers} & An array of H\+T\+T\+P headers\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Response\+Header\+Bag.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a7516ca30af0db3cdbf9a7739b48ce91d}
+\{\} 
+
+Definition at line 63 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a7516ca30af0db3cdbf9a7739b48ce91d}
+
+
+Definition at line 14722 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!all\+Preserve\+Case@{all\+Preserve\+Case}}
+\index{all\+Preserve\+Case@{all\+Preserve\+Case}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{all\+Preserve\+Case}]{\setlength{\rightskip}{0pt plus 5cm}all\+Preserve\+Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a7c87638d67761ba284a6c1625ac22ff8}
+Returns the headers, with original capitalizations.
+
+\begin{DoxyReturn}{Returns}
+array An array of headers 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!all\+Preserve\+Case@{all\+Preserve\+Case}}
+\index{all\+Preserve\+Case@{all\+Preserve\+Case}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{all\+Preserve\+Case}]{\setlength{\rightskip}{0pt plus 5cm}all\+Preserve\+Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a7c87638d67761ba284a6c1625ac22ff8}
+
+
+Definition at line 14732 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!clear\+Cookie@{clear\+Cookie}}
+\index{clear\+Cookie@{clear\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{clear\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}clear\+Cookie (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path = {\ttfamily \textquotesingle{}/\textquotesingle{}}, }
+\item[{}]{\$domain = {\ttfamily null}, }
+\item[{}]{\$secure = {\ttfamily false}, }
+\item[{}]{\$http\+Only = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a832bfce9868379e8976efab17c4cf856}
+Clears a cookie in the browser.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$path} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+bool & {\em \$secure} & \\
+\hline
+bool & {\em \$http\+Only} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 237 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!clear\+Cookie@{clear\+Cookie}}
+\index{clear\+Cookie@{clear\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{clear\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}clear\+Cookie (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path = {\ttfamily \textquotesingle{}/\textquotesingle{}}, }
+\item[{}]{\$domain = {\ttfamily null}, }
+\item[{}]{\$secure = {\ttfamily false}, }
+\item[{}]{\$http\+Only = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a832bfce9868379e8976efab17c4cf856}
+
+
+Definition at line 14808 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!compute\+Cache\+Control\+Value@{compute\+Cache\+Control\+Value}}
+\index{compute\+Cache\+Control\+Value@{compute\+Cache\+Control\+Value}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{compute\+Cache\+Control\+Value}]{\setlength{\rightskip}{0pt plus 5cm}compute\+Cache\+Control\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ace5eb774921c2916c88d5fbf59189c5c}
+Returns the calculated value of the cache-\/control header.
+
+This considers several other headers and calculates or modifies the cache-\/control header to a sensible, conservative value.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!compute\+Cache\+Control\+Value@{compute\+Cache\+Control\+Value}}
+\index{compute\+Cache\+Control\+Value@{compute\+Cache\+Control\+Value}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{compute\+Cache\+Control\+Value}]{\setlength{\rightskip}{0pt plus 5cm}compute\+Cache\+Control\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ace5eb774921c2916c88d5fbf59189c5c}
+
+
+Definition at line 14835 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!get\+Cache\+Control\+Directive@{get\+Cache\+Control\+Directive}}
+\index{get\+Cache\+Control\+Directive@{get\+Cache\+Control\+Directive}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{get\+Cache\+Control\+Directive}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cache\+Control\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1dfddc51abe579dde49fe0ef48b11d2d}
+\{\} 
+
+Definition at line 150 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!get\+Cache\+Control\+Directive@{get\+Cache\+Control\+Directive}}
+\index{get\+Cache\+Control\+Directive@{get\+Cache\+Control\+Directive}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{get\+Cache\+Control\+Directive}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cache\+Control\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1dfddc51abe579dde49fe0ef48b11d2d}
+
+
+Definition at line 14769 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!get\+Cookies@{get\+Cookies}}
+\index{get\+Cookies@{get\+Cookies}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{get\+Cookies}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cookies (
+\begin{DoxyParamCaption}
+\item[{}]{\$format = {\ttfamily self\+:\+:COOKIES\+\_\+FLAT}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ade6ed6c40fe09c95be9439e0a4d3da27}
+Returns an array with all cookies.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$format} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 204 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!get\+Cookies@{get\+Cookies}}
+\index{get\+Cookies@{get\+Cookies}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{get\+Cookies}]{\setlength{\rightskip}{0pt plus 5cm}get\+Cookies (
+\begin{DoxyParamCaption}
+\item[{}]{\$format = {\ttfamily self\+:\+:COOKIES\+\_\+FLAT}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ade6ed6c40fe09c95be9439e0a4d3da27}
+
+
+Definition at line 14790 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!has\+Cache\+Control\+Directive@{has\+Cache\+Control\+Directive}}
+\index{has\+Cache\+Control\+Directive@{has\+Cache\+Control\+Directive}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{has\+Cache\+Control\+Directive}]{\setlength{\rightskip}{0pt plus 5cm}has\+Cache\+Control\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ac9800756c1c6788144242154020190e8}
+\{\} 
+
+Definition at line 142 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!has\+Cache\+Control\+Directive@{has\+Cache\+Control\+Directive}}
+\index{has\+Cache\+Control\+Directive@{has\+Cache\+Control\+Directive}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{has\+Cache\+Control\+Directive}]{\setlength{\rightskip}{0pt plus 5cm}has\+Cache\+Control\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ac9800756c1c6788144242154020190e8}
+
+
+Definition at line 14765 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!make\+Disposition@{make\+Disposition}}
+\index{make\+Disposition@{make\+Disposition}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{make\+Disposition}]{\setlength{\rightskip}{0pt plus 5cm}make\+Disposition (
+\begin{DoxyParamCaption}
+\item[{}]{\$disposition, }
+\item[{}]{\$filename, }
+\item[{}]{\$filename\+Fallback = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ab5f7da43c98b934a1b62b128676ac853}
+Generates a H\+T\+T\+P Content-\/\+Disposition field-\/value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$disposition} & \doxyref{One}{p.}{class_one} of \char`\"{}inline\char`\"{} or \char`\"{}attachment\char`\"{} \\
+\hline
+string & {\em \$filename} & \doxyref{A}{p.}{class_a} unicode string \\
+\hline
+string & {\em \$filename\+Fallback} & \doxyref{A}{p.}{class_a} string containing only A\+S\+C\+I\+I characters that is semantically equivalent to \$filename. If the filename is already A\+S\+C\+I\+I, it can be omitted, or just copied from \$filename\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \doxyref{A}{p.}{class_a} string suitable for use as a Content-\/\+Disposition field-\/value.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 257 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!make\+Disposition@{make\+Disposition}}
+\index{make\+Disposition@{make\+Disposition}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{make\+Disposition}]{\setlength{\rightskip}{0pt plus 5cm}make\+Disposition (
+\begin{DoxyParamCaption}
+\item[{}]{\$disposition, }
+\item[{}]{\$filename, }
+\item[{}]{\$filename\+Fallback = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ab5f7da43c98b934a1b62b128676ac853}
+
+
+Definition at line 14812 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!remove@{remove}}
+\index{remove@{remove}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}remove (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a95483af4e2c07dc9893fe058b026bd5d}
+\{\}
+
+Definition at line 127 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!remove@{remove}}
+\index{remove@{remove}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}remove (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a95483af4e2c07dc9893fe058b026bd5d}
+
+
+Definition at line 14756 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!remove\+Cookie@{remove\+Cookie}}
+\index{remove\+Cookie@{remove\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{remove\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Cookie (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path = {\ttfamily \textquotesingle{}/\textquotesingle{}}, }
+\item[{}]{\$domain = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aa8ecc37c3f90d2456c078871595194c7}
+Removes a cookie from the array, but does not unset it in the browser.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$path} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 176 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!remove\+Cookie@{remove\+Cookie}}
+\index{remove\+Cookie@{remove\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{remove\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Cookie (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path = {\ttfamily \textquotesingle{}/\textquotesingle{}}, }
+\item[{}]{\$domain = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aa8ecc37c3f90d2456c078871595194c7}
+
+
+Definition at line 14777 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!replace@{replace}}
+\index{replace@{replace}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{replace}]{\setlength{\rightskip}{0pt plus 5cm}replace (
+\begin{DoxyParamCaption}
+\item[{array}]{\$headers = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a8727b715a53cbd198c2fcd5ad93b34f8}
+\{\}
+
+Definition at line 90 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!replace@{replace}}
+\index{replace@{replace}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{replace}]{\setlength{\rightskip}{0pt plus 5cm}replace (
+\begin{DoxyParamCaption}
+\item[{array}]{\$headers = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a8727b715a53cbd198c2fcd5ad93b34f8}
+
+
+Definition at line 14736 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!set@{set}}
+\index{set@{set}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}set (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$values, }
+\item[{}]{\$replace = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a3296aad565e4d799d370a8ce7b8e3576}
+\{\}
+
+Definition at line 106 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!set@{set}}
+\index{set@{set}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}set (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$values, }
+\item[{}]{\$replace = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a3296aad565e4d799d370a8ce7b8e3576}
+
+
+Definition at line 14744 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!set\+Cookie@{set\+Cookie}}
+\index{set\+Cookie@{set\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{set\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}set\+Cookie (
+\begin{DoxyParamCaption}
+\item[{{\bf Cookie}}]{\$cookie}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1f56e3be994b1cfb877844780f3f6199}
+Sets a cookie.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Cookie}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_cookie} & {\em \$cookie} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 162 of file Response\+Header\+Bag.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!set\+Cookie@{set\+Cookie}}
+\index{set\+Cookie@{set\+Cookie}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{set\+Cookie}]{\setlength{\rightskip}{0pt plus 5cm}set\+Cookie (
+\begin{DoxyParamCaption}
+\item[{{\bf Cookie}}]{\$cookie}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1f56e3be994b1cfb877844780f3f6199}
+
+
+Definition at line 14773 of file compiled.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\$computed\+Cache\+Control@{\$computed\+Cache\+Control}}
+\index{\$computed\+Cache\+Control@{\$computed\+Cache\+Control}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\$computed\+Cache\+Control}]{\setlength{\rightskip}{0pt plus 5cm}\$computed\+Cache\+Control = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aa21a0efb254966a8e3b55ec1e9464f0e}
+
+
+Definition at line 14712 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\$cookies@{\$cookies}}
+\index{\$cookies@{\$cookies}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\$cookies}]{\setlength{\rightskip}{0pt plus 5cm}\$cookies = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aef9f7eafd54f6e36423347bed723c67e}
+
+
+Definition at line 14713 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!\$header\+Names@{\$header\+Names}}
+\index{\$header\+Names@{\$header\+Names}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{\$header\+Names}]{\setlength{\rightskip}{0pt plus 5cm}\$header\+Names = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_aee48abed11eeb307633456dd12cead9f}
+
+
+Definition at line 14714 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y@{C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y}}
+\index{C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y@{C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const C\+O\+O\+K\+I\+E\+S\+\_\+\+A\+R\+R\+A\+Y = \textquotesingle{}array\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_ae3ca3d68edd96b786f0d5055e8510497}
+
+
+Definition at line 14709 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T@{C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T}}
+\index{C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T@{C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}const C\+O\+O\+K\+I\+E\+S\+\_\+\+F\+L\+A\+T = \textquotesingle{}flat\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a624bf186647c1deb026765163643c301}
+
+
+Definition at line 14708 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T@{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T}}
+\index{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T@{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}const D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+A\+T\+T\+A\+C\+H\+M\+E\+N\+T = \textquotesingle{}attachment\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a1d397ced5e9742f72e2b2bea944d3243}
+
+
+Definition at line 14710 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}!D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E@{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E}}
+\index{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E@{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Response\+Header\+Bag}}
+\subsubsection[{D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}const D\+I\+S\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+I\+N\+L\+I\+N\+E = \textquotesingle{}inline\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_response_header_bag_a060859bf09e05a8c8fdeca834a0d5730}
+
+
+Definition at line 14711 of file compiled.\+php.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vendor/{\bf compiled.\+php}\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/{\bf Response\+Header\+Bag.\+php}\end{DoxyCompactItemize}

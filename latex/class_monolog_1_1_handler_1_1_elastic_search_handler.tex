@@ -1,0 +1,191 @@
+\section{Elastic\+Search\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_elastic_search_handler}\index{Elastic\+Search\+Handler@{Elastic\+Search\+Handler}}
+Inheritance diagram for Elastic\+Search\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.200000cm]{class_monolog_1_1_handler_1_1_elastic_search_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (Client \$client, array \${\bf options}=array(), \$level={\bf Logger\+::\+D\+E\+B\+U\+G}, \$bubble=true)
+\item 
+{\bf set\+Formatter} ({\bf Formatter\+Interface} \$formatter)
+\item 
+{\bf get\+Options} ()
+\item 
+{\bf handle\+Batch} (array \$records)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf write} (array \$record)
+\item 
+{\bf get\+Default\+Formatter} ()
+\item 
+{\bf bulk\+Send} (array \$documents)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$client}
+\item 
+{\bf \$options} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Elastic Search handler
+
+Usage example\+:
+
+\$client = new (); \$options = array( \textquotesingle{}index\textquotesingle{} =$>$ \textquotesingle{}elastic\+\_\+index\+\_\+name\textquotesingle{}, \textquotesingle{}type\textquotesingle{} =$>$ \textquotesingle{}elastic\+\_\+doc\+\_\+type\textquotesingle{}, ); \$handler = new \doxyref{Elastic\+Search\+Handler}{p.}{class_monolog_1_1_handler_1_1_elastic_search_handler}(\$client, \$options); \$log = new \doxyref{Logger}{p.}{class_monolog_1_1_logger}(\textquotesingle{}application\textquotesingle{}); \$log-\/$>$push\+Handler(\$handler);
+
+\begin{DoxyAuthor}{Author}
+Jelle Vink {\tt jelle.\+vink@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 36 of file Elastic\+Search\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{Client}]{\$client, }
+\item[{array}]{\$options = {\ttfamily array()}, }
+\item[{}]{\$level = {\ttfamily {\bf Logger\+::\+D\+E\+B\+U\+G}}, }
+\item[{}]{\$bubble = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_acaaf82542e4f3666a4812d226d01331b}
+
+\begin{DoxyParams}[1]{Parameters}
+Client & {\em \$client} & Elastica Client object \\
+\hline
+array & {\em \$options} & \doxyref{Handler}{p.}{namespace_monolog_1_1_handler} configuration \\
+\hline
+integer & {\em \$level} & The minimum logging level at which this handler will be triggered \\
+\hline
+Boolean & {\em \$bubble} & Whether the messages that are handled can bubble up the stack or not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Elastic\+Search\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!bulk\+Send@{bulk\+Send}}
+\index{bulk\+Send@{bulk\+Send}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{bulk\+Send}]{\setlength{\rightskip}{0pt plus 5cm}bulk\+Send (
+\begin{DoxyParamCaption}
+\item[{array}]{\$documents}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a79287725003bcfef219a6442ec4204de}
+Use Elasticsearch bulk A\+P\+I to send list of documents 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$documents} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 118 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!get\+Default\+Formatter@{get\+Default\+Formatter}}
+\index{get\+Default\+Formatter@{get\+Default\+Formatter}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{get\+Default\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Formatter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a0bd80b04e1992562f7eacea2097d3d9d}
+
+
+Definition at line 99 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!get\+Options@{get\+Options}}
+\index{get\+Options@{get\+Options}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{get\+Options}]{\setlength{\rightskip}{0pt plus 5cm}get\+Options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a1a49b8dded6e91a52e2fd07195d334da}
+Getter options \begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!handle\+Batch@{handle\+Batch}}
+\index{handle\+Batch@{handle\+Batch}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{handle\+Batch}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Batch (
+\begin{DoxyParamCaption}
+\item[{array}]{\$records}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a944865926b0302ad2d802bea1eec3a57}
+\{\} 
+
+Implements {\bf Handler\+Interface} \doxyref{}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}.
+
+
+
+Definition at line 107 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!set\+Formatter@{set\+Formatter}}
+\index{set\+Formatter@{set\+Formatter}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{set\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Formatter (
+\begin{DoxyParamCaption}
+\item[{{\bf Formatter\+Interface}}]{\$formatter}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a87804f2347dd817752ef1faa1f0dea05}
+\{\} 
+
+Implements {\bf Handler\+Interface} \doxyref{}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_a87804f2347dd817752ef1faa1f0dea05}.
+
+
+
+Definition at line 79 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!write@{write}}
+\index{write@{write}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_afa17604fd899fffdc1ee326afe177cb5}
+
+
+Definition at line 71 of file Elastic\+Search\+Handler.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!\$client@{\$client}}
+\index{\$client@{\$client}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{\$client}]{\setlength{\rightskip}{0pt plus 5cm}\$client\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_ad1405dc1ba2e288764378e79bff7a87d}
+
+
+Definition at line 41 of file Elastic\+Search\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}!\$options@{\$options}}
+\index{\$options@{\$options}!Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler@{Monolog\+::\+Handler\+::\+Elastic\+Search\+Handler}}
+\subsubsection[{\$options}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf options} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_elastic_search_handler_a011800c63ece4cbbfa77136a20607023}
+
+
+Definition at line 46 of file Elastic\+Search\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Elastic\+Search\+Handler.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,64 @@
+.TH "RedisHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RedisHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($redis, $key, $level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Logs to a \fBRedis\fP key using rpush
+.PP
+usage example:
+.PP
+$log = new \fBLogger\fP('application'); $redis = new \fBRedisHandler\fP(new Predis('tcp://localhost:6379'), 'logs', 'prod'); $log->pushHandler($redis);
+.PP
+\fBAuthor:\fP
+.RS 4
+Thomas Tourlourat thomas@tourlourat.com 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file RedisHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $redis,  $key,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+Definition at line 34 of file RedisHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file RedisHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+
+.PP
+Definition at line 46 of file RedisHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

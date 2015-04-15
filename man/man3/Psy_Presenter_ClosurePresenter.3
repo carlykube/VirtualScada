@@ -1,0 +1,244 @@
+.TH "ClosurePresenter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ClosurePresenter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPresenter\fP, and \fBPresenterManagerAware\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetPresenterManager\fP (\fBPresenterManager\fP $manager)"
+.br
+.ti -1c
+.RI "\fBcanPresent\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpresentRef\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpresent\fP ($value, $depth=null, $\fBoptions\fP=0)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBFMT\fP = '<keyword>function</keyword> (%s)%s { <comment>\&.\&.\&.</comment> }'"
+.br
+.ti -1c
+.RI "const \fBUSE_FMT\fP = ' use (%s)'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBformatParams\fP (\\Closure $value)"
+.br
+.ti -1c
+.RI "\fBformatParam\fP (\\ReflectionParameter $param)"
+.br
+.ti -1c
+.RI "\fBformatStaticVariables\fP (\\Closure $value)"
+.br
+.ti -1c
+.RI "\fBformatParamName\fP ($\fBname\fP)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisParamDefaultValueConstant\fP (\\ReflectionParameter $param)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$manager\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP Closure \fBPresenter\fP\&. 
+.PP
+Definition at line 17 of file ClosurePresenter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "canPresent ( $value)"
+\fBClosurePresenter\fP can present closures\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 41 of file ClosurePresenter\&.php\&.
+.SS "formatParam (\\ReflectionParameter $param)\fC [protected]\fP"
+Format an individual Closure parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$param\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file ClosurePresenter\&.php\&.
+.SS "formatParamName ( $name)\fC [protected]\fP"
+Format a Closure parameter name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file ClosurePresenter\&.php\&.
+.SS "formatParams (\\Closure $value)\fC [protected]\fP"
+Format a list of Closure parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file ClosurePresenter\&.php\&.
+.SS "formatStaticVariables (\\Closure $value)\fC [protected]\fP"
+Format static (used) variable names\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file ClosurePresenter\&.php\&.
+.SS "static isParamDefaultValueConstant (\\ReflectionParameter $param)\fC [static]\fP, \fC [protected]\fP"
+Check whether a parameter's default value is a constant\&.
+.PP
+This is only supported in \fBPHP\fP >= 5\&.4\&.3, and currently unimplemented in HHVM\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$param\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file ClosurePresenter\&.php\&.
+.SS "present ( $value,  $depth = \fCnull\fP,  $options = \fC0\fP)"
+Present the Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$depth\fP (default:null) 
+.br
+\fI$options\fP \fBOne\fP of \fBPresenter\fP constants
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 71 of file ClosurePresenter\&.php\&.
+.SS "presentRef ( $value)"
+Present a reference to the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 53 of file ClosurePresenter\&.php\&.
+.SS "setPresenterManager (\fBPresenterManager\fP $manager)"
+\fBPresenterManagerAware\fP interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$manager\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPresenterManagerAware\fP\&.
+.PP
+Definition at line 29 of file ClosurePresenter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$manager\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file ClosurePresenter\&.php\&.
+.SS "const FMT = '<keyword>function</keyword> (%s)%s { <comment>\&.\&.\&.</comment> }'"
+
+.PP
+Definition at line 19 of file ClosurePresenter\&.php\&.
+.SS "const USE_FMT = ' use (%s)'"
+
+.PP
+Definition at line 20 of file ClosurePresenter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

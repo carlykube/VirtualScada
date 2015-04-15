@@ -1,0 +1,111 @@
+.TH "Query" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Query \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBRtuQuery\fP, and \fBTcpQuery\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self)"
+.br
+.ti -1c
+.RI "def \fBbuild_request\fP (self, pdu, slave)"
+.br
+.ti -1c
+.RI "def \fBparse_response\fP (self, response)"
+.br
+.ti -1c
+.RI "def \fBparse_request\fP (self, request)"
+.br
+.ti -1c
+.RI "def \fBbuild_response\fP (self, response_pdu)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Interface to be implemented in subclass for every specific modbus MAC layer
+
+.fi
+.PP
+ 
+.PP
+Definition at line 109 of file modbus\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self)"
+
+.PP
+.nf
+Constructor
+.fi
+.PP
+ 
+.PP
+Definition at line 114 of file modbus\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def build_request ( self,  pdu,  slave)"
+
+.PP
+.nf
+Get the modbus application protocol request pdu and slave id
+Encapsulate with MAC layer information
+Returns a string
+
+.fi
+.PP
+ 
+.PP
+Definition at line 118 of file modbus\&.py\&.
+.SS "def build_response ( self,  response_pdu)"
+
+.PP
+.nf
+Get the modbus application protocol response pdu and encapsulate with
+MAC layer information
+Returns a string
+
+.fi
+.PP
+ 
+.PP
+Definition at line 142 of file modbus\&.py\&.
+.SS "def parse_request ( self,  request)"
+
+.PP
+.nf
+Get the full request and extract the modbus application protocol 
+request pdu
+Returns a string and the slave id
+
+.fi
+.PP
+ 
+.PP
+Definition at line 134 of file modbus\&.py\&.
+.SS "def parse_response ( self,  response)"
+
+.PP
+.nf
+Get the full response and extract the modbus application protocol
+response pdu
+Returns a string
+
+.fi
+.PP
+ 
+.PP
+Definition at line 126 of file modbus\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

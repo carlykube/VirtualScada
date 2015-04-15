@@ -1,0 +1,531 @@
+.TH "PHPUnit_Framework_MockObject_Generator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Framework_MockObject_Generator \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetMock\fP ($type, $methods=array(), array $arguments=array(), $mockClassName= '', $callOriginalConstructor=TRUE, $callOriginalClone=TRUE, $callAutoload=TRUE, $cloneArguments=TRUE, $callOriginalMethods=FALSE, $proxyTarget=NULL)"
+.br
+.ti -1c
+.RI "\fBgetMockForAbstractClass\fP ($originalClassName, array $arguments=array(), $mockClassName= '', $callOriginalConstructor=TRUE, $callOriginalClone=TRUE, $callAutoload=TRUE, $mockedMethods=array(), $cloneArguments=TRUE)"
+.br
+.ti -1c
+.RI "\fBgetMockForTrait\fP ($traitName, array $arguments=array(), $mockClassName= '', $callOriginalConstructor=TRUE, $callOriginalClone=TRUE, $callAutoload=TRUE, $mockedMethods=array(), $cloneArguments=TRUE)"
+.br
+.ti -1c
+.RI "\fBgetObjectForTrait\fP ($traitName, array $arguments=array(), $traitClassName= '', $callOriginalConstructor=TRUE, $callOriginalClone=TRUE, $callAutoload=TRUE)"
+.br
+.ti -1c
+.RI "\fBgenerate\fP ($type, array $methods=NULL, $mockClassName= '', $callOriginalClone=TRUE, $callAutoload=TRUE, $cloneArguments=TRUE, $callOriginalMethods=FALSE)"
+.br
+.ti -1c
+.RI "\fBgenerateClassFromWsdl\fP ($wsdlFile, $className, array $methods=array(), array $\fBoptions\fP=array())"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetObject\fP ($code, $className, $type= '', $callOriginalConstructor=FALSE, $callAutoload=FALSE, array $arguments=array(), $callOriginalMethods=FALSE, $proxyTarget=NULL)"
+.br
+.ti -1c
+.RI "\fBevalClass\fP ($code, $className)"
+.br
+.ti -1c
+.RI "\fBgenerateMock\fP ($type, $methods, $mockClassName, $callOriginalClone, $callAutoload, $cloneArguments, $callOriginalMethods)"
+.br
+.ti -1c
+.RI "\fBgenerateClassName\fP ($type, $className, $prefix)"
+.br
+.ti -1c
+.RI "\fBgenerateMockClassDeclaration\fP (array $mockClassName, $isInterface, array $additionalInterfaces=array())"
+.br
+.ti -1c
+.RI "\fBgenerateMockedMethodDefinitionFromExisting\fP ($templateDir, ReflectionMethod $method, $cloneArguments, $callOriginalMethods)"
+.br
+.ti -1c
+.RI "\fBgenerateMockedMethodDefinition\fP ($templateDir, $className, $methodName, $cloneArguments=TRUE, $modifier= 'public', $arguments_decl= '', $arguments_call= '', $reference= '', $callOriginalMethods=FALSE, $static=FALSE)"
+.br
+.ti -1c
+.RI "\fBcanMockMethod\fP (ReflectionMethod $method)"
+.br
+.ti -1c
+.RI "\fBgetMethodParameters\fP (ReflectionMethod $method, $forCall=FALSE)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$blacklistedMethodNames\fP"
+.br
+.ti -1c
+.RI "\fB$soapLoaded\fP = NULL"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 33 of file Generator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "canMockMethod (ReflectionMethod $method)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 994 of file Generator\&.php\&.
+.SS "evalClass ( $code,  $className)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP 
+.br
+\fI$className\fP 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file Generator\&.php\&.
+.SS "generate ( $type, array $methods = \fCNULL\fP,  $mockClassName = \fC''\fP,  $callOriginalClone = \fCTRUE\fP,  $callAutoload = \fCTRUE\fP,  $cloneArguments = \fCTRUE\fP,  $callOriginalMethods = \fCFALSE\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 495 of file Generator\&.php\&.
+.SS "generateClassFromWsdl ( $wsdlFile,  $className, array $methods = \fCarray()\fP, array $options = \fCarray()\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$wsdlFile\fP 
+.br
+\fI$className\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 540 of file Generator\&.php\&.
+.SS "generateClassName ( $type,  $className,  $prefix)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$className\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 829 of file Generator\&.php\&.
+.SS "generateMock ( $type,  $methods,  $mockClassName,  $callOriginalClone,  $callAutoload,  $cloneArguments,  $callOriginalMethods)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 642 of file Generator\&.php\&.
+.SS "generateMockClassDeclaration (array $mockClassName,  $isInterface, array $additionalInterfaces = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mockClassName\fP 
+.br
+\fI$isInterface\fP 
+.br
+\fI$additionalInterfaces\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 871 of file Generator\&.php\&.
+.SS "generateMockedMethodDefinition ( $templateDir,  $className,  $methodName,  $cloneArguments = \fCTRUE\fP,  $modifier = \fC'public'\fP,  $arguments_decl = \fC''\fP,  $arguments_call = \fC''\fP,  $reference = \fC''\fP,  $callOriginalMethods = \fCFALSE\fP,  $static = \fCFALSE\fP)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$templateDir\fP 
+.br
+\fI$className\fP 
+.br
+\fI$methodName\fP 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$modifier\fP 
+.br
+\fI$arguments_decl\fP 
+.br
+\fI$arguments_call\fP 
+.br
+\fI$reference\fP 
+.br
+\fI$callOriginalMethods\fP 
+.br
+\fI$static\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 961 of file Generator\&.php\&.
+.SS "generateMockedMethodDefinitionFromExisting ( $templateDir, ReflectionMethod $method,  $cloneArguments,  $callOriginalMethods)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$templateDir\fP 
+.br
+\fI$method\fP 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 914 of file Generator\&.php\&.
+.SS "getMethodParameters (ReflectionMethod $method,  $forCall = \fCFALSE\fP)\fC [protected]\fP"
+Returns the parameters of a function or method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$forCall\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 1014 of file Generator\&.php\&.
+.SS "getMock ( $type,  $methods = \fCarray()\fP, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCTRUE\fP,  $callOriginalClone = \fCTRUE\fP,  $callAutoload = \fCTRUE\fP,  $cloneArguments = \fCTRUE\fP,  $callOriginalMethods = \fCFALSE\fP,  $proxyTarget = \fCNULL\fP)"
+Returns a mock object for the specified class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$methods\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$cloneArguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.br
+\fI$proxyTarget\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP 
+.br
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.br
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file Generator\&.php\&.
+.SS "getMockForAbstractClass ( $originalClassName, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCTRUE\fP,  $callOriginalClone = \fCTRUE\fP,  $callAutoload = \fCTRUE\fP,  $mockedMethods = \fCarray()\fP,  $cloneArguments = \fCTRUE\fP)"
+Returns a mock object for the specified abstract class with all abstract methods of the class mocked\&. Concrete methods to mock can be specified with the last parameter
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originalClassName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$mockedMethods\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.0\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.br
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file Generator\&.php\&.
+.SS "getMockForTrait ( $traitName, array $arguments = \fCarray()\fP,  $mockClassName = \fC''\fP,  $callOriginalConstructor = \fCTRUE\fP,  $callOriginalClone = \fCTRUE\fP,  $callAutoload = \fCTRUE\fP,  $mockedMethods = \fCarray()\fP,  $cloneArguments = \fCTRUE\fP)"
+Returns a mock object for the specified trait with all abstract methods of the trait mocked\&. Concrete methods to mock can be specified with the \fC$mockedMethods\fP parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$traitName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$mockClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$mockedMethods\fP 
+.br
+\fI$cloneArguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.2\&.3 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.br
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file Generator\&.php\&.
+.SS "getObject ( $code,  $className,  $type = \fC''\fP,  $callOriginalConstructor = \fCFALSE\fP,  $callAutoload = \fCFALSE\fP, array $arguments = \fCarray()\fP,  $callOriginalMethods = \fCFALSE\fP,  $proxyTarget = \fCNULL\fP)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP 
+.br
+\fI$className\fP 
+.br
+\fI$type\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callAutoload\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$callOriginalMethods\fP 
+.br
+\fI$proxyTarget\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+
+.PP
+Definition at line 246 of file Generator\&.php\&.
+.SS "getObjectForTrait ( $traitName, array $arguments = \fCarray()\fP,  $traitClassName = \fC''\fP,  $callOriginalConstructor = \fCTRUE\fP,  $callOriginalClone = \fCTRUE\fP,  $callAutoload = \fCTRUE\fP)"
+Returns an object for the specified trait\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$traitName\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$traitClassName\fP 
+.br
+\fI$callOriginalConstructor\fP 
+.br
+\fI$callOriginalClone\fP 
+.br
+\fI$callAutoload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.1\&.0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_MockObject_RuntimeException\fP\fP 
+.br
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 442 of file Generator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$blacklistedMethodNames\fC [protected]\fP"
+
+.PP
+Definition at line 43 of file Generator\&.php\&.
+.SS "$soapLoaded = NULL\fC [protected]\fP"
+
+.PP
+Definition at line 124 of file Generator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

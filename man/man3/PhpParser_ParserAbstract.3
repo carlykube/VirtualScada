@@ -1,0 +1,315 @@
+.TH "ParserAbstract" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ParserAbstract \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBParser\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBLexer\fP $lexer)"
+.br
+.ti -1c
+.RI "\fBparse\fP ($code)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBSYMBOL_NONE\fP = -1"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetExpectedTokens\fP ($state)"
+.br
+.ti -1c
+.RI "\fBtraceNewState\fP ($state, $\fBsymbol\fP)"
+.br
+.ti -1c
+.RI "\fBtraceRead\fP ($\fBsymbol\fP)"
+.br
+.ti -1c
+.RI "\fBtraceShift\fP ($\fBsymbol\fP)"
+.br
+.ti -1c
+.RI "\fBtraceAccept\fP ()"
+.br
+.ti -1c
+.RI "\fBtraceReduce\fP ($\fBn\fP)"
+.br
+.ti -1c
+.RI "\fBhandleNamespaces\fP (array $stmts)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$tokenToSymbolMapSize\fP"
+.br
+.ti -1c
+.RI "\fB$actionTableSize\fP"
+.br
+.ti -1c
+.RI "\fB$gotoTableSize\fP"
+.br
+.ti -1c
+.RI "\fB$invalidSymbol\fP"
+.br
+.ti -1c
+.RI "\fB$defaultAction\fP"
+.br
+.ti -1c
+.RI "\fB$unexpectedTokenRule\fP"
+.br
+.ti -1c
+.RI "\fB$YY2TBLSTATE\fP"
+.br
+.ti -1c
+.RI "\fB$YYNLSTATES\fP"
+.br
+.ti -1c
+.RI "\fB$tokenToSymbol\fP"
+.br
+.ti -1c
+.RI "\fB$symbolToName\fP"
+.br
+.ti -1c
+.RI "\fB$productions\fP"
+.br
+.ti -1c
+.RI "\fB$actionBase\fP"
+.br
+.ti -1c
+.RI "\fB$action\fP"
+.br
+.ti -1c
+.RI "\fB$actionCheck\fP"
+.br
+.ti -1c
+.RI "\fB$actionDefault\fP"
+.br
+.ti -1c
+.RI "\fB$gotoBase\fP"
+.br
+.ti -1c
+.RI "\fB$goto\fP"
+.br
+.ti -1c
+.RI "\fB$gotoCheck\fP"
+.br
+.ti -1c
+.RI "\fB$gotoDefault\fP"
+.br
+.ti -1c
+.RI "\fB$ruleToNonTerminal\fP"
+.br
+.ti -1c
+.RI "\fB$ruleToLength\fP"
+.br
+.ti -1c
+.RI "\fB$lexer\fP"
+.br
+.ti -1c
+.RI "\fB$semValue\fP"
+.br
+.ti -1c
+.RI "\fB$semStack\fP"
+.br
+.ti -1c
+.RI "\fB$stackPos\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file ParserAbstract\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBLexer\fP $lexer)"
+Creates a parser instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lexer\fP \fBA\fP lexer 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file ParserAbstract\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getExpectedTokens ( $state)\fC [protected]\fP"
+
+.PP
+Definition at line 251 of file ParserAbstract\&.php\&.
+.SS "handleNamespaces (array $stmts)\fC [protected]\fP"
+Moves statements of semicolon-style namespaces into $ns->stmts and checks various error conditions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $stmts 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBNode\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 311 of file ParserAbstract\&.php\&.
+.SS "parse ( $code)"
+Parses \fBPHP\fP code into a node tree\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP The source code to parse
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBNode\fP[] Array of statements 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file ParserAbstract\&.php\&.
+.SS "traceAccept ()\fC [protected]\fP"
+
+.PP
+Definition at line 293 of file ParserAbstract\&.php\&.
+.SS "traceNewState ( $state,  $symbol)\fC [protected]\fP"
+
+.PP
+Definition at line 280 of file ParserAbstract\&.php\&.
+.SS "traceRead ( $symbol)\fC [protected]\fP"
+
+.PP
+Definition at line 285 of file ParserAbstract\&.php\&.
+.SS "traceReduce ( $n)\fC [protected]\fP"
+
+.PP
+Definition at line 297 of file ParserAbstract\&.php\&.
+.SS "traceShift ( $symbol)\fC [protected]\fP"
+
+.PP
+Definition at line 289 of file ParserAbstract\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$action\fC [protected]\fP"
+
+.PP
+Definition at line 46 of file ParserAbstract\&.php\&.
+.SS "$actionBase\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file ParserAbstract\&.php\&.
+.SS "array Table indexed analogously \fBto\fP $action If $actionCheck[$actionBase[$state]+$\fBsymbol\fP]!=$\fBsymbol\fP\fC [protected]\fP"
+then the action is defaulted, i\&.e\&. $actionDefault[$state] should be used instead\&. 
+.PP
+Definition at line 49 of file ParserAbstract\&.php\&.
+.SS "$actionDefault\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file ParserAbstract\&.php\&.
+.SS "$actionTableSize\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file ParserAbstract\&.php\&.
+.SS "$defaultAction\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file ParserAbstract\&.php\&.
+.SS "$goto\fC [protected]\fP"
+
+.PP
+Definition at line 57 of file ParserAbstract\&.php\&.
+.SS "$gotoBase\fC [protected]\fP"
+
+.PP
+Definition at line 55 of file ParserAbstract\&.php\&.
+.SS "array Table indexed analogously \fBto\fP $goto If $gotoCheck[$gotoBase[$nonTerminal]+$state]!=$nonTerminal\fC [protected]\fP"
+then the goto state is defaulted, i\&.e\&. $gotoDefault[$nonTerminal] should be used\&. 
+.PP
+Definition at line 60 of file ParserAbstract\&.php\&.
+.SS "$gotoDefault\fC [protected]\fP"
+
+.PP
+Definition at line 62 of file ParserAbstract\&.php\&.
+.SS "$gotoTableSize\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file ParserAbstract\&.php\&.
+.SS "$invalidSymbol\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file ParserAbstract\&.php\&.
+.SS "$lexer\fC [protected]\fP"
+
+.PP
+Definition at line 76 of file ParserAbstract\&.php\&.
+.SS "$productions\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file ParserAbstract\&.php\&.
+.SS "$ruleToLength\fC [protected]\fP"
+
+.PP
+Definition at line 69 of file ParserAbstract\&.php\&.
+.SS "$ruleToNonTerminal\fC [protected]\fP"
+
+.PP
+Definition at line 66 of file ParserAbstract\&.php\&.
+.SS "$semStack\fC [protected]\fP"
+
+.PP
+Definition at line 80 of file ParserAbstract\&.php\&.
+.SS "$semValue\fC [protected]\fP"
+
+.PP
+Definition at line 78 of file ParserAbstract\&.php\&.
+.SS "$stackPos\fC [protected]\fP"
+
+.PP
+Definition at line 82 of file ParserAbstract\&.php\&.
+.SS "$symbolToName\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file ParserAbstract\&.php\&.
+.SS "$tokenToSymbol\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file ParserAbstract\&.php\&.
+.SS "$tokenToSymbolMapSize\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file ParserAbstract\&.php\&.
+.SS "$unexpectedTokenRule\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file ParserAbstract\&.php\&.
+.SS "$YY2TBLSTATE\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file ParserAbstract\&.php\&.
+.SS "$YYNLSTATES\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file ParserAbstract\&.php\&.
+.SS "const SYMBOL_NONE = -1"
+
+.PP
+Definition at line 11 of file ParserAbstract\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,98 @@
+.TH "FileBinaryMimeTypeGuesser" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FileBinaryMimeTypeGuesser \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBMimeTypeGuesserInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($cmd= 'file-\fBb\fP--mime%s 2 >/\fBdev\fP/null')"
+.br
+.ti -1c
+.RI "\fBguess\fP ($\fBpath\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisSupported\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Guesses the mime type with the binary 'file' (only available on *nix)\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bernhard Schussek bschussek@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file FileBinaryMimeTypeGuesser\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $cmd = \fC'file -\fBb\fP --mime %s 2\fP, /\fBdev\fP/null')"
+Constructor\&.
+.PP
+The $cmd pattern must contain a '%s' string that will be replaced with the file name to guess\&.
+.PP
+The command output must start with the mime type of the file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cmd\fP The command to run to get the mime type of a file 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file FileBinaryMimeTypeGuesser\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "guess ( $path)"
+{Guesses the mime type of the file with the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path to the file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The mime type or NULL, if none could be guessed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileNotFoundException\fP If the file does not exist 
+.br
+\fIAccessDeniedException\fP If the file could not be read
+.RE
+.PP
+} 
+.PP
+Implements \fBMimeTypeGuesserInterface\fP\&.
+.PP
+Definition at line 54 of file FileBinaryMimeTypeGuesser\&.php\&.
+.SS "static isSupported ()\fC [static]\fP"
+Returns whether this guesser is supported on the current OS\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file FileBinaryMimeTypeGuesser\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

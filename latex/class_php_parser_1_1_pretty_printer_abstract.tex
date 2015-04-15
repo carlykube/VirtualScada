@@ -1,0 +1,379 @@
+\section{Pretty\+Printer\+Abstract Class Reference}
+\label{class_php_parser_1_1_pretty_printer_abstract}\index{Pretty\+Printer\+Abstract@{Pretty\+Printer\+Abstract}}
+Inheritance diagram for Pretty\+Printer\+Abstract\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_php_parser_1_1_pretty_printer_abstract}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf pretty\+Print} (array \$stmts)
+\item 
+{\bf pretty\+Print\+Expr} ({\bf Expr} \${\bf node})
+\item 
+{\bf pretty\+Print\+File} (array \$stmts)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf preprocess\+Nodes} (array \$nodes)
+\item 
+{\bf p\+Stmts} (array \$nodes, \$indent=true)
+\item 
+{\bf p} ({\bf Node} \${\bf node})
+\item 
+{\bf p\+Infix\+Op} (\$type, {\bf Node} \$left\+Node, \$operator\+String, {\bf Node} \$right\+Node)
+\item 
+{\bf p\+Prefix\+Op} (\$type, \$operator\+String, {\bf Node} \${\bf node})
+\item 
+{\bf p\+Postfix\+Op} (\$type, {\bf Node} \${\bf node}, \$operator\+String)
+\item 
+{\bf p\+Prec} ({\bf Node} \${\bf node}, \$parent\+Precedence, \$parent\+Associativity, \$child\+Position)
+\item 
+{\bf p\+Implode} (array \$nodes, \$glue= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf p\+Comma\+Separated} (array \$nodes)
+\item 
+{\bf p\+No\+Indent} (\$string)
+\item 
+{\bf p\+Comments} (array \$comments)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$precedence\+Map}
+\item 
+{\bf \$no\+Indent\+Token}
+\item 
+{\bf \$can\+Use\+Semicolon\+Namespaces}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Pretty\+Printer\+Abstract.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_pretty_printer_abstract_a095c5d389db211932136b53f25f39685}
+
+
+Definition at line 78 of file Pretty\+Printer\+Abstract.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p@{p}}
+\index{p@{p}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}p (
+\begin{DoxyParamCaption}
+\item[{{\bf Node}}]{\$node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a60eb4d67d266b8d5cd59b47c55f016e3}
+Pretty prints a node.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Node}{p.}{interface_php_parser_1_1_node} & {\em \$node} & \doxyref{Node}{p.}{interface_php_parser_1_1_node} to be pretty printed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Pretty printed node 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Comma\+Separated@{p\+Comma\+Separated}}
+\index{p\+Comma\+Separated@{p\+Comma\+Separated}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Comma\+Separated}]{\setlength{\rightskip}{0pt plus 5cm}p\+Comma\+Separated (
+\begin{DoxyParamCaption}
+\item[{array}]{\$nodes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_aea8177ce50000bbe2321aa1cf7442e43}
+Pretty prints an array of nodes and implodes the printed values with commas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\mbox{[}$\,$\mbox{]}} & \$nodes Array of Nodes to be printed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Comma separated pretty printed nodes 
+\end{DoxyReturn}
+
+
+Definition at line 244 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Comments@{p\+Comments}}
+\index{p\+Comments@{p\+Comments}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Comments}]{\setlength{\rightskip}{0pt plus 5cm}p\+Comments (
+\begin{DoxyParamCaption}
+\item[{array}]{\$comments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a841e53070a4dd41fd2ca43e9c913d54a}
+
+
+Definition at line 259 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Implode@{p\+Implode}}
+\index{p\+Implode@{p\+Implode}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Implode}]{\setlength{\rightskip}{0pt plus 5cm}p\+Implode (
+\begin{DoxyParamCaption}
+\item[{array}]{\$nodes, }
+\item[{}]{\$glue = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a79f4fcd0c07f081349f1911bf27f307d}
+Pretty prints an array of nodes and implodes the printed values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em Node\mbox{[}$\,$\mbox{]}} & \$nodes Array of Nodes to be printed \\
+\hline
+string & {\em \$glue} & Character to implode with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Imploded pretty printed nodes 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Infix\+Op@{p\+Infix\+Op}}
+\index{p\+Infix\+Op@{p\+Infix\+Op}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Infix\+Op}]{\setlength{\rightskip}{0pt plus 5cm}p\+Infix\+Op (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{{\bf Node}}]{\$left\+Node, }
+\item[{}]{\$operator\+String, }
+\item[{{\bf Node}}]{\$right\+Node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a42f243a6c0ff4c96fc7fa6f66ce269af}
+
+
+Definition at line 176 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+No\+Indent@{p\+No\+Indent}}
+\index{p\+No\+Indent@{p\+No\+Indent}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+No\+Indent}]{\setlength{\rightskip}{0pt plus 5cm}p\+No\+Indent (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a9d1db0339417e78b654625ec804b6292}
+Signals the pretty printer that a string shall not be indented.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & Not to be indented string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed String marked with \$this-\/$>$no\+Indent\+Token\textquotesingle{}s. 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Postfix\+Op@{p\+Postfix\+Op}}
+\index{p\+Postfix\+Op@{p\+Postfix\+Op}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Postfix\+Op}]{\setlength{\rightskip}{0pt plus 5cm}p\+Postfix\+Op (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{{\bf Node}}]{\$node, }
+\item[{}]{\$operator\+String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a6c580a4c75e5197985409c43a06fbd55}
+
+
+Definition at line 189 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Prec@{p\+Prec}}
+\index{p\+Prec@{p\+Prec}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Prec}]{\setlength{\rightskip}{0pt plus 5cm}p\+Prec (
+\begin{DoxyParamCaption}
+\item[{{\bf Node}}]{\$node, }
+\item[{}]{\$parent\+Precedence, }
+\item[{}]{\$parent\+Associativity, }
+\item[{}]{\$child\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a85da751b3e31c6c2befc4238ac627384}
+Prints an expression node with the least amount of parentheses necessary to preserve the meaning.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Node}{p.}{interface_php_parser_1_1_node} & {\em \$node} & \doxyref{Node}{p.}{interface_php_parser_1_1_node} to pretty print \\
+\hline
+int & {\em \$parent\+Precedence} & Precedence of the parent operator \\
+\hline
+int & {\em \$parent\+Associativity} & Associativity of parent operator (-\/1 is left, 0 is nonassoc, 1 is right) \\
+\hline
+int & {\em \$child\+Position} & Position of the node relative to the operator (-\/1 is left, 1 is right)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The pretty printed node 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Prefix\+Op@{p\+Prefix\+Op}}
+\index{p\+Prefix\+Op@{p\+Prefix\+Op}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Prefix\+Op}]{\setlength{\rightskip}{0pt plus 5cm}p\+Prefix\+Op (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$operator\+String, }
+\item[{{\bf Node}}]{\$node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a3b2e7847b024513da99425605f443995}
+
+
+Definition at line 184 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!preprocess\+Nodes@{preprocess\+Nodes}}
+\index{preprocess\+Nodes@{preprocess\+Nodes}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{preprocess\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}preprocess\+Nodes (
+\begin{DoxyParamCaption}
+\item[{array}]{\$nodes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_ad7a63f099e67149331735f4cc02d9b0c}
+Preprocesses the top-\/level nodes to initialize pretty printer state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\mbox{[}$\,$\mbox{]}} & \$nodes Array of nodes \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!pretty\+Print@{pretty\+Print}}
+\index{pretty\+Print@{pretty\+Print}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{pretty\+Print}]{\setlength{\rightskip}{0pt plus 5cm}pretty\+Print (
+\begin{DoxyParamCaption}
+\item[{array}]{\$stmts}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_pretty_printer_abstract_afec805bb7701c2f30a7d83e5aaabf790}
+Pretty prints an array of statements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\mbox{[}$\,$\mbox{]}} & \$stmts Array of statements\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Pretty printed statements 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!pretty\+Print\+Expr@{pretty\+Print\+Expr}}
+\index{pretty\+Print\+Expr@{pretty\+Print\+Expr}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{pretty\+Print\+Expr}]{\setlength{\rightskip}{0pt plus 5cm}pretty\+Print\+Expr (
+\begin{DoxyParamCaption}
+\item[{{\bf Expr}}]{\$node}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_pretty_printer_abstract_ab571695b95664b233ebf487fd1167925}
+Pretty prints an expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Expr & {\em \$node} & Expression node\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Pretty printed node 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!pretty\+Print\+File@{pretty\+Print\+File}}
+\index{pretty\+Print\+File@{pretty\+Print\+File}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{pretty\+Print\+File}]{\setlength{\rightskip}{0pt plus 5cm}pretty\+Print\+File (
+\begin{DoxyParamCaption}
+\item[{array}]{\$stmts}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_pretty_printer_abstract_a18184a824d7ddc0be4570f27350cba20}
+Pretty prints a file of statements (includes the opening $<$?php tag if it is required).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\mbox{[}$\,$\mbox{]}} & \$stmts Array of statements\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Pretty printed statements 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!p\+Stmts@{p\+Stmts}}
+\index{p\+Stmts@{p\+Stmts}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{p\+Stmts}]{\setlength{\rightskip}{0pt plus 5cm}p\+Stmts (
+\begin{DoxyParamCaption}
+\item[{array}]{\$nodes, }
+\item[{}]{\$indent = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a722734add1e8cf36ccf7e26a939dc4cb}
+Pretty prints an array of nodes (statements) and indents them optionally.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em Node\mbox{[}$\,$\mbox{]}} & \$nodes Array of nodes \\
+\hline
+bool & {\em \$indent} & Whether to indent the printed nodes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Pretty printed statements 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file Pretty\+Printer\+Abstract.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!\$can\+Use\+Semicolon\+Namespaces@{\$can\+Use\+Semicolon\+Namespaces}}
+\index{\$can\+Use\+Semicolon\+Namespaces@{\$can\+Use\+Semicolon\+Namespaces}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{\$can\+Use\+Semicolon\+Namespaces}]{\setlength{\rightskip}{0pt plus 5cm}\$can\+Use\+Semicolon\+Namespaces\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a102efa4404793042f6a8554dd834796e}
+
+
+Definition at line 76 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!\$no\+Indent\+Token@{\$no\+Indent\+Token}}
+\index{\$no\+Indent\+Token@{\$no\+Indent\+Token}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{\$no\+Indent\+Token}]{\setlength{\rightskip}{0pt plus 5cm}\$no\+Indent\+Token\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_a0cb4a4e140cedc57fc5752b40c45a0c6}
+
+
+Definition at line 75 of file Pretty\+Printer\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}!\$precedence\+Map@{\$precedence\+Map}}
+\index{\$precedence\+Map@{\$precedence\+Map}!Php\+Parser\+::\+Pretty\+Printer\+Abstract@{Php\+Parser\+::\+Pretty\+Printer\+Abstract}}
+\subsubsection[{\$precedence\+Map}]{\setlength{\rightskip}{0pt plus 5cm}\$precedence\+Map\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_pretty_printer_abstract_ac0bd48b3e8043ca5b605ffb52e4fcf19}
+
+
+Definition at line 10 of file Pretty\+Printer\+Abstract.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/nikic/php-\/parser/lib/\+Php\+Parser/{\bf Pretty\+Printer\+Abstract.\+php}\end{DoxyCompactItemize}

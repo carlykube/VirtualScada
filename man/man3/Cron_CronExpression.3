@@ -1,0 +1,332 @@
+.TH "CronExpression" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CronExpression \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($expression, \fBFieldFactory\fP $fieldFactory)"
+.br
+.ti -1c
+.RI "\fBsetExpression\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetPart\fP ($position, $value)"
+.br
+.ti -1c
+.RI "\fBgetNextRunDate\fP ($currentTime= '\fBnow\fP', $nth=0, $allowCurrentDate=false)"
+.br
+.ti -1c
+.RI "\fBgetPreviousRunDate\fP ($currentTime= '\fBnow\fP', $nth=0, $allowCurrentDate=false)"
+.br
+.ti -1c
+.RI "\fBgetMultipleRunDates\fP ($total, $currentTime= '\fBnow\fP', $invert=false, $allowCurrentDate=false)"
+.br
+.ti -1c
+.RI "\fBgetExpression\fP ($part=null)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBisDue\fP ($currentTime= '\fBnow\fP')"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBfactory\fP ($expression, \fBFieldFactory\fP $fieldFactory=null)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBMINUTE\fP = 0"
+.br
+.ti -1c
+.RI "const \fBHOUR\fP = 1"
+.br
+.ti -1c
+.RI "const \fBDAY\fP = 2"
+.br
+.ti -1c
+.RI "const \fBMONTH\fP = 3"
+.br
+.ti -1c
+.RI "const \fBWEEKDAY\fP = 4"
+.br
+.ti -1c
+.RI "const \fBYEAR\fP = 5"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRunDate\fP ($currentTime=null, $nth=0, $invert=false, $allowCurrentDate=false)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CRON expression parser that can determine whether or not a CRON expression is due to run, the next run date and previous run date of a CRON expression\&. The determinations made by this class are accurate if checked run once per minute (seconds are dropped from date time comparisons)\&.
+.PP
+Schedule parts must map to: minute [0-59], hour [0-23], day of month, month [1-12|JAN-DEC], day of week [1-7|MON-SUN], and an optional year\&.
+.PP
+\fBhttp://en\&.wikipedia\&.org/wiki/Cron\fP
+.PP
+Definition at line 17 of file CronExpression\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $expression, \fBFieldFactory\fP $fieldFactory)"
+Parse a CRON expression
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expression\fP CRON expression (e\&.g\&. '8 * * * *') 
+.br
+\fI$fieldFactory\fP Factory to create cron fields 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file CronExpression\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Helper method to output the full expression\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Full CRON expression 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file CronExpression\&.php\&.
+.SS "\fBFieldFactory\fP CRON field factory ( $expression, \fBFieldFactory\fP $fieldFactory = \fCnull\fP)\fC [static]\fP"
+Factory method to create a new \fBCronExpression\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expression\fP The CRON expression to create\&. There are several special predefined values which can be used to substitute the CRON expression:
+.RE
+.PP
+\fC@yearly\fP, \fC@annually\fP - Run once a year, midnight, Jan\&. 1 - 0 0 1 1 * \fC@monthly\fP - Run once a month, midnight, first of month - 0 0 1 * * \fC@weekly\fP - Run once a week, midnight on Sun - 0 0 * * 0 \fC@daily\fP - Run once a day, midnight - 0 0 * * * \fC@hourly\fP - Run once an hour, first minute - 0 * * * * 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fieldFactory\fP Field factory to use
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCronExpression\fP 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file CronExpression\&.php\&.
+.SS "getExpression ( $part = \fCnull\fP)"
+Get all or part of the CRON expression
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$part\fP Specify the part to retrieve or NULL to get the full cron schedule string\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null Returns the CRON expression, a part of the CRON expression, or NULL if the part was specified but not found 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file CronExpression\&.php\&.
+.SS "getMultipleRunDates ( $total,  $currentTime = \fC'\fBnow\fP'\fP,  $invert = \fCfalse\fP,  $allowCurrentDate = \fCfalse\fP)"
+Get multiple run dates starting at the current date or a specific date
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$total\fP Set the total number of dates to calculate 
+.br
+\fI$currentTime\fP Relative calculation date 
+.br
+\fI$invert\fP Set to TRUE to retrieve previous dates 
+.br
+\fI$allowCurrentDate\fP Set to TRUE to return the current date if it matches the cron expression
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array Returns an array of run dates 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file CronExpression\&.php\&.
+.SS "getNextRunDate ( $currentTime = \fC'\fBnow\fP'\fP,  $nth = \fC0\fP,  $allowCurrentDate = \fCfalse\fP)"
+Get a next run date relative to the current date or a specific date
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$currentTime\fP Relative calculation date 
+.br
+\fI$nth\fP Number of matches to skip before returning a matching next run date\&. 0, the default, will return the current date and time if the next run date falls on the current date and time\&. Setting this value to 1 will skip the first match and go to the second match\&. Setting this value to 2 will skip the first 2 matches and so on\&. 
+.br
+\fI$allowCurrentDate\fP Set to TRUE to return the current date if it matches the cron expression\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 149 of file CronExpression\&.php\&.
+.SS "getPreviousRunDate ( $currentTime = \fC'\fBnow\fP'\fP,  $nth = \fC0\fP,  $allowCurrentDate = \fCfalse\fP)"
+Get a previous run date relative to the current date or a specific date
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$currentTime\fP Relative calculation date 
+.br
+\fI$nth\fP Number of matches to skip before returning 
+.br
+\fI$allowCurrentDate\fP Set to TRUE to return the current date if it matches the cron expression
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 166 of file CronExpression\&.php\&.
+.SS "getRunDate ( $currentTime = \fCnull\fP,  $nth = \fC0\fP,  $invert = \fCfalse\fP,  $allowCurrentDate = \fCfalse\fP)\fC [protected]\fP"
+Get the next or previous run date of the expression relative to a date
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$currentTime\fP Relative calculation date 
+.br
+\fI$nth\fP Number of matches to skip before returning 
+.br
+\fI$invert\fP Set to TRUE to go backwards in time 
+.br
+\fI$allowCurrentDate\fP Set to TRUE to return the current date if it matches the cron expression
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 268 of file CronExpression\&.php\&.
+.SS "isDue ( $currentTime = \fC'\fBnow\fP'\fP)"
+Determine if the cron is due to run based on the current date or a specific date\&. This method assumes that the current number of seconds are irrelevant, and should be called once per minute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$currentTime\fP Relative calculation date
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns TRUE if the cron is due to run or FALSE if not 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file CronExpression\&.php\&.
+.SS "setExpression ( $value)"
+Set or change the CRON expression
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP CRON expression (e\&.g\&. 8 * * * *)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCronExpression\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 95 of file CronExpression\&.php\&.
+.SS "setPart ( $position,  $value)"
+Set part of the CRON expression
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$position\fP The position of the CRON expression to set 
+.br
+\fI$value\fP The value to set
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCronExpression\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 120 of file CronExpression\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const DAY = 2"
+
+.PP
+Definition at line 21 of file CronExpression\&.php\&.
+.SS "const HOUR = 1"
+
+.PP
+Definition at line 20 of file CronExpression\&.php\&.
+.SS "const MINUTE = 0"
+
+.PP
+Definition at line 19 of file CronExpression\&.php\&.
+.SS "const MONTH = 3"
+
+.PP
+Definition at line 22 of file CronExpression\&.php\&.
+.SS "const WEEKDAY = 4"
+
+.PP
+Definition at line 23 of file CronExpression\&.php\&.
+.SS "const YEAR = 5"
+
+.PP
+Definition at line 24 of file CronExpression\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

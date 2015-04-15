@@ -1,0 +1,118 @@
+.TH "PluralizationRulesTest" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PluralizationRulesTest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Framework_TestCase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtestFailedLangcodes\fP ($nplural, $langCodes)"
+.br
+.ti -1c
+.RI "\fBtestLangcodes\fP ($nplural, $langCodes)"
+.br
+.ti -1c
+.RI "\fBsuccessLangcodes\fP ()"
+.br
+.ti -1c
+.RI "\fBfailingLangcodes\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalidateMatrix\fP ($nplural, $matrix, $expectSuccess=true)"
+.br
+.ti -1c
+.RI "\fBgenerateTestData\fP ($plural, $langCodes)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Test should cover all languages mentioned on http://translate.sourceforge.net/wiki/l10n/pluralforms and Plural forms mentioned on http://www.gnu.org/software/gettext/manual/gettext.html#Plural-forms\&.
+.PP
+See also https://developer.mozilla.org/en/Localization_and_Plurals which mentions 15 rules having a maximum of 6 forms\&. The mozilla code is also interesting to check for\&.
+.PP
+As mentioned by chx http://drupal.org/node/1273968 we can cover all by testing number from 0 to 199
+.PP
+The goal to cover all languages is to far fetched so this test case is smaller\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Clemens Tolboom clemens@build2be.nl 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file PluralizationRulesTest\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "failingLangcodes ()"
+This array should be at least empty within the near future\&.
+.PP
+This both depends on a complete list trying to add above as understanding the plural rules of the current failing languages\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array with nplural together with langcodes 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file PluralizationRulesTest\&.php\&.
+.SS "generateTestData ( $plural,  $langCodes)\fC [protected]\fP"
+
+.PP
+Definition at line 111 of file PluralizationRulesTest\&.php\&.
+.SS "successLangcodes ()"
+This array should contain all currently known langcodes\&.
+.PP
+As it is impossible to have this ever complete we should try as hard as possible to have it almost complete\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file PluralizationRulesTest\&.php\&.
+.SS "testFailedLangcodes ( $nplural,  $langCodes)"
+We test failed langcode here\&.
+.PP
+TODO: The languages mentioned in the data provide need to get fixed somehow within \fBPluralizationRules\fP\&.
+.PP
+failingLangcodes 
+.PP
+Definition at line 38 of file PluralizationRulesTest\&.php\&.
+.SS "testLangcodes ( $nplural,  $langCodes)"
+successLangcodes 
+.PP
+Definition at line 47 of file PluralizationRulesTest\&.php\&.
+.SS "validateMatrix ( $nplural,  $matrix,  $expectSuccess = \fCtrue\fP)\fC [protected]\fP"
+We validate only on the plural coverage\&. Thus the real rules is not tested\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nplural\fP plural expected 
+.br
+\fI$matrix\fP containing langcodes and their plural index values\&. 
+.br
+\fI$expectSuccess\fP 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file PluralizationRulesTest\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

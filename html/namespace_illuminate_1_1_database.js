@@ -1,0 +1,25 @@
+var namespace_illuminate_1_1_database =
+[
+    [ "Capsule", "namespace_illuminate_1_1_database_1_1_capsule.html", "namespace_illuminate_1_1_database_1_1_capsule" ],
+    [ "Connectors", "namespace_illuminate_1_1_database_1_1_connectors.html", "namespace_illuminate_1_1_database_1_1_connectors" ],
+    [ "Console", "namespace_illuminate_1_1_database_1_1_console.html", "namespace_illuminate_1_1_database_1_1_console" ],
+    [ "Eloquent", "namespace_illuminate_1_1_database_1_1_eloquent.html", "namespace_illuminate_1_1_database_1_1_eloquent" ],
+    [ "Migrations", "namespace_illuminate_1_1_database_1_1_migrations.html", "namespace_illuminate_1_1_database_1_1_migrations" ],
+    [ "Query", "namespace_illuminate_1_1_database_1_1_query.html", "namespace_illuminate_1_1_database_1_1_query" ],
+    [ "Schema", "namespace_illuminate_1_1_database_1_1_schema.html", "namespace_illuminate_1_1_database_1_1_schema" ],
+    [ "Connection", "class_illuminate_1_1_database_1_1_connection.html", "class_illuminate_1_1_database_1_1_connection" ],
+    [ "ConnectionInterface", "interface_illuminate_1_1_database_1_1_connection_interface.html", "interface_illuminate_1_1_database_1_1_connection_interface" ],
+    [ "ConnectionResolver", "class_illuminate_1_1_database_1_1_connection_resolver.html", "class_illuminate_1_1_database_1_1_connection_resolver" ],
+    [ "ConnectionResolverInterface", "interface_illuminate_1_1_database_1_1_connection_resolver_interface.html", "interface_illuminate_1_1_database_1_1_connection_resolver_interface" ],
+    [ "DatabaseManager", "class_illuminate_1_1_database_1_1_database_manager.html", "class_illuminate_1_1_database_1_1_database_manager" ],
+    [ "DatabaseServiceProvider", "class_illuminate_1_1_database_1_1_database_service_provider.html", "class_illuminate_1_1_database_1_1_database_service_provider" ],
+    [ "Grammar", "class_illuminate_1_1_database_1_1_grammar.html", "class_illuminate_1_1_database_1_1_grammar" ],
+    [ "MigrationServiceProvider", "class_illuminate_1_1_database_1_1_migration_service_provider.html", "class_illuminate_1_1_database_1_1_migration_service_provider" ],
+    [ "MySqlConnection", "class_illuminate_1_1_database_1_1_my_sql_connection.html", "class_illuminate_1_1_database_1_1_my_sql_connection" ],
+    [ "PostgresConnection", "class_illuminate_1_1_database_1_1_postgres_connection.html", "class_illuminate_1_1_database_1_1_postgres_connection" ],
+    [ "QueryException", "class_illuminate_1_1_database_1_1_query_exception.html", "class_illuminate_1_1_database_1_1_query_exception" ],
+    [ "Seeder", "class_illuminate_1_1_database_1_1_seeder.html", "class_illuminate_1_1_database_1_1_seeder" ],
+    [ "SeedServiceProvider", "class_illuminate_1_1_database_1_1_seed_service_provider.html", "class_illuminate_1_1_database_1_1_seed_service_provider" ],
+    [ "SQLiteConnection", "class_illuminate_1_1_database_1_1_s_q_lite_connection.html", "class_illuminate_1_1_database_1_1_s_q_lite_connection" ],
+    [ "SqlServerConnection", "class_illuminate_1_1_database_1_1_sql_server_connection.html", "class_illuminate_1_1_database_1_1_sql_server_connection" ]
+];

@@ -12,6 +12,12 @@ use App\Http\Requests\CreateProjectRequest;
 use Symfony\Component\Process\Process;
 
 
+/**
+ * Controller for each Project class
+ *
+ * Class ProjectController
+ * @package App\Http\Controllers
+ */
 class ProjectController extends Controller {
 
     /**
@@ -185,6 +191,12 @@ class ProjectController extends Controller {
         return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
 
+    /**
+     * Edit the project permissions
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function editPermissions(Project $project)
     {
         // check that user is allowed to edit project
@@ -196,6 +208,12 @@ class ProjectController extends Controller {
         return view('projects.editPermissions', compact('project'));
     }
 
+    /**
+     * Update the project permissions
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function updatePermissions(Project $project)
     {
         // check that user is allowed to edit project

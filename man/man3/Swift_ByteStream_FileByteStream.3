@@ -1,0 +1,136 @@
+.TH "Swift_ByteStream_FileByteStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_ByteStream_FileByteStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_ByteStream_AbstractFilterableInputStream\fP, and \fBSwift_FileStream\fP\&.
+.PP
+Inherited by \fBSwift_ByteStream_TemporaryFileByteStream\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP, $writable=false)"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($length)"
+.br
+.ti -1c
+.RI "\fBsetReadPointer\fP ($byteOffset)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_commit\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fB_flush\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Allows reading and writing of bytes to and from a file\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file FileByteStream\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path,  $writable = \fCfalse\fP)"
+Create a new FileByteStream for $path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$writable\fP if true 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file FileByteStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_commit ( $bytes)\fC [protected]\fP"
+Just write the bytes to the file 
+.PP
+Definition at line 127 of file FileByteStream\&.php\&.
+.SS "_flush ()\fC [protected]\fP"
+Not used 
+.PP
+Definition at line 134 of file FileByteStream\&.php\&.
+.SS "getPath ()"
+Get the complete path to the file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_FileStream\fP\&.
+.PP
+Definition at line 63 of file FileByteStream\&.php\&.
+.SS "read ( $length)"
+Reads $length bytes from the stream into a string and moves the pointer through the stream by $length\&.
+.PP
+If less bytes exist than are requested the remaining bytes are given instead\&. If no bytes are remaining at all, boolean false is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 82 of file FileByteStream\&.php\&.
+.SS "setReadPointer ( $byteOffset)"
+Move the internal read pointer to $byteOffset in the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$byteOffset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 118 of file FileByteStream\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

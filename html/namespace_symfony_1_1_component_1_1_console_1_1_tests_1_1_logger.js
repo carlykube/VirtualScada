@@ -1,0 +1,4 @@
+var namespace_symfony_1_1_component_1_1_console_1_1_tests_1_1_logger =
+[
+    [ "ConsoleLoggerTest", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_logger_1_1_console_logger_test.html", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_logger_1_1_console_logger_test" ]
+];

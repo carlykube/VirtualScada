@@ -1,0 +1,320 @@
+.TH "KernelInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+KernelInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHttpKernelInterface\fP, and Serializable\&.
+.PP
+Inherited by \fBKernel\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregisterBundles\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterContainerConfiguration\fP (LoaderInterface $loader)"
+.br
+.ti -1c
+.RI "\fBboot\fP ()"
+.br
+.ti -1c
+.RI "\fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBundles\fP ()"
+.br
+.ti -1c
+.RI "\fBisClassInActiveBundle\fP ($class)"
+.br
+.ti -1c
+.RI "\fBgetBundle\fP ($\fBname\fP, $first=true)"
+.br
+.ti -1c
+.RI "\fBlocateResource\fP ($\fBname\fP, $dir=null, $first=true)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEnvironment\fP ()"
+.br
+.ti -1c
+.RI "\fBisDebug\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRootDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStartTime\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCacheDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLogDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCharset\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fBKernel\fP is the heart of the \fBSymfony\fP system\&.
+.PP
+It manages an environment made of bundles\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 27 of file KernelInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "boot ()"
+Boots the current kernel\&.
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getBundle ( $name,  $first = \fCtrue\fP)"
+Returns a bundle and optionally its descendants by its name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBBundle\fP name 
+.br
+\fI$first\fP Whether to return the first bundle only or together with its descendants
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BundleInterface|BundleInterface[] \fBA\fP BundleInterface instance or an array of BundleInterface instances if $first is false
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getBundles ()"
+Gets the registered bundle instances\&.
+.PP
+\fBReturns:\fP
+.RS 4
+BundleInterface[] An array of registered bundle instances
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP, and \fBKernelForTest\fP\&.
+.SS "getCacheDir ()"
+Gets the cache directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The cache directory
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getCharset ()"
+Gets the charset of the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The charset
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getContainer ()"
+Gets the current container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ContainerInterface \fBA\fP ContainerInterface instance
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getEnvironment ()"
+Gets the environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current environment
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getLogDir ()"
+Gets the log directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The log directory
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getName ()"
+Gets the name of the kernel\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The kernel name
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP, and \fBKernelForTest\fP\&.
+.SS "getRootDir ()"
+Gets the application root dir\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The application root dir
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "getStartTime ()"
+Gets the request start time (not available if debug is disabled)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The request start timestamp
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "isClassInActiveBundle ( $class)"
+Checks if a given class name belongs to an active bundle\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP \fBA\fP class name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the class belongs to an active bundle, false otherwise
+.RE
+.PP
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "isDebug ()"
+Checks if debug mode is enabled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if debug mode is enabled, false otherwise
+.RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "locateResource ( $name,  $dir = \fCnull\fP,  $first = \fCtrue\fP)"
+Returns the file path for a given resource\&.
+.PP
+\fBA\fP Resource can be a file or a directory\&.
+.PP
+The resource name must follow the following pattern: 
+.PP
+.nf
+"@BundleName/path/to/a/file.something"
+
+.fi
+.PP
+.PP
+where BundleName is the name of the bundle and the remaining part is the relative path in the bundle\&.
+.PP
+If $dir is passed, and the first segment of the path is 'Resources', this method will look for a file named: 
+.PP
+.nf
+$dir/<BundleName>/path/without/Resources
+
+.fi
+.PP
+.PP
+before looking in the bundle resource folder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP resource name to locate 
+.br
+\fI$dir\fP \fBA\fP directory where to look for the resource first 
+.br
+\fI$first\fP Whether to return the first path or paths for all matching bundles
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|array The absolute path of the resource or an array if $first is false
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBKernel\fP\&.
+.SS "registerBundles ()"
+Returns an array of bundles to register\&.
+.PP
+\fBReturns:\fP
+.RS 4
+BundleInterface[] An array of bundle instances\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBKernelForTest\fP, \fBKernelForTest\fP, and \fBKernelForOverrideName\fP\&.
+.SS "registerContainerConfiguration (LoaderInterface $loader)"
+Loads the container configuration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loader\fP \fBA\fP LoaderInterface instance
+.RE
+.PP
+
+.PP
+Implemented in \fBKernelForTest\fP, \fBKernelForTest\fP, and \fBKernelForOverrideName\fP\&.
+.SS "shutdown ()"
+Shutdowns the kernel\&.
+.PP
+This method is mainly useful when doing functional testing\&.
+.PP
+Implemented in \fBKernel\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

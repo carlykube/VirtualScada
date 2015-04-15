@@ -1,0 +1,88 @@
+.TH "AuthorizationChecker" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AuthorizationChecker \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAuthorizationCheckerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBTokenStorageInterface\fP $tokenStorage, \fBAuthenticationManagerInterface\fP $authenticationManager, \fBAccessDecisionManagerInterface\fP $accessDecisionManager, $alwaysAuthenticate=false)"
+.br
+.ti -1c
+.RI "\fBisGranted\fP ($attributes, $object=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBAuthorizationChecker\fP is the main authorization point of the \fBSecurity\fP component\&.
+.PP
+It gives access to the token representing the current user authentication\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file AuthorizationChecker\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBTokenStorageInterface\fP $tokenStorage, \fBAuthenticationManagerInterface\fP $authenticationManager, \fBAccessDecisionManagerInterface\fP $accessDecisionManager,  $alwaysAuthenticate = \fCfalse\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokenStorage\fP 
+.br
+\fI$authenticationManager\fP An AuthenticationManager instance 
+.br
+\fI$accessDecisionManager\fP An \fBAccessDecisionManager\fP instance 
+.br
+\fI$alwaysAuthenticate\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file AuthorizationChecker\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "isGranted ( $attributes,  $object = \fCnull\fP)\fC [final]\fP"
+{Checks if the attributes are granted against the current authentication token and optionally supplied object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$object\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+}
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIAuthenticationCredentialsNotFoundException\fP when the token storage has no authentication token\&. 
+.RE
+.PP
+
+.PP
+Implements \fBAuthorizationCheckerInterface\fP\&.
+.PP
+Definition at line 54 of file AuthorizationChecker\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

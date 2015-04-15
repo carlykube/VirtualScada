@@ -1,0 +1,87 @@
+.TH "Libedit" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Libedit \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGNUReadline\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlistHistory\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisSupported\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparseHistoryLine\fP ($\fBline\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP Libedit-based \fBReadline\fP implementation\&.
+.PP
+This is largely the same as the \fBReadline\fP implementation, but it emulates support for \fCreadline_list_history\fP since \fBPHP\fP decided it was a good idea to ship a fake \fBReadline\fP implementation that is missing history support\&. 
+.PP
+Definition at line 23 of file Libedit\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static isSupported ()\fC [static]\fP"
+Let's emulate GNU \fBReadline\fP by manually reading and parsing the history file!
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Implements \fBReadline\fP\&.
+.PP
+Definition at line 30 of file Libedit\&.php\&.
+.SS "listHistory ()"
+List the command history\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+ 
+.PP
+Implements \fBReadline\fP\&.
+.PP
+Definition at line 38 of file Libedit\&.php\&.
+.SS "parseHistoryLine ( $line)\fC [protected]\fP"
+From \fBGNUReadline\fP (readline/histfile\&.c & readline/histexpand\&.c): lines starting with '\\0' are comments or timestamps; if '\\0' is found in an entry, everything from it until the next line is a comment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$line\fP The history line to parse\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string | null 
+.RE
+.PP
+
+.PP
+Definition at line 69 of file Libedit\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

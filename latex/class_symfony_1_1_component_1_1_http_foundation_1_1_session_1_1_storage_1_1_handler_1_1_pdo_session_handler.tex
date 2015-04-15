@@ -1,0 +1,369 @@
+\section{Pdo\+Session\+Handler Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler}\index{Pdo\+Session\+Handler@{Pdo\+Session\+Handler}}
+Inheritance diagram for Pdo\+Session\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$pdo\+Or\+Dsn=null, array \${\bf options}=array())
+\item 
+{\bf create\+Table} ()
+\item 
+{\bf is\+Session\+Expired} ()
+\item 
+{\bf open} (\$save\+Path, \$session\+Name)
+\item 
+{\bf read} (\$session\+Id)
+\item 
+{\bf gc} (\$maxlifetime)
+\item 
+{\bf destroy} (\$session\+Id)
+\item 
+{\bf write} (\$session\+Id, \${\bf data})
+\item 
+{\bf close} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf L\+O\+C\+K\+\_\+\+N\+O\+N\+E} = 0
+\item 
+const {\bf L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y} = 1
+\item 
+const {\bf L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L} = 2
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Connection} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} handler using a P\+D\+O connection to read and write data.
+
+It works with My\+S\+Q\+L, Postgre\+S\+Q\+L, Oracle, S\+Q\+L Server and S\+Q\+Lite and implements different locking strategies to handle concurrent access to the same session. Locking is necessary to prevent loss of data due to race conditions and to keep the session data consistent between \doxyref{read()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a379d9c87c852c5901ff1976be29a5048} and \doxyref{write()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}. With locking, requests for the same session will wait until the other one finished writing. For this reason it\textquotesingle{}s best practice to close a session as early as possible to improve concurrency. P\+H\+Ps internal files session handler also implements locking.
+
+Attention\+: Since S\+Q\+Lite does not support row level locks but locks the whole database, it means only one session can be accessed at a time. Even different sessions would wait for another to finish. So saving session in S\+Q\+Lite should only be considered for development or prototypes.
+
+\doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} data is a binary string that can contain non-\/printable characters like the null byte. For this reason it must be saved in a binary column in the database like B\+L\+O\+B in My\+S\+Q\+L. Saving it in a character column could corrupt the data. You can use \doxyref{create\+Table()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ad3d7cd058f1bf894920970b2d69098d1} to initialize a correctly defined table.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Michael Williams {\tt michael.\+williams@funsational.\+com} 
+
+Tobias Schultze {\tt http\+://tobion.\+de} 
+\end{DoxyAuthor}
+
+
+Definition at line 41 of file Pdo\+Session\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$pdo\+Or\+Dsn = {\ttfamily null}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_abb0d85b33622f76f5225ef9507bed628}
+Constructor.
+
+You can either pass an existing database connection as P\+D\+O instance or pass a D\+S\+N string that will be used to lazy-\/connect to the database when the session is actually used. Furthermore it\textquotesingle{}s possible to pass null which will then use the session.\+save\+\_\+path ini setting as P\+D\+O D\+S\+N parameter.
+
+List of available options\+:
+\begin{DoxyItemize}
+\item db\+\_\+table\+: The name of the table [default\+: sessions]
+\item db\+\_\+id\+\_\+col\+: The column where to store the session id [default\+: sess\+\_\+id]
+\item db\+\_\+data\+\_\+col\+: The column where to store the session data [default\+: sess\+\_\+data]
+\item db\+\_\+lifetime\+\_\+col\+: The column where to store the lifetime [default\+: sess\+\_\+lifetime]
+\item db\+\_\+time\+\_\+col\+: The column where to store the timestamp [default\+: sess\+\_\+time]
+\item db\+\_\+username\+: The username when lazy-\/connect [default\+: \textquotesingle{}\textquotesingle{}]
+\item db\+\_\+password\+: The password when lazy-\/connect [default\+: \textquotesingle{}\textquotesingle{}]
+\item db\+\_\+connection\+\_\+options\+: An array of driver-\/specific connection options [default\+: array()]
+\item lock\+\_\+mode\+: The strategy for locking, see constants [default\+: L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L]
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+P\+D\+O | string | null & {\em \$pdo\+Or\+Dsn} & \doxyref{A}{p.}{class_a}  instance or D\+S\+N string or null \\
+\hline
+array & {\em \$options} & An associative array of options\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 174 of file Pdo\+Session\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!close@{close}}
+\index{close@{close}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}
+\{Closes the current session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+close}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e}.
+
+
+
+Definition at line 386 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!create\+Table@{create\+Table}}
+\index{create\+Table@{create\+Table}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{create\+Table}]{\setlength{\rightskip}{0pt plus 5cm}create\+Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ad3d7cd058f1bf894920970b2d69098d1}
+Creates the table to store sessions which can be called once for setup.
+
+\doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} I\+D is saved in a column of maximum length 128 because that is enough even for a 512 bit configured session.\+hash\+\_\+function like Whirlpool. \doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} data is saved in a B\+L\+O\+B. \doxyref{One}{p.}{class_one} could also use a shorter inlined varbinary column if one was sure the data fits into it.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!destroy@{destroy}}
+\index{destroy@{destroy}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}destroy (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a7976894a2e2239ff937a9203c383c9c1}
+\{Destroys a session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+destroy}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a7976894a2e2239ff937a9203c383c9c1}.
+
+
+
+Definition at line 301 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!gc@{gc}}
+\index{gc@{gc}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{gc}]{\setlength{\rightskip}{0pt plus 5cm}bool Whether gc (
+\begin{DoxyParamCaption}
+\item[{}]{\$maxlifetime}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a0059b95460555c1bbd57e0e3108e4118}
+\{Cleans up expired sessions (garbage collection).
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+gc}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string | int & {\em \$maxlifetime} & Sessions that have not updated for the last maxlifetime seconds will be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a57aff7ee0656d8aa75d545fb8b3ae35d}.
+
+
+
+Definition at line 289 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!get\+Connection@{get\+Connection}}
+\index{get\+Connection@{get\+Connection}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{get\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ab7a0a080d0e721c656eef11cd641638b}
+Return a P\+D\+O instance
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 687 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!is\+Session\+Expired@{is\+Session\+Expired}}
+\index{is\+Session\+Expired@{is\+Session\+Expired}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{is\+Session\+Expired}]{\setlength{\rightskip}{0pt plus 5cm}is\+Session\+Expired (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a1b8f5d33a9bd90eb9ebf791d1336661e}
+Returns true when the current session exists but expired according to session.\+gc\+\_\+maxlifetime.
+
+Can be used to distinguish between a new session and one that expired due to inactivity.
+
+\begin{DoxyReturn}{Returns}
+bool Whether current session expired 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!open@{open}}
+\index{open@{open}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}open (
+\begin{DoxyParamCaption}
+\item[{}]{\$save\+Path, }
+\item[{}]{\$session\+Name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ac70d1623e67e5b6d1859856dcef15d82}
+\{Re-\/initializes existing session, or creates a new one.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+open}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$save\+Path} & Save path \\
+\hline
+string & {\em \$session\+Name} & \doxyref{Session}{p.}{class_session} name, see {\tt http\+://php.\+net/function.\+session-\/name.\+php}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_ac70d1623e67e5b6d1859856dcef15d82}.
+
+
+
+Definition at line 263 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a379d9c87c852c5901ff1976be29a5048}
+\{Reads the session data.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+read}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Same session data as passed in \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} or empty string when non-\/existent or on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048}.
+
+
+
+Definition at line 275 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}
+\{Writes the session data to the storage.
+
+Care, the session I\+D passed to \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} can be different from the one previously received in \doxyref{read()}{p.}{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048} when the session I\+D changed due to session\+\_\+regenerate\+\_\+id().
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+write}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D , see {\tt http\+://php.\+net/function.\+session-\/id} \\
+\hline
+string & {\em \$data} & Serialized session data to save\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Handler\+Interface} \doxyref{}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed}.
+
+
+
+Definition at line 322 of file Pdo\+Session\+Handler.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y@{L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y}}
+\index{L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y@{L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const L\+O\+C\+K\+\_\+\+A\+D\+V\+I\+S\+O\+R\+Y = 1}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ac59883a59da758a5771ca9df4c61f14e}
+Creates an application-\/level lock on a session. The disadvantage is that the lock is not enforced by the database and thus other, unaware parts of the application could still concurrently modify the session. The advantage is it does not require a transaction. This mode is not available for S\+Q\+Lite and not yet implemented for oci and sqlsrv. 
+
+Definition at line 58 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!L\+O\+C\+K\+\_\+\+N\+O\+N\+E@{L\+O\+C\+K\+\_\+\+N\+O\+N\+E}}
+\index{L\+O\+C\+K\+\_\+\+N\+O\+N\+E@{L\+O\+C\+K\+\_\+\+N\+O\+N\+E}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{L\+O\+C\+K\+\_\+\+N\+O\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}const L\+O\+C\+K\+\_\+\+N\+O\+N\+E = 0}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a193659f88ba66a761b8020d529ea4e61}
+No locking is done. This means sessions are prone to loss of data due to race conditions of concurrent requests to the same session. The last session write will win in this case. It might be useful when you implement your own logic to deal with this like an optimistic approach. 
+
+Definition at line 49 of file Pdo\+Session\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}!L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L@{L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L}}
+\index{L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L@{L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Handler\+::\+Pdo\+Session\+Handler}}
+\subsubsection[{L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}const L\+O\+C\+K\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+O\+N\+A\+L = 2}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_affe6f40a5220ee0fb68fe20e448892eb}
+Issues a real row lock. Since it uses a transaction between opening and closing a session, you have to be careful when you use same database connection that you also use for your application logic. This mode is the default because it\textquotesingle{}s the only reliable solution across D\+B\+M\+Ss. 
+
+Definition at line 66 of file Pdo\+Session\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Session/\+Storage/\+Handler/{\bf Pdo\+Session\+Handler.\+php}\end{DoxyCompactItemize}

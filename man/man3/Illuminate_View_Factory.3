@@ -1,0 +1,1455 @@
+.TH "Factory" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Factory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP, and \fBFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBEngineResolver\fP $engines, \fBViewFinderInterface\fP $finder, \fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBfile\fP ($\fBpath\fP, $\fBdata\fP=array(), $mergeData=array())"
+.br
+.ti -1c
+.RI "\fBmake\fP ($view, $\fBdata\fP=array(), $mergeData=array())"
+.br
+.ti -1c
+.RI "\fBof\fP ($view, $\fBdata\fP=array())"
+.br
+.ti -1c
+.RI "\fBname\fP ($view, $name)"
+.br
+.ti -1c
+.RI "\fBalias\fP ($view, $alias)"
+.br
+.ti -1c
+.RI "\fBexists\fP ($view)"
+.br
+.ti -1c
+.RI "\fBrenderEach\fP ($view, $\fBdata\fP, $iterator, $\fBempty\fP= 'raw|')"
+.br
+.ti -1c
+.RI "\fBgetEngineFromPath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBshare\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBcreator\fP ($views, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcomposers\fP (array $composers)"
+.br
+.ti -1c
+.RI "\fBcomposer\fP ($views, $\fBcallback\fP, $priority=null)"
+.br
+.ti -1c
+.RI "\fBcallComposer\fP (\fBView\fP $view)"
+.br
+.ti -1c
+.RI "\fBcallCreator\fP (\fBView\fP $view)"
+.br
+.ti -1c
+.RI "\fBstartSection\fP ($section, $content= '')"
+.br
+.ti -1c
+.RI "\fBinject\fP ($section, $content)"
+.br
+.ti -1c
+.RI "\fByieldSection\fP ()"
+.br
+.ti -1c
+.RI "\fBstopSection\fP ($overwrite=false)"
+.br
+.ti -1c
+.RI "\fBappendSection\fP ()"
+.br
+.ti -1c
+.RI "\fByieldContent\fP ($section, $default= '')"
+.br
+.ti -1c
+.RI "\fBflushSections\fP ()"
+.br
+.ti -1c
+.RI "\fBflushSectionsIfDoneRendering\fP ()"
+.br
+.ti -1c
+.RI "\fBincrementRender\fP ()"
+.br
+.ti -1c
+.RI "\fBdecrementRender\fP ()"
+.br
+.ti -1c
+.RI "\fBdoneRendering\fP ()"
+.br
+.ti -1c
+.RI "\fBaddLocation\fP ($location)"
+.br
+.ti -1c
+.RI "\fBaddNamespace\fP ($namespace, $hints)"
+.br
+.ti -1c
+.RI "\fBprependNamespace\fP ($namespace, $hints)"
+.br
+.ti -1c
+.RI "\fBaddExtension\fP ($extension, $engine, $resolver=null)"
+.br
+.ti -1c
+.RI "\fBgetExtensions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEngineResolver\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFinder\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFinder\fP (\fBViewFinderInterface\fP $finder)"
+.br
+.ti -1c
+.RI "\fBgetDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContainer\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBshared\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetShared\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSections\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNames\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP (\fBEngineResolver\fP $engines, \fBViewFinderInterface\fP $finder, \fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBfile\fP ($\fBpath\fP, $\fBdata\fP=array(), $mergeData=array())"
+.br
+.ti -1c
+.RI "\fBmake\fP ($view, $\fBdata\fP=array(), $mergeData=array())"
+.br
+.ti -1c
+.RI "\fBof\fP ($view, $\fBdata\fP=array())"
+.br
+.ti -1c
+.RI "\fBname\fP ($view, $name)"
+.br
+.ti -1c
+.RI "\fBalias\fP ($view, $alias)"
+.br
+.ti -1c
+.RI "\fBexists\fP ($view)"
+.br
+.ti -1c
+.RI "\fBrenderEach\fP ($view, $\fBdata\fP, $iterator, $\fBempty\fP= 'raw|')"
+.br
+.ti -1c
+.RI "\fBgetEngineFromPath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBshare\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBcreator\fP ($views, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcomposers\fP (array $composers)"
+.br
+.ti -1c
+.RI "\fBcomposer\fP ($views, $\fBcallback\fP, $priority=null)"
+.br
+.ti -1c
+.RI "\fBcallComposer\fP (\fBView\fP $view)"
+.br
+.ti -1c
+.RI "\fBcallCreator\fP (\fBView\fP $view)"
+.br
+.ti -1c
+.RI "\fBstartSection\fP ($section, $content= '')"
+.br
+.ti -1c
+.RI "\fBinject\fP ($section, $content)"
+.br
+.ti -1c
+.RI "\fByieldSection\fP ()"
+.br
+.ti -1c
+.RI "\fBstopSection\fP ($overwrite=false)"
+.br
+.ti -1c
+.RI "\fBappendSection\fP ()"
+.br
+.ti -1c
+.RI "\fByieldContent\fP ($section, $default= '')"
+.br
+.ti -1c
+.RI "\fBflushSections\fP ()"
+.br
+.ti -1c
+.RI "\fBflushSectionsIfDoneRendering\fP ()"
+.br
+.ti -1c
+.RI "\fBincrementRender\fP ()"
+.br
+.ti -1c
+.RI "\fBdecrementRender\fP ()"
+.br
+.ti -1c
+.RI "\fBdoneRendering\fP ()"
+.br
+.ti -1c
+.RI "\fBaddLocation\fP ($location)"
+.br
+.ti -1c
+.RI "\fBaddNamespace\fP ($namespace, $hints)"
+.br
+.ti -1c
+.RI "\fBprependNamespace\fP ($namespace, $hints)"
+.br
+.ti -1c
+.RI "\fBaddExtension\fP ($extension, $engine, $resolver=null)"
+.br
+.ti -1c
+.RI "\fBgetExtensions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEngineResolver\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFinder\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFinder\fP (\fBViewFinderInterface\fP $finder)"
+.br
+.ti -1c
+.RI "\fBgetDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContainer\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBshared\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetShared\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSections\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNames\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBnormalizeName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBparseData\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBgetExtension\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBaddViewEvent\fP ($view, $\fBcallback\fP, $prefix= 'composing: ', $priority=null)"
+.br
+.ti -1c
+.RI "\fBaddClassEvent\fP ($view, $class, $prefix, $priority=null)"
+.br
+.ti -1c
+.RI "\fBaddEventListener\fP ($\fBname\fP, $\fBcallback\fP, $priority=null)"
+.br
+.ti -1c
+.RI "\fBbuildClassEventCallback\fP ($class, $prefix)"
+.br
+.ti -1c
+.RI "\fBparseClassEvent\fP ($class, $prefix)"
+.br
+.ti -1c
+.RI "\fBextendSection\fP ($section, $content)"
+.br
+.ti -1c
+.RI "\fBnormalizeName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBparseData\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBgetExtension\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBaddViewEvent\fP ($view, $\fBcallback\fP, $prefix= 'composing: ', $priority=null)"
+.br
+.ti -1c
+.RI "\fBaddClassEvent\fP ($view, $class, $prefix, $priority=null)"
+.br
+.ti -1c
+.RI "\fBaddEventListener\fP ($\fBname\fP, $\fBcallback\fP, $priority=null)"
+.br
+.ti -1c
+.RI "\fBbuildClassEventCallback\fP ($class, $prefix)"
+.br
+.ti -1c
+.RI "\fBparseClassEvent\fP ($class, $prefix)"
+.br
+.ti -1c
+.RI "\fBextendSection\fP ($section, $content)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$engines\fP"
+.br
+.ti -1c
+.RI "\fB$finder\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$shared\fP = array()"
+.br
+.ti -1c
+.RI "\fB$aliases\fP = array()"
+.br
+.ti -1c
+.RI "\fB$names\fP = array()"
+.br
+.ti -1c
+.RI "\fB$extensions\fP = array('blade\&.php' => 'blade', 'php' => 'php')"
+.br
+.ti -1c
+.RI "\fB$composers\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sections\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sectionStack\fP = array()"
+.br
+.ti -1c
+.RI "\fB$renderCount\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13051 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBEngineResolver\fP $engines, \fBViewFinderInterface\fP $finder, \fBDispatcher\fP $events)"
+
+.PP
+Definition at line 13065 of file compiled\&.php\&.
+.SS "__construct (\fBEngineResolver\fP $engines, \fBViewFinderInterface\fP $finder, \fBDispatcher\fP $events)"
+Create a new view factory instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$engines\fP 
+.br
+\fI$finder\fP 
+.br
+\fI$events\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file Factory\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addClassEvent ( $view,  $class,  $prefix,  $priority = \fCnull\fP)\fC [protected]\fP"
+Register a class based view composer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$class\fP 
+.br
+\fI$prefix\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 430 of file Factory\&.php\&.
+.SS "addClassEvent ( $view,  $class,  $prefix,  $priority = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 13198 of file compiled\&.php\&.
+.SS "addEventListener ( $name,  $callback,  $priority = \fCnull\fP)\fC [protected]\fP"
+Add a listener to the event dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 452 of file Factory\&.php\&.
+.SS "addEventListener ( $name,  $callback,  $priority = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 13205 of file compiled\&.php\&.
+.SS "addExtension ( $extension,  $engine,  $resolver = \fCnull\fP)"
+Register a valid view extension and its engine\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$extension\fP 
+.br
+\fI$engine\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 749 of file Factory\&.php\&.
+.SS "addExtension ( $extension,  $engine,  $resolver = \fCnull\fP)"
+
+.PP
+Definition at line 13326 of file compiled\&.php\&.
+.SS "addLocation ( $location)"
+Add a location to the array of view locations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$location\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 712 of file Factory\&.php\&.
+.SS "addLocation ( $location)"
+
+.PP
+Definition at line 13314 of file compiled\&.php\&.
+.SS "addNamespace ( $namespace,  $hints)"
+Add a new namespace to the loader\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$hints\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 724 of file Factory\&.php\&.
+.SS "addNamespace ( $namespace,  $hints)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13318 of file compiled\&.php\&.
+.SS "addViewEvent ( $view,  $callback,  $prefix = \fC'composing: '\fP,  $priority = \fCnull\fP)\fC [protected]\fP"
+Add an event for a given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$prefix\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 405 of file Factory\&.php\&.
+.SS "addViewEvent ( $view,  $callback,  $prefix = \fC'composing: '\fP,  $priority = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 13188 of file compiled\&.php\&.
+.SS "alias ( $view,  $alias)"
+Add an alias for a view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$alias\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file Factory\&.php\&.
+.SS "alias ( $view,  $alias)"
+
+.PP
+Definition at line 13110 of file compiled\&.php\&.
+.SS "appendSection ()"
+Stop injecting content into a section and append it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 598 of file Factory\&.php\&.
+.SS "appendSection ()"
+
+.PP
+Definition at line 13265 of file compiled\&.php\&.
+.SS "buildClassEventCallback ( $class,  $prefix)\fC [protected]\fP"
+Build a class based container callback Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 471 of file Factory\&.php\&.
+.SS "buildClassEventCallback ( $class,  $prefix)\fC [protected]\fP"
+
+.PP
+Definition at line 13213 of file compiled\&.php\&.
+.SS "callComposer (\fBView\fP $view)"
+Call the composer for a given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 511 of file Factory\&.php\&.
+.SS "callComposer (\fBView\fP $view)"
+
+.PP
+Definition at line 13229 of file compiled\&.php\&.
+.SS "callCreator (\fBView\fP $view)"
+Call the creator for a given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 522 of file Factory\&.php\&.
+.SS "callCreator (\fBView\fP $view)"
+
+.PP
+Definition at line 13233 of file compiled\&.php\&.
+.SS "composer ( $views,  $callback,  $priority = \fCnull\fP)"
+Register a view composer event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$views\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 384 of file Factory\&.php\&.
+.SS "composer ( $views,  $callback,  $priority = \fCnull\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13180 of file compiled\&.php\&.
+.SS "composers (array $composers)"
+Register multiple view composers via an array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$composers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 364 of file Factory\&.php\&.
+.SS "composers (array $composers)"
+
+.PP
+Definition at line 13172 of file compiled\&.php\&.
+.SS "creator ( $views,  $callback)"
+Register a view creator event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$views\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 346 of file Factory\&.php\&.
+.SS "creator ( $views,  $callback)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13164 of file compiled\&.php\&.
+.SS "decrementRender ()"
+Decrement the rendering counter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 691 of file Factory\&.php\&.
+.SS "decrementRender ()"
+
+.PP
+Definition at line 13306 of file compiled\&.php\&.
+.SS "doneRendering ()"
+Check if there are no active render operations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 701 of file Factory\&.php\&.
+.SS "doneRendering ()"
+
+.PP
+Definition at line 13310 of file compiled\&.php\&.
+.SS "exists ( $view)"
+Determine if a given view exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 228 of file Factory\&.php\&.
+.SS "exists ( $view)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13114 of file compiled\&.php\&.
+.SS "extendSection ( $section,  $content)\fC [protected]\fP"
+Append content to a given section\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$section\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 621 of file Factory\&.php\&.
+.SS "extendSection ( $section,  $content)\fC [protected]\fP"
+
+.PP
+Definition at line 13275 of file compiled\&.php\&.
+.SS "file ( $path,  $data = \fCarray()\fP,  $mergeData = \fCarray()\fP)"
+Get the evaluated view contents for the given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.br
+\fI$mergeData\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 122 of file Factory\&.php\&.
+.SS "file ( $path,  $data = \fCarray()\fP,  $mergeData = \fCarray()\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13072 of file compiled\&.php\&.
+.SS "flushSections ()"
+Flush all of the section contents\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 659 of file Factory\&.php\&.
+.SS "flushSections ()"
+
+.PP
+Definition at line 13291 of file compiled\&.php\&.
+.SS "flushSectionsIfDoneRendering ()"
+Flush all of the section contents if done rendering\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 671 of file Factory\&.php\&.
+.SS "flushSectionsIfDoneRendering ()"
+
+.PP
+Definition at line 13296 of file compiled\&.php\&.
+.SS "getContainer ()"
+Get the IoC container instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 830 of file Factory\&.php\&.
+.SS "getContainer ()"
+
+.PP
+Definition at line 13359 of file compiled\&.php\&.
+.SS "getDispatcher ()"
+Get the event dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 809 of file Factory\&.php\&.
+.SS "getDispatcher ()"
+
+.PP
+Definition at line 13351 of file compiled\&.php\&.
+.SS "getEngineFromPath ( $path)"
+Get the appropriate view engine for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 294 of file Factory\&.php\&.
+.SS "getEngineFromPath ( $path)"
+
+.PP
+Definition at line 13140 of file compiled\&.php\&.
+.SS "getEngineResolver ()"
+Get the engine resolver instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 778 of file Factory\&.php\&.
+.SS "getEngineResolver ()"
+
+.PP
+Definition at line 13339 of file compiled\&.php\&.
+.SS "getExtension ( $path)\fC [protected]\fP"
+Get the extension used by the view file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 312 of file Factory\&.php\&.
+.SS "getExtension ( $path)\fC [protected]\fP"
+
+.PP
+Definition at line 13148 of file compiled\&.php\&.
+.SS "getExtensions ()"
+Get the extension to engine bindings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 768 of file Factory\&.php\&.
+.SS "getExtensions ()"
+
+.PP
+Definition at line 13335 of file compiled\&.php\&.
+.SS "getFinder ()"
+Get the view finder instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 788 of file Factory\&.php\&.
+.SS "getFinder ()"
+
+.PP
+Definition at line 13343 of file compiled\&.php\&.
+.SS "getNames ()"
+Get all of the registered named views in environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 883 of file Factory\&.php\&.
+.SS "getNames ()"
+
+.PP
+Definition at line 13379 of file compiled\&.php\&.
+.SS "getSections ()"
+Get the entire array of sections\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 873 of file Factory\&.php\&.
+.SS "getSections ()"
+
+.PP
+Definition at line 13375 of file compiled\&.php\&.
+.SS "getShared ()"
+Get all of the shared data for the environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 863 of file Factory\&.php\&.
+.SS "getShared ()"
+
+.PP
+Definition at line 13371 of file compiled\&.php\&.
+.SS "incrementRender ()"
+Increment the rendering counter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 681 of file Factory\&.php\&.
+.SS "incrementRender ()"
+
+.PP
+Definition at line 13302 of file compiled\&.php\&.
+.SS "inject ( $section,  $content)"
+Inject inline content into a section\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$section\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 556 of file Factory\&.php\&.
+.SS "inject ( $section,  $content)"
+
+.PP
+Definition at line 13247 of file compiled\&.php\&.
+.SS "make ( $view,  $data = \fCarray()\fP,  $mergeData = \fCarray()\fP)"
+Get the evaluated view contents for the given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$mergeData\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 139 of file Factory\&.php\&.
+.SS "make ( $view,  $data = \fCarray()\fP,  $mergeData = \fCarray()\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13078 of file compiled\&.php\&.
+.SS "name ( $view,  $name)"
+Register a named view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Factory\&.php\&.
+.SS "name ( $view,  $name)"
+
+.PP
+Definition at line 13106 of file compiled\&.php\&.
+.SS "normalizeName ( $name)\fC [protected]\fP"
+Normalize a view name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file Factory\&.php\&.
+.SS "normalizeName ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 13089 of file compiled\&.php\&.
+.SS "of ( $view,  $data = \fCarray()\fP)"
+Get the evaluated view contents for a named view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 193 of file Factory\&.php\&.
+.SS "of ( $view,  $data = \fCarray()\fP)"
+
+.PP
+Definition at line 13102 of file compiled\&.php\&.
+.SS "parseClassEvent ( $class,  $prefix)\fC [protected]\fP"
+Parse a class based composer name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 493 of file Factory\&.php\&.
+.SS "parseClassEvent ( $class,  $prefix)\fC [protected]\fP"
+
+.PP
+Definition at line 13221 of file compiled\&.php\&.
+.SS "parseData ( $data)\fC [protected]\fP"
+Parse the given data into a raw array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 181 of file Factory\&.php\&.
+.SS "parseData ( $data)\fC [protected]\fP"
+
+.PP
+Definition at line 13098 of file compiled\&.php\&.
+.SS "prependNamespace ( $namespace,  $hints)"
+Prepend a new namespace to the loader\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$hints\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 736 of file Factory\&.php\&.
+.SS "prependNamespace ( $namespace,  $hints)"
+
+.PP
+Definition at line 13322 of file compiled\&.php\&.
+.SS "renderEach ( $view,  $data,  $iterator,  $empty = \fC'raw|'\fP)"
+Get the rendered contents of a partial from a loop\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$iterator\fP 
+.br
+\fI$empty\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file Factory\&.php\&.
+.SS "renderEach ( $view,  $data,  $iterator,  $empty = \fC'raw|'\fP)"
+
+.PP
+Definition at line 13123 of file compiled\&.php\&.
+.SS "setContainer (\fBContainer\fP $container)"
+Set the IoC container instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 841 of file Factory\&.php\&.
+.SS "setContainer (\fBContainer\fP $container)"
+
+.PP
+Definition at line 13363 of file compiled\&.php\&.
+.SS "setDispatcher (\fBDispatcher\fP $events)"
+Set the event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 820 of file Factory\&.php\&.
+.SS "setDispatcher (\fBDispatcher\fP $events)"
+
+.PP
+Definition at line 13355 of file compiled\&.php\&.
+.SS "setFinder (\fBViewFinderInterface\fP $finder)"
+Set the view finder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$finder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 799 of file Factory\&.php\&.
+.SS "setFinder (\fBViewFinderInterface\fP $finder)"
+
+.PP
+Definition at line 13347 of file compiled\&.php\&.
+.SS "share ( $key,  $value = \fCnull\fP)"
+Add a piece of shared data to the environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 329 of file Factory\&.php\&.
+.SS "share ( $key,  $value = \fCnull\fP)"
+
+.PP
+Implements \fBFactory\fP\&.
+.PP
+Definition at line 13155 of file compiled\&.php\&.
+.SS "shared ( $key,  $default = \fCnull\fP)"
+Get an item from the shared data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 853 of file Factory\&.php\&.
+.SS "shared ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 13367 of file compiled\&.php\&.
+.SS "startSection ( $section,  $content = \fC''\fP)"
+Start injecting content into a section\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$section\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 534 of file Factory\&.php\&.
+.SS "startSection ( $section,  $content = \fC''\fP)"
+
+.PP
+Definition at line 13237 of file compiled\&.php\&.
+.SS "stopSection ( $overwrite = \fCfalse\fP)"
+Stop injecting content into a section\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$overwrite\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 577 of file Factory\&.php\&.
+.SS "stopSection ( $overwrite = \fCfalse\fP)"
+
+.PP
+Definition at line 13255 of file compiled\&.php\&.
+.SS "yieldContent ( $section,  $default = \fC''\fP)"
+Get the string contents of a section\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$section\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 638 of file Factory\&.php\&.
+.SS "yieldContent ( $section,  $default = \fC''\fP)"
+
+.PP
+Definition at line 13282 of file compiled\&.php\&.
+.SS "yieldSection ()"
+Stop injecting content into a section and return its contents\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 566 of file Factory\&.php\&.
+.SS "yieldSection ()"
+
+.PP
+Definition at line 13251 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$aliases = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13058 of file compiled\&.php\&.
+.SS "$\fBcomposers\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13061 of file compiled\&.php\&.
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 13056 of file compiled\&.php\&.
+.SS "$engines\fC [protected]\fP"
+
+.PP
+Definition at line 13053 of file compiled\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 13055 of file compiled\&.php\&.
+.SS "$extensions = array('blade\&.php' => 'blade', 'php' => 'php')\fC [protected]\fP"
+
+.PP
+Definition at line 13060 of file compiled\&.php\&.
+.SS "$finder\fC [protected]\fP"
+
+.PP
+Definition at line 13054 of file compiled\&.php\&.
+.SS "$names = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13059 of file compiled\&.php\&.
+.SS "$renderCount = 0\fC [protected]\fP"
+
+.PP
+Definition at line 13064 of file compiled\&.php\&.
+.SS "$sections = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13062 of file compiled\&.php\&.
+.SS "$sectionStack = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13063 of file compiled\&.php\&.
+.SS "$\fBshared\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 13057 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

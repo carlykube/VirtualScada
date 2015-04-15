@@ -1,0 +1,97 @@
+.TH "Differ" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Differ \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($header='--- Original\\n+++ \fBNew\\n\fP')"
+.br
+.ti -1c
+.RI "\fBdiff\fP ($from, $\fBto\fP, \fBLongestCommonSubsequence\fP $lcs=null)"
+.br
+.ti -1c
+.RI "\fBdiffToArray\fP ($from, $\fBto\fP, \fBLongestCommonSubsequence\fP $lcs=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 27 of file Differ\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $header = \fC'--- Original\\n+++ \fBNew\\n\fP'\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$header\fP 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file Differ\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "diff ( $from,  $to, \fBLongestCommonSubsequence\fP $lcs = \fCnull\fP)"
+Returns the diff between two arrays or strings as string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.br
+\fI$lcs\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file Differ\&.php\&.
+.SS "diffToArray ( $from,  $to, \fBLongestCommonSubsequence\fP $lcs = \fCnull\fP)"
+Returns the diff between two arrays or strings as array\&.
+.PP
+Each array element contains two elements:
+.IP "\(bu" 2
+[0] => string $token
+.IP "\(bu" 2
+[1] => 2|1|0
+.PP
+.PP
+2: REMOVED: $token was removed from $from
+.IP "\(bu" 2
+1: ADDED: $token was added to $from
+.IP "\(bu" 2
+0: OLD: $token is not changed in $to
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.br
+\fI$lcs\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Differ\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

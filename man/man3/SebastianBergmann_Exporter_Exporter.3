@@ -1,0 +1,162 @@
+.TH "Exporter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Exporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexport\fP ($value, $indentation=0)"
+.br
+.ti -1c
+.RI "\fBshortenedRecursiveExport\fP (&$\fBdata\fP, \fBContext\fP $context=null)"
+.br
+.ti -1c
+.RI "\fBshortenedExport\fP ($value)"
+.br
+.ti -1c
+.RI "\fBtoArray\fP ($value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrecursiveExport\fP (&$value, $indentation, $processed=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 32 of file Exporter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "export ( $value,  $indentation = \fC0\fP)"
+Exports a value as a string
+.PP
+The output of this method is similar to the output of print_r(), but improved in various aspects:
+.PP
+.IP "\(bu" 2
+NULL is rendered as 'null' (instead of '')
+.IP "\(bu" 2
+TRUE is rendered as 'true' (instead of '1')
+.IP "\(bu" 2
+FALSE is rendered as 'false' (instead of '')
+.IP "\(bu" 2
+Strings are always quoted with single quotes
+.IP "\(bu" 2
+Carriage returns and newlines are normalized to 
+.br
+
+.IP "\(bu" 2
+Recursion and repeated rendering is treated properly
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$indentation\fP The indentation level of the 2nd+ line 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Exporter\&.php\&.
+.SS "recursiveExport (& $value,  $indentation,  $processed = \fCnull\fP)\fC [protected]\fP"
+Recursive implementation of export
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP The value to export 
+.br
+\fI$indentation\fP The indentation level of the 2nd+ line 
+.br
+\fI$processed\fP Previously processed objects 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSebastianBergmann\fP::export 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file Exporter\&.php\&.
+.SS "shortenedExport ( $value)"
+Exports a value into a single-line string
+.PP
+The output of this method is similar to the output of \fBSebastianBergmann\fP::export\&. This method guarantees thought that the result contains now newlines\&.
+.PP
+Newlines are replaced by the visible string '
+.br
+'\&. Contents of arrays and objects (if any) are replaced by '\&.\&.\&.'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSebastianBergmann\fP::export 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file Exporter\&.php\&.
+.SS "shortenedRecursiveExport (& $data, \fBContext\fP $context = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file Exporter\&.php\&.
+.SS "toArray ( $value)"
+Converts an object to an array containing all of its private, protected and public properties\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file Exporter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

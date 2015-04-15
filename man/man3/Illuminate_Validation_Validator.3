@@ -1,0 +1,3279 @@
+.TH "Validator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Validator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBValidator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBTranslatorInterface\fP $translator, array $\fBdata\fP, array $rules, array $\fBmessages\fP=array(), array $customAttributes=array())"
+.br
+.ti -1c
+.RI "\fBafter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsometimes\fP ($\fBattribute\fP, $rules, callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBeach\fP ($\fBattribute\fP, $rules)"
+.br
+.ti -1c
+.RI "\fBmergeRules\fP ($\fBattribute\fP, $rules)"
+.br
+.ti -1c
+.RI "\fBpasses\fP ()"
+.br
+.ti -1c
+.RI "\fBfails\fP ()"
+.br
+.ti -1c
+.RI "\fBvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBinvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDisplayableValue\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBgetExtensions\fP ()"
+.br
+.ti -1c
+.RI "\fBaddExtensions\fP (array $extensions)"
+.br
+.ti -1c
+.RI "\fBaddImplicitExtensions\fP (array $extensions)"
+.br
+.ti -1c
+.RI "\fBaddExtension\fP ($rule, $extension)"
+.br
+.ti -1c
+.RI "\fBaddImplicitExtension\fP ($rule, $extension)"
+.br
+.ti -1c
+.RI "\fBgetReplacers\fP ()"
+.br
+.ti -1c
+.RI "\fBaddReplacers\fP (array $replacers)"
+.br
+.ti -1c
+.RI "\fBaddReplacer\fP ($rule, $replacer)"
+.br
+.ti -1c
+.RI "\fBgetData\fP ()"
+.br
+.ti -1c
+.RI "\fBsetData\fP (array $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBgetRules\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRules\fP (array $rules)"
+.br
+.ti -1c
+.RI "\fBsetAttributeNames\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBsetValueNames\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetFiles\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFiles\fP (array $files)"
+.br
+.ti -1c
+.RI "\fBgetPresenceVerifier\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPresenceVerifier\fP (\fBPresenceVerifierInterface\fP $presenceVerifier)"
+.br
+.ti -1c
+.RI "\fBgetTranslator\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTranslator\fP (\fBTranslatorInterface\fP $translator)"
+.br
+.ti -1c
+.RI "\fBgetCustomMessages\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCustomMessages\fP (array $\fBmessages\fP)"
+.br
+.ti -1c
+.RI "\fBgetCustomAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBaddCustomAttributes\fP (array $customAttributes)"
+.br
+.ti -1c
+.RI "\fBgetCustomValues\fP ()"
+.br
+.ti -1c
+.RI "\fBaddCustomValues\fP (array $customValues)"
+.br
+.ti -1c
+.RI "\fBgetFallbackMessages\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFallbackMessages\fP (array $\fBmessages\fP)"
+.br
+.ti -1c
+.RI "\fBfailed\fP ()"
+.br
+.ti -1c
+.RI "\fBmessages\fP ()"
+.br
+.ti -1c
+.RI "\fBerrors\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMessageBag\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContainer\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparseData\fP (array $\fBdata\fP, $arrayKey=null)"
+.br
+.ti -1c
+.RI "\fBexplodeRules\fP ($rules)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ($\fBattribute\fP, $rule)"
+.br
+.ti -1c
+.RI "\fBgetValue\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBisValidatable\fP ($rule, $\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBpresentOrRuleIsImplicit\fP ($rule, $\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBpassesOptionalCheck\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBisImplicit\fP ($rule)"
+.br
+.ti -1c
+.RI "\fBhasNotFailedPreviousRuleIfPresenceRule\fP ($rule, $\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBaddFailure\fP ($\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBaddError\fP ($\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateSometimes\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidateRequired\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateFilled\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBanyFailingRequired\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBallFailingRequired\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBvalidateRequiredWith\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateRequiredWithAll\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateRequiredWithout\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateRequiredWithoutAll\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateRequiredIf\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetPresentCount\fP ($attributes)"
+.br
+.ti -1c
+.RI "\fBvalidateConfirmed\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateSame\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateDifferent\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateAccepted\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateArray\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateBoolean\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateInteger\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateNumeric\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateString\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateDigits\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateDigitsBetween\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateSize\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateBetween\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateMin\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateMax\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetSize\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateIn\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateNotIn\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateUnique\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetUniqueIds\fP ($parameters)"
+.br
+.ti -1c
+.RI "\fBgetUniqueExtra\fP ($parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateExists\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetExistCount\fP ($table, $column, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetExtraExistConditions\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetExtraConditions\fP (array $segments)"
+.br
+.ti -1c
+.RI "\fBvalidateIp\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateEmail\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateUrl\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateActiveUrl\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateImage\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateMimes\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBisAValidFileInstance\fP ($value)"
+.br
+.ti -1c
+.RI "\fBvalidateAlpha\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateAlphaNum\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateAlphaDash\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateRegex\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateDate\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateDateFormat\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateBefore\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateBeforeWithFormat\fP ($\fBformat\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateAfter\fP ($\fBattribute\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBvalidateAfterWithFormat\fP ($\fBformat\fP, $value, $parameters)"
+.br
+.ti -1c
+.RI "\fBcheckDateTimeOrder\fP ($\fBformat\fP, $before, $\fBafter\fP)"
+.br
+.ti -1c
+.RI "\fBgetDateTimeWithOptionalFormat\fP ($\fBformat\fP, $value)"
+.br
+.ti -1c
+.RI "\fBvalidateTimezone\fP ($\fBattribute\fP, $value)"
+.br
+.ti -1c
+.RI "\fBgetDateFormat\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBgetMessage\fP ($\fBattribute\fP, $rule)"
+.br
+.ti -1c
+.RI "\fBgetInlineMessage\fP ($\fBattribute\fP, $lowerRule, $source=null)"
+.br
+.ti -1c
+.RI "\fBgetSizeMessage\fP ($\fBattribute\fP, $rule)"
+.br
+.ti -1c
+.RI "\fBgetAttributeType\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBdoReplacements\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBgetAttributeList\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBreplaceBetween\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceDigits\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceDigitsBetween\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceSize\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceMin\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceMax\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceIn\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceNotIn\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceMimes\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRequiredWith\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRequiredWithAll\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRequiredWithout\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRequiredWithoutAll\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRequiredIf\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceSame\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceDifferent\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceDateFormat\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceBefore\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceAfter\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBhasRule\fP ($\fBattribute\fP, $rules)"
+.br
+.ti -1c
+.RI "\fBgetRule\fP ($\fBattribute\fP, $rules)"
+.br
+.ti -1c
+.RI "\fBparseRule\fP ($rules)"
+.br
+.ti -1c
+.RI "\fBparseArrayRule\fP (array $rules)"
+.br
+.ti -1c
+.RI "\fBparseStringRule\fP ($rules)"
+.br
+.ti -1c
+.RI "\fBparseParameters\fP ($rule, $parameter)"
+.br
+.ti -1c
+.RI "\fBcallExtension\fP ($rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBcallClassBasedExtension\fP ($\fBcallback\fP, $parameters)"
+.br
+.ti -1c
+.RI "\fBcallReplacer\fP ($message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBcallClassBasedReplacer\fP ($\fBcallback\fP, $message, $\fBattribute\fP, $rule, $parameters)"
+.br
+.ti -1c
+.RI "\fBrequireParameterCount\fP ($count, $parameters, $rule)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$translator\fP"
+.br
+.ti -1c
+.RI "\fB$presenceVerifier\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$failedRules\fP = array()"
+.br
+.ti -1c
+.RI "\fB$messages\fP"
+.br
+.ti -1c
+.RI "\fB$data\fP"
+.br
+.ti -1c
+.RI "\fB$files\fP = array()"
+.br
+.ti -1c
+.RI "\fB$rules\fP"
+.br
+.ti -1c
+.RI "\fB$after\fP = array()"
+.br
+.ti -1c
+.RI "\fB$customMessages\fP = array()"
+.br
+.ti -1c
+.RI "\fB$fallbackMessages\fP = array()"
+.br
+.ti -1c
+.RI "\fB$customAttributes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$customValues\fP = array()"
+.br
+.ti -1c
+.RI "\fB$extensions\fP = array()"
+.br
+.ti -1c
+.RI "\fB$replacers\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sizeRules\fP = array('Size', 'Between', 'Min', 'Max')"
+.br
+.ti -1c
+.RI "\fB$numericRules\fP = array('Numeric', 'Integer')"
+.br
+.ti -1c
+.RI "\fB$implicitRules\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 19 of file Validator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBTranslatorInterface\fP $translator, array $data, array $rules, array $messages = \fCarray()\fP, array $customAttributes = \fCarray()\fP)"
+Create a new \fBValidator\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$translator\fP 
+.br
+\fI$data\fP 
+.br
+\fI$rules\fP 
+.br
+\fI$messages\fP 
+.br
+\fI$customAttributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file Validator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Handle dynamic calls to class methods\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 2606 of file Validator\&.php\&.
+.SS "addCustomAttributes (array $customAttributes)"
+Add custom attributes to the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$customAttributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2401 of file Validator\&.php\&.
+.SS "addCustomValues (array $customValues)"
+Add the custom values for the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$customValues\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2424 of file Validator\&.php\&.
+.SS "addError ( $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Add an error message to the validator's collection of messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 515 of file Validator\&.php\&.
+.SS "addExtension ( $rule,  $extension)"
+Register a custom validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$extension\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2163 of file Validator\&.php\&.
+.SS "addExtensions (array $extensions)"
+Register an array of custom validator extensions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$extensions\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2128 of file Validator\&.php\&.
+.SS "addFailure ( $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Add a failed rule and error message to the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 500 of file Validator\&.php\&.
+.SS "addImplicitExtension ( $rule,  $extension)"
+Register a custom implicit validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$extension\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2175 of file Validator\&.php\&.
+.SS "addImplicitExtensions (array $extensions)"
+Register an array of custom implicit validator extensions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$extensions\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2146 of file Validator\&.php\&.
+.SS "addReplacer ( $rule,  $replacer)"
+Register a custom validator message replacer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$replacer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2217 of file Validator\&.php\&.
+.SS "addReplacers (array $replacers)"
+Register an array of custom validator message replacers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$replacers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2198 of file Validator\&.php\&.
+.SS "after ( $callback)"
+After an after validation callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Implements \fBValidator\fP\&.
+.PP
+Definition at line 226 of file Validator\&.php\&.
+.SS "allFailingRequired (array $attributes)\fC [protected]\fP"
+Determine if all of the given attributes fail the required test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 607 of file Validator\&.php\&.
+.SS "anyFailingRequired (array $attributes)\fC [protected]\fP"
+Determine if any of the given attributes fail the required test\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 588 of file Validator\&.php\&.
+.SS "callClassBasedExtension ( $callback,  $parameters)\fC [protected]\fP"
+Call a class based validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2533 of file Validator\&.php\&.
+.SS "callClassBasedReplacer ( $callback,  $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Call a class based validator message replacer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2573 of file Validator\&.php\&.
+.SS "callExtension ( $rule,  $parameters)\fC [protected]\fP"
+Call a custom validator extension\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2512 of file Validator\&.php\&.
+.SS "callReplacer ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Call a custom validator message replacer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2549 of file Validator\&.php\&.
+.SS "checkDateTimeOrder ( $format,  $before,  $after)\fC [protected]\fP"
+Given two date/time strings, check that one is after the other\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP 
+.br
+\fI$before\fP 
+.br
+\fI$after\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1434 of file Validator\&.php\&.
+.SS "doReplacements ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all error message place-holders with actual values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1637 of file Validator\&.php\&.
+.SS "each ( $attribute,  $rules)"
+Define a set of rules that apply to each element in an array attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 266 of file Validator\&.php\&.
+.SS "errors ()"
+An alternative more semantic shortcut to the message container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2479 of file Validator\&.php\&.
+.SS "explodeRules ( $rules)\fC [protected]\fP"
+Explode the rules into an array of rules\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Validator\&.php\&.
+.SS "failed ()"
+Get the failed validation rules\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBValidator\fP\&.
+.PP
+Definition at line 2457 of file Validator\&.php\&.
+.SS "fails ()"
+Determine if the data fails the validation rules\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBValidator\fP\&.
+.PP
+Definition at line 345 of file Validator\&.php\&.
+.SS "getAttribute ( $attribute)\fC [protected]\fP"
+Get the displayable name of the attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1680 of file Validator\&.php\&.
+.SS "getAttributeList (array $values)\fC [protected]\fP"
+Transform an array of attributes to their displayable form\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1659 of file Validator\&.php\&.
+.SS "getAttributeType ( $attribute)\fC [protected]\fP"
+Get the data type of the given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1607 of file Validator\&.php\&.
+.SS "getCustomAttributes ()"
+Get the custom attributes used by the validator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2390 of file Validator\&.php\&.
+.SS "getCustomMessages ()"
+Get the custom messages for the validator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2369 of file Validator\&.php\&.
+.SS "getCustomValues ()"
+Get the custom values for the validator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2413 of file Validator\&.php\&.
+.SS "getData ()"
+Get the data under validation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2227 of file Validator\&.php\&.
+.SS "getDateFormat ( $attribute)\fC [protected]\fP"
+Get the date format for an attribute if it has one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 1493 of file Validator\&.php\&.
+.SS "getDateTimeWithOptionalFormat ( $format,  $value)\fC [protected]\fP"
+Get a DateTime instance from a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 1450 of file Validator\&.php\&.
+.SS "getDisplayableValue ( $attribute,  $value)"
+Get the displayable name of the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1713 of file Validator\&.php\&.
+.SS "getExistCount ( $table,  $column,  $value,  $parameters)\fC [protected]\fP"
+Get the number of records that exist in storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$column\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1122 of file Validator\&.php\&.
+.SS "getExtensions ()"
+Get the array of custom validator extensions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2117 of file Validator\&.php\&.
+.SS "getExtraConditions (array $segments)\fC [protected]\fP"
+Get the extra conditions for a unique / exists rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$segments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1153 of file Validator\&.php\&.
+.SS "getExtraExistConditions (array $parameters)\fC [protected]\fP"
+Get the extra exist conditions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1142 of file Validator\&.php\&.
+.SS "getFallbackMessages ()"
+Get the fallback messages for the validator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2436 of file Validator\&.php\&.
+.SS "getFiles ()"
+Get the files under validation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2297 of file Validator\&.php\&.
+.SS "getInlineMessage ( $attribute,  $lowerRule,  $source = \fCnull\fP)\fC [protected]\fP"
+Get the inline message for a rule if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$lowerRule\fP 
+.br
+\fI$source\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1565 of file Validator\&.php\&.
+.SS "getMessage ( $attribute,  $rule)\fC [protected]\fP"
+Get the validation message for an attribute and rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1508 of file Validator\&.php\&.
+.SS "getMessageBag ()"
+Get the messages for the instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBMessageProvider\fP\&.
+.PP
+Definition at line 2489 of file Validator\&.php\&.
+.SS "getPresenceVerifier ()"
+Get the Presence Verifier implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 2322 of file Validator\&.php\&.
+.SS "getPresentCount ( $attributes)\fC [protected]\fP"
+Get the number of attributes in a list that are present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 722 of file Validator\&.php\&.
+.SS "getReplacers ()"
+Get the array of custom validator message replacers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2187 of file Validator\&.php\&.
+.SS "getRule ( $attribute,  $rules)\fC [protected]\fP"
+Get a rule and its parameters for a given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|null 
+.RE
+.PP
+
+.PP
+Definition at line 2031 of file Validator\&.php\&.
+.SS "getRules ()"
+Get the validation rules\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2248 of file Validator\&.php\&.
+.SS "getSize ( $attribute,  $value)\fC [protected]\fP"
+Get the size of an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 966 of file Validator\&.php\&.
+.SS "getSizeMessage ( $attribute,  $rule)\fC [protected]\fP"
+Get the proper error message for an attribute and size rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1587 of file Validator\&.php\&.
+.SS "getTranslator ()"
+Get the Translator implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2348 of file Validator\&.php\&.
+.SS "getUniqueExtra ( $parameters)\fC [protected]\fP"
+Get the extra conditions for a unique rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1079 of file Validator\&.php\&.
+.SS "getUniqueIds ( $parameters)\fC [protected]\fP"
+Get the excluded ID column and value for the unique rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1066 of file Validator\&.php\&.
+.SS "getValue ( $attribute)\fC [protected]\fP"
+Get the value of a given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 408 of file Validator\&.php\&.
+.SS "hasNotFailedPreviousRuleIfPresenceRule ( $rule,  $attribute)\fC [protected]\fP"
+Determine if it's a necessary presence validation\&.
+.PP
+This is to avoid possible database type comparison errors\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 486 of file Validator\&.php\&.
+.SS "hasRule ( $attribute,  $rules)\fC [protected]\fP"
+Determine if the given attribute has a rule in the given set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2019 of file Validator\&.php\&.
+.SS "invalid ()"
+Returns the data which was invalid\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 395 of file Validator\&.php\&.
+.SS "isAValidFileInstance ( $value)\fC [protected]\fP"
+Check that the given value is a valid file instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1253 of file Validator\&.php\&.
+.SS "isImplicit ( $rule)\fC [protected]\fP"
+Determine if a given rule implies the attribute is required\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 472 of file Validator\&.php\&.
+.SS "isValidatable ( $rule,  $attribute,  $value)\fC [protected]\fP"
+Determine if the attribute is validatable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 428 of file Validator\&.php\&.
+.SS "mergeRules ( $attribute,  $rules)"
+Merge additional rules into a given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 300 of file Validator\&.php\&.
+.SS "messages ()"
+Get the message container for the validator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2467 of file Validator\&.php\&.
+.SS "parseArrayRule (array $rules)\fC [protected]\fP"
+Parse an array based rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2070 of file Validator\&.php\&.
+.SS "parseData (array $data,  $arrayKey = \fCnull\fP)\fC [protected]\fP"
+Parse the data and hydrate the files array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$arrayKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file Validator\&.php\&.
+.SS "parseParameters ( $rule,  $parameter)\fC [protected]\fP"
+Parse a parameter list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$parameter\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2105 of file Validator\&.php\&.
+.SS "parseRule ( $rules)\fC [protected]\fP"
+Extract the rule name and parameters from a rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2054 of file Validator\&.php\&.
+.SS "parseStringRule ( $rules)\fC [protected]\fP"
+Parse a string based rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2081 of file Validator\&.php\&.
+.SS "passes ()"
+Determine if the data passes the validation rules\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 314 of file Validator\&.php\&.
+.SS "passesOptionalCheck ( $attribute)\fC [protected]\fP"
+Determine if the attribute passes any optional check\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Validator\&.php\&.
+.SS "presentOrRuleIsImplicit ( $rule,  $attribute,  $value)\fC [protected]\fP"
+Determine if the field is present, or the rule implies required\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 443 of file Validator\&.php\&.
+.SS "replaceAfter ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the after rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2007 of file Validator\&.php\&.
+.SS "replaceBefore ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the before rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1988 of file Validator\&.php\&.
+.SS "replaceBetween ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the between rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1739 of file Validator\&.php\&.
+.SS "replaceDateFormat ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the date_format rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1974 of file Validator\&.php\&.
+.SS "replaceDifferent ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the different rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1960 of file Validator\&.php\&.
+.SS "replaceDigits ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the digits rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1753 of file Validator\&.php\&.
+.SS "replaceDigitsBetween ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the digits (between) rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1767 of file Validator\&.php\&.
+.SS "replaceIn ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the in rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1823 of file Validator\&.php\&.
+.SS "replaceMax ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the max rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1809 of file Validator\&.php\&.
+.SS "replaceMimes ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the mimes rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1856 of file Validator\&.php\&.
+.SS "replaceMin ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the min rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1795 of file Validator\&.php\&.
+.SS "replaceNotIn ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the not_in rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1842 of file Validator\&.php\&.
+.SS "replaceRequiredIf ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the required_if rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1928 of file Validator\&.php\&.
+.SS "replaceRequiredWith ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the required_with rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1870 of file Validator\&.php\&.
+.SS "replaceRequiredWithAll ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the required_with_all rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1886 of file Validator\&.php\&.
+.SS "replaceRequiredWithout ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the required_without rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1900 of file Validator\&.php\&.
+.SS "replaceRequiredWithoutAll ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the required_without_all rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1914 of file Validator\&.php\&.
+.SS "replaceSame ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the same rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1946 of file Validator\&.php\&.
+.SS "replaceSize ( $message,  $attribute,  $rule,  $parameters)\fC [protected]\fP"
+Replace all place-holders for the size rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1781 of file Validator\&.php\&.
+.SS "requireParameterCount ( $count,  $parameters,  $rule)\fC [protected]\fP"
+Require a certain number of parameters to be present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$rule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 2589 of file Validator\&.php\&.
+.SS "setAttributeNames (array $attributes)"
+Set the custom attributes on the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2272 of file Validator\&.php\&.
+.SS "setContainer (\fBContainer\fP $container)"
+Set the IoC container instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2500 of file Validator\&.php\&.
+.SS "setCustomMessages (array $messages)"
+Set the custom messages for the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2380 of file Validator\&.php\&.
+.SS "setData (array $data)"
+Set the data under validation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2238 of file Validator\&.php\&.
+.SS "setFallbackMessages (array $messages)"
+Set the fallback messages for the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2447 of file Validator\&.php\&.
+.SS "setFiles (array $files)"
+Set the files under validation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2308 of file Validator\&.php\&.
+.SS "setPresenceVerifier (\fBPresenceVerifierInterface\fP $presenceVerifier)"
+Set the Presence Verifier implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$presenceVerifier\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2338 of file Validator\&.php\&.
+.SS "setRules (array $rules)"
+Set the validation rules\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2259 of file Validator\&.php\&.
+.SS "setTranslator (\fBTranslatorInterface\fP $translator)"
+Set the Translator implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$translator\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2359 of file Validator\&.php\&.
+.SS "setValueNames (array $values)"
+Set the custom values on the validator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2285 of file Validator\&.php\&.
+.SS "sometimes ( $attribute,  $rules, callable $callback)"
+Add conditions to a given field based on a Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rules\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBValidator\fP\&.
+.PP
+Definition at line 244 of file Validator\&.php\&.
+.SS "valid ()"
+Returns the data which was valid\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file Validator\&.php\&.
+.SS "validate ( $attribute,  $rule)\fC [protected]\fP"
+Validate a given attribute against a rule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$rule\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file Validator\&.php\&.
+.SS "validateAccepted ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute was 'accepted'\&.
+.PP
+This validation rule implies the attribute is 'required'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 792 of file Validator\&.php\&.
+.SS "validateActiveUrl ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is an active \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1210 of file Validator\&.php\&.
+.SS "validateAfter ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the date is after a given date\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1394 of file Validator\&.php\&.
+.SS "validateAfterWithFormat ( $format,  $value,  $parameters)\fC [protected]\fP"
+Validate the date is after a given date with a given format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1419 of file Validator\&.php\&.
+.SS "validateAlpha ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute contains only alphabetic characters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1267 of file Validator\&.php\&.
+.SS "validateAlphaDash ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute contains only alpha-numeric characters, dashes, and underscores\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1291 of file Validator\&.php\&.
+.SS "validateAlphaNum ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute contains only alpha-numeric characters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1279 of file Validator\&.php\&.
+.SS "validateArray ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is an array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 806 of file Validator\&.php\&.
+.SS "validateBefore ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the date is before a given date\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1354 of file Validator\&.php\&.
+.SS "validateBeforeWithFormat ( $format,  $value,  $parameters)\fC [protected]\fP"
+Validate the date is before a given date with a given format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1379 of file Validator\&.php\&.
+.SS "validateBetween ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the size of an attribute is between a set of values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 918 of file Validator\&.php\&.
+.SS "validateBoolean ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a boolean\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 818 of file Validator\&.php\&.
+.SS "validateConfirmed ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute has a matching confirmation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 744 of file Validator\&.php\&.
+.SS "validateDate ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a valid date\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1318 of file Validator\&.php\&.
+.SS "validateDateFormat ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute matches a date format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1337 of file Validator\&.php\&.
+.SS "validateDifferent ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute is different from another attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 774 of file Validator\&.php\&.
+.SS "validateDigits ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute has a given number of digits\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 869 of file Validator\&.php\&.
+.SS "validateDigitsBetween ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute is between a given number of digits\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 885 of file Validator\&.php\&.
+.SS "validateEmail ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a valid e-mail address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1186 of file Validator\&.php\&.
+.SS "validateExists ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the existence of an attribute value in a database table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1097 of file Validator\&.php\&.
+.SS "validateFilled ( $attribute,  $value)\fC [protected]\fP"
+Validate the given attribute is filled if it is present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 572 of file Validator\&.php\&.
+.SS "validateImage ( $attribute,  $value)\fC [protected]\fP"
+Validate the MIME type of a file is an image MIME type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1224 of file Validator\&.php\&.
+.SS "validateIn ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate an attribute is contained within a list of values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 998 of file Validator\&.php\&.
+.SS "validateInteger ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is an integer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 832 of file Validator\&.php\&.
+.SS "validateIp ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a valid IP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1174 of file Validator\&.php\&.
+.SS "validateMax ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the size of an attribute is less than a maximum value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 950 of file Validator\&.php\&.
+.SS "validateMimes ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the MIME type of a file upload attribute is in a set of MIME types\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1237 of file Validator\&.php\&.
+.SS "validateMin ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the size of an attribute is greater than a minimum value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 935 of file Validator\&.php\&.
+.SS "validateNotIn ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate an attribute is not contained within a list of values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1011 of file Validator\&.php\&.
+.SS "validateNumeric ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is numeric\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 844 of file Validator\&.php\&.
+.SS "validateRegex ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute passes a regular expression check\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1304 of file Validator\&.php\&.
+.SS "validateRequired ( $attribute,  $value)\fC [protected]\fP"
+Validate that a required attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 543 of file Validator\&.php\&.
+.SS "validateRequiredIf ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute exists when another attribute has a given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 700 of file Validator\&.php\&.
+.SS "validateRequiredWith ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute exists when any other attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 628 of file Validator\&.php\&.
+.SS "validateRequiredWithAll ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute exists when all other attributes exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 646 of file Validator\&.php\&.
+.SS "validateRequiredWithout ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute exists when another attribute does not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 664 of file Validator\&.php\&.
+.SS "validateRequiredWithoutAll ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that an attribute exists when all other attributes do not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 682 of file Validator\&.php\&.
+.SS "validateSame ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate that two attributes match\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 757 of file Validator\&.php\&.
+.SS "validateSize ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the size of an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 903 of file Validator\&.php\&.
+.SS "validateSometimes ()\fC [protected]\fP"
+'Validate' optional attributes\&.
+.PP
+Always returns true, just lets us put sometimes in rules\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 531 of file Validator\&.php\&.
+.SS "validateString ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 856 of file Validator\&.php\&.
+.SS "validateTimezone ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a valid timezone\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1473 of file Validator\&.php\&.
+.SS "validateUnique ( $attribute,  $value,  $parameters)\fC [protected]\fP"
+Validate the uniqueness of an attribute value on a given database table\&.
+.PP
+If a database column is not specified, the attribute will be used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1026 of file Validator\&.php\&.
+.SS "validateUrl ( $attribute,  $value)\fC [protected]\fP"
+Validate that an attribute is a valid \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1198 of file Validator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBafter\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 82 of file Validator\&.php\&.
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 40 of file Validator\&.php\&.
+.SS "$customAttributes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 103 of file Validator\&.php\&.
+.SS "$customMessages = array()\fC [protected]\fP"
+
+.PP
+Definition at line 89 of file Validator\&.php\&.
+.SS "$customValues = array()\fC [protected]\fP"
+
+.PP
+Definition at line 110 of file Validator\&.php\&.
+.SS "$\fBdata\fP\fC [protected]\fP"
+
+.PP
+Definition at line 61 of file Validator\&.php\&.
+.SS "$extensions = array()\fC [protected]\fP"
+
+.PP
+Definition at line 117 of file Validator\&.php\&.
+.SS "$failedRules = array()\fC [protected]\fP"
+
+.PP
+Definition at line 47 of file Validator\&.php\&.
+.SS "$fallbackMessages = array()\fC [protected]\fP"
+
+.PP
+Definition at line 96 of file Validator\&.php\&.
+.SS "$files = array()\fC [protected]\fP"
+
+.PP
+Definition at line 68 of file Validator\&.php\&.
+.SS "$implicitRules\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'Required', 'RequiredWith', 'RequiredWithAll', 'RequiredWithout', 'RequiredWithoutAll', 'RequiredIf', 'Accepted',
+    )
+.fi
+.PP
+Definition at line 145 of file Validator\&.php\&.
+.SS "$\fBmessages\fP\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file Validator\&.php\&.
+.SS "$numericRules = array('Numeric', 'Integer')\fC [protected]\fP"
+
+.PP
+Definition at line 138 of file Validator\&.php\&.
+.SS "$presenceVerifier\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file Validator\&.php\&.
+.SS "$replacers = array()\fC [protected]\fP"
+
+.PP
+Definition at line 124 of file Validator\&.php\&.
+.SS "$rules\fC [protected]\fP"
+
+.PP
+Definition at line 75 of file Validator\&.php\&.
+.SS "$sizeRules = array('Size', 'Between', 'Min', 'Max')\fC [protected]\fP"
+
+.PP
+Definition at line 131 of file Validator\&.php\&.
+.SS "$translator\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file Validator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

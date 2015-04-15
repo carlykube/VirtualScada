@@ -1,0 +1,6 @@
+var namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle =
+[
+    [ "Command", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle_1_1_command.html", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle_1_1_command" ],
+    [ "DependencyInjection", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle_1_1_dependency_injection.html", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle_1_1_dependency_injection" ],
+    [ "ExtensionPresentBundle", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_present_bundle_1_1_extension_present_bundle.html", null ]
+];

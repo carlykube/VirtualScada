@@ -1,0 +1,98 @@
+.TH "Swift_Transport_Esmtp_Auth_XOAuth2Authenticator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_Esmtp_Auth_XOAuth2Authenticator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetAuthKeyword\fP ()"
+.br
+.ti -1c
+.RI "\fBauthenticate\fP (\fBSwift_Transport_SmtpAgent\fP $agent, $email, $token)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconstructXOAuth2Params\fP ($email, $token)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles XOAUTH2 authentication\&.
+.PP
+Example: \fC $transport = \fBSwift_SmtpTransport::newInstance\fP('smtp\&.gmail\&.com', 587, 'tls') ->setAuthMode('XOAUTH2') ->setUsername('YOUR_EMAIL_ADDRESS') ->setPassword('YOUR_ACCESS_TOKEN'); \fP
+.PP
+\fBAuthor:\fP
+.RS 4
+xu\&.liAthenaLightenedMyPath@gmail.com 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+https://developers.google.com/google-apps/gmail/xoauth2_protocol 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file XOAuth2Authenticator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "authenticate (\fBSwift_Transport_SmtpAgent\fP $agent,  $email,  $token)"
+Try to authenticate the user with $email and $token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$agent\fP 
+.br
+\fI$email\fP 
+.br
+\fI$token\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.PP
+Definition at line 46 of file XOAuth2Authenticator\&.php\&.
+.SS "constructXOAuth2Params ( $email,  $token)\fC [protected]\fP"
+Construct the auth parameter
+.PP
+\fBSee also:\fP
+.RS 4
+https://developers.google.com/google-apps/gmail/xoauth2_protocol#the_sasl_xoauth2_mechanism 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file XOAuth2Authenticator\&.php\&.
+.SS "getAuthKeyword ()"
+Get the name of the AUTH mechanism this Authenticator handles\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.PP
+Definition at line 32 of file XOAuth2Authenticator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

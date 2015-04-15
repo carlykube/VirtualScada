@@ -1,0 +1,571 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: ClassName
+%%Creator: Doxygen
+%%CreationDate: Time
+%%For: 
+%Magnification: 1.00
+%%Orientation: Portrait
+%%BoundingBox: 0 0 500 740.740741
+%%Pages: 0
+%%BeginSetup
+%%EndSetup
+%%EndComments
+
+% ----- variables -----
+
+/boxwidth 0 def
+/boxheight 40 def
+/fontheight 24 def
+/marginwidth 10 def
+/distx 20 def
+/disty 40 def
+/boundaspect 0.675000 def  % aspect ratio of the BoundingBox (width/height)
+/boundx 500 def
+/boundy boundx boundaspect div def
+/xspacing 0 def
+/yspacing 0 def
+/rows 44 def
+/cols 9 def
+/scalefactor 0 def
+/boxfont /Times-Roman findfont fontheight scalefont def
+
+% ----- procedures -----
+
+/dotted { [1 4] 0 setdash } def
+/dashed { [5] 0 setdash } def
+/solid  { [] 0 setdash } def
+
+/max % result = MAX(arg1,arg2)
+{
+  /a exch def
+  /b exch def
+  a b gt {a} {b} ifelse
+} def
+
+/xoffset % result = MAX(0,(scalefactor-(boxwidth*cols+distx*(cols-1)))/2)
+{
+  0 scalefactor boxwidth cols mul distx cols 1 sub mul add sub 2 div max
+} def
+
+/cw % boxwidth = MAX(boxwidth, stringwidth(arg1))
+{
+  /str exch def
+  /boxwidth boxwidth str stringwidth pop max def
+} def
+
+/box % draws a box with text `arg1' at grid pos (arg2,arg3)
+{ gsave
+  2 setlinewidth
+  newpath
+  exch xspacing mul xoffset add
+  exch yspacing mul
+  moveto
+  boxwidth 0 rlineto 
+  0 boxheight rlineto 
+  boxwidth neg 0 rlineto 
+  0 boxheight neg rlineto 
+  closepath
+  dup stringwidth pop neg boxwidth add 2 div
+  boxheight fontheight 2 div sub 2 div
+  rmoveto show stroke
+  grestore
+} def  
+
+/mark
+{ newpath
+  exch xspacing mul xoffset add boxwidth add
+  exch yspacing mul
+  moveto
+  0 boxheight 4 div rlineto
+  boxheight neg 4 div boxheight neg 4 div rlineto
+  closepath
+  eofill
+  stroke
+} def
+
+/arrow
+{ newpath
+  moveto
+  3 -8 rlineto
+  -6 0 rlineto
+  3 8 rlineto
+  closepath
+  eofill
+  stroke
+} def
+
+/out % draws an output connector for the block at (arg1,arg2)
+{
+  newpath
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul boxheight add
+  /y exch def
+  /x exch def
+  x y moveto
+  0 disty 2 div rlineto 
+  stroke
+  1 eq { x y disty 2 div add arrow } if
+} def
+
+/in % draws an input connector for the block at (arg1,arg2)
+{
+  newpath
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul disty 2 div sub
+  /y exch def
+  /x exch def
+  x y moveto
+  0 disty 2 div rlineto
+  stroke
+  1 eq { x y disty 2 div add arrow } if
+} def
+
+/hedge
+{
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul boxheight 2 div sub
+  /y exch def
+  /x exch def
+  newpath
+  x y moveto
+  boxwidth 2 div distx add 0 rlineto
+  stroke
+  1 eq
+  { newpath x boxwidth 2 div distx add add y moveto
+    -8 3 rlineto
+    0 -6 rlineto
+    8 3 rlineto
+    closepath
+    eofill
+    stroke
+  } if
+} def
+
+/vedge
+{
+  /ye exch def
+  /ys exch def
+  /xs exch def
+  newpath
+  xs xspacing mul xoffset add boxwidth 2 div add dup
+  ys yspacing mul boxheight 2 div sub
+  moveto
+  ye yspacing mul boxheight 2 div sub
+  lineto
+  stroke
+} def
+
+/conn % connections the blocks from col `arg1' to `arg2' of row `arg3'
+{
+  /ys exch def
+  /xe exch def
+  /xs exch def
+  newpath
+  xs xspacing mul xoffset add boxwidth 2 div add
+  ys yspacing mul disty 2 div sub
+  moveto
+  xspacing xe xs sub mul 0
+  rlineto
+  stroke
+} def
+
+% ----- main ------
+
+boxfont setfont
+1 boundaspect scale
+(Node) cw
+(NodeAbstract) cw
+(DummyNode) cw
+(Arg) cw
+(Const_) cw
+(Expr) cw
+(Name) cw
+(Param) cw
+(Stmt) cw
+(Array_) cw
+(ArrayDimFetch) cw
+(ArrayItem) cw
+(Assign) cw
+(AssignOp) cw
+(AssignRef) cw
+(BinaryOp) cw
+(BitwiseNot) cw
+(BooleanNot) cw
+(Cast) cw
+(ClassConstFetch) cw
+(Clone_) cw
+(Closure) cw
+(ClosureUse) cw
+(ConstFetch) cw
+(Empty_) cw
+(ErrorSuppress) cw
+(Eval_) cw
+(Exit_) cw
+(FuncCall) cw
+(Include_) cw
+(Instanceof_) cw
+(Isset_) cw
+(List_) cw
+(MethodCall) cw
+(New_) cw
+(PostDec) cw
+(PostInc) cw
+(PreDec) cw
+(PreInc) cw
+(Print_) cw
+(PropertyFetch) cw
+(ShellExec) cw
+(StaticCall) cw
+(StaticPropertyFetch) cw
+(Ternary) cw
+(UnaryMinus) cw
+(UnaryPlus) cw
+(Variable) cw
+(Yield_) cw
+(Scalar) cw
+(FullyQualified) cw
+(Relative) cw
+(Break_) cw
+(Case_) cw
+(Catch_) cw
+(ClassConst) cw
+(ClassLike) cw
+(ClassMethod) cw
+(Const_) cw
+(Continue_) cw
+(Declare_) cw
+(DeclareDeclare) cw
+(Do_) cw
+(Echo_) cw
+(Else_) cw
+(ElseIf_) cw
+(For_) cw
+(Foreach_) cw
+(Function_) cw
+(Global_) cw
+(Goto_) cw
+(HaltCompiler) cw
+(If_) cw
+(InlineHTML) cw
+(Label) cw
+(Namespace_) cw
+(Property) cw
+(PropertyProperty) cw
+(Return_) cw
+(Static_) cw
+(StaticVar) cw
+(Switch_) cw
+(Throw_) cw
+(TraitUse) cw
+(TraitUseAdaptation) cw
+(TryCatch) cw
+(Unset_) cw
+(Use_) cw
+(UseUse) cw
+(While_) cw
+/boxwidth boxwidth marginwidth 2 mul add def
+/xspacing boxwidth distx add def
+/yspacing boxheight disty add def
+/scalefactor 
+  boxwidth cols mul distx cols 1 sub mul add
+  boxheight rows mul disty rows 1 sub mul add boundaspect mul 
+  max def
+boundx scalefactor div boundy scalefactor div scale
+
+% ----- classes -----
+
+ (Node) 3.000000 43.000000 box
+ (NodeAbstract) 3.000000 42.000000 box
+ (DummyNode) 0.000000 41.000000 box
+ (Arg) 1.000000 41.000000 box
+ (Const_) 2.000000 41.000000 box
+ (Expr) 3.000000 41.000000 box
+ (Name) 5.000000 41.000000 box
+ (Param) 6.000000 41.000000 box
+ (Stmt) 7.000000 41.000000 box
+ (Array_) 4.000000 40.000000 box
+ (ArrayDimFetch) 4.000000 39.000000 box
+ (ArrayItem) 4.000000 38.000000 box
+ (Assign) 4.000000 37.000000 box
+ (AssignOp) 4.000000 36.000000 box
+4.000000 36.000000 mark
+ (AssignRef) 4.000000 35.000000 box
+ (BinaryOp) 4.000000 34.000000 box
+4.000000 34.000000 mark
+ (BitwiseNot) 4.000000 33.000000 box
+ (BooleanNot) 4.000000 32.000000 box
+ (Cast) 4.000000 31.000000 box
+4.000000 31.000000 mark
+ (ClassConstFetch) 4.000000 30.000000 box
+ (Clone_) 4.000000 29.000000 box
+ (Closure) 4.000000 28.000000 box
+ (ClosureUse) 4.000000 27.000000 box
+ (ConstFetch) 4.000000 26.000000 box
+ (Empty_) 4.000000 25.000000 box
+ (ErrorSuppress) 4.000000 24.000000 box
+ (Eval_) 4.000000 23.000000 box
+ (Exit_) 4.000000 22.000000 box
+ (FuncCall) 4.000000 21.000000 box
+ (Include_) 4.000000 20.000000 box
+ (Instanceof_) 4.000000 19.000000 box
+ (Isset_) 4.000000 18.000000 box
+ (List_) 4.000000 17.000000 box
+ (MethodCall) 4.000000 16.000000 box
+ (New_) 4.000000 15.000000 box
+ (PostDec) 4.000000 14.000000 box
+ (PostInc) 4.000000 13.000000 box
+ (PreDec) 4.000000 12.000000 box
+ (PreInc) 4.000000 11.000000 box
+ (Print_) 4.000000 10.000000 box
+ (PropertyFetch) 4.000000 9.000000 box
+ (ShellExec) 4.000000 8.000000 box
+ (StaticCall) 4.000000 7.000000 box
+ (StaticPropertyFetch) 4.000000 6.000000 box
+ (Ternary) 4.000000 5.000000 box
+ (UnaryMinus) 4.000000 4.000000 box
+ (UnaryPlus) 4.000000 3.000000 box
+ (Variable) 4.000000 2.000000 box
+ (Yield_) 4.000000 1.000000 box
+ (Scalar) 4.000000 0.000000 box
+4.000000 0.000000 mark
+ (FullyQualified) 6.000000 40.000000 box
+ (Relative) 6.000000 39.000000 box
+ (Break_) 8.000000 40.000000 box
+ (Case_) 8.000000 39.000000 box
+ (Catch_) 8.000000 38.000000 box
+ (ClassConst) 8.000000 37.000000 box
+ (ClassLike) 8.000000 36.000000 box
+8.000000 36.000000 mark
+ (ClassMethod) 8.000000 35.000000 box
+ (Const_) 8.000000 34.000000 box
+ (Continue_) 8.000000 33.000000 box
+ (Declare_) 8.000000 32.000000 box
+ (DeclareDeclare) 8.000000 31.000000 box
+ (Do_) 8.000000 30.000000 box
+ (Echo_) 8.000000 29.000000 box
+ (Else_) 8.000000 28.000000 box
+ (ElseIf_) 8.000000 27.000000 box
+ (For_) 8.000000 26.000000 box
+ (Foreach_) 8.000000 25.000000 box
+ (Function_) 8.000000 24.000000 box
+ (Global_) 8.000000 23.000000 box
+ (Goto_) 8.000000 22.000000 box
+ (HaltCompiler) 8.000000 21.000000 box
+ (If_) 8.000000 20.000000 box
+ (InlineHTML) 8.000000 19.000000 box
+ (Label) 8.000000 18.000000 box
+ (Namespace_) 8.000000 17.000000 box
+ (Property) 8.000000 16.000000 box
+ (PropertyProperty) 8.000000 15.000000 box
+ (Return_) 8.000000 14.000000 box
+ (Static_) 8.000000 13.000000 box
+ (StaticVar) 8.000000 12.000000 box
+ (Switch_) 8.000000 11.000000 box
+ (Throw_) 8.000000 10.000000 box
+ (TraitUse) 8.000000 9.000000 box
+ (TraitUseAdaptation) 8.000000 8.000000 box
+8.000000 8.000000 mark
+ (TryCatch) 8.000000 7.000000 box
+ (Unset_) 8.000000 6.000000 box
+ (Use_) 8.000000 5.000000 box
+ (UseUse) 8.000000 4.000000 box
+ (While_) 8.000000 3.000000 box
+
+% ----- relations -----
+
+solid
+1 3.000000 42.250000 out
+solid
+0 3.000000 42.750000 in
+solid
+1 3.000000 41.250000 out
+solid
+0.000000 7.000000 42.000000 conn
+solid
+0 0.000000 41.750000 in
+solid
+0 1.000000 41.750000 in
+solid
+0 2.000000 41.750000 in
+solid
+0 3.000000 41.750000 in
+solid
+1 3.000000 40.250000 out
+solid
+0 5.000000 41.750000 in
+solid
+1 5.000000 40.250000 out
+solid
+0 6.000000 41.750000 in
+solid
+0 7.000000 41.750000 in
+solid
+1 7.000000 40.250000 out
+solid
+0 3.000000 40.500000 hedge
+solid
+0 3.000000 39.500000 hedge
+solid
+0 3.000000 38.500000 hedge
+solid
+0 3.000000 37.500000 hedge
+solid
+0 3.000000 36.500000 hedge
+solid
+0 3.000000 35.500000 hedge
+solid
+0 3.000000 34.500000 hedge
+solid
+0 3.000000 33.500000 hedge
+solid
+0 3.000000 32.500000 hedge
+solid
+0 3.000000 31.500000 hedge
+solid
+0 3.000000 30.500000 hedge
+solid
+0 3.000000 29.500000 hedge
+solid
+0 3.000000 28.500000 hedge
+solid
+0 3.000000 27.500000 hedge
+solid
+0 3.000000 26.500000 hedge
+solid
+0 3.000000 25.500000 hedge
+solid
+0 3.000000 24.500000 hedge
+solid
+0 3.000000 23.500000 hedge
+solid
+0 3.000000 22.500000 hedge
+solid
+0 3.000000 21.500000 hedge
+solid
+0 3.000000 20.500000 hedge
+solid
+0 3.000000 19.500000 hedge
+solid
+0 3.000000 18.500000 hedge
+solid
+0 3.000000 17.500000 hedge
+solid
+0 3.000000 16.500000 hedge
+solid
+0 3.000000 15.500000 hedge
+solid
+0 3.000000 14.500000 hedge
+solid
+0 3.000000 13.500000 hedge
+solid
+0 3.000000 12.500000 hedge
+solid
+0 3.000000 11.500000 hedge
+solid
+0 3.000000 10.500000 hedge
+solid
+0 3.000000 9.500000 hedge
+solid
+0 3.000000 8.500000 hedge
+solid
+0 3.000000 7.500000 hedge
+solid
+0 3.000000 6.500000 hedge
+solid
+0 3.000000 5.500000 hedge
+solid
+0 3.000000 4.500000 hedge
+solid
+0 3.000000 3.500000 hedge
+solid
+0 3.000000 2.500000 hedge
+solid
+0 3.000000 1.500000 hedge
+solid
+0 3.000000 0.500000 hedge
+solid
+3.000000 41.000000 0.500000 vedge
+solid
+0 5.000000 40.500000 hedge
+solid
+0 5.000000 39.500000 hedge
+solid
+5.000000 41.000000 39.500000 vedge
+solid
+0 7.000000 40.500000 hedge
+solid
+0 7.000000 39.500000 hedge
+solid
+0 7.000000 38.500000 hedge
+solid
+0 7.000000 37.500000 hedge
+solid
+0 7.000000 36.500000 hedge
+solid
+0 7.000000 35.500000 hedge
+solid
+0 7.000000 34.500000 hedge
+solid
+0 7.000000 33.500000 hedge
+solid
+0 7.000000 32.500000 hedge
+solid
+0 7.000000 31.500000 hedge
+solid
+0 7.000000 30.500000 hedge
+solid
+0 7.000000 29.500000 hedge
+solid
+0 7.000000 28.500000 hedge
+solid
+0 7.000000 27.500000 hedge
+solid
+0 7.000000 26.500000 hedge
+solid
+0 7.000000 25.500000 hedge
+solid
+0 7.000000 24.500000 hedge
+solid
+0 7.000000 23.500000 hedge
+solid
+0 7.000000 22.500000 hedge
+solid
+0 7.000000 21.500000 hedge
+solid
+0 7.000000 20.500000 hedge
+solid
+0 7.000000 19.500000 hedge
+solid
+0 7.000000 18.500000 hedge
+solid
+0 7.000000 17.500000 hedge
+solid
+0 7.000000 16.500000 hedge
+solid
+0 7.000000 15.500000 hedge
+solid
+0 7.000000 14.500000 hedge
+solid
+0 7.000000 13.500000 hedge
+solid
+0 7.000000 12.500000 hedge
+solid
+0 7.000000 11.500000 hedge
+solid
+0 7.000000 10.500000 hedge
+solid
+0 7.000000 9.500000 hedge
+solid
+0 7.000000 8.500000 hedge
+solid
+0 7.000000 7.500000 hedge
+solid
+0 7.000000 6.500000 hedge
+solid
+0 7.000000 5.500000 hedge
+solid
+0 7.000000 4.500000 hedge
+solid
+0 7.000000 3.500000 hedge
+solid
+7.000000 41.000000 3.500000 vedge

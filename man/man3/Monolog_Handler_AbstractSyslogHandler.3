@@ -1,0 +1,116 @@
+.TH "AbstractSyslogHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractSyslogHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.PP
+Inherited by \fBSyslogHandler\fP, and \fBSyslogUdpHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($facility=LOG_USER, $level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$facility\fP"
+.br
+.ti -1c
+.RI "\fB$logLevels\fP"
+.br
+.ti -1c
+.RI "\fB$facilities\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common syslog functionality 
+.PP
+Definition at line 20 of file AbstractSyslogHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $facility = \fCLOG_USER\fP,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$facility\fP 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file AbstractSyslogHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+{} 
+.PP
+Definition at line 88 of file AbstractSyslogHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$facilities\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'auth'     => LOG_AUTH,
+        'authpriv' => LOG_AUTHPRIV,
+        'cron'     => LOG_CRON,
+        'daemon'   => LOG_DAEMON,
+        'kern'     => LOG_KERN,
+        'lpr'      => LOG_LPR,
+        'mail'     => LOG_MAIL,
+        'news'     => LOG_NEWS,
+        'syslog'   => LOG_SYSLOG,
+        'user'     => LOG_USER,
+        'uucp'     => LOG_UUCP,
+    )
+.fi
+List of valid log facility names\&. 
+.PP
+Definition at line 41 of file AbstractSyslogHandler\&.php\&.
+.SS "$facility\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file AbstractSyslogHandler\&.php\&.
+.SS "$logLevels\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        Logger::DEBUG     => LOG_DEBUG,
+        Logger::INFO      => LOG_INFO,
+        Logger::NOTICE    => LOG_NOTICE,
+        Logger::WARNING   => LOG_WARNING,
+        Logger::ERROR     => LOG_ERR,
+        Logger::CRITICAL  => LOG_CRIT,
+        Logger::ALERT     => LOG_ALERT,
+        Logger::EMERGENCY => LOG_EMERG,
+    )
+.fi
+Translates \fBMonolog\fP log levels to syslog log priorities\&. 
+.PP
+Definition at line 27 of file AbstractSyslogHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,1063 @@
+\section{Shell Class Reference}
+\label{class_psy_1_1_shell}\index{Shell@{Shell}}
+Inheritance diagram for Shell\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_psy_1_1_shell}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Configuration} \$config=null)
+\item 
+{\bf add} (Base\+Command \$command)
+\item 
+{\bf add\+Tab\+Completion\+Matchers} (array \$matchers)
+\item 
+{\bf set\+Output} ({\bf Output\+Interface} \$output)
+\item 
+{\bf run} ({\bf Input\+Interface} \$input=null, {\bf Output\+Interface} \$output=null)
+\item 
+{\bf do\+Run} ({\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf get\+Input} ()
+\item 
+{\bf before\+Loop} ()
+\item 
+{\bf after\+Loop} ()
+\item 
+{\bf set\+Scope\+Variables} (array \${\bf vars})
+\item 
+{\bf get\+Scope\+Variables} ()
+\item 
+{\bf get\+Scope\+Variable\+Names} ()
+\item 
+{\bf get\+Scope\+Variable} (\${\bf name})
+\item 
+{\bf set\+Includes} (array \$includes=array())
+\item 
+{\bf get\+Includes} ()
+\item 
+{\bf has\+Code} ()
+\item 
+{\bf add\+Code} (\$code)
+\item 
+{\bf get\+Code\+Buffer} ()
+\item 
+{\bf reset\+Code\+Buffer} ()
+\item 
+{\bf add\+Input} (\$input)
+\item 
+{\bf flush\+Code} ()
+\item 
+{\bf get\+Namespace} ()
+\item 
+{\bf write\+Stdout} (\$out, \$phase=P\+H\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+E\+N\+D)
+\item 
+{\bf write\+Return\+Value} (\$ret)
+\item 
+{\bf write\+Exception} (\textbackslash{}Exception \${\bf e})
+\item 
+{\bf render\+Exception} (\${\bf e}, \$output)
+\item 
+{\bf handle\+Error} (\$errno, \$errstr, \$errfile, \$errline)
+\item 
+{\bf get\+Version} ()
+\item 
+{\bf get\+Manual\+Db} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf is\+Included} (array \$trace)
+\item 
+static {\bf debug} (array \${\bf vars}=array(), \$bind=null)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}v0.\+4.\+4\textquotesingle{}
+\item 
+const {\bf P\+R\+O\+M\+P\+T} = \textquotesingle{}$>$$>$$>$ \textquotesingle{}
+\item 
+const {\bf B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T} = \textquotesingle{}... \textquotesingle{}
+\item 
+const {\bf R\+E\+P\+L\+A\+Y} = \textquotesingle{}-\/-\/$>$ \textquotesingle{}
+\item 
+const {\bf R\+E\+T\+V\+A\+L} = \textquotesingle{}=$>$ \textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Default\+Input\+Definition} ()
+\item 
+{\bf get\+Default\+Commands} ()
+\item 
+{\bf get\+Tab\+Completion\+Matchers} ()
+\item 
+{\bf has\+Valid\+Code} ()
+\item 
+{\bf run\+Command} (\$input)
+\item 
+{\bf get\+Severity} (\textbackslash{}{\bf Error\+Exception} \${\bf e})
+\item 
+{\bf present\+Value} (\$val)
+\item 
+{\bf get\+Command} (\$input)
+\item 
+{\bf has\+Command} (\$input)
+\item 
+{\bf get\+Prompt} ()
+\item 
+{\bf readline} ()
+\item 
+{\bf get\+Header} ()
+\item 
+{\bf autocomplete} (\${\bf text})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell} application.
+
+Usage\+: \begin{DoxyVerb}$shell = new Shell;
+$shell->run();
+\end{DoxyVerb}
+
+
+\begin{DoxyAuthor}{Author}
+Justin Hileman {\tt justin@justinhileman.\+info} 
+\end{DoxyAuthor}
+
+
+Definition at line 42 of file Shell.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Configuration}}]{\$config = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_ad52e2172a739ff3d6b44cea3ceb55198}
+Create a new \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Configuration}{p.}{class_psy_1_1_configuration} & {\em \$config} & (default\+: null) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Shell.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!add@{add}}
+\index{add@{add}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{Base\+Command}]{\$command}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a6f0e1d6f4117e444f8cd5a426c0aeb00}
+Adds a command object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Base\+Command & {\em \$command} & \doxyref{A}{p.}{class_a} \doxyref{Symfony}{p.}{namespace_symfony} Console \doxyref{Command}{p.}{namespace_psy_1_1_command} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Base\+Command The registered command 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!add\+Code@{add\+Code}}
+\index{add\+Code@{add\+Code}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{add\+Code}]{\setlength{\rightskip}{0pt plus 5cm}add\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a00aa118483ca1294662a1a59b0dee94d}
+Add code to the code buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$code} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 479 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!add\+Input@{add\+Input}}
+\index{add\+Input@{add\+Input}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{add\+Input}]{\setlength{\rightskip}{0pt plus 5cm}add\+Input (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_ab4bb74f4207f3822628a70ef2df6fc37}
+Inject input into the input buffer.
+
+This is useful for commands which want to replay history.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 559 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!add\+Tab\+Completion\+Matchers@{add\+Tab\+Completion\+Matchers}}
+\index{add\+Tab\+Completion\+Matchers@{add\+Tab\+Completion\+Matchers}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{add\+Tab\+Completion\+Matchers}]{\setlength{\rightskip}{0pt plus 5cm}add\+Tab\+Completion\+Matchers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$matchers}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_ac3ea07db68f7969d52cd9d07cfc6270d}
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$matchers} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 249 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!after\+Loop@{after\+Loop}}
+\index{after\+Loop@{after\+Loop}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{after\+Loop}]{\setlength{\rightskip}{0pt plus 5cm}after\+Loop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_ac1da2831d5b05438b481d742c32906c6}
+Pass the after\+Loop callback through to the Loop instance.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Loop\+::after\+Loop}{p.}{class_psy_1_1_execution_loop_1_1_loop_ac1da2831d5b05438b481d742c32906c6} 
+\end{DoxySeeAlso}
+
+
+Definition at line 385 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!autocomplete@{autocomplete}}
+\index{autocomplete@{autocomplete}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{autocomplete}]{\setlength{\rightskip}{0pt plus 5cm}autocomplete (
+\begin{DoxyParamCaption}
+\item[{}]{\$text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_abdd4a28eb068489f2d4f19730229c4a7}
+Autocomplete variable names.
+
+This is used by {\ttfamily readline} for tab completion.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$text} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed Array possible completions for the given input, if any. 
+\end{DoxyReturn}
+
+
+Definition at line 863 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!before\+Loop@{before\+Loop}}
+\index{before\+Loop@{before\+Loop}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{before\+Loop}]{\setlength{\rightskip}{0pt plus 5cm}before\+Loop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_af7fb6cb4a2d8183eee8bc2e828adb992}
+Pass the before\+Loop callback through to the Loop instance.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Loop\+::before\+Loop}{p.}{class_psy_1_1_execution_loop_1_1_loop_af7fb6cb4a2d8183eee8bc2e828adb992} 
+\end{DoxySeeAlso}
+
+
+Definition at line 375 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!debug@{debug}}
+\index{debug@{debug}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}static debug (
+\begin{DoxyParamCaption}
+\item[{array}]{\$vars = {\ttfamily array()}, }
+\item[{}]{\$bind = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_psy_1_1_shell_a4f64211390f0972ed208ed9b366eff53}
+Invoke a \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell} from the current context.
+
+For example\+: \begin{DoxyVerb}foreach ($items as $item) {
+    \Psy\Shell::debug(get_defined_vars());
+}
+\end{DoxyVerb}
+
+
+If you would like your shell interaction to affect the state of the current context, you can extract() the values returned from this call\+: \begin{DoxyVerb}foreach ($items as $item) {
+    extract(\Psy\Shell::debug(get_defined_vars()));
+    var_dump($item); // will be whatever you set $item to in Psy Shell
+}
+\end{DoxyVerb}
+
+
+Optionally, supply an object as the {\ttfamily \$bind} parameter. This determines the value {\ttfamily \$this} will have in the shell, and sets up class scope so that private and protected members are accessible\+: \begin{DoxyVerb}class Foo {
+    function bar() {
+        \Psy\Shell::debug(get_defined_vars(), $this);
+    }
+}
+\end{DoxyVerb}
+
+
+This only really works in \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4+ and H\+H\+V\+M 3.\+5+, so upgrade already.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$vars} & Scope variables from the calling context (default\+: array()) \\
+\hline
+object & {\em \$bind} & Bound object (\$this) value for the shell\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Scope variables from the debugger session. 
+\end{DoxyReturn}
+
+
+Definition at line 143 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!do\+Run@{do\+Run}}
+\index{do\+Run@{do\+Run}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{do\+Run}]{\setlength{\rightskip}{0pt plus 5cm}do\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a6474e644924bebff81f50225990f6079}
+Runs the current application.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Exception}{p.}{namespace_psy_1_1_exception}} & if thrown via the {\ttfamily throw-\/up} command.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & An \doxyref{Input}{p.}{class_input} instance \\
+\hline
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_psy_1_1_output} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer 0 if everything went fine, or an error code 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!flush\+Code@{flush\+Code}}
+\index{flush\+Code@{flush\+Code}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{flush\+Code}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a44c2fcec9e91e839a8a8339c47902518}
+Flush the current (valid) code buffer.
+
+If the code buffer is valid, resets the code buffer and returns the current code.
+
+\begin{DoxyReturn}{Returns}
+string \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code buffer contents. 
+\end{DoxyReturn}
+
+
+Definition at line 574 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Code\+Buffer@{get\+Code\+Buffer}}
+\index{get\+Code\+Buffer@{get\+Code\+Buffer}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Code\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}get\+Code\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a5406fba0c93346c1af2a3c6454e6f865}
+Get the current code buffer.
+
+This is useful for commands which manipulate the buffer.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 506 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Command@{get\+Command}}
+\index{get\+Command@{get\+Command}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Command}]{\setlength{\rightskip}{0pt plus 5cm}get\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_abea21893956447cb2b153707302e7651}
+Get a command (if one exists) for the current input string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null$\vert$\+Command 
+\end{DoxyReturn}
+
+
+Definition at line 766 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Default\+Commands@{get\+Default\+Commands}}
+\index{get\+Default\+Commands@{get\+Default\+Commands}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Default\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_ad81f2593505f08a7f041b9f8f1e22326}
+Gets the default commands that should always be available.
+
+\begin{DoxyReturn}{Returns}
+array An array of default \doxyref{Command}{p.}{namespace_psy_1_1_command} instances 
+\end{DoxyReturn}
+
+
+Definition at line 200 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Default\+Input\+Definition@{get\+Default\+Input\+Definition}}
+\index{get\+Default\+Input\+Definition@{get\+Default\+Input\+Definition}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Default\+Input\+Definition}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Input\+Definition (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_ad134976d6a592eb596114fd87959aa2c}
+Gets the default input definition.
+
+\begin{DoxyReturn}{Returns}
+Input\+Definition An Input\+Definition instance 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Header@{get\+Header}}
+\index{get\+Header@{get\+Header}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Header}]{\setlength{\rightskip}{0pt plus 5cm}get\+Header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a614834f1605e407376028e8c82298c82}
+Get the shell output header.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 829 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Includes@{get\+Includes}}
+\index{get\+Includes@{get\+Includes}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Includes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Includes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_abb68f9a8654344b16ad437501f70352e}
+Get \doxyref{P\+H\+P}{p.}{namespace_p_h_p} files to be parsed and executed before running the interactive shell.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 447 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Input@{get\+Input}}
+\index{get\+Input@{get\+Input}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Input}]{\setlength{\rightskip}{0pt plus 5cm}get\+Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a4380f30ae9202fa49ebd2439572f9cdb}
+Read user input.
+
+This will continue fetching user input until the code buffer contains valid code.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Break\+Exception} & if user hits Ctrl+\+D \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 329 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Manual\+Db@{get\+Manual\+Db}}
+\index{get\+Manual\+Db@{get\+Manual\+Db}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Manual\+Db}]{\setlength{\rightskip}{0pt plus 5cm}get\+Manual\+Db (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a2492cbb0e3ae6e1c40d67fb549a2dd86}
+Get a \doxyref{P\+H\+P}{p.}{namespace_p_h_p} manual database instance.
+
+\begin{DoxyReturn}{Returns}
+P\+D\+O$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 849 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Namespace@{get\+Namespace}}
+\index{get\+Namespace@{get\+Namespace}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}get\+Namespace (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a2614df64646ac71b70b1e1074258052b}
+Get the current evaluation scope namespace.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Code\+Cleaner\+::get\+Namespace}{p.}{class_psy_1_1_code_cleaner_a2614df64646ac71b70b1e1074258052b}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+string Current code namespace. 
+\end{DoxyReturn}
+
+
+Definition at line 592 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Prompt@{get\+Prompt}}
+\index{get\+Prompt@{get\+Prompt}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Prompt}]{\setlength{\rightskip}{0pt plus 5cm}get\+Prompt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a05669b4cff44cead1d4229eb1b900320}
+Get the current input prompt.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 796 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Scope\+Variable@{get\+Scope\+Variable}}
+\index{get\+Scope\+Variable@{get\+Scope\+Variable}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Scope\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}get\+Scope\+Variable (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_ae21dcd4a93f5a0d5cf27ea038116ac09}
+Get a scope variable value by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 427 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Scope\+Variable\+Names@{get\+Scope\+Variable\+Names}}
+\index{get\+Scope\+Variable\+Names@{get\+Scope\+Variable\+Names}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Scope\+Variable\+Names}]{\setlength{\rightskip}{0pt plus 5cm}get\+Scope\+Variable\+Names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a1aefa5d2ab6dd3e636563dcaa35bee11}
+Get the set of variable names currently in scope.
+
+\begin{DoxyReturn}{Returns}
+array Array of variable names. 
+\end{DoxyReturn}
+
+
+Definition at line 415 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Scope\+Variables@{get\+Scope\+Variables}}
+\index{get\+Scope\+Variables@{get\+Scope\+Variables}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Scope\+Variables}]{\setlength{\rightskip}{0pt plus 5cm}get\+Scope\+Variables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_add26eddc427994c4c13c730111c86da0}
+Return the set of variables currently in scope.
+
+\begin{DoxyReturn}{Returns}
+array Associative array of scope variables. 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Severity@{get\+Severity}}
+\index{get\+Severity@{get\+Severity}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Severity}]{\setlength{\rightskip}{0pt plus 5cm}get\+Severity (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf Error\+Exception}}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a515f874dc00640bf3fcf73b4fde81a0e}
+Helper for getting an output style for the given Error\+Exception\textquotesingle{}s level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Error\+Exception & {\em \$e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 691 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Tab\+Completion\+Matchers@{get\+Tab\+Completion\+Matchers}}
+\index{get\+Tab\+Completion\+Matchers@{get\+Tab\+Completion\+Matchers}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Tab\+Completion\+Matchers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Tab\+Completion\+Matchers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a33f421ac164a48e166a356f5501ae372}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!get\+Version@{get\+Version}}
+\index{get\+Version@{get\+Version}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{get\+Version}]{\setlength{\rightskip}{0pt plus 5cm}get\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_afa8e7a3a646144eab50188b7a805a389}
+Get the current version of \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell}.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 839 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!handle\+Error@{handle\+Error}}
+\index{handle\+Error@{handle\+Error}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{handle\+Error}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Error (
+\begin{DoxyParamCaption}
+\item[{}]{\$errno, }
+\item[{}]{\$errstr, }
+\item[{}]{\$errfile, }
+\item[{}]{\$errline}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a34a7b5c54d405faaeadd1ce6231fca0d}
+Helper for throwing an Error\+Exception.
+
+This allows us to\+: \begin{DoxyVerb}set_error_handler(array($psysh, 'handleError'));
+\end{DoxyVerb}
+
+
+Unlike \doxyref{Error\+Exception\+::throw\+Exception}{p.}{class_psy_1_1_exception_1_1_error_exception_ad6dde415e9c8c0324665f7b0b5c9a667}, this error handler respects the current error\+\_\+reporting level; i.\+e. it logs warnings and notices, but doesn\textquotesingle{}t throw an exception unless it\textquotesingle{}s above the current error\+\_\+reporting threshold. This should probably only be used in the inner execution loop of the shell, as most of the time a thrown exception is much more useful.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{throw\+Exception}{p.}{phpunit_2phpunit_2src_2_framework_2_assert_2functions_8php_afb912a3fd2baac7f6fbaea23ca792819} 
+
+\+::write\+Exception
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$errno} & \doxyref{Error}{p.}{class_error} type \\
+\hline
+string & {\em \$errstr} & Message \\
+\hline
+string & {\em \$errfile} & Filename \\
+\hline
+int & {\em \$errline} & Line number \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 735 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!has\+Code@{has\+Code}}
+\index{has\+Code@{has\+Code}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{has\+Code}]{\setlength{\rightskip}{0pt plus 5cm}has\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a2bd4e0d93bc783f058a8b1af222c3bd0}
+Check whether this shell\textquotesingle{}s code buffer contains code.
+
+\begin{DoxyReturn}{Returns}
+bool True if the code buffer contains code. 
+\end{DoxyReturn}
+
+
+Definition at line 457 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!has\+Command@{has\+Command}}
+\index{has\+Command@{has\+Command}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{has\+Command}]{\setlength{\rightskip}{0pt plus 5cm}has\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a1d459ece41159afc04d178d076b3cf2b}
+Check whether a command is set for the current input string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the shell has a command for the given input. 
+\end{DoxyReturn}
+
+
+Definition at line 781 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!has\+Valid\+Code@{has\+Valid\+Code}}
+\index{has\+Valid\+Code@{has\+Valid\+Code}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{has\+Valid\+Code}]{\setlength{\rightskip}{0pt plus 5cm}has\+Valid\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a23fe86f9c285191152c0ae207fce9a6e}
+Check whether the code in this shell\textquotesingle{}s code buffer is valid.
+
+If the code is valid, the code buffer should be flushed and evaluated.
+
+\begin{DoxyReturn}{Returns}
+bool True if the code buffer content is valid. 
+\end{DoxyReturn}
+
+
+Definition at line 469 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!is\+Included@{is\+Included}}
+\index{is\+Included@{is\+Included}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{is\+Included}]{\setlength{\rightskip}{0pt plus 5cm}static is\+Included (
+\begin{DoxyParamCaption}
+\item[{array}]{\$trace}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_psy_1_1_shell_aabddb69d9728e999cb50efe35088fad4}
+Check whether the first thing in a backtrace is an include call.
+
+This is used by the psysh bin to decide whether to start a shell on boot, or to simply autoload the library. 
+
+Definition at line 103 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!present\+Value@{present\+Value}}
+\index{present\+Value@{present\+Value}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{present\+Value}]{\setlength{\rightskip}{0pt plus 5cm}present\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a471a27539d027da31d8f6bfe25a40dd3}
+Format a value for display.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Presenter\+Manager\+::present}{p.}{class_psy_1_1_presenter_1_1_presenter_manager_af0bf5ba1b834b50cad2f6f06ac4072bf}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$val} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Formatted value 
+\end{DoxyReturn}
+
+
+Definition at line 754 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!readline@{readline}}
+\index{readline@{readline}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}readline (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a518dcd7321bc2dff1cd8b7c69e51b700}
+Read a line of user input.
+
+This will return a line from the input buffer (if any exist). Otherwise, it will ask the user for input.
+
+If readline is enabled, this delegates to readline. Otherwise, it\textquotesingle{}s an ugly {\ttfamily fgets} call.
+
+\begin{DoxyReturn}{Returns}
+string \doxyref{One}{p.}{class_one} line of user input. 
+\end{DoxyReturn}
+
+
+Definition at line 812 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!render\+Exception@{render\+Exception}}
+\index{render\+Exception@{render\+Exception}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{render\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}render\+Exception (
+\begin{DoxyParamCaption}
+\item[{}]{\$e, }
+\item[{}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a89177ce418ff23122bdf68150fe8433c}
+Renders a caught \doxyref{Exception}{p.}{namespace_psy_1_1_exception}.
+
+Exceptions are formatted according to severity. Error\+Exceptions which were warnings or Strict errors aren\textquotesingle{}t rendered as harshly as real errors.
+
+Stores \$e as the last \doxyref{Exception}{p.}{namespace_psy_1_1_exception} in the \doxyref{Shell}{p.}{class_psy_1_1_shell} \doxyref{Context}{p.}{class_psy_1_1_context}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$e} & An exception instance \\
+\hline
+Output\+Interface & {\em \$output} & An Output\+Interface instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 669 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!reset\+Code\+Buffer@{reset\+Code\+Buffer}}
+\index{reset\+Code\+Buffer@{reset\+Code\+Buffer}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{reset\+Code\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}reset\+Code\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a74edee9a389c4e6335d356e68d493dbf}
+Reset the current code buffer.
+
+This should be run after evaluating user input, catching exceptions, or on demand by commands such as Buffer\+Command. 
+
+Definition at line 546 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!run@{run}}
+\index{run@{run}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input = {\ttfamily null}, }
+\item[{{\bf Output\+Interface}}]{\$output = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a05dd9c0ddaec72a715c26082770151e1}
+Runs the current application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Input\+Interface & {\em \$input} & An \doxyref{Input}{p.}{class_input} instance \\
+\hline
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_psy_1_1_output} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer 0 if everything went fine, or an error code 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!run\+Command@{run\+Command}}
+\index{run\+Command@{run\+Command}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{run\+Command}]{\setlength{\rightskip}{0pt plus 5cm}run\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_shell_a42ab50fa4e681172d5bbf6659f43d215}
+Run a \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell} command given the user input.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & if the input is not a valid command.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & User input string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed Who knows? 
+\end{DoxyReturn}
+
+
+Definition at line 520 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!set\+Includes@{set\+Includes}}
+\index{set\+Includes@{set\+Includes}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{set\+Includes}]{\setlength{\rightskip}{0pt plus 5cm}set\+Includes (
+\begin{DoxyParamCaption}
+\item[{array}]{\$includes = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a30493d9d6093a1c58340b50a6f55c16f}
+Add includes, to be parsed and executed before running the interactive shell.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$includes} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 437 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{set\+Output}]{\setlength{\rightskip}{0pt plus 5cm}set\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a25085bce936586f89866bde2d1baa4bb}
+Set the \doxyref{Shell}{p.}{class_psy_1_1_shell} output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 259 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!set\+Scope\+Variables@{set\+Scope\+Variables}}
+\index{set\+Scope\+Variables@{set\+Scope\+Variables}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{set\+Scope\+Variables}]{\setlength{\rightskip}{0pt plus 5cm}set\+Scope\+Variables (
+\begin{DoxyParamCaption}
+\item[{array}]{\$vars}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a3bf8681e0da41a742ffdd99d0308368d}
+Set the variables currently in scope.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$vars} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 395 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!write\+Exception@{write\+Exception}}
+\index{write\+Exception@{write\+Exception}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{write\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}write\+Exception (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Exception}]{\$e}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a402fa2de63dd84f39ba0af3eb8337da9}
+Write a caught \doxyref{Exception}{p.}{namespace_psy_1_1_exception} to stdout.
+
+\begin{DoxySeeAlso}{See also}
+self\+::render\+Exception
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 653 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!write\+Return\+Value@{write\+Return\+Value}}
+\index{write\+Return\+Value@{write\+Return\+Value}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{write\+Return\+Value}]{\setlength{\rightskip}{0pt plus 5cm}write\+Return\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$ret}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a09cb53ee7a4b6055233a83ff6e5a3e0b}
+Write a return value to stdout.
+
+The return value is formatted or pretty-\/printed, and rendered in a visibly distinct manner (in this case, as cyan).
+
+\begin{DoxySeeAlso}{See also}
+self\+::present\+Value
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$ret} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 637 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!write\+Stdout@{write\+Stdout}}
+\index{write\+Stdout@{write\+Stdout}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{write\+Stdout}]{\setlength{\rightskip}{0pt plus 5cm}write\+Stdout (
+\begin{DoxyParamCaption}
+\item[{}]{\$out, }
+\item[{}]{\$phase = {\ttfamily PHP\+\_\+OUTPUT\+\_\+HANDLER\+\_\+END}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_shell_a15a69b6b3414f654121ed21f3d5f8468}
+Write a string to stdout.
+
+This is used by the shell loop for rendering output from evaluated code.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$out} & \\
+\hline
+int & {\em \$phase} & \doxyref{Output}{p.}{namespace_psy_1_1_output} buffering phase \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 607 of file Shell.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T@{B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T}}
+\index{B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T@{B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T}]{\setlength{\rightskip}{0pt plus 5cm}const B\+U\+F\+F\+\_\+\+P\+R\+O\+M\+P\+T = \textquotesingle{}... \textquotesingle{}}\label{class_psy_1_1_shell_ab794b4e9887440a42582ad476aae55d8}
+
+
+Definition at line 47 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!P\+R\+O\+M\+P\+T@{P\+R\+O\+M\+P\+T}}
+\index{P\+R\+O\+M\+P\+T@{P\+R\+O\+M\+P\+T}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{P\+R\+O\+M\+P\+T}]{\setlength{\rightskip}{0pt plus 5cm}const P\+R\+O\+M\+P\+T = \textquotesingle{}$>$$>$$>$ \textquotesingle{}}\label{class_psy_1_1_shell_a8f2854b444e7d583ffc719e66246da21}
+
+
+Definition at line 46 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!R\+E\+P\+L\+A\+Y@{R\+E\+P\+L\+A\+Y}}
+\index{R\+E\+P\+L\+A\+Y@{R\+E\+P\+L\+A\+Y}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{R\+E\+P\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+P\+L\+A\+Y = \textquotesingle{}-\/-\/$>$ \textquotesingle{}}\label{class_psy_1_1_shell_a524e0d66fbc136d0b7ad1304c2ca97dc}
+
+
+Definition at line 48 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!R\+E\+T\+V\+A\+L@{R\+E\+T\+V\+A\+L}}
+\index{R\+E\+T\+V\+A\+L@{R\+E\+T\+V\+A\+L}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{R\+E\+T\+V\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+T\+V\+A\+L = \textquotesingle{}=$>$ \textquotesingle{}}\label{class_psy_1_1_shell_acd0cfef9fd7aca29e086a62bd373f899}
+
+
+Definition at line 49 of file Shell.\+php.
+
+\index{Psy\+::\+Shell@{Psy\+::\+Shell}!V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}}
+\index{V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}!Psy\+::\+Shell@{Psy\+::\+Shell}}
+\subsubsection[{V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const V\+E\+R\+S\+I\+O\+N = \textquotesingle{}v0.\+4.\+4\textquotesingle{}}\label{class_psy_1_1_shell_af71005841ce53adac00581ab0ba24c1f}
+
+
+Definition at line 44 of file Shell.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/{\bf Shell.\+php}\end{DoxyCompactItemize}

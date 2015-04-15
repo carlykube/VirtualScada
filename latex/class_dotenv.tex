@@ -1,0 +1,279 @@
+\section{Dotenv Class Reference}
+\label{class_dotenv}\index{Dotenv@{Dotenv}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf load} (\${\bf path}, \$file= \textquotesingle{}.env\textquotesingle{})
+\item 
+static {\bf set\+Environment\+Variable} (\${\bf name}, \$value=null)
+\item 
+static {\bf required} (\$environment\+Variables, array \$allowed\+Values=array())
+\item 
+static {\bf find\+Environment\+Variable} (\${\bf name})
+\item 
+static {\bf make\+Immutable} ()
+\item 
+static {\bf make\+Mutable} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf normalise\+Environment\+Variable} (\${\bf name}, \$value)
+\item 
+static {\bf split\+Compound\+String\+Into\+Parts} (\${\bf name}, \$value)
+\item 
+static {\bf sanitise\+Variable\+Value} (\$value)
+\item 
+static {\bf sanitise\+Variable\+Name} (\${\bf name})
+\item 
+static {\bf resolve\+Nested\+Variables} (\$value)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$immutable} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Dotenv}{p.}{class_dotenv}
+
+Loads a {\ttfamily .env} file in the given directory and sets the environment vars 
+
+Definition at line 7 of file Dotenv.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Dotenv@{Dotenv}!find\+Environment\+Variable@{find\+Environment\+Variable}}
+\index{find\+Environment\+Variable@{find\+Environment\+Variable}!Dotenv@{Dotenv}}
+\subsubsection[{find\+Environment\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}static find\+Environment\+Variable (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a5c5fccd8c1a08191073d3d4c747e6d93}
+Search the different places for environment variables and return first value found. 
+\begin{DoxyParams}{Parameters}
+{\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!load@{load}}
+\index{load@{load}!Dotenv@{Dotenv}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}static load (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$file = {\ttfamily \textquotesingle{}.env\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a187e4f72efe6efe1292202633ed48676}
+Load {\ttfamily .env} file in given directory 
+
+Definition at line 18 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!make\+Immutable@{make\+Immutable}}
+\index{make\+Immutable@{make\+Immutable}!Dotenv@{Dotenv}}
+\subsubsection[{make\+Immutable}]{\setlength{\rightskip}{0pt plus 5cm}static make\+Immutable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a5350d5ca3e8035918597f75fc6e4c44d}
+Make \doxyref{Dotenv}{p.}{class_dotenv} immutable. This means that once set, an environment variable cannot be overridden. 
+
+Definition at line 249 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!make\+Mutable@{make\+Mutable}}
+\index{make\+Mutable@{make\+Mutable}!Dotenv@{Dotenv}}
+\subsubsection[{make\+Mutable}]{\setlength{\rightskip}{0pt plus 5cm}static make\+Mutable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a62f6921fad6214dc1f0661c6c06fefce}
+Make \doxyref{Dotenv}{p.}{class_dotenv} mutable. \doxyref{Environment}{p.}{namespace_environment} variables will act as, well, variables. 
+
+Definition at line 257 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!normalise\+Environment\+Variable@{normalise\+Environment\+Variable}}
+\index{normalise\+Environment\+Variable@{normalise\+Environment\+Variable}!Dotenv@{Dotenv}}
+\subsubsection[{normalise\+Environment\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}static normalise\+Environment\+Variable (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_a8d58d39862cd983834cf3818798eb66e}
+Takes value as passed in by developer and\+:
+\begin{DoxyItemize}
+\item ensures we\textquotesingle{}re dealing with a separate name and value, breaking apart the name string if needed
+\item cleaning the value of quotes
+\item cleaning the name of quotes
+\item resolving nested variables
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$name} & \\
+\hline
+{\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!required@{required}}
+\index{required@{required}!Dotenv@{Dotenv}}
+\subsubsection[{required}]{\setlength{\rightskip}{0pt plus 5cm}static required (
+\begin{DoxyParamCaption}
+\item[{}]{\$environment\+Variables, }
+\item[{array}]{\$allowed\+Values = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a875f03123946734e0803759d700448ca}
+Require specified E\+N\+V vars to be present, or throw Exception. You can also pass through an set of allowed values for the environment variable.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 89 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!resolve\+Nested\+Variables@{resolve\+Nested\+Variables}}
+\index{resolve\+Nested\+Variables@{resolve\+Nested\+Variables}!Dotenv@{Dotenv}}
+\subsubsection[{resolve\+Nested\+Variables}]{\setlength{\rightskip}{0pt plus 5cm}static resolve\+Nested\+Variables (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_af9f6f2592a6a754f6df0e25c0eff0570}
+Look for \{\$varname\} patterns in the variable value and replace with an existing environment variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!sanitise\+Variable\+Name@{sanitise\+Variable\+Name}}
+\index{sanitise\+Variable\+Name@{sanitise\+Variable\+Name}!Dotenv@{Dotenv}}
+\subsubsection[{sanitise\+Variable\+Name}]{\setlength{\rightskip}{0pt plus 5cm}static sanitise\+Variable\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_a94e054d93baf233adbaeb845dd972cf5}
+Strips quotes and the optional leading \char`\"{}export \char`\"{} from the environment variable name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!sanitise\+Variable\+Value@{sanitise\+Variable\+Value}}
+\index{sanitise\+Variable\+Value@{sanitise\+Variable\+Value}!Dotenv@{Dotenv}}
+\subsubsection[{sanitise\+Variable\+Value}]{\setlength{\rightskip}{0pt plus 5cm}static sanitise\+Variable\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_afde69fce819b83bceee27287cc5a1409}
+Strips quotes from the environment variable value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!set\+Environment\+Variable@{set\+Environment\+Variable}}
+\index{set\+Environment\+Variable@{set\+Environment\+Variable}!Dotenv@{Dotenv}}
+\subsubsection[{set\+Environment\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Environment\+Variable (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_dotenv_a4c72f372b9436cbd2854f48ebccfa3c5}
+Set a variable using\+:
+\begin{DoxyItemize}
+\item putenv
+\item \$\+\_\+\+E\+N\+V
+\item \$\+\_\+\+S\+E\+R\+V\+E\+R
+\end{DoxyItemize}
+
+The environment variable value is stripped of single and double quotes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em \$name} & \\
+\hline
+null & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file Dotenv.\+php.
+
+\index{Dotenv@{Dotenv}!split\+Compound\+String\+Into\+Parts@{split\+Compound\+String\+Into\+Parts}}
+\index{split\+Compound\+String\+Into\+Parts@{split\+Compound\+String\+Into\+Parts}!Dotenv@{Dotenv}}
+\subsubsection[{split\+Compound\+String\+Into\+Parts}]{\setlength{\rightskip}{0pt plus 5cm}static split\+Compound\+String\+Into\+Parts (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_a35410c8630a71ad88df44282de5ebdb7}
+If the \$name contains an = sign, then we split it into 2 parts, a name \& value
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$name} & \\
+\hline
+{\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Dotenv.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Dotenv@{Dotenv}!\$immutable@{\$immutable}}
+\index{\$immutable@{\$immutable}!Dotenv@{Dotenv}}
+\subsubsection[{\$immutable}]{\setlength{\rightskip}{0pt plus 5cm}\$immutable = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_dotenv_ac42bb9ef1674047d1f82dcfb810f51be}
+
+
+Definition at line 13 of file Dotenv.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/vlucas/phpdotenv/src/{\bf Dotenv.\+php}\end{DoxyCompactItemize}

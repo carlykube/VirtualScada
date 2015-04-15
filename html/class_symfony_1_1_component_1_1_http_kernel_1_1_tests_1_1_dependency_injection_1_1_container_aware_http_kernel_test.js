@@ -1,0 +1,7 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_container_aware_http_kernel_test =
+[
+    [ "getProviderTypes", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_container_aware_http_kernel_test.html#a2ba4f8a1b996054c283b093f194e0690", null ],
+    [ "testHandle", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_container_aware_http_kernel_test.html#af973f3e9340750e71c95b9d37518705d", null ],
+    [ "testHandleRestoresThePreviousRequestOnException", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_container_aware_http_kernel_test.html#a179eb97a334a6799925c0bd4b30bb2eb", null ],
+    [ "testVerifyRequestStackPushPopDuringHandle", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_container_aware_http_kernel_test.html#a060b0922e7af2995a50acc226023727d", null ]
+];

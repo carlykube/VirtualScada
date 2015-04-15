@@ -1,0 +1,93 @@
+.TH "SamplingHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SamplingHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($handler, $factor)"
+.br
+.ti -1c
+.RI "\fBisHandling\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.ti -1c
+.RI "\fB$factor\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Sampling handler
+.PP
+\fBA\fP sampled event stream can be useful for logging high frequency events in a production environment where you only need an idea of what is happening and are not concerned with capturing every occurrence\&. Since the decision to handle or not handle a particular event is determined randomly, the resulting sampled log is not guaranteed to contain 1/N of the events that occurred in the application, but based on the Law of large numbers, it will tend to be close to this ratio with a large number of attempts\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bryan Davis bd808@wikimedia.org 
+.PP
+Kunal Mehta legoktm@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file SamplingHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $handler,  $factor)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP \fBHandler\fP or factory callable($record, $fingersCrossedHandler)\&. 
+.br
+\fI$factor\fP Sample factor 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file SamplingHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "handle (array $record)"
+
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 60 of file SamplingHandler\&.php\&.
+.SS "isHandling (array $record)"
+
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 55 of file SamplingHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "int $factor\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file SamplingHandler\&.php\&.
+.SS "callable \fBHandlerInterface\fP $handler\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file SamplingHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,49 @@
+It is also possible to generate code using the parser, by first creating an Abstract Syntax Tree and then using the pretty printer to convert it to \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code. To simplify code generation, the project comes with builders which allow creating node trees using a fluid interface, instead of instantiating all nodes manually. Builders are available for the following syntactic elements\+:
+
+
+\begin{DoxyItemize}
+\item namespaces and use statements
+\item classes, interfaces and traits
+\item methods, functions and parameters
+\item properties
+\end{DoxyItemize}
+
+Here is an example\+:
+
+```php $<$?php \$factory = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}; \$node = \$factory-\/$>$namespace(\textquotesingle{}Name\textquotesingle{}) -\/$>$add\+Stmt(\$factory-\/$>$use(\textquotesingle{}Some\textquotesingle{})-\/$>$as(\textquotesingle{}Some\+Other\+Class\textquotesingle{})) -\/$>$add\+Stmt(\$factory-\/$>$class(\textquotesingle{}\doxyref{Some\+Class}{p.}{class_some_class}\textquotesingle{}) -\/$>$extend(\textquotesingle{}Some\+Other\+Class\textquotesingle{}) -\/$>$implement(\textquotesingle{}\doxyref{A}{p.}{class_a}\textquotesingle{}, \textquotesingle{}\textquotesingle{}) -\/$>$make\+Abstract() // -\/$>$make\+Final()
+
+-\/$>$add\+Stmt(\$factory-\/$>$method(\textquotesingle{}some\+Method\textquotesingle{}) -\/$>$make\+Public() -\/$>$make\+Abstract() // -\/$>$make\+Final() -\/$>$add\+Param(\$factory-\/$>$param(\textquotesingle{}some\+Param\textquotesingle{})-\/$>$set\+Type\+Hint(\textquotesingle{}\doxyref{Some\+Class}{p.}{class_some_class}\textquotesingle{})) -\/$>$set\+Doc\+Comment(\textquotesingle{}/$\ast$$\ast$
+\begin{DoxyItemize}
+\item This method does something.
+\item 
+\item 
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{Some\+Class}{p.}{class_some_class}} & And takes a parameter $\ast$/\textquotesingle{}) )\\
+\hline
+\end{DoxyParams}
+-\/$>$add\+Stmt(\$factory-\/$>$method(\textquotesingle{}another\+Method\textquotesingle{}) -\/$>$make\+Protected() // -\/$>$make\+Public() [default], -\/$>$make\+Private() -\/$>$add\+Param(\$factory-\/$>$param(\textquotesingle{}some\+Param\textquotesingle{})-\/$>$set\+Default(\textquotesingle{}test\textquotesingle{})) // it is possible to add manually created nodes -\/$>$add\+Stmt(new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(\textquotesingle{}some\+Param\textquotesingle{}))) )
+\end{DoxyItemize}
+
+// properties will be correctly reordered above the methods -\/$>$add\+Stmt(\$factory-\/$>$property(\textquotesingle{}some\+Property\textquotesingle{})-\/$>$make\+Protected()) -\/$>$add\+Stmt(\$factory-\/$>$property(\textquotesingle{}another\+Property\textquotesingle{})-\/$>$make\+Private()-\/$>$set\+Default(array(1, 2, 3))) )
+
+-\/$>$get\+Node() ;
+
+\$stmts = array(\$node); \$pretty\+Printer = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(); echo \$pretty\+Printer-\/$>$pretty\+Print\+File(\$stmts); ```
+
+This will produce the following output with the standard pretty printer\+:
+
+```php $<$?php
+
+namespace Name;
+
+use Some as \doxyref{Some\+Class}{p.}{class_some_class}; abstract class \doxyref{Some\+Class}{p.}{class_some_class} extends Some\+Other\+Class implements \doxyref{A}{p.}{class_a},  \{ protected \$some\+Property; private \$another\+Property = array(1, 2, 3); /$\ast$$\ast$
+\begin{DoxyItemize}
+\item This method does something.
+\item 
+\item 
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{Some\+Class}{p.}{class_some_class}} & And takes a parameter $\ast$/ public abstract function some\+Method(\doxyref{Some\+Class}{p.}{class_some_class} \$some\+Param); protected function another\+Method(\$some\+Param = \textquotesingle{}test\textquotesingle{}) \{ print \$some\+Param; \} \} ``` \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}

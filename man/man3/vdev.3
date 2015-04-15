@@ -1,0 +1,303 @@
+.TH "vdev" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vdev \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBprocessUpdate\fP (\fBupdate\fP)"
+.br
+.ti -1c
+.RI "def \fBapplyUpdate\fP (\fBupdate\fP, state)"
+.br
+.ti -1c
+.RI "def \fBcompileUpdate\fP (state)"
+.br
+.ti -1c
+.RI "def \fBlogic\fP (procControl, interface)"
+.br
+.ti -1c
+.RI "def \fBsimComm\fP (interface)"
+.br
+.ti -1c
+.RI "def \fBq\fP ()"
+.br
+.RI "\fI--Start all threads \fP"
+.ti -1c
+.RI "def \fBshwpts\fP ()"
+.br
+.ti -1c
+.RI "def \fBshwwtr\fP ()"
+.br
+.ti -1c
+.RI "def \fBwaterstart\fP ()"
+.br
+.ti -1c
+.RI "def \fBgasstart\fP ()"
+.br
+.ti -1c
+.RI "def \fBhalp\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "tuple \fBupdateQ\fP = Queue\&.Queue()"
+.br
+.ti -1c
+.RI "list \fBthreadList\fP = []"
+.br
+.ti -1c
+.RI "\fBconfig\fP = None"
+.br
+.ti -1c
+.RI "\fBdevconfig\fP = None"
+.br
+.ti -1c
+.RI "dictionary \fBpoints\fP = {}"
+.br
+.ti -1c
+.RI "string \fBprogramDescription\fP = '''This program implements \fBa\fP virtual ICS device\&.'''"
+.br
+.RI "\fI--Parse command line options \fP"
+.ti -1c
+.RI "tuple \fBparser\fP = OptionParser(description=\fBprogramDescription\fP)"
+.br
+.ti -1c
+.RI "string \fBaction\fP = 'store'"
+.br
+.ti -1c
+.RI "\fBvdevname\fP = opts\&.device"
+.br
+.ti -1c
+.RI "\fBsystem\fP = opts\&.system"
+.br
+.ti -1c
+.RI "string \fBconfigfile\fP = '/'"
+.br
+.RI "\fI--Open config\&. \fP"
+.ti -1c
+.RI "\fBsimiface\fP = None"
+.br
+.RI "\fI--Set up points \fP"
+.ti -1c
+.RI "list \fBifaceinfo\fP = \fBdevconfig\fP['\fBsimiface\fP']"
+.br
+.ti -1c
+.RI "tuple \fBifacetype\fP = getattr(ifaces, \fBifaceinfo\fP['typ'])"
+.br
+.RI "\fI--Create ICS Comm Threads \fP"
+.ti -1c
+.RI "tuple \fBsimifaceThread\fP"
+.br
+.ti -1c
+.RI "tuple \fBicsiface\fP = \fBifacetype\fP(\fBifaceinfo\fP, \fBpoints\&.values\fP())"
+.br
+.ti -1c
+.RI "tuple \fBlogicThread\fP = threading\&.Thread(target=\fBlogic\fP, \fBname\fP = 'logicThread', args=(procControl, \fBsimiface\fP))"
+.br
+.RI "\fI--Create logic thread get sim logic from model \fP"
+.ti -1c
+.RI "string \fBbanner\fP = '''Virtual Device [%s]\&. Type \fBhalp\fP() \fBfor\fP info'''"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def vdev\&.applyUpdate ( update,  state)"
+
+.PP
+.nf
+This function takes a dictionary corresponding to an update and 
+   if the key corresponds to a state variable, the state variable is set to
+   the value in the update.
+
+   @param update Dictionary derived from an update message.
+   @param state The state dictionary for the process simulation
+.fi
+.PP
+ 
+.PP
+Definition at line 37 of file vdev\&.py\&.
+.SS "def vdev\&.compileUpdate ( state)"
+
+.PP
+.nf
+This function creates a JSON string of all output
+    points and the current time.
+
+   @param state The dictionary of device points.
+   @returns A string containing the JSON representation of the
+                output variables.
+.fi
+.PP
+ 
+.PP
+Definition at line 59 of file vdev\&.py\&.
+.SS "def vdev\&.gasstart ()"
+
+.PP
+Definition at line 278 of file vdev\&.py\&.
+.SS "def vdev\&.halp ()"
+
+.PP
+Definition at line 283 of file vdev\&.py\&.
+.SS "def vdev\&.logic ( procControl,  interface)"
+
+.PP
+.nf
+This function is a thread that arbitrates receiving updates from the
+    simulator and other devices. Those update messages are used to update
+    the device points. Once the points are updated, the process control
+    logic function for this device is run. An update is generated as a
+    result and passed to the simulator
+    
+    @param procControl  function object representing the process control
+                        logic. 
+    @param interface    iface to the simulator. Used for returning updates.
+.fi
+.PP
+ 
+.PP
+Definition at line 97 of file vdev\&.py\&.
+.SS "def vdev\&.processUpdate ( update)"
+
+.PP
+.nf
+processUpdate converts a JSON update string into Python data types
+    
+@param update This parameter is a JSON message received from the interface
+@returns A dictionary of the message contents
+
+.fi
+.PP
+ 
+.PP
+Definition at line 27 of file vdev\&.py\&.
+.SS "def vdev\&.q ()"
+
+.PP
+--Start all threads --For the user interface: 
+.PP
+Definition at line 272 of file vdev\&.py\&.
+.SS "def vdev\&.shwpts ()"
+
+.PP
+Definition at line 273 of file vdev\&.py\&.
+.SS "def vdev\&.shwwtr ()"
+
+.PP
+Definition at line 274 of file vdev\&.py\&.
+.SS "def vdev\&.simComm ( interface)"
+
+.PP
+.nf
+Thread for receiving update messages from the simulator.
+
+    @param interface The iface connected to the simulator.
+.fi
+.PP
+ 
+.PP
+Definition at line 164 of file vdev\&.py\&.
+.SS "def vdev\&.waterstart ()"
+
+.PP
+Definition at line 275 of file vdev\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "string action = 'store'"
+
+.PP
+Definition at line 194 of file vdev\&.py\&.
+.SS "string banner = '''Virtual Device [%s]\&. Type \fBhalp\fP() \fBfor\fP info'''"
+
+.PP
+Definition at line 291 of file vdev\&.py\&.
+.SS "tuple config = None"
+
+.PP
+Definition at line 89 of file vdev\&.py\&.
+.SS "string configfile = '/'"
+
+.PP
+--Open config\&. 
+.PP
+Definition at line 210 of file vdev\&.py\&.
+.SS "list devconfig = None"
+
+.PP
+Definition at line 90 of file vdev\&.py\&.
+.SS "tuple icsiface = \fBifacetype\fP(\fBifaceinfo\fP, \fBpoints\&.values\fP())"
+
+.PP
+Definition at line 249 of file vdev\&.py\&.
+.SS "list ifaceinfo = \fBdevconfig\fP['\fBsimiface\fP']"
+
+.PP
+Definition at line 229 of file vdev\&.py\&.
+.SS "tuple ifacetype = getattr(ifaces, \fBifaceinfo\fP['typ'])"
+
+.PP
+--Create ICS Comm Threads 
+.PP
+Definition at line 231 of file vdev\&.py\&.
+.SS "tuple logicThread = threading\&.Thread(target=\fBlogic\fP, \fBname\fP = 'logicThread', args=(procControl, \fBsimiface\fP))"
+
+.PP
+--Create logic thread get sim logic from model 
+.PP
+Definition at line 261 of file vdev\&.py\&.
+.SS "tuple parser = OptionParser(description=\fBprogramDescription\fP)"
+
+.PP
+Definition at line 191 of file vdev\&.py\&.
+.SS "dictionary points = {}"
+
+.PP
+Definition at line 93 of file vdev\&.py\&.
+.SS "string programDescription = '''This program implements \fBa\fP virtual ICS device\&.'''"
+
+.PP
+--Parse command line options 
+.PP
+Definition at line 190 of file vdev\&.py\&.
+.SS "tuple simiface = None"
+
+.PP
+--Set up points --Create simcomm thread 
+.PP
+Definition at line 228 of file vdev\&.py\&.
+.SS "tuple simifaceThread"
+\fBInitial value:\fP
+.PP
+.nf
+1 = threading\&.Thread(target=simComm, name=simiface, 
+2                                                 args=(simiface,))
+.fi
+.PP
+Definition at line 236 of file vdev\&.py\&.
+.SS "system = opts\&.system"
+
+.PP
+Definition at line 204 of file vdev\&.py\&.
+.SS "list threadList = []"
+
+.PP
+Definition at line 86 of file vdev\&.py\&.
+.SS "tuple updateQ = Queue\&.Queue()"
+
+.PP
+Definition at line 82 of file vdev\&.py\&.
+.SS "vdevname = opts\&.device"
+
+.PP
+Definition at line 203 of file vdev\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

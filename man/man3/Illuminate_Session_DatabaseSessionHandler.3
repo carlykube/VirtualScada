@@ -1,0 +1,268 @@
+.TH "DatabaseSessionHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DatabaseSessionHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionHandlerInterface\fP, and \fBExistenceAwareInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBConnectionInterface\fP $connection, $table)"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($lifetime)"
+.br
+.ti -1c
+.RI "\fBsetExists\fP ($value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetQuery\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$table\fP"
+.br
+.ti -1c
+.RI "\fB$exists\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file DatabaseSessionHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBConnectionInterface\fP $connection,  $table)"
+Create a new database session handler instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file DatabaseSessionHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 53 of file DatabaseSessionHandler\&.php\&.
+.SS "destroy ( $sessionId)"
+Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 97 of file DatabaseSessionHandler\&.php\&.
+.SS "gc ( $lifetime)"
+Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 105 of file DatabaseSessionHandler\&.php\&.
+.SS "getQuery ()\fC [protected]\fP"
+Get a fresh query builder instance for the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 115 of file DatabaseSessionHandler\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 45 of file DatabaseSessionHandler\&.php\&.
+.SS "read ( $sessionId)"
+Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 61 of file DatabaseSessionHandler\&.php\&.
+.SS "setExists ( $value)"
+Set the existence state for the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Implements \fBExistenceAwareInterface\fP\&.
+.PP
+Definition at line 126 of file DatabaseSessionHandler\&.php\&.
+.SS "write ( $sessionId,  $data)"
+Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+ 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 76 of file DatabaseSessionHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file DatabaseSessionHandler\&.php\&.
+.SS "$exists\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file DatabaseSessionHandler\&.php\&.
+.SS "$table\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file DatabaseSessionHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

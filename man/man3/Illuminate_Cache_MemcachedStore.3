@@ -1,0 +1,270 @@
+.TH "MemcachedStore" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MemcachedStore \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTaggableStore\fP, and \fBStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($memcached, $prefix= '')"
+.br
+.ti -1c
+.RI "\fBget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBadd\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMemcached\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPrefix\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$memcached\fP"
+.br
+.ti -1c
+.RI "\fB$prefix\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file MemcachedStore\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $memcached,  $prefix = \fC''\fP)"
+Create a new Memcached store\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$memcached\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file MemcachedStore\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $key,  $value,  $minutes)"
+Store an item in the cache if the key doesn't exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file MemcachedStore\&.php\&.
+.SS "decrement ( $key,  $value = \fC1\fP)"
+Decrement the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|bool 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 95 of file MemcachedStore\&.php\&.
+.SS "flush ()"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 128 of file MemcachedStore\&.php\&.
+.SS "forever ( $key,  $value)"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 107 of file MemcachedStore\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 118 of file MemcachedStore\&.php\&.
+.SS "get ( $key)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 40 of file MemcachedStore\&.php\&.
+.SS "getMemcached ()"
+Get the underlying Memcached connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 138 of file MemcachedStore\&.php\&.
+.SS "getPrefix ()"
+Get the cache key prefix\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 148 of file MemcachedStore\&.php\&.
+.SS "increment ( $key,  $value = \fC1\fP)"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|bool 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 83 of file MemcachedStore\&.php\&.
+.SS "put ( $key,  $value,  $minutes)"
+Store an item in the cache for a given number of minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 58 of file MemcachedStore\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$memcached\fC [protected]\fP"
+
+.PP
+Definition at line 12 of file MemcachedStore\&.php\&.
+.SS "$prefix\fC [protected]\fP"
+
+.PP
+Definition at line 19 of file MemcachedStore\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

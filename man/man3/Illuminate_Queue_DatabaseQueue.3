@@ -1,0 +1,377 @@
+.TH "DatabaseQueue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DatabaseQueue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP, and \fBQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBConnection\fP $database, $table, $default= 'default', $expire=60)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBrelease\fP ($\fBqueue\fP, $job, $\fBdelay\fP)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteReserved\fP ($\fBqueue\fP, $id)"
+.br
+.ti -1c
+.RI "\fBgetDatabase\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpire\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExpire\fP ($\fBseconds\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpushToDatabase\fP ($\fBdelay\fP, $\fBqueue\fP, $payload, $\fBattempts\fP=0)"
+.br
+.ti -1c
+.RI "\fBreleaseJobsThatHaveBeenReservedTooLong\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetNextAvailableJob\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBmarkJobAsReserved\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ($\fBqueue\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$database\fP"
+.br
+.ti -1c
+.RI "\fB$table\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP"
+.br
+.ti -1c
+.RI "\fB$expire\fP = 60"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file DatabaseQueue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBConnection\fP $database,  $table,  $default = \fC'default'\fP,  $expire = \fC60\fP)"
+Create a new database queue instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$database\fP 
+.br
+\fI$table\fP 
+.br
+\fI$default\fP 
+.br
+\fI$expire\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file DatabaseQueue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "deleteReserved ( $queue,  $id)"
+Delete a reserved job from the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file DatabaseQueue\&.php\&.
+.SS "getDatabase ()"
+Get the underlying database instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 246 of file DatabaseQueue\&.php\&.
+.SS "getExpire ()"
+Get the expiration time in seconds\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file DatabaseQueue\&.php\&.
+.SS "getNextAvailableJob ( $queue)\fC [protected]\fP"
+Get the next available job for the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 190 of file DatabaseQueue\&.php\&.
+.SS "getQueue ( $queue)\fC [protected]\fP"
+Get the queue or return the default\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file DatabaseQueue\&.php\&.
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 92 of file DatabaseQueue\&.php\&.
+.SS "markJobAsReserved ( $id)\fC [protected]\fP"
+Mark the given job ID as reserved\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file DatabaseQueue\&.php\&.
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 140 of file DatabaseQueue\&.php\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 65 of file DatabaseQueue\&.php\&.
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 78 of file DatabaseQueue\&.php\&.
+.SS "pushToDatabase ( $delay,  $queue,  $payload,  $attempts = \fC0\fP)\fC [protected]\fP"
+Push a raw payload to the database with a given delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$payload\fP 
+.br
+\fI$attempts\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file DatabaseQueue\&.php\&.
+.SS "release ( $queue,  $job,  $delay)"
+Release a reserved job back onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$job\fP 
+.br
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file DatabaseQueue\&.php\&.
+.SS "releaseJobsThatHaveBeenReservedTooLong ( $queue)\fC [protected]\fP"
+Release the jobs that have been reserved for too long\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file DatabaseQueue\&.php\&.
+.SS "setExpire ( $seconds)"
+Set the expiration time in seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file DatabaseQueue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$database\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file DatabaseQueue\&.php\&.
+.SS "$default\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file DatabaseQueue\&.php\&.
+.SS "$expire = 60\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file DatabaseQueue\&.php\&.
+.SS "$table\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file DatabaseQueue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

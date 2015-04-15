@@ -1,0 +1,145 @@
+.TH "Swift_Mailer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mailer \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Transport\fP $transport)"
+.br
+.ti -1c
+.RI "\fBcreateMessage\fP ($service= 'message')"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.ti -1c
+.RI "\fBgetTransport\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP (\fBSwift_Transport\fP $transport)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBSwift\fP Mailer class\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Mailer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Transport\fP $transport)"
+Create a new Mailer using $transport for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file Mailer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createMessage ( $service = \fC'message'\fP)"
+Create a new class instance of one of the message services\&.
+.PP
+For example 'mimepart' would create a 'message\&.mimepart' instance
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$service\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file Mailer\&.php\&.
+.SS "getTransport ()"
+The Transport used to send messages\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Mailer\&.php\&.
+.SS "static newInstance (\fBSwift_Transport\fP $transport)\fC [static]\fP"
+Create a new Mailer instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transport\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mailer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file Mailer\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+Register a plugin using a known unique key (e\&.g\&. myPlugin)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file Mailer\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message like it would be sent in a mail client\&.
+.PP
+All recipients (with the exception of Bcc) will be able to see the other recipients this message was sent to\&.
+.PP
+Recipient/sender data will be retrieved from the Message object\&.
+.PP
+The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$failedRecipients\fP An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Mailer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

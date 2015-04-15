@@ -1,0 +1,181 @@
+.TH "md_vendor_nikic_php-parser__c_h_a_n_g_e_l_o_g" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_nikic_php-parser__c_h_a_n_g_e_l_o_g \- \fBVersion\fP 1\&.2\&.3-dev 
+Nothing yet\&.
+.PP
+.SS "\fBVersion\fP 1\&.2\&.2 (2015-04-03) "
+.PP
+.IP "\(bu" 2
+The \fCNameResolver\fP now resolves parameter type hints when entering the function/method/closure node\&. As such other visitors running after it will be able to make use of the resolved names at that point already\&.
+.IP "\(bu" 2
+The autoloader no longer sets the \fCunserialize_callback_func\fP ini option on registration - this is not necessary and may cause issues when running PhpUnit tests with process isolation\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.2\&.1 (2015-03-24) "
+.PP
+.IP "\(bu" 2
+Fixed registration of the aliases introduced in 1\&.2\&.0\&. Previously the old class names could not be used in \fCinstanceof\fP checks under some circumstances\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.2\&.0 (2015-03-22) "
+.PP
+.SS "Changed"
+.PP
+.IP "\(bu" 2
+To ensure compatibility with \fBPHP\fP 7, the following node classes have been renamed: 
+.PP
+.nf
+  OLD                             => NEW
+  PhpParser\Node\Expr\Cast\Bool   => PhpParser\Node\Expr\Cast\Bool_
+  PhpParser\Node\Expr\Cast\Int    => PhpParser\Node\Expr\Cast\Int_
+  PhpParser\Node\Expr\Cast\Object => PhpParser\Node\Expr\Cast\Object_
+  PhpParser\Node\Expr\Cast\String => PhpParser\Node\Expr\Cast\String_
+  PhpParser\Node\Scalar\String    => PhpParser\Node\Scalar\String_
+
+.fi
+.PP
+.PP
+\fBThe previous class names are still supported as aliases\&.\fP However it is strongly encouraged to use the new names in order to make your code compatible with \fBPHP\fP 7\&.
+.IP "\(bu" 2
+Subnodes are now stored using real properties instead of an array\&. This improves performance and memory usage of the initial parse and subsequent node tree operations\&. The \fCNodeAbstract\fP class still supports the old way of specifying subnodes, however this is \fIdeprecated\fP\&. In any case properties that are assigned to a node after creation will no longer be considered as subnodes\&.
+.IP "\(bu" 2
+Methods and property declarations will no longer set the \fCStmt\\Class_::MODIFIER_PUBLIC\fP flag if no visibility is explicitly given\&. However the \fCisPublic()\fP method will continue to return true\&. This allows you to distinguish whether a method/property is explicitly or implicitly public and control the pretty printer output more precisely\&.
+.IP "\(bu" 2
+The \fCStmt\\Class_\fP, \fCStmt\\Interface_\fP and \fCStmt\\Trait_\fP nodes now inherit from \fCStmt\\ClassLike\fP, which provides a \fCgetMethods()\fP method\&. Previously this method was only available on \fCStmt\\Class_\fP\&.
+.IP "\(bu" 2
+Support including the \fCbootstrap\&.php\fP file multiple times\&.
+.IP "\(bu" 2
+Make documentation and tests part of the release tarball again\&.
+.IP "\(bu" 2
+Improve support for HHVM and \fBPHP\fP 7\&.
+.PP
+.PP
+.SS "Added"
+.PP
+.IP "\(bu" 2
+Added support for \fBPHP\fP 7 return type declarations\&. This adds an additional \fCreturnType\fP subnode to \fCStmt\\Function_\fP, \fCStmt\\ClassMethod\fP and \fCExpr\\Closure\fP\&.
+.IP "\(bu" 2
+Added support for the \fBPHP\fP 7 null coalesce operator \fC??\fP\&. The operator is represented by \fCExpr\\BinaryOp\\Coalesce\fP\&.
+.IP "\(bu" 2
+Added support for the \fBPHP\fP 7 spaceship operator \fC<=>\fP\&. The operator is represented by \fCExpr\\BinaryOp\\Spaceship\fP\&.
+.IP "\(bu" 2
+Added use builder\&.
+.IP "\(bu" 2
+Added global namespace support to the namespace builder\&.
+.IP "\(bu" 2
+Added a constructor flag to \fCNodeTraverser\fP, which disables cloning of nodes\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.1\&.0 (2015-01-18) "
+.PP
+.IP "\(bu" 2
+Methods that do not specify an explicit visibility (e\&.g\&. \fCfunction method()\fP) will now have the \fCMODIFIER_PUBLIC\fP flag set\&. This also means that their \fCisPublic()\fP method will return true\&.
+.IP "\(bu" 2
+Declaring a property as abstract or final is now an error\&.
+.IP "\(bu" 2
+The \fCLexer\fP and \fCLexer\\Emulative\fP classes now accept an \fC$options\fP array in their constructors\&. Currently only the \fCusedAttributes\fP option is supported, which determines which attributes will be added to AST nodes\&. In particular it is now possible to add information on the token and file positions corresponding to a node\&. For more details see the \fBhttps:\fP//github\&.com/nikic/PHP-Parser/blob/master/doc/component/Lexer\&.markdown 'Lexer component' documentation\&.
+.IP "\(bu" 2
+Node visitors can now return \fCNodeTraverser::DONT_TRAVERSE_CHILDREN\fP from \fCenterNode()\fP in order to skip all children of the current node, for all visitors\&.
+.IP "\(bu" 2
+Added builders for traits and namespaces\&.
+.IP "\(bu" 2
+The class, interface, trait, function, method and property builders now support adding doc comments using the \fCsetDocComment()\fP method\&.
+.IP "\(bu" 2
+Added support for fully-qualified and namespace-relative names in builders\&. No longer allow use of name component arrays\&.
+.IP "\(bu" 2
+Do not add documentation and tests to distribution archive files\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.0\&.2 (2014-11-04) "
+.PP
+.IP "\(bu" 2
+The \fCNameResolver\fP visitor now also resolves names in trait adaptations (aliases and precedence declarations)\&.
+.IP "\(bu" 2
+Remove stray whitespace when pretty-printing trait adaptations that only change visibility\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.0\&.1 (2014-10-14) "
+.PP
+.IP "\(bu" 2
+Disallow \fCnew\fP expressions without a class name\&. Previously \fCnew;\fP was accidentally considered to be valid code\&.
+.IP "\(bu" 2
+Support T_ONUMBER token used by HHVM\&.
+.IP "\(bu" 2
+Add ability to directly pass code to the \fC\fBphp-parse\&.php\fP\fP script\&.
+.IP "\(bu" 2
+Prevent truncation of \fCvar_dump()\fP output in the \fC\fBphp-parse\&.php\fP\fP script if XDebug is used\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.0\&.0 (2014-09-12) "
+.PP
+.IP "\(bu" 2
+[BC] Removed deprecated \fC\fBTemplate\fP\fP and \fCTemplateLoader\fP classes\&.
+.IP "\(bu" 2
+Fixed XML unserializer to properly work with new namespaced node names\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.0\&.0-beta2 (2014-08-31) "
+.PP
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Updated support for constant scalar expressions to comply with latest changes\&. This means that arrays and array dimension fetches are now supported as well\&.
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Direct array dereferencing of constants is supported now, i\&.e\&. both \fCFOO[0]\fP and \fCFoo::BAR[0]\fP are valid now\&.
+.IP "\(bu" 2
+Fixed handling of special class names (\fCself\fP, \fCparent\fP and \fCstatic\fP) in the name resolver to be case insensitive\&. Additionally the name resolver now enforces that special class names are only used as unqualified names, e\&.g\&. \fC\\self\fP is considered invalid\&.
+.IP "\(bu" 2
+The case of references to the \fCstatic\fP class name is now preserved\&. Previously \fCstatic\fP was always lowercased, regardless of the case used in the source code\&.
+.IP "\(bu" 2
+The autoloader now only requires a file if it exists\&. This allows usages like `class_exists('\fBPhpParser\fP')`\&.
+.IP "\(bu" 2
+Added experimental \fC\fBbin/php-parse\&.php\fP\fP script, which is intended to help exploring and debugging the node tree\&.
+.IP "\(bu" 2
+Separated the parser implemention (in \fC\fBlib/PhpParser/ParserAbstract\&.php\fP\fP) and the generated data (in \fC\fBlib/PhpParser/Parser\&.php\fP\fP)\&. Furthermore the parser now uses meaningful variable names and contains comments explaining their usage\&.
+.PP
+.PP
+.SS "\fBVersion\fP 1\&.0\&.0-beta1 (2014-03-27) "
+.PP
+.IP "\(bu" 2
+[BC] PHP-Parser now requires \fBPHP\fP 5\&.3 or newer to run\&. It is however still possible to \fIparse\fP \fBPHP\fP 5\&.2 source code, while running on a newer version\&.
+.IP "\(bu" 2
+[BC] The library has been moved to use namespaces with the \fC\fBPhpParser\fP\fP vendor prefix\&. However, the old names using underscores are still available as aliases, as such most code should continue running on the new version without further changes\&.
+.PP
+However, code performing dispatch operations on \fCNode::getType()\fP may be affected by some of the name changes\&. For example a \fC+\fP node will now return type \fCExpr_BinaryOp_Plus\fP instead of \fCExpr_Plus\fP\&. In particular this may affect custom pretty printers\&.
+.PP
+Due to conflicts with reserved keywords, some class names now end with an underscore, e\&.g\&. \fCPHPParser_Node_Stmt_Class\fP is now \fC\fBPhpParser\fP\\Node\\Stmt\\Class_\fP\&. (But as usual, the old name is still available)
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Added support for the power operator \fC**\fP (node \fCExpr\\BinaryOp\\Pow\fP) and the compound power assignment operator \fC**=\fP (node \fCExpr\\AssignOp\\Pow\fP)\&.
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Added support for variadic functions: \fCParam\fP nodes now have \fCvariadic\fP as a boolean subnode\&.
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Added support for argument unpacking: \fCArg\fP nodes now have \fCunpack\fP as a boolean subnode\&.
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Added support for aliasing of functions and constants\&. \fCStmt\\Use_\fP nodes now have an integral \fCtype\fP subnode, which is one of \fCStmt\\Use_::TYPE_NORMAL\fP (\fCuse\fP), \fCStmt\\Use_::TYPE_FUNCTION\fP (\fCuse function\fP) or \fCStmt\\Use_::TYPE_CONSTANT\fP (\fCuse const\fP)\&.
+.PP
+The \fCNameResolver\fP now also supports resolution of such aliases\&.
+.IP "\(bu" 2
+[\fBPHP\fP 5\&.6] Added support for constant scalar expressions\&. This means that certain expressions are now allowed as the initializer for constants, properties, parameters, static variables, etc\&.
+.IP "\(bu" 2
+[BC] Improved pretty printing of empty statements lists, which are now printed as \fC{\\n}\fP instead of \fC{\\n \\n}\fP\&. This changes the behavior of the protected \fCPrettyPrinterAbstract::pStmts()\fP method, so custom pretty printing code making use it of may need to be adjusted\&.
+.IP "\(bu" 2
+Changed the order of some subnodes to be consistent with their order in the sour code\&. For example \fCStmt\\If->cond\fP will now appear before \fCStmt\\If->stmts\fP etc\&.
+.IP "\(bu" 2
+Added \fCScalar\\MagicConstant->getName()\fP, which returns the name of the magic constant (e\&.g\&. \fC__CLASS__\fP)\&.
+.PP
+.PP
+\fBThe following changes are also included in 0\&.9\&.5\fP:
+.PP
+.IP "\(bu" 2
+[BC] Deprecated \fCPHPParser_Template\fP and \fCPHPParser_TemplateLoader\fP\&. This functionality does not belong in the main project and - as far as I know - nobody is using it\&.
+.IP "\(bu" 2
+Add \fCNodeTraverser::removeVisitor()\fP method, which removes a visitor from the node traverser\&. This also modifies the corresponding \fCNodeTraverserInterface\fP\&.
+.IP "\(bu" 2
+Fix alias resolution in \fCNameResolver\fP: Class names are now correctly handled as case-insensitive\&.
+.IP "\(bu" 2
+The undefined variable error, which is used to the lexer to reset the error state, will no longer interfere with custom error handlers\&. 
+.PP
+
+.PP
+.PP
+\fBThis changelog only includes changes from the 1\&.0 series\&. For older changes see the \fBhttps:\fP//github\&.com/nikic/PHP-Parser/blob/0\&.9/CHANGELOG\&.md '0\&.9 series changelog'\&.\fP 

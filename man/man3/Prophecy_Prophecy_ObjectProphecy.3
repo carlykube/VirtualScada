@@ -1,0 +1,274 @@
+.TH "ObjectProphecy" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ObjectProphecy \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProphecyInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBLazyDouble\fP $lazyDouble, \fBCallCenter\fP $callCenter=null, \fBRevealerInterface\fP $revealer=null, ComparatorFactory $comparatorFactory=null)"
+.br
+.ti -1c
+.RI "\fBwillExtend\fP ($class)"
+.br
+.ti -1c
+.RI "\fBwillImplement\fP ($interface)"
+.br
+.ti -1c
+.RI "\fBwillBeConstructedWith\fP (array $arguments=null)"
+.br
+.ti -1c
+.RI "\fBreveal\fP ()"
+.br
+.ti -1c
+.RI "\fBaddMethodProphecy\fP (\fBMethodProphecy\fP $methodProphecy)"
+.br
+.ti -1c
+.RI "\fBgetMethodProphecies\fP ($methodName=null)"
+.br
+.ti -1c
+.RI "\fBmakeProphecyMethodCall\fP ($methodName, array $arguments)"
+.br
+.ti -1c
+.RI "\fBfindProphecyMethodCalls\fP ($methodName, \fBArgumentsWildcard\fP $wildcard)"
+.br
+.ti -1c
+.RI "\fBcheckProphecyMethodsPredictions\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($methodName, array $arguments)"
+.br
+.ti -1c
+.RI "\fB__get\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($\fBname\fP, $value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Object prophecy\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Konstantin Kudryashov ever.zet@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file ObjectProphecy\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBLazyDouble\fP $lazyDouble, \fBCallCenter\fP $callCenter = \fCnull\fP, \fBRevealerInterface\fP $revealer = \fCnull\fP, ComparatorFactory $comparatorFactory = \fCnull\fP)"
+Initializes object prophecy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lazyDouble\fP 
+.br
+\fI$callCenter\fP 
+.br
+\fI$revealer\fP 
+.br
+\fI$comparatorFactory\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file ObjectProphecy\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $methodName, array $arguments)"
+Creates new method prophecy using specified method name and arguments\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methodName\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMethodProphecy\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file ObjectProphecy\&.php\&.
+.SS "__get ( $name)"
+Tries to get property value from double\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file ObjectProphecy\&.php\&.
+.SS "__set ( $name,  $value)"
+Tries to set property value to double\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 275 of file ObjectProphecy\&.php\&.
+.SS "addMethodProphecy (\fBMethodProphecy\fP $methodProphecy)"
+Adds method prophecy to object prophecy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methodProphecy\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 137 of file ObjectProphecy\&.php\&.
+.SS "checkProphecyMethodsPredictions ()"
+Checks that registered method predictions do not fail\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 212 of file ObjectProphecy\&.php\&.
+.SS "findProphecyMethodCalls ( $methodName, \fBArgumentsWildcard\fP $wildcard)"
+Finds calls by method name & arguments wildcard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methodName\fP 
+.br
+\fI$wildcard\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCall\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 202 of file ObjectProphecy\&.php\&.
+.SS "getMethodProphecies ( $methodName = \fCnull\fP)"
+Returns either all or related to single method prophecies\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methodName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMethodProphecy\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file ObjectProphecy\&.php\&.
+.SS "makeProphecyMethodCall ( $methodName, array $arguments)"
+Makes specific method call\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methodName\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file ObjectProphecy\&.php\&.
+.SS "reveal ()"
+Reveals double\&.
+.PP
+\fBReturns:\fP
+.RS 4
+object
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBProphecyInterface\fP\&.
+.PP
+Definition at line 112 of file ObjectProphecy\&.php\&.
+.SS "willBeConstructedWith (array $arguments = \fCnull\fP)"
+Sets constructor arguments\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file ObjectProphecy\&.php\&.
+.SS "willExtend ( $class)"
+Forces double to extend specific class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 70 of file ObjectProphecy\&.php\&.
+.SS "willImplement ( $interface)"
+Forces double to implement specific interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$interface\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file ObjectProphecy\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

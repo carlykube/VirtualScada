@@ -1,0 +1,253 @@
+\section{Point\+View Class Reference}
+\label{classpoint_1_1_point_view}\index{Point\+View@{Point\+View}}
+Inheritance diagram for Point\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpoint_1_1_point_view}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def {\bf get} (self, args, kwds)
+\item 
+def {\bf set} (self, args, kwds)
+\item 
+def {\bf reset} (self)
+\item 
+def {\bf \+\_\+\+\_\+str\+\_\+\+\_\+} (self)
+\item 
+def {\bf \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\item 
+def {\bf default\+\_\+get} (self)
+\item 
+def {\bf default\+\_\+set} (self, val)
+\item 
+def {\bf lower16bit\+\_\+get} (self)
+\item 
+def {\bf lower16bit\+\_\+set} (self, new\+\_\+val)
+\item 
+def {\bf upper16bit\+\_\+get} (self)
+\item 
+def {\bf upper16bit\+\_\+set} (self, new\+\_\+val)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf is\+\_\+float} (point)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf behavior}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}PointView objects are used when speciallized access to a point is needed.
+    They were initially created to be contained in the slave registers of 
+    the modbus interface.\end{DoxyVerb}
+ 
+
+Definition at line 104 of file point.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{point, }
+\item[{}]{behavior = {\ttfamily \textquotesingle{}default\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_ac775ee34451fdfa742b318538164070e}
+\begin{DoxyVerb}Constructor for the PointView class. Each point view can have a
+specified get/set behavior for implementing protocol-specific
+interfactes. For example, the behavior for a PointView  may be set to
+'lower_16bit' , which for float value types in points would treat this
+PointView as the bottom half of the point value; this would fit into a
+single 16-bit Modbus register.
+
+@param point The point that this view refers to.
+@oaran behavior The type of get and set methods to use.
+\end{DoxyVerb}
+ 
+
+Definition at line 108 of file point.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{\+\_\+\+\_\+repr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+repr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a9a47563093dfc5ba12274b66e368920c}
+\begin{DoxyVerb}String representation of a point.
+    @returns a string giving the type, value, and names of the point\end{DoxyVerb}
+ 
+
+Definition at line 138 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{\+\_\+\+\_\+str\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+str\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a23e8041ce1015febe4fdace3225714f9}
+\begin{DoxyVerb}String representation of a point.
+    @returns repr(self)\end{DoxyVerb}
+ 
+
+Definition at line 133 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!default\+\_\+get@{default\+\_\+get}}
+\index{default\+\_\+get@{default\+\_\+get}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{default\+\_\+get}]{\setlength{\rightskip}{0pt plus 5cm}def default\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a8d0f08f93acb151fe470ba8547d1f9d7}
+
+
+Definition at line 146 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!default\+\_\+set@{default\+\_\+set}}
+\index{default\+\_\+set@{default\+\_\+set}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{default\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}def default\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a8232fcfdcea455078f3a44b1f14cf5f3}
+
+
+Definition at line 149 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!get@{get}}
+\index{get@{get}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}def get (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a563a93ad701ef4a47bd18c374624743e}
+
+
+Definition at line 122 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!is\+\_\+float@{is\+\_\+float}}
+\index{is\+\_\+float@{is\+\_\+float}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{is\+\_\+float}]{\setlength{\rightskip}{0pt plus 5cm}def is\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{}]{point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classpoint_1_1_point_view_a7a11de464c2e1b5a28f05d2bc0d48ab8}
+\begin{DoxyVerb}Used to determine if a point's datatype is a float or not
+@param point Point object to check
+@returns True if the parameter point has a datatype set
+\end{DoxyVerb}
+ 
+
+Definition at line 220 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!lower16bit\+\_\+get@{lower16bit\+\_\+get}}
+\index{lower16bit\+\_\+get@{lower16bit\+\_\+get}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{lower16bit\+\_\+get}]{\setlength{\rightskip}{0pt plus 5cm}def lower16bit\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a9cc2decb5bbaa8f4dcf5663e7e3d4d2d}
+
+
+Definition at line 152 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!lower16bit\+\_\+set@{lower16bit\+\_\+set}}
+\index{lower16bit\+\_\+set@{lower16bit\+\_\+set}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{lower16bit\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}def lower16bit\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{new\+\_\+val}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a630c76522e8fb10fc45ee24f628c5418}
+
+
+Definition at line 161 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!reset@{reset}}
+\index{reset@{reset}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}def reset (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a51829b63adb24ac48d350dee60181002}
+\begin{DoxyVerb}Returns the point value to the default\end{DoxyVerb}
+ 
+
+Definition at line 129 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!set@{set}}
+\index{set@{set}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}def set (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_aff8da865d65648cd5b2ac89c380ad2bb}
+
+
+Definition at line 125 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!upper16bit\+\_\+get@{upper16bit\+\_\+get}}
+\index{upper16bit\+\_\+get@{upper16bit\+\_\+get}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{upper16bit\+\_\+get}]{\setlength{\rightskip}{0pt plus 5cm}def upper16bit\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a5a9c0cf0a9c97c364f06587d24ab7cfd}
+
+
+Definition at line 182 of file point.\+py.
+
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!upper16bit\+\_\+set@{upper16bit\+\_\+set}}
+\index{upper16bit\+\_\+set@{upper16bit\+\_\+set}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{upper16bit\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}def upper16bit\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{new\+\_\+val}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_view_a3b74b04d687a9fba3af7032d78e9e090}
+\begin{DoxyVerb}Used as an interface to the upper 16 bits of the point value.
+@param new_value Value to obtain the upper 16 bits of the point value
+from. If new_value is a float, the upper 16 bits of the float are used.
+If new_value is an integer, the LOWER 16 bits of the integer become the
+UPPER 16 bits of the point value. While counter-intuitive, this is to
+optimize the common case.\end{DoxyVerb}
+ 
+
+Definition at line 191 of file point.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{point\+::\+Point\+View@{point\+::\+Point\+View}!behavior@{behavior}}
+\index{behavior@{behavior}!point\+::\+Point\+View@{point\+::\+Point\+View}}
+\subsubsection[{behavior}]{\setlength{\rightskip}{0pt plus 5cm}behavior}\label{classpoint_1_1_point_view_ab9eee1ea5a0409b3f7344cdd806111c9}
+
+
+Definition at line 120 of file point.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/{\bf point.\+py}\end{DoxyCompactItemize}

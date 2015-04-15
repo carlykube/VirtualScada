@@ -1,0 +1,524 @@
+\section{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer Class Reference}
+\label{class_swift___signers___s_mime_signer}\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+Inheritance diagram for Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_swift___signers___s_mime_signer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$sign\+Certificate=null, \$sign\+Private\+Key=null, \$encrypt\+Certificate=null)
+\item 
+{\bf set\+Sign\+Certificate} (\$certificate, \$private\+Key=null, \$sign\+Options=P\+K\+C\+S7\+\_\+\+D\+E\+T\+A\+C\+H\+E\+D, \$extra\+Certs=null)
+\item 
+{\bf set\+Encrypt\+Certificate} (\$recipient\+Certs, \$cipher=null)
+\item 
+{\bf get\+Sign\+Certificate} ()
+\item 
+{\bf get\+Sign\+Private\+Key} ()
+\item 
+{\bf set\+Sign\+Then\+Encrypt} (\$sign\+Then\+Encrypt=true)
+\item 
+{\bf is\+Sign\+Then\+Encrypt} ()
+\item 
+{\bf reset} ()
+\item 
+{\bf sign\+Message} ({\bf Swift\+\_\+\+Message} \$message)
+\item 
+{\bf get\+Altered\+Headers} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf new\+Instance} (\$certificate=null, \$private\+Key=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf to\+S\+Mime\+Byte\+Stream} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$input\+Stream, {\bf Swift\+\_\+\+Message} \$message)
+\item 
+{\bf create\+Message} ({\bf Swift\+\_\+\+Message} \$message)
+\item 
+{\bf message\+Stream\+To\+Signed\+Byte\+Stream} ({\bf Swift\+\_\+\+File\+Stream} \$output\+Stream, {\bf Swift\+\_\+\+Input\+Byte\+Stream} \$input\+Stream)
+\item 
+{\bf message\+Stream\+To\+Encrypted\+Byte\+Stream} ({\bf Swift\+\_\+\+File\+Stream} \$output\+Stream, {\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf copy\+From\+Open\+S\+S\+L\+Output} ({\bf Swift\+\_\+\+Output\+Byte\+Stream} \$from\+Stream, {\bf Swift\+\_\+\+Input\+Byte\+Stream} \$to\+Stream)
+\item 
+{\bf stream\+To\+Mime} ({\bf Swift\+\_\+\+Output\+Byte\+Stream} \$from\+Stream, {\bf Swift\+\_\+\+Message} \$message)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$sign\+Certificate}
+\item 
+{\bf \$sign\+Private\+Key}
+\item 
+{\bf \$encrypt\+Cert}
+\item 
+{\bf \$sign\+Then\+Encrypt} = true
+\item 
+{\bf \$sign\+Level}
+\item 
+{\bf \$encrypt\+Level}
+\item 
+{\bf \$sign\+Options}
+\item 
+{\bf \$encrypt\+Options}
+\item 
+{\bf \$encrypt\+Cipher}
+\item 
+{\bf \$extra\+Certs} = null
+\item 
+{\bf \$replacement\+Factory}
+\item 
+{\bf \$header\+Factory}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+M\+I\+M\+E Message Signer used to apply S/\+M\+I\+M\+E Signature/\+Encryption to a message.
+
+\begin{DoxyAuthor}{Author}
+Romain-\/\+Geissler 
+
+Sebastiaan Stok {\tt s.\+stok@rollerscapes.\+net} 
+\end{DoxyAuthor}
+
+
+Definition at line 18 of file S\+Mime\+Signer.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$sign\+Certificate = {\ttfamily null}, }
+\item[{}]{\$sign\+Private\+Key = {\ttfamily null}, }
+\item[{}]{\$encrypt\+Certificate = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_af8ff4a0fba8ab6cd2f8af330a8fc8578}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$certificate} & \\
+\hline
+string & {\em \$private\+Key} & \\
+\hline
+string & {\em \$encrypt\+Certificate} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file S\+Mime\+Signer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!copy\+From\+Open\+S\+S\+L\+Output@{copy\+From\+Open\+S\+S\+L\+Output}}
+\index{copy\+From\+Open\+S\+S\+L\+Output@{copy\+From\+Open\+S\+S\+L\+Output}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{copy\+From\+Open\+S\+S\+L\+Output}]{\setlength{\rightskip}{0pt plus 5cm}copy\+From\+Open\+S\+S\+L\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Output\+Byte\+Stream}}]{\$from\+Stream, }
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$to\+Stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_aa905e6d8266f05a8258f6453ea845582}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Output\+Byte\+Stream}{p.}{interface_swift___output_byte_stream} & {\em \$from\+Stream} & \\
+\hline
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$to\+Stream} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 328 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!create\+Message@{create\+Message}}
+\index{create\+Message@{create\+Message}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{create\+Message}]{\setlength{\rightskip}{0pt plus 5cm}create\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a0d7a83d5fb72cf879cb10d65410e7ac7}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} 
+\end{DoxyReturn}
+
+
+Definition at line 269 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!get\+Altered\+Headers@{get\+Altered\+Headers}}
+\index{get\+Altered\+Headers@{get\+Altered\+Headers}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{get\+Altered\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Altered\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_a71caed0ba27d07123f847a157cb9139f}
+Return the list of header a signer might tamper.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Body\+Signer} \doxyref{}{p.}{interface_swift___signers___body_signer_a71caed0ba27d07123f847a157cb9139f}.
+
+
+
+Definition at line 230 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!get\+Sign\+Certificate@{get\+Sign\+Certificate}}
+\index{get\+Sign\+Certificate@{get\+Sign\+Certificate}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{get\+Sign\+Certificate}]{\setlength{\rightskip}{0pt plus 5cm}get\+Sign\+Certificate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_ad5cde80fe17944c916757467db317030}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!get\+Sign\+Private\+Key@{get\+Sign\+Private\+Key}}
+\index{get\+Sign\+Private\+Key@{get\+Sign\+Private\+Key}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{get\+Sign\+Private\+Key}]{\setlength{\rightskip}{0pt plus 5cm}get\+Sign\+Private\+Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_ae507cd2a02deaeb5aa402df6f024a2c0}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!is\+Sign\+Then\+Encrypt@{is\+Sign\+Then\+Encrypt}}
+\index{is\+Sign\+Then\+Encrypt@{is\+Sign\+Then\+Encrypt}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{is\+Sign\+Then\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}is\+Sign\+Then\+Encrypt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_aead4cf1ce4770f8766ce85b36441995a}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!message\+Stream\+To\+Encrypted\+Byte\+Stream@{message\+Stream\+To\+Encrypted\+Byte\+Stream}}
+\index{message\+Stream\+To\+Encrypted\+Byte\+Stream@{message\+Stream\+To\+Encrypted\+Byte\+Stream}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{message\+Stream\+To\+Encrypted\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}message\+Stream\+To\+Encrypted\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+File\+Stream}}]{\$output\+Stream, }
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a885754bf39f748ff6d3b407357526348}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+File\+Stream}{p.}{interface_swift___file_stream} & {\em \$output\+Stream} & \\
+\hline
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 313 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!message\+Stream\+To\+Signed\+Byte\+Stream@{message\+Stream\+To\+Signed\+Byte\+Stream}}
+\index{message\+Stream\+To\+Signed\+Byte\+Stream@{message\+Stream\+To\+Signed\+Byte\+Stream}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{message\+Stream\+To\+Signed\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}message\+Stream\+To\+Signed\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+File\+Stream}}]{\$output\+Stream, }
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$input\+Stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a930bcd63bab43c1e84eb6c84e2789f90}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+File\+Stream}{p.}{interface_swift___file_stream} & {\em \$output\+Stream} & \\
+\hline
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$input\+Stream} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 291 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!new\+Instance@{new\+Instance}}
+\index{new\+Instance@{new\+Instance}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{new\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static new\+Instance (
+\begin{DoxyParamCaption}
+\item[{}]{\$certificate = {\ttfamily null}, }
+\item[{}]{\$private\+Key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_swift___signers___s_mime_signer_ab68e478191e7390cb9102051e8769eda}
+Returns an new \doxyref{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}{p.}{class_swift___signers___s_mime_signer} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$certificate} & \\
+\hline
+string & {\em \$private\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}{p.}{class_swift___signers___s_mime_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!reset@{reset}}
+\index{reset@{reset}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_a4a20559544fdf4dcb457e258dc976cf8}
+Resets internal states.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}{p.}{class_swift___signers___s_mime_signer} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signer} \doxyref{}{p.}{interface_swift___signer_a4a20559544fdf4dcb457e258dc976cf8}.
+
+
+
+Definition at line 194 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!set\+Encrypt\+Certificate@{set\+Encrypt\+Certificate}}
+\index{set\+Encrypt\+Certificate@{set\+Encrypt\+Certificate}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{set\+Encrypt\+Certificate}]{\setlength{\rightskip}{0pt plus 5cm}set\+Encrypt\+Certificate (
+\begin{DoxyParamCaption}
+\item[{}]{\$recipient\+Certs, }
+\item[{}]{\$cipher = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_a2ad5693344f3198e7c73ed02408dfa5f}
+Set the certificate location to use for encryption.
+
+\doxyref{{\tt http\+://nl3.\+php.\+net/manual/en/openssl.\+ciphers.\+php}  string$\vert$array \$recipient\+Certs Either an single X.\+509 certificate, or an assoc array of X.\+509 certificates.  int \$cipher  Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer }{p.}{}
+
+Definition at line 128 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!set\+Sign\+Certificate@{set\+Sign\+Certificate}}
+\index{set\+Sign\+Certificate@{set\+Sign\+Certificate}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{set\+Sign\+Certificate}]{\setlength{\rightskip}{0pt plus 5cm}set\+Sign\+Certificate (
+\begin{DoxyParamCaption}
+\item[{}]{\$certificate, }
+\item[{}]{\$private\+Key = {\ttfamily null}, }
+\item[{}]{\$sign\+Options = {\ttfamily PKCS7\+\_\+DETACHED}, }
+\item[{}]{\$extra\+Certs = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_aec1d2da6749d7625a2c9e26ea0042849}
+Set the certificate location to use for signing.
+
+\doxyref{string \$certificate  string$\vert$array \$private\+Key If the key needs an passphrase use array(\textquotesingle{}file-\/location\textquotesingle{}, \textquotesingle{}passphrase\textquotesingle{}) instead  int \$sign\+Options Bitwise operator options for openssl\+\_\+pkcs7\+\_\+sign()  string \$extra\+Certs A file containing intermediate certificates needed by the signing certificate  Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer }{p.}{}
+
+Definition at line 96 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!set\+Sign\+Then\+Encrypt@{set\+Sign\+Then\+Encrypt}}
+\index{set\+Sign\+Then\+Encrypt@{set\+Sign\+Then\+Encrypt}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{set\+Sign\+Then\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}set\+Sign\+Then\+Encrypt (
+\begin{DoxyParamCaption}
+\item[{}]{\$sign\+Then\+Encrypt = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_abddc6af83939a7a1975c812adae52c5d}
+Set perform signing before encryption.
+
+The default is to first sign the message and then encrypt. But some older mail clients, namely Microsoft Outlook 2000 will work when the message first encrypted. As this goes against the official specs, its recommended to only use \textquotesingle{}encryption -\/$>$ signing\textquotesingle{} when specifically targeting these \textquotesingle{}broken\textquotesingle{} clients.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sign\+Then\+Encrypt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}{p.}{class_swift___signers___s_mime_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!sign\+Message@{sign\+Message}}
+\index{sign\+Message@{sign\+Message}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{sign\+Message}]{\setlength{\rightskip}{0pt plus 5cm}sign\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___s_mime_signer_a9fd50b14a2346d4f0bfa34a907aa04a6}
+Change the \doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} to apply the signing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}{p.}{class_swift___signers___s_mime_signer} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Body\+Signer} \doxyref{}{p.}{interface_swift___signers___body_signer_a9fd50b14a2346d4f0bfa34a907aa04a6}.
+
+
+
+Definition at line 206 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!stream\+To\+Mime@{stream\+To\+Mime}}
+\index{stream\+To\+Mime@{stream\+To\+Mime}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{stream\+To\+Mime}]{\setlength{\rightskip}{0pt plus 5cm}stream\+To\+Mime (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Output\+Byte\+Stream}}]{\$from\+Stream, }
+\item[{{\bf Swift\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a3c41b4afac309652ddd1f2ce307faf4a}
+Merges an Output\+Byte\+Stream to \doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Output\+Byte\+Stream}{p.}{interface_swift___output_byte_stream} & {\em \$from\+Stream} & \\
+\hline
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 354 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!to\+S\+Mime\+Byte\+Stream@{to\+S\+Mime\+Byte\+Stream}}
+\index{to\+S\+Mime\+Byte\+Stream@{to\+S\+Mime\+Byte\+Stream}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{to\+S\+Mime\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}to\+S\+Mime\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$input\+Stream, }
+\item[{{\bf Swift\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a4ec68e36d63c51d79b10b705ad9cdc0b}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$input\+Stream} & \\
+\hline
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} & {\em \$mime\+Entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 239 of file S\+Mime\+Signer.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$encrypt\+Cert@{\$encrypt\+Cert}}
+\index{\$encrypt\+Cert@{\$encrypt\+Cert}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$encrypt\+Cert}]{\setlength{\rightskip}{0pt plus 5cm}\$encrypt\+Cert\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a52903c63f80cd194643c15a90e6b3923}
+
+
+Definition at line 22 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$encrypt\+Cipher@{\$encrypt\+Cipher}}
+\index{\$encrypt\+Cipher@{\$encrypt\+Cipher}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$encrypt\+Cipher}]{\setlength{\rightskip}{0pt plus 5cm}\$encrypt\+Cipher\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a2614b01385e13cb88b97f60ddf457566}
+
+
+Definition at line 28 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$encrypt\+Level@{\$encrypt\+Level}}
+\index{\$encrypt\+Level@{\$encrypt\+Level}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$encrypt\+Level}]{\setlength{\rightskip}{0pt plus 5cm}\$encrypt\+Level\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_ad135fda5fd5ad708bcd58c1580cbdf16}
+
+
+Definition at line 25 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$encrypt\+Options@{\$encrypt\+Options}}
+\index{\$encrypt\+Options@{\$encrypt\+Options}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$encrypt\+Options}]{\setlength{\rightskip}{0pt plus 5cm}\$encrypt\+Options\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a07a4361acf05b8e1d36812a6f61d4877}
+
+
+Definition at line 27 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$extra\+Certs@{\$extra\+Certs}}
+\index{\$extra\+Certs@{\$extra\+Certs}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$extra\+Certs}]{\setlength{\rightskip}{0pt plus 5cm}\$extra\+Certs = null\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a0a2cc79039ec1a0e6947e9f6b4230723}
+
+
+Definition at line 29 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$header\+Factory@{\$header\+Factory}}
+\index{\$header\+Factory@{\$header\+Factory}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$header\+Factory}]{\setlength{\rightskip}{0pt plus 5cm}\$header\+Factory\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a377db22ce3349296a5c47ff856498daf}
+
+
+Definition at line 39 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$replacement\+Factory@{\$replacement\+Factory}}
+\index{\$replacement\+Factory@{\$replacement\+Factory}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$replacement\+Factory}]{\setlength{\rightskip}{0pt plus 5cm}\$replacement\+Factory\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_ab677709b72425a4fdcb758bb96fe956a}
+
+
+Definition at line 34 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$sign\+Certificate@{\$sign\+Certificate}}
+\index{\$sign\+Certificate@{\$sign\+Certificate}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$sign\+Certificate}]{\setlength{\rightskip}{0pt plus 5cm}\$sign\+Certificate\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a34a35a478ad557ff41697ef1813de9be}
+
+
+Definition at line 20 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$sign\+Level@{\$sign\+Level}}
+\index{\$sign\+Level@{\$sign\+Level}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$sign\+Level}]{\setlength{\rightskip}{0pt plus 5cm}\$sign\+Level\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_ac56b4606ffd94f61ec44dd767132eaaf}
+
+
+Definition at line 24 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$sign\+Options@{\$sign\+Options}}
+\index{\$sign\+Options@{\$sign\+Options}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$sign\+Options}]{\setlength{\rightskip}{0pt plus 5cm}\$sign\+Options\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_aa4f1c43f21679d5486e050a1674b3b4c}
+
+
+Definition at line 26 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$sign\+Private\+Key@{\$sign\+Private\+Key}}
+\index{\$sign\+Private\+Key@{\$sign\+Private\+Key}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$sign\+Private\+Key}]{\setlength{\rightskip}{0pt plus 5cm}\$sign\+Private\+Key\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a014b88795d21680654a4f8cf40926fc9}
+
+
+Definition at line 21 of file S\+Mime\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}!\$sign\+Then\+Encrypt@{\$sign\+Then\+Encrypt}}
+\index{\$sign\+Then\+Encrypt@{\$sign\+Then\+Encrypt}!Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer@{Swift\+\_\+\+Signers\+\_\+\+S\+Mime\+Signer}}
+\subsubsection[{\$sign\+Then\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}\$sign\+Then\+Encrypt = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___s_mime_signer_a085b4513ffb9fc9a5a8e81586e2703b9}
+
+
+Definition at line 23 of file S\+Mime\+Signer.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Signers/{\bf S\+Mime\+Signer.\+php}\end{DoxyCompactItemize}

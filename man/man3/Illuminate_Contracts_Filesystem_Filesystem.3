@@ -1,0 +1,405 @@
+.TH "Filesystem" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Filesystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBCloud\fP, and \fBFilesystemAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexists\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBput\fP ($\fBpath\fP, $contents, $visibility=null)"
+.br
+.ti -1c
+.RI "\fBgetVisibility\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBappend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($paths)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBmove\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBsize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlastModified\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBfiles\fP ($directory=null, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBallFiles\fP ($directory=null)"
+.br
+.ti -1c
+.RI "\fBdirectories\fP ($directory=null, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBallDirectories\fP ($directory=null)"
+.br
+.ti -1c
+.RI "\fBmakeDirectory\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBdeleteDirectory\fP ($directory)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVISIBILITY_PUBLIC\fP = 'public'"
+.br
+.ti -1c
+.RI "const \fBVISIBILITY_PRIVATE\fP = 'private'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file Filesystem\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "allDirectories ( $directory = \fCnull\fP)"
+Get all (recursive) of the directories within a given directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "allFiles ( $directory = \fCnull\fP)"
+Get all of the files from the given directory (recursive)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "append ( $path,  $data)"
+Append to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "copy ( $from,  $to)"
+Copy a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "delete ( $paths)"
+Delete the file at a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$paths\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "deleteDirectory ( $directory)"
+Recursively delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "directories ( $directory = \fCnull\fP,  $recursive = \fCfalse\fP)"
+Get all of the directories within a given directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "exists ( $path)"
+Determine if a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "files ( $directory = \fCnull\fP,  $recursive = \fCfalse\fP)"
+Get an array of all files in a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "get ( $path)"
+Get the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "getVisibility ( $path)"
+Get the visibility for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "lastModified ( $path)"
+Get the file's last modification time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "makeDirectory ( $path)"
+Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "move ( $from,  $to)"
+Move a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "prepend ( $path,  $data)"
+Prepend to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "put ( $path,  $contents,  $visibility = \fCnull\fP)"
+Write the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "setVisibility ( $path,  $visibility)"
+Set the visibility for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SS "size ( $path)"
+Get the file size of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilesystemAdapter\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const VISIBILITY_PRIVATE = 'private'"
+
+.PP
+Definition at line 17 of file Filesystem\&.php\&.
+.SS "const VISIBILITY_PUBLIC = 'public'"
+
+.PP
+Definition at line 10 of file Filesystem\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

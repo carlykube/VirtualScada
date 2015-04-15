@@ -1,0 +1,93 @@
+.TH "BrowserConsoleHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BrowserConsoleHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBsend\fP ()"
+.br
+.ti -1c
+.RI "static \fBreset\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$initialized\fP = false"
+.br
+.ti -1c
+.RI "static \fB$records\fP = array()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBHandler\fP sending logs to browser's javascript console with no browser extension required
+.PP
+\fBAuthor:\fP
+.RS 4
+Olivier Poitrey rs@dailymotion.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file BrowserConsoleHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+Formatted output may contain some formatting markers to be transferred to \fCconsole\&.log\fP using the c format\&.
+.PP
+Example of formatted string: 
+.PP
+.nf
+You can do [[blue text]]{color: blue} or [[green background]]{background-color: green; color: white}
+.fi
+.PP
+ 
+.PP
+Definition at line 36 of file BrowserConsoleHandler\&.php\&.
+.SS "static reset ()\fC [static]\fP"
+Forget all logged records 
+.PP
+Definition at line 82 of file BrowserConsoleHandler\&.php\&.
+.SS "static send ()\fC [static]\fP"
+Convert records to javascript console commands and send it to the browser\&. This method is automatically called on \fBPHP\fP shutdown if output is \fBHTML\fP\&. 
+.PP
+Definition at line 60 of file BrowserConsoleHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file BrowserConsoleHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$initialized = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 23 of file BrowserConsoleHandler\&.php\&.
+.SS "$records = array()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 24 of file BrowserConsoleHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

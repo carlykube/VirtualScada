@@ -1,0 +1,218 @@
+.TH "NodeAbstract" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NodeAbstract \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNode\fP\&.
+.PP
+Inherited by \fBDummyNode\fP, \fBArg\fP, \fBConst_\fP, \fBExpr\fP, \fBName\fP, \fBParam\fP, and \fBStmt\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($subNodes=array(), array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBgetType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSubNodeNames\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLine\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLine\fP ($\fBline\fP)"
+.br
+.ti -1c
+.RI "\fBgetDocComment\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBhasAttribute\fP ($key)"
+.br
+.ti -1c
+.RI "& \fBgetAttribute\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$attributes\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file NodeAbstract\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $subNodes = \fCarray()\fP, array $attributes = \fCarray()\fP)"
+Creates a \fBNode\fP\&.
+.PP
+If null is passed for the $subNodes parameter the node constructor must assign all subnodes by itself and also override the \fBgetSubNodeNames()\fP method\&. DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding to the array keys will be set and \fBgetSubNodeNames()\fP will return the keys of that array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subNodes\fP Null or an array of sub nodes (deprecated) 
+.br
+\fI$attributes\fP Array of attributes 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file NodeAbstract\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "& getAttribute ( $key,  $default = \fCnull\fP)"
+Returns the value of an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+ 
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 107 of file NodeAbstract\&.php\&.
+.SS "getAttributes ()"
+Returns all attributes for the given node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+ 
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 118 of file NodeAbstract\&.php\&.
+.SS "getDocComment ()"
+Gets the doc comment of the node\&.
+.PP
+The doc comment has to be the last comment associated with the node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|Comment Doc comment object or null 
+.RE
+.PP
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 76 of file NodeAbstract\&.php\&.
+.SS "getLine ()"
+Gets line the node started in\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int Line 
+.RE
+.PP
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 56 of file NodeAbstract\&.php\&.
+.SS "getSubNodeNames ()"
+Gets the names of the sub nodes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array Names of sub nodes 
+.RE
+.PP
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 47 of file NodeAbstract\&.php\&.
+.SS "getType ()"
+Gets the type of the node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Type of the node 
+.RE
+.PP
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 38 of file NodeAbstract\&.php\&.
+.SS "hasAttribute ( $key)"
+Returns whether an attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+ 
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 100 of file NodeAbstract\&.php\&.
+.SS "setAttribute ( $key,  $value)"
+Sets an attribute on a node\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+ 
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 93 of file NodeAbstract\&.php\&.
+.SS "setLine ( $line)"
+Sets line the node started in\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$line\fP Line 
+.RE
+.PP
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Definition at line 65 of file NodeAbstract\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$attributes\fC [protected]\fP"
+
+.PP
+Definition at line 8 of file NodeAbstract\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

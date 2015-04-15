@@ -1,0 +1,643 @@
+.TH "Command" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Command \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBarBucCommand\fP, \fBPreCompileCommand\fP, \fBFoo1Command\fP, \fBFoo2Command\fP, \fBFoo3Command\fP, \fBFoo4Command\fP, \fBFoo5Command\fP, \fBFoobarCommand\fP, \fBFooCommand\fP, \fBFooSubnamespaced1Command\fP, \fBFooSubnamespaced2Command\fP, \fBCommand\fP, \fBDescribeCommand\fP, \fBRunCommand\fP, \fBCommand\fP, \fBHelpCommand\fP, \fBListCommand\fP, \fBDescriptorCommand1\fP, \fBDescriptorCommand2\fP, \fBBarCommand\fP, \fBFooCommand\fP, and \fBTestCommand\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBignoreValidationErrors\fP ()"
+.br
+.ti -1c
+.RI "\fBsetApplication\fP (\fBApplication\fP $application=null)"
+.br
+.ti -1c
+.RI "\fBsetHelperSet\fP (\fBHelperSet\fP $helperSet)"
+.br
+.ti -1c
+.RI "\fBgetHelperSet\fP ()"
+.br
+.ti -1c
+.RI "\fBgetApplication\fP ()"
+.br
+.ti -1c
+.RI "\fBisEnabled\fP ()"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBsetCode\fP ($code)"
+.br
+.ti -1c
+.RI "\fBmergeApplicationDefinition\fP ($mergeArgs=true)"
+.br
+.ti -1c
+.RI "\fBsetDefinition\fP ($definition)"
+.br
+.ti -1c
+.RI "\fBgetDefinition\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNativeDefinition\fP ()"
+.br
+.ti -1c
+.RI "\fBaddArgument\fP ($\fBname\fP, $mode=null, $description= '', $default=null)"
+.br
+.ti -1c
+.RI "\fBaddOption\fP ($\fBname\fP, $shortcut=null, $mode=null, $description= '', $default=null)"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetProcessTitle\fP ($title)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDescription\fP ($description)"
+.br
+.ti -1c
+.RI "\fBgetDescription\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHelp\fP ($help)"
+.br
+.ti -1c
+.RI "\fBgetHelp\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProcessedHelp\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAliases\fP ($aliases)"
+.br
+.ti -1c
+.RI "\fBgetAliases\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSynopsis\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHelper\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBasText\fP ()"
+.br
+.ti -1c
+.RI "\fBasXml\fP ($asDom=false)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconfigure\fP ()"
+.br
+.ti -1c
+.RI "\fBexecute\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBinteract\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBinitialize\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for all commands\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 32 of file Command\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The name of the command; passing null means it must be set in \fBconfigure()\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 57 of file Command\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addArgument ( $name,  $mode = \fCnull\fP,  $description = \fC''\fP,  $default = \fCnull\fP)"
+Adds an argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The argument name 
+.br
+\fI$mode\fP The argument mode: \fBInputArgument::REQUIRED\fP or \fBInputArgument::OPTIONAL\fP 
+.br
+\fI$description\fP \fBA\fP description text 
+.br
+\fI$default\fP The default value (for \fBInputArgument::OPTIONAL\fP mode only)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+
+.PP
+Definition at line 378 of file Command\&.php\&.
+.SS "addOption ( $name,  $shortcut = \fCnull\fP,  $mode = \fCnull\fP,  $description = \fC''\fP,  $default = \fCnull\fP)"
+Adds an option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The option name 
+.br
+\fI$shortcut\fP The shortcut (can be null) 
+.br
+\fI$mode\fP The option mode: \fBOne\fP of the InputOption::VALUE_* constants 
+.br
+\fI$description\fP \fBA\fP description text 
+.br
+\fI$default\fP The default value (must be null for \fBInputOption::VALUE_REQUIRED\fP or \fBInputOption::VALUE_NONE\fP)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+
+.PP
+Definition at line 398 of file Command\&.php\&.
+.SS "asText ()"
+Returns a text representation of the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP string representing the command
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.3, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 614 of file Command\&.php\&.
+.SS "asXml ( $asDom = \fCfalse\fP)"
+Returns an XML representation of the command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$asDom\fP Whether to return a DOM or an XML string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string| An XML string representing the command
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.3, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 632 of file Command\&.php\&.
+.SS "configure ()\fC [protected]\fP"
+Configures the current command\&. 
+.PP
+Definition at line 147 of file Command\&.php\&.
+.SS "execute (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)\fC [protected]\fP"
+Executes the current command\&.
+.PP
+This method is not abstract because you can use this class as a concrete class\&. In this case, instead of defining the \fBexecute()\fP method, you set the code to execute by passing a Closure to the \fBsetCode()\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An InputInterface instance 
+.br
+\fI$output\fP An OutputInterface instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|int null or 0 if everything went fine, or an error code
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 168 of file Command\&.php\&.
+.SS "getAliases ()"
+Returns the aliases for the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of aliases for the command
+.RE
+.PP
+
+.PP
+Definition at line 572 of file Command\&.php\&.
+.SS "getApplication ()"
+Gets the application instance for this command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBApplication\fP An \fBApplication\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 126 of file Command\&.php\&.
+.SS "getDefinition ()"
+Gets the InputDefinition attached to this \fBCommand\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+InputDefinition An InputDefinition instance
+.RE
+.PP
+
+.PP
+Definition at line 346 of file Command\&.php\&.
+.SS "getDescription ()"
+Returns the description for the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The description for the command
+.RE
+.PP
+
+.PP
+Definition at line 484 of file Command\&.php\&.
+.SS "getHelp ()"
+Returns the help for the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The help for the command
+.RE
+.PP
+
+.PP
+Definition at line 512 of file Command\&.php\&.
+.SS "getHelper ( $name)"
+Gets a helper instance by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The helper name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The helper value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 602 of file Command\&.php\&.
+.SS "getHelperSet ()"
+Gets the helper set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+HelperSet \fBA\fP HelperSet instance 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file Command\&.php\&.
+.SS "getName ()"
+Returns the command name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The command name
+.RE
+.PP
+
+.PP
+Definition at line 456 of file Command\&.php\&.
+.SS "getNativeDefinition ()"
+Gets the InputDefinition to be used to create XML and Text representations of this \fBCommand\fP\&.
+.PP
+Can be overridden to provide the original command representation when it would otherwise be changed by merging with the application InputDefinition\&.
+.PP
+This method is not part of public API and should not be used directly\&.
+.PP
+\fBReturns:\fP
+.RS 4
+InputDefinition An InputDefinition instance 
+.RE
+.PP
+
+.PP
+Definition at line 361 of file Command\&.php\&.
+.SS "getProcessedHelp ()"
+Returns the processed help for the command replacing the command\&.name% and command\&.full_name% patterns with the real values dynamically\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The processed help for the command 
+.RE
+.PP
+
+.PP
+Definition at line 523 of file Command\&.php\&.
+.SS "getSynopsis ()"
+Returns the synopsis for the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The synopsis 
+.RE
+.PP
+
+.PP
+Definition at line 582 of file Command\&.php\&.
+.SS "ignoreValidationErrors ()"
+Ignores validation errors\&.
+.PP
+This is mainly useful for the help command\&. 
+.PP
+Definition at line 77 of file Command\&.php\&.
+.SS "initialize (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)\fC [protected]\fP"
+Initializes the command just after the input has been validated\&.
+.PP
+This is mainly useful when a lot of commands extends one main command where some things need to be initialized based on the input arguments and options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An InputInterface instance 
+.br
+\fI$output\fP An OutputInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file Command\&.php\&.
+.SS "interact (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)\fC [protected]\fP"
+Interacts with the user\&.
+.PP
+This method is executed before the InputDefinition is validated\&. This means that this is the only place where the command can interactively ask for values of missing required arguments\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An InputInterface instance 
+.br
+\fI$output\fP An OutputInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file Command\&.php\&.
+.SS "isEnabled ()"
+Checks whether the command is enabled or not in the current environment\&.
+.PP
+Override this to check for x or y and return false if the command can not run properly under the current conditions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 139 of file Command\&.php\&.
+.SS "mergeApplicationDefinition ( $mergeArgs = \fCtrue\fP)"
+Merges the application definition with the command definition\&.
+.PP
+This method is not part of public API and should not be used directly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mergeArgs\fP Whether to merge or not the \fBApplication\fP definition arguments to \fBCommand\fP definition arguments 
+.RE
+.PP
+
+.PP
+Definition at line 297 of file Command\&.php\&.
+.SS "run (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+Runs the command\&.
+.PP
+The code to execute is either defined directly with the \fBsetCode()\fP method or by overriding the \fBexecute()\fP method in a sub-class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An InputInterface instance 
+.br
+\fI$output\fP An OutputInterface instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The command exit code
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 219 of file Command\&.php\&.
+.SS "setAliases ( $aliases)"
+Sets the aliases for the command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $aliases An array of aliases for the command
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 550 of file Command\&.php\&.
+.SS "setApplication (\fBApplication\fP $application = \fCnull\fP)"
+Sets the application instance for this command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$application\fP An \fBApplication\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 89 of file Command\&.php\&.
+.SS "setCode ( $code)"
+Sets the code to execute when running this command\&.
+.PP
+If this method is used, it overrides the code defined in the \fBexecute()\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP \fBA\fP callable(InputInterface $input, OutputInterface $output)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 279 of file Command\&.php\&.
+.SS "setDefinition ( $definition)"
+Sets an array of argument and option instances\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$definition\fP An array of argument and option instances or a definition instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+
+.PP
+Definition at line 326 of file Command\&.php\&.
+.SS "setDescription ( $description)"
+Sets the description for the command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$description\fP The description for the command
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+
+.PP
+Definition at line 470 of file Command\&.php\&.
+.SS "setHelp ( $help)"
+Sets the help for the command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$help\fP The help for the command
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+
+.PP
+Definition at line 498 of file Command\&.php\&.
+.SS "setHelperSet (\fBHelperSet\fP $helperSet)"
+Sets the helper set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$helperSet\fP \fBA\fP HelperSet instance 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file Command\&.php\&.
+.SS "setName ( $name)"
+Sets the name of the command\&.
+.PP
+This method can set both the namespace and the name if you separate them by a colon (:) 
+.PP
+.nf
+$command->setName('foo:bar');
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The command name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 421 of file Command\&.php\&.
+.SS "setProcessTitle ( $title)"
+Sets the process title of the command\&.
+.PP
+This feature should be used only when creating a long process command, like a daemon\&.
+.PP
+\fBPHP\fP 5\&.5+ or the proctitle PECL library is required
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$title\fP The process title
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current instance 
+.RE
+.PP
+
+.PP
+Definition at line 442 of file Command\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

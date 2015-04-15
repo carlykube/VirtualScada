@@ -1,0 +1,5 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_expression_language_test =
+[
+    [ "provider", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_expression_language_test.html#a141540808e5970d27589425027e66cc9", null ],
+    [ "testIsAuthenticated", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_expression_language_test.html#a62e975add821c77ba1f2e1248c71f7b2", null ]
+];

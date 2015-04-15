@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['xcachestore',['XCacheStore',['../class_illuminate_1_1_cache_1_1_x_cache_store.html',1,'Illuminate::Cache']]],
+  ['xdg',['Xdg',['../class_xdg_base_dir_1_1_xdg.html',1,'XdgBaseDir']]],
+  ['xdgtest',['XdgTest',['../class_xdg_test.html',1,'']]],
+  ['xlifffiledumper',['XliffFileDumper',['../class_symfony_1_1_component_1_1_translation_1_1_dumper_1_1_xliff_file_dumper.html',1,'Symfony::Component::Translation::Dumper']]],
+  ['xlifffiledumpertest',['XliffFileDumperTest',['../class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_dumper_1_1_xliff_file_dumper_test.html',1,'Symfony::Component::Translation::Tests::Dumper']]],
+  ['xlifffileloader',['XliffFileLoader',['../class_symfony_1_1_component_1_1_translation_1_1_loader_1_1_xliff_file_loader.html',1,'Symfony::Component::Translation::Loader']]],
+  ['xlifffileloadertest',['XliffFileLoaderTest',['../class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_loader_1_1_xliff_file_loader_test.html',1,'Symfony::Component::Translation::Tests::Loader']]],
+  ['xml',['XML',['../class_php_parser_1_1_serializer_1_1_x_m_l.html',1,'PhpParser::Serializer']]],
+  ['xml',['XML',['../class_php_parser_1_1_unserializer_1_1_x_m_l.html',1,'PhpParser::Unserializer']]],
+  ['xmldescriptor',['XmlDescriptor',['../class_symfony_1_1_component_1_1_console_1_1_descriptor_1_1_xml_descriptor.html',1,'Symfony::Component::Console::Descriptor']]],
+  ['xmldescriptortest',['XmlDescriptorTest',['../class_symfony_1_1_component_1_1_console_1_1_tests_1_1_descriptor_1_1_xml_descriptor_test.html',1,'Symfony::Component::Console::Tests::Descriptor']]],
+  ['xmlfileloader',['XmlFileLoader',['../class_symfony_1_1_component_1_1_routing_1_1_loader_1_1_xml_file_loader.html',1,'Symfony::Component::Routing::Loader']]],
+  ['xmlfileloadertest',['XmlFileLoaderTest',['../class_symfony_1_1_component_1_1_routing_1_1_tests_1_1_loader_1_1_xml_file_loader_test.html',1,'Symfony::Component::Routing::Tests::Loader']]],
+  ['xmlreaderasset',['XMLReaderAsset',['../class_doctrine_test_1_1_instantiator_test_asset_1_1_x_m_l_reader_asset.html',1,'DoctrineTest::InstantiatorTestAsset']]],
+  ['xmltest',['XMLTest',['../class_php_parser_1_1_serializer_1_1_x_m_l_test.html',1,'PhpParser::Serializer']]],
+  ['xmltest',['XMLTest',['../class_php_parser_1_1_unserializer_1_1_x_m_l_test.html',1,'PhpParser::Unserializer']]]
+];

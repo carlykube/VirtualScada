@@ -1,0 +1,190 @@
+\section{udp Class Reference}
+\label{classprotolibs_1_1ifaces_1_1udp}\index{udp@{udp}}
+Inheritance diagram for udp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classprotolibs_1_1ifaces_1_1udp}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+} (self, {\bf sport}=None, {\bf recipients}=None, {\bf timeout}=None, kwds)
+\item 
+def {\bf initialize} (self)
+\item 
+def {\bf get\+Message}
+\item 
+def {\bf send\+Message}
+\item 
+def {\bf shutdown} (self)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N}
+\item 
+{\bf sport}
+\item 
+{\bf recipients}
+\item 
+{\bf timeout}
+\item 
+{\bf sock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Interface to UDP communications.
+
+This class provides the common interface to a UDP socket. All constructor
+fields must be defined before calling initialize(), or the socket calls will
+fail.\end{DoxyVerb}
+ 
+
+Definition at line 66 of file ifaces.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{sport = {\ttfamily None}, }
+\item[{}]{recipients = {\ttfamily None}, }
+\item[{}]{timeout = {\ttfamily None}, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1udp_af3f5a3b1f1f2944c6417c527302a2079}
+\begin{DoxyVerb}udp interface constructor.
+
+@param sport local port to listen for information (bind())
+@param recipients list of tuples of form (ipaddress, port). If more than
+one recipient is listed, then calls to sendMessage() will send
+the message to each recipient in the list. A single tuple of
+form (ipaddress, port) can also be provided.
+@param timeout Float of number of seconds for a blocking getMessage
+        call to block. If None, calls will block indefinitely.
+\end{DoxyVerb}
+ 
+
+Definition at line 72 of file ifaces.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{get\+Message}]{\setlength{\rightskip}{0pt plus 5cm}def get\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{block = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1udp_a7839ce08036b2fc74d683ecfed42ddd0}
+\begin{DoxyVerb}Waits on a message to arrive from the UDP socket. 
+    
+    @param block Determines if calls will block until self.timeout or not. 
+        Default is to block.
+    @throws socket.timeout If the timeout is reached before a message
+                    is received
+    @throws socket.error If a non-blocking call has nothing to recieve.
+     value will be errno.EWOULDBLOCK. Non-blocking calls should
+     check the errno of the exception and reraise the exception
+     if it's not errno.EWOULDBLOCK
+    @returns A string consisting of the received message, or None on 
+        timeout or socket.error.errnum==EWOULDBLOCK
+\end{DoxyVerb}
+ 
+
+Definition at line 93 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!initialize@{initialize}}
+\index{initialize@{initialize}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}def initialize (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1udp_ac56fbc7b556bcd16388c80f8761eb296}
+\begin{DoxyVerb}initializes a udp socket bind()ed to self.sport \end{DoxyVerb}
+ 
+
+Definition at line 88 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!send\+Message@{send\+Message}}
+\index{send\+Message@{send\+Message}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{send\+Message}]{\setlength{\rightskip}{0pt plus 5cm}def send\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message, }
+\item[{}]{recipients = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1udp_a790de8814a68cc38af53382eb73bebae}
+\begin{DoxyVerb}sends the parameter message to each recipients in the recipients
+list. If the function call argument is none, the class default is used.
+Otherwise, the argument supercedes the list defined by the class
+
+@param message A string to be sent over UDP to recipients
+@param recipients A list of tuples of form (ipaddress, port) to send the
+            message to
+\end{DoxyVerb}
+ 
+
+Definition at line 127 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{shutdown}]{\setlength{\rightskip}{0pt plus 5cm}def shutdown (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1udp_a4e585b4095ed93edb4ca197cb2884b10}
+\begin{DoxyVerb}Closes the socket created in initialize()\end{DoxyVerb}
+ 
+
+Definition at line 143 of file ifaces.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N@{M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N}}
+\index{M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N@{M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}M\+A\+X\+\_\+\+U\+D\+P\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N}\label{classprotolibs_1_1ifaces_1_1udp_ade421d473746e44a67e8392d294df0d6}
+
+
+Definition at line 83 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!recipients@{recipients}}
+\index{recipients@{recipients}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{recipients}]{\setlength{\rightskip}{0pt plus 5cm}recipients}\label{classprotolibs_1_1ifaces_1_1udp_aafc93a72b0076e97ab7e8384e9cc1472}
+
+
+Definition at line 85 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!sock@{sock}}
+\index{sock@{sock}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{sock}]{\setlength{\rightskip}{0pt plus 5cm}sock}\label{classprotolibs_1_1ifaces_1_1udp_a6f3a42a6e2447bdc41d1dedba98c762c}
+
+
+Definition at line 90 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!sport@{sport}}
+\index{sport@{sport}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{sport}]{\setlength{\rightskip}{0pt plus 5cm}sport}\label{classprotolibs_1_1ifaces_1_1udp_ac345573735b6acde22a423bb2f1dfa76}
+
+
+Definition at line 84 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}!timeout@{timeout}}
+\index{timeout@{timeout}!protolibs\+::ifaces\+::udp@{protolibs\+::ifaces\+::udp}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}timeout}\label{classprotolibs_1_1ifaces_1_1udp_aee145bfca8e9b2eaf3cd3c47157be9a3}
+
+
+Definition at line 86 of file ifaces.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/protolibs/{\bf ifaces.\+py}\end{DoxyCompactItemize}

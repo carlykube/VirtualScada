@@ -1,0 +1,1857 @@
+.TH "Input" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Input \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBInput\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBinstance\fP ()"
+.br
+.ti -1c
+.RI "static \fBmethod\fP ()"
+.br
+.ti -1c
+.RI "static \fBroot\fP ()"
+.br
+.ti -1c
+.RI "static \fBurl\fP ()"
+.br
+.ti -1c
+.RI "static \fBfullUrl\fP ()"
+.br
+.ti -1c
+.RI "static \fBpath\fP ()"
+.br
+.ti -1c
+.RI "static \fBdecodedPath\fP ()"
+.br
+.ti -1c
+.RI "static \fBsegment\fP ($index, $default=null)"
+.br
+.ti -1c
+.RI "static \fBsegments\fP ()"
+.br
+.ti -1c
+.RI "static \fBis\fP ()"
+.br
+.ti -1c
+.RI "static \fBajax\fP ()"
+.br
+.ti -1c
+.RI "static \fBsecure\fP ()"
+.br
+.ti -1c
+.RI "static \fBip\fP ()"
+.br
+.ti -1c
+.RI "static \fBips\fP ()"
+.br
+.ti -1c
+.RI "static \fBexists\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBhas\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBall\fP ()"
+.br
+.ti -1c
+.RI "static \fBinput\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBonly\fP ($\fBkeys\fP)"
+.br
+.ti -1c
+.RI "static \fBexcept\fP ($\fBkeys\fP)"
+.br
+.ti -1c
+.RI "static \fBquery\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBhasCookie\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBcookie\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBfile\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBhasFile\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBheader\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBserver\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBold\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBflash\fP ($\fBfilter\fP=null, $\fBkeys\fP=array())"
+.br
+.ti -1c
+.RI "static \fBflashOnly\fP ($\fBkeys\fP)"
+.br
+.ti -1c
+.RI "static \fBflashExcept\fP ($\fBkeys\fP)"
+.br
+.ti -1c
+.RI "static \fBflush\fP ()"
+.br
+.ti -1c
+.RI "static \fBmerge\fP ($\fBinput\fP)"
+.br
+.ti -1c
+.RI "static \fBreplace\fP ($\fBinput\fP)"
+.br
+.ti -1c
+.RI "static \fBjson\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "static \fBisJson\fP ()"
+.br
+.ti -1c
+.RI "static \fBwantsJson\fP ()"
+.br
+.ti -1c
+.RI "static \fBformat\fP ($default= '\fBhtml\fP')"
+.br
+.ti -1c
+.RI "static \fBcreateFromBase\fP ($request)"
+.br
+.ti -1c
+.RI "static \fBsession\fP ()"
+.br
+.ti -1c
+.RI "static \fBinitialize\fP ($\fBquery\fP=array(), $request=array(), $attributes=array(), $cookies=array(), $files=array(), $\fBserver\fP=array(), $content=null)"
+.br
+.ti -1c
+.RI "static \fBcreateFromGlobals\fP ()"
+.br
+.ti -1c
+.RI "static \fBcreate\fP ($uri, $\fBmethod\fP= 'GET', $parameters=array(), $cookies=array(), $files=array(), $\fBserver\fP=array(), $content=null)"
+.br
+.ti -1c
+.RI "static \fBsetFactory\fP ($callable)"
+.br
+.ti -1c
+.RI "static \fBduplicate\fP ($\fBquery\fP=null, $request=null, $attributes=null, $cookies=null, $files=null, $\fBserver\fP=null)"
+.br
+.ti -1c
+.RI "static \fBoverrideGlobals\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetTrustedProxies\fP ($proxies)"
+.br
+.ti -1c
+.RI "static \fBgetTrustedProxies\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetTrustedHosts\fP ($hostPatterns)"
+.br
+.ti -1c
+.RI "static \fBgetTrustedHosts\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetTrustedHeaderName\fP ($key, $value)"
+.br
+.ti -1c
+.RI "static \fBgetTrustedHeaderName\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBnormalizeQueryString\fP ($qs)"
+.br
+.ti -1c
+.RI "static \fBenableHttpMethodParameterOverride\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetHttpMethodParameterOverride\fP ()"
+.br
+.ti -1c
+.RI "static \fBget\fP ($key, $default=null, $deep=false)"
+.br
+.ti -1c
+.RI "static \fBgetSession\fP ()"
+.br
+.ti -1c
+.RI "static \fBhasPreviousSession\fP ()"
+.br
+.ti -1c
+.RI "static \fBhasSession\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetSession\fP ($\fBsession\fP)"
+.br
+.ti -1c
+.RI "static \fBgetClientIps\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetClientIp\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetScriptName\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPathInfo\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetBasePath\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetBaseUrl\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetScheme\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPort\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPassword\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetUserInfo\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetHttpHost\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetRequestUri\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetSchemeAndHttpHost\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetUri\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetUriForPath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "static \fBgetQueryString\fP ()"
+.br
+.ti -1c
+.RI "static \fBisSecure\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetMethod\fP ($\fBmethod\fP)"
+.br
+.ti -1c
+.RI "static \fBgetMethod\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetRealMethod\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetMimeType\fP ($\fBformat\fP)"
+.br
+.ti -1c
+.RI "static \fBgetFormat\fP ($mimeType)"
+.br
+.ti -1c
+.RI "static \fBsetFormat\fP ($\fBformat\fP, $mimeTypes)"
+.br
+.ti -1c
+.RI "static \fBgetRequestFormat\fP ($default= '\fBhtml\fP')"
+.br
+.ti -1c
+.RI "static \fBsetRequestFormat\fP ($\fBformat\fP)"
+.br
+.ti -1c
+.RI "static \fBgetContentType\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDefaultLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "static \fBgetDefaultLocale\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "static \fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "static \fBisMethod\fP ($\fBmethod\fP)"
+.br
+.ti -1c
+.RI "static \fBisMethodSafe\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetContent\fP ($asResource=false)"
+.br
+.ti -1c
+.RI "static \fBgetETags\fP ()"
+.br
+.ti -1c
+.RI "static \fBisNoCache\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPreferredLanguage\fP ($locales=null)"
+.br
+.ti -1c
+.RI "static \fBgetLanguages\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetCharsets\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetEncodings\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetAcceptableContentTypes\fP ()"
+.br
+.ti -1c
+.RI "static \fBisXmlHttpRequest\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 6075 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static ajax ()\fC [static]\fP"
+Determine if the request is the result of an AJAX call\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6186 of file _ide_helper\&.php\&.
+.SS "static all ()\fC [static]\fP"
+Get all of the input and files for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 6248 of file _ide_helper\&.php\&.
+.SS "static cookie ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve a cookie from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6317 of file _ide_helper\&.php\&.
+.SS "static create ( $uri,  $method = \fC'GET'\fP,  $parameters = \fCarray()\fP,  $cookies = \fCarray()\fP,  $files = \fCarray()\fP,  $server = \fCarray()\fP,  $content = \fCnull\fP)\fC [static]\fP"
+Creates a \fBRequest\fP based on a given URI and configuration\&.
+.PP
+The information contained in the URI always take precedence over the other information (server and parameters)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP The URI 
+.br
+\fI$method\fP The HTTP method 
+.br
+\fI$parameters\fP The query (GET) or request (POST) parameters 
+.br
+\fI$cookies\fP The request cookies ($_COOKIE) 
+.br
+\fI$files\fP The request files ($_FILES) 
+.br
+\fI$server\fP The server parameters ($_SERVER) 
+.br
+\fI$content\fP The raw body data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBA\fP \fBRequest\fP instance  
+.RE
+.PP
+
+.PP
+Definition at line 6560 of file _ide_helper\&.php\&.
+.SS "static createFromBase ( $request)\fC [static]\fP"
+Create an \fBIlluminate\fP request from a \fBSymfony\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 6496 of file _ide_helper\&.php\&.
+.SS "static createFromGlobals ()\fC [static]\fP"
+Creates a new request with values from \fBPHP\fP's super globals\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBA\fP new request  
+.RE
+.PP
+
+.PP
+Definition at line 6538 of file _ide_helper\&.php\&.
+.SS "static decodedPath ()\fC [static]\fP"
+Get the current encoded path info for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6143 of file _ide_helper\&.php\&.
+.SS "static duplicate ( $query = \fCnull\fP,  $request = \fCnull\fP,  $attributes = \fCnull\fP,  $cookies = \fCnull\fP,  $files = \fCnull\fP,  $server = \fCnull\fP)\fC [static]\fP"
+Clones a request and overrides some of its parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP The GET parameters 
+.br
+\fI$request\fP The POST parameters 
+.br
+\fI$attributes\fP The request attributes (parameters parsed from the PATH_INFO, \&.\&.\&.) 
+.br
+\fI$cookies\fP The COOKIE parameters 
+.br
+\fI$files\fP The FILES parameters 
+.br
+\fI$server\fP The SERVER parameters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The duplicated request  
+.RE
+.PP
+
+.PP
+Definition at line 6593 of file _ide_helper\&.php\&.
+.SS "static enableHttpMethodParameterOverride ()\fC [static]\fP"
+Enables support for the _method request parameter to determine the intended HTTP method\&.
+.PP
+Be warned that enabling this feature might lead to CSRF issues in your code\&. Check that you are using CSRF tokens when required\&. If the HTTP method parameter override is enabled, an html-form with method 'POST' can be altered and used to send a 'PUT' or 'DELETE' request via the _method request parameter\&. If these methods are not protected against CSRF, this presents a possible vulnerability\&.
+.PP
+The HTTP method can only be overridden when the real HTTP method is POST\&. 
+.PP
+Definition at line 6724 of file _ide_helper\&.php\&.
+.SS "static except ( $keys)\fC [static]\fP"
+Get all of the input except for a specified array of items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 6282 of file _ide_helper\&.php\&.
+.SS "static exists ( $key)\fC [static]\fP"
+Determine if the request contains a given input item key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6227 of file _ide_helper\&.php\&.
+.SS "static file ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve a file from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|array 
+.RE
+.PP
+
+.PP
+Definition at line 6329 of file _ide_helper\&.php\&.
+.SS "static flash ( $filter = \fCnull\fP,  $keys = \fCarray()\fP)\fC [static]\fP"
+Flash the input for the current request to the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6388 of file _ide_helper\&.php\&.
+.SS "static flashExcept ( $keys)\fC [static]\fP"
+Flash only some of the input to the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6410 of file _ide_helper\&.php\&.
+.SS "static flashOnly ( $keys)\fC [static]\fP"
+Flash only some of the input to the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6399 of file _ide_helper\&.php\&.
+.SS "static flush ()\fC [static]\fP"
+Flush all of the old input from the session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6420 of file _ide_helper\&.php\&.
+.SS "static format ( $default = \fC'\fBhtml\fP'\fP)\fC [static]\fP"
+Get the data format expected in the response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6485 of file _ide_helper\&.php\&.
+.SS "static fullUrl ()\fC [static]\fP"
+Get the full \fBURL\fP for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6123 of file _ide_helper\&.php\&.
+.SS "static get ( $key,  $default = \fCnull\fP,  $deep = \fCfalse\fP)\fC [static]\fP"
+Gets a 'parameter' value\&.
+.PP
+This method is mainly useful for libraries that want to provide some flexibility\&.
+.PP
+Order of precedence: GET, PATH, POST
+.PP
+Avoid using this method in controllers:
+.PP
+.IP "\(bu" 2
+slow
+.IP "\(bu" 2
+prefer to get from a 'named' source
+.PP
+.PP
+It is better to explicitly get request parameters from the appropriate public property instead (query, attributes, request)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP the key 
+.br
+\fI$default\fP the default value 
+.br
+\fI$deep\fP is parameter deep in multidimensional array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 6761 of file _ide_helper\&.php\&.
+.SS "static getAcceptableContentTypes ()\fC [static]\fP"
+Gets a list of content types acceptable by the client browser
+.PP
+\fBReturns:\fP
+.RS 4
+array List of content types in preferable order  
+.RE
+.PP
+
+.PP
+Definition at line 7405 of file _ide_helper\&.php\&.
+.SS "static getBasePath ()\fC [static]\fP"
+Returns the root path from which this request is executed\&.
+.PP
+Suppose that an \fBindex\&.php\fP file instantiates this request object:
+.PP
+.IP "\(bu" 2
+http://localhost/index.php returns an empty string
+.IP "\(bu" 2
+http://localhost/index.php/page returns an empty string
+.IP "\(bu" 2
+http://localhost/web/index.php returns '/web'
+.IP "\(bu" 2
+http://localhost/we%20b/index.php returns '/we%20b'
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string The raw path (i\&.e\&. not urldecoded)  
+.RE
+.PP
+
+.PP
+Definition at line 6908 of file _ide_helper\&.php\&.
+.SS "static getBaseUrl ()\fC [static]\fP"
+Returns the root \fBURL\fP from which this request is executed\&.
+.PP
+The base \fBURL\fP never ends with a /\&.
+.PP
+This is similar to \fBgetBasePath()\fP, except that it also includes the script filename (e\&.g\&. \fBindex\&.php\fP) if one exists\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The raw \fBURL\fP (i\&.e\&. not urldecoded)  
+.RE
+.PP
+
+.PP
+Definition at line 6925 of file _ide_helper\&.php\&.
+.SS "static getCharsets ()\fC [static]\fP"
+Gets a list of charsets acceptable by the client browser\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array List of charsets in preferable order  
+.RE
+.PP
+
+.PP
+Definition at line 7382 of file _ide_helper\&.php\&.
+.SS "static getClientIp ()\fC [static]\fP"
+Returns the client IP address\&.
+.PP
+This method can read the client IP address from the 'X-Forwarded-For' header when trusted proxies were set via 'setTrustedProxies()'\&. The 'X-Forwarded-For' header value is a comma+space separated list of IP addresses, the left-most being the original client, and each successive proxy that passed the request adding the IP address where it received the request from\&.
+.PP
+If your reverse proxy uses a different header name than 'X-Forwarded-For', ('Client-Ip' for instance), configure it via 'setTrustedHeaderName()' with the 'client-ip' key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The client IP address 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetClientIps()\fP 
+.PP
+http://en.wikipedia.org/wiki/X-Forwarded-For  
+.RE
+.PP
+
+.PP
+Definition at line 6856 of file _ide_helper\&.php\&.
+.SS "static getClientIps ()\fC [static]\fP"
+Returns the client IP addresses\&.
+.PP
+In the returned array the most trusted IP address is first, and the least trusted one last\&. The 'real' client IP address is the last one, but this is also the least trusted one\&. Trusted proxies are stripped\&.
+.PP
+Use this method carefully; you should use \fBgetClientIp()\fP instead\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The client IP addresses 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetClientIp()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 6832 of file _ide_helper\&.php\&.
+.SS "static getContent ( $asResource = \fCfalse\fP)\fC [static]\fP"
+Returns the request body content\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$asResource\fP If true, a resource will be returned 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|resource The request body content or a resource to read the body stream\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 7323 of file _ide_helper\&.php\&.
+.SS "static getContentType ()\fC [static]\fP"
+Gets the format associated with the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The format (null if no content type is present)  
+.RE
+.PP
+
+.PP
+Definition at line 7240 of file _ide_helper\&.php\&.
+.SS "static getDefaultLocale ()\fC [static]\fP"
+Get the default locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 7263 of file _ide_helper\&.php\&.
+.SS "static getEncodings ()\fC [static]\fP"
+Gets a list of encodings acceptable by the client browser\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array List of encodings in preferable order 
+.RE
+.PP
+
+.PP
+Definition at line 7393 of file _ide_helper\&.php\&.
+.SS "static getETags ()\fC [static]\fP"
+Gets the Etags\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The entity tags 
+.RE
+.PP
+
+.PP
+Definition at line 7334 of file _ide_helper\&.php\&.
+.SS "static getFormat ( $mimeType)\fC [static]\fP"
+Gets the format associated with the mime type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mimeType\fP The associated mime type 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The format (null if not found)  
+.RE
+.PP
+
+.PP
+Definition at line 7184 of file _ide_helper\&.php\&.
+.SS "static getHost ()\fC [static]\fP"
+Returns the host name\&.
+.PP
+This method can read the client port from the 'X-Forwarded-Host' header when trusted proxies were set via 'setTrustedProxies()'\&.
+.PP
+The 'X-Forwarded-Host' header must contain the client host name\&.
+.PP
+If your reverse proxy uses a different header name than 'X-Forwarded-Host', configure it via 'setTrustedHeaderName()' with the 'client-host' key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 7113 of file _ide_helper\&.php\&.
+.SS "static getHttpHost ()\fC [static]\fP"
+Returns the HTTP host being requested\&.
+.PP
+The port name will be appended to the host if it's non-standard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string  
+.RE
+.PP
+
+.PP
+Definition at line 7004 of file _ide_helper\&.php\&.
+.SS "static getHttpMethodParameterOverride ()\fC [static]\fP"
+Checks whether support for the _method request parameter is enabled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True when the _method request parameter is enabled, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 6735 of file _ide_helper\&.php\&.
+.SS "static getLanguages ()\fC [static]\fP"
+Gets a list of languages acceptable by the client browser\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array Languages ordered in the user browser preferences  
+.RE
+.PP
+
+.PP
+Definition at line 7370 of file _ide_helper\&.php\&.
+.SS "static getLocale ()\fC [static]\fP"
+Get the locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 7286 of file _ide_helper\&.php\&.
+.SS "static getMethod ()\fC [static]\fP"
+Gets the request 'intended' method\&.
+.PP
+If the X-HTTP-Method-Override header is set, and if the method is a POST, then it is used to determine the 'real' intended HTTP method\&.
+.PP
+The _method request parameter can also be used to determine the HTTP method, but only if \fBenableHttpMethodParameterOverride()\fP has been called\&.
+.PP
+The method is always an uppercased string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The request method  
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetRealMethod\fP 
+.RE
+.PP
+
+.PP
+Definition at line 7146 of file _ide_helper\&.php\&.
+.SS "static getMimeType ( $format)\fC [static]\fP"
+Gets the mime type associated with the format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The format 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The associated mime type (null if not found)  
+.RE
+.PP
+
+.PP
+Definition at line 7171 of file _ide_helper\&.php\&.
+.SS "static getPassword ()\fC [static]\fP"
+Returns the password\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 6979 of file _ide_helper\&.php\&.
+.SS "static getPathInfo ()\fC [static]\fP"
+Returns the path being requested relative to the executed script\&.
+.PP
+The path info always starts with a /\&.
+.PP
+Suppose this request is instantiated from /mysite on localhost:
+.PP
+.IP "\(bu" 2
+http://localhost/mysite returns an empty string
+.IP "\(bu" 2
+http://localhost/mysite/about returns '/about'
+.IP "\(bu" 2
+http://localhost/mysite/enco%20ded returns '/enco%20ded'
+.IP "\(bu" 2
+http://localhost/mysite/about?var=1 returns '/about'
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string The raw path (i\&.e\&. not urldecoded)  
+.RE
+.PP
+
+.PP
+Definition at line 6889 of file _ide_helper\&.php\&.
+.SS "static getPort ()\fC [static]\fP"
+Returns the port on which the request is made\&.
+.PP
+This method can read the client port from the 'X-Forwarded-Port' header when trusted proxies were set via 'setTrustedProxies()'\&.
+.PP
+The 'X-Forwarded-Port' header must contain the client port\&.
+.PP
+If your reverse proxy uses a different header name than 'X-Forwarded-Port', configure it via 'setTrustedHeaderName()' with the 'client-port' key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string  
+.RE
+.PP
+
+.PP
+Definition at line 6957 of file _ide_helper\&.php\&.
+.SS "static getPreferredLanguage ( $locales = \fCnull\fP)\fC [static]\fP"
+Returns the preferred language\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locales\fP An array of ordered available locales 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The preferred locale  
+.RE
+.PP
+
+.PP
+Definition at line 7358 of file _ide_helper\&.php\&.
+.SS "static getQueryString ()\fC [static]\fP"
+Generates the normalized query string for the \fBRequest\fP\&.
+.PP
+It builds a normalized query string, where keys/value pairs are alphabetized and have consistent escaping\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null \fBA\fP normalized query string for the \fBRequest\fP  
+.RE
+.PP
+
+.PP
+Definition at line 7071 of file _ide_helper\&.php\&.
+.SS "static getRealMethod ()\fC [static]\fP"
+Gets the 'real' request method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The request method 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetMethod\fP 
+.RE
+.PP
+
+.PP
+Definition at line 7158 of file _ide_helper\&.php\&.
+.SS "static getRequestFormat ( $default = \fC'\fBhtml\fP'\fP)\fC [static]\fP"
+Gets the request format\&.
+.PP
+Here is the process to determine the format:
+.PP
+.IP "\(bu" 2
+format defined by the user (with \fBsetRequestFormat()\fP)
+.IP "\(bu" 2
+_format request parameter
+.IP "\(bu" 2
+$default
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$default\fP The default format 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The request format  
+.RE
+.PP
+
+.PP
+Definition at line 7216 of file _ide_helper\&.php\&.
+.SS "static getRequestUri ()\fC [static]\fP"
+Returns the requested URI (path and query string)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The raw URI (i\&.e\&. not URI decoded)  
+.RE
+.PP
+
+.PP
+Definition at line 7016 of file _ide_helper\&.php\&.
+.SS "static getScheme ()\fC [static]\fP"
+Gets the request's scheme\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string  
+.RE
+.PP
+
+.PP
+Definition at line 6937 of file _ide_helper\&.php\&.
+.SS "static getSchemeAndHttpHost ()\fC [static]\fP"
+Gets the scheme and HTTP host\&.
+.PP
+If the \fBURL\fP was called with basic authentication, the user and the password are not added to the generated string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The scheme and HTTP host 
+.RE
+.PP
+
+.PP
+Definition at line 7030 of file _ide_helper\&.php\&.
+.SS "static getScriptName ()\fC [static]\fP"
+Returns current script name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string  
+.RE
+.PP
+
+.PP
+Definition at line 6868 of file _ide_helper\&.php\&.
+.SS "static getSession ()\fC [static]\fP"
+Gets the \fBSession\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|null The session  
+.RE
+.PP
+
+.PP
+Definition at line 6773 of file _ide_helper\&.php\&.
+.SS "static getTrustedHeaderName ( $key)\fC [static]\fP"
+Gets the trusted proxy header name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The header key 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The header name 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 6691 of file _ide_helper\&.php\&.
+.SS "static getTrustedHosts ()\fC [static]\fP"
+Gets the list of trusted host patterns\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of trusted host patterns\&. 
+.RE
+.PP
+
+.PP
+Definition at line 6656 of file _ide_helper\&.php\&.
+.SS "static getTrustedProxies ()\fC [static]\fP"
+Gets the list of trusted proxies\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of trusted proxies\&. 
+.RE
+.PP
+
+.PP
+Definition at line 6632 of file _ide_helper\&.php\&.
+.SS "static getUri ()\fC [static]\fP"
+Generates a normalized URI (\fBURL\fP) for the \fBRequest\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP normalized URI (\fBURL\fP) for the \fBRequest\fP 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetQueryString()\fP  
+.RE
+.PP
+
+.PP
+Definition at line 7043 of file _ide_helper\&.php\&.
+.SS "static getUriForPath ( $path)\fC [static]\fP"
+Generates a normalized URI for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP \fBA\fP path to use instead of the current one 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The normalized URI for the path  
+.RE
+.PP
+
+.PP
+Definition at line 7056 of file _ide_helper\&.php\&.
+.SS "static getUser ()\fC [static]\fP"
+Returns the user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 6968 of file _ide_helper\&.php\&.
+.SS "static getUserInfo ()\fC [static]\fP"
+Gets the user info\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP user name and, optionally, scheme-specific information about how to gain authorization to access the server 
+.RE
+.PP
+
+.PP
+Definition at line 6990 of file _ide_helper\&.php\&.
+.SS "static has ( $key)\fC [static]\fP"
+Determine if the request contains a non-empty value for an input item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6238 of file _ide_helper\&.php\&.
+.SS "static hasCookie ( $key)\fC [static]\fP"
+Determine if a cookie is set on the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6305 of file _ide_helper\&.php\&.
+.SS "static hasFile ( $key)\fC [static]\fP"
+Determine if the uploaded data contains a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6340 of file _ide_helper\&.php\&.
+.SS "static hasPreviousSession ()\fC [static]\fP"
+Whether the request contains a \fBSession\fP which was started in one of the previous requests\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool  
+.RE
+.PP
+
+.PP
+Definition at line 6786 of file _ide_helper\&.php\&.
+.SS "static hasSession ()\fC [static]\fP"
+Whether the request contains a \fBSession\fP object\&.
+.PP
+This method does not give any information about the state of the session object, like whether the session is started or not\&. It is just a way to check if this \fBRequest\fP is associated with a \fBSession\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true when the \fBRequest\fP contains a \fBSession\fP object, false otherwise  
+.RE
+.PP
+
+.PP
+Definition at line 6802 of file _ide_helper\&.php\&.
+.SS "static header ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve a header from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6352 of file _ide_helper\&.php\&.
+.SS "static initialize ( $query = \fCarray()\fP,  $request = \fCarray()\fP,  $attributes = \fCarray()\fP,  $cookies = \fCarray()\fP,  $files = \fCarray()\fP,  $server = \fCarray()\fP,  $content = \fCnull\fP)\fC [static]\fP"
+Sets the parameters for this request\&.
+.PP
+This method also re-initializes all properties\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP The GET parameters 
+.br
+\fI$request\fP The POST parameters 
+.br
+\fI$attributes\fP The request attributes (parameters parsed from the PATH_INFO, \&.\&.\&.) 
+.br
+\fI$cookies\fP The COOKIE parameters 
+.br
+\fI$files\fP The FILES parameters 
+.br
+\fI$server\fP The SERVER parameters 
+.br
+\fI$content\fP The raw body data  
+.RE
+.PP
+
+.PP
+Definition at line 6526 of file _ide_helper\&.php\&.
+.SS "static input ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve an input item from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6260 of file _ide_helper\&.php\&.
+.SS "static instance ()\fC [static]\fP"
+Return the \fBRequest\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 6083 of file _ide_helper\&.php\&.
+.SS "static ip ()\fC [static]\fP"
+Returns the client IP address\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6206 of file _ide_helper\&.php\&.
+.SS "static ips ()\fC [static]\fP"
+Returns the client IP addresses\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 6216 of file _ide_helper\&.php\&.
+.SS "static is ()\fC [static]\fP"
+Determine if the current request URI matches a pattern\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6176 of file _ide_helper\&.php\&.
+.SS "static isJson ()\fC [static]\fP"
+Determine if the request is sending JSON\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6464 of file _ide_helper\&.php\&.
+.SS "static isMethod ( $method)\fC [static]\fP"
+Checks if the request method is of specified type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP Uppercase request method (GET, POST etc)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 7298 of file _ide_helper\&.php\&.
+.SS "static isMethodSafe ()\fC [static]\fP"
+Checks whether the method is safe or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool  
+.RE
+.PP
+
+.PP
+Definition at line 7310 of file _ide_helper\&.php\&.
+.SS "static isNoCache ()\fC [static]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 7345 of file _ide_helper\&.php\&.
+.SS "static isSecure ()\fC [static]\fP"
+Checks whether the request is secure or not\&.
+.PP
+This method can read the client port from the 'X-Forwarded-Proto' header when trusted proxies were set via 'setTrustedProxies()'\&.
+.PP
+The 'X-Forwarded-Proto' header must contain the protocol: 'https' or 'http'\&.
+.PP
+If your reverse proxy uses a different header name than 'X-Forwarded-Proto' ('SSL_HTTPS' for instance), configure it via 'setTrustedHeaderName()' with the 'client-proto' key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool  
+.RE
+.PP
+
+.PP
+Definition at line 7092 of file _ide_helper\&.php\&.
+.SS "static isXmlHttpRequest ()\fC [static]\fP"
+Returns true if the request is a XMLHttpRequest\&.
+.PP
+It works if your JavaScript library sets an X-Requested-With HTTP header\&. It is known to work with common JavaScript frameworks:
+.PP
+\fBbool true if the request is an XMLHttpRequest, false otherwise  \fP
+.PP
+Definition at line 7421 of file _ide_helper\&.php\&.
+.SS "static json ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Get the JSON payload for the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 6454 of file _ide_helper\&.php\&.
+.SS "static merge ( $input)\fC [static]\fP"
+Merge new input into the current request's input array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6431 of file _ide_helper\&.php\&.
+.SS "static method ()\fC [static]\fP"
+Get the request method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6093 of file _ide_helper\&.php\&.
+.SS "static normalizeQueryString ( $qs)\fC [static]\fP"
+Normalizes a query string\&.
+.PP
+It builds a normalized query string, where keys/value pairs are alphabetized, have consistent escaping and unneeded delimiters are removed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$qs\fP Query string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP normalized query string for the \fBRequest\fP 
+.RE
+.PP
+
+.PP
+Definition at line 6706 of file _ide_helper\&.php\&.
+.SS "static old ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve an old input item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 6376 of file _ide_helper\&.php\&.
+.SS "static only ( $keys)\fC [static]\fP"
+Get a subset of the items from the input data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 6271 of file _ide_helper\&.php\&.
+.SS "static overrideGlobals ()\fC [static]\fP"
+Overrides the \fBPHP\fP global variables according to this request instance\&.
+.PP
+It overrides $_GET, $_POST, $_REQUEST, $_SERVER, $_COOKIE\&. $_FILES is never overridden, see rfc1867
+.PP
+Definition at line 6607 of file _ide_helper\&.php\&.
+.SS "static path ()\fC [static]\fP"
+Get the current path info for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6133 of file _ide_helper\&.php\&.
+.SS "static query ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve a query string item from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6294 of file _ide_helper\&.php\&.
+.SS "static replace ( $input)\fC [static]\fP"
+Replace the input for the current request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 6442 of file _ide_helper\&.php\&.
+.SS "static root ()\fC [static]\fP"
+Get the root \fBURL\fP for the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6103 of file _ide_helper\&.php\&.
+.SS "static secure ()\fC [static]\fP"
+Determine if the request is over HTTPS\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6196 of file _ide_helper\&.php\&.
+.SS "static segment ( $index,  $default = \fCnull\fP)\fC [static]\fP"
+Get a segment from the URI (1 based index)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6155 of file _ide_helper\&.php\&.
+.SS "static segments ()\fC [static]\fP"
+Get all of the segments for the request path\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 6165 of file _ide_helper\&.php\&.
+.SS "static server ( $key = \fCnull\fP,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve a server variable from the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6364 of file _ide_helper\&.php\&.
+.SS "static session ()\fC [static]\fP"
+Get the session associated with the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 6507 of file _ide_helper\&.php\&.
+.SS "static setDefaultLocale ( $locale)\fC [static]\fP"
+Sets the default locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+
+.PP
+Definition at line 7252 of file _ide_helper\&.php\&.
+.SS "static setFactory ( $callable)\fC [static]\fP"
+Sets a callable able to create a \fBRequest\fP instance\&.
+.PP
+This is mainly useful when you need to override the \fBRequest\fP class to keep BC with an existing system\&. It should not be used for any other purpose\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callable\fP \fBA\fP \fBPHP\fP callable 
+.RE
+.PP
+
+.PP
+Definition at line 6575 of file _ide_helper\&.php\&.
+.SS "static setFormat ( $format,  $mimeTypes)\fC [static]\fP"
+Associates a format with mime types\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The format 
+.br
+\fI$mimeTypes\fP The associated mime types (the preferred one must be the first as it will be used as the content type)  
+.RE
+.PP
+
+.PP
+Definition at line 7197 of file _ide_helper\&.php\&.
+.SS "static setLocale ( $locale)\fC [static]\fP"
+Sets the locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+
+.PP
+Definition at line 7275 of file _ide_helper\&.php\&.
+.SS "static setMethod ( $method)\fC [static]\fP"
+Sets the request method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+
+.PP
+Definition at line 7125 of file _ide_helper\&.php\&.
+.SS "static setRequestFormat ( $format)\fC [static]\fP"
+Sets the request format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The request format\&.  
+.RE
+.PP
+
+.PP
+Definition at line 7228 of file _ide_helper\&.php\&.
+.SS "static setSession ( $session)\fC [static]\fP"
+Sets the \fBSession\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$session\fP The \fBSession\fP  
+.RE
+.PP
+
+.PP
+Definition at line 6814 of file _ide_helper\&.php\&.
+.SS "static setTrustedHeaderName ( $key,  $value)\fC [static]\fP"
+Sets the name for trusted headers\&.
+.PP
+The following header keys are supported:
+.PP
+.IP "\(bu" 2
+Request::HEADER_CLIENT_IP: defaults to X-Forwarded-For (see \fBgetClientIp()\fP)
+.IP "\(bu" 2
+Request::HEADER_CLIENT_HOST: defaults to X-Forwarded-Host (see getClientHost())
+.IP "\(bu" 2
+Request::HEADER_CLIENT_PORT: defaults to X-Forwarded-Port (see getClientPort())
+.IP "\(bu" 2
+Request::HEADER_CLIENT_PROTO: defaults to X-Forwarded-Proto (see \fBgetScheme()\fP and \fBisSecure()\fP)
+.PP
+.PP
+Setting an empty value allows to disable the trusted header for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The header key 
+.br
+\fI$value\fP The header name 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 6678 of file _ide_helper\&.php\&.
+.SS "static setTrustedHosts ( $hostPatterns)\fC [static]\fP"
+Sets a list of trusted host patterns\&.
+.PP
+You should only list the hosts you manage using regexs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hostPatterns\fP \fBA\fP list of trusted host patterns 
+.RE
+.PP
+
+.PP
+Definition at line 6645 of file _ide_helper\&.php\&.
+.SS "static setTrustedProxies ( $proxies)\fC [static]\fP"
+Sets a list of trusted proxies\&.
+.PP
+You should only list the reverse proxies that you manage directly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$proxies\fP \fBA\fP list of trusted proxies  
+.RE
+.PP
+
+.PP
+Definition at line 6621 of file _ide_helper\&.php\&.
+.SS "static url ()\fC [static]\fP"
+Get the \fBURL\fP (no query string) for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 6113 of file _ide_helper\&.php\&.
+.SS "static wantsJson ()\fC [static]\fP"
+Determine if the current request is asking for JSON in return\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 6474 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

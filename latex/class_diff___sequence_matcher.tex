@@ -1,0 +1,286 @@
+\section{Diff\+\_\+\+Sequence\+Matcher Class Reference}
+\label{class_diff___sequence_matcher}\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf a}, \${\bf b}, \$junk\+Callback=null, \${\bf options})
+\item 
+{\bf set\+Options} (\${\bf options})
+\item 
+{\bf set\+Sequences} (\${\bf a}, \${\bf b})
+\item 
+{\bf set\+Seq1} (\${\bf a})
+\item 
+{\bf set\+Seq2} (\${\bf b})
+\item 
+{\bf find\+Longest\+Match} (\$alo, \$ahi, \$blo, \$bhi)
+\item 
+{\bf lines\+Are\+Different} (\$a\+Index, \$b\+Index)
+\item 
+{\bf get\+Matching\+Blocks} ()
+\item 
+{\bf get\+Op\+Codes} ()
+\item 
+{\bf get\+Grouped\+Opcodes} (\$context=3)
+\item 
+{\bf Ratio} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 43 of file Sequence\+Matcher.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$a, }
+\item[{}]{\$b, }
+\item[{}]{\$junk\+Callback = {\ttfamily null}, }
+\item[{}]{\$options}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_adc9835b1cac5e1001d2bdc6383e83114}
+The constructor. With the sequences being passed, they\textquotesingle{}ll be set for the sequence matcher and it will perform a basic cleanup \& calculate junk elements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$a} & \doxyref{A}{p.}{class_a} string or array containing the lines to compare against. \\
+\hline
+string | array & {\em \$b} & \doxyref{A}{p.}{class_a} string or array containing the lines to compare. \\
+\hline
+string | array & {\em \$junk\+Callback} & Either an array or string that references a callback function (if there is one) to determine \textquotesingle{}junk\textquotesingle{} characters. \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file Sequence\+Matcher.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!find\+Longest\+Match@{find\+Longest\+Match}}
+\index{find\+Longest\+Match@{find\+Longest\+Match}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{find\+Longest\+Match}]{\setlength{\rightskip}{0pt plus 5cm}find\+Longest\+Match (
+\begin{DoxyParamCaption}
+\item[{}]{\$alo, }
+\item[{}]{\$ahi, }
+\item[{}]{\$blo, }
+\item[{}]{\$bhi}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_a2f8d5277578eb72b90d2f96cd138e8a8}
+Find the longest matching block in the two sequences, as defined by the lower and upper constraints for each sequence. (for the first sequence, \$alo -\/ \$ahi and for the second sequence, \$blo -\/ \$bhi)
+
+Essentially, of all of the maximal matching blocks, return the one that startest earliest in \$a, and all of those maximal matching blocks that start earliest in \$a, return the one that starts earliest in \$b.
+
+If the junk callback is defined, do the above but with the restriction that the junk element appears in the block. Extend it as far as possible by matching only junk elements in both \$a and \$b.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$alo} & The lower constraint for the first sequence. \\
+\hline
+int & {\em \$ahi} & The upper constraint for the first sequence. \\
+\hline
+int & {\em \$blo} & The lower constraint for the second sequence. \\
+\hline
+int & {\em \$bhi} & The upper constraint for the second sequence. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Array containing the longest match that includes the starting position in \$a, start in \$b and the length/size. 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!get\+Grouped\+Opcodes@{get\+Grouped\+Opcodes}}
+\index{get\+Grouped\+Opcodes@{get\+Grouped\+Opcodes}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{get\+Grouped\+Opcodes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Grouped\+Opcodes (
+\begin{DoxyParamCaption}
+\item[{}]{\$context = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_af7bf40a4dc20a942498c14edc7725395}
+Return a series of nested arrays containing different groups of generated opcodes for the differences between the strings with up to \$context lines of surrounding content.
+
+Essentially what happens here is any big equal blocks of strings are stripped out, the smaller subsets of changes are then arranged in to their groups. This means that the sequence matcher and diffs do not need to include the full content of the different files but can still provide context as to where the changes are.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$context} & The number of lines of context to provide around the groups. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Nested array of all of the grouped opcodes. 
+\end{DoxyReturn}
+
+
+Definition at line 527 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!get\+Matching\+Blocks@{get\+Matching\+Blocks}}
+\index{get\+Matching\+Blocks@{get\+Matching\+Blocks}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{get\+Matching\+Blocks}]{\setlength{\rightskip}{0pt plus 5cm}get\+Matching\+Blocks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_a858ce55e95bbff150ed3017232ed0bbd}
+Return a nested set of arrays for all of the matching sub-\/sequences in the strings \$a and \$b.
+
+Each block contains the lower constraint of the block in \$a, the lower constraint of the block in \$b and finally the number of lines that the block continues for.
+
+\begin{DoxyReturn}{Returns}
+array Nested array of the matching blocks, as described by the function. 
+\end{DoxyReturn}
+
+
+Definition at line 352 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!get\+Op\+Codes@{get\+Op\+Codes}}
+\index{get\+Op\+Codes@{get\+Op\+Codes}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{get\+Op\+Codes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Op\+Codes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_a38a2511ce01efaef59940f8f9a72404f}
+Return a list of all of the opcodes for the differences between the two strings.
+
+The nested array returned contains an array describing the opcode which includes\+: 0 -\/ The type of tag (as described below) for the opcode. 1 -\/ The beginning line in the first sequence. 2 -\/ The end line in the first sequence. 3 -\/ The beginning line in the second sequence. 4 -\/ The end line in the second sequence.
+
+The different types of tags include\+: replace -\/ The string from \$i1 to \$i2 in \$a should be replaced by the string in \$b from \$j1 to \$j2. delete -\/ The string in \$a from \$i1 to \$j2 should be deleted. insert -\/ The string in \$b from \$j1 to \$j2 should be inserted at \$i1 in \$a. equal -\/ The two strings with the specified ranges are equal.
+
+\begin{DoxyReturn}{Returns}
+array Array of the opcodes describing the differences between the strings. 
+\end{DoxyReturn}
+
+
+Definition at line 463 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!lines\+Are\+Different@{lines\+Are\+Different}}
+\index{lines\+Are\+Different@{lines\+Are\+Different}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{lines\+Are\+Different}]{\setlength{\rightskip}{0pt plus 5cm}lines\+Are\+Different (
+\begin{DoxyParamCaption}
+\item[{}]{\$a\+Index, }
+\item[{}]{\$b\+Index}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_aed291b6009747b2c3c9a92ea1c25cfc8}
+Check if the two lines at the given indexes are different or not.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$a\+Index} & Line number to check against in a. \\
+\hline
+int & {\em \$b\+Index} & Line number to check against in b. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean True if the lines are different and false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 319 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!Ratio@{Ratio}}
+\index{Ratio@{Ratio}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Ratio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_adb6575b11094b4bc4d2364049459c334}
+Return a measure of the similarity between the two sequences. This will be a float value between 0 and 1.
+
+Out of all of the ratio calculation functions, this is the most expensive to call if get\+Matching\+Blocks or get\+Op\+Codes is yet to be called. The other calculation methods (quick\+Ratio and realquick\+Ratio) can be used to perform quicker calculations but may be less accurate.
+
+The ratio is calculated as (2 $\ast$ number of matches) / total number of elements in both sequences.
+
+\begin{DoxyReturn}{Returns}
+float The calculated ratio. 
+\end{DoxyReturn}
+
+
+Definition at line 612 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!set\+Options@{set\+Options}}
+\index{set\+Options@{set\+Options}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{set\+Options}]{\setlength{\rightskip}{0pt plus 5cm}set\+Options (
+\begin{DoxyParamCaption}
+\item[{}]{\$options}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_a8213e4c39213f7d6250f72ff6f2699f2}
+Set new options
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!set\+Seq1@{set\+Seq1}}
+\index{set\+Seq1@{set\+Seq1}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{set\+Seq1}]{\setlength{\rightskip}{0pt plus 5cm}set\+Seq1 (
+\begin{DoxyParamCaption}
+\item[{}]{\$a}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_a40047ab885a4a0997eb1b60d78f9d9d1}
+Set the first sequence (\$a) and reset any internal caches to indicate that when calling the calculation methods, we need to recalculate them.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$a} & The sequence to set as the first sequence. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!set\+Seq2@{set\+Seq2}}
+\index{set\+Seq2@{set\+Seq2}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{set\+Seq2}]{\setlength{\rightskip}{0pt plus 5cm}set\+Seq2 (
+\begin{DoxyParamCaption}
+\item[{}]{\$b}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_aac3484ca7374bdb9f52749c074a345ba}
+Set the second sequence (\$b) and reset any internal caches to indicate that when calling the calculation methods, we need to recalculate them.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$b} & The sequence to set as the second sequence. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file Sequence\+Matcher.\+php.
+
+\index{Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}!set\+Sequences@{set\+Sequences}}
+\index{set\+Sequences@{set\+Sequences}!Diff\+\_\+\+Sequence\+Matcher@{Diff\+\_\+\+Sequence\+Matcher}}
+\subsubsection[{set\+Sequences}]{\setlength{\rightskip}{0pt plus 5cm}set\+Sequences (
+\begin{DoxyParamCaption}
+\item[{}]{\$a, }
+\item[{}]{\$b}
+\end{DoxyParamCaption}
+)}\label{class_diff___sequence_matcher_ab8c0745d89a46d6be279c3b176500fa3}
+Set the first and second sequences to use with the sequence matcher.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$a} & \doxyref{A}{p.}{class_a} string or array containing the lines to compare against. \\
+\hline
+string | array & {\em \$b} & \doxyref{A}{p.}{class_a} string or array containing the lines to compare. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file Sequence\+Matcher.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpspec/php-\/diff/lib/\+Diff/{\bf Sequence\+Matcher.\+php}\end{DoxyCompactItemize}

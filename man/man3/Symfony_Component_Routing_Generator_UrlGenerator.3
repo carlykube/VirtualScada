@@ -1,0 +1,285 @@
+.TH "UrlGenerator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UrlGenerator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBUrlGeneratorInterface\fP, and \fBConfigurableRequirementsInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRouteCollection\fP $routes, \fBRequestContext\fP $context, \fBLoggerInterface\fP $logger=null)"
+.br
+.ti -1c
+.RI "\fBsetContext\fP (\fBRequestContext\fP $context)"
+.br
+.ti -1c
+.RI "\fBgetContext\fP ()"
+.br
+.ti -1c
+.RI "\fBsetStrictRequirements\fP ($enabled)"
+.br
+.ti -1c
+.RI "\fBisStrictRequirements\fP ()"
+.br
+.ti -1c
+.RI "\fBgenerate\fP ($\fBname\fP, $parameters=array(), $referenceType=self::ABSOLUTE_PATH)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetRelativePath\fP ($basePath, $targetPath)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdoGenerate\fP ($variables, $defaults, $requirements, $tokens, $parameters, $\fBname\fP, $referenceType, $hostTokens, array $requiredSchemes=array())"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$routes\fP"
+.br
+.ti -1c
+.RI "\fB$context\fP"
+.br
+.ti -1c
+.RI "\fB$strictRequirements\fP = true"
+.br
+.ti -1c
+.RI "\fB$logger\fP"
+.br
+.ti -1c
+.RI "\fB$decodedChars\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBUrlGenerator\fP can generate a \fBURL\fP or a path for any route in the \fBRouteCollection\fP based on the passed parameters\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+
+.PP
+Definition at line 30 of file UrlGenerator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRouteCollection\fP $routes, \fBRequestContext\fP $context, \fBLoggerInterface\fP $logger = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP \fBA\fP \fBRouteCollection\fP instance 
+.br
+\fI$context\fP The context 
+.br
+\fI$logger\fP \fBA\fP logger instance
+.RE
+.PP
+
+.PP
+Definition at line 89 of file UrlGenerator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "doGenerate ( $variables,  $defaults,  $requirements,  $tokens,  $parameters,  $name,  $referenceType,  $hostTokens, array $requiredSchemes = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIMissingMandatoryParametersException\fP When some parameters are missing that are mandatory for the route 
+.br
+\fIInvalidParameterException\fP When a parameter value for a placeholder is not correct because it does not match the requirement 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file UrlGenerator\&.php\&.
+.SS "generate ( $name,  $parameters = \fCarray()\fP,  $referenceType = \fCself::ABSOLUTE_PATH\fP)"
+{Generates a \fBURL\fP or path for a specific route based on the given parameters\&.
+.PP
+Parameters that reference placeholders in the route pattern will substitute them in the path or host\&. Extra params are added as query string to the \fBURL\fP\&.
+.PP
+When the passed reference type cannot be generated for the route because it requires a different host or scheme than the current one, the method will return a more comprehensive reference that includes the required params\&. For example, when you call this method with $referenceType = ABSOLUTE_PATH but the route requires the https scheme whereas the current scheme is http, it will instead return an ABSOLUTE_URL with the https scheme and the current host\&. This makes sure the generated \fBURL\fP matches the route in any case\&.
+.PP
+If there is no route with the given name, the generator must throw the RouteNotFoundException\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The name of the route 
+.br
+\fI$parameters\fP An array of parameters 
+.br
+\fI$referenceType\fP The type of reference to be generated (one of the constants)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The generated \fBURL\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRouteNotFoundException\fP If the named route doesn't exist 
+.br
+\fIMissingMandatoryParametersException\fP When some parameters are missing that are mandatory for the route 
+.br
+\fIInvalidParameterException\fP When a parameter value for a placeholder is not correct because it does not match the requirement
+.RE
+.PP
+} 
+.PP
+Implements \fBUrlGeneratorInterface\fP\&.
+.PP
+Definition at line 131 of file UrlGenerator\&.php\&.
+.SS "getContext ()"
+{Gets the request context\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The context
+.RE
+.PP
+} 
+.PP
+Implements \fBRequestContextAwareInterface\fP\&.
+.PP
+Definition at line 107 of file UrlGenerator\&.php\&.
+.SS "static getRelativePath ( $basePath,  $targetPath)\fC [static]\fP"
+Returns the target path as relative reference from the base path\&.
+.PP
+Only the URIs path component (no schema, host etc\&.) is relevant and must be given, starting with a slash\&. Both paths must be absolute and not contain relative parts\&. Relative URLs from one resource to another are useful when generating self-contained downloadable document archives\&. Furthermore, they can be used to reduce the link size in documents\&.
+.PP
+Example target paths, given a base path of '/a/b/c/d':
+.IP "\(bu" 2
+'/a/b/c/d' -> ''
+.IP "\(bu" 2
+'/a/b/c/' -> '\&./'
+.IP "\(bu" 2
+'/a/b/' -> '\&.\&./'
+.IP "\(bu" 2
+'/a/b/c/other' -> 'other'
+.IP "\(bu" 2
+'/a/x/y' -> '\&.\&./\&.\&./x/y'
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$basePath\fP The base path 
+.br
+\fI$targetPath\fP The target path
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The relative target path 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file UrlGenerator\&.php\&.
+.SS "isStrictRequirements ()"
+{Returns whether to throw an exception on incorrect parameters\&. Null means the requirements check is deactivated completely\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null
+.RE
+.PP
+} 
+.PP
+Implements \fBConfigurableRequirementsInterface\fP\&.
+.PP
+Definition at line 123 of file UrlGenerator\&.php\&.
+.SS "setContext (\fBRequestContext\fP $context)"
+{Sets the request context\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$context\fP The context
+.RE
+.PP
+} 
+.PP
+Implements \fBRequestContextAwareInterface\fP\&.
+.PP
+Definition at line 99 of file UrlGenerator\&.php\&.
+.SS "setStrictRequirements ( $enabled)"
+{Enables or disables the exception on incorrect parameters\&. Passing null will deactivate the requirements check completely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$enabled\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBConfigurableRequirementsInterface\fP\&.
+.PP
+Definition at line 115 of file UrlGenerator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$context\fC [protected]\fP"
+
+.PP
+Definition at line 40 of file UrlGenerator\&.php\&.
+.SS "$decodedChars\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        
+        
+        
+        '%2F' => '/',
+        
+        
+        '%40' => '@',
+        '%3A' => ':',
+        
+        
+        '%3B' => ';',
+        '%2C' => ',',
+        '%3D' => '=',
+        '%2B' => '+',
+        '%21' => '!',
+        '%2A' => '*',
+        '%7C' => '|',
+    )
+.fi
+This array defines the characters (besides alphanumeric ones) that will not be percent-encoded in the path segment of the generated \fBURL\fP\&.
+.PP
+\fBPHP\fP's rawurlencode() encodes all chars except 'a-zA-Z0-9-\&._~' according to RFC 3986\&. But we want to allow some chars to be used in their literal form (reasons below)\&. \fBOther\fP chars inside the path must of course be encoded, e\&.g\&. '?' and '#' (would be interpreted wrongly as query and fragment identifier), ''' and ''" (are used as delimiters in \fBHTML\fP)\&. 
+.PP
+Definition at line 60 of file UrlGenerator\&.php\&.
+.SS "$logger\fC [protected]\fP"
+
+.PP
+Definition at line 50 of file UrlGenerator\&.php\&.
+.SS "$routes\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file UrlGenerator\&.php\&.
+.SS "$strictRequirements = true\fC [protected]\fP"
+
+.PP
+Definition at line 45 of file UrlGenerator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

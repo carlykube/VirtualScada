@@ -1,0 +1,67 @@
+Http\+Kernel provides the building blocks to create flexible and fast H\+T\+T\+P-\/based frameworks.
+
+{\ttfamily Http\+Kernel\+Interface} is the core interface of the \doxyref{Symfony}{p.}{namespace_symfony} full-\/stack framework\+:
+
+```php interface Http\+Kernel\+Interface \{ /$\ast$$\ast$
+\begin{DoxyItemize}
+\item Handles a \doxyref{Request}{p.}{class_request} to convert it to a \doxyref{Response}{p.}{class_response}.
+\item 
+\item 
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+
+\item 
+\item \begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance $\ast$/ function handle(\doxyref{Request}{p.}{class_request} \$request, \$type = self\+::\+M\+A\+S\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T, \$catch = true); \} ```
+\end{DoxyReturn}
+It takes a {\ttfamily \doxyref{Request}{p.}{class_request}} as an input and should return a {\ttfamily \doxyref{Response}{p.}{class_response}} as an output. Using this interface makes your code compatible with all frameworks using the \doxyref{Symfony}{p.}{namespace_symfony} components. And this will give you many cool features for free.
+\end{DoxyItemize}
+
+Creating a framework based on the \doxyref{Symfony}{p.}{namespace_symfony} components is really easy. Here is a very simple, but fully-\/featured framework based on the \doxyref{Symfony}{p.}{namespace_symfony} components\+:
+
+```php \$routes = new Route\+Collection(); \$routes-\/$>$add(\textquotesingle{}hello\textquotesingle{}, new \doxyref{Route}{p.}{class_route}(\textquotesingle{}/hello\textquotesingle{}, array(\textquotesingle{}\+\_\+controller\textquotesingle{} =$>$ function (\doxyref{Request}{p.}{class_request} \$request) \{ return new \doxyref{Response}{p.}{class_response}(sprintf(\char`\"{}\+Hello \%s\char`\"{}, \$request-\/$>$get(\textquotesingle{}name\textquotesingle{}))); \} )));
+
+\$request = \doxyref{Request\+::create\+From\+Globals()}{p.}{class_request_a79ce60596ee2f79e24a5188ba3e3d74f};
+
+\$context = new Request\+Context(); \$context-\/$>$from\+Request(\$request);
+
+\$matcher = new Url\+Matcher(\$routes, \$context);
+
+\$dispatcher = new Event\+Dispatcher(); \$dispatcher-\/$>$add\+Subscriber(new Router\+Listener(\$matcher));
+
+\$resolver = new Controller\+Resolver();
+
+\$kernel = new Http\+Kernel(\$dispatcher, \$resolver);
+
+\$kernel-\/$>$handle(\$request)-\/$>$send(); ```
+
+This is all you need to create a flexible framework with the \doxyref{Symfony}{p.}{namespace_symfony} components.
+
+Want to add an H\+T\+T\+P reverse proxy and benefit from H\+T\+T\+P caching and Edge Side Includes?
+
+```php \$kernel = new Http\+Kernel(\$dispatcher, \$resolver);
+
+\$kernel = new Http\+Cache(\$kernel, new Store({\bfseries D\+I\+R}.\textquotesingle{}/cache\textquotesingle{})); ```
+
+Want to functional test this small framework?
+
+```php \$client = new Client(\$kernel); \$crawler = \$client-\/$>$request(\textquotesingle{}G\+E\+T\textquotesingle{}, \textquotesingle{}/hello/\+Fabien\textquotesingle{});
+
+\$this-\/$>$assert\+Equals(\textquotesingle{}Fabien\textquotesingle{}, \$crawler-\/$>$filter(\textquotesingle{}p $>$ span\textquotesingle{})-\/$>$\doxyref{text()}{p.}{d3_8min_8js_a5766b01c42864a326f9f41181fb631f4}); ```
+
+Want nice error pages instead of ugly \doxyref{P\+H\+P}{p.}{namespace_p_h_p} exceptions?
+
+```php \$dispatcher-\/$>$add\+Subscriber(new Exception\+Listener(function (\doxyref{Request}{p.}{class_request} \$request) \{ \$msg = \textquotesingle{}Something went wrong! (\textquotesingle{}.\$request-\/$>$get(\textquotesingle{}exception\textquotesingle{})-\/$>$get\+Message().\textquotesingle{})\textquotesingle{};
+
+return new \doxyref{Response}{p.}{class_response}(\$msg, 500); \})); ```
+
+And that\textquotesingle{}s why the simple looking {\ttfamily Http\+Kernel\+Interface} is so powerful. It gives you access to a lot of cool features, ready to be used out of the box, with no efforts.
+
+\subsection*{Resources }
+
+You can run the unit tests with the following command\+: \begin{DoxyVerb}$ cd path/to/Symfony/Component/HttpKernel/
+$ composer install
+$ phpunit\end{DoxyVerb}
+ 

@@ -1,0 +1,933 @@
+.TH "Route" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Route \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP, array $defaults=array(), array $requirements=array(), array $\fBoptions\fP=array(), $host= '', $schemes=array(), $methods=array(), $condition= '')"
+.br
+.ti -1c
+.RI "\fBserialize\fP ()"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($serialized)"
+.br
+.ti -1c
+.RI "\fBgetPattern\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPattern\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPath\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetSchemes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSchemes\fP ($schemes)"
+.br
+.ti -1c
+.RI "\fBhasScheme\fP ($scheme)"
+.br
+.ti -1c
+.RI "\fBgetMethods\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMethods\fP ($methods)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBsetOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetOption\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBgetOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBhasOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetDefaults\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaults\fP (array $defaults)"
+.br
+.ti -1c
+.RI "\fBaddDefaults\fP (array $defaults)"
+.br
+.ti -1c
+.RI "\fBgetDefault\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBhasDefault\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetDefault\fP ($\fBname\fP, $default)"
+.br
+.ti -1c
+.RI "\fBgetRequirements\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequirements\fP (array $requirements)"
+.br
+.ti -1c
+.RI "\fBaddRequirements\fP (array $requirements)"
+.br
+.ti -1c
+.RI "\fBgetRequirement\fP ($key)"
+.br
+.ti -1c
+.RI "\fBhasRequirement\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetRequirement\fP ($key, $\fBregex\fP)"
+.br
+.ti -1c
+.RI "\fBgetCondition\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCondition\fP ($condition)"
+.br
+.ti -1c
+.RI "\fBcompile\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP, array $defaults=array(), array $requirements=array(), array $\fBoptions\fP=array(), $host= '', $schemes=array(), $methods=array(), $condition= '')"
+.br
+.ti -1c
+.RI "\fBserialize\fP ()"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($serialized)"
+.br
+.ti -1c
+.RI "\fBgetPattern\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPattern\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPath\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($pattern)"
+.br
+.ti -1c
+.RI "\fBgetSchemes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSchemes\fP ($schemes)"
+.br
+.ti -1c
+.RI "\fBhasScheme\fP ($scheme)"
+.br
+.ti -1c
+.RI "\fBgetMethods\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMethods\fP ($methods)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBsetOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetOption\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBgetOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBhasOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetDefaults\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaults\fP (array $defaults)"
+.br
+.ti -1c
+.RI "\fBaddDefaults\fP (array $defaults)"
+.br
+.ti -1c
+.RI "\fBgetDefault\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBhasDefault\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetDefault\fP ($\fBname\fP, $default)"
+.br
+.ti -1c
+.RI "\fBgetRequirements\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequirements\fP (array $requirements)"
+.br
+.ti -1c
+.RI "\fBaddRequirements\fP (array $requirements)"
+.br
+.ti -1c
+.RI "\fBgetRequirement\fP ($key)"
+.br
+.ti -1c
+.RI "\fBhasRequirement\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetRequirement\fP ($key, $\fBregex\fP)"
+.br
+.ti -1c
+.RI "\fBgetCondition\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCondition\fP ($condition)"
+.br
+.ti -1c
+.RI "\fBcompile\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP \fBRoute\fP describes a route and its parameters\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+
+.PP
+Definition at line 8014 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path, array $defaults = \fCarray()\fP, array $requirements = \fCarray()\fP, array $options = \fCarray()\fP,  $host = \fC''\fP,  $schemes = \fCarray()\fP,  $methods = \fCarray()\fP,  $condition = \fC''\fP)"
+
+.PP
+Definition at line 8025 of file compiled\&.php\&.
+.SS "__construct ( $path, array $defaults = \fCarray()\fP, array $requirements = \fCarray()\fP, array $options = \fCarray()\fP,  $host = \fC''\fP,  $schemes = \fCarray()\fP,  $methods = \fCarray()\fP,  $condition = \fC''\fP)"
+Constructor\&.
+.PP
+Available options:
+.PP
+.IP "\(bu" 2
+compiler_class: \fBA\fP class name able to compile this route instance (\fBRouteCompiler\fP by default)
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path pattern to match 
+.br
+\fI$defaults\fP An array of default parameter values 
+.br
+\fI$requirements\fP An array of requirements for parameters (regexes) 
+.br
+\fI$options\fP An array of options 
+.br
+\fI$host\fP The host pattern to match 
+.br
+\fI$schemes\fP \fBA\fP required URI scheme or an array of restricted schemes 
+.br
+\fI$methods\fP \fBA\fP required HTTP method or an array of restricted methods 
+.br
+\fI$condition\fP \fBA\fP condition that should evaluate to true for the route to match
+.RE
+.PP
+
+.PP
+Definition at line 87 of file Route\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addDefaults (array $defaults)"
+Adds defaults\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defaults\fP The defaults
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 441 of file Route\&.php\&.
+.SS "addDefaults (array $defaults)"
+
+.PP
+Definition at line 8163 of file compiled\&.php\&.
+.SS "addOptions (array $options)"
+Adds options\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP The options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 352 of file Route\&.php\&.
+.SS "addOptions (array $options)"
+
+.PP
+Definition at line 8132 of file compiled\&.php\&.
+.SS "addRequirements (array $requirements)"
+Adds requirements\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$requirements\fP The requirements
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 528 of file Route\&.php\&.
+.SS "addRequirements (array $requirements)"
+
+.PP
+Definition at line 8194 of file compiled\&.php\&.
+.SS "compile ()"
+Compiles the route\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCompiledRoute\fP \fBA\fP \fBCompiledRoute\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 617 of file Route\&.php\&.
+.SS "compile ()"
+
+.PP
+Definition at line 8226 of file compiled\&.php\&.
+.SS "getCondition ()"
+Returns the condition\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The condition 
+.RE
+.PP
+
+.PP
+Definition at line 585 of file Route\&.php\&.
+.SS "getCondition ()"
+
+.PP
+Definition at line 8216 of file compiled\&.php\&.
+.SS "getDefault ( $name)"
+Gets a default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP variable name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The default value or null when not given 
+.RE
+.PP
+
+.PP
+Definition at line 458 of file Route\&.php\&.
+.SS "getDefault ( $name)"
+
+.PP
+Definition at line 8171 of file compiled\&.php\&.
+.SS "getDefaults ()"
+Returns the defaults\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The defaults 
+.RE
+.PP
+
+.PP
+Definition at line 411 of file Route\&.php\&.
+.SS "getDefaults ()"
+
+.PP
+Definition at line 8154 of file compiled\&.php\&.
+.SS "getHost ()"
+Returns the pattern for the host\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The host pattern 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file Route\&.php\&.
+.SS "getHost ()"
+
+.PP
+Definition at line 8079 of file compiled\&.php\&.
+.SS "getMethods ()"
+Returns the uppercased HTTP methods this route is restricted to\&. So an empty array means that any method is allowed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The methods 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file Route\&.php\&.
+.SS "getMethods ()"
+
+.PP
+Definition at line 8108 of file compiled\&.php\&.
+.SS "getOption ( $name)"
+Get an option value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP An option name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The option value or null when not given 
+.RE
+.PP
+
+.PP
+Definition at line 389 of file Route\&.php\&.
+.SS "getOption ( $name)"
+
+.PP
+Definition at line 8146 of file compiled\&.php\&.
+.SS "getOptions ()"
+Returns the options\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The options 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file Route\&.php\&.
+.SS "getOptions ()"
+
+.PP
+Definition at line 8123 of file compiled\&.php\&.
+.SS "getPath ()"
+Returns the pattern for the path\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The path pattern 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file Route\&.php\&.
+.SS "getPath ()"
+
+.PP
+Definition at line 8069 of file compiled\&.php\&.
+.SS "getPattern ()"
+Returns the pattern for the path\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The pattern
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated in 2\&.2, to be removed in 3\&.0\&. Use getPath instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file Route\&.php\&.
+.SS "getPattern ()"
+
+.PP
+Definition at line 8061 of file compiled\&.php\&.
+.SS "getRequirement ( $key)"
+Returns the requirement for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The regex or null when not given 
+.RE
+.PP
+
+.PP
+Definition at line 545 of file Route\&.php\&.
+.SS "getRequirement ( $key)"
+
+.PP
+Definition at line 8202 of file compiled\&.php\&.
+.SS "getRequirements ()"
+Returns the requirements\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The requirements 
+.RE
+.PP
+
+.PP
+Definition at line 498 of file Route\&.php\&.
+.SS "getRequirements ()"
+
+.PP
+Definition at line 8185 of file compiled\&.php\&.
+.SS "getSchemes ()"
+Returns the lowercased schemes this route is restricted to\&. So an empty array means that any scheme is allowed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The schemes 
+.RE
+.PP
+
+.PP
+Definition at line 235 of file Route\&.php\&.
+.SS "getSchemes ()"
+
+.PP
+Definition at line 8089 of file compiled\&.php\&.
+.SS "hasDefault ( $name)"
+Checks if a default value is set for the given variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP variable name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the default value is set, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 470 of file Route\&.php\&.
+.SS "hasDefault ( $name)"
+
+.PP
+Definition at line 8175 of file compiled\&.php\&.
+.SS "hasOption ( $name)"
+Checks if an option has been set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP An option name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the option is set, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 401 of file Route\&.php\&.
+.SS "hasOption ( $name)"
+
+.PP
+Definition at line 8150 of file compiled\&.php\&.
+.SS "hasRequirement ( $key)"
+Checks if a requirement is set for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP \fBA\fP variable name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if a requirement is specified, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 557 of file Route\&.php\&.
+.SS "hasRequirement ( $key)"
+
+.PP
+Definition at line 8206 of file compiled\&.php\&.
+.SS "hasScheme ( $scheme)"
+Checks if a scheme requirement has been set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scheme\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the scheme requirement exists, otherwise false 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file Route\&.php\&.
+.SS "hasScheme ( $scheme)"
+
+.PP
+Definition at line 8104 of file compiled\&.php\&.
+.SS "serialize ()"
+{} 
+.PP
+Definition at line 108 of file Route\&.php\&.
+.SS "serialize ()"
+
+.PP
+Definition at line 8040 of file compiled\&.php\&.
+.SS "setCondition ( $condition)"
+Sets the condition\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$condition\fP The condition
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 599 of file Route\&.php\&.
+.SS "setCondition ( $condition)"
+
+.PP
+Definition at line 8220 of file compiled\&.php\&.
+.SS "setDefault ( $name,  $default)"
+Sets a default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP variable name 
+.br
+\fI$default\fP The default value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 485 of file Route\&.php\&.
+.SS "setDefault ( $name,  $default)"
+
+.PP
+Definition at line 8179 of file compiled\&.php\&.
+.SS "setDefaults (array $defaults)"
+Sets the defaults\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defaults\fP The defaults
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file Route\&.php\&.
+.SS "setDefaults (array $defaults)"
+
+.PP
+Definition at line 8158 of file compiled\&.php\&.
+.SS "setHost ( $pattern)"
+Sets the pattern for the host\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP The host pattern
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file Route\&.php\&.
+.SS "setHost ( $pattern)"
+
+.PP
+Definition at line 8083 of file compiled\&.php\&.
+.SS "setMethods ( $methods)"
+Sets the HTTP methods (e\&.g\&. 'POST') this route is restricted to\&. So an empty array means that any method is allowed\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP The method or an array of methods
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 299 of file Route\&.php\&.
+.SS "setMethods ( $methods)"
+
+.PP
+Definition at line 8112 of file compiled\&.php\&.
+.SS "setOption ( $name,  $value)"
+Sets an option value\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP An option name 
+.br
+\fI$value\fP The option value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 374 of file Route\&.php\&.
+.SS "setOption ( $name,  $value)"
+
+.PP
+Definition at line 8140 of file compiled\&.php\&.
+.SS "setOptions (array $options)"
+Sets the options\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP The options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 334 of file Route\&.php\&.
+.SS "setOptions (array $options)"
+
+.PP
+Definition at line 8127 of file compiled\&.php\&.
+.SS "setPath ( $pattern)"
+Sets the pattern for the path\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP The path pattern
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 192 of file Route\&.php\&.
+.SS "setPath ( $pattern)"
+
+.PP
+Definition at line 8073 of file compiled\&.php\&.
+.SS "setPattern ( $pattern)"
+Sets the pattern for the path\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP The path pattern
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated in 2\&.2, to be removed in 3\&.0\&. Use setPath instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file Route\&.php\&.
+.SS "setPattern ( $pattern)"
+
+.PP
+Definition at line 8065 of file compiled\&.php\&.
+.SS "setRequirement ( $key,  $regex)"
+Sets a requirement for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key 
+.br
+\fI$regex\fP The regex
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 572 of file Route\&.php\&.
+.SS "setRequirement ( $key,  $regex)"
+
+.PP
+Definition at line 8210 of file compiled\&.php\&.
+.SS "setRequirements (array $requirements)"
+Sets the requirements\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$requirements\fP The requirements
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 512 of file Route\&.php\&.
+.SS "setRequirements (array $requirements)"
+
+.PP
+Definition at line 8189 of file compiled\&.php\&.
+.SS "setSchemes ( $schemes)"
+Sets the schemes (e\&.g\&. 'https') this route is restricted to\&. So an empty array means that any scheme is allowed\&.
+.PP
+This method implements a fluent interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$schemes\fP The scheme or an array of schemes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP The current \fBRoute\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file Route\&.php\&.
+.SS "setSchemes ( $schemes)"
+
+.PP
+Definition at line 8093 of file compiled\&.php\&.
+.SS "unserialize ( $serialized)"
+{} 
+.PP
+Definition at line 126 of file Route\&.php\&.
+.SS "unserialize ( $serialized)"
+
+.PP
+Definition at line 8044 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

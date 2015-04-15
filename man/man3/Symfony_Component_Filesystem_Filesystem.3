@@ -1,0 +1,355 @@
+.TH "Filesystem" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Filesystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcopy\fP ($originFile, $targetFile, $override=false)"
+.br
+.ti -1c
+.RI "\fBmkdir\fP ($dirs, $mode=0777)"
+.br
+.ti -1c
+.RI "\fBexists\fP ($files)"
+.br
+.ti -1c
+.RI "\fBtouch\fP ($files, $time=null, $atime=null)"
+.br
+.ti -1c
+.RI "\fBremove\fP ($files)"
+.br
+.ti -1c
+.RI "\fBchmod\fP ($files, $mode, $umask=0000, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBchown\fP ($files, $user, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBchgrp\fP ($files, $group, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($origin, $target, $overwrite=false)"
+.br
+.ti -1c
+.RI "\fBsymlink\fP ($originDir, $targetDir, $copyOnWindows=false)"
+.br
+.ti -1c
+.RI "\fBmakePathRelative\fP ($endPath, $startPath)"
+.br
+.ti -1c
+.RI "\fBmirror\fP ($originDir, $targetDir,\\Traversable $iterator=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBisAbsolutePath\fP ($file)"
+.br
+.ti -1c
+.RI "\fBdumpFile\fP ($filename, $content, $mode=0666)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides basic utility to manipulate the file system\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file Filesystem\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "chgrp ( $files,  $group,  $recursive = \fCfalse\fP)"
+Change the group of an array of files or directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to change group 
+.br
+\fI$group\fP The group name 
+.br
+\fI$recursive\fP Whether change the group recursively or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When the change fail 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file Filesystem\&.php\&.
+.SS "chmod ( $files,  $mode,  $umask = \fC0000\fP,  $recursive = \fCfalse\fP)"
+Change mode for an array of files or directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to change mode 
+.br
+\fI$mode\fP The new mode (octal) 
+.br
+\fI$umask\fP The mode mask (octal) 
+.br
+\fI$recursive\fP Whether change the mod recursively or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When the change fail 
+.RE
+.PP
+
+.PP
+Definition at line 189 of file Filesystem\&.php\&.
+.SS "chown ( $files,  $user,  $recursive = \fCfalse\fP)"
+Change the owner of an array of files or directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to change owner 
+.br
+\fI$user\fP The new owner user name 
+.br
+\fI$recursive\fP Whether change the owner recursively or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When the change fail 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Filesystem\&.php\&.
+.SS "copy ( $originFile,  $targetFile,  $override = \fCfalse\fP)"
+Copies a file\&.
+.PP
+This method only copies the file if the origin file is newer than the target file\&.
+.PP
+By default, if the target already exists, it is not overridden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originFile\fP The original filename 
+.br
+\fI$targetFile\fP The target filename 
+.br
+\fI$override\fP Whether to override an existing file or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileNotFoundException\fP When originFile doesn't exist 
+.br
+\fIIOException\fP When copy fails 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file Filesystem\&.php\&.
+.SS "dumpFile ( $filename,  $content,  $mode = \fC0666\fP)"
+Atomically dumps content into a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filename\fP The file to be written to\&. 
+.br
+\fI$content\fP The data to write into the file\&. 
+.br
+\fI$mode\fP The file mode (octal)\&. If null, file permissions are not modified Deprecated since version 2\&.3\&.12, to be removed in 3\&.0\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP If the file cannot be written to\&. 
+.RE
+.PP
+
+.PP
+Definition at line 462 of file Filesystem\&.php\&.
+.SS "exists ( $files)"
+Checks the existence of files or directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to check
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the file exists, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file Filesystem\&.php\&.
+.SS "isAbsolutePath ( $file)"
+Returns whether the file path is an absolute path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP \fBA\fP file path
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 437 of file Filesystem\&.php\&.
+.SS "makePathRelative ( $endPath,  $startPath)"
+Given an existing path, convert it to a path relative to a given starting path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$endPath\fP Absolute path of target 
+.br
+\fI$startPath\fP Absolute path where traversal begins
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Path of target relative to starting path 
+.RE
+.PP
+
+.PP
+Definition at line 325 of file Filesystem\&.php\&.
+.SS "mirror ( $originDir,  $targetDir, \\Traversable $iterator = \fCnull\fP,  $options = \fCarray()\fP)"
+Mirrors a directory to another\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originDir\fP The origin directory 
+.br
+\fI$targetDir\fP The target directory 
+.br
+\fI$iterator\fP \fBA\fP Traversable instance 
+.br
+\fI$options\fP An array of boolean options Valid options are:
+.IP "\(bu" 2
+$options['override'] Whether to override an existing file on copy or not (see \fBcopy()\fP)
+.IP "\(bu" 2
+$options['copy_on_windows'] Whether to copy files instead of links on Windows (see \fBsymlink()\fP)
+.IP "\(bu" 2
+$options['delete'] Whether to delete files that are not in the source directory (defaults to false)
+.PP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When file type is unknown 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Filesystem\&.php\&.
+.SS "mkdir ( $dirs,  $mode = \fC0777\fP)"
+Creates a directory recursively\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirs\fP The directory path 
+.br
+\fI$mode\fP The directory mode
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP On any directory creation failure 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file Filesystem\&.php\&.
+.SS "remove ( $files)"
+Removes files or directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to remove
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When removal fails 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file Filesystem\&.php\&.
+.SS "rename ( $origin,  $target,  $overwrite = \fCfalse\fP)"
+Renames a file or a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$origin\fP The origin filename or directory 
+.br
+\fI$target\fP The new filename or directory 
+.br
+\fI$overwrite\fP Whether to overwrite the target if it already exists
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When target file or directory already exists 
+.br
+\fIIOException\fP When origin cannot be renamed 
+.RE
+.PP
+
+.PP
+Definition at line 265 of file Filesystem\&.php\&.
+.SS "symlink ( $originDir,  $targetDir,  $copyOnWindows = \fCfalse\fP)"
+Creates a symbolic link or copy a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$originDir\fP The origin directory path 
+.br
+\fI$targetDir\fP The symbolic link name 
+.br
+\fI$copyOnWindows\fP Whether to copy files if on Windows
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When symlink fails 
+.RE
+.PP
+
+.PP
+Definition at line 286 of file Filesystem\&.php\&.
+.SS "touch ( $files,  $time = \fCnull\fP,  $atime = \fCnull\fP)"
+Sets access and modification time of file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP \fBA\fP filename, an array of files, or a  instance to create 
+.br
+\fI$time\fP The touch time as a Unix timestamp 
+.br
+\fI$atime\fP The access time as a Unix timestamp
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP When touch fails 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Filesystem\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

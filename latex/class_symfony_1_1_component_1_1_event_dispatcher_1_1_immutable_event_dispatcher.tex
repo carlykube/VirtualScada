@@ -1,0 +1,245 @@
+\section{Immutable\+Event\+Dispatcher Class Reference}
+\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher}\index{Immutable\+Event\+Dispatcher@{Immutable\+Event\+Dispatcher}}
+Inheritance diagram for Immutable\+Event\+Dispatcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Event\+Dispatcher\+Interface} \$dispatcher)
+\item 
+{\bf dispatch} (\$event\+Name, {\bf Event} \${\bf event}=null)
+\item 
+{\bf add\+Listener} (\$event\+Name, \$listener, \$priority=0)
+\item 
+{\bf add\+Subscriber} (Event\+Subscriber\+Interface \$subscriber)
+\item 
+{\bf remove\+Listener} (\$event\+Name, \$listener)
+\item 
+{\bf remove\+Subscriber} (Event\+Subscriber\+Interface \$subscriber)
+\item 
+{\bf get\+Listeners} (\$event\+Name=null)
+\item 
+{\bf has\+Listeners} (\$event\+Name=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} read-\/only proxy for an event dispatcher.
+
+\begin{DoxyAuthor}{Author}
+Bernhard Schussek {\tt bschussek@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Immutable\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\+Dispatcher\+Interface}}]{\$dispatcher}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a2c06752df57e3581fd703db55d32e227}
+Creates an unmodifiable proxy for an event dispatcher.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Event\+Dispatcher\+Interface}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface} & {\em \$dispatcher} & The proxied event dispatcher. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Immutable\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!add\+Listener@{add\+Listener}}
+\index{add\+Listener@{add\+Listener}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{add\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}add\+Listener (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{}]{\$listener, }
+\item[{}]{\$priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_adcfdadce839cc0bc897ddf6a998f76f7}
+\{Adds an event listener that listens on the specified events.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The event to listen on \\
+\hline
+callable & {\em \$listener} & The listener \\
+\hline
+int & {\em \$priority} & The higher this value, the earlier an event listener will be triggered in the chain (defaults to 0)\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_adcfdadce839cc0bc897ddf6a998f76f7}.
+
+
+
+Definition at line 49 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!add\+Subscriber@{add\+Subscriber}}
+\index{add\+Subscriber@{add\+Subscriber}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{add\+Subscriber}]{\setlength{\rightskip}{0pt plus 5cm}add\+Subscriber (
+\begin{DoxyParamCaption}
+\item[{Event\+Subscriber\+Interface}]{\$subscriber}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a2f54737e2e4b383a901cae736143bd2d}
+\{Adds an event subscriber.
+
+The subscriber is asked for all the events he is interested in and added as a listener for these events.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Event\+Subscriber\+Interface & {\em \$subscriber} & The subscriber.\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a2f54737e2e4b383a901cae736143bd2d}.
+
+
+
+Definition at line 57 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}dispatch (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{{\bf Event}}]{\$event = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a75b394fea0a8d9c842c91a34a4db99a5}
+\{Dispatches an event to all registered listeners.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The name of the event to dispatch. The name of the event is the name of the method that is invoked on listeners. \\
+\hline
+\doxyref{Event}{p.}{class_event} & {\em \$event} & The event to pass to the event handlers/listeners. If not supplied, an empty \doxyref{Event}{p.}{class_event} instance is created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Event}{p.}{class_event}
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a75b394fea0a8d9c842c91a34a4db99a5}.
+
+
+
+Definition at line 41 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!get\+Listeners@{get\+Listeners}}
+\index{get\+Listeners@{get\+Listeners}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{get\+Listeners}]{\setlength{\rightskip}{0pt plus 5cm}get\+Listeners (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a60846fb0ce44f706f2394a670fcdce9a}
+\{Gets the listeners of a specific event or all listeners.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The name of the event\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The event listeners for the specified event, or all event listeners by event name
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a60846fb0ce44f706f2394a670fcdce9a}.
+
+
+
+Definition at line 81 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!has\+Listeners@{has\+Listeners}}
+\index{has\+Listeners@{has\+Listeners}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{has\+Listeners}]{\setlength{\rightskip}{0pt plus 5cm}has\+Listeners (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_ab616bc1ac4c11b03413416c7a26785e5}
+\{Checks whether an event has any registered listeners.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The name of the event\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the specified event has any listeners, false otherwise
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_ab616bc1ac4c11b03413416c7a26785e5}.
+
+
+
+Definition at line 89 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!remove\+Listener@{remove\+Listener}}
+\index{remove\+Listener@{remove\+Listener}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{remove\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Listener (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{}]{\$listener}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a285fd905f94dafed0c6007527b9d66fc}
+\{Removes an event listener from the specified events.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The event to remove a listener from \\
+\hline
+callable & {\em \$listener} & The listener to remove\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a285fd905f94dafed0c6007527b9d66fc}.
+
+
+
+Definition at line 65 of file Immutable\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}!remove\+Subscriber@{remove\+Subscriber}}
+\index{remove\+Subscriber@{remove\+Subscriber}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Immutable\+Event\+Dispatcher}}
+\subsubsection[{remove\+Subscriber}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Subscriber (
+\begin{DoxyParamCaption}
+\item[{Event\+Subscriber\+Interface}]{\$subscriber}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_immutable_event_dispatcher_a34aa2b525612f9c0d3b6b7e9c72c6393}
+\{Removes an event subscriber.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Event\+Subscriber\+Interface & {\em \$subscriber} & The subscriber\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Event\+Dispatcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a34aa2b525612f9c0d3b6b7e9c72c6393}.
+
+
+
+Definition at line 73 of file Immutable\+Event\+Dispatcher.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/event-\/dispatcher/\+Symfony/\+Component/\+Event\+Dispatcher/{\bf Immutable\+Event\+Dispatcher.\+php}\end{DoxyCompactItemize}

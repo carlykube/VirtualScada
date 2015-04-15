@@ -1,0 +1,938 @@
+.TH "MySqlGrammar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MySqlGrammar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGrammar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileTableExists\fP ()"
+.br
+.ti -1c
+.RI "\fBcompileColumnExists\fP ()"
+.br
+.ti -1c
+.RI "\fBcompileCreate\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBcompileAdd\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompilePrimary\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileUnique\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileIndex\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDrop\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropIfExists\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropColumn\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropPrimary\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropUnique\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropIndex\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropForeign\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileRename\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileCreateEncoding\fP ($sql, \fBConnection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBcompileKey\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, $type)"
+.br
+.ti -1c
+.RI "\fBtypeChar\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeString\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeMediumText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeLongText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBigInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeMediumInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTinyInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeSmallInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeFloat\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDouble\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDecimal\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBoolean\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeEnum\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeJson\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDate\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDateTime\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTime\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTimestamp\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBinary\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyUnsigned\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyNullable\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyDefault\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyIncrement\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyAfter\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyComment\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBwrapValue\fP ($value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$modifiers\fP = array('Unsigned', 'Nullable', 'Default', 'Increment', 'Comment', 'After')"
+.br
+.ti -1c
+.RI "\fB$serials\fP = array('bigInteger', 'integer', 'mediumInteger', 'smallInteger', 'tinyInteger')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file MySqlGrammar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "compileAdd (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile an add column command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file MySqlGrammar\&.php\&.
+.SS "compileColumnExists ()"
+Compile the query to determine the list of columns\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file MySqlGrammar\&.php\&.
+.SS "compileCreate (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+Compile a create table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file MySqlGrammar\&.php\&.
+.SS "compileCreateEncoding ( $sql, \fBConnection\fP $connection)\fC [protected]\fP"
+Append the character set specifications to a command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file MySqlGrammar\&.php\&.
+.SS "compileDrop (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file MySqlGrammar\&.php\&.
+.SS "compileDropColumn (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop column command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file MySqlGrammar\&.php\&.
+.SS "compileDropForeign (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop foreign key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file MySqlGrammar\&.php\&.
+.SS "compileDropIfExists (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop table (if exists) command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file MySqlGrammar\&.php\&.
+.SS "compileDropIndex (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop index command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file MySqlGrammar\&.php\&.
+.SS "compileDropPrimary (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop primary key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file MySqlGrammar\&.php\&.
+.SS "compileDropUnique (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop unique key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file MySqlGrammar\&.php\&.
+.SS "compileIndex (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a plain index key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file MySqlGrammar\&.php\&.
+.SS "compileKey (\fBBlueprint\fP $blueprint, \fBFluent\fP $command,  $type)\fC [protected]\fP"
+Compile an index creation command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file MySqlGrammar\&.php\&.
+.SS "compilePrimary (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a primary key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file MySqlGrammar\&.php\&.
+.SS "compileRename (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a rename table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file MySqlGrammar\&.php\&.
+.SS "compileTableExists ()"
+Compile the query to determine the list of tables\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file MySqlGrammar\&.php\&.
+.SS "compileUnique (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a unique key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file MySqlGrammar\&.php\&.
+.SS "modifyAfter (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for an 'after' column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 570 of file MySqlGrammar\&.php\&.
+.SS "modifyComment (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for an 'comment' column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 585 of file MySqlGrammar\&.php\&.
+.SS "modifyDefault (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for a default column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 540 of file MySqlGrammar\&.php\&.
+.SS "modifyIncrement (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for an auto-increment column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 555 of file MySqlGrammar\&.php\&.
+.SS "modifyNullable (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for a nullable column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 528 of file MySqlGrammar\&.php\&.
+.SS "modifyUnsigned (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for an unsigned column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 516 of file MySqlGrammar\&.php\&.
+.SS "typeBigInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a big integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 332 of file MySqlGrammar\&.php\&.
+.SS "typeBinary (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a binary type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 504 of file MySqlGrammar\&.php\&.
+.SS "typeBoolean (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a boolean type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file MySqlGrammar\&.php\&.
+.SS "typeChar (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a char type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 277 of file MySqlGrammar\&.php\&.
+.SS "typeDate (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a date type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 458 of file MySqlGrammar\&.php\&.
+.SS "typeDateTime (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a date-time type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file MySqlGrammar\&.php\&.
+.SS "typeDecimal (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a decimal type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file MySqlGrammar\&.php\&.
+.SS "typeDouble (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a double type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 398 of file MySqlGrammar\&.php\&.
+.SS "typeEnum (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for an enum type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file MySqlGrammar\&.php\&.
+.SS "typeFloat (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a float type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 387 of file MySqlGrammar\&.php\&.
+.SS "typeInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file MySqlGrammar\&.php\&.
+.SS "typeJson (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a json type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file MySqlGrammar\&.php\&.
+.SS "typeLongText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a long text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file MySqlGrammar\&.php\&.
+.SS "typeMediumInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a medium integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 354 of file MySqlGrammar\&.php\&.
+.SS "typeMediumText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a medium text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file MySqlGrammar\&.php\&.
+.SS "typeSmallInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a small integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 376 of file MySqlGrammar\&.php\&.
+.SS "typeString (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a string type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 288 of file MySqlGrammar\&.php\&.
+.SS "typeText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 299 of file MySqlGrammar\&.php\&.
+.SS "typeTime (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a time type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 480 of file MySqlGrammar\&.php\&.
+.SS "typeTimestamp (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a timestamp type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 491 of file MySqlGrammar\&.php\&.
+.SS "typeTinyInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a tiny integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file MySqlGrammar\&.php\&.
+.SS "wrapValue ( $value)\fC [protected]\fP"
+Wrap a single string in keyword identifiers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 599 of file MySqlGrammar\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$modifiers = array('Unsigned', 'Nullable', 'Default', 'Increment', 'Comment', 'After')\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file MySqlGrammar\&.php\&.
+.SS "$serials = array('bigInteger', 'integer', 'mediumInteger', 'smallInteger', 'tinyInteger')\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file MySqlGrammar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

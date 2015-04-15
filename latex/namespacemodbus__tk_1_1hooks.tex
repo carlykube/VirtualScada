@@ -1,0 +1,119 @@
+\section{modbus\+\_\+tk.\+hooks Namespace Reference}
+\label{namespacemodbus__tk_1_1hooks}\index{modbus\+\_\+tk.\+hooks@{modbus\+\_\+tk.\+hooks}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf install\+\_\+hook} ({\bf name}, fct)
+\item 
+def {\bf uninstall\+\_\+hook}
+\item 
+def {\bf call\+\_\+hooks} ({\bf name}, args)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple {\bf \+\_\+lock} = threading.\+R\+Lock()
+\item 
+dictionary {\bf \+\_\+hooks} = \{\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}!call\+\_\+hooks@{call\+\_\+hooks}}
+\index{call\+\_\+hooks@{call\+\_\+hooks}!modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}}
+\subsubsection[{call\+\_\+hooks}]{\setlength{\rightskip}{0pt plus 5cm}def modbus\+\_\+tk.\+hooks.\+call\+\_\+hooks (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{namespacemodbus__tk_1_1hooks_a9a76b0fbc9e274adf9b8262eef48befa}
+\begin{DoxyVerb}call the function associated with the hook and pass the given args\end{DoxyVerb}
+ 
+
+Definition at line 77 of file hooks.\+py.
+
+\index{modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}!install\+\_\+hook@{install\+\_\+hook}}
+\index{install\+\_\+hook@{install\+\_\+hook}!modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}}
+\subsubsection[{install\+\_\+hook}]{\setlength{\rightskip}{0pt plus 5cm}def modbus\+\_\+tk.\+hooks.\+install\+\_\+hook (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{fct}
+\end{DoxyParamCaption}
+)}\label{namespacemodbus__tk_1_1hooks_abbd9369e7563e8eac1a1d68392fc3c52}
+\begin{DoxyVerb}Install one of the following hook
+
+modbus_rtu.RtuMaster.before_open((master,))
+modbus_rtu.RtuMaster.after_close((master,) 
+modbus_rtu.RtuMaster.before_send((master, request)) returns modified request or None 
+modbus_rtu.RtuMaster.after_recv((master, response)) returns modified response or None
+
+modbus_rtu.RtuServer.before_close((server, ))  
+modbus_rtu.RtuServer.after_close((server, ))  
+modbus_rtu.RtuServer.before_open((server, ))  
+modbus_rtu.RtuServer.after_open(((server, ))      
+modbus_rtu.RtuServer.after_read((server, request)) returns modified request or None
+modbus_rtu.RtuServer.before_write((server, response))  returns modified response or None 
+modbus_rtu.RtuServer.on_error((server, excpt))
+
+modbus_tcp.TcpMaster.before_connect((master, ))  
+modbus_tcp.TcpMaster.after_connect((master, ))      
+modbus_tcp.TcpMaster.before_close((master, ))  
+modbus_tcp.TcpMaster.after_close((master, ))  
+modbus_tcp.TcpMaster.before_send((master, request))  
+modbus_tcp.TcpMaster.after_recv((master, response))  
+
+modbus_tcp.TcpServer.on_connect((server, client, address))  
+modbus_tcp.TcpServer.on_disconnect((server, sock))  
+modbus_tcp.TcpServer.after_recv((server, sock, request)) returns modified request or None  
+modbus_tcp.TcpServer.before_send((server, sock, response)) returns modified response or None
+modbus_tcp.TcpServer.on_error((server, sock, excpt))  
+
+modbus.Master.before_send((master, request)) returns modified request or None
+modbus.Master.after_send((master))  
+modbus.Master.after_recv((master, response)) returns modified response or None  
+
+modbus.Slave.handle_request((slave, request_pdu)) returns modified response or None
+modbus.Slave.on_handle_broadcast((slave, response_pdu)) returns modified response or None  
+modbus.Slave.on_exception((slave, function_code, excpt))  
+
+modbus.Databank.on_error((db, excpt, request_pdu))
+
+modbus.ModbusBlock.setitem((self, slice, value))  
+
+modbus.Server.before_handle_request((server, request)) returns modified request or None
+modbus.Server.after_handle_request((server, response)) returns modified response or None
+\end{DoxyVerb}
+ 
+
+Definition at line 18 of file hooks.\+py.
+
+\index{modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}!uninstall\+\_\+hook@{uninstall\+\_\+hook}}
+\index{uninstall\+\_\+hook@{uninstall\+\_\+hook}!modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}}
+\subsubsection[{uninstall\+\_\+hook}]{\setlength{\rightskip}{0pt plus 5cm}def modbus\+\_\+tk.\+hooks.\+uninstall\+\_\+hook (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{fct = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacemodbus__tk_1_1hooks_a54a0c3935c55d903bd3b07f7071adefd}
+\begin{DoxyVerb}remove the function from the hooks\end{DoxyVerb}
+ 
+
+Definition at line 69 of file hooks.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}!\+\_\+hooks@{\+\_\+hooks}}
+\index{\+\_\+hooks@{\+\_\+hooks}!modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}}
+\subsubsection[{\+\_\+hooks}]{\setlength{\rightskip}{0pt plus 5cm}dictionary \+\_\+hooks = \{\}}\label{namespacemodbus__tk_1_1hooks_a56d49bd342f484a6bf4ef59b48a1cbaf}
+
+
+Definition at line 16 of file hooks.\+py.
+
+\index{modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}!\+\_\+lock@{\+\_\+lock}}
+\index{\+\_\+lock@{\+\_\+lock}!modbus\+\_\+tk\+::hooks@{modbus\+\_\+tk\+::hooks}}
+\subsubsection[{\+\_\+lock}]{\setlength{\rightskip}{0pt plus 5cm}tuple \+\_\+lock = threading.\+R\+Lock()}\label{namespacemodbus__tk_1_1hooks_a97e6c01042cfc0523ae2c852d62f20ae}
+
+
+Definition at line 15 of file hooks.\+py.
+

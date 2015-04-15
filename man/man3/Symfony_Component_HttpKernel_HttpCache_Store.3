@@ -1,0 +1,277 @@
+.TH "Store" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Store \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBStoreInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($root)"
+.br
+.ti -1c
+.RI "\fBcleanup\fP ()"
+.br
+.ti -1c
+.RI "\fBlock\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBunlock\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBisLocked\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBlookup\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBinvalidate\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ($url)"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ($key)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateContentDigest\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBgenerateCacheKey\fP (\fBRequest\fP $request)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$root\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBStore\fP implements all the logic for storing cache metadata (\fBRequest\fP and \fBResponse\fP headers)\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Store\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $root)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP The path to the cache directory 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file Store\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "cleanup ()"
+Cleanups storage\&. 
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 49 of file Store\&.php\&.
+.SS "generateCacheKey (\fBRequest\fP $request)\fC [protected]\fP"
+Generates a cache key for the given \fBRequest\fP\&.
+.PP
+This method should return a key that must only depend on a normalized version of the request URI\&.
+.PP
+If the same URI can have more than one representation, based on some headers, use a Vary header to indicate them, and each representation will be stored independently under the same cache key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP key for the given \fBRequest\fP 
+.RE
+.PP
+
+.PP
+Definition at line 382 of file Store\&.php\&.
+.SS "generateContentDigest (\fBResponse\fP $response)\fC [protected]\fP"
+Returns content digest for $response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file Store\&.php\&.
+.SS "getPath ( $key)"
+
+.PP
+Definition at line 363 of file Store\&.php\&.
+.SS "invalidate (\fBRequest\fP $request)"
+Invalidates all cache entries that match the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 228 of file Store\&.php\&.
+.SS "isLocked (\fBRequest\fP $request)"
+Returns whether or not a lock exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if lock exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 107 of file Store\&.php\&.
+.SS "lock (\fBRequest\fP $request)"
+Locks the cache for a given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|string true if the lock is acquired, the path to the current lock otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 74 of file Store\&.php\&.
+.SS "lookup (\fBRequest\fP $request)"
+Locates a cached \fBResponse\fP for the \fBRequest\fP provided\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Response|null \fBA\fP \fBResponse\fP instance, or null if no cache entry was found 
+.RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 119 of file Store\&.php\&.
+.SS "purge ( $url)"
+Purges data for the given \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP \fBA\fP \fBURL\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBURL\fP exists and has been purged, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 305 of file Store\&.php\&.
+.SS "unlock (\fBRequest\fP $request)"
+Releases the lock for the given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool False if the lock file does not exist or cannot be unlocked, true otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 100 of file Store\&.php\&.
+.SS "write (\fBRequest\fP $request, \fBResponse\fP $response)"
+Writes a cache entry to the store for the given \fBRequest\fP and \fBResponse\fP\&.
+.PP
+Existing entries are read and any that match the response are removed\&. This method calls write with the new list of cache entries\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The key under which the response is stored
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBStoreInterface\fP\&.
+.PP
+Definition at line 164 of file Store\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$root\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Store\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

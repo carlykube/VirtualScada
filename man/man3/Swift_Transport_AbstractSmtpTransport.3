@@ -1,0 +1,365 @@
+.TH "Swift_Transport_AbstractSmtpTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_AbstractSmtpTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport\fP\&.
+.PP
+Inherited by \fBSwift_Transport_EsmtpTransport\fP, and \fBSwift_Transport_SendmailTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Transport_IoBuffer\fP $buf, \fBSwift_Events_EventDispatcher\fP $dispatcher)"
+.br
+.ti -1c
+.RI "\fBsetLocalDomain\fP ($domain)"
+.br
+.ti -1c
+.RI "\fBgetLocalDomain\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSourceIp\fP ($source)"
+.br
+.ti -1c
+.RI "\fBgetSourceIp\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBuffer\fP ()"
+.br
+.ti -1c
+.RI "\fBexecuteCommand\fP ($command, $codes=array(), &$failures=null)"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_getBufferParams\fP ()"
+.br
+.ti -1c
+.RI "\fB_readGreeting\fP ()"
+.br
+.ti -1c
+.RI "\fB_doHeloCommand\fP ()"
+.br
+.ti -1c
+.RI "\fB_doMailFromCommand\fP ($address)"
+.br
+.ti -1c
+.RI "\fB_doRcptToCommand\fP ($address)"
+.br
+.ti -1c
+.RI "\fB_doDataCommand\fP ()"
+.br
+.ti -1c
+.RI "\fB_streamMessage\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fB_getReversePath\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fB_throwException\fP (\fBSwift_TransportException\fP $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fB_assertResponseCode\fP ($response, $wanted)"
+.br
+.ti -1c
+.RI "\fB_getFullResponse\fP ($seq)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_buffer\fP"
+.br
+.ti -1c
+.RI "\fB$_started\fP = false"
+.br
+.ti -1c
+.RI "\fB$_domain\fP = '[127\&.0\&.0\&.1]'"
+.br
+.ti -1c
+.RI "\fB$_eventDispatcher\fP"
+.br
+.ti -1c
+.RI "\fB$_sourceIp\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sends Messages over SMTP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file AbstractSmtpTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Transport_IoBuffer\fP $buf, \fBSwift_Events_EventDispatcher\fP $dispatcher)"
+Creates a new EsmtpTransport using the given I/O buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$buf\fP 
+.br
+\fI$dispatcher\fP 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file AbstractSmtpTransport\&.php\&.
+.SS "__destruct ()"
+Destructor\&. 
+.PP
+Definition at line 486 of file AbstractSmtpTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_assertResponseCode ( $response,  $wanted)\fC [protected]\fP"
+Throws an Exception if a response code is incorrect 
+.PP
+Definition at line 371 of file AbstractSmtpTransport\&.php\&.
+.SS "_doDataCommand ()\fC [protected]\fP"
+Send the DATA command 
+.PP
+Definition at line 317 of file AbstractSmtpTransport\&.php\&.
+.SS "_doHeloCommand ()\fC [protected]\fP"
+Send the HELO welcome 
+.PP
+Definition at line 293 of file AbstractSmtpTransport\&.php\&.
+.SS "_doMailFromCommand ( $address)\fC [protected]\fP"
+Send the MAIL FROM command 
+.PP
+Definition at line 301 of file AbstractSmtpTransport\&.php\&.
+.SS "_doRcptToCommand ( $address)\fC [protected]\fP"
+Send the RCPT TO command 
+.PP
+Definition at line 309 of file AbstractSmtpTransport\&.php\&.
+.SS "_getBufferParams ()\fC [abstract]\fP, \fC [protected]\fP"
+Return an array of params for the Buffer 
+.SS "_getFullResponse ( $seq)\fC [protected]\fP"
+Get an entire multi-line response using its sequence number 
+.PP
+Definition at line 392 of file AbstractSmtpTransport\&.php\&.
+.SS "_getReversePath (\fBSwift_Mime_Message\fP $message)\fC [protected]\fP"
+Determine the best-use reverse path for this message 
+.PP
+Definition at line 337 of file AbstractSmtpTransport\&.php\&.
+.SS "_readGreeting ()\fC [protected]\fP"
+Read the opening SMTP greeting 
+.PP
+Definition at line 287 of file AbstractSmtpTransport\&.php\&.
+.SS "_streamMessage (\fBSwift_Mime_Message\fP $message)\fC [protected]\fP"
+Stream the contents of the message over the buffer 
+.PP
+Definition at line 323 of file AbstractSmtpTransport\&.php\&.
+.SS "_throwException (\fBSwift_TransportException\fP $e)\fC [protected]\fP"
+Throw a TransportException, first sending it to any listeners 
+.PP
+Definition at line 358 of file AbstractSmtpTransport\&.php\&.
+.SS "executeCommand ( $command,  $codes = \fCarray()\fP, & $failures = \fCnull\fP)"
+Run a command against the buffer, expecting the given response codes\&.
+.PP
+If no response codes are given, the response will not be validated\&. If codes are given, an exception will be thrown on an invalid response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fIint[]\fP $codes 
+.br
+\fIstring[]\fP $failures An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file AbstractSmtpTransport\&.php\&.
+.SS "getBuffer ()"
+Get the IoBuffer where read/writes are occurring\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_IoBuffer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file AbstractSmtpTransport\&.php\&.
+.SS "getLocalDomain ()"
+Get the name of the domain \fBSwift\fP will identify as\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file AbstractSmtpTransport\&.php\&.
+.SS "getSourceIp ()"
+Returns the IP used to connect to the destination
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file AbstractSmtpTransport\&.php\&.
+.SS "isStarted ()"
+Test if an SMTP connection has been established\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 133 of file AbstractSmtpTransport\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+Register a plugin\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 238 of file AbstractSmtpTransport\&.php\&.
+.SS "reset ()"
+Reset the current mail transaction\&. 
+.PP
+Definition at line 246 of file AbstractSmtpTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 149 of file AbstractSmtpTransport\&.php\&.
+.SS "setLocalDomain ( $domain)"
+Set the name of the local domain which \fBSwift\fP will identify itself as\&.
+.PP
+This should be a fully-qualified domain name and should be truly the domain you're using\&.
+.PP
+If your server doesn't have a domain name, use the IP in square brackets (i\&.e\&. [127\&.0\&.0\&.1])\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_AbstractSmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file AbstractSmtpTransport\&.php\&.
+.SS "setSourceIp ( $source)"
+Sets the source IP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file AbstractSmtpTransport\&.php\&.
+.SS "start ()"
+Start the SMTP connection\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 102 of file AbstractSmtpTransport\&.php\&.
+.SS "stop ()"
+Stop the SMTP connection\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 205 of file AbstractSmtpTransport\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_buffer\fC [protected]\fP"
+Input-Output buffer for sending/receiving SMTP commands and responses 
+.PP
+Definition at line 19 of file AbstractSmtpTransport\&.php\&.
+.SS "$_domain = '[127\&.0\&.0\&.1]'\fC [protected]\fP"
+The domain name to use in HELO command 
+.PP
+Definition at line 25 of file AbstractSmtpTransport\&.php\&.
+.SS "$_eventDispatcher\fC [protected]\fP"
+The event dispatching layer 
+.PP
+Definition at line 28 of file AbstractSmtpTransport\&.php\&.
+.SS "$_sourceIp\fC [protected]\fP"
+Source Ip 
+.PP
+Definition at line 31 of file AbstractSmtpTransport\&.php\&.
+.SS "$_started = false\fC [protected]\fP"
+Connection status 
+.PP
+Definition at line 22 of file AbstractSmtpTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

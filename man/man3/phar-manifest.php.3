@@ -1,0 +1,64 @@
+.TH "vendor/phpunit/phpunit/build/phar-manifest.php" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vendor/phpunit/phpunit/build/phar-manifest.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBprint\fP"
+.br
+.ti -1c
+.RI "\fB$tag\fP = @exec('git describe --tags 2>&1')"
+.br
+.ti -1c
+.RI "\fBif\fP(strpos($tag, '-')===false &&strpos($tag, '\fBNo\fP names found')===false) \fBelse\fP"
+.br
+.ti -1c
+.RI "\fB$hash\fP = @exec('git \fBlog\fP -1 --\fBformat\fP='%H'')"
+.br
+.ti -1c
+.RI "\fBprint\fP \fBn\fP"
+.br
+.ti -1c
+.RI "\fB$lock\fP = json_decode(file_get_contents(__DIR__ \&. '/\&.\&./composer\&.lock'))"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBprint\fP $branch $hash = @exec('git \fBlog\fP -1 --\fBformat\fP='%H'')"
+
+.PP
+Definition at line 11 of file phar-manifest\&.php\&.
+.SS "$lock = json_decode(file_get_contents(__DIR__ \&. '/\&.\&./composer\&.lock'))"
+
+.PP
+Definition at line 17 of file phar-manifest\&.php\&.
+.SS "$tag = @exec('git describe --tags 2>&1')"
+
+.PP
+Definition at line 5 of file phar-manifest\&.php\&.
+.SS "\fBif\fP (strpos($tag, '-')===false &&strpos($tag, '\fBNo\fP names found')===false) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    $branch = @exec('git rev-parse --abbrev-ref HEAD')
+.fi
+.PP
+Definition at line 9 of file phar-manifest\&.php\&.
+.SS "\fBprint\fP n"
+
+.PP
+Definition at line 15 of file phar-manifest\&.php\&.
+.SS "print"
+
+.PP
+Definition at line 3 of file phar-manifest\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

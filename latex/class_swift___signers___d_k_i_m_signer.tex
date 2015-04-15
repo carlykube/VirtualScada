@@ -1,0 +1,771 @@
+\section{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer Class Reference}
+\label{class_swift___signers___d_k_i_m_signer}\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+Inheritance diagram for Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_swift___signers___d_k_i_m_signer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$private\+Key, \$domain\+Name, \$selector)
+\item 
+{\bf reset} ()
+\item 
+{\bf write} (\$bytes)
+\item 
+{\bf commit} ()
+\item 
+{\bf bind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf unbind} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf flush\+Buffers} ()
+\item 
+{\bf set\+Hash\+Algorithm} (\$hash)
+\item 
+{\bf set\+Body\+Canon} (\$canon)
+\item 
+{\bf set\+Header\+Canon} (\$canon)
+\item 
+{\bf set\+Signer\+Identity} (\${\bf identity})
+\item 
+{\bf set\+Body\+Signed\+Len} (\$len)
+\item 
+{\bf set\+Signature\+Timestamp} (\$time)
+\item 
+{\bf set\+Signature\+Expiration} (\$time)
+\item 
+{\bf set\+Debug\+Headers} (\$debug)
+\item 
+{\bf start\+Body} ()
+\item 
+{\bf end\+Body} ()
+\item 
+{\bf get\+Altered\+Headers} ()
+\item 
+{\bf ignore\+Header} (\$header\+\_\+name)
+\item 
+{\bf set\+Headers} ({\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set} \$headers)
+\item 
+{\bf add\+Signature} ({\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set} \$headers)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf new\+Instance} (\$private\+Key, \$domain\+Name, \$selector)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+add\+Header} (\$header, \$is\+\_\+sig=false)
+\item 
+{\bf \+\_\+end\+Of\+Headers} ()
+\item 
+{\bf \+\_\+canonicalize\+Body} (\$string)
+\item 
+{\bf \+\_\+end\+Of\+Body} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$\+\_\+private\+Key}
+\item 
+{\bf \$\+\_\+domain\+Name}
+\item 
+{\bf \$\+\_\+selector}
+\item 
+{\bf \$\+\_\+hash\+Algorithm} = \textquotesingle{}rsa-\/sha1\textquotesingle{}
+\item 
+{\bf \$\+\_\+body\+Canon} = \textquotesingle{}simple\textquotesingle{}
+\item 
+{\bf \$\+\_\+header\+Canon} = \textquotesingle{}simple\textquotesingle{}
+\item 
+{\bf \$\+\_\+ignored\+Headers} = array()
+\item 
+{\bf \$\+\_\+signer\+Identity}
+\item 
+{\bf \$\+\_\+body\+Len} = 0
+\item 
+{\bf \$\+\_\+max\+Len} = P\+H\+P\+\_\+\+I\+N\+T\+\_\+\+M\+A\+X
+\item 
+{\bf \$\+\_\+show\+Len} = false
+\item 
+{\bf \$\+\_\+signature\+Timestamp} = true
+\item 
+{\bf \$\+\_\+signature\+Expiration} = false
+\item 
+{\bf \$\+\_\+debug\+Headers} = false
+\item 
+{\bf \$\+\_\+signed\+Headers} = array()
+\item 
+{\bf \$\+\_\+dkim\+Header}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+D\+K\+I\+M Signer used to apply D\+K\+I\+M Signature to a message
+
+\begin{DoxyAuthor}{Author}
+Xavier De Cock {\tt xdecock@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file D\+K\+I\+M\+Signer.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$private\+Key, }
+\item[{}]{\$domain\+Name, }
+\item[{}]{\$selector}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a2919d7bf36823441538a32536d52ac24}
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$private\+Key} & \\
+\hline
+string & {\em \$domain\+Name} & \\
+\hline
+string & {\em \$selector} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file D\+K\+I\+M\+Signer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\+\_\+add\+Header@{\+\_\+add\+Header}}
+\index{\+\_\+add\+Header@{\+\_\+add\+Header}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\+\_\+add\+Header}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+add\+Header (
+\begin{DoxyParamCaption}
+\item[{}]{\$header, }
+\item[{}]{\$is\+\_\+sig = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_ac1be173179c6d1f5d126bc7e9c1ecc24}
+
+
+Definition at line 562 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\+\_\+canonicalize\+Body@{\+\_\+canonicalize\+Body}}
+\index{\+\_\+canonicalize\+Body@{\+\_\+canonicalize\+Body}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\+\_\+canonicalize\+Body}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+canonicalize\+Body (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a325c144da87ed1fd36da4c97fb0860b1}
+
+
+Definition at line 583 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\+\_\+end\+Of\+Body@{\+\_\+end\+Of\+Body}}
+\index{\+\_\+end\+Of\+Body@{\+\_\+end\+Of\+Body}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\+\_\+end\+Of\+Body}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+end\+Of\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a9d38ddd5fc3796a5a28fd91cce442db1}
+
+
+Definition at line 636 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\+\_\+end\+Of\+Headers@{\+\_\+end\+Of\+Headers}}
+\index{\+\_\+end\+Of\+Headers@{\+\_\+end\+Of\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\+\_\+end\+Of\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+end\+Of\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a46f0672e6e5f1de81a19f9a97813efd2}
+
+
+Definition at line 578 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!add\+Signature@{add\+Signature}}
+\index{add\+Signature@{add\+Signature}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{add\+Signature}]{\setlength{\rightskip}{0pt plus 5cm}add\+Signature (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set}}]{\$headers}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a91ad004f5cb64fb15ef4a85d4af3483c}
+Add the signature to the given Headers
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Header\+Set}{p.}{interface_swift___mime___header_set} & {\em \$headers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_a91ad004f5cb64fb15ef4a85d4af3483c}.
+
+
+
+Definition at line 513 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!bind@{bind}}
+\index{bind@{bind}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a02ffafc53dcce641baaff3b9c84643a1}
+Attach \$is to this stream. The stream acts as an observer, receiving all data that is written. All \doxyref{write()}{p.}{class_swift___signers___d_k_i_m_signer_aa4ea8baf64d864129d4276f76df3b4a0} and \doxyref{flush\+Buffers()}{p.}{class_swift___signers___d_k_i_m_signer_a77ecc2d8c17e5057cc82509a2dca076e} operations will be mirrored.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_a02ffafc53dcce641baaff3b9c84643a1}.
+
+
+
+Definition at line 257 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!commit@{commit}}
+\index{commit@{commit}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_af5674c27d4a92f6228565010eacbb9cb}
+For any bytes that are currently buffered inside the stream, force them off the buffer.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_af5674c27d4a92f6228565010eacbb9cb}.
+
+
+
+Definition at line 244 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!end\+Body@{end\+Body}}
+\index{end\+Body@{end\+Body}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{end\+Body}]{\setlength{\rightskip}{0pt plus 5cm}end\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_ab28e92c98309aca50aec0cba41592f65}
+End Body 
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_ab28e92c98309aca50aec0cba41592f65}.
+
+
+
+Definition at line 446 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!flush\+Buffers@{flush\+Buffers}}
+\index{flush\+Buffers@{flush\+Buffers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{flush\+Buffers}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Buffers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a77ecc2d8c17e5057cc82509a2dca076e}
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_a77ecc2d8c17e5057cc82509a2dca076e}.
+
+
+
+Definition at line 293 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!get\+Altered\+Headers@{get\+Altered\+Headers}}
+\index{get\+Altered\+Headers@{get\+Altered\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{get\+Altered\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Altered\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a71caed0ba27d07123f847a157cb9139f}
+Returns the list of Headers Tampered by this plugin
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_a71caed0ba27d07123f847a157cb9139f}.
+
+
+
+Definition at line 456 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!ignore\+Header@{ignore\+Header}}
+\index{ignore\+Header@{ignore\+Header}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{ignore\+Header}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+Header (
+\begin{DoxyParamCaption}
+\item[{}]{\$header\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_af3f07957f2fc1c9ec7410f3912ab004e}
+Adds an ignored Header
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$header\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_af3f07957f2fc1c9ec7410f3912ab004e}.
+
+
+
+Definition at line 471 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!new\+Instance@{new\+Instance}}
+\index{new\+Instance@{new\+Instance}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{new\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static new\+Instance (
+\begin{DoxyParamCaption}
+\item[{}]{\$private\+Key, }
+\item[{}]{\$domain\+Name, }
+\item[{}]{\$selector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_swift___signers___d_k_i_m_signer_ac76dda0ac97bb96bc0bdb9ccf06e3376}
+Instanciate D\+K\+I\+M\+Signer
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$private\+Key} & \\
+\hline
+string & {\em \$domain\+Name} & \\
+\hline
+string & {\em \$selector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!reset@{reset}}
+\index{reset@{reset}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a4a20559544fdf4dcb457e258dc976cf8}
+Reset the Signer \begin{DoxySeeAlso}{See also}
+\doxyref{Swift\+\_\+\+Signer\+::reset()}{p.}{interface_swift___signer_a4a20559544fdf4dcb457e258dc976cf8} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Swift\+\_\+\+Signer} \doxyref{}{p.}{interface_swift___signer_a4a20559544fdf4dcb457e258dc976cf8}.
+
+
+
+Definition at line 203 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Body\+Canon@{set\+Body\+Canon}}
+\index{set\+Body\+Canon@{set\+Body\+Canon}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Body\+Canon}]{\setlength{\rightskip}{0pt plus 5cm}set\+Body\+Canon (
+\begin{DoxyParamCaption}
+\item[{}]{\$canon}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a5952ddb9c2d7ba7c504d1fd5fe96afe8}
+Set the body canonicalization algorithm
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$canon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 322 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Body\+Signed\+Len@{set\+Body\+Signed\+Len}}
+\index{set\+Body\+Signed\+Len@{set\+Body\+Signed\+Len}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Body\+Signed\+Len}]{\setlength{\rightskip}{0pt plus 5cm}set\+Body\+Signed\+Len (
+\begin{DoxyParamCaption}
+\item[{}]{\$len}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_ae960078575e8fce9fc64645e37021fc7}
+Set the length of the body to sign
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$len} & (bool or int) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 369 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Debug\+Headers@{set\+Debug\+Headers}}
+\index{set\+Debug\+Headers@{set\+Debug\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Debug\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}set\+Debug\+Headers (
+\begin{DoxyParamCaption}
+\item[{}]{\$debug}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a42b9656898403cb346a68607dfbdc109}
+Enable / disable the Debug\+Headers
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$debug} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 417 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Hash\+Algorithm@{set\+Hash\+Algorithm}}
+\index{set\+Hash\+Algorithm@{set\+Hash\+Algorithm}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Hash\+Algorithm}]{\setlength{\rightskip}{0pt plus 5cm}set\+Hash\+Algorithm (
+\begin{DoxyParamCaption}
+\item[{}]{\$hash}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a866e542f6d187e28426f762159e17ac6}
+Set hash\+\_\+algorithm, must be one of rsa-\/sha256 $\vert$ rsa-\/sha1 defaults to rsa-\/sha256
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$hash} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 304 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Header\+Canon@{set\+Header\+Canon}}
+\index{set\+Header\+Canon@{set\+Header\+Canon}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Header\+Canon}]{\setlength{\rightskip}{0pt plus 5cm}set\+Header\+Canon (
+\begin{DoxyParamCaption}
+\item[{}]{\$canon}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a29e337cb6eaa8fb41fa2e7b7ef974963}
+Set the header canonicalization algorithm
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$canon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 339 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Headers@{set\+Headers}}
+\index{set\+Headers@{set\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}set\+Headers (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Header\+Set}}]{\$headers}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_a6266273c7f0e043bfee337b5347b316f}
+Set the headers to sign
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Header\+Set}{p.}{interface_swift___mime___header_set} & {\em \$headers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_a6266273c7f0e043bfee337b5347b316f}.
+
+
+
+Definition at line 484 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Signature\+Expiration@{set\+Signature\+Expiration}}
+\index{set\+Signature\+Expiration@{set\+Signature\+Expiration}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Signature\+Expiration}]{\setlength{\rightskip}{0pt plus 5cm}set\+Signature\+Expiration (
+\begin{DoxyParamCaption}
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_afdc662933079eea6242315f558145f18}
+Set the signature expiration timestamp
+
+
+\begin{DoxyParams}[1]{Parameters}
+timestamp & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 404 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Signature\+Timestamp@{set\+Signature\+Timestamp}}
+\index{set\+Signature\+Timestamp@{set\+Signature\+Timestamp}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Signature\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}set\+Signature\+Timestamp (
+\begin{DoxyParamCaption}
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_ae88c8f5d396361e60fd731a90ec834c8}
+Set the signature timestamp
+
+
+\begin{DoxyParams}[1]{Parameters}
+timestamp & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 391 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!set\+Signer\+Identity@{set\+Signer\+Identity}}
+\index{set\+Signer\+Identity@{set\+Signer\+Identity}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{set\+Signer\+Identity}]{\setlength{\rightskip}{0pt plus 5cm}set\+Signer\+Identity (
+\begin{DoxyParamCaption}
+\item[{}]{\$identity}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_ac46261cf72e61f24b85758bdf98d829c}
+Set the signer identity
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$identity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}{p.}{class_swift___signers___d_k_i_m_signer} 
+\end{DoxyReturn}
+
+
+Definition at line 356 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!start\+Body@{start\+Body}}
+\index{start\+Body@{start\+Body}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{start\+Body}]{\setlength{\rightskip}{0pt plus 5cm}start\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_ab8e8c47ea1a5df86db753df28cc294da}
+Start Body 
+
+Implements {\bf Swift\+\_\+\+Signers\+\_\+\+Header\+Signer} \doxyref{}{p.}{interface_swift___signers___header_signer_ab8e8c47ea1a5df86db753df28cc294da}.
+
+
+
+Definition at line 428 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!unbind@{unbind}}
+\index{unbind@{unbind}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{unbind}]{\setlength{\rightskip}{0pt plus 5cm}unbind (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_acad3cfddf5b36bb4b9d3cee2d38482b1}
+Remove an already bound stream. If \$is is not bound, no errors will be raised. If the stream currently has any buffered data it will be written to \$is before unbinding occurs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_acad3cfddf5b36bb4b9d3cee2d38482b1}.
+
+
+
+Definition at line 273 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!write@{write}}
+\index{write@{write}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$bytes}
+\end{DoxyParamCaption}
+)}\label{class_swift___signers___d_k_i_m_signer_aa4ea8baf64d864129d4276f76df3b4a0}
+Writes \$bytes to the end of the stream.
+
+Writing may not happen immediately if the stream chooses to buffer. If you want to write these bytes with immediate effect, call \doxyref{commit()}{p.}{class_swift___signers___d_k_i_m_signer_af5674c27d4a92f6228565010eacbb9cb} after calling \doxyref{write()}{p.}{class_swift___signers___d_k_i_m_signer_aa4ea8baf64d864129d4276f76df3b4a0}.
+
+This method returns the sequence I\+D of the write (i.\+e. 1 for first, 2 for second, etc etc).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$bytes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Swift\+\_\+\+Io\+Exception}{p.}{class_swift___io_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Swift\+\_\+\+Input\+Byte\+Stream} \doxyref{}{p.}{interface_swift___input_byte_stream_aa4ea8baf64d864129d4276f76df3b4a0}.
+
+
+
+Definition at line 230 of file D\+K\+I\+M\+Signer.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+body\+Canon@{\$\+\_\+body\+Canon}}
+\index{\$\+\_\+body\+Canon@{\$\+\_\+body\+Canon}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+body\+Canon}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+body\+Canon = \textquotesingle{}simple\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a1ece1d6018db9a415541157f6730155a}
+
+
+Definition at line 51 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+body\+Len@{\$\+\_\+body\+Len}}
+\index{\$\+\_\+body\+Len@{\$\+\_\+body\+Len}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+body\+Len}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+body\+Len = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_aed4f7883f29cc8b809a4e99c5b20eee8}
+
+
+Definition at line 79 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+debug\+Headers@{\$\+\_\+debug\+Headers}}
+\index{\$\+\_\+debug\+Headers@{\$\+\_\+debug\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+debug\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+debug\+Headers = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a392d9717d71ec6c9d6ee1b417f29bc05}
+
+
+Definition at line 115 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+dkim\+Header@{\$\+\_\+dkim\+Header}}
+\index{\$\+\_\+dkim\+Header@{\$\+\_\+dkim\+Header}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+dkim\+Header}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+dkim\+Header\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a6e32c7ec6b947a4092419e4190b57302}
+
+
+Definition at line 144 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+domain\+Name@{\$\+\_\+domain\+Name}}
+\index{\$\+\_\+domain\+Name@{\$\+\_\+domain\+Name}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+domain\+Name}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+domain\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a6e556b1286d48577d6b51306c4175dae}
+
+
+Definition at line 30 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+hash\+Algorithm@{\$\+\_\+hash\+Algorithm}}
+\index{\$\+\_\+hash\+Algorithm@{\$\+\_\+hash\+Algorithm}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+hash\+Algorithm}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+hash\+Algorithm = \textquotesingle{}rsa-\/sha1\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a67c53d948b6369f27c9573041683c316}
+
+
+Definition at line 44 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+header\+Canon@{\$\+\_\+header\+Canon}}
+\index{\$\+\_\+header\+Canon@{\$\+\_\+header\+Canon}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+header\+Canon}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+header\+Canon = \textquotesingle{}simple\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a63dc60c5c093e831110a6e619970de6c}
+
+
+Definition at line 58 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+ignored\+Headers@{\$\+\_\+ignored\+Headers}}
+\index{\$\+\_\+ignored\+Headers@{\$\+\_\+ignored\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+ignored\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+ignored\+Headers = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a9a1362e288ad1b029401626c32611323}
+
+
+Definition at line 65 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+max\+Len@{\$\+\_\+max\+Len}}
+\index{\$\+\_\+max\+Len@{\$\+\_\+max\+Len}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+max\+Len}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+max\+Len = P\+H\+P\+\_\+\+I\+N\+T\+\_\+\+M\+A\+X\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a2ad6926be58343d1acd4bed24f3f11d6}
+
+
+Definition at line 86 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+private\+Key@{\$\+\_\+private\+Key}}
+\index{\$\+\_\+private\+Key@{\$\+\_\+private\+Key}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+private\+Key}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+private\+Key\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_aba89305568bef368fd682297dc18992d}
+
+
+Definition at line 23 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+selector@{\$\+\_\+selector}}
+\index{\$\+\_\+selector@{\$\+\_\+selector}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+selector}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+selector\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a68bb763a2c4dbe1a0b104676a602a590}
+
+
+Definition at line 37 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+show\+Len@{\$\+\_\+show\+Len}}
+\index{\$\+\_\+show\+Len@{\$\+\_\+show\+Len}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+show\+Len}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+show\+Len = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_ae1faec0434b9960019356c33fed266d3}
+
+
+Definition at line 93 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+signature\+Expiration@{\$\+\_\+signature\+Expiration}}
+\index{\$\+\_\+signature\+Expiration@{\$\+\_\+signature\+Expiration}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+signature\+Expiration}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+signature\+Expiration = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_ad51d8ebcf519d8f17ab7ccf053b0f71e}
+
+
+Definition at line 108 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+signature\+Timestamp@{\$\+\_\+signature\+Timestamp}}
+\index{\$\+\_\+signature\+Timestamp@{\$\+\_\+signature\+Timestamp}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+signature\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+signature\+Timestamp = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_aef6a2eaab99a844b8e6709f64a4b87e6}
+
+
+Definition at line 100 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+signed\+Headers@{\$\+\_\+signed\+Headers}}
+\index{\$\+\_\+signed\+Headers@{\$\+\_\+signed\+Headers}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+signed\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+signed\+Headers = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_afbfeef670f7a0e61fc671f38839fea6f}
+
+
+Definition at line 123 of file D\+K\+I\+M\+Signer.\+php.
+
+\index{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}!\$\+\_\+signer\+Identity@{\$\+\_\+signer\+Identity}}
+\index{\$\+\_\+signer\+Identity@{\$\+\_\+signer\+Identity}!Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer@{Swift\+\_\+\+Signers\+\_\+\+D\+K\+I\+M\+Signer}}
+\subsubsection[{\$\+\_\+signer\+Identity}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+signer\+Identity\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___signers___d_k_i_m_signer_a0ecf099f523922bb03c6449f9c00b485}
+
+
+Definition at line 72 of file D\+K\+I\+M\+Signer.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Signers/{\bf D\+K\+I\+M\+Signer.\+php}\end{DoxyCompactItemize}

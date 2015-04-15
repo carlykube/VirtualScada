@@ -1,0 +1,779 @@
+\section{Cache Class Reference}
+\label{class_cache}\index{Cache@{Cache}}
+Inheritance diagram for Cache\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_cache}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Prefix} ()
+\item 
+static {\bf set\+Prefix} (\${\bf name})
+\item 
+static {\bf get\+Default\+Driver} ()
+\item 
+static {\bf set\+Default\+Driver} (\${\bf name})
+\item 
+static {\bf driver} (\$driver=null)
+\item 
+static {\bf extend} (\${\bf driver}, \${\bf callback})
+\item 
+static {\bf get\+Drivers} ()
+\item 
+static {\bf has} (\$key)
+\item 
+static {\bf get} (\$key, \$default=null)
+\item 
+static {\bf pull} (\$key, \$default=null)
+\item 
+static {\bf put} (\$key, \$value, \${\bf minutes})
+\item 
+static {\bf add} (\$key, \$value, \${\bf minutes})
+\item 
+static {\bf remember} (\$key, \${\bf minutes}, \${\bf callback})
+\item 
+static {\bf sear} (\$key, \${\bf callback})
+\item 
+static {\bf remember\+Forever} (\$key, \${\bf callback})
+\item 
+static {\bf get\+Default\+Cache\+Time} ()
+\item 
+static {\bf set\+Default\+Cache\+Time} (\${\bf minutes})
+\item 
+static {\bf get\+Store} ()
+\item 
+static {\bf offset\+Exists} (\$key)
+\item 
+static {\bf offset\+Get} (\$key)
+\item 
+static {\bf offset\+Set} (\$key, \$value)
+\item 
+static {\bf offset\+Unset} (\$key)
+\item 
+static {\bf macro} (\${\bf name}, \$macro)
+\item 
+static {\bf has\+Macro} (\${\bf name})
+\item 
+static {\bf macro\+Call} (\$method, \$parameters)
+\item 
+static {\bf increment} (\$key, \$value=1)
+\item 
+static {\bf decrement} (\$key, \$value=1)
+\item 
+static {\bf forever} (\$key, \$value)
+\item 
+static {\bf forget} (\$key)
+\item 
+static {\bf flush} ()
+\item 
+static {\bf get\+Filesystem} ()
+\item 
+static {\bf get\+Directory} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 1973 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Cache@{Cache}!add@{add}}
+\index{add@{add}!Cache@{Cache}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}static add (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a160167f8b3dd32078409c184c928db2e}
+Store an item in the cache if the key does not exist.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 2110 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!decrement@{decrement}}
+\index{decrement@{decrement}!Cache@{Cache}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}static decrement (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_aae384bc939c147c5d8d4b1f2c5c5879e}
+Decrement the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 2283 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!driver@{driver}}
+\index{driver@{driver}!Cache@{Cache}}
+\subsubsection[{driver}]{\setlength{\rightskip}{0pt plus 5cm}static driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a9df607070c430346fbe4f452f910cbe2}
+Get a driver instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2024 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!extend@{extend}}
+\index{extend@{extend}!Cache@{Cache}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}static extend (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_ad5e39c85efd5f4670a4a7cdf016c92c3}
+Register a custom driver creator Closure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 2037 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!flush@{flush}}
+\index{flush@{flush}!Cache@{Cache}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}static flush (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a13c506fa80a40d0a161b9ee91a5db11c}
+Remove all items from the cache.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2316 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!forever@{forever}}
+\index{forever@{forever}!Cache@{Cache}}
+\subsubsection[{forever}]{\setlength{\rightskip}{0pt plus 5cm}static forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_abb94345562acf71a08947716b552770f}
+Store an item in the cache indefinitely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2295 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!forget@{forget}}
+\index{forget@{forget}!Cache@{Cache}}
+\subsubsection[{forget}]{\setlength{\rightskip}{0pt plus 5cm}static forget (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a185a75d6a444eece247c76c1c401de8e}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2306 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get@{get}}
+\index{get@{get}!Cache@{Cache}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}static get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a7de323d3f961b8ac6987a2220df110cf}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2072 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Default\+Cache\+Time@{get\+Default\+Cache\+Time}}
+\index{get\+Default\+Cache\+Time@{get\+Default\+Cache\+Time}!Cache@{Cache}}
+\subsubsection[{get\+Default\+Cache\+Time}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Default\+Cache\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a12aeca39e30ff85dbd2108d4e4d55227}
+Get the default cache time.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 2157 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Default\+Driver@{get\+Default\+Driver}}
+\index{get\+Default\+Driver@{get\+Default\+Driver}!Cache@{Cache}}
+\subsubsection[{get\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Default\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a081ddcfd54a847610d85f496366c9ba0}
+Get the default cache driver name.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 2002 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Directory@{get\+Directory}}
+\index{get\+Directory@{get\+Directory}!Cache@{Cache}}
+\subsubsection[{get\+Directory}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Directory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_acfbaf80aee38a3ff7aa196328f7b697f}
+Get the working directory of the cache.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 2336 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Drivers@{get\+Drivers}}
+\index{get\+Drivers@{get\+Drivers}!Cache@{Cache}}
+\subsubsection[{get\+Drivers}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Drivers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a529312cbb5906222b549fd30edb0b791}
+Get all of the created \char`\"{}drivers\char`\"{}.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 2048 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Filesystem@{get\+Filesystem}}
+\index{get\+Filesystem@{get\+Filesystem}!Cache@{Cache}}
+\subsubsection[{get\+Filesystem}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Filesystem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a1385d8ef61b567d0d1c0c1a897d9c557}
+Get the Filesystem instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 2326 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Prefix@{get\+Prefix}}
+\index{get\+Prefix@{get\+Prefix}!Cache@{Cache}}
+\subsubsection[{get\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a70084c44dffbf2f64f9341f1b01d113e}
+Get the cache \char`\"{}prefix\char`\"{} value.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1981 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!get\+Store@{get\+Store}}
+\index{get\+Store@{get\+Store}!Cache@{Cache}}
+\subsubsection[{get\+Store}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a5d665512854858625bea8f4cf22f4054}
+Get the cache store implementation.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 2178 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!has@{has}}
+\index{has@{has}!Cache@{Cache}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}static has (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a8f660283f72e0f3c5f00b4f98563a79b}
+Determine if an item exists in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 2060 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!has\+Macro@{has\+Macro}}
+\index{has\+Macro@{has\+Macro}!Cache@{Cache}}
+\subsubsection[{has\+Macro}]{\setlength{\rightskip}{0pt plus 5cm}static has\+Macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a40c94433295da2b92b8f892c91f6f2be}
+Checks if macro is registered
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 2246 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!increment@{increment}}
+\index{increment@{increment}!Cache@{Cache}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}static increment (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a0dfb5cb72cecc50a54c5c9a3d6de2d24}
+Increment the value of an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 2271 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!macro@{macro}}
+\index{macro@{macro}!Cache@{Cache}}
+\subsubsection[{macro}]{\setlength{\rightskip}{0pt plus 5cm}static macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$macro}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a343c2366163fd12cb70a6fac94ce4ba6}
+Register a custom macro.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+callable & {\em \$macro} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2235 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!macro\+Call@{macro\+Call}}
+\index{macro\+Call@{macro\+Call}!Cache@{Cache}}
+\subsubsection[{macro\+Call}]{\setlength{\rightskip}{0pt plus 5cm}static macro\+Call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a066d10546ed8140598e1a4883b0edd0b}
+Dynamically handle calls to the class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 2259 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!offset\+Exists@{offset\+Exists}}
+\index{offset\+Exists@{offset\+Exists}!Cache@{Cache}}
+\subsubsection[{offset\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}static offset\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a76346b602624530f311a6cb85bea4644}
+Determine if a cached value exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 2189 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!offset\+Get@{offset\+Get}}
+\index{offset\+Get@{offset\+Get}!Cache@{Cache}}
+\subsubsection[{offset\+Get}]{\setlength{\rightskip}{0pt plus 5cm}static offset\+Get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_adcc02a45891701baab2c17b718c68ce8}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2200 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!offset\+Set@{offset\+Set}}
+\index{offset\+Set@{offset\+Set}!Cache@{Cache}}
+\subsubsection[{offset\+Set}]{\setlength{\rightskip}{0pt plus 5cm}static offset\+Set (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a195f9f2037074dc28d3c927969da0fa3}
+Store an item in the cache for the default time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2212 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!offset\+Unset@{offset\+Unset}}
+\index{offset\+Unset@{offset\+Unset}!Cache@{Cache}}
+\subsubsection[{offset\+Unset}]{\setlength{\rightskip}{0pt plus 5cm}static offset\+Unset (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a9fa92b594bd260e933462dbfc178067b}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2223 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!pull@{pull}}
+\index{pull@{pull}!Cache@{Cache}}
+\subsubsection[{pull}]{\setlength{\rightskip}{0pt plus 5cm}static pull (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_add9d44d09434545a705a79d3c8e18e71}
+Retrieve an item from the cache and delete it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2084 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!put@{put}}
+\index{put@{put}!Cache@{Cache}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}static put (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_ab11d31a7cb67e851a53119d22ea273d0}
+Store an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2097 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!remember@{remember}}
+\index{remember@{remember}!Cache@{Cache}}
+\subsubsection[{remember}]{\setlength{\rightskip}{0pt plus 5cm}static remember (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$minutes, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a8c2781dee6ef84b2bddd149f48854141}
+Get an item from the cache, or store the default value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2123 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!remember\+Forever@{remember\+Forever}}
+\index{remember\+Forever@{remember\+Forever}!Cache@{Cache}}
+\subsubsection[{remember\+Forever}]{\setlength{\rightskip}{0pt plus 5cm}static remember\+Forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_ae785eb5ac4badfc1660cb72f776272ab}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2147 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!sear@{sear}}
+\index{sear@{sear}!Cache@{Cache}}
+\subsubsection[{sear}]{\setlength{\rightskip}{0pt plus 5cm}static sear (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a57c2feb7f847f6f11d3fa3b408f27483}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 2135 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!set\+Default\+Cache\+Time@{set\+Default\+Cache\+Time}}
+\index{set\+Default\+Cache\+Time@{set\+Default\+Cache\+Time}!Cache@{Cache}}
+\subsubsection[{set\+Default\+Cache\+Time}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Default\+Cache\+Time (
+\begin{DoxyParamCaption}
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a156918bb45055c086181915017baa78b}
+Set the default cache time in minutes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2168 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!set\+Default\+Driver@{set\+Default\+Driver}}
+\index{set\+Default\+Driver@{set\+Default\+Driver}!Cache@{Cache}}
+\subsubsection[{set\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Default\+Driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a08100bac7ff4bc3a5ea7ed8fa8a8acfd}
+Set the default cache driver name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 2013 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Cache@{Cache}!set\+Prefix@{set\+Prefix}}
+\index{set\+Prefix@{set\+Prefix}!Cache@{Cache}}
+\subsubsection[{set\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cache_a3c8d03cf948ca26531b39bf555082599}
+Set the cache \char`\"{}prefix\char`\"{} value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1992 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+ide\+\_\+helper.\+php}\end{DoxyCompactItemize}

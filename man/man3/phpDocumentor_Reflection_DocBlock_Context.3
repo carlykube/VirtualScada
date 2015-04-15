@@ -1,0 +1,201 @@
+.TH "Context" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Context \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($namespace= '', array $namespace_aliases=array(), $lsen= '')"
+.br
+.ti -1c
+.RI "\fBgetNamespace\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNamespaceAliases\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLSEN\fP ()"
+.br
+.ti -1c
+.RI "\fBsetNamespace\fP ($namespace)"
+.br
+.ti -1c
+.RI "\fBsetNamespaceAliases\fP (array $namespace_aliases)"
+.br
+.ti -1c
+.RI "\fBsetNamespaceAlias\fP ($alias, $fqnn)"
+.br
+.ti -1c
+.RI "\fBsetLSEN\fP ($lsen)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$namespace\fP = ''"
+.br
+.ti -1c
+.RI "\fB$namespace_aliases\fP = array()"
+.br
+.ti -1c
+.RI "\fB$lsen\fP = ''"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The context in which a \fBDocBlock\fP occurs\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Vasil Rangelov boen.robot@gmail.com  http://www.opensource.org/licenses/mit-license.php MIT \fBhttp://phpdoc\&.org\fP
+.RE
+.PP
+
+.PP
+Definition at line 22 of file Context\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $namespace = \fC''\fP, array $namespace_aliases = \fCarray()\fP,  $lsen = \fC''\fP)"
+Cteates a new context\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP The namespace where this \fBDocBlock\fP resides in\&. 
+.br
+\fI$namespace_aliases\fP List of namespace aliases => Fully Qualified Namespace\&. 
+.br
+\fI$lsen\fP Name of the structural element, within the namespace\&. 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file Context\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getLSEN ()"
+Returns the Local Structural Element Name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Name of the structural element, within the namespace\&. 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Context\&.php\&.
+.SS "getNamespace ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string The namespace where this \fBDocBlock\fP resides in\&. 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Context\&.php\&.
+.SS "getNamespaceAliases ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array List of namespace aliases => Fully Qualified Namespace\&. 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Context\&.php\&.
+.SS "setLSEN ( $lsen)"
+Sets a new Local Structural Element Name\&.
+.PP
+Sets a new Local Structural Element Name\&. \fBA\fP local name also contains punctuation determining the kind of structural element (e\&.g\&. trailing '(' and ')' for functions and methods)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lsen\fP The new local name of a structural element\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file Context\&.php\&.
+.SS "setNamespace ( $namespace)"
+Sets a new namespace\&.
+.PP
+Sets a new namespace for the context\&. Leading and trailing slashes are trimmed, and the keywords 'global' and 'default' are treated as aliases to no namespace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP The new namespace to set\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file Context\&.php\&.
+.SS "setNamespaceAlias ( $alias,  $fqnn)"
+Adds a namespace alias to the context\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$alias\fP The alias name (the part after 'as', or the last part of the Fully Qualified Namespace Name) to add\&. 
+.br
+\fI$fqnn\fP The Fully Qualified Namespace Name for this alias\&. Any form of leading/trailing slashes are accepted, but what will be stored is a name, prefixed with a slash, and no trailing slash\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Context\&.php\&.
+.SS "setNamespaceAliases (array $namespace_aliases)"
+Sets the namespace aliases, replacing all previous ones\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace_aliases\fP List of namespace aliases => Fully Qualified Namespace\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file Context\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$lsen = ''\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Context\&.php\&.
+.SS "$namespace = ''\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file Context\&.php\&.
+.SS "$namespace_aliases = array()\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file Context\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

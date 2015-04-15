@@ -1,0 +1,279 @@
+\section{Handler\+Interface Interface Reference}
+\label{interface_monolog_1_1_handler_1_1_handler_interface}\index{Handler\+Interface@{Handler\+Interface}}
+Inheritance diagram for Handler\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=8.800000cm]{interface_monolog_1_1_handler_1_1_handler_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf is\+Handling} (array \$record)
+\item 
+{\bf handle} (array \$record)
+\item 
+{\bf handle\+Batch} (array \$records)
+\item 
+{\bf push\+Processor} (\${\bf callback})
+\item 
+{\bf pop\+Processor} ()
+\item 
+{\bf set\+Formatter} ({\bf Formatter\+Interface} \$formatter)
+\item 
+{\bf get\+Formatter} ()
+\item 
+{\bf is\+Handling} (array \$record)
+\item 
+{\bf handle} (array \$record)
+\item 
+{\bf handle\+Batch} (array \$records)
+\item 
+{\bf push\+Processor} (\${\bf callback})
+\item 
+{\bf pop\+Processor} ()
+\item 
+{\bf set\+Formatter} ({\bf Formatter\+Interface} \$formatter)
+\item 
+{\bf get\+Formatter} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface that all \doxyref{Monolog}{p.}{namespace_monolog} Handlers must implement
+
+\begin{DoxyAuthor}{Author}
+Jordi Boggiano {\tt j.\+boggiano@seld.\+be} 
+\end{DoxyAuthor}
+
+
+Definition at line 12656 of file compiled.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!get\+Formatter@{get\+Formatter}}
+\index{get\+Formatter@{get\+Formatter}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{get\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}get\+Formatter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_aad3a8e83c90770a1f71a75bb51e782d8}
+Gets the formatter.
+
+\begin{DoxyReturn}{Returns}
+Formatter\+Interface 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aad3a8e83c90770a1f71a75bb51e782d8}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aad3a8e83c90770a1f71a75bb51e782d8}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!get\+Formatter@{get\+Formatter}}
+\index{get\+Formatter@{get\+Formatter}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{get\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}get\+Formatter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_aad3a8e83c90770a1f71a75bb51e782d8}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aad3a8e83c90770a1f71a75bb51e782d8}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aad3a8e83c90770a1f71a75bb51e782d8}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!handle@{handle}}
+\index{handle@{handle}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}
+Handles a record.
+
+All records may be passed to this method, and the handler should discard those that it does not want to handle.
+
+The return value of this function controls the bubbling process of the handler stack. Unless the bubbling is interrupted (by returning true), the \doxyref{Logger}{p.}{class_monolog_1_1_logger} class will keep on calling further handlers in the stack with a given log record.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & The record to handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true means that this handler handled the record, and that bubbling is not permitted. false means the record was either not processed or that this handler allows bubbling. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Processing\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_processing_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Exception\+Test\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_exception_test_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Fingers\+Crossed\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_fingers_crossed_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Sampling\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_sampling_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Buffer\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_buffer_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Psr\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_psr_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Null\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_null_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Abstract\+Processing\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_processing_handler_ad54b568c673b7b4fc724268a54313603}, and {\bf What\+Failure\+Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_what_failure_group_handler_ad54b568c673b7b4fc724268a54313603}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!handle@{handle}}
+\index{handle@{handle}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}
+
+
+Implemented in {\bf Abstract\+Processing\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_processing_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Exception\+Test\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_exception_test_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Fingers\+Crossed\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_fingers_crossed_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Sampling\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_sampling_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Buffer\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_buffer_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Psr\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_psr_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Null\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_null_handler_ad54b568c673b7b4fc724268a54313603}, {\bf Abstract\+Processing\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_processing_handler_ad54b568c673b7b4fc724268a54313603}, and {\bf What\+Failure\+Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_what_failure_group_handler_ad54b568c673b7b4fc724268a54313603}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!handle\+Batch@{handle\+Batch}}
+\index{handle\+Batch@{handle\+Batch}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{handle\+Batch}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Batch (
+\begin{DoxyParamCaption}
+\item[{array}]{\$records}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}
+Handles a set of records at once.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$records} & The records to handle (an array of record arrays) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Hip\+Chat\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_hip_chat_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Elastic\+Search\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_elastic_search_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Chrome\+P\+H\+P\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_chrome_p_h_p_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Raven\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_raven_handler_ac894c0fcd68cb9ba7ccb3c1b654212c6}, {\bf Loggly\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_loggly_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf What\+Failure\+Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_what_failure_group_handler_a944865926b0302ad2d802bea1eec3a57}, and {\bf Mail\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_mail_handler_a944865926b0302ad2d802bea1eec3a57}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!handle\+Batch@{handle\+Batch}}
+\index{handle\+Batch@{handle\+Batch}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{handle\+Batch}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Batch (
+\begin{DoxyParamCaption}
+\item[{array}]{\$records}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Hip\+Chat\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_hip_chat_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Elastic\+Search\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_elastic_search_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Chrome\+P\+H\+P\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_chrome_p_h_p_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Raven\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_raven_handler_ac894c0fcd68cb9ba7ccb3c1b654212c6}, {\bf Loggly\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_loggly_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a944865926b0302ad2d802bea1eec3a57}, {\bf What\+Failure\+Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_what_failure_group_handler_a944865926b0302ad2d802bea1eec3a57}, and {\bf Mail\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_mail_handler_a944865926b0302ad2d802bea1eec3a57}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!is\+Handling@{is\+Handling}}
+\index{is\+Handling@{is\+Handling}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{is\+Handling}]{\setlength{\rightskip}{0pt plus 5cm}is\+Handling (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}
+Checks whether the given record will be handled by this handler.
+
+This is mostly done for performance reasons, to avoid calling processors for nothing.
+
+Handlers should still check the record levels within \doxyref{handle()}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}, returning false in \doxyref{is\+Handling()}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758} is no guarantee that \doxyref{handle()}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603} will not be called, and \doxyref{is\+Handling()}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758} might not be called for a given record.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & Partial log record containing only a level key\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Fingers\+Crossed\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_fingers_crossed_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Sampling\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_sampling_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_abbfbbcd3430dea8422ecd3c725737758}, and {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_abbfbbcd3430dea8422ecd3c725737758}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!is\+Handling@{is\+Handling}}
+\index{is\+Handling@{is\+Handling}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{is\+Handling}]{\setlength{\rightskip}{0pt plus 5cm}is\+Handling (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Filter\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_filter_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Fingers\+Crossed\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_fingers_crossed_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Sampling\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_sampling_handler_abbfbbcd3430dea8422ecd3c725737758}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_abbfbbcd3430dea8422ecd3c725737758}, and {\bf Group\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_group_handler_abbfbbcd3430dea8422ecd3c725737758}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!pop\+Processor@{pop\+Processor}}
+\index{pop\+Processor@{pop\+Processor}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{pop\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}pop\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_aece5018a30e181b7c02b82a8470b5017}
+Removes the processor on top of the stack and returns it.
+
+\begin{DoxyReturn}{Returns}
+callable 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aece5018a30e181b7c02b82a8470b5017}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aece5018a30e181b7c02b82a8470b5017}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!pop\+Processor@{pop\+Processor}}
+\index{pop\+Processor@{pop\+Processor}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{pop\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}pop\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_aece5018a30e181b7c02b82a8470b5017}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aece5018a30e181b7c02b82a8470b5017}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_aece5018a30e181b7c02b82a8470b5017}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!push\+Processor@{push\+Processor}}
+\index{push\+Processor@{push\+Processor}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{push\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}push\+Processor (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a39765101967f8d0ce8b3d694552c9ea1}
+Adds a processor in the stack.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a39765101967f8d0ce8b3d694552c9ea1}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a39765101967f8d0ce8b3d694552c9ea1}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!push\+Processor@{push\+Processor}}
+\index{push\+Processor@{push\+Processor}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{push\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}push\+Processor (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a39765101967f8d0ce8b3d694552c9ea1}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a39765101967f8d0ce8b3d694552c9ea1}, and {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a39765101967f8d0ce8b3d694552c9ea1}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!set\+Formatter@{set\+Formatter}}
+\index{set\+Formatter@{set\+Formatter}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{set\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Formatter (
+\begin{DoxyParamCaption}
+\item[{{\bf Formatter\+Interface}}]{\$formatter}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a87804f2347dd817752ef1faa1f0dea05}
+Sets the formatter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Formatter\+Interface & {\em \$formatter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a87804f2347dd817752ef1faa1f0dea05}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a87804f2347dd817752ef1faa1f0dea05}, and {\bf Elastic\+Search\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_elastic_search_handler_a87804f2347dd817752ef1faa1f0dea05}.
+
+\index{Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}!set\+Formatter@{set\+Formatter}}
+\index{set\+Formatter@{set\+Formatter}!Monolog\+::\+Handler\+::\+Handler\+Interface@{Monolog\+::\+Handler\+::\+Handler\+Interface}}
+\subsubsection[{set\+Formatter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Formatter (
+\begin{DoxyParamCaption}
+\item[{{\bf Formatter\+Interface}}]{\$formatter}
+\end{DoxyParamCaption}
+)}\label{interface_monolog_1_1_handler_1_1_handler_interface_a87804f2347dd817752ef1faa1f0dea05}
+
+
+Implemented in {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a87804f2347dd817752ef1faa1f0dea05}, {\bf Abstract\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_abstract_handler_a87804f2347dd817752ef1faa1f0dea05}, and {\bf Elastic\+Search\+Handler} \doxyref{}{p.}{class_monolog_1_1_handler_1_1_elastic_search_handler_a87804f2347dd817752ef1faa1f0dea05}.
+
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vendor/{\bf compiled.\+php}\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Handler\+Interface.\+php}\end{DoxyCompactItemize}

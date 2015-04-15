@@ -1,0 +1,203 @@
+.TH "MandrillTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MandrillTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($key)"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.ti -1c
+.RI "\fBgetKey\fP ()"
+.br
+.ti -1c
+.RI "\fBsetKey\fP ($key)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetToAddresses\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBgetHttpClient\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$key\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file MandrillTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $key)"
+Create a new Mandrill transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file MandrillTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getHttpClient ()\fC [protected]\fP"
+Get a new HTTP client instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 112 of file MandrillTransport\&.php\&.
+.SS "getKey ()"
+Get the API key being used by the transport\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file MandrillTransport\&.php\&.
+.SS "getToAddresses (\fBSwift_Mime_Message\fP $message)\fC [protected]\fP"
+Get all the addresses this message should be sent to\&.
+.PP
+Note that Mandrill still respects CC, BCC headers in raw message itself\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file MandrillTransport\&.php\&.
+.SS "isStarted ()"
+{Test if this Transport mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 31 of file MandrillTransport\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+{Register a plugin in the Transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 102 of file MandrillTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+{Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 55 of file MandrillTransport\&.php\&.
+.SS "setKey ( $key)"
+Set the API key being used by the transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file MandrillTransport\&.php\&.
+.SS "start ()"
+{Start this Transport mechanism\&.} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 39 of file MandrillTransport\&.php\&.
+.SS "stop ()"
+{Stop this Transport mechanism\&.} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 47 of file MandrillTransport\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$key\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file MandrillTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

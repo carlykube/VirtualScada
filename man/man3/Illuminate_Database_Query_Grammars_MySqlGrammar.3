@@ -1,0 +1,168 @@
+.TH "MySqlGrammar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MySqlGrammar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGrammar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileSelect\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBcompileUpdate\fP (\fBBuilder\fP $query, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBcompileDelete\fP (\fBBuilder\fP $query)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileUnion\fP (array $union)"
+.br
+.ti -1c
+.RI "\fBcompileLock\fP (\fBBuilder\fP $query, $value)"
+.br
+.ti -1c
+.RI "\fBwrapValue\fP ($value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$selectComponents\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file MySqlGrammar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "compileDelete (\fBBuilder\fP $query)"
+Compile a delete statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file MySqlGrammar\&.php\&.
+.SS "compileLock (\fBBuilder\fP $query,  $value)\fC [protected]\fP"
+Compile the lock into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file MySqlGrammar\&.php\&.
+.SS "compileSelect (\fBBuilder\fP $query)"
+Compile a select query into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 32 of file MySqlGrammar\&.php\&.
+.SS "compileUnion (array $union)\fC [protected]\fP"
+Compile a single union statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$union\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file MySqlGrammar\&.php\&.
+.SS "compileUpdate (\fBBuilder\fP $query,  $values)"
+Compile an update statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file MySqlGrammar\&.php\&.
+.SS "wrapValue ( $value)\fC [protected]\fP"
+Wrap a single string in keyword identifiers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file MySqlGrammar\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$selectComponents\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'aggregate',
+        'columns',
+        'from',
+        'joins',
+        'wheres',
+        'groups',
+        'havings',
+        'orders',
+        'limit',
+        'offset',
+        'lock',
+    )
+.fi
+.PP
+Definition at line 12 of file MySqlGrammar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

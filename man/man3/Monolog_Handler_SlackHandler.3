@@ -1,0 +1,145 @@
+.TH "SlackHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SlackHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSocketHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($token, $channel, $username= 'Monolog', $useAttachment=true, $iconEmoji=null, $level=\fBLogger::CRITICAL\fP, $bubble=true, $useShortAttachment=false, $includeContextAndExtra=false)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateDataStream\fP ($record)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBgetAttachmentColor\fP ($level)"
+.br
+.ti -1c
+.RI "\fBstringify\fP ($fields)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Sends notifications through Slack API
+.PP
+\fBAuthor:\fP
+.RS 4
+Greg Kedzierski greg@gregkedzierski.com 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+https://api.slack.com/ 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file SlackHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $token,  $channel,  $username = \fC'Monolog'\fP,  $useAttachment = \fCtrue\fP,  $iconEmoji = \fCnull\fP,  $level = \fC\fBLogger::CRITICAL\fP\fP,  $bubble = \fCtrue\fP,  $useShortAttachment = \fCfalse\fP,  $includeContextAndExtra = \fCfalse\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP Slack API token 
+.br
+\fI$channel\fP Slack channel (encoded ID or name) 
+.br
+\fI$username\fP Name of a bot 
+.br
+\fI$useAttachment\fP Whether the message should be added to Slack as attachment (plain text otherwise) 
+.br
+\fI$iconEmoji\fP The emoji name to use (or null) 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$useShortAttachment\fP Whether the the context/extra messages added to Slack as attachments are in a short style 
+.br
+\fI$includeContextAndExtra\fP Whether the attachment should include context and extra data 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file SlackHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "generateDataStream ( $record)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file SlackHandler\&.php\&.
+.SS "getAttachmentColor ( $level)\fC [protected]\fP"
+Returned a Slack message attachment color associated with provided level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file SlackHandler\&.php\&.
+.SS "stringify ( $fields)\fC [protected]\fP"
+Stringifies an array of key/value pairs to be used in attachment fields
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fields\fP protected 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file SlackHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+
+.PP
+Definition at line 235 of file SlackHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

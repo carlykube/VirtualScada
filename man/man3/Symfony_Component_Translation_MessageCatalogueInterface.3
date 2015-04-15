@@ -1,0 +1,268 @@
+.TH "MessageCatalogueInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MessageCatalogueInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBMessageCatalogue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDomains\fP ()"
+.br
+.ti -1c
+.RI "\fBall\fP ($domain=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($id, $translation, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBhas\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBdefines\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBget\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBreplace\fP ($messages, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBadd\fP ($messages, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBaddCatalogue\fP (\fBMessageCatalogueInterface\fP $catalogue)"
+.br
+.ti -1c
+.RI "\fBaddFallbackCatalogue\fP (\fBMessageCatalogueInterface\fP $catalogue)"
+.br
+.ti -1c
+.RI "\fBgetFallbackCatalogue\fP ()"
+.br
+.ti -1c
+.RI "\fBgetResources\fP ()"
+.br
+.ti -1c
+.RI "\fBaddResource\fP (ResourceInterface $resource)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMessageCatalogueInterface\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 23 of file MessageCatalogueInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $messages,  $domain = \fC'messages'\fP)"
+Adds translations for a given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP An array of translations 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "addCatalogue (\fBMessageCatalogueInterface\fP $catalogue)"
+Merges translations from the given \fBCatalogue\fP into the current one\&.
+.PP
+The two catalogues must have the same locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$catalogue\fP \fBA\fP \fBMessageCatalogueInterface\fP instance
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "addFallbackCatalogue (\fBMessageCatalogueInterface\fP $catalogue)"
+Merges translations from the given \fBCatalogue\fP into the current one only when the translation does not exist\&.
+.PP
+This is used to provide default translations when they do not exist for the current locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$catalogue\fP \fBA\fP \fBMessageCatalogueInterface\fP instance
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "addResource (ResourceInterface $resource)"
+Adds a resource for this collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP \fBA\fP resource instance
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "all ( $domain = \fCnull\fP)"
+Gets the messages within a given domain\&.
+.PP
+If $domain is null, it returns all messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of messages
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "defines ( $id,  $domain = \fC'messages'\fP)"
+Checks if a message has a translation (it does not take into account the fallback mechanism)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the message has a translation, false otherwise
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "get ( $id,  $domain = \fC'messages'\fP)"
+Gets a message translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The message translation
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "getDomains ()"
+Gets the domains\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of domains
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "getFallbackCatalogue ()"
+Gets the fallback catalogue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+MessageCatalogueInterface|null \fBA\fP \fBMessageCatalogueInterface\fP instance or null when no fallback has been set
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "getLocale ()"
+Gets the catalogue locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The locale
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "getResources ()"
+Returns an array of resources loaded to build this collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ResourceInterface[] An array of resources
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "has ( $id,  $domain = \fC'messages'\fP)"
+Checks if a message has a translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the message has a translation, false otherwise
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "replace ( $messages,  $domain = \fC'messages'\fP)"
+Sets translations for a given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP An array of translations 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+.SS "set ( $id,  $translation,  $domain = \fC'messages'\fP)"
+Sets a message translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$translation\fP The messages translation 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+
+.PP
+Implemented in \fBMessageCatalogue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

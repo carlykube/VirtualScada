@@ -1,0 +1,736 @@
+.TH "PHPUnit_Framework_TestSuite" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Framework_TestSuite \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Framework_Test\fP, \fBPHPUnit_Framework_SelfDescribing\fP, and IteratorAggregate\&.
+.PP
+Inherited by \fBPHPUnit_Extensions_GroupTestSuite\fP, \fBPHPUnit_Extensions_PhptTestSuite\fP, and \fBPHPUnit_Framework_TestSuite_DataProvider\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($theClass= '', $\fBname\fP= '')"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBaddTest\fP (\fBPHPUnit_Framework_Test\fP $test, $groups=array())"
+.br
+.ti -1c
+.RI "\fBaddTestSuite\fP ($testClass)"
+.br
+.ti -1c
+.RI "\fBaddTestFile\fP ($filename, $phptOptions=array())"
+.br
+.ti -1c
+.RI "\fBaddTestFiles\fP ($filenames)"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetGroups\fP ()"
+.br
+.ti -1c
+.RI "\fBgetGroupDetails\fP ()"
+.br
+.ti -1c
+.RI "\fBsetGroupDetails\fP (array $groups)"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBPHPUnit_Framework_TestResult\fP $result=null)"
+.br
+.ti -1c
+.RI "\fBsetRunTestInSeparateProcess\fP ($runTestInSeparateProcess)"
+.br
+.ti -1c
+.RI "\fBrunTest\fP (\fBPHPUnit_Framework_Test\fP $test, \fBPHPUnit_Framework_TestResult\fP $result)"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBtestAt\fP ($index)"
+.br
+.ti -1c
+.RI "\fBtests\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTests\fP (array $\fBtests\fP)"
+.br
+.ti -1c
+.RI "\fBmarkTestSuiteSkipped\fP ($message= '')"
+.br
+.ti -1c
+.RI "\fBsetDisallowChangesToGlobalState\fP ($disallowChangesToGlobalState)"
+.br
+.ti -1c
+.RI "\fBsetBackupGlobals\fP ($backupGlobals)"
+.br
+.ti -1c
+.RI "\fBsetBackupStaticAttributes\fP ($backupStaticAttributes)"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.ti -1c
+.RI "\fBinjectFilter\fP (\fBPHPUnit_Runner_Filter_Factory\fP $\fBfilter\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreateTest\fP (ReflectionClass $theClass, $\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBisTestMethod\fP (ReflectionMethod $method)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreateResult\fP ()"
+.br
+.ti -1c
+.RI "\fBaddTestMethod\fP (ReflectionClass $class, ReflectionMethod $method)"
+.br
+.ti -1c
+.RI "\fBsetUp\fP ()"
+.br
+.ti -1c
+.RI "\fBtearDown\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBwarning\fP ($message)"
+.br
+.ti -1c
+.RI "static \fBskipTest\fP ($class, $methodName, $message)"
+.br
+.ti -1c
+.RI "static \fBincompleteTest\fP ($class, $methodName, $message)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$backupGlobals\fP = null"
+.br
+.ti -1c
+.RI "\fB$backupStaticAttributes\fP = null"
+.br
+.ti -1c
+.RI "\fB$runTestInSeparateProcess\fP = false"
+.br
+.ti -1c
+.RI "\fB$name\fP = ''"
+.br
+.ti -1c
+.RI "\fB$groups\fP = array()"
+.br
+.ti -1c
+.RI "\fB$tests\fP = array()"
+.br
+.ti -1c
+.RI "\fB$numTests\fP = -1"
+.br
+.ti -1c
+.RI "\fB$testCase\fP = false"
+.br
+.ti -1c
+.RI "\fB$foundClasses\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 47 of file TestSuite\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $theClass = \fC''\fP,  $name = \fC''\fP)"
+Constructs a new TestSuite:
+.PP
+.IP "\(bu" 2
+\fBPHPUnit_Framework_TestSuite()\fP constructs an empty TestSuite\&.
+.IP "\(bu" 2
+\fBPHPUnit_Framework_TestSuite(ReflectionClass)\fP constructs a TestSuite from the given class\&.
+.IP "\(bu" 2
+\fBPHPUnit_Framework_TestSuite(ReflectionClass, String)\fP constructs a TestSuite from the given class with the given name\&.
+.IP "\(bu" 2
+\fBPHPUnit_Framework_TestSuite(String)\fP either constructs a TestSuite from the given class (if the passed string is the name of an existing class) or constructs an empty TestSuite with the given name\&.
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$theClass\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file TestSuite\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addTest (\fBPHPUnit_Framework_Test\fP $test,  $groups = \fCarray()\fP)"
+Adds a test to the suite\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$groups\fP 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file TestSuite\&.php\&.
+.SS "addTestFile ( $filename,  $phptOptions = \fCarray()\fP)"
+Wraps both \fC\fBaddTest()\fP\fP and \fCaddTestSuite\fP as well as the separate import statements for the user's convenience\&.
+.PP
+If the named file cannot be read or there are no new tests that can be added, a \fC\fBPHPUnit_Framework_Warning\fP\fP will be created instead, leaving the current test run untouched\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filename\fP 
+.br
+\fI$phptOptions\fP Array with ini settings for the php instance run, key being the name if the setting, value the ini value\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Stefano F\&. Rausch stefano@rausch-e.net 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file TestSuite\&.php\&.
+.SS "addTestFiles ( $filenames)"
+Wrapper for \fBaddTestFile()\fP that adds multiple test files\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filenames\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 394 of file TestSuite\&.php\&.
+.SS "addTestMethod (ReflectionClass $class, ReflectionMethod $method)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+
+.PP
+Definition at line 826 of file TestSuite\&.php\&.
+.SS "addTestSuite ( $testClass)"
+Adds the tests from the given class to the suite\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$testClass\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file TestSuite\&.php\&.
+.SS "count ()"
+Counts the number of test cases that will be run by this test\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file TestSuite\&.php\&.
+.SS "createResult ()\fC [protected]\fP"
+Creates a default TestResult object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+
+.PP
+Definition at line 605 of file TestSuite\&.php\&.
+.SS "static createTest (ReflectionClass $theClass,  $name)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$theClass\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_Test\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 431 of file TestSuite\&.php\&.
+.SS "getGroupDetails ()"
+
+.PP
+Definition at line 631 of file TestSuite\&.php\&.
+.SS "getGroups ()"
+Returns the test groups of the suite\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 626 of file TestSuite\&.php\&.
+.SS "getIterator ()"
+Returns an iterator for this test suite\&.
+.PP
+\fBReturns:\fP
+.RS 4
+RecursiveIteratorIterator 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 954 of file TestSuite\&.php\&.
+.SS "getName ()"
+Returns the name of the suite\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 615 of file TestSuite\&.php\&.
+.SS "static incompleteTest ( $class,  $methodName,  $message)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$methodName\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_IncompleteTestCase\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 909 of file TestSuite\&.php\&.
+.SS "injectFilter (\fBPHPUnit_Runner_Filter_Factory\fP $filter)"
+
+.PP
+Definition at line 965 of file TestSuite\&.php\&.
+.SS "static isTestMethod (ReflectionMethod $method)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 867 of file TestSuite\&.php\&.
+.SS "markTestSuiteSkipped ( $message = \fC''\fP)"
+Mark the test suite as skipped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_SkippedTestSuiteError\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 817 of file TestSuite\&.php\&.
+.SS "run (\fBPHPUnit_Framework_TestResult\fP $result = \fCnull\fP)"
+Runs the tests and collects their result in a TestResult\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_Test\fP\&.
+.PP
+Definition at line 653 of file TestSuite\&.php\&.
+.SS "runTest (\fBPHPUnit_Framework_Test\fP $test, \fBPHPUnit_Framework_TestResult\fP $result)"
+Runs a test\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$result\fP 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 759 of file TestSuite\&.php\&.
+.SS "setBackupGlobals ( $backupGlobals)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$backupGlobals\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 929 of file TestSuite\&.php\&.
+.SS "setBackupStaticAttributes ( $backupStaticAttributes)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$backupStaticAttributes\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 940 of file TestSuite\&.php\&.
+.SS "setDisallowChangesToGlobalState ( $disallowChangesToGlobalState)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$disallowChangesToGlobalState\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.6\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 918 of file TestSuite\&.php\&.
+.SS "setGroupDetails (array $groups)"
+Set tests groups of the test case
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$groups\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 642 of file TestSuite\&.php\&.
+.SS "setName ( $name)"
+Sets the name of the suite\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP 
+.RE
+.PP
+
+.PP
+Definition at line 769 of file TestSuite\&.php\&.
+.SS "setRunTestInSeparateProcess ( $runTestInSeparateProcess)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$runTestInSeparateProcess\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.7\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 743 of file TestSuite\&.php\&.
+.SS "setTests (array $tests)"
+Set tests of the test suite
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tests\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.0\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 805 of file TestSuite\&.php\&.
+.SS "setUp ()\fC [protected]\fP"
+\fBTemplate\fP Method that is called before the tests of this test suite are run\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 981 of file TestSuite\&.php\&.
+.SS "static skipTest ( $class,  $methodName,  $message)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$methodName\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_SkippedTestCase\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 4\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 897 of file TestSuite\&.php\&.
+.SS "tearDown ()\fC [protected]\fP"
+\fBTemplate\fP Method that is called after the tests of this test suite have finished running\&.
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 991 of file TestSuite\&.php\&.
+.SS "testAt ( $index)"
+Returns the test at the given index\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinteger\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_Test\fP 
+.RE
+.PP
+
+.PP
+Definition at line 780 of file TestSuite\&.php\&.
+.SS "tests ()"
+Returns the tests as an enumeration\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 794 of file TestSuite\&.php\&.
+.SS "toString ()"
+Returns a string representation of the test suite\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBPHPUnit_Framework_SelfDescribing\fP\&.
+.PP
+Definition at line 215 of file TestSuite\&.php\&.
+.SS "static warning ( $message)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_Warning\fP 
+.RE
+.PP
+
+.PP
+Definition at line 885 of file TestSuite\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$backupGlobals = null\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file TestSuite\&.php\&.
+.SS "$backupStaticAttributes = null\fC [protected]\fP"
+
+.PP
+Definition at line 61 of file TestSuite\&.php\&.
+.SS "$foundClasses = array()\fC [protected]\fP"
+
+.PP
+Definition at line 109 of file TestSuite\&.php\&.
+.SS "$groups = array()\fC [protected]\fP"
+
+.PP
+Definition at line 85 of file TestSuite\&.php\&.
+.SS "$\fBname\fP = ''\fC [protected]\fP"
+
+.PP
+Definition at line 78 of file TestSuite\&.php\&.
+.SS "$numTests = -1\fC [protected]\fP"
+
+.PP
+Definition at line 99 of file TestSuite\&.php\&.
+.SS "$runTestInSeparateProcess = false\fC [protected]\fP"
+
+.PP
+Definition at line 71 of file TestSuite\&.php\&.
+.SS "$testCase = false\fC [protected]\fP"
+
+.PP
+Definition at line 104 of file TestSuite\&.php\&.
+.SS "$\fBtests\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 92 of file TestSuite\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

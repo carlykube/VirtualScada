@@ -1,0 +1,132 @@
+.TH "virtual" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+virtual \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBserial\fP, \fBtcp\fP, and \fBudp\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self, args, kwds)"
+.br
+.ti -1c
+.RI "def \fBinitialize\fP (self, kwds)"
+.br
+.ti -1c
+.RI "def \fBgetMessage\fP"
+.br
+.ti -1c
+.RI "def \fBsendMessage\fP"
+.br
+.ti -1c
+.RI "def \fBshutdown\fP (self)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Virtual class for communications interfaces
+
+This class is meant to be a virtual interface for the other communications 
+interfaces. Most methods here serve as placeholders. Each interface must
+implement an initialize() method, a getMessage() method, and a sendMessage()
+method. The methods are callable, so this can be a placeholder for
+developing other code.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 12 of file ifaces\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  args,  kwds)"
+
+.PP
+.nf
+Constructor for the interface. All constructors should implement
+    variable length call parameters with *args and **kwds. These permit
+    the actual configuration dictionaries to be passed to iface 
+    constructors. The variable arguments will actually be used to catch
+    configuration parameters that aren't used by the constructor. 
+.fi
+.PP
+ 
+.PP
+Definition at line 21 of file ifaces\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def getMessage ( self,  block = \fCTrue\fP,  timeout = \fCNone\fP)"
+
+.PP
+.nf
+getMessage() is used to return a whole message (where possible) from
+the comm channel. The message may be a JSON update, an ICS protocol
+message, or other message.
+
+@param block Boolean. If true, this call blocks until timeout
+@param timeout Floating point value in seconds specifying how long the
+        call should block if parameter block is true. If none 
+        and block == True,  call will block indefinitely. If 
+        block is false, this value has no effect.
+
+@returns A string containing the contents of the message.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 36 of file ifaces\&.py\&.
+.SS "def initialize ( self,  kwds)"
+
+.PP
+.nf
+initialize() is used to set up the comm channel. It may be used to 
+call bind() or socket(), open or create a file or pipe descriptor, or
+other necessary task. Channel specific parameters, like filenames,
+source or destination addresses or ports, may be provided as 
+arguments
+.fi
+.PP
+ 
+.PP
+Definition at line 29 of file ifaces\&.py\&.
+.SS "def sendMessage ( self,  message,  recipients = \fCNone\fP)"
+
+.PP
+.nf
+sendMessage() transmits the message provided in the call over the 
+channel.
+
+@param message A string containing the message to be sent. 
+@param recipients A list of device addresses or file descriptors to 
+       write the message to. If the default None is used, the recipient
+       will be the one(s) established in initialize().
+
+.fi
+.PP
+ 
+.PP
+Definition at line 50 of file ifaces\&.py\&.
+.SS "def shutdown ( self)"
+
+.PP
+.nf
+shutdown() closes relevant sockets, files, and otherwises cleans up
+the interface.
+.fi
+.PP
+ 
+.PP
+Definition at line 61 of file ifaces\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

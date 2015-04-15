@@ -1,0 +1,295 @@
+.TH "LoggerInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LoggerInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, \fBLoggerInterface\fP, and \fBLogger\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Describes a logger instance
+.PP
+The message MUST be a string or object implementing __toString()\&.
+.PP
+The message MAY contain placeholders in the form: {foo} where foo will be replaced by the context data in key 'foo'\&.
+.PP
+The context array can contain arbitrary data, the only assumption that can be made by implementors is that if an Exception instance is given to produce a stack trace, it MUST be in a key named 'exception'\&.
+.PP
+See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md for the full interface specification\&. 
+.PP
+Definition at line 12385 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+Action must be taken immediately\&.
+.PP
+Example: Entire website down, database unavailable, etc\&. This should trigger the SMS alerts and wake you up\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+Critical conditions\&.
+.PP
+Example: Application component unavailable, unexpected exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+Detailed debug information\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+System is unusable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+Runtime errors that do not require immediate action but should typically be logged and monitored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBLogger\fP, and \fBAbstractLogger\fP\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+Interesting events\&.
+.PP
+Example: User logs in, SQL logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+Logs with an arbitrary level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBConsoleLogger\fP, \fBLogger\fP, and \fBNullLogger\fP\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBConsoleLogger\fP, \fBLogger\fP, and \fBNullLogger\fP\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+Normal but significant events\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+Exceptional occurrences that are not errors\&.
+.PP
+Example: Use of deprecated APIs, poor use of an API, undesirable things that are not necessarily wrong\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null 
+.RE
+.PP
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implemented in \fBWriter\fP, \fBWriter\fP, \fBAbstractLogger\fP, and \fBLogger\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

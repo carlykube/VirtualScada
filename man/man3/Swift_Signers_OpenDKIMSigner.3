@@ -1,0 +1,238 @@
+.TH "Swift_Signers_OpenDKIMSigner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Signers_OpenDKIMSigner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Signers_DKIMSigner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($privateKey, $domainName, $selector)"
+.br
+.ti -1c
+.RI "\fBaddSignature\fP (\fBSwift_Mime_HeaderSet\fP $headers)"
+.br
+.ti -1c
+.RI "\fBsetHeaders\fP (\fBSwift_Mime_HeaderSet\fP $headers)"
+.br
+.ti -1c
+.RI "\fBstartBody\fP ()"
+.br
+.ti -1c
+.RI "\fBendBody\fP ()"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSignatureTimestamp\fP ($time)"
+.br
+.ti -1c
+.RI "\fBsetSignatureExpiration\fP ($time)"
+.br
+.ti -1c
+.RI "\fBsetDebugHeaders\fP ($debug)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP ($privateKey, $domainName, $selector)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBCANON_RELAXED\fP = 1"
+.br
+.ti -1c
+.RI "const \fBCANON_SIMPLE\fP = 2"
+.br
+.ti -1c
+.RI "const \fBSIG_RSA_SHA1\fP = 3"
+.br
+.ti -1c
+.RI "const \fBSIG_RSA_SHA256\fP = 4"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_canonicalizeBody\fP ($string)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+DKIM Signer used to apply DKIM Signature to a message Takes advantage of pecl extension
+.PP
+\fBAuthor:\fP
+.RS 4
+Xavier De Cock xdecock@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file OpenDKIMSigner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $privateKey,  $domainName,  $selector)"
+
+.PP
+Definition at line 30 of file OpenDKIMSigner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_canonicalizeBody ( $string)\fC [protected]\fP"
+
+.PP
+Definition at line 171 of file OpenDKIMSigner\&.php\&.
+.SS "addSignature (\fBSwift_Mime_HeaderSet\fP $headers)"
+Add the header(s) to the headerSet
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_HeaderSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 45 of file OpenDKIMSigner\&.php\&.
+.SS "endBody ()"
+Give the signal that the body has finished streaming
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_HeaderSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 112 of file OpenDKIMSigner\&.php\&.
+.SS "static newInstance ( $privateKey,  $domainName,  $selector)\fC [static]\fP"
+
+.PP
+Definition at line 40 of file OpenDKIMSigner\&.php\&.
+.SS "reset ()"
+
+.PP
+Implements \fBSwift_Signer\fP\&.
+.PP
+Definition at line 122 of file OpenDKIMSigner\&.php\&.
+.SS "setDebugHeaders ( $debug)"
+Enable / disable the DebugHeaders
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$debug\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file OpenDKIMSigner\&.php\&.
+.SS "setHeaders (\fBSwift_Mime_HeaderSet\fP $headers)"
+Give the headers already given
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_HeaderSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 58 of file OpenDKIMSigner\&.php\&.
+.SS "setSignatureExpiration ( $time)"
+Set the signature expiration timestamp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file OpenDKIMSigner\&.php\&.
+.SS "setSignatureTimestamp ( $time)"
+Set the signature timestamp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file OpenDKIMSigner\&.php\&.
+.SS "startBody ()"
+Prepare the Signer to get a new Body
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_HeaderSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 101 of file OpenDKIMSigner\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const CANON_RELAXED = 1"
+
+.PP
+Definition at line 25 of file OpenDKIMSigner\&.php\&.
+.SS "const CANON_SIMPLE = 2"
+
+.PP
+Definition at line 26 of file OpenDKIMSigner\&.php\&.
+.SS "const SIG_RSA_SHA1 = 3"
+
+.PP
+Definition at line 27 of file OpenDKIMSigner\&.php\&.
+.SS "const SIG_RSA_SHA256 = 4"
+
+.PP
+Definition at line 28 of file OpenDKIMSigner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

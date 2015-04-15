@@ -1,0 +1,196 @@
+.TH "Swift_ByteStream_AbstractFilterableInputStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_ByteStream_AbstractFilterableInputStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_InputByteStream\fP, and \fBSwift_Filterable\fP\&.
+.PP
+Inherited by \fBSwift_ByteStream_FileByteStream\fP, and \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddFilter\fP (\fBSwift_StreamFilter\fP $\fBfilter\fP, $key)"
+.br
+.ti -1c
+.RI "\fBremoveFilter\fP ($key)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBunbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBflushBuffers\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_commit\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fB_flush\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_sequence\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides the base functionality for an InputStream supporting filters\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file AbstractFilterableInputStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_commit ( $bytes)\fC [abstract]\fP, \fC [protected]\fP"
+Commit the given bytes to the storage medium immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+
+.SS "_flush ()\fC [abstract]\fP, \fC [protected]\fP"
+Flush any buffers/content with immediate effect\&. 
+.SS "addFilter (\fBSwift_StreamFilter\fP $filter,  $key)"
+Add a StreamFilter to this InputByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Filterable\fP\&.
+.PP
+Definition at line 58 of file AbstractFilterableInputStream\&.php\&.
+.SS "bind (\fBSwift_InputByteStream\fP $is)"
+Attach $is to this stream\&.
+.PP
+The stream acts as an observer, receiving all data that is written\&. All \fBwrite()\fP and \fBflushBuffers()\fP operations will be mirrored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 114 of file AbstractFilterableInputStream\&.php\&.
+.SS "commit ()"
+For any bytes that are currently buffered inside the stream, force them off the buffer\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 101 of file AbstractFilterableInputStream\&.php\&.
+.SS "flushBuffers ()"
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 146 of file AbstractFilterableInputStream\&.php\&.
+.SS "removeFilter ( $key)"
+Remove an already present StreamFilter based on its $key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Filterable\fP\&.
+.PP
+Definition at line 68 of file AbstractFilterableInputStream\&.php\&.
+.SS "unbind (\fBSwift_InputByteStream\fP $is)"
+Remove an already bound stream\&.
+.PP
+If $is is not bound, no errors will be raised\&. If the stream currently has any buffered data it will be written to $is before unbinding occurs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 128 of file AbstractFilterableInputStream\&.php\&.
+.SS "write ( $bytes)"
+Writes $bytes to the end of the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 82 of file AbstractFilterableInputStream\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_sequence = 0\fC [protected]\fP"
+Write sequence\&. 
+.PP
+Definition at line 21 of file AbstractFilterableInputStream\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

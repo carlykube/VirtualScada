@@ -1,0 +1,171 @@
+.TH "udp" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+udp \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBvirtual\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self, \fBsport\fP=None, \fBrecipients\fP=None, \fBtimeout\fP=None, kwds)"
+.br
+.ti -1c
+.RI "def \fBinitialize\fP (self)"
+.br
+.ti -1c
+.RI "def \fBgetMessage\fP"
+.br
+.ti -1c
+.RI "def \fBsendMessage\fP"
+.br
+.ti -1c
+.RI "def \fBshutdown\fP (self)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBMAX_UDP_DATA_LEN\fP"
+.br
+.ti -1c
+.RI "\fBsport\fP"
+.br
+.ti -1c
+.RI "\fBrecipients\fP"
+.br
+.ti -1c
+.RI "\fBtimeout\fP"
+.br
+.ti -1c
+.RI "\fBsock\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Interface to UDP communications.
+
+This class provides the common interface to a UDP socket. All constructor
+fields must be defined before calling initialize(), or the socket calls will
+fail.
+.fi
+.PP
+ 
+.PP
+Definition at line 66 of file ifaces\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  sport = \fCNone\fP,  recipients = \fCNone\fP,  timeout = \fCNone\fP,  kwds)"
+
+.PP
+.nf
+udp interface constructor.
+
+@param sport local port to listen for information (bind())
+@param recipients list of tuples of form (ipaddress, port). If more than
+one recipient is listed, then calls to sendMessage() will send
+the message to each recipient in the list. A single tuple of
+form (ipaddress, port) can also be provided.
+@param timeout Float of number of seconds for a blocking getMessage
+        call to block. If None, calls will block indefinitely.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 72 of file ifaces\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def getMessage ( self,  block = \fCTrue\fP)"
+
+.PP
+.nf
+Waits on a message to arrive from the UDP socket. 
+    
+    @param block Determines if calls will block until self.timeout or not. 
+        Default is to block.
+    @throws socket.timeout If the timeout is reached before a message
+                    is received
+    @throws socket.error If a non-blocking call has nothing to recieve.
+     value will be errno.EWOULDBLOCK. Non-blocking calls should
+     check the errno of the exception and reraise the exception
+     if it's not errno.EWOULDBLOCK
+    @returns A string consisting of the received message, or None on 
+        timeout or socket.error.errnum==EWOULDBLOCK
+
+.fi
+.PP
+ 
+.PP
+Definition at line 93 of file ifaces\&.py\&.
+.SS "def initialize ( self)"
+
+.PP
+.nf
+initializes a udp socket bind()ed to self.sport 
+.fi
+.PP
+ 
+.PP
+Definition at line 88 of file ifaces\&.py\&.
+.SS "def sendMessage ( self,  message,  recipients = \fCNone\fP)"
+
+.PP
+.nf
+sends the parameter message to each recipients in the recipients
+list. If the function call argument is none, the class default is used.
+Otherwise, the argument supercedes the list defined by the class
+
+@param message A string to be sent over UDP to recipients
+@param recipients A list of tuples of form (ipaddress, port) to send the
+            message to
+
+.fi
+.PP
+ 
+.PP
+Definition at line 127 of file ifaces\&.py\&.
+.SS "def shutdown ( self)"
+
+.PP
+.nf
+Closes the socket created in initialize()
+.fi
+.PP
+ 
+.PP
+Definition at line 143 of file ifaces\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "MAX_UDP_DATA_LEN"
+
+.PP
+Definition at line 83 of file ifaces\&.py\&.
+.SS "recipients"
+
+.PP
+Definition at line 85 of file ifaces\&.py\&.
+.SS "sock"
+
+.PP
+Definition at line 90 of file ifaces\&.py\&.
+.SS "sport"
+
+.PP
+Definition at line 84 of file ifaces\&.py\&.
+.SS "timeout"
+
+.PP
+Definition at line 86 of file ifaces\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

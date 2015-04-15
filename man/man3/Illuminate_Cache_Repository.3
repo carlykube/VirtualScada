@@ -1,0 +1,500 @@
+.TH "Repository" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Repository \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRepository\fP, and ArrayAccess\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBStore\fP $store)"
+.br
+.ti -1c
+.RI "\fBsetEventDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($key)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBadd\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBremember\fP ($key, $\fBminutes\fP, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsear\fP ($key, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrememberForever\fP ($key, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetDefaultCacheTime\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultCacheTime\fP ($\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBgetStore\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfireCacheEvent\fP ($\fBevent\fP, $payload)"
+.br
+.ti -1c
+.RI "\fBgetMinutes\fP ($\fBduration\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$store\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP = 60"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file Repository\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBStore\fP $store)"
+Create a new cache repository instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$store\fP 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file Repository\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Handle dynamic calls into macros or pass missing methods to the store\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file Repository\&.php\&.
+.SS "add ( $key,  $value,  $minutes)"
+Store an item in the cache if the key does not exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 155 of file Repository\&.php\&.
+.SS "fireCacheEvent ( $event,  $payload)\fC [protected]\fP"
+Fire an event for this cache instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file Repository\&.php\&.
+.SS "forever ( $key,  $value)"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 179 of file Repository\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 249 of file Repository\&.php\&.
+.SS "get ( $key,  $default = \fCnull\fP)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 93 of file Repository\&.php\&.
+.SS "getDefaultCacheTime ()"
+Get the default cache time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 263 of file Repository\&.php\&.
+.SS "getMinutes ( $duration)\fC [protected]\fP"
+Calculate the number of minutes with the given duration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$duration\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|null 
+.RE
+.PP
+
+.PP
+Definition at line 340 of file Repository\&.php\&.
+.SS "getStore ()"
+Get the cache store implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 284 of file Repository\&.php\&.
+.SS "has ( $key)"
+Determine if an item exists in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 81 of file Repository\&.php\&.
+.SS "offsetExists ( $key)"
+Determine if a cached value exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Repository\&.php\&.
+.SS "offsetGet ( $key)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 306 of file Repository\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+Store an item in the cache for the default time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 318 of file Repository\&.php\&.
+.SS "offsetUnset ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 329 of file Repository\&.php\&.
+.SS "pull ( $key,  $default = \fCnull\fP)"
+Retrieve an item from the cache and delete it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 118 of file Repository\&.php\&.
+.SS "put ( $key,  $value,  $minutes)"
+Store an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 135 of file Repository\&.php\&.
+.SS "remember ( $key,  $minutes, Closure $callback)"
+Get an item from the cache, or store the default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$minutes\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 194 of file Repository\&.php\&.
+.SS "rememberForever ( $key, Closure $callback)"
+Get an item from the cache, or store the default value forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 228 of file Repository\&.php\&.
+.SS "sear ( $key, Closure $callback)"
+Get an item from the cache, or store the default value forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBRepository\fP\&.
+.PP
+Definition at line 216 of file Repository\&.php\&.
+.SS "setDefaultCacheTime ( $minutes)"
+Set the default cache time in minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file Repository\&.php\&.
+.SS "setEventDispatcher (\fBDispatcher\fP $events)"
+Set the event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 55 of file Repository\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$default = 60\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file Repository\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file Repository\&.php\&.
+.SS "$store\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file Repository\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

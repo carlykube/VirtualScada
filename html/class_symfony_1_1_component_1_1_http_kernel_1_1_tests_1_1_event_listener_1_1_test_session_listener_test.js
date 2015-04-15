@@ -1,0 +1,8 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test =
+[
+    [ "setUp", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "testDoesNotDeleteCookieIfUsingSessionLifetime", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test.html#a3e3bb667d4eed843fc6848a6094c9e39", null ],
+    [ "testShouldNotSaveSubRequestSession", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test.html#ab4c8568fcc25b8febc82a307f112985f", null ],
+    [ "testShouldSaveMasterRequestSession", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test.html#aa7364ecb1b811f3938f07553ceb248c7", null ],
+    [ "testUnstartedSessionIsNotSave", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_event_listener_1_1_test_session_listener_test.html#ac631459b1002e3cd0041b6eba3e91699", null ]
+];

@@ -1,0 +1,94 @@
+.TH "NodeTraverserInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NodeTraverserInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBNodeTraverser\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddVisitor\fP (\fBNodeVisitor\fP $visitor)"
+.br
+.ti -1c
+.RI "\fBremoveVisitor\fP (\fBNodeVisitor\fP $visitor)"
+.br
+.ti -1c
+.RI "\fBtraverse\fP (array $nodes)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBDONT_TRAVERSE_CHILDREN\fP = 1"
+.br
+.ti -1c
+.RI "const \fBREMOVE_NODE\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file NodeTraverserInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addVisitor (\fBNodeVisitor\fP $visitor)"
+Adds a visitor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$visitor\fP Visitor to add 
+.RE
+.PP
+
+.PP
+Implemented in \fBNodeTraverser\fP\&.
+.SS "removeVisitor (\fBNodeVisitor\fP $visitor)"
+Removes an added visitor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$visitor\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBNodeTraverser\fP\&.
+.SS "traverse (array $nodes)"
+Traverses an array of nodes using the registered visitors\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBNode\fP[] Traversed array of nodes 
+.RE
+.PP
+
+.PP
+Implemented in \fBNodeTraverser\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const DONT_TRAVERSE_CHILDREN = 1"
+If \fBNodeVisitor::enterNode()\fP returns DONT_TRAVERSE_CHILDREN, child nodes of the current node will not be traversed for any visitors\&.
+.PP
+For subsequent visitors enterNode() will still be called on the current node and leaveNode() will also be invoked for the current node\&. 
+.PP
+Definition at line 14 of file NodeTraverserInterface\&.php\&.
+.SS "const REMOVE_NODE = false"
+If \fBNodeVisitor::leaveNode()\fP returns REMOVE_NODE for a node that occurs in an array, it will be removed from the array\&.
+.PP
+For subsequent visitors leaveNode() will still be invoked for the removed node\&. 
+.PP
+Definition at line 23 of file NodeTraverserInterface\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

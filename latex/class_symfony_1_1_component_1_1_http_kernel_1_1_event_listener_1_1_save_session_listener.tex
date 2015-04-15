@@ -1,0 +1,71 @@
+\section{Save\+Session\+Listener Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_event_listener_1_1_save_session_listener}\index{Save\+Session\+Listener@{Save\+Session\+Listener}}
+Inheritance diagram for Save\+Session\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_event_listener_1_1_save_session_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf on\+Kernel\+Response} ({\bf Filter\+Response\+Event} \${\bf event})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Subscribed\+Events} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Saves the session, in case it is still open, before sending the response/headers.
+
+This ensures several things in case the developer did not save the session explicitly\+:
+
+
+\begin{DoxyItemize}
+\item If a session save handler without locking is used, it ensures the data is available on the next request, e.\+g. after a redirect. P\+H\+Ps auto-\/save at script end via session\+\_\+register\+\_\+shutdown is executed after fastcgi\+\_\+finish\+\_\+request. So in this case the data could be missing the next request because it might not be saved the moment the new request is processed.
+\item \doxyref{A}{p.}{class_a} locking save handler (e.\+g. the native \textquotesingle{}files\textquotesingle{}) circumvents concurrency problems like the one above. But by saving the session before long-\/running things in the terminate event, we ensure the session is not blocked longer than needed.
+\item When regenerating the session I\+D no locking is involved in P\+H\+Ps session design. See {\tt https\+://bugs.\+php.\+net/bug.\+php?id=61470} for a discussion. So in this case, the session must be saved anyway before sending the headers with the new session I\+D. Otherwise session data could get lost again for concurrent requests with the new I\+D. \doxyref{One}{p.}{class_one} result could be that you get logged out after just logging in.
+\end{DoxyItemize}
+
+This listener should be executed as one of the last listeners, so that previous listeners can still operate on the open session. This prevents the overhead of restarting it. Listeners after closing the session can still work with the session as usual because Symfonys session implementation starts the session on demand. So writing to it after it is saved will just restart it.
+
+\begin{DoxyAuthor}{Author}
+Tobias Schultze {\tt http\+://tobion.\+de} 
+\end{DoxyAuthor}
+
+
+Definition at line 45 of file Save\+Session\+Listener.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener}!get\+Subscribed\+Events@{get\+Subscribed\+Events}}
+\index{get\+Subscribed\+Events@{get\+Subscribed\+Events}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener}}
+\subsubsection[{get\+Subscribed\+Events}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Subscribed\+Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_event_listener_1_1_save_session_listener_af1f63475927bbcb3bd21b58712076104}
+
+
+Definition at line 59 of file Save\+Session\+Listener.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener}!on\+Kernel\+Response@{on\+Kernel\+Response}}
+\index{on\+Kernel\+Response@{on\+Kernel\+Response}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Event\+Listener\+::\+Save\+Session\+Listener}}
+\subsubsection[{on\+Kernel\+Response}]{\setlength{\rightskip}{0pt plus 5cm}on\+Kernel\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Filter\+Response\+Event}}]{\$event}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_event_listener_1_1_save_session_listener_a38bc4237b53c467404a6476fdddf99e9}
+
+
+Definition at line 47 of file Save\+Session\+Listener.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Event\+Listener/{\bf Save\+Session\+Listener.\+php}\end{DoxyCompactItemize}

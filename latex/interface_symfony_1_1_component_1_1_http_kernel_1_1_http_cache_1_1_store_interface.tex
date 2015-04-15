@@ -1,0 +1,207 @@
+\section{Store\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface}\index{Store\+Interface@{Store\+Interface}}
+Inheritance diagram for Store\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lookup} ({\bf Request} \$request)
+\item 
+{\bf write} ({\bf Request} \$request, {\bf Response} \$response)
+\item 
+{\bf invalidate} ({\bf Request} \$request)
+\item 
+{\bf lock} ({\bf Request} \$request)
+\item 
+{\bf unlock} ({\bf Request} \$request)
+\item 
+{\bf is\+Locked} ({\bf Request} \$request)
+\item 
+{\bf purge} (\$url)
+\item 
+{\bf cleanup} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface implemented by H\+T\+T\+P cache stores.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Store\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{cleanup}]{\setlength{\rightskip}{0pt plus 5cm}cleanup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_aff07c1d29d6d6a540c726948254a1764}
+Cleanups storage. 
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_aff07c1d29d6d6a540c726948254a1764}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!invalidate@{invalidate}}
+\index{invalidate@{invalidate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{invalidate}]{\setlength{\rightskip}{0pt plus 5cm}invalidate (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a2a6f6a88467a844d4cdfb91cb720ba42}
+Invalidates all cache entries that match the request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a2a6f6a88467a844d4cdfb91cb720ba42}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!is\+Locked@{is\+Locked}}
+\index{is\+Locked@{is\+Locked}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{is\+Locked}]{\setlength{\rightskip}{0pt plus 5cm}is\+Locked (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a6e9baf20e51bbf29ba51dd31e7e2f75e}
+Returns whether or not a lock exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if lock exists, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a6e9baf20e51bbf29ba51dd31e7e2f75e}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!lock@{lock}}
+\index{lock@{lock}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}lock (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a9f1eee00e090d98848f944eb3ef52eed}
+Locks the cache for a given \doxyref{Request}{p.}{class_request}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool$\vert$string true if the lock is acquired, the path to the current lock otherwise 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a9f1eee00e090d98848f944eb3ef52eed}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!lookup@{lookup}}
+\index{lookup@{lookup}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a89146d2eb037705a558bc79ad819e258}
+Locates a cached \doxyref{Response}{p.}{class_response} for the \doxyref{Request}{p.}{class_request} provided.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response$\vert$null \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance, or null if no cache entry was found 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a89146d2eb037705a558bc79ad819e258}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+\item[{}]{\$url}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a8bbb772ff32d35c2461f801260559d74}
+Purges data for the given \doxyref{U\+R\+L}{p.}{class_u_r_l}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & \doxyref{A}{p.}{class_a} \doxyref{U\+R\+L}{p.}{class_u_r_l}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the \doxyref{U\+R\+L}{p.}{class_u_r_l} exists and has been purged, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a8bbb772ff32d35c2461f801260559d74}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!unlock@{unlock}}
+\index{unlock@{unlock}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{unlock}]{\setlength{\rightskip}{0pt plus 5cm}unlock (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a3bee2944d6dfee4b331e439c83833e4f}
+Releases the lock for the given \doxyref{Request}{p.}{class_request}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool False if the lock file does not exist or cannot be unlocked, true otherwise 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a3bee2944d6dfee4b331e439c83833e4f}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Store\+Interface}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface_a7e11ac1aabf95f26abd8aadb2b44f9a7}
+Writes a cache entry to the store for the given \doxyref{Request}{p.}{class_request} and \doxyref{Response}{p.}{class_response}.
+
+Existing entries are read and any that match the response are removed. This method calls write with the new list of cache entries.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The key under which the response is stored 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Store} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_a7e11ac1aabf95f26abd8aadb2b44f9a7}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Http\+Cache/{\bf Store\+Interface.\+php}\end{DoxyCompactItemize}

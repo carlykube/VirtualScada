@@ -1,0 +1,758 @@
+.TH "Writer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Writer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLog\fP, \fBLoggerInterface\fP, \fBLog\fP, and \fBLoggerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (MonologLogger $monolog, \fBDispatcher\fP $dispatcher=null)"
+.br
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBuseFiles\fP ($\fBpath\fP, $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseDailyFiles\fP ($\fBpath\fP, $\fBdays\fP=0, $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseSyslog\fP ($\fBname\fP= 'laravel', $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseErrorLog\fP ($level= '\fBdebug\fP', $messageType=\fBErrorLogHandler::OPERATING_SYSTEM\fP)"
+.br
+.ti -1c
+.RI "\fBlisten\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMonolog\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEventDispatcher\fP (\fBDispatcher\fP $dispatcher)"
+.br
+.ti -1c
+.RI "\fB__construct\fP (MonologLogger $monolog, \fBDispatcher\fP $dispatcher=null)"
+.br
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBuseFiles\fP ($\fBpath\fP, $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseDailyFiles\fP ($\fBpath\fP, $\fBdays\fP=0, $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseSyslog\fP ($\fBname\fP= 'laravel', $level= '\fBdebug\fP')"
+.br
+.ti -1c
+.RI "\fBuseErrorLog\fP ($level= '\fBdebug\fP', $messageType=\fBErrorLogHandler::OPERATING_SYSTEM\fP)"
+.br
+.ti -1c
+.RI "\fBlisten\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMonolog\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEventDispatcher\fP (\fBDispatcher\fP $dispatcher)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwriteLog\fP ($level, $message, $context)"
+.br
+.ti -1c
+.RI "\fBfireLogEvent\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBformatMessage\fP ($message)"
+.br
+.ti -1c
+.RI "\fBparseLevel\fP ($level)"
+.br
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBwriteLog\fP ($level, $message, $context)"
+.br
+.ti -1c
+.RI "\fBfireLogEvent\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBformatMessage\fP ($message)"
+.br
+.ti -1c
+.RI "\fBparseLevel\fP ($level)"
+.br
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$monolog\fP"
+.br
+.ti -1c
+.RI "\fB$dispatcher\fP"
+.br
+.ti -1c
+.RI "\fB$levels\fP = array('\fBdebug\fP' => MonologLogger::DEBUG, '\fBinfo\fP' => MonologLogger::INFO, '\fBnotice\fP' => MonologLogger::NOTICE, '\fBwarning\fP' => MonologLogger::WARNING, '\fBerror\fP' => MonologLogger::ERROR, '\fBcritical\fP' => MonologLogger::CRITICAL, '\fBalert\fP' => MonologLogger::ALERT, '\fBemergency\fP' => MonologLogger::EMERGENCY)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12027 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (MonologLogger $monolog, \fBDispatcher\fP $dispatcher = \fCnull\fP)"
+
+.PP
+Definition at line 12032 of file compiled\&.php\&.
+.SS "__construct (MonologLogger $monolog, \fBDispatcher\fP $dispatcher = \fCnull\fP)"
+Create a new log writer instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$monolog\fP 
+.br
+\fI$dispatcher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Writer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP an alert message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 86 of file Writer\&.php\&.
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12043 of file compiled\&.php\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP a critical message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 98 of file Writer\&.php\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12047 of file compiled\&.php\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP a debug message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 158 of file Writer\&.php\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12067 of file compiled\&.php\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP an emergency message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLoggerInterface\fP\&.
+.PP
+Definition at line 74 of file Writer\&.php\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLoggerInterface\fP\&.
+.PP
+Definition at line 12039 of file compiled\&.php\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP an error message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 110 of file Writer\&.php\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12051 of file compiled\&.php\&.
+.SS "fireLogEvent ( $level,  $message, array $context = \fCarray()\fP)\fC [protected]\fP"
+Fires a log event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 289 of file Writer\&.php\&.
+.SS "fireLogEvent ( $level,  $message, array $context = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 12110 of file compiled\&.php\&.
+.SS "formatMessage ( $message)\fC [protected]\fP"
+Format the parameters for the logger\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 306 of file Writer\&.php\&.
+.SS "formatMessage ( $message)\fC [protected]\fP"
+
+.PP
+Definition at line 12116 of file compiled\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+Get a defaut \fBMonolog\fP formatter instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 357 of file Writer\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+
+.PP
+Definition at line 12138 of file compiled\&.php\&.
+.SS "getEventDispatcher ()"
+Get the event dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 367 of file Writer\&.php\&.
+.SS "getEventDispatcher ()"
+
+.PP
+Definition at line 12142 of file compiled\&.php\&.
+.SS "getMonolog ()"
+Get the underlying \fBMonolog\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 347 of file Writer\&.php\&.
+.SS "getMonolog ()"
+
+.PP
+Definition at line 12134 of file compiled\&.php\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP an informational message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 146 of file Writer\&.php\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12063 of file compiled\&.php\&.
+.SS "listen (Closure $callback)"
+Register a new callback handler for when a log event is triggered\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 271 of file Writer\&.php\&.
+.SS "listen (Closure $callback)"
+
+.PP
+Definition at line 12103 of file compiled\&.php\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+\fBLog\fP a message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 171 of file Writer\&.php\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12071 of file compiled\&.php\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP a notice to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 134 of file Writer\&.php\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12059 of file compiled\&.php\&.
+.SS "parseLevel ( $level)\fC [protected]\fP"
+Parse the string level into a \fBMonolog\fP constant\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 332 of file Writer\&.php\&.
+.SS "parseLevel ( $level)\fC [protected]\fP"
+
+.PP
+Definition at line 12127 of file compiled\&.php\&.
+.SS "setEventDispatcher (\fBDispatcher\fP $dispatcher)"
+Set the event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dispatcher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 378 of file Writer\&.php\&.
+.SS "setEventDispatcher (\fBDispatcher\fP $dispatcher)"
+
+.PP
+Definition at line 12146 of file compiled\&.php\&.
+.SS "useDailyFiles ( $path,  $days = \fC0\fP,  $level = \fC'\fBdebug\fP'\fP)"
+Register a daily file log handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$days\fP 
+.br
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 226 of file Writer\&.php\&.
+.SS "useDailyFiles ( $path,  $days = \fC0\fP,  $level = \fC'\fBdebug\fP'\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12089 of file compiled\&.php\&.
+.SS "useErrorLog ( $level = \fC'\fBdebug\fP'\fP,  $messageType = \fC\fBErrorLogHandler::OPERATING_SYSTEM\fP\fP)"
+Register an error_log handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$messageType\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file Writer\&.php\&.
+.SS "useErrorLog ( $level = \fC'\fBdebug\fP'\fP,  $messageType = \fC\fBErrorLogHandler::OPERATING_SYSTEM\fP\fP)"
+
+.PP
+Definition at line 12098 of file compiled\&.php\&.
+.SS "useFiles ( $path,  $level = \fC'\fBdebug\fP'\fP)"
+Register a file log handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 211 of file Writer\&.php\&.
+.SS "useFiles ( $path,  $level = \fC'\fBdebug\fP'\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12084 of file compiled\&.php\&.
+.SS "useSyslog ( $name = \fC'laravel'\fP,  $level = \fC'\fBdebug\fP'\fP)"
+Register a Syslog handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 242 of file Writer\&.php\&.
+.SS "useSyslog ( $name = \fC'laravel'\fP,  $level = \fC'\fBdebug\fP'\fP)"
+
+.PP
+Definition at line 12094 of file compiled\&.php\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+\fBLog\fP a warning message to the logs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 122 of file Writer\&.php\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Implements \fBLog\fP\&.
+.PP
+Definition at line 12055 of file compiled\&.php\&.
+.SS "write ( $level,  $message, array $context = \fCarray()\fP)"
+Dynamically pass log calls into the writer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 184 of file Writer\&.php\&.
+.SS "write ( $level,  $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12075 of file compiled\&.php\&.
+.SS "writeLog ( $level,  $message,  $context)\fC [protected]\fP"
+Write a message to \fBMonolog\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.br
+\fI$message\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Writer\&.php\&.
+.SS "writeLog ( $level,  $message,  $context)\fC [protected]\fP"
+
+.PP
+Definition at line 12079 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$dispatcher\fC [protected]\fP"
+
+.PP
+Definition at line 12030 of file compiled\&.php\&.
+.SS "$levels = array('\fBdebug\fP' => MonologLogger::DEBUG, '\fBinfo\fP' => MonologLogger::INFO, '\fBnotice\fP' => MonologLogger::NOTICE, '\fBwarning\fP' => MonologLogger::WARNING, '\fBerror\fP' => MonologLogger::ERROR, '\fBcritical\fP' => MonologLogger::CRITICAL, '\fBalert\fP' => MonologLogger::ALERT, '\fBemergency\fP' => MonologLogger::EMERGENCY)\fC [protected]\fP"
+
+.PP
+Definition at line 12031 of file compiled\&.php\&.
+.SS "$monolog\fC [protected]\fP"
+
+.PP
+Definition at line 12029 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

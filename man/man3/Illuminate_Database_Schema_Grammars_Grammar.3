@@ -1,0 +1,489 @@
+.TH "Grammar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Grammar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGrammar\fP\&.
+.PP
+Inherited by \fBMySqlGrammar\fP, \fBPostgresGrammar\fP, \fBSQLiteGrammar\fP, and \fBSqlServerGrammar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileRenameColumn\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBcompileForeign\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBprefixArray\fP ($prefix, array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBwrapTable\fP ($table)"
+.br
+.ti -1c
+.RI "\fBwrap\fP ($value, $prefixAlias=false)"
+.br
+.ti -1c
+.RI "\fBcompileChange\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRenamedDiff\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, Column $column, SchemaManager $schema)"
+.br
+.ti -1c
+.RI "\fBsetRenamedColumns\fP (TableDiff $tableDiff, \fBFluent\fP $command, Column $column)"
+.br
+.ti -1c
+.RI "\fBgetColumns\fP (\fBBlueprint\fP $blueprint)"
+.br
+.ti -1c
+.RI "\fBaddModifiers\fP ($sql, \fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBgetCommandByName\fP (\fBBlueprint\fP $blueprint, $\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetCommandsByName\fP (\fBBlueprint\fP $blueprint, $\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetType\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBgetDefaultValue\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineTableDiff\fP (\fBBlueprint\fP $blueprint, SchemaManager $schema)"
+.br
+.ti -1c
+.RI "\fBgetChangedDiff\fP (\fBBlueprint\fP $blueprint, SchemaManager $schema)"
+.br
+.ti -1c
+.RI "\fBgetTableWithColumnChanges\fP (\fBBlueprint\fP $blueprint, Table $table)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineColumnForChange\fP (Table $table, \fBFluent\fP $fluent)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineColumnChangeOptions\fP (\fBFluent\fP $fluent)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineColumnType\fP ($type)"
+.br
+.ti -1c
+.RI "\fBcalculateDoctrineTextLength\fP ($type)"
+.br
+.ti -1c
+.RI "\fBmapFluentOptionToDoctrine\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBmapFluentValueToDoctrine\fP ($option, $value)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 15 of file Grammar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addModifiers ( $sql, \fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Add the column modifiers to the definition\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file Grammar\&.php\&.
+.SS "calculateDoctrineTextLength ( $type)\fC [protected]\fP"
+Calculate the proper column length to force the \fBDoctrine\fP text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 403 of file Grammar\&.php\&.
+.SS "compileChange (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+Compile a change column command into a series of SQL statements\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file Grammar\&.php\&.
+.SS "compileForeign (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a foreign key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file Grammar\&.php\&.
+.SS "compileRenameColumn (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, \fBConnection\fP $connection)"
+Compile a rename column command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Grammar\&.php\&.
+.SS "getChangedDiff (\fBBlueprint\fP $blueprint, SchemaManager $schema)\fC [protected]\fP"
+Get the \fBDoctrine\fP table difference for the given changes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$schema\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|bool 
+.RE
+.PP
+
+.PP
+Definition at line 299 of file Grammar\&.php\&.
+.SS "getColumns (\fBBlueprint\fP $blueprint)\fC [protected]\fP"
+Compile the blueprint's column definitions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file Grammar\&.php\&.
+.SS "getCommandByName (\fBBlueprint\fP $blueprint,  $name)\fC [protected]\fP"
+Get the primary key command if it exists on the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file Grammar\&.php\&.
+.SS "getCommandsByName (\fBBlueprint\fP $blueprint,  $name)\fC [protected]\fP"
+Get all of the commands with a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 179 of file Grammar\&.php\&.
+.SS "getDefaultValue ( $value)\fC [protected]\fP"
+Format a value so that it can be used in 'default' clauses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 243 of file Grammar\&.php\&.
+.SS "getDoctrineColumnChangeOptions (\fBFluent\fP $fluent)\fC [protected]\fP"
+Get the \fBDoctrine\fP column change options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fluent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file Grammar\&.php\&.
+.SS "getDoctrineColumnForChange (Table $table, \fBFluent\fP $fluent)\fC [protected]\fP"
+Get the \fBDoctrine\fP column instance for a column change\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$fluent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 346 of file Grammar\&.php\&.
+.SS "getDoctrineColumnType ( $type)\fC [protected]\fP"
+Get the doctrine column type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 377 of file Grammar\&.php\&.
+.SS "getDoctrineTableDiff (\fBBlueprint\fP $blueprint, SchemaManager $schema)\fC [protected]\fP"
+Create an empty \fBDoctrine\fP DBAL TableDiff from the \fBBlueprint\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$schema\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 259 of file Grammar\&.php\&.
+.SS "getRenamedDiff (\fBBlueprint\fP $blueprint, \fBFluent\fP $command, Column $column, SchemaManager $schema)\fC [protected]\fP"
+Get a new column instance with the new column name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.br
+\fI$column\fP 
+.br
+\fI$schema\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 47 of file Grammar\&.php\&.
+.SS "getTableWithColumnChanges (\fBBlueprint\fP $blueprint, Table $table)\fC [protected]\fP"
+Get a copy of the given \fBDoctrine\fP table after making the column changes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 313 of file Grammar\&.php\&.
+.SS "getType (\fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for the column data type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 193 of file Grammar\&.php\&.
+.SS "mapFluentOptionToDoctrine ( $attribute)\fC [protected]\fP"
+Get the matching \fBDoctrine\fP option for a given Fluent attribute name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 424 of file Grammar\&.php\&.
+.SS "mapFluentValueToDoctrine ( $option,  $value)\fC [protected]\fP"
+Get the matching \fBDoctrine\fP value for a given Fluent attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$option\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 453 of file Grammar\&.php\&.
+.SS "prefixArray ( $prefix, array $values)"
+Add a prefix to an array of values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Grammar\&.php\&.
+.SS "setRenamedColumns (TableDiff $tableDiff, \fBFluent\fP $command, Column $column)\fC [protected]\fP"
+Set the renamed columns on the table diff\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tableDiff\fP 
+.br
+\fI$command\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 62 of file Grammar\&.php\&.
+.SS "wrap ( $value,  $prefixAlias = \fCfalse\fP)"
+{} 
+.PP
+Definition at line 230 of file Grammar\&.php\&.
+.SS "wrapTable ( $table)"
+Wrap a table in keyword identifiers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file Grammar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

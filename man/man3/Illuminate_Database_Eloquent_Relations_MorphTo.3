@@ -1,0 +1,324 @@
+.TH "MorphTo" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MorphTo \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBBelongsTo\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent, $foreignKey, $otherKey, $type, $relation)"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBmatch\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBassociate\fP (\fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBgetEager\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateModelByType\fP ($type)"
+.br
+.ti -1c
+.RI "\fBgetMorphType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDictionary\fP ()"
+.br
+.ti -1c
+.RI "\fBwithTrashed\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbuildDictionary\fP (\fBCollection\fP $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBmatchToMorphParents\fP ($type, \fBCollection\fP $results)"
+.br
+.ti -1c
+.RI "\fBgetResultsByType\fP ($type)"
+.br
+.ti -1c
+.RI "\fBgatherKeysByType\fP ($type)"
+.br
+.ti -1c
+.RI "\fBuseWithTrashed\fP (\fBBuilder\fP $query)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$morphType\fP"
+.br
+.ti -1c
+.RI "\fB$models\fP"
+.br
+.ti -1c
+.RI "\fB$dictionary\fP = array()"
+.br
+.ti -1c
+.RI "\fB$withTrashed\fP = false"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file MorphTo\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent,  $foreignKey,  $otherKey,  $type,  $relation)"
+Create a new morph to relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$type\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file MorphTo\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file MorphTo\&.php\&.
+.SS "associate (\fBModel\fP $model)"
+Associate the model instance to the given parent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 103 of file MorphTo\&.php\&.
+.SS "buildDictionary (\fBCollection\fP $models)\fC [protected]\fP"
+Build a dictionary with the models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file MorphTo\&.php\&.
+.SS "createModelByType ( $type)"
+Create a new model instance by type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 192 of file MorphTo\&.php\&.
+.SS "gatherKeysByType ( $type)\fC [protected]\fP"
+Gather all of the foreign keys for a given type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file MorphTo\&.php\&.
+.SS "getDictionary ()"
+Get the dictionary used by the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file MorphTo\&.php\&.
+.SS "getEager ()"
+Get the results of the relationship\&.
+.PP
+Called via eager load method of \fBEloquent\fP query builder\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file MorphTo\&.php\&.
+.SS "getMorphType ()"
+Get the foreign key 'type' name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 202 of file MorphTo\&.php\&.
+.SS "getResultsByType ( $type)\fC [protected]\fP"
+Get all of the relation results for a type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 156 of file MorphTo\&.php\&.
+.SS "match (array $models, \fBCollection\fP $results,  $relation)"
+Match the eagerly loaded results to their parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file MorphTo\&.php\&.
+.SS "matchToMorphParents ( $type, \fBCollection\fP $results)\fC [protected]\fP"
+Match the results for a given type to their parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$results\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file MorphTo\&.php\&.
+.SS "useWithTrashed (\fBBuilder\fP $query)\fC [protected]\fP"
+Return trashed models with query if told so\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 237 of file MorphTo\&.php\&.
+.SS "withTrashed ()"
+Fetch soft-deleted model instances with query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file MorphTo\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$dictionary = array()\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file MorphTo\&.php\&.
+.SS "$\fBmodels\fP\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file MorphTo\&.php\&.
+.SS "$morphType\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file MorphTo\&.php\&.
+.SS "$\fBwithTrashed\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file MorphTo\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

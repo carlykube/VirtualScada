@@ -1,0 +1,190 @@
+.TH "PHPUnit_Framework_Constraint" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Framework_Constraint \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Countable, and \fBPHPUnit_Framework_SelfDescribing\fP\&.
+.PP
+Inherited by \fBIdenticalBinaryConstraint\fP, \fBPHPUnit_Framework_Constraint_And\fP, \fBPHPUnit_Framework_Constraint_ArrayHasKey\fP, \fBPHPUnit_Framework_Constraint_ArraySubset\fP, \fBPHPUnit_Framework_Constraint_Callback\fP, \fBPHPUnit_Framework_Constraint_ClassHasAttribute\fP, \fBPHPUnit_Framework_Constraint_Composite\fP, \fBPHPUnit_Framework_Constraint_Count\fP, \fBPHPUnit_Framework_Constraint_Exception\fP, \fBPHPUnit_Framework_Constraint_ExceptionCode\fP, \fBPHPUnit_Framework_Constraint_ExceptionMessage\fP, \fBPHPUnit_Framework_Constraint_ExceptionMessageRegExp\fP, \fBPHPUnit_Framework_Constraint_FileExists\fP, \fBPHPUnit_Framework_Constraint_GreaterThan\fP, \fBPHPUnit_Framework_Constraint_IsAnything\fP, \fBPHPUnit_Framework_Constraint_IsEmpty\fP, \fBPHPUnit_Framework_Constraint_IsEqual\fP, \fBPHPUnit_Framework_Constraint_IsFalse\fP, \fBPHPUnit_Framework_Constraint_IsIdentical\fP, \fBPHPUnit_Framework_Constraint_IsInstanceOf\fP, \fBPHPUnit_Framework_Constraint_IsJson\fP, \fBPHPUnit_Framework_Constraint_IsNull\fP, \fBPHPUnit_Framework_Constraint_IsTrue\fP, \fBPHPUnit_Framework_Constraint_IsType\fP, \fBPHPUnit_Framework_Constraint_JsonMatches\fP, \fBPHPUnit_Framework_Constraint_LessThan\fP, \fBPHPUnit_Framework_Constraint_Not\fP, \fBPHPUnit_Framework_Constraint_Or\fP, \fBPHPUnit_Framework_Constraint_PCREMatch\fP, \fBPHPUnit_Framework_Constraint_StringContains\fP, \fBPHPUnit_Framework_Constraint_StringEndsWith\fP, \fBPHPUnit_Framework_Constraint_StringStartsWith\fP, \fBPHPUnit_Framework_Constraint_TraversableContains\fP, \fBPHPUnit_Framework_Constraint_TraversableContainsOnly\fP, and \fBPHPUnit_Framework_Constraint_Xor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBevaluate\fP ($other, $description= '', $returnResult=false)"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmatches\fP ($other)"
+.br
+.ti -1c
+.RI "\fBfail\fP ($other, $description, \fBSebastianBergmann\\Comparator\\ComparisonFailure\fP $comparisonFailure=null)"
+.br
+.ti -1c
+.RI "\fBadditionalFailureDescription\fP ($other)"
+.br
+.ti -1c
+.RI "\fBfailureDescription\fP ($other)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$exporter\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 25 of file Constraint\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+
+.PP
+Definition at line 29 of file Constraint\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "additionalFailureDescription ( $other)\fC [protected]\fP"
+Return additional failure description where needed
+.PP
+The function can be overridden to provide additional failure information like a diff
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$other\fP Evaluated value or object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Constraint\&.php\&.
+.SS "count ()"
+Counts the number of constraint elements\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file Constraint\&.php\&.
+.SS "evaluate ( $other,  $description = \fC''\fP,  $returnResult = \fCfalse\fP)"
+Evaluates the constraint for parameter $other
+.PP
+If $returnResult is set to false (the default), an exception is thrown in case of a failure\&. null is returned otherwise\&.
+.PP
+If $returnResult is true, the result of the evaluation is returned as a boolean value instead: true in case of success, false in case of a failure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$other\fP Value or object to evaluate\&. 
+.br
+\fI$description\fP Additional information about the test 
+.br
+\fI$returnResult\fP Whether to return a result or throw an exception 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_ExpectationFailedException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file Constraint\&.php\&.
+.SS "fail ( $other,  $description, \fBSebastianBergmann\\Comparator\\ComparisonFailure\fP $comparisonFailure = \fCnull\fP)\fC [protected]\fP"
+Throws an exception for the given compared value and test description
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$other\fP Evaluated value or object\&. 
+.br
+\fI$description\fP Additional information about the test 
+.br
+\fI$comparisonFailure\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_ExpectationFailedException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file Constraint\&.php\&.
+.SS "failureDescription ( $other)\fC [protected]\fP"
+Returns the description of the failure
+.PP
+The beginning of failure messages is 'Failed asserting that' in most cases\&. This method should return the second part of that sentence\&.
+.PP
+To provide additional failure information additionalFailureDescription can be used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$other\fP Evaluated value or object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file Constraint\&.php\&.
+.SS "matches ( $other)\fC [protected]\fP"
+Evaluates the constraint for parameter $other\&. Returns true if the constraint is met, false otherwise\&.
+.PP
+This method can be overridden to implement the evaluation algorithm\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$other\fP Value or object to evaluate\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file Constraint\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$exporter\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Constraint\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

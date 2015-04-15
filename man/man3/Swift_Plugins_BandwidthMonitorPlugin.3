@@ -1,0 +1,196 @@
+.TH "Swift_Plugins_BandwidthMonitorPlugin" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Plugins_BandwidthMonitorPlugin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_SendListener\fP, \fBSwift_Events_CommandListener\fP, \fBSwift_Events_ResponseListener\fP, and \fBSwift_InputByteStream\fP\&.
+.PP
+Inherited by \fBSwift_Plugins_ThrottlerPlugin\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbeforeSendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBsendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBcommandSent\fP (\fBSwift_Events_CommandEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBresponseReceived\fP (\fBSwift_Events_ResponseEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBunbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBflushBuffers\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBytesOut\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBytesIn\fP ()"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reduces network flooding when sending large amounts of mail\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file BandwidthMonitorPlugin\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeSendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Not used\&. 
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 38 of file BandwidthMonitorPlugin\&.php\&.
+.SS "bind (\fBSwift_InputByteStream\fP $is)"
+Attach $is to this stream\&.
+.PP
+The stream acts as an observer, receiving all data that is written\&. All \fBwrite()\fP and \fBflushBuffers()\fP operations will be mirrored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 103 of file BandwidthMonitorPlugin\&.php\&.
+.SS "commandSent (\fBSwift_Events_CommandEvent\fP $evt)"
+Invoked immediately following a command being sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_CommandListener\fP\&.
+.PP
+Definition at line 58 of file BandwidthMonitorPlugin\&.php\&.
+.SS "commit ()"
+Not used\&. 
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 91 of file BandwidthMonitorPlugin\&.php\&.
+.SS "flushBuffers ()"
+Not used\&. 
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 129 of file BandwidthMonitorPlugin\&.php\&.
+.SS "getBytesIn ()"
+Get the total number of bytes received from the server\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file BandwidthMonitorPlugin\&.php\&.
+.SS "getBytesOut ()"
+Get the total number of bytes sent to the server\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file BandwidthMonitorPlugin\&.php\&.
+.SS "reset ()"
+Reset the internal counters to zero\&. 
+.PP
+Definition at line 159 of file BandwidthMonitorPlugin\&.php\&.
+.SS "responseReceived (\fBSwift_Events_ResponseEvent\fP $evt)"
+Invoked immediately following a response coming back\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_ResponseListener\fP\&.
+.PP
+Definition at line 69 of file BandwidthMonitorPlugin\&.php\&.
+.SS "sendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Invoked immediately after the Message is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 47 of file BandwidthMonitorPlugin\&.php\&.
+.SS "unbind (\fBSwift_InputByteStream\fP $is)"
+Remove an already bound stream\&.
+.PP
+If $is is not bound, no errors will be raised\&. If the stream currently has any buffered data it will be written to $is before unbinding occurs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 117 of file BandwidthMonitorPlugin\&.php\&.
+.SS "write ( $bytes)"
+Called when a message is sent so that the outgoing counter can be increased\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 80 of file BandwidthMonitorPlugin\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,53 @@
+.TH "md_vendor_sebastian_version__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_sebastian_version__r_e_a_d_m_e \- \fBVersion\fP 
+\fB\fBVersion\fP\fP is a library that helps with managing the version number of Git-hosted \fBPHP\fP projects\&.
+.PP
+.SS "Installation"
+.PP
+Simply add a dependency on \fCsebastian/version\fP to your project's \fCcomposer\&.json\fP file if you use \fCComposer\fP to manage the dependencies of your project\&.
+.PP
+.SS "Usage"
+.PP
+The constructor of the \fC\fBSebastianBergmann\fP\\\fBVersion\fP\fP class expects two parameters:
+.PP
+.IP "\(bu" 2
+\fC$release\fP is the version number of the latest release (\fCX\&.Y\&.Z\fP, for instance) or the name of the release series (\fCX\&.Y\fP) when no release has been made from that branch / for that release series yet\&.
+.IP "\(bu" 2
+\fC$path\fP is the path to the directory (or a subdirectory thereof) where the sourcecode of the project can be found\&. Simply passing \fC__DIR__\fP here usually suffices\&.
+.PP
+.PP
+Apart from the constructor, the \fC\fBSebastianBergmann\fP\\\fBVersion\fP\fP class has a single public method: \fCgetVersion()\fP\&.
+.PP
+Here is a contrived example that shows the basic usage: 
+.PP
+.nf
+<?php
+$version = new SebastianBergmann\Version(
+  '3.7.10', '/usr/local/src/phpunit'
+);
+
+var_dump($version->getVersion());
+?>
+
+string(18) "3.7.10-17-g00f3408"
+
+.fi
+.PP
+.PP
+When a new release is prepared, the string that is passed to the constructor as the first argument needs to be updated\&.
+.PP
+.SS "How \fBSebastianBergmann\fP::getVersion() works"
+.PP
+.IP "\(bu" 2
+If \fC$path\fP is not (part of) a Git repository and \fC$release\fP is in \fCX\&.Y\&.Z\fP format then \fC$release\fP is returned as-is\&.
+.IP "\(bu" 2
+If \fC$path\fP is not (part of) a Git repository and \fC$release\fP is in \fCX\&.Y\fP format then \fC$release\fP is returned suffixed with \fC-dev\fP\&.
+.IP "\(bu" 2
+If \fC$path\fP is (part of) a Git repository and \fC$release\fP is in \fCX\&.Y\&.Z\fP format then the output of \fCgit describe --tags\fP is returned as-is\&.
+.IP "\(bu" 2
+If \fC$path\fP is (part of) a Git repository and \fC$release\fP is in \fCX\&.Y\fP format then a string is returned that begins with \fCX\&.Y\fP and ends with information from \fCgit describe --tags\fP\&. 
+.PP
+

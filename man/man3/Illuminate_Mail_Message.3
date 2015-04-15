@@ -1,0 +1,444 @@
+.TH "Message" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Message \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($swift)"
+.br
+.ti -1c
+.RI "\fBfrom\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsender\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBreturnPath\fP ($address)"
+.br
+.ti -1c
+.RI "\fBto\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBcc\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBbcc\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBreplyTo\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBsubject\fP ($subject)"
+.br
+.ti -1c
+.RI "\fBpriority\fP ($level)"
+.br
+.ti -1c
+.RI "\fBattach\fP ($file, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBattachData\fP ($\fBdata\fP, $\fBname\fP, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBembed\fP ($file)"
+.br
+.ti -1c
+.RI "\fBembedData\fP ($\fBdata\fP, $\fBname\fP, $contentType=null)"
+.br
+.ti -1c
+.RI "\fBgetSwiftMessage\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddAddresses\fP ($address, $\fBname\fP, $type)"
+.br
+.ti -1c
+.RI "\fBcreateAttachmentFromPath\fP ($file)"
+.br
+.ti -1c
+.RI "\fBcreateAttachmentFromData\fP ($\fBdata\fP, $\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBprepAttachment\fP ($attachment, $\fBoptions\fP=array())"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$swift\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Message\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $swift)"
+Create a new message instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$swift\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file Message\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically pass missing methods to the \fBSwift\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 288 of file Message\&.php\&.
+.SS "addAddresses ( $address,  $name,  $type)\fC [protected]\fP"
+Add a recipient to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file Message\&.php\&.
+.SS "attach ( $file, array $options = \fCarray()\fP)"
+Attach a file to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file Message\&.php\&.
+.SS "attachData ( $data,  $name, array $options = \fCarray()\fP)"
+Attach in-memory data as an attachment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$name\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file Message\&.php\&.
+.SS "bcc ( $address,  $name = \fCnull\fP)"
+Add a blind carbon copy to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file Message\&.php\&.
+.SS "cc ( $address,  $name = \fCnull\fP)"
+Add a carbon copy to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file Message\&.php\&.
+.SS "createAttachmentFromData ( $data,  $name)\fC [protected]\fP"
+Create a \fBSwift\fP Attachment instance from data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Message\&.php\&.
+.SS "createAttachmentFromPath ( $file)\fC [protected]\fP"
+Create a \fBSwift\fP Attachment instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 183 of file Message\&.php\&.
+.SS "embed ( $file)"
+Embed a file in the message and get the CID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file Message\&.php\&.
+.SS "embedData ( $data,  $name,  $contentType = \fCnull\fP)"
+Embed in-memory data in the message and get the CID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$name\fP 
+.br
+\fI$contentType\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file Message\&.php\&.
+.SS "from ( $address,  $name = \fCnull\fP)"
+Add a 'from' address to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file Message\&.php\&.
+.SS "getSwiftMessage ()"
+Get the underlying \fBSwift\fP \fBMessage\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 276 of file Message\&.php\&.
+.SS "prepAttachment ( $attachment,  $options = \fCarray()\fP)\fC [protected]\fP"
+Prepare and attach the given attachment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attachment\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file Message\&.php\&.
+.SS "priority ( $level)"
+Set the message priority level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file Message\&.php\&.
+.SS "replyTo ( $address,  $name = \fCnull\fP)"
+Add a reply to address to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Message\&.php\&.
+.SS "returnPath ( $address)"
+Set the 'return path' of the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file Message\&.php\&.
+.SS "sender ( $address,  $name = \fCnull\fP)"
+Set the 'sender' of the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file Message\&.php\&.
+.SS "subject ( $subject)"
+Set the subject of the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subject\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Message\&.php\&.
+.SS "to ( $address,  $name = \fCnull\fP)"
+Add a recipient to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Message\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$swift\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Message\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

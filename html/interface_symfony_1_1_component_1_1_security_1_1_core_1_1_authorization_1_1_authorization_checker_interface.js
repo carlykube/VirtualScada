@@ -1,0 +1,4 @@
+var interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_authorization_checker_interface =
+[
+    [ "isGranted", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_authorization_checker_interface.html#a8f51e0aa61118c14fb846058b3db428c", null ]
+];

@@ -1,0 +1,400 @@
+\section{Listener Class Reference}
+\label{class_illuminate_1_1_queue_1_1_listener}\index{Listener@{Listener}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$command\+Path)
+\item 
+{\bf listen} (\$connection, \${\bf queue}, \${\bf delay}, \$memory, \$timeout=60)
+\item 
+{\bf run\+Process} ({\bf Process} \$process, \$memory)
+\item 
+{\bf make\+Process} (\$connection, \${\bf queue}, \${\bf delay}, \$memory, \$timeout)
+\item 
+{\bf memory\+Exceeded} (\$memory\+Limit)
+\item 
+{\bf stop} ()
+\item 
+{\bf set\+Output\+Handler} (Closure \$output\+Handler)
+\item 
+{\bf get\+Environment} ()
+\item 
+{\bf set\+Environment} (\$environment)
+\item 
+{\bf get\+Sleep} ()
+\item 
+{\bf set\+Sleep} (\$sleep)
+\item 
+{\bf set\+Max\+Tries} (\$tries)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf handle\+Worker\+Output} (\$type, \${\bf line})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$command\+Path}
+\item 
+{\bf \$environment}
+\item 
+{\bf \$sleep} = 3
+\item 
+{\bf \$max\+Tries} = 0
+\item 
+{\bf \$worker\+Command}
+\item 
+{\bf \$output\+Handler}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file Listener.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$command\+Path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a263f4769a20a909dc94a02719e5e9f98}
+Create a new queue listener.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file Listener.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!get\+Environment@{get\+Environment}}
+\index{get\+Environment@{get\+Environment}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{get\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}get\+Environment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a1a945689f9a90f9029d671ec32262d37}
+Get the current listener environment.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!get\+Sleep@{get\+Sleep}}
+\index{get\+Sleep@{get\+Sleep}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{get\+Sleep}]{\setlength{\rightskip}{0pt plus 5cm}get\+Sleep (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_aff0e02f5ab66f010c34ea47eba32bd50}
+Get the amount of seconds to wait before polling the queue.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!handle\+Worker\+Output@{handle\+Worker\+Output}}
+\index{handle\+Worker\+Output@{handle\+Worker\+Output}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{handle\+Worker\+Output}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Worker\+Output (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_aed7d77d3eaa678ad0cfb26ca1f6fa6e0}
+Handle output from the worker process.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$type} & \\
+\hline
+string & {\em \$line} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!listen@{listen}}
+\index{listen@{listen}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}listen (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{}]{\$queue, }
+\item[{}]{\$delay, }
+\item[{}]{\$memory, }
+\item[{}]{\$timeout = {\ttfamily 60}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a1bfef3fa7ba801fc11c90948e56ab107}
+Listen to the given queue connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+string & {\em \$delay} & \\
+\hline
+string & {\em \$memory} & \\
+\hline
+int & {\em \$timeout} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!make\+Process@{make\+Process}}
+\index{make\+Process@{make\+Process}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{make\+Process}]{\setlength{\rightskip}{0pt plus 5cm}make\+Process (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection, }
+\item[{}]{\$queue, }
+\item[{}]{\$delay, }
+\item[{}]{\$memory, }
+\item[{}]{\$timeout}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_ad2a0a4290cdb8440f801ee7eb62515e0}
+Create a new \doxyref{Symfony}{p.}{namespace_symfony} process for the worker.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+int & {\em \$memory} & \\
+\hline
+int & {\em \$timeout} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!memory\+Exceeded@{memory\+Exceeded}}
+\index{memory\+Exceeded@{memory\+Exceeded}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{memory\+Exceeded}]{\setlength{\rightskip}{0pt plus 5cm}memory\+Exceeded (
+\begin{DoxyParamCaption}
+\item[{}]{\$memory\+Limit}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a2c7620bf0d0a073b003ad9680abc4865}
+Determine if the memory limit has been exceeded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$memory\+Limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!run\+Process@{run\+Process}}
+\index{run\+Process@{run\+Process}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{run\+Process}]{\setlength{\rightskip}{0pt plus 5cm}run\+Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Process}}]{\$process, }
+\item[{}]{\$memory}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a474466adaf39c8293ccbd92fef082bb2}
+Run the given process.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Process\textbackslash{}\+Process & {\em \$process} & \\
+\hline
+int & {\em \$memory} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!set\+Environment@{set\+Environment}}
+\index{set\+Environment@{set\+Environment}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{set\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}set\+Environment (
+\begin{DoxyParamCaption}
+\item[{}]{\$environment}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a8db037f083834ce0d1a6e11bc52fcd9e}
+Set the current environment.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$environment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!set\+Max\+Tries@{set\+Max\+Tries}}
+\index{set\+Max\+Tries@{set\+Max\+Tries}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{set\+Max\+Tries}]{\setlength{\rightskip}{0pt plus 5cm}set\+Max\+Tries (
+\begin{DoxyParamCaption}
+\item[{}]{\$tries}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_afaf281451f3d91a5939a23062928d101}
+Set the amount of times to try a job before logging it failed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$tries} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 233 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!set\+Output\+Handler@{set\+Output\+Handler}}
+\index{set\+Output\+Handler@{set\+Output\+Handler}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{set\+Output\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\+Output\+Handler (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$output\+Handler}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a7fd5f873b246bb671fdd355291453675}
+Set the output handler callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$output\+Handler} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!set\+Sleep@{set\+Sleep}}
+\index{set\+Sleep@{set\+Sleep}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{set\+Sleep}]{\setlength{\rightskip}{0pt plus 5cm}set\+Sleep (
+\begin{DoxyParamCaption}
+\item[{}]{\$sleep}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a64aebd551c0b7695713a5dd096b95eb4}
+Set the amount of seconds to wait before polling the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$sleep} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!stop@{stop}}
+\index{stop@{stop}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_listener_a8b6fc76a620d7557d06e9a11a9ffb509}
+Stop listening and bail out of the script.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Listener.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$command\+Path@{\$command\+Path}}
+\index{\$command\+Path@{\$command\+Path}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$command\+Path}]{\setlength{\rightskip}{0pt plus 5cm}\$command\+Path\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_ab03b6406c9beedf503f8cc3849f68744}
+
+
+Definition at line 13 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$environment@{\$environment}}
+\index{\$environment@{\$environment}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$environment}]{\setlength{\rightskip}{0pt plus 5cm}\$environment\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_ab13dbce1d1d0dfa9e4c429584210cf55}
+
+
+Definition at line 20 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$max\+Tries@{\$max\+Tries}}
+\index{\$max\+Tries@{\$max\+Tries}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$max\+Tries}]{\setlength{\rightskip}{0pt plus 5cm}\$max\+Tries = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_a5d436e7a9a3ebd9959353ed1964a97e5}
+
+
+Definition at line 34 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$output\+Handler@{\$output\+Handler}}
+\index{\$output\+Handler@{\$output\+Handler}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$output\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}\$output\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_a93f76c88b2f060a18a85ee3ecb36d3b8}
+
+
+Definition at line 48 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$sleep@{\$sleep}}
+\index{\$sleep@{\$sleep}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$sleep}]{\setlength{\rightskip}{0pt plus 5cm}\$sleep = 3\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_a6e1679171be81ffdf47ff726cad0e5e9}
+
+
+Definition at line 27 of file Listener.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}!\$worker\+Command@{\$worker\+Command}}
+\index{\$worker\+Command@{\$worker\+Command}!Illuminate\+::\+Queue\+::\+Listener@{Illuminate\+::\+Queue\+::\+Listener}}
+\subsubsection[{\$worker\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\$worker\+Command\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_listener_a36c55c0f50836213d5b67e6c93aa0061}
+
+
+Definition at line 41 of file Listener.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Listener.\+php}\end{DoxyCompactItemize}

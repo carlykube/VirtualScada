@@ -1,0 +1,172 @@
+\section{Exporter Class Reference}
+\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter}\index{Exporter@{Exporter}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf export} (\$value, \$indentation=0)
+\item 
+{\bf shortened\+Recursive\+Export} (\&\${\bf data}, {\bf Context} \$context=null)
+\item 
+{\bf shortened\+Export} (\$value)
+\item 
+{\bf to\+Array} (\$value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf recursive\+Export} (\&\$value, \$indentation, \$processed=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file Exporter.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}!export@{export}}
+\index{export@{export}!Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}}
+\subsubsection[{export}]{\setlength{\rightskip}{0pt plus 5cm}export (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$indentation = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter_ac3e08a7045a8606223a3128f3899699f}
+Exports a value as a string
+
+The output of this method is similar to the output of print\+\_\+r(), but improved in various aspects\+:
+
+
+\begin{DoxyItemize}
+\item N\+U\+L\+L is rendered as \char`\"{}null\char`\"{} (instead of \char`\"{}\char`\"{})
+\item T\+R\+U\+E is rendered as \char`\"{}true\char`\"{} (instead of \char`\"{}1\char`\"{})
+\item F\+A\+L\+S\+E is rendered as \char`\"{}false\char`\"{} (instead of \char`\"{}\char`\"{})
+\item Strings are always quoted with single quotes
+\item Carriage returns and newlines are normalized to ~\newline
+
+\item Recursion and repeated rendering is treated properly
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+integer & {\em \$indentation} & The indentation level of the 2nd+ line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file Exporter.\+php.
+
+\index{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}!recursive\+Export@{recursive\+Export}}
+\index{recursive\+Export@{recursive\+Export}!Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}}
+\subsubsection[{recursive\+Export}]{\setlength{\rightskip}{0pt plus 5cm}recursive\+Export (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$value, }
+\item[{}]{\$indentation, }
+\item[{}]{\$processed = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter_ade8d29867a8fc30d9bcf00f67a165e70}
+Recursive implementation of export
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & The value to export \\
+\hline
+integer & {\em \$indentation} & The indentation level of the 2nd+ line \\
+\hline
+\textbackslash{}\+Sebastian\+Bergmann\textbackslash{}\+Recursion\+Context\textbackslash{}\+Context & {\em \$processed} & Previously processed objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann}\+::export 
+\end{DoxySeeAlso}
+
+
+Definition at line 206 of file Exporter.\+php.
+
+\index{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}!shortened\+Export@{shortened\+Export}}
+\index{shortened\+Export@{shortened\+Export}!Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}}
+\subsubsection[{shortened\+Export}]{\setlength{\rightskip}{0pt plus 5cm}shortened\+Export (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter_a2b6cd7fb6130ef59e058429cdcca5bd2}
+Exports a value into a single-\/line string
+
+The output of this method is similar to the output of \doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann}\+::export. This method guarantees thought that the result contains now newlines.
+
+Newlines are replaced by the visible string \textquotesingle{}~\newline
+\textquotesingle{}. Contents of arrays and objects (if any) are replaced by \textquotesingle{}...\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Sebastian\+Bergmann}{p.}{namespace_sebastian_bergmann}\+::export 
+\end{DoxySeeAlso}
+
+
+Definition at line 108 of file Exporter.\+php.
+
+\index{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}!shortened\+Recursive\+Export@{shortened\+Recursive\+Export}}
+\index{shortened\+Recursive\+Export@{shortened\+Recursive\+Export}!Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}}
+\subsubsection[{shortened\+Recursive\+Export}]{\setlength{\rightskip}{0pt plus 5cm}shortened\+Recursive\+Export (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$data, }
+\item[{{\bf Context}}]{\$context = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter_a71bd2afaec2a3909f983b6c29743799e}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$data} & \\
+\hline
+Context & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Exporter.\+php.
+
+\index{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}!to\+Array@{to\+Array}}
+\index{to\+Array@{to\+Array}!Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter@{Sebastian\+Bergmann\+::\+Exporter\+::\+Exporter}}
+\subsubsection[{to\+Array}]{\setlength{\rightskip}{0pt plus 5cm}to\+Array (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_sebastian_bergmann_1_1_exporter_1_1_exporter_a1b9658938175cf37957b35a782722c7b}
+Converts an object to an array containing all of its private, protected and public properties.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file Exporter.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/sebastian/exporter/src/{\bf Exporter.\+php}\end{DoxyCompactItemize}

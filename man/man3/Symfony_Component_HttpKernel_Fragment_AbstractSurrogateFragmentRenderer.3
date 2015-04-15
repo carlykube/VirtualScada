@@ -1,0 +1,101 @@
+.TH "AbstractSurrogateFragmentRenderer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractSurrogateFragmentRenderer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRoutableFragmentRenderer\fP\&.
+.PP
+Inherited by \fBEsiFragmentRenderer\fP, and \fBSsiFragmentRenderer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSurrogateInterface\fP $surrogate=null, \fBFragmentRendererInterface\fP $inlineStrategy, \fBUriSigner\fP $signer=null)"
+.br
+.ti -1c
+.RI "\fBrender\fP ($uri, \fBRequest\fP $request, array $\fBoptions\fP=array())"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Implements Surrogate rendering strategy\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file AbstractSurrogateFragmentRenderer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSurrogateInterface\fP $surrogate = \fCnull\fP, \fBFragmentRendererInterface\fP $inlineStrategy, \fBUriSigner\fP $signer = \fCnull\fP)"
+Constructor\&.
+.PP
+The 'fallback' strategy when surrogate is not available should always be an instance of \fBInlineFragmentRenderer\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$surrogate\fP An Surrogate instance 
+.br
+\fI$inlineStrategy\fP The inline strategy to use when the surrogate is not supported 
+.br
+\fI$signer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file AbstractSurrogateFragmentRenderer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "render ( $uri, \fBRequest\fP $request, array $options = \fCarray()\fP)"
+{Renders a URI and returns the \fBResponse\fP content\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP URI as a string or a ControllerReference instance 
+.br
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$options\fP An array of options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+}
+.PP
+Note that if the current \fBRequest\fP has no surrogate capability, this method falls back to use the inline rendering strategy\&.
+.PP
+Additional available options:
+.PP
+.IP "\(bu" 2
+alt: an alternative URI to render in case of an error
+.IP "\(bu" 2
+comment: a comment to add when returning the surrogate tag
+.PP
+.PP
+Note, that not all surrogate strategies support all options\&. For now 'alt' and 'comment' are only supported by ESI\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSymfony\fP 
+.RE
+.PP
+
+.PP
+Implements \fBFragmentRendererInterface\fP\&.
+.PP
+Definition at line 64 of file AbstractSurrogateFragmentRenderer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

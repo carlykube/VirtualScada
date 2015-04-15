@@ -1,0 +1,551 @@
+\section{Native\+Session\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage}\index{Native\+Session\+Storage@{Native\+Session\+Storage}}
+Inheritance diagram for Native\+Session\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \${\bf options}=array(), \$handler=null, {\bf Metadata\+Bag} \$meta\+Bag=null)
+\item 
+{\bf get\+Save\+Handler} ()
+\item 
+{\bf start} ()
+\item 
+{\bf get\+Id} ()
+\item 
+{\bf set\+Id} (\$id)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf set\+Name} (\${\bf name})
+\item 
+{\bf regenerate} (\$destroy=false, \$lifetime=null)
+\item 
+{\bf save} ()
+\item 
+{\bf clear} ()
+\item 
+{\bf register\+Bag} ({\bf Session\+Bag\+Interface} \$bag)
+\item 
+{\bf get\+Bag} (\${\bf name})
+\item 
+{\bf set\+Metadata\+Bag} ({\bf Metadata\+Bag} \$meta\+Bag=null)
+\item 
+{\bf get\+Metadata\+Bag} ()
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf set\+Options} (array \${\bf options})
+\item 
+{\bf set\+Save\+Handler} (\$save\+Handler=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf load\+Session} (array \&\$session=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$bags}
+\item 
+{\bf \$started} = false
+\item 
+{\bf \$closed} = false
+\item 
+{\bf \$save\+Handler}
+\item 
+{\bf \$metadata\+Bag}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This provides a base class for session attribute storage.
+
+\begin{DoxyAuthor}{Author}
+Drak {\tt drak@zikula.\+org} 
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Native\+Session\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$options = {\ttfamily array()}, }
+\item[{}]{\$handler = {\ttfamily null}, }
+\item[{{\bf Metadata\+Bag}}]{\$meta\+Bag = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a60e29641cec95536d56e1eadfa7ae690}
+Constructor.
+
+Depending on how you want the storage driver to behave you probably want to override this constructor entirely.
+
+List of options for \$options array with their defaults.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/session.\+configuration} \doxyref{for}{p.}{holder_8js_ac0dfb44d6479b9551134956e6bebd231} \doxyref{options}{p.}{resources_2js_2jquery_8idletimeout_8js_aca5c9f5f5bae6ad1d85cff2c6d02716b} but we omit \textquotesingle{}session.\textquotesingle{} from the beginning of the \doxyref{keys}{p.}{d3_8min_8js_adc1ca1343cc90b0bd3627a6186440762} \doxyref{for}{p.}{holder_8js_ac0dfb44d6479b9551134956e6bebd231} convenience.
+\end{DoxySeeAlso}
+(\char`\"{}auto\+\_\+start\char`\"{}, is not supported as it tells \doxyref{P\+H\+P}{p.}{namespace_p_h_p} to start a session before \doxyref{P\+H\+P}{p.}{namespace_p_h_p} starts to execute user-\/land code. Setting during runtime has no effect).
+
+cache\+\_\+limiter, \char`\"{}nocache\char`\"{} (use \char`\"{}0\char`\"{} to prevent headers from being sent entirely). cookie\+\_\+domain, \char`\"{}\char`\"{} cookie\+\_\+httponly, \char`\"{}\char`\"{} cookie\+\_\+lifetime, \char`\"{}0\char`\"{} cookie\+\_\+path, \char`\"{}/\char`\"{} cookie\+\_\+secure, \char`\"{}\char`\"{} entropy\+\_\+file, \char`\"{}\char`\"{} entropy\+\_\+length, \char`\"{}0\char`\"{} gc\+\_\+divisor, \char`\"{}100\char`\"{} gc\+\_\+maxlifetime, \char`\"{}1440\char`\"{} gc\+\_\+probability, \char`\"{}1\char`\"{} hash\+\_\+bits\+\_\+per\+\_\+character, \char`\"{}4\char`\"{} hash\+\_\+function, \char`\"{}0\char`\"{} name, \char`\"{}\+P\+H\+P\+S\+E\+S\+S\+I\+D\char`\"{} referer\+\_\+check, \char`\"{}\char`\"{} serialize\+\_\+handler, \char`\"{}php\char`\"{} use\+\_\+cookies, \char`\"{}1\char`\"{} use\+\_\+only\+\_\+cookies, \char`\"{}1\char`\"{} use\+\_\+trans\+\_\+sid, \char`\"{}0\char`\"{} upload\+\_\+progress.\+enabled, \char`\"{}1\char`\"{} upload\+\_\+progress.\+cleanup, \char`\"{}1\char`\"{} upload\+\_\+progress.\+prefix, \char`\"{}upload\+\_\+progress\+\_\+\char`\"{} upload\+\_\+progress.\+name, \char`\"{}\+P\+H\+P\+\_\+\+S\+E\+S\+S\+I\+O\+N\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+P\+R\+O\+G\+R\+E\+S\+S\char`\"{} upload\+\_\+progress.\+freq, \char`\"{}1\%\char`\"{} upload\+\_\+progress.\+min-\/freq, \char`\"{}1\char`\"{} url\+\_\+rewriter.\+tags, \char`\"{}a=href,area=href,frame=src,form=,fieldset=\char`\"{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$options} & \doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} configuration options. \\
+\hline
+Abstract\+Proxy | Native\+Session\+Handler | \textbackslash{}\+Session\+Handler\+Interface | null & {\em \$handler} & \\
+\hline
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} & {\em \$meta\+Bag} & \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file Native\+Session\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!clear@{clear}}
+\index{clear@{clear}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_aa821bec12eaa7e0f649397c9675ff505}
+\{Clear all session data in memory.\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_aa821bec12eaa7e0f649397c9675ff505}.
+
+
+
+Definition at line 228 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!get\+Bag@{get\+Bag}}
+\index{get\+Bag@{get\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{get\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bag (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a760b5434be3756081f7e76557e3b50e3}
+\{Gets a \doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a760b5434be3756081f7e76557e3b50e3}.
+
+
+
+Definition at line 253 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a12251d0c022e9e21c137a105ff683f13}
+\{Returns the session I\+D.
+
+\begin{DoxyReturn}{Returns}
+string The session I\+D or empty.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a12251d0c022e9e21c137a105ff683f13}.
+
+
+
+Definition at line 164 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!get\+Metadata\+Bag@{get\+Metadata\+Bag}}
+\index{get\+Metadata\+Bag@{get\+Metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{get\+Metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}get\+Metadata\+Bag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a9a1b173d31b64c649accf679f98ce93c}
+Gets the \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag}.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} 
+\end{DoxyReturn}
+
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a9a1b173d31b64c649accf679f98ce93c}.
+
+
+
+Definition at line 287 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a3d0963e68bb313b163a73f2803c64600}
+\{Returns the session name.
+
+\begin{DoxyReturn}{Returns}
+mixed The session name.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 180 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!get\+Save\+Handler@{get\+Save\+Handler}}
+\index{get\+Save\+Handler@{get\+Save\+Handler}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{get\+Save\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}get\+Save\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_adc6d560399f90c08a9d699ed07f7abdf}
+Gets the save handler instance.
+
+\begin{DoxyReturn}{Returns}
+Abstract\+Proxy 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a1ffe0e26cd53b764f58c5bbed489c278}
+\{Checks if the session is started.
+
+\begin{DoxyReturn}{Returns}
+bool True if started, false otherwise.
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 295 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!load\+Session@{load\+Session}}
+\index{load\+Session@{load\+Session}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{load\+Session}]{\setlength{\rightskip}{0pt plus 5cm}load\+Session (
+\begin{DoxyParamCaption}
+\item[{array \&}]{\$session = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a39e6dd3dc180c1672589e26f691d73de}
+Load the session with attributes.
+
+After starting the session, \doxyref{P\+H\+P}{p.}{namespace_p_h_p} retrieves the session from whatever handlers are set to (either \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s internal, or a custom save handler set with session\+\_\+set\+\_\+save\+\_\+handler()). \doxyref{P\+H\+P}{p.}{namespace_p_h_p} takes the return value from the read() handler, unserializes it and populates \$\+\_\+\+S\+E\+S\+S\+I\+O\+N with the result automatically.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | null & {\em \$session} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 397 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!regenerate@{regenerate}}
+\index{regenerate@{regenerate}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{regenerate}]{\setlength{\rightskip}{0pt plus 5cm}regenerate (
+\begin{DoxyParamCaption}
+\item[{}]{\$destroy = {\ttfamily false}, }
+\item[{}]{\$lifetime = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_aeb0b5bdaa103935ac1950fd06febc413}
+\{Regenerates id that represents this storage.
+
+This method must invoke session\+\_\+regenerate\+\_\+id(\$destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing.
+
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage.
+
+Care\+: When regenerating the session I\+D no locking is involved in P\+H\+Ps session design. See {\tt https\+://bugs.\+php.\+net/bug.\+php?id=61470} for a discussion. So you must make sure the regenerated session is saved B\+E\+F\+O\+R\+E sending the headers with the new I\+D. Symfonys \doxyref{Http\+Kernel}{p.}{namespace_symfony_1_1_component_1_1_http_kernel} offers a listener for this. See \doxyref{Symfony}{p.}{namespace_symfony}. Otherwise session data could get lost again for concurrent requests with the new I\+D. \doxyref{One}{p.}{class_one} result could be that you get logged out after just logging in.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$destroy} & Destroy session when regenerating? \\
+\hline
+int & {\em \$lifetime} & Sets the cookie lifetime for the session cookie. \doxyref{A}{p.}{class_a} null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session. Time is in seconds, and is not a Unix timestamp.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if session regenerated, false if error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_aeb0b5bdaa103935ac1950fd06febc413}.
+
+
+
+Definition at line 196 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!register\+Bag@{register\+Bag}}
+\index{register\+Bag@{register\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{register\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}register\+Bag (
+\begin{DoxyParamCaption}
+\item[{{\bf Session\+Bag\+Interface}}]{\$bag}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a2024067b6a9efc942ee5dfe06d5b1ac5}
+\{Registers a \doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} for use.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Session\+Bag\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session_bag_interface} & {\em \$bag} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a2024067b6a9efc942ee5dfe06d5b1ac5}.
+
+
+
+Definition at line 245 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!save@{save}}
+\index{save@{save}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_afc8a3c62679cf00ade9f15fb2a6d6132}
+\{Force the session to be saved and closed.
+
+This method must invoke session\+\_\+write\+\_\+close() unless this interface is used for a storage object design for unit or functional testing where a real \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session would interfere with testing, in which case it it should actually persist the session data if required.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_afc8a3c62679cf00ade9f15fb2a6d6132}.
+
+
+
+Definition at line 212 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{set\+Id}]{\setlength{\rightskip}{0pt plus 5cm}set\+Id (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a87313ad678fb2a2a8efb435cf0bdb9a0}
+\{Sets the session I\+D.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a87313ad678fb2a2a8efb435cf0bdb9a0}.
+
+
+
+Definition at line 172 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!set\+Metadata\+Bag@{set\+Metadata\+Bag}}
+\index{set\+Metadata\+Bag@{set\+Metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{set\+Metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}set\+Metadata\+Bag (
+\begin{DoxyParamCaption}
+\item[{{\bf Metadata\+Bag}}]{\$meta\+Bag = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a819cd12b2f356135147762f4203c1f49}
+Sets the \doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Metadata\+Bag}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_metadata_bag} & {\em \$meta\+Bag} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 273 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a2fe666694997d047711d7653eca2f132}
+\{Sets the session name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_a2fe666694997d047711d7653eca2f132}.
+
+
+
+Definition at line 188 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!set\+Options@{set\+Options}}
+\index{set\+Options@{set\+Options}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{set\+Options}]{\setlength{\rightskip}{0pt plus 5cm}set\+Options (
+\begin{DoxyParamCaption}
+\item[{array}]{\$options}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a673b5e9db470a52ea28b56a44e23e2d0}
+Sets session.$\ast$ ini variables.
+
+For convenience we omit \textquotesingle{}session.\textquotesingle{} from the beginning of the keys. Explicitly ignores other ini keys.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$options} & \doxyref{Session}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_session} ini directives array(key =$>$ value).\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/session.\+configuration} 
+\end{DoxySeeAlso}
+
+
+Definition at line 310 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!set\+Save\+Handler@{set\+Save\+Handler}}
+\index{set\+Save\+Handler@{set\+Save\+Handler}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{set\+Save\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\+Save\+Handler (
+\begin{DoxyParamCaption}
+\item[{}]{\$save\+Handler = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a9c478664cb5b681df6f452ddaf5b6ece}
+Registers session save handler as a \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session handler.
+
+To use internal \doxyref{P\+H\+P}{p.}{namespace_p_h_p} session save handlers, override this method using ini\+\_\+set with session.\+save\+\_\+handler and session.\+save\+\_\+path e.\+g. \begin{DoxyVerb}ini_set('session.save_handler', 'files');
+ini_set('session.save_path', /tmp');
+\end{DoxyVerb}
+
+
+or pass in a Native\+Session\+Handler instance which configures session.\+save\+\_\+handler in the constructor, for a template see Native\+File\+Session\+Handler or use handlers in composer package drak/native-\/session
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/session-\/set-\/save-\/handler} 
+
+{\tt http\+://php.\+net/sessionhandlerinterface} 
+
+{\tt http\+://php.\+net/sessionhandler} 
+
+{\tt http\+://github.\+com/drak/\+Native\+Session}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+Abstract\+Proxy | Native\+Session\+Handler | \textbackslash{}\+Session\+Handler\+Interface | null & {\em \$save\+Handler} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 353 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!start@{start}}
+\index{start@{start}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_af8fa59992209e36dccb3eefb0f75531f}
+\{Starts the session.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Session\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_session_storage_interface_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 128 of file Native\+Session\+Storage.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\$bags@{\$bags}}
+\index{\$bags@{\$bags}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\$bags}]{\setlength{\rightskip}{0pt plus 5cm}\$bags\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a7eec098032a7bb391cd9e31b47a1dc6d}
+
+
+Definition at line 32 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\$closed@{\$closed}}
+\index{\$closed@{\$closed}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\$closed}]{\setlength{\rightskip}{0pt plus 5cm}\$closed = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a520c672fe420e710c7f3b3a3abf76347}
+
+
+Definition at line 42 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\$metadata\+Bag@{\$metadata\+Bag}}
+\index{\$metadata\+Bag@{\$metadata\+Bag}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\$metadata\+Bag}]{\setlength{\rightskip}{0pt plus 5cm}\$metadata\+Bag\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_aae855fae62d242b40679518f5bb1cfa6}
+
+
+Definition at line 52 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\$save\+Handler@{\$save\+Handler}}
+\index{\$save\+Handler@{\$save\+Handler}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\$save\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}\$save\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a104b89d7620324cd3684af00a10aa221}
+
+
+Definition at line 47 of file Native\+Session\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}!\$started@{\$started}}
+\index{\$started@{\$started}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+Session\+::\+Storage\+::\+Native\+Session\+Storage}}
+\subsubsection[{\$started}]{\setlength{\rightskip}{0pt plus 5cm}\$started = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_native_session_storage_a026c0305d62db3dbb5ad555bc077f018}
+
+
+Definition at line 37 of file Native\+Session\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Session/\+Storage/{\bf Native\+Session\+Storage.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,172 @@
+.TH "Swift_Transport_MailTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_MailTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport\fP\&.
+.PP
+Inherited by \fBSwift_MailTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Transport_MailInvoker\fP $invoker, \fBSwift_Events_EventDispatcher\fP $eventDispatcher)"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExtraParams\fP ($params)"
+.br
+.ti -1c
+.RI "\fBgetExtraParams\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_throwException\fP (\fBSwift_TransportException\fP $\fBe\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sends Messages using the mail() function\&.
+.PP
+It is advised that users do not use this transport if at all possible since a number of plugin features cannot be used in conjunction with this transport due to the internal interface in \fBPHP\fP itself\&.
+.PP
+The level of error reporting with this transport is incredibly weak, again due to limitations of \fBPHP\fP's internal mail() function\&. You'll get an all-or-nothing result from sending\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file MailTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Transport_MailInvoker\fP $invoker, \fBSwift_Events_EventDispatcher\fP $eventDispatcher)"
+Create a new MailTransport with the $log\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$invoker\fP 
+.br
+\fI$eventDispatcher\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file MailTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_throwException (\fBSwift_TransportException\fP $e)\fC [protected]\fP"
+Throw a TransportException, first sending it to any listeners 
+.PP
+Definition at line 206 of file MailTransport\&.php\&.
+.SS "getExtraParams ()"
+Get the additional parameters used on the mail() function\&.
+.PP
+This string is formatted for sprintf() where s is the sender address\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file MailTransport\&.php\&.
+.SS "isStarted ()"
+Not used\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 50 of file MailTransport\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+Register a plugin\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 200 of file MailTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 108 of file MailTransport\&.php\&.
+.SS "setExtraParams ( $params)"
+Set the additional parameters used on the mail() function\&.
+.PP
+This string is formatted for sprintf() where s is the sender address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_MailTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file MailTransport\&.php\&.
+.SS "start ()"
+Not used\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 58 of file MailTransport\&.php\&.
+.SS "stop ()"
+Not used\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 65 of file MailTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

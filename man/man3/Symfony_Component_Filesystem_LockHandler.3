@@ -1,0 +1,90 @@
+.TH "LockHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LockHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, $lockPath=null)"
+.br
+.ti -1c
+.RI "\fBlock\fP ($blocking=false)"
+.br
+.ti -1c
+.RI "\fBrelease\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBLockHandler\fP class provides a simple abstraction to lock anything by means of a file lock\&.
+.PP
+\fBA\fP locked file is created based on the lock name when calling \fBlock()\fP\&. \fBOther\fP lock handlers will not be able to lock the same name until it is released (explicitly by calling \fBrelease()\fP or implicitly when the instance holding the lock is destroyed)\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Grégoire Pineau lyrixx@lyrixx.info 
+.PP
+Romain Neutron imprec@gmail.com 
+.PP
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file LockHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name,  $lockPath = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The lock name 
+.br
+\fI$lockPath\fP The directory to store the lock\&. Default values will use temporary directory 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP If the lock directory could not be created or is not writable 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file LockHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "lock ( $blocking = \fCfalse\fP)"
+Lock the resource
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blocking\fP wait until the lock is released 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns true if the lock was acquired, false otherwise 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP If the lock file could not be created or opened 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file LockHandler\&.php\&.
+.SS "release ()"
+Release the resource 
+.PP
+Definition at line 103 of file LockHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

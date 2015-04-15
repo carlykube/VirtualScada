@@ -1,0 +1,98 @@
+.TH "IcuResFileLoader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IcuResFileLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLoaderInterface\fP\&.
+.PP
+Inherited by \fBIcuDatFileLoader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBload\fP ($resource, $\fBlocale\fP, $domain= 'messages')"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBflatten\fP (\\ResourceBundle $rb, array &$messages=array(), $\fBpath\fP=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBIcuResFileLoader\fP loads translations from a resource bundle\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+stealth35 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file IcuResFileLoader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "flatten (\\ResourceBundle $rb, array & $messages = \fCarray()\fP,  $path = \fCnull\fP)\fC [protected]\fP"
+Flattens an ResourceBundle\&.
+.PP
+The scheme used is: key { key2 { key3 { 'value' } } } Becomes: 'key\&.key2\&.key3' => 'value'
+.PP
+This function takes an array by reference and will modify it
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rb\fP the ResourceBundle that will be flattened 
+.br
+\fI$messages\fP used internally for recursive calls 
+.br
+\fI$path\fP current path being parsed, used internally for recursive calls
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array the flattened ResourceBundle 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file IcuResFileLoader\&.php\&.
+.SS "load ( $resource,  $locale,  $domain = \fC'messages'\fP)"
+{Loads a locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP \fBA\fP resource 
+.br
+\fI$locale\fP \fBA\fP locale 
+.br
+\fI$domain\fP The domain
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMessageCatalogue\fP \fBA\fP \fBMessageCatalogue\fP instance
+.RE
+.PP
+.PP
+\fBExceptions:\fP
+.RS 4
+\fINotFoundResourceException\fP when the resource cannot be found 
+.br
+\fIInvalidResourceException\fP when the resource cannot be loaded
+.RE
+.PP
+} 
+.PP
+Implements \fBLoaderInterface\fP\&.
+.PP
+Definition at line 29 of file IcuResFileLoader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

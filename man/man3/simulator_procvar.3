@@ -1,0 +1,130 @@
+.TH "procvar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+procvar \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBcurrentValue\fP"
+.br
+.ti -1c
+.RI "\fBnextValue\fP"
+.br
+.ti -1c
+.RI "\fBwhenToUpdate\fP"
+.br
+.ti -1c
+.RI "\fBvarType\fP"
+.br
+.ti -1c
+.RI "\fBupdated\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBINTERNAL\fP = 'INTERNAL'"
+.br
+.ti -1c
+.RI "string \fBOUTPUT\fP = 'OUTPUT'"
+.br
+.ti -1c
+.RI "string \fBINPUT\fP = 'INPUT'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+@brief This class is used to maintain process variables during the simulation
+   @deprecated Using a simpler simulator design
+
+.fi
+.PP
+ 
+.PP
+Definition at line 27 of file simulator\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  currentValue = \fCNone\fP,  nextValue = \fCNone\fP,  whenToUpdate = \fCNone\fP,  updated = \fCFalse\fP,  varType = \fC'\fBINTERNAL\fP'\fP)"
+
+.PP
+.nf
+Declares and initializes variables for the procvar object
+   @deprecated
+   @param currentValue The present value in the simulation.
+   @param nextValue If an update needs to be simulated, this
+    is the value the process variable will become at time
+    <code>updateTime</code>
+   @param whenToUpdate If the value of this variable will change due to 
+    an outside update, this is the simulation time when the 
+    update should occur.
+   @param varType Should be a string indicating if the type is INTERNAL,
+    an INPUT, or an OUTPUT. Internal variables are only used by
+    the simulator. Inputs are set by the virtual devices.
+    Outputs are set by the simulator and read by the virtual 
+    devices. If a variable type is an OUTPUT,
+    and if the value changes during a simulation step 
+    (updated == True), the value
+    will be sent to all virtual devices at the end of the 
+    simulation step. Acceptible values are procvar.INTERNAL,
+    procvar.OUTPUT, and procvar.INPUT .
+   @param updated Set True if an output value changed during the
+            simulation.
+.fi
+.PP
+ 
+.PP
+Definition at line 35 of file simulator\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "currentValue"
+
+.PP
+Definition at line 59 of file simulator\&.py\&.
+.SS "string INPUT = 'INPUT'\fC [static]\fP"
+
+.PP
+Definition at line 33 of file simulator\&.py\&.
+.SS "string INTERNAL = 'INTERNAL'\fC [static]\fP"
+
+.PP
+Definition at line 31 of file simulator\&.py\&.
+.SS "nextValue"
+
+.PP
+Definition at line 60 of file simulator\&.py\&.
+.SS "string OUTPUT = 'OUTPUT'\fC [static]\fP"
+
+.PP
+Definition at line 32 of file simulator\&.py\&.
+.SS "updated"
+
+.PP
+Definition at line 63 of file simulator\&.py\&.
+.SS "varType"
+
+.PP
+Definition at line 62 of file simulator\&.py\&.
+.SS "whenToUpdate"
+
+.PP
+Definition at line 61 of file simulator\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

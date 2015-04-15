@@ -1,0 +1,120 @@
+\section{Extension\+Guesser Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser}\index{Extension\+Guesser@{Extension\+Guesser}}
+Inheritance diagram for Extension\+Guesser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf register} ({\bf Extension\+Guesser\+Interface} \$guesser)
+\item 
+{\bf guess} (\$mime\+Type)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$guessers} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} singleton mime type to file extension guesser.
+
+\doxyref{A}{p.}{class_a} default guesser is provided. You can register custom guessers by calling the \doxyref{register()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_a53b97d20de2aa57b200384d003087b8f} method on the singleton instance\+: \begin{DoxyVerb}$guesser = ExtensionGuesser::getInstance();
+$guesser->register(new MyCustomExtensionGuesser());
+\end{DoxyVerb}
+
+
+The last registered guesser is preferred over previously registered ones. 
+
+Definition at line 26 of file Extension\+Guesser.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_ac93fbec81f07e5d15f80db907e63dc10}
+Returns the singleton instance.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Extension\+Guesser}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser} 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file Extension\+Guesser.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}!guess@{guess}}
+\index{guess@{guess}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}}
+\subsubsection[{guess}]{\setlength{\rightskip}{0pt plus 5cm}guess (
+\begin{DoxyParamCaption}
+\item[{}]{\$mime\+Type}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_a8eaf2a79307c893aa390bbab40d0fd74}
+Tries to guess the extension.
+
+The mime type is passed to each registered mime type guesser in reverse order of their registration (last registered is queried first). Once a guesser returns a value that is not N\+U\+L\+L, this method terminates and returns the value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$mime\+Type} & The mime type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The guessed extension or N\+U\+L\+L, if none could be guessed 
+\end{DoxyReturn}
+
+
+Implements {\bf Extension\+Guesser\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_interface_a8eaf2a79307c893aa390bbab40d0fd74}.
+
+
+
+Definition at line 88 of file Extension\+Guesser.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}!register@{register}}
+\index{register@{register}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}register (
+\begin{DoxyParamCaption}
+\item[{{\bf Extension\+Guesser\+Interface}}]{\$guesser}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_a53b97d20de2aa57b200384d003087b8f}
+Registers a new extension guesser.
+
+When guessing, this guesser is preferred over previously registered ones.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Extension\+Guesser\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_interface} & {\em \$guesser} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Extension\+Guesser.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}!\$guessers@{\$guessers}}
+\index{\$guessers@{\$guessers}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Mime\+Type\+::\+Extension\+Guesser}}
+\subsubsection[{\$guessers}]{\setlength{\rightskip}{0pt plus 5cm}\$guessers = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_mime_type_1_1_extension_guesser_a9b31fadd9aa0e3b6f7235c20fef02f88}
+
+
+Definition at line 40 of file Extension\+Guesser.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+File/\+Mime\+Type/{\bf Extension\+Guesser.\+php}\end{DoxyCompactItemize}

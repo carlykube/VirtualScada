@@ -5,9 +5,19 @@ use App\Http\Controllers\Controller;
 
 use Request;
 
+/**
+ * Controller for all system based tasks
+ *
+ * Class SystemController
+ * @package App\Http\Controllers
+ */
 class SystemController extends Controller {
 
-	public function scheduleDownTime()
+    /**
+     * Schedules the downtime for the server
+     *
+     */
+    public function scheduleDownTime()
     {
         dd(Request::all());
     }

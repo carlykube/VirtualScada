@@ -1,0 +1,122 @@
+.TH "String" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+String \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBunvis\fP ($input)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBUNVIS_RX\fP"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBunvisReplace\fP ($match)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBString\fP utility methods\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+ju1ius 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file String\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static unvis ( $input)\fC [static]\fP"
+Decodes a string encoded by libsd's strvis\&.
+.PP
+From \fCman 3 vis\fP:
+.PP
+Use an ‘M’ to represent meta characters (characters with the 8th bit set), and use a caret ‘^’ to represent control characters (see iscntrl(3))\&. The following formats are used: 
+.PP
+.nf
+ \040    Represents ASCII space.
+
+ \240    Represents Meta-space (&nbsp in HTML).
+
+ \M-C    Represents character ‘C’ with the 8th bit set.
+         Spans characters ‘\241’ through ‘\376’.
+
+ \M^C    Represents control character ‘C’ with the 8th bit set.
+         Spans characters ‘\200’ through ‘\237’, and ‘\377’ (as ‘\M^?’).
+
+ \^C     Represents the control character ‘C’.
+         Spans characters ‘\000’ through ‘\037’, and ‘\177’ (as ‘\^?’).
+
+.fi
+.PP
+.PP
+The other formats are supported by \fBPHP\fP's stripcslashes, except for the  sequence (ASCII space)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP The string to decode\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file String\&.php\&.
+.SS "static unvisReplace ( $match)\fC [static]\fP, \fC [protected]\fP"
+Callback for \fBString::unvis\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$match\fP The matches passed by preg_replace_callback
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file String\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const UNVIS_RX"
+\fBInitial value:\fP
+.PP
+.nf
+= <<<'EOS'
+/
+    \\(?:
+        ((?:040)|s)
+        | (240)
+        | (?: M-(\&.) )
+        | (?: M\^(\&.) )
+        | (?: \^(\&.) )
+    )
+/xS
+EOS
+.fi
+.PP
+Definition at line 21 of file String\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

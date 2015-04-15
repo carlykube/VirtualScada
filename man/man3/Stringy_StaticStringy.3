@@ -1,0 +1,1371 @@
+.TH "StaticStringy" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StaticStringy \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBchars\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBupperCaseFirst\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBlowerCaseFirst\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBcamelize\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBupperCamelize\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBdasherize\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBunderscored\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBswapCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtitleize\fP ($str, $ignore=null, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBhumanize\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtidy\fP ($str)"
+.br
+.ti -1c
+.RI "static \fBcollapseWhitespace\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtoAscii\fP ($str, $removeUnsupported=true)"
+.br
+.ti -1c
+.RI "static \fBpad\fP ($str, $\fBlength\fP, $padStr= ' ', $padType= 'right', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBpadLeft\fP ($str, $\fBlength\fP, $padStr= ' ', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBpadRight\fP ($str, $\fBlength\fP, $padStr= ' ', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBpadBoth\fP ($str, $\fBlength\fP, $padStr= ' ', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBstartsWith\fP ($str, $substring, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBendsWith\fP ($str, $substring, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtoSpaces\fP ($str, $tabLength=4)"
+.br
+.ti -1c
+.RI "static \fBtoTabs\fP ($str, $tabLength=4)"
+.br
+.ti -1c
+.RI "static \fBtoLowerCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtoTitleCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtoUpperCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBslugify\fP ($str, $replacement= '-')"
+.br
+.ti -1c
+.RI "static \fBcontains\fP ($haystack, $needle, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBcontainsAny\fP ($haystack, $needles, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBcontainsAll\fP ($haystack, $needles, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBsurround\fP ($str, $substring)"
+.br
+.ti -1c
+.RI "static \fBinsert\fP ($str, $substring, $index, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtruncate\fP ($str, $\fBlength\fP, $substring= '', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBsafeTruncate\fP ($str, $\fBlength\fP, $substring= '', $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBreverse\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBshuffle\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBtrim\fP ($str)"
+.br
+.ti -1c
+.RI "static \fBlongestCommonPrefix\fP ($str, $otherStr, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBlongestCommonSuffix\fP ($str, $otherStr, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBlongestCommonSubstring\fP ($str, $otherStr, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBlength\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBsubstr\fP ($str, $start, $\fBlength\fP=null, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBat\fP ($str, $index, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBfirst\fP ($str, $\fBn\fP, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBlast\fP ($str, $\fBn\fP, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBensureLeft\fP ($str, $substring, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBensureRight\fP ($str, $substring, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBremoveLeft\fP ($str, $substring, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBremoveRight\fP ($str, $substring, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBhasLowerCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBhasUpperCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisAlpha\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisAlphanumeric\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisBlank\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisJson\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisLowerCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisSerialized\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisUpperCase\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBisHexadecimal\fP ($str, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBcountSubstr\fP ($str, $substring, $caseSensitive=true, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBreplace\fP ($str, $search, $replacement, $encoding=null)"
+.br
+.ti -1c
+.RI "static \fBregexReplace\fP ($str, $pattern, $replacement, $\fBoptions\fP= 'msr', $encoding=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file StaticStringy\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static at ( $str,  $index,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the character at $index, with indexes starting at 0\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string from which to get the char 
+.br
+\fI$index\fP Position of the character 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The character at $index 
+.RE
+.PP
+
+.PP
+Definition at line 604 of file StaticStringy\&.php\&.
+.SS "static camelize ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a camelCase version of the string\&. Trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, as well as underscores\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert to camelCase 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String in camelCase 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file StaticStringy\&.php\&.
+.SS "static chars ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns an array consisting of the characters in the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String for which to return the chars 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of string chars 
+.RE
+.PP
+
+.PP
+Definition at line 14 of file StaticStringy\&.php\&.
+.SS "static collapseWhitespace ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Trims the string and replaces consecutive whitespace characters with a single space\&. This includes tabs and newline characters, as well as multibyte whitespace such as the thin space and ideographic space\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to cleanup whitespace 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The trimmed string with condensed whitespace 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file StaticStringy\&.php\&.
+.SS "static contains ( $haystack,  $needle,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains $needle, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$haystack\fP String being checked 
+.br
+\fI$needle\fP Substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $haystack contains $needle 
+.RE
+.PP
+
+.PP
+Definition at line 381 of file StaticStringy\&.php\&.
+.SS "static containsAll ( $haystack,  $needles,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains all $needles, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$haystack\fP String being checked 
+.br
+\fI$needles\fP Substrings to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $haystack contains all $needles 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file StaticStringy\&.php\&.
+.SS "static containsAny ( $haystack,  $needles,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains any $needles, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$haystack\fP String being checked 
+.br
+\fI$needles\fP Substrings to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $haystack contains any $needles 
+.RE
+.PP
+
+.PP
+Definition at line 399 of file StaticStringy\&.php\&.
+.SS "static countSubstr ( $str,  $substring,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the number of occurrences of $substring in the given string\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to search through 
+.br
+\fI$substring\fP The substring to search for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of $substring occurrences 
+.RE
+.PP
+
+.PP
+Definition at line 828 of file StaticStringy\&.php\&.
+.SS "static dasherize ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a lowercase and trimmed string separated by dashes\&. Dashes are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as underscores\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Dasherized string 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file StaticStringy\&.php\&.
+.SS "static endsWith ( $str,  $substring,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string ends with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check the end of 
+.br
+\fI$substring\fP The substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str ends with $substring 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file StaticStringy\&.php\&.
+.SS "static ensureLeft ( $str,  $substring,  $encoding = \fCnull\fP)\fC [static]\fP"
+Ensures that the string begins with $substring\&. If it doesn't, it's prepended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to modify 
+.br
+\fI$substring\fP The substring to add if not present 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The string prefixed by the $substring 
+.RE
+.PP
+
+.PP
+Definition at line 644 of file StaticStringy\&.php\&.
+.SS "static ensureRight ( $str,  $substring,  $encoding = \fCnull\fP)\fC [static]\fP"
+Ensures that the string begins with $substring\&. If it doesn't, it's appended\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to modify 
+.br
+\fI$substring\fP The substring to add if not present 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The string suffixed by the $substring 
+.RE
+.PP
+
+.PP
+Definition at line 658 of file StaticStringy\&.php\&.
+.SS "static first ( $str,  $n,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the first $n characters of the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string from which to get the substring 
+.br
+\fI$n\fP Number of chars to retrieve from the start 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The first $n characters 
+.RE
+.PP
+
+.PP
+Definition at line 617 of file StaticStringy\&.php\&.
+.SS "static hasLowerCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains a lower case char, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains a lower case character\&. 
+.RE
+.PP
+
+.PP
+Definition at line 697 of file StaticStringy\&.php\&.
+.SS "static hasUpperCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains an upper case char, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains an upper case character\&. 
+.RE
+.PP
+
+.PP
+Definition at line 710 of file StaticStringy\&.php\&.
+.SS "static humanize ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Capitalizes the first word of the string, replaces underscores with spaces, and strips '_id'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to humanize 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP humanized string 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file StaticStringy\&.php\&.
+.SS "static insert ( $str,  $substring,  $index,  $encoding = \fCnull\fP)\fC [static]\fP"
+Inserts $substring into the string at the $index provided\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to insert into 
+.br
+\fI$substring\fP String to be inserted 
+.br
+\fI$index\fP The index at which to insert the substring 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The resulting string after the insertion 
+.RE
+.PP
+
+.PP
+Definition at line 445 of file StaticStringy\&.php\&.
+.SS "static isAlpha ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only alphabetic chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only alphabetic chars 
+.RE
+.PP
+
+.PP
+Definition at line 723 of file StaticStringy\&.php\&.
+.SS "static isAlphanumeric ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only alphabetic and numeric chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only alphanumeric chars 
+.RE
+.PP
+
+.PP
+Definition at line 736 of file StaticStringy\&.php\&.
+.SS "static isBlank ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only whitespace chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only whitespace characters 
+.RE
+.PP
+
+.PP
+Definition at line 749 of file StaticStringy\&.php\&.
+.SS "static isHexadecimal ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only hexadecimal chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only hexadecimal characters 
+.RE
+.PP
+
+.PP
+Definition at line 812 of file StaticStringy\&.php\&.
+.SS "static isJson ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string is JSON, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str is JSON 
+.RE
+.PP
+
+.PP
+Definition at line 761 of file StaticStringy\&.php\&.
+.SS "static isLowerCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only lower case chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only lower case characters 
+.RE
+.PP
+
+.PP
+Definition at line 774 of file StaticStringy\&.php\&.
+.SS "static isSerialized ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string is serialized, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str is serialized 
+.RE
+.PP
+
+.PP
+Definition at line 786 of file StaticStringy\&.php\&.
+.SS "static isUpperCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string contains only upper case chars, false otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str contains only upper case characters 
+.RE
+.PP
+
+.PP
+Definition at line 799 of file StaticStringy\&.php\&.
+.SS "static last ( $str,  $n,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the last $n characters of the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string from which to get the substring 
+.br
+\fI$n\fP Number of chars to retrieve from the end 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The last $n characters 
+.RE
+.PP
+
+.PP
+Definition at line 630 of file StaticStringy\&.php\&.
+.SS "static length ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the length of the string\&. An alias for \fBPHP\fP's mb_strlen() function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to get the length of 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of characters in $str given the encoding 
+.RE
+.PP
+
+.PP
+Definition at line 575 of file StaticStringy\&.php\&.
+.SS "static longestCommonPrefix ( $str,  $otherStr,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the longest common prefix between the string and $otherStr\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP First string for comparison 
+.br
+\fI$otherStr\fP Second string for comparison 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The longest common prefix 
+.RE
+.PP
+
+.PP
+Definition at line 532 of file StaticStringy\&.php\&.
+.SS "static longestCommonSubstring ( $str,  $otherStr,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the longest common substring between the string and $otherStr\&. In the case of ties, it returns that which occurs first\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP First string for comparison 
+.br
+\fI$otherStr\fP Second string for comparison 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The longest common substring 
+.RE
+.PP
+
+.PP
+Definition at line 561 of file StaticStringy\&.php\&.
+.SS "static longestCommonSuffix ( $str,  $otherStr,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the longest common suffix between the string and $otherStr\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP First string for comparison 
+.br
+\fI$otherStr\fP Second string for comparison 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The longest common suffix 
+.RE
+.PP
+
+.PP
+Definition at line 546 of file StaticStringy\&.php\&.
+.SS "static lowerCaseFirst ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Converts the first character of the supplied string to lower case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to modify 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with the first character being lower case 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file StaticStringy\&.php\&.
+.SS "static pad ( $str,  $length,  $padStr = \fC' '\fP,  $padType = \fC'right'\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Pads the string to a given length with $padStr\&. If length is less than or equal to the length of the string, no padding takes places\&. The default string used for padding is a space, and the default type (one of 'left', 'right', 'both') is 'right'\&. Throws an InvalidArgumentException if $padType isn't one of those 3 values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to pad 
+.br
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.br
+\fI$padType\fP \fBOne\fP of 'left', 'right', 'both' 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The padded string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 198 of file StaticStringy\&.php\&.
+.SS "static padBoth ( $str,  $length,  $padStr = \fC' '\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a new string of a given length such that both sides of the string are padded\&. Alias for \fBpad()\fP with a $padType of 'both'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to pad 
+.br
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The padded string 
+.RE
+.PP
+
+.PP
+Definition at line 247 of file StaticStringy\&.php\&.
+.SS "static padLeft ( $str,  $length,  $padStr = \fC' '\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a new string of a given length such that the beginning of the string is padded\&. Alias for \fBpad()\fP with a $padType of 'left'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to pad 
+.br
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The padded string 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file StaticStringy\&.php\&.
+.SS "static padRight ( $str,  $length,  $padStr = \fC' '\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a new string of a given length such that the end of the string is padded\&. Alias for \fBpad()\fP with a $padType of 'right'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to pad 
+.br
+\fI$length\fP Desired string length after padding 
+.br
+\fI$padStr\fP String used to pad, defaults to space 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The padded string 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file StaticStringy\&.php\&.
+.SS "static regexReplace ( $str,  $pattern,  $replacement,  $options = \fC'msr'\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Replaces all occurrences of $pattern in $str by $replacement\&. An alias for mb_ereg_replace()\&. Note that the 'i' option with multibyte patterns in mb_ereg_replace() requires \fBPHP\fP 5\&.4+\&. This is due to a lack of support in the bundled version of Oniguruma in \fBPHP\fP 5\&.3\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The haystack to search through 
+.br
+\fI$pattern\fP The regular expression pattern 
+.br
+\fI$replacement\fP The string to replace with 
+.br
+\fI$options\fP Matching conditions to be used 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The resulting string after the replacements 
+.RE
+.PP
+
+.PP
+Definition at line 863 of file StaticStringy\&.php\&.
+.SS "static removeLeft ( $str,  $substring,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a new string with the prefix $substring removed, if present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String from which to remove the prefix 
+.br
+\fI$substring\fP The prefix to remove 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The string without the prefix $substring 
+.RE
+.PP
+
+.PP
+Definition at line 671 of file StaticStringy\&.php\&.
+.SS "static removeRight ( $str,  $substring,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a new string with the suffix $substring removed, if present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String from which to remove the suffix 
+.br
+\fI$substring\fP The suffix to remove 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The string without the suffix $substring 
+.RE
+.PP
+
+.PP
+Definition at line 684 of file StaticStringy\&.php\&.
+.SS "static replace ( $str,  $search,  $replacement,  $encoding = \fCnull\fP)\fC [static]\fP"
+Replaces all occurrences of $search in $str by $replacement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The haystack to search through 
+.br
+\fI$search\fP The needle to search for 
+.br
+\fI$replacement\fP The string to replace with 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The resulting string after the replacements 
+.RE
+.PP
+
+.PP
+Definition at line 844 of file StaticStringy\&.php\&.
+.SS "static reverse ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a reversed string\&. \fBA\fP multibyte version of strrev()\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to reverse 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The reversed string 
+.RE
+.PP
+
+.PP
+Definition at line 495 of file StaticStringy\&.php\&.
+.SS "static safeTruncate ( $str,  $length,  $substring = \fC''\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Truncates the string to a given length, while ensuring that it does not split words\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to truncate 
+.br
+\fI$length\fP Desired length of the truncated string 
+.br
+\fI$substring\fP The substring to append if it can fit 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The resulting string after truncating 
+.RE
+.PP
+
+.PP
+Definition at line 481 of file StaticStringy\&.php\&.
+.SS "static shuffle ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+\fBA\fP multibyte str_shuffle() function\&. It returns a string with its characters in random order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to shuffle 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The shuffled string 
+.RE
+.PP
+
+.PP
+Definition at line 508 of file StaticStringy\&.php\&.
+.SS "static slugify ( $str,  $replacement = \fC'-'\fP)\fC [static]\fP"
+Converts the string into an \fBURL\fP slug\&. This includes replacing non-ASCII characters with their closest ASCII equivalents, removing remaining non-ASCII and non-alphanumeric characters, and replacing whitespace with $replacement\&. The replacement defaults to a single dash, and the string is also converted to lowercase\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP Text to transform into an \fBURL\fP slug 
+.br
+\fI$replacement\fP The string used to replace whitespace 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The corresponding \fBURL\fP slug 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file StaticStringy\&.php\&.
+.SS "static startsWith ( $str,  $substring,  $caseSensitive = \fCtrue\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns true if the string begins with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to check the start of 
+.br
+\fI$substring\fP The substring to look for 
+.br
+\fI$caseSensitive\fP Whether or not to enforce case-sensitivity 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether or not $str starts with $substring 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file StaticStringy\&.php\&.
+.SS "static substr ( $str,  $start,  $length = \fCnull\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns the substring beginning at $start with the specified $length\&. It differs from the mb_substr() function in that providing a $length of null will return the rest of the string, rather than an empty string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to get the length of 
+.br
+\fI$start\fP Position of the first character to use 
+.br
+\fI$length\fP Maximum number of characters used 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The substring of $str 
+.RE
+.PP
+
+.PP
+Definition at line 591 of file StaticStringy\&.php\&.
+.SS "static surround ( $str,  $substring)\fC [static]\fP"
+Surrounds a string with the given substring\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP The string to surround 
+.br
+\fI$substring\fP The substring to add to both sides 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The string with the substring prepended and appended 
+.RE
+.PP
+
+.PP
+Definition at line 431 of file StaticStringy\&.php\&.
+.SS "static swapCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a case swapped version of the string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to swap case 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with each character's case swapped 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file StaticStringy\&.php\&.
+.SS "static tidy ( $str)\fC [static]\fP"
+Returns a string with smart quotes, ellipsis characters, and dashes from Windows-1252 (commonly used in Word documents) replaced by their ASCII equivalents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to remove special chars 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with those characters removed 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file StaticStringy\&.php\&.
+.SS "static titleize ( $str,  $ignore = \fCnull\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a trimmed string with the first letter of each word capitalized\&. Ignores the case of other letters, preserving any acronyms\&. Also accepts an array, $ignore, allowing you to list words not to be capitalized\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to titleize 
+.br
+\fI$encoding\fP The character encoding 
+.br
+\fI$ignore\fP An array of words not to capitalize 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Titleized string 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file StaticStringy\&.php\&.
+.SS "static toAscii ( $str,  $removeUnsupported = \fCtrue\fP)\fC [static]\fP"
+Returns an ASCII version of the string\&. \fBA\fP set of non-ASCII characters are replaced with their closest ASCII counterparts, and the rest are removed unless instructed otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP \fBA\fP string with non-ASCII characters 
+.br
+\fI$removeUnsupported\fP Whether or not to remove the unsupported characters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP string containing only ASCII characters 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file StaticStringy\&.php\&.
+.SS "static toLowerCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Converts all characters in the string to lowercase\&. An alias for \fBPHP\fP's mb_strtolower()\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert case 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The lowercase string 
+.RE
+.PP
+
+.PP
+Definition at line 324 of file StaticStringy\&.php\&.
+.SS "static toSpaces ( $str,  $tabLength = \fC4\fP)\fC [static]\fP"
+Converts each tab in the string to some number of spaces, as defined by $tabLength\&. By default, each tab is converted to 4 consecutive spaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert tabs to spaces 
+.br
+\fI$tabLength\fP Number of spaces to replace each tab with 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with tabs switched to spaces 
+.RE
+.PP
+
+.PP
+Definition at line 297 of file StaticStringy\&.php\&.
+.SS "static toTabs ( $str,  $tabLength = \fC4\fP)\fC [static]\fP"
+Converts each occurrence of some consecutive number of spaces, as defined by $tabLength, to a tab\&. By default, each 4 consecutive spaces are converted to a tab\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert spaces to tabs 
+.br
+\fI$tabLength\fP Number of spaces to replace with a tab 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with spaces switched to tabs 
+.RE
+.PP
+
+.PP
+Definition at line 311 of file StaticStringy\&.php\&.
+.SS "static toTitleCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Converts the first character of each word in the string to uppercase\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert case 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The title-cased string 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file StaticStringy\&.php\&.
+.SS "static toUpperCase ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Converts all characters in the string to uppercase\&. An alias for \fBPHP\fP's mb_strtoupper()\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert case 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The uppercase string 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file StaticStringy\&.php\&.
+.SS "static trim ( $str)\fC [static]\fP"
+Returns the trimmed string\&. An alias for \fBPHP\fP's \fBtrim()\fP function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to trim 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Trimmed $str 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file StaticStringy\&.php\&.
+.SS "static truncate ( $str,  $length,  $substring = \fC''\fP,  $encoding = \fCnull\fP)\fC [static]\fP"
+Truncates the string to a given length\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to truncate 
+.br
+\fI$length\fP Desired length of the truncated string 
+.br
+\fI$substring\fP The substring to append if it can fit 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The resulting string after truncating 
+.RE
+.PP
+
+.PP
+Definition at line 462 of file StaticStringy\&.php\&.
+.SS "static underscored ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns a lowercase and trimmed string separated by underscores\&. Underscores are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as dashes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Underscored string 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file StaticStringy\&.php\&.
+.SS "static upperCamelize ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Returns an UpperCamelCase version of the supplied string\&. It trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, underscores\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to convert to UpperCamelCase 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String in UpperCamelCase 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file StaticStringy\&.php\&.
+.SS "static upperCaseFirst ( $str,  $encoding = \fCnull\fP)\fC [static]\fP"
+Converts the first character of the supplied string to upper case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$str\fP String to modify 
+.br
+\fI$encoding\fP The character encoding 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string String with the first character being upper case 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file StaticStringy\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

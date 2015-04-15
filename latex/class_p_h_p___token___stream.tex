@@ -1,0 +1,631 @@
+\section{P\+H\+P\+\_\+\+Token\+\_\+\+Stream Class Reference}
+\label{class_p_h_p___token___stream}\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+Inheritance diagram for P\+H\+P\+\_\+\+Token\+\_\+\+Stream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_h_p___token___stream}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$source\+Code)
+\item 
+{\bf \+\_\+\+\_\+destruct} ()
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\item 
+{\bf get\+Filename} ()
+\item 
+{\bf count} ()
+\item 
+{\bf tokens} ()
+\item 
+{\bf get\+Classes} ()
+\item 
+{\bf get\+Functions} ()
+\item 
+{\bf get\+Interfaces} ()
+\item 
+{\bf get\+Traits} ()
+\item 
+{\bf get\+Includes} (\$categorize=F\+A\+L\+S\+E, \$category=N\+U\+L\+L)
+\item 
+{\bf get\+Function\+For\+Line} (\${\bf line})
+\item 
+{\bf get\+Lines\+Of\+Code} ()
+\item 
+{\bf rewind} ()
+\item 
+{\bf valid} ()
+\item 
+{\bf key} ()
+\item 
+{\bf current} ()
+\item 
+{\bf next} ()
+\item 
+{\bf offset\+Exists} (\$offset)
+\item 
+{\bf offset\+Get} (\$offset)
+\item 
+{\bf offset\+Set} (\$offset, \$value)
+\item 
+{\bf offset\+Unset} (\$offset)
+\item 
+{\bf seek} (\$position)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf scan} (\$source\+Code)
+\item 
+{\bf parse} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$filename}
+\item 
+{\bf \$tokens} = array()
+\item 
+{\bf \$position} = 0
+\item 
+{\bf \$lines\+Of\+Code} = array(\textquotesingle{}loc\textquotesingle{} =$>$ 0, \textquotesingle{}cloc\textquotesingle{} =$>$ 0, \textquotesingle{}ncloc\textquotesingle{} =$>$ 0)
+\item 
+{\bf \$classes}
+\item 
+{\bf \$functions}
+\item 
+{\bf \$includes}
+\item 
+{\bf \$interfaces}
+\item 
+{\bf \$traits}
+\item 
+{\bf \$line\+To\+Function\+Map} = array()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$custom\+Tokens}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} stream of \doxyref{P\+H\+P}{p.}{namespace_p_h_p} tokens.
+
+\begin{DoxyAuthor}{Author}
+Sebastian Bergmann {\tt sebastian@phpunit.\+de} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Sebastian Bergmann {\tt sebastian@phpunit.\+de}  {\tt http\+://www.\+opensource.\+org/licenses/\+B\+S\+D-\/3-\/\+Clause} The B\+S\+D 3-\/\+Clause License 
+\end{DoxyCopyright}
+\begin{DoxyVersion}{Version}
+Release\+: @ \doxyref{Class available since Release 1.\+0.\+0 }{p.}{}
+\end{DoxyVersion}
+
+
+Definition at line 21 of file Stream.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$source\+Code}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_ade8c7bd95df12ab7a2fe01fc40d99b1a}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$source\+Code} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
+\index{\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\+\_\+\+\_\+destruct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+destruct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a421831a265621325e1fdd19aace0c758}
+Destructor. 
+
+Definition at line 125 of file Stream.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a7516ca30af0db3cdbf9a7739b48ce91d}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 133 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!count@{count}}
+\index{count@{count}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_ac751e87b3d4c4bf2feb03bee8b092755}
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!current@{current}}
+\index{current@{current}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_af343507d1926e6ecf964625d41db528c}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+\_\+\+Token}{p.}{class_p_h_p___token} 
+\end{DoxyReturn}
+
+
+Definition at line 527 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Classes@{get\+Classes}}
+\index{get\+Classes@{get\+Classes}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Classes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Classes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_aaab663f8e00e05d4f6853d580e231e14}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Filename@{get\+Filename}}
+\index{get\+Filename@{get\+Filename}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Filename}]{\setlength{\rightskip}{0pt plus 5cm}get\+Filename (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a2982abe8d7b767602a1485dfb4cf653d}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 148 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Function\+For\+Line@{get\+Function\+For\+Line}}
+\index{get\+Function\+For\+Line@{get\+Function\+For\+Line}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Function\+For\+Line}]{\setlength{\rightskip}{0pt plus 5cm}get\+Function\+For\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$line}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_ac6b487ff48b29eab308aac9ab0f7ac0f}
+Returns the name of the function or method a line belongs to.
+
+\begin{DoxyReturn}{Returns}
+string or null if the line is not in a function or method 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line 348 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Functions@{get\+Functions}}
+\index{get\+Functions@{get\+Functions}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Functions}]{\setlength{\rightskip}{0pt plus 5cm}get\+Functions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a131c2522f07821f77cd1d038c216031b}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Includes@{get\+Includes}}
+\index{get\+Includes@{get\+Includes}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Includes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Includes (
+\begin{DoxyParamCaption}
+\item[{}]{\$categorize = {\ttfamily FALSE}, }
+\item[{}]{\$category = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a7e47fc5c8d28aa5b6420069138ab5253}
+Gets the names of all files that have been included using include(), include\+\_\+once(), require() or require\+\_\+once().
+
+Parameter \$categorize set to T\+R\+U\+E causing this function to return a multi-\/dimensional array with categories in the keys of the first dimension and constants and their values in the second dimension.
+
+Parameter \$category allow to filter following specific inclusion type
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$categorize} & O\+P\+T\+I\+O\+N\+A\+L \\
+\hline
+string & {\em \$category} & O\+P\+T\+I\+O\+N\+A\+L Either \textquotesingle{}require\+\_\+once\textquotesingle{}, \textquotesingle{}require\textquotesingle{}, \textquotesingle{}include\+\_\+once\textquotesingle{}, \textquotesingle{}include\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 301 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Interfaces@{get\+Interfaces}}
+\index{get\+Interfaces@{get\+Interfaces}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Interfaces}]{\setlength{\rightskip}{0pt plus 5cm}get\+Interfaces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_aacd41ad982fee4953d8ad245ab7e4ec9}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Lines\+Of\+Code@{get\+Lines\+Of\+Code}}
+\index{get\+Lines\+Of\+Code@{get\+Lines\+Of\+Code}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Lines\+Of\+Code}]{\setlength{\rightskip}{0pt plus 5cm}get\+Lines\+Of\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a078d4af993fd559bc026b82d6d324ca3}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 496 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!get\+Traits@{get\+Traits}}
+\index{get\+Traits@{get\+Traits}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{get\+Traits}]{\setlength{\rightskip}{0pt plus 5cm}get\+Traits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a8985442e8133cd567bf7ce548f96561f}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 274 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!key@{key}}
+\index{key@{key}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{key}]{\setlength{\rightskip}{0pt plus 5cm}key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a729e946b4ef600e71740113c6d4332c0}
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+
+
+Definition at line 519 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!next@{next}}
+\index{next@{next}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_acea62048bfee7b3cd80ed446c86fb78a}
+
+
+Definition at line 534 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!offset\+Exists@{offset\+Exists}}
+\index{offset\+Exists@{offset\+Exists}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{offset\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$offset}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a24ff257ec0c2221bc6fd7b1b4388e26e}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$offset} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 542 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!offset\+Get@{offset\+Get}}
+\index{offset\+Get@{offset\+Get}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{offset\+Get}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Get (
+\begin{DoxyParamCaption}
+\item[{}]{\$offset}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a59aee6e89465b48f014699f41b521f87}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$offset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 551 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!offset\+Set@{offset\+Set}}
+\index{offset\+Set@{offset\+Set}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{offset\+Set}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Set (
+\begin{DoxyParamCaption}
+\item[{}]{\$offset, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_ac6bde6b1eb50eb5377e91771fe46b7a3}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$offset} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 560 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!offset\+Unset@{offset\+Unset}}
+\index{offset\+Unset@{offset\+Unset}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{offset\+Unset}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Unset (
+\begin{DoxyParamCaption}
+\item[{}]{\$offset}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a2411227ea7118b13495de9839fd4b563}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$offset} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 568 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!parse@{parse}}
+\index{parse@{parse}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a38d99acc70a1d8fd8f94455743b2d237}
+
+
+Definition at line 357 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!rewind@{rewind}}
+\index{rewind@{rewind}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{rewind}]{\setlength{\rightskip}{0pt plus 5cm}rewind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_ae619dcf2218c21549cb65d875bbc6c9c}
+
+
+Definition at line 503 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!scan@{scan}}
+\index{scan@{scan}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{scan}]{\setlength{\rightskip}{0pt plus 5cm}scan (
+\begin{DoxyParamCaption}
+\item[{}]{\$source\+Code}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_af7695cd79399ee0a062365e5bb77491b}
+Scans the source for sequences of characters and converts them into a stream of tokens.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$source\+Code} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 159 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!seek@{seek}}
+\index{seek@{seek}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{seek}]{\setlength{\rightskip}{0pt plus 5cm}seek (
+\begin{DoxyParamCaption}
+\item[{}]{\$position}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a94de197725a8af880010c507aa04ae94}
+Seek to an absolute position.
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$position} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Out\+Of\+Bounds\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 579 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!tokens@{tokens}}
+\index{tokens@{tokens}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{tokens}]{\setlength{\rightskip}{0pt plus 5cm}tokens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_a99ba83c859a4515678355aec2f4c4f6b}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+\_\+\+Token}{p.}{class_p_h_p___token}[] 
+\end{DoxyReturn}
+
+
+Definition at line 223 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!valid@{valid}}
+\index{valid@{valid}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{valid}]{\setlength{\rightskip}{0pt plus 5cm}valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p___token___stream_abb9f0d6adf1eb9b3b55712056861a247}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 511 of file Stream.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$classes@{\$classes}}
+\index{\$classes@{\$classes}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$classes}]{\setlength{\rightskip}{0pt plus 5cm}\$classes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a4212f1eca3e4faf764728d56bc13dfd3}
+
+
+Definition at line 80 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$custom\+Tokens@{\$custom\+Tokens}}
+\index{\$custom\+Tokens@{\$custom\+Tokens}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$custom\+Tokens}]{\setlength{\rightskip}{0pt plus 5cm}\$custom\+Tokens\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_p_h_p___token___stream_a3e2658c2033c52808af352861b6eec4d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+      \textcolor{charliteral}{'('} => \textcolor{stringliteral}{'PHP\_Token\_OPEN\_BRACKET'},
+      \textcolor{charliteral}{')'} => \textcolor{stringliteral}{'PHP\_Token\_CLOSE\_BRACKET'},
+      \textcolor{charliteral}{'['} => \textcolor{stringliteral}{'PHP\_Token\_OPEN\_SQUARE'},
+      \textcolor{charliteral}{']'} => \textcolor{stringliteral}{'PHP\_Token\_CLOSE\_SQUARE'},
+      \textcolor{charliteral}{'\{'} => \textcolor{stringliteral}{'PHP\_Token\_OPEN\_CURLY'},
+      \textcolor{charliteral}{'\}'} => \textcolor{stringliteral}{'PHP\_Token\_CLOSE\_CURLY'},
+      \textcolor{charliteral}{';'} => \textcolor{stringliteral}{'PHP\_Token\_SEMICOLON'},
+      \textcolor{charliteral}{'.'} => \textcolor{stringliteral}{'PHP\_Token\_DOT'},
+      \textcolor{charliteral}{','} => \textcolor{stringliteral}{'PHP\_Token\_COMMA'},
+      \textcolor{charliteral}{'='} => \textcolor{stringliteral}{'PHP\_Token\_EQUAL'},
+      \textcolor{charliteral}{'<'} => \textcolor{stringliteral}{'PHP\_Token\_LT'},
+      \textcolor{charliteral}{'>'} => \textcolor{stringliteral}{'PHP\_Token\_GT'},
+      \textcolor{charliteral}{'+'} => \textcolor{stringliteral}{'PHP\_Token\_PLUS'},
+      \textcolor{charliteral}{'-'} => \textcolor{stringliteral}{'PHP\_Token\_MINUS'},
+      \textcolor{charliteral}{'*'} => \textcolor{stringliteral}{'PHP\_Token\_MULT'},
+      \textcolor{charliteral}{'/'} => \textcolor{stringliteral}{'PHP\_Token\_DIV'},
+      \textcolor{charliteral}{'?'} => \textcolor{stringliteral}{'PHP\_Token\_QUESTION\_MARK'},
+      \textcolor{charliteral}{'!'} => \textcolor{stringliteral}{'PHP\_Token\_EXCLAMATION\_MARK'},
+      \textcolor{charliteral}{':'} => \textcolor{stringliteral}{'PHP\_Token\_COLON'},
+      \textcolor{charliteral}{'"'} => \textcolor{stringliteral}{'PHP\_Token\_DOUBLE\_QUOTES'},
+      \textcolor{charliteral}{'@'} => \textcolor{stringliteral}{'PHP\_Token\_AT'},
+      \textcolor{charliteral}{'&'} => \textcolor{stringliteral}{'PHP\_Token\_AMPERSAND'},
+      \textcolor{charliteral}{'%'} => \textcolor{stringliteral}{'PHP\_Token\_PERCENT'},
+      \textcolor{charliteral}{'|'} => \textcolor{stringliteral}{'PHP\_Token\_PIPE'},
+      \textcolor{charliteral}{'$'} => \textcolor{stringliteral}{'PHP\_Token\_DOLLAR'},
+      \textcolor{charliteral}{'^'} => \textcolor{stringliteral}{'PHP\_Token\_CARET'},
+      \textcolor{charliteral}{'~'} => \textcolor{stringliteral}{'PHP\_Token\_TILDE'},
+      \textcolor{charliteral}{'`'} => \textcolor{stringliteral}{'PHP\_Token\_BACKTICK'}
+    )
+\end{DoxyCode}
+
+
+Definition at line 26 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$filename@{\$filename}}
+\index{\$filename@{\$filename}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$filename}]{\setlength{\rightskip}{0pt plus 5cm}\$filename\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a0722441477f957078ee2437054556cbc}
+
+
+Definition at line 60 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$functions@{\$functions}}
+\index{\$functions@{\$functions}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$functions}]{\setlength{\rightskip}{0pt plus 5cm}\$functions\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_aa75daea491817f3b64daa2f51128bcdf}
+
+
+Definition at line 85 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$includes@{\$includes}}
+\index{\$includes@{\$includes}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$includes}]{\setlength{\rightskip}{0pt plus 5cm}\$includes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a32d017dad1664a5d9e0392a04d7f543c}
+
+
+Definition at line 90 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$interfaces@{\$interfaces}}
+\index{\$interfaces@{\$interfaces}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$interfaces}]{\setlength{\rightskip}{0pt plus 5cm}\$interfaces\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a995aac803a8860a27f5eda9af6c4870a}
+
+
+Definition at line 95 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$lines\+Of\+Code@{\$lines\+Of\+Code}}
+\index{\$lines\+Of\+Code@{\$lines\+Of\+Code}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$lines\+Of\+Code}]{\setlength{\rightskip}{0pt plus 5cm}\$lines\+Of\+Code = array(\textquotesingle{}loc\textquotesingle{} =$>$ 0, \textquotesingle{}cloc\textquotesingle{} =$>$ 0, \textquotesingle{}ncloc\textquotesingle{} =$>$ 0)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_adb8c8ddd083f5b008473acf309ba9c5a}
+
+
+Definition at line 75 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$line\+To\+Function\+Map@{\$line\+To\+Function\+Map}}
+\index{\$line\+To\+Function\+Map@{\$line\+To\+Function\+Map}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$line\+To\+Function\+Map}]{\setlength{\rightskip}{0pt plus 5cm}\$line\+To\+Function\+Map = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a76468ef5c80d86d9a624d23e0c5c3912}
+
+
+Definition at line 105 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$position@{\$position}}
+\index{\$position@{\$position}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$position}]{\setlength{\rightskip}{0pt plus 5cm}\$position = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a6e88dcb746884d18f6c89eb9b9c14a42}
+
+
+Definition at line 70 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$tokens@{\$tokens}}
+\index{\$tokens@{\$tokens}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$tokens}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf tokens} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a72ead29e4317fbc4335fd3ba764e8b59}
+
+
+Definition at line 65 of file Stream.\+php.
+
+\index{P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}!\$traits@{\$traits}}
+\index{\$traits@{\$traits}!P\+H\+P\+\_\+\+Token\+\_\+\+Stream@{P\+H\+P\+\_\+\+Token\+\_\+\+Stream}}
+\subsubsection[{\$traits}]{\setlength{\rightskip}{0pt plus 5cm}\$traits\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p___token___stream_a00d691d7d5290df7d075c00deb62dd1b}
+
+
+Definition at line 100 of file Stream.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpunit/php-\/token-\/stream/src/\+Token/{\bf Stream.\+php}\end{DoxyCompactItemize}

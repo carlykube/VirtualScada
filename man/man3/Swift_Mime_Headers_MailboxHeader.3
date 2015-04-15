@@ -1,0 +1,381 @@
+.TH "Swift_Mime_Headers_MailboxHeader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_Headers_MailboxHeader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_Headers_AbstractHeader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, \fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Mime_Grammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBgetFieldType\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFieldBodyModel\fP ($model)"
+.br
+.ti -1c
+.RI "\fBgetFieldBodyModel\fP ()"
+.br
+.ti -1c
+.RI "\fBsetNameAddresses\fP ($mailboxes)"
+.br
+.ti -1c
+.RI "\fBgetNameAddressStrings\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNameAddresses\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAddresses\fP ($addresses)"
+.br
+.ti -1c
+.RI "\fBgetAddresses\fP ()"
+.br
+.ti -1c
+.RI "\fBremoveAddresses\fP ($addresses)"
+.br
+.ti -1c
+.RI "\fBgetFieldBody\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBnormalizeMailboxes\fP (array $mailboxes)"
+.br
+.ti -1c
+.RI "\fBcreateDisplayNameString\fP ($displayName, $shorten=false)"
+.br
+.ti -1c
+.RI "\fBcreateMailboxListString\fP (array $mailboxes)"
+.br
+.ti -1c
+.RI "\fBtokenNeedsEncoding\fP ($token)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP Mailbox Address MIME Header for something like From or Sender\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file MailboxHeader\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name, \fBSwift_Mime_HeaderEncoder\fP $encoder, \fBSwift_Mime_Grammar\fP $grammar)"
+Creates a new MailboxHeader with $name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP of Header 
+.br
+\fI$encoder\fP 
+.br
+\fI$grammar\fP 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file MailboxHeader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createDisplayNameString ( $displayName,  $shorten = \fCfalse\fP)\fC [protected]\fP"
+Produces a compliant, formatted display-name based on the string given\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$displayName\fP as displayed 
+.br
+\fI$shorten\fP the first line to make remove for header name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file MailboxHeader\&.php\&.
+.SS "createMailboxListString (array $mailboxes)\fC [protected]\fP"
+Creates a string form of all the mailboxes in the passed array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $mailboxes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file MailboxHeader\&.php\&.
+.SS "getAddresses ()"
+Get all email addresses in this Header\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetNameAddresses()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file MailboxHeader\&.php\&.
+.SS "getFieldBody ()"
+Get the string value of the body in this Header\&.
+.PP
+This is not necessarily RFC 2822 compliant since folding white space will not be added at this stage (see \fBtoString()\fP for that)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoString()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 231 of file MailboxHeader\&.php\&.
+.SS "getFieldBodyModel ()"
+Get the model for the field body\&.
+.PP
+This method returns an associative array like \fBgetNameAddresses()\fP
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 75 of file MailboxHeader\&.php\&.
+.SS "getFieldType ()"
+Get the type of Header that this instance represents\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBTYPE_TEXT\fP, \fBTYPE_PARAMETERIZED\fP, \fBTYPE_MAILBOX\fP 
+.PP
+\fBTYPE_DATE\fP, \fBTYPE_ID\fP, \fBTYPE_PATH\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 47 of file MailboxHeader\&.php\&.
+.SS "getNameAddresses ()"
+Get all mailboxes in this Header as key=>value pairs\&.
+.PP
+The key is the address and the value is the name (or null if none set)\&. Example: \fC <?php $header = new \fBSwift_Mime_Headers_MailboxHeader\fP('From', array('chris@swiftmailer.org' => 'Chris Corbyn', 'mark@swiftmailer.org' => 'Mark Corbyn') ); print_r($header->\fBgetNameAddresses()\fP); // array ( // chris@swiftmailer.org => Chris Corbyn, // mark@swiftmailer.org => Mark Corbyn // ) ?> \fP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetAddresses()\fP 
+.PP
+\fBgetNameAddressStrings()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file MailboxHeader\&.php\&.
+.SS "getNameAddressStrings ()"
+Get the full mailbox list of this Header as an array of valid RFC 2822 strings\&.
+.PP
+Example: \fC <?php $header = new \fBSwift_Mime_Headers_MailboxHeader\fP('From', array('chris@swiftmailer.org' => 'Chris Corbyn', 'mark@swiftmailer.org' => 'Mark Corbyn') ); print_r($header->\fBgetNameAddressStrings()\fP); // array ( // 0 => Chris Corbyn chris@swiftmailer.org, // 1 => Mark Corbyn mark@swiftmailer.org // ) ?> \fP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetNameAddresses()\fP 
+.PP
+\fBtoString()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[]
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file MailboxHeader\&.php\&.
+.SS "normalizeMailboxes (array $mailboxes)\fC [protected]\fP"
+Normalizes a user-input list of mailboxes into consistent key=>value pairs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $mailboxes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file MailboxHeader\&.php\&.
+.SS "removeAddresses ( $addresses)"
+Remove one or more addresses from this Header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|string[]\fP $addresses 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file MailboxHeader\&.php\&.
+.SS "setAddresses ( $addresses)"
+Makes this Header represent a list of plain email addresses with no names\&.
+.PP
+Example: \fC <?php //Sets three email addresses as the Header data $header->setAddresses( array('one@domain.tld', 'two@domain.tld', 'three@domain.tld') ); ?> \fP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsetNameAddresses()\fP 
+.PP
+setValue()
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $addresses
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 189 of file MailboxHeader\&.php\&.
+.SS "setFieldBodyModel ( $model)"
+Set the model for the field body\&.
+.PP
+This method takes a string, or an array of addresses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_Header\fP\&.
+.PP
+Definition at line 61 of file MailboxHeader\&.php\&.
+.SS "setNameAddresses ( $mailboxes)"
+Set a list of mailboxes to be shown in this Header\&.
+.PP
+The mailboxes can be a simple array of addresses, or an array of key=>value pairs where (email => personalName)\&. Example: \fC <?php //Sets two mailboxes in the Header, one with a personal name $header->setNameAddresses(array( 'chris@swiftmailer.org' => 'Chris Corbyn', 'mark@swiftmailer.org' //No associated personal name )); ?> \fP
+.PP
+\fBSee also:\fP
+.RS 4
+\fB__construct()\fP 
+.PP
+\fBsetAddresses()\fP 
+.PP
+setValue()
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|string[]\fP $mailboxes
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_RfcComplianceException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file MailboxHeader\&.php\&.
+.SS "tokenNeedsEncoding ( $token)\fC [protected]\fP"
+Redefine the encoding requirements for mailboxes\&.
+.PP
+Commas and semicolons are used to separate multiple addresses, and should therefore be encoded
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 309 of file MailboxHeader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,81 @@
+.TH "protolibs.ics_clients" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+protolibs.ics_clients \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBICSClient\fP"
+.br
+.ti -1c
+.RI "class \fBModbusClient\fP"
+.br
+.ti -1c
+.RI "class \fBModbusRTU\fP"
+.br
+.ti -1c
+.RI "class \fBModbusRTUTest\fP"
+.br
+.ti -1c
+.RI "class \fBModbusTCP\fP"
+.br
+.ti -1c
+.RI "class \fBModbusTCPTest\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBICSClientFactory\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "tuple \fBLOGGER\fP = logging\&.getLogger('modbus_tk')"
+.br
+.ti -1c
+.RI "tuple \fBtests\fP = \fBModbusTCPTest\fP()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def protolibs\&.ics_clients\&.ICSClientFactory ( full_config,  slave_device,  master_device,  icsiface_index = \fC0\fP,  clientiface_index = \fC0\fP)"
+
+.PP
+.nf
+Factory used to instantiate an ICS client from a config object.
+    The configuration is read to choose which type of ICS client should be
+    used, and an appropriate ICS client object is returned.
+
+    @param full_config Configuration dictionary for the whole testbed
+    @param slave_device name of the device that will be queried
+    @param master_device name of the device that will do the querying
+    @param icsifaceIndex Index of the interface we want to use in the 
+                            list of icsifaces for this device
+    @returns The appropriate ICS client object for the device.
+.fi
+.PP
+ 
+.PP
+Definition at line 350 of file ics_clients\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "tuple LOGGER = logging\&.getLogger('modbus_tk')"
+
+.PP
+Definition at line 31 of file ics_clients\&.py\&.
+.SS "tuple tests = \fBModbusTCPTest\fP()"
+
+.PP
+Definition at line 736 of file ics_clients\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,794 @@
+.TH "SqlServerGrammar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SqlServerGrammar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGrammar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileTableExists\fP ()"
+.br
+.ti -1c
+.RI "\fBcompileColumnExists\fP ($table)"
+.br
+.ti -1c
+.RI "\fBcompileCreate\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileAdd\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompilePrimary\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileUnique\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileIndex\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDrop\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropColumn\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropPrimary\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropUnique\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropIndex\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileDropForeign\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.ti -1c
+.RI "\fBcompileRename\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtypeChar\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeString\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeMediumText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeLongText\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBigInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeMediumInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTinyInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeSmallInteger\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeFloat\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDouble\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDecimal\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBoolean\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeEnum\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeJson\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDate\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeDateTime\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTime\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeTimestamp\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBtypeBinary\fP (\fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyNullable\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyDefault\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.ti -1c
+.RI "\fBmodifyIncrement\fP (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$modifiers\fP = array('Increment', 'Nullable', 'Default')"
+.br
+.ti -1c
+.RI "\fB$serials\fP = array('bigInteger', 'integer')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file SqlServerGrammar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "compileAdd (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a create table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file SqlServerGrammar\&.php\&.
+.SS "compileColumnExists ( $table)"
+Compile the query to determine the list of columns\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file SqlServerGrammar\&.php\&.
+.SS "compileCreate (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a create table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file SqlServerGrammar\&.php\&.
+.SS "compileDrop (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file SqlServerGrammar\&.php\&.
+.SS "compileDropColumn (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop column command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file SqlServerGrammar\&.php\&.
+.SS "compileDropForeign (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop foreign key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file SqlServerGrammar\&.php\&.
+.SS "compileDropIndex (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop index command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file SqlServerGrammar\&.php\&.
+.SS "compileDropPrimary (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop primary key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file SqlServerGrammar\&.php\&.
+.SS "compileDropUnique (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a drop unique key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file SqlServerGrammar\&.php\&.
+.SS "compileIndex (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a plain index key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file SqlServerGrammar\&.php\&.
+.SS "compilePrimary (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a primary key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file SqlServerGrammar\&.php\&.
+.SS "compileRename (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a rename table command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 214 of file SqlServerGrammar\&.php\&.
+.SS "compileTableExists ()"
+Compile the query to determine if a table exists\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file SqlServerGrammar\&.php\&.
+.SS "compileUnique (\fBBlueprint\fP $blueprint, \fBFluent\fP $command)"
+Compile a unique key command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file SqlServerGrammar\&.php\&.
+.SS "modifyDefault (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for a default column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 471 of file SqlServerGrammar\&.php\&.
+.SS "modifyIncrement (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for an auto-increment column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 486 of file SqlServerGrammar\&.php\&.
+.SS "modifyNullable (\fBBlueprint\fP $blueprint, \fBFluent\fP $column)\fC [protected]\fP"
+Get the SQL for a nullable column modifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 459 of file SqlServerGrammar\&.php\&.
+.SS "typeBigInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a big integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 293 of file SqlServerGrammar\&.php\&.
+.SS "typeBinary (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a binary type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file SqlServerGrammar\&.php\&.
+.SS "typeBoolean (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a boolean type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 370 of file SqlServerGrammar\&.php\&.
+.SS "typeChar (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a char type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file SqlServerGrammar\&.php\&.
+.SS "typeDate (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a date type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 403 of file SqlServerGrammar\&.php\&.
+.SS "typeDateTime (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a date-time type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file SqlServerGrammar\&.php\&.
+.SS "typeDecimal (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a decimal type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file SqlServerGrammar\&.php\&.
+.SS "typeDouble (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a double type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 348 of file SqlServerGrammar\&.php\&.
+.SS "typeEnum (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for an enum type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 381 of file SqlServerGrammar\&.php\&.
+.SS "typeFloat (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a float type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 337 of file SqlServerGrammar\&.php\&.
+.SS "typeInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file SqlServerGrammar\&.php\&.
+.SS "typeJson (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a json type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 392 of file SqlServerGrammar\&.php\&.
+.SS "typeLongText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a long text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 271 of file SqlServerGrammar\&.php\&.
+.SS "typeMediumInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a medium integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file SqlServerGrammar\&.php\&.
+.SS "typeMediumText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a medium text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 260 of file SqlServerGrammar\&.php\&.
+.SS "typeSmallInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a small integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 326 of file SqlServerGrammar\&.php\&.
+.SS "typeString (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a string type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file SqlServerGrammar\&.php\&.
+.SS "typeText (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a text type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file SqlServerGrammar\&.php\&.
+.SS "typeTime (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a time type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file SqlServerGrammar\&.php\&.
+.SS "typeTimestamp (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a timestamp type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file SqlServerGrammar\&.php\&.
+.SS "typeTinyInteger (\fBFluent\fP $column)\fC [protected]\fP"
+Create the column definition for a tiny integer type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file SqlServerGrammar\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$modifiers = array('Increment', 'Nullable', 'Default')\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file SqlServerGrammar\&.php\&.
+.SS "$serials = array('bigInteger', 'integer')\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file SqlServerGrammar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

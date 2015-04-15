@@ -1,0 +1,50 @@
+{\tt ![Latest Stable Version](https\+://poser.\+pugx.\+org/nesbot/carbon/v/stable.\+png)} {\tt ![Total Downloads](https\+://poser.\+pugx.\+org/nesbot/carbon/downloads.\+png)} {\tt ![Build Status](https\+://secure.\+travis-\/ci.\+org/briannesbitt/\+Carbon.\+png)}
+
+\doxyref{A}{p.}{class_a} simple \doxyref{P\+H\+P}{p.}{namespace_p_h_p} A\+P\+I extension for Date\+Time. {\tt http\+://carbon.\+nesbot.\+com}
+
+```php printf(\char`\"{}\+Right now is \%s\char`\"{}, Carbon\+::now()-\/$>$to\+Date\+Time\+String()); printf(\char`\"{}\+Right now in Vancouver is \%s\char`\"{}, Carbon\+::now(\textquotesingle{}America/\+Vancouver\textquotesingle{})); //implicit \+\_\+\+\_\+to\+String() \$tomorrow = Carbon\+::now()-\/$>$add\+Day(); \$last\+Week = Carbon\+::now()-\/$>$sub\+Week(); \$next\+Summer\+Olympics = Carbon\+::create\+From\+Date(2012)-\/$>$add\+Years(4);
+
+\$official\+Date = Carbon\+::now()-\/$>$to\+Rfc2822\+String();
+
+\$how\+Old\+Am\+I = Carbon\+::create\+From\+Date(1975, 5, 21)-\/$>$age;
+
+\$noon\+Today\+London\+Time = Carbon\+::create\+From\+Time(12, 0, 0, \textquotesingle{}Europe/\+London\textquotesingle{});
+
+\$world\+Will\+End = Carbon\+::create\+From\+Date(2012, 12, 21, \textquotesingle{}G\+M\+T\textquotesingle{});
+
+// Don\textquotesingle{}t really want to die so mock now Carbon\+::set\+Test\+Now(\+Carbon\+::create\+From\+Date(2000, 1, 1));
+
+// comparisons are always done in U\+T\+C if (Carbon\+::now()-\/$>$gte(\$world\+Will\+End)) \{ die(); \}
+
+// Phew! Return to normal behaviour Carbon\+::set\+Test\+Now();
+
+if (Carbon\+::now()-\/$>$is\+Weekend()) \{ echo \textquotesingle{}Party!\textquotesingle{}; \} echo Carbon\+::now()-\/$>$sub\+Minutes(2)-\/$>$diff\+For\+Humans(); // \textquotesingle{}2 minutes ago\textquotesingle{}
+
+// ... but also does \textquotesingle{}from now\textquotesingle{}, \textquotesingle{}after\textquotesingle{} and \textquotesingle{}before\textquotesingle{} // rolling up to seconds, minutes, hours, days, months, years
+
+\$days\+Since\+Epoch = Carbon\+::create\+From\+Time\+Stamp(0)-\/$>$diff\+In\+Days(); ```
+
+\subsection*{Installation}
+
+\subsubsection*{With \doxyref{Composer}{p.}{namespace_composer}}
+
+``` \$ composer require nesbot/carbon ```
+
+```json \{ \char`\"{}require\char`\"{}\+: \{ \char`\"{}nesbot/carbon\char`\"{}\+: \char`\"{}$\sim$1.\+14\char`\"{} \} \} ```
+
+```php $<$?php require \textquotesingle{}\doxyref{vendor/autoload.\+php}{p.}{vendor_2autoload_8php}\textquotesingle{};
+
+use \doxyref{Carbon}{p.}{namespace_carbon};
+
+printf(\char`\"{}\+Now\+: \%s\char`\"{}, Carbon\+::now()); ```
+
+\label{_install-nocomposer}%
+ \subsubsection*{Without \doxyref{Composer}{p.}{namespace_composer}}
+
+Why are you not using {\tt composer}? Download {\tt Carbon.\+php} from the repo and save the file into your project path somewhere.
+
+```php $<$?php require \textquotesingle{}path/to/\+Carbon.\+php\textquotesingle{};
+
+use \doxyref{Carbon}{p.}{namespace_carbon};
+
+printf(\char`\"{}\+Now\+: \%s\char`\"{}, Carbon\+::now()); ``` 

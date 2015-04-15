@@ -1,0 +1,184 @@
+.TH "Swift_Transport_LoadBalancedTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_LoadBalancedTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport\fP\&.
+.PP
+Inherited by \fBSwift_LoadBalancedTransport\fP, and \fBSwift_Transport_FailoverTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTransports\fP (array $transports)"
+.br
+.ti -1c
+.RI "\fBgetTransports\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_getNextTransport\fP ()"
+.br
+.ti -1c
+.RI "\fB_killCurrentTransport\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_transports\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Redundantly and rotationally uses several Transports when sending\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file LoadBalancedTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Creates a new LoadBalancedTransport\&. 
+.PP
+Definition at line 35 of file LoadBalancedTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_getNextTransport ()\fC [protected]\fP"
+Rotates the transport list around and returns the first instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 144 of file LoadBalancedTransport\&.php\&.
+.SS "_killCurrentTransport ()\fC [protected]\fP"
+Tag the currently used (top of stack) transport as dead/useless\&. 
+.PP
+Definition at line 156 of file LoadBalancedTransport\&.php\&.
+.SS "getTransports ()"
+Get $transports to delegate to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file LoadBalancedTransport\&.php\&.
+.SS "isStarted ()"
+Test if this Transport mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 65 of file LoadBalancedTransport\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+Register a plugin\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 132 of file LoadBalancedTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 99 of file LoadBalancedTransport\&.php\&.
+.SS "setTransports (array $transports)"
+Set $transports to delegate to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fISwift_Transport[]\fP $transports 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file LoadBalancedTransport\&.php\&.
+.SS "start ()"
+Start this Transport mechanism\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 73 of file LoadBalancedTransport\&.php\&.
+.SS "stop ()"
+Stop this Transport mechanism\&. 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 81 of file LoadBalancedTransport\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_transports = array()\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file LoadBalancedTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

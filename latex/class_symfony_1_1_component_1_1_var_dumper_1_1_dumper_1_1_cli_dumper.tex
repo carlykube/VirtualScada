@@ -1,0 +1,432 @@
+\section{Cli\+Dumper Class Reference}
+\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper}\index{Cli\+Dumper@{Cli\+Dumper}}
+Inheritance diagram for Cli\+Dumper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$output=null, \$charset=null)
+\item 
+{\bf set\+Colors} (\$colors)
+\item 
+{\bf set\+Max\+String\+Width} (\$max\+String\+Width)
+\item 
+{\bf set\+Styles} (array \$styles)
+\item 
+{\bf dump\+Scalar} ({\bf Cursor} \$cursor, \$type, \$value)
+\item 
+{\bf dump\+String} ({\bf Cursor} \$cursor, \$str, \$bin, \$cut)
+\item 
+{\bf enter\+Hash} ({\bf Cursor} \$cursor, \$type, \$class, \$has\+Child)
+\item 
+{\bf leave\+Hash} ({\bf Cursor} \$cursor, \$type, \$class, \$has\+Child, \$cut)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$default\+Colors}
+\item 
+static {\bf \$default\+Output} = \textquotesingle{}php\+://stdout\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf dump\+Ellipsis} ({\bf Cursor} \$cursor, \$has\+Child, \$cut)
+\item 
+{\bf dump\+Key} ({\bf Cursor} \$cursor)
+\item 
+{\bf style} (\$style, \$value, \${\bf attr}=array())
+\item 
+{\bf supports\+Colors} ()
+\item 
+{\bf dump\+Line} (\$depth)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$colors}
+\item 
+{\bf \$max\+String\+Width} = 0
+\item 
+{\bf \$styles}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$control\+Chars\+Rx} = \textquotesingle{}/[\textbackslash{}x00-\/\textbackslash{}x1\+F\textbackslash{}x7\+F]/\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Cli\+Dumper}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper} dumps variables for command line output.
+
+\begin{DoxyAuthor}{Author}
+Nicolas Grekas {\tt p@tchwork.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 21 of file Cli\+Dumper.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$output = {\ttfamily null}, }
+\item[{}]{\$charset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a26a0d685d6f045f817ace1be50004de0}
+\{\} 
+
+Definition at line 50 of file Cli\+Dumper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!dump\+Ellipsis@{dump\+Ellipsis}}
+\index{dump\+Ellipsis@{dump\+Ellipsis}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{dump\+Ellipsis}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Ellipsis (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor, }
+\item[{}]{\$has\+Child, }
+\item[{}]{\$cut}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_aa8cb9d295355404a19697ed6833378f2}
+Dumps an ellipsis for cut children.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Cursor & {\em \$cursor} & The Cursor position in the dump. \\
+\hline
+bool & {\em \$has\+Child} & When the dump of the hash has child item. \\
+\hline
+int & {\em \$cut} & The number of items the hash has been cut by. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!dump\+Key@{dump\+Key}}
+\index{dump\+Key@{dump\+Key}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{dump\+Key}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Key (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_aeae46a3c4a9e911022017125cbb1339e}
+Dumps a key in a hash structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Cursor & {\em \$cursor} & The Cursor position in the dump. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!dump\+Line@{dump\+Line}}
+\index{dump\+Line@{dump\+Line}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{dump\+Line}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a5bf4d020f5980b55ae57f1cf3e4de617}
+\{\} 
+
+Definition at line 421 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!dump\+Scalar@{dump\+Scalar}}
+\index{dump\+Scalar@{dump\+Scalar}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{dump\+Scalar}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Scalar (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor, }
+\item[{}]{\$type, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_add42458fcc51cd6c92fbfab62bc7c5fe}
+\{Dumps a scalar value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} & {\em \$cursor} & The \doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} position in the dump. \\
+\hline
+string & {\em \$type} & The \doxyref{P\+H\+P}{p.}{namespace_p_h_p} type of the value being dumped. \\
+\hline
+scalar & {\em \$value} & The scalar value being dumped.\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Dumper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_dumper_interface_add42458fcc51cd6c92fbfab62bc7c5fe}.
+
+
+
+Definition at line 105 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!dump\+String@{dump\+String}}
+\index{dump\+String@{dump\+String}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{dump\+String}]{\setlength{\rightskip}{0pt plus 5cm}dump\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor, }
+\item[{}]{\$str, }
+\item[{}]{\$bin, }
+\item[{}]{\$cut}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a06a24429c48c30ba1f579de698fd8853}
+\{Dumps a string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} & {\em \$cursor} & The \doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} position in the dump. \\
+\hline
+string & {\em \$str} & The string being dumped. \\
+\hline
+bool & {\em \$bin} & Whether \$str is U\+T\+F-\/8 or binary encoded. \\
+\hline
+int & {\em \$cut} & The number of characters \$str has been cut by.\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Dumper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_dumper_interface_a06a24429c48c30ba1f579de698fd8853}.
+
+
+
+Definition at line 155 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!enter\+Hash@{enter\+Hash}}
+\index{enter\+Hash@{enter\+Hash}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{enter\+Hash}]{\setlength{\rightskip}{0pt plus 5cm}enter\+Hash (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor, }
+\item[{}]{\$type, }
+\item[{}]{\$class, }
+\item[{}]{\$has\+Child}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a9b9ec353aaf82757fb3d8b221266759f}
+\{Dumps while entering an hash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} & {\em \$cursor} & The \doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} position in the dump. \\
+\hline
+int & {\em \$type} & \doxyref{A}{p.}{class_a} Cursor\+::\+H\+A\+S\+H\+\_\+$\ast$ const for the type of hash. \\
+\hline
+string & {\em \$class} & The object class, resource type or array count. \\
+\hline
+bool & {\em \$has\+Child} & When the dump of the hash has child item.\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Dumper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_dumper_interface_a9b9ec353aaf82757fb3d8b221266759f}.
+
+
+
+Definition at line 221 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!leave\+Hash@{leave\+Hash}}
+\index{leave\+Hash@{leave\+Hash}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{leave\+Hash}]{\setlength{\rightskip}{0pt plus 5cm}leave\+Hash (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor}}]{\$cursor, }
+\item[{}]{\$type, }
+\item[{}]{\$class, }
+\item[{}]{\$has\+Child, }
+\item[{}]{\$cut}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_afe9a3bb766900568a92604df854c7658}
+\{Dumps while leaving an hash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} & {\em \$cursor} & The \doxyref{Cursor}{p.}{class_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_cursor} position in the dump. \\
+\hline
+int & {\em \$type} & \doxyref{A}{p.}{class_a} Cursor\+::\+H\+A\+S\+H\+\_\+$\ast$ const for the type of hash. \\
+\hline
+string & {\em \$class} & The object class, resource type or array count. \\
+\hline
+bool & {\em \$has\+Child} & When the dump of the hash has child item. \\
+\hline
+int & {\em \$cut} & The number of items the hash has been cut by.\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Dumper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_var_dumper_1_1_cloner_1_1_dumper_interface_afe9a3bb766900568a92604df854c7658}.
+
+
+
+Definition at line 252 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!set\+Colors@{set\+Colors}}
+\index{set\+Colors@{set\+Colors}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{set\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}set\+Colors (
+\begin{DoxyParamCaption}
+\item[{}]{\$colors}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a7b739251528776e163c5272246ce0e3f}
+Enables/disables colored output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$colors} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!set\+Max\+String\+Width@{set\+Max\+String\+Width}}
+\index{set\+Max\+String\+Width@{set\+Max\+String\+Width}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{set\+Max\+String\+Width}]{\setlength{\rightskip}{0pt plus 5cm}set\+Max\+String\+Width (
+\begin{DoxyParamCaption}
+\item[{}]{\$max\+String\+Width}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a118b058df3c96ec8b0014c271d9fca41}
+Sets the maximum number of characters per line for dumped strings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$max\+String\+Width} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!set\+Styles@{set\+Styles}}
+\index{set\+Styles@{set\+Styles}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{set\+Styles}]{\setlength{\rightskip}{0pt plus 5cm}set\+Styles (
+\begin{DoxyParamCaption}
+\item[{array}]{\$styles}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a202f8d900759705e30fd968017cb3a9b}
+Configures styles.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$styles} & \doxyref{A}{p.}{class_a} map of style names to style definitions. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!style@{style}}
+\index{style@{style}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{style}]{\setlength{\rightskip}{0pt plus 5cm}style (
+\begin{DoxyParamCaption}
+\item[{}]{\$style, }
+\item[{}]{\$value, }
+\item[{}]{\$attr = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a98b2dabb6cb9481ee5a0b0add956ea6e}
+Decorates a value with some style.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$style} & The type of style being applied. \\
+\hline
+string & {\em \$value} & The value being styled. \\
+\hline
+array & {\em \$attr} & Optional context information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The value with style decoration. 
+\end{DoxyReturn}
+
+
+Definition at line 356 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!supports\+Colors@{supports\+Colors}}
+\index{supports\+Colors@{supports\+Colors}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{supports\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}supports\+Colors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a388c164e14126c9d673f399673730da5}
+\begin{DoxyReturn}{Returns}
+bool Tells if the current output stream supports A\+N\+S\+I colors or not. 
+\end{DoxyReturn}
+
+
+Definition at line 374 of file Cli\+Dumper.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$colors@{\$colors}}
+\index{\$colors@{\$colors}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$colors}]{\setlength{\rightskip}{0pt plus 5cm}\$colors\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a7bb8af4e80c138d129aaa0e892ba4cbf}
+
+
+Definition at line 26 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$control\+Chars\+Rx@{\$control\+Chars\+Rx}}
+\index{\$control\+Chars\+Rx@{\$control\+Chars\+Rx}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$control\+Chars\+Rx}]{\setlength{\rightskip}{0pt plus 5cm}\$control\+Chars\+Rx = \textquotesingle{}/[\textbackslash{}x00-\/\textbackslash{}x1\+F\textbackslash{}x7\+F]/\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a22a990230f758458c0422e5c52317660}
+
+
+Definition at line 45 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$default\+Colors@{\$default\+Colors}}
+\index{\$default\+Colors@{\$default\+Colors}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$default\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}\$default\+Colors\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a000dc403b7bc6d30e314e0b6f9e65754}
+
+
+Definition at line 23 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$default\+Output@{\$default\+Output}}
+\index{\$default\+Output@{\$default\+Output}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$default\+Output}]{\setlength{\rightskip}{0pt plus 5cm}\$default\+Output = \textquotesingle{}php\+://stdout\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a4a780e221a0398ba659d278ae41c5bc6}
+
+
+Definition at line 24 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$max\+String\+Width@{\$max\+String\+Width}}
+\index{\$max\+String\+Width@{\$max\+String\+Width}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$max\+String\+Width}]{\setlength{\rightskip}{0pt plus 5cm}\$max\+String\+Width = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a963b756f9dbf9fadb1c32eaa11fa3455}
+
+
+Definition at line 27 of file Cli\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}!\$styles@{\$styles}}
+\index{\$styles@{\$styles}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Cli\+Dumper}}
+\subsubsection[{\$styles}]{\setlength{\rightskip}{0pt plus 5cm}\$styles\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_cli_dumper_a920c320068535c09e154c6707eb42ded}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        
+        \textcolor{stringliteral}{'default'} => \textcolor{stringliteral}{'38;5;208'},
+        \textcolor{stringliteral}{'num'} => \textcolor{stringliteral}{'1;38;5;38'},
+        \textcolor{stringliteral}{'const'} => \textcolor{stringliteral}{'1;38;5;208'},
+        \textcolor{stringliteral}{'str'} => \textcolor{stringliteral}{'1;38;5;113'},
+        \textcolor{stringliteral}{'cchr'} => \textcolor{charliteral}{'7'},
+        \textcolor{stringliteral}{'note'} => \textcolor{stringliteral}{'38;5;38'},
+        \textcolor{stringliteral}{'ref'} => \textcolor{stringliteral}{'38;5;247'},
+        \textcolor{stringliteral}{'public'} => \textcolor{stringliteral}{''},
+        \textcolor{stringliteral}{'protected'} => \textcolor{stringliteral}{''},
+        \textcolor{stringliteral}{'private'} => \textcolor{stringliteral}{''},
+        \textcolor{stringliteral}{'meta'} => \textcolor{stringliteral}{'38;5;170'},
+        \textcolor{stringliteral}{'key'} => \textcolor{stringliteral}{'38;5;113'},
+        \textcolor{stringliteral}{'index'} => \textcolor{stringliteral}{'38;5;38'},
+    )
+\end{DoxyCode}
+
+
+Definition at line 28 of file Cli\+Dumper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/var-\/dumper/\+Symfony/\+Component/\+Var\+Dumper/\+Dumper/{\bf Cli\+Dumper.\+php}\end{DoxyCompactItemize}

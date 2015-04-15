@@ -1,0 +1,5 @@
+var namespace_symfony_1_1_component_1_1_security_1_1_core_1_1_event =
+[
+    [ "AuthenticationEvent", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_event_1_1_authentication_event.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_event_1_1_authentication_event" ],
+    [ "AuthenticationFailureEvent", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_event_1_1_authentication_failure_event.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_event_1_1_authentication_failure_event" ]
+];

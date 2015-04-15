@@ -1,0 +1,223 @@
+.TH "Bundle" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Bundle \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ContainerAware, and \fBBundleInterface\fP\&.
+.PP
+Inherited by \fBExtensionAbsentBundle\fP, \fBExtensionLoadedBundle\fP, \fBExtensionPresentBundle\fP, and \fBFooBarBundle\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBboot\fP ()"
+.br
+.ti -1c
+.RI "\fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "\fBbuild\fP (ContainerBuilder $container)"
+.br
+.ti -1c
+.RI "\fBgetContainerExtension\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNamespace\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetParent\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterCommands\fP (\fBApplication\fP $application)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetContainerExtensionClass\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$extension\fP"
+.br
+.ti -1c
+.RI "\fB$path\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An implementation of \fBBundleInterface\fP that adds a few conventions for \fBDependencyInjection\fP extensions and \fBConsole\fP commands\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 29 of file Bundle\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "boot ()"
+Boots the \fBBundle\fP\&. 
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 38 of file Bundle\&.php\&.
+.SS "build (ContainerBuilder $container)"
+Builds the bundle\&.
+.PP
+It is only ever called once when the cache is empty\&.
+.PP
+This method can be overridden to register compilation passes, other extensions, \&.\&.\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP \fBA\fP ContainerBuilder instance 
+.RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 59 of file Bundle\&.php\&.
+.SS "getContainerExtension ()"
+Returns the bundle's container extension\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ExtensionInterface|null The container extension
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 72 of file Bundle\&.php\&.
+.SS "getContainerExtensionClass ()\fC [protected]\fP"
+Returns the bundle's container extension class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Bundle\&.php\&.
+.SS "getName ()\fC [final]\fP"
+Returns the bundle name (the class short name)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBBundle\fP name
+.RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 149 of file Bundle\&.php\&.
+.SS "getNamespace ()"
+Gets the \fBBundle\fP namespace\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBBundle\fP namespace
+.RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 107 of file Bundle\&.php\&.
+.SS "getParent ()"
+Returns the bundle parent name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBBundle\fP parent name it overrides or null if no parent
+.RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 138 of file Bundle\&.php\&.
+.SS "getPath ()"
+Gets the \fBBundle\fP directory path\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBBundle\fP absolute path
+.RE
+.PP
+
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 121 of file Bundle\&.php\&.
+.SS "registerCommands (\fBApplication\fP $application)"
+Finds and registers Commands\&.
+.PP
+Override this method if your bundle commands do not follow the conventions:
+.PP
+.IP "\(bu" 2
+Commands are in the 'Command' sub-directory
+.IP "\(bu" 2
+Commands extend \fBSymfony\fP
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$application\fP An Application instance 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file Bundle\&.php\&.
+.SS "shutdown ()"
+Shutdowns the \fBBundle\fP\&. 
+.PP
+Implements \fBBundleInterface\fP\&.
+.PP
+Definition at line 45 of file Bundle\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$extension\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file Bundle\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Bundle\&.php\&.
+.SS "$\fBpath\fP\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file Bundle\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

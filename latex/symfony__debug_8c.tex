@@ -1,0 +1,170 @@
+\section{vendor/symfony/debug/\+Symfony/\+Component/\+Debug/\+Resources/ext/symfony\+\_\+debug.c File Reference}
+\label{symfony__debug_8c}\index{vendor/symfony/debug/\+Symfony/\+Component/\+Debug/\+Resources/ext/symfony\+\_\+debug.\+c@{vendor/symfony/debug/\+Symfony/\+Component/\+Debug/\+Resources/ext/symfony\+\_\+debug.\+c}}
+{\ttfamily \#include \char`\"{}php.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}php\+\_\+ini.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ext/standard/info.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}php\+\_\+symfony\+\_\+debug.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ext/standard/php\+\_\+rand.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ext/standard/php\+\_\+lcg.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ext/spl/php\+\_\+spl.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Zend/zend\+\_\+gc.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+zval\+\_\+info)
+\item 
+{\bf P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\item 
+{\bf P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} (symfony\+\_\+debug)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const zend\+\_\+function\+\_\+entry {\bf symfony\+\_\+debug\+\_\+functions} [$\,$]
+\item 
+zend\+\_\+module\+\_\+entry {\bf symfony\+\_\+debug\+\_\+module\+\_\+entry}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+zval\+\_\+info}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_a45e80577b4405b00b9e81cab6d8a978e}
+
+
+Definition at line 36 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+G\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_a212023ac842194f6ae865bcd0957d03a}
+
+
+Definition at line 188 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+G\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_a41095773e2c9c673d8c81a64cee1c3d9}
+
+
+Definition at line 193 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+M\+I\+N\+F\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_ae4c62be8eeec10ac3b296ac2fdb65801}
+
+
+Definition at line 218 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+M\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_a35a712d25bfd82af1e2fd08c498288bd}
+
+
+Definition at line 198 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+M\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_a57ddc76f698f6ec480d682327c851fd1}
+
+
+Definition at line 203 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+R\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_ad02a39b98022acb62deabf7994e2ff76}
+
+
+Definition at line 208 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+\_\+\+R\+S\+H\+U\+T\+D\+O\+W\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N (
+\begin{DoxyParamCaption}
+\item[{symfony\+\_\+debug}]{}
+\end{DoxyParamCaption}
+)}\label{symfony__debug_8c_ae042e354c7ea7cab90339f76cdd1c2f8}
+
+
+Definition at line 213 of file symfony\+\_\+debug.\+c.
+
+
+
+\subsection{Variable Documentation}
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!symfony\+\_\+debug\+\_\+functions@{symfony\+\_\+debug\+\_\+functions}}
+\index{symfony\+\_\+debug\+\_\+functions@{symfony\+\_\+debug\+\_\+functions}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{symfony\+\_\+debug\+\_\+functions}]{\setlength{\rightskip}{0pt plus 5cm}const zend\+\_\+function\+\_\+entry symfony\+\_\+debug\+\_\+functions[$\,$]}\label{symfony__debug_8c_a69b6d0c2fdab731f9127382655c5cee0}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+
+    PHP\_FE\_END
+\}
+\end{DoxyCode}
+
+
+Definition at line 31 of file symfony\+\_\+debug.\+c.
+
+\index{symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}!symfony\+\_\+debug\+\_\+module\+\_\+entry@{symfony\+\_\+debug\+\_\+module\+\_\+entry}}
+\index{symfony\+\_\+debug\+\_\+module\+\_\+entry@{symfony\+\_\+debug\+\_\+module\+\_\+entry}!symfony\+\_\+debug.\+c@{symfony\+\_\+debug.\+c}}
+\subsubsection[{symfony\+\_\+debug\+\_\+module\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}zend\+\_\+module\+\_\+entry symfony\+\_\+debug\+\_\+module\+\_\+entry}\label{symfony__debug_8c_a40ef7165df26239f7a91490c053297bb}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    STANDARD\_MODULE\_HEADER,
+    \textcolor{stringliteral}{"symfony\_debug"},
+    symfony_debug_functions,
+    PHP\_MINIT(symfony\_debug),
+    PHP\_MSHUTDOWN(symfony\_debug),
+    PHP\_RINIT(symfony\_debug),
+    PHP\_RSHUTDOWN(symfony\_debug),
+    PHP\_MINFO(symfony\_debug),
+    PHP_SYMFONY_DEBUG_VERSION,
+    PHP\_MODULE\_GLOBALS(symfony\_debug),
+    PHP\_GINIT(symfony\_debug),
+    PHP\_GSHUTDOWN(symfony\_debug),
+    NULL,
+    STANDARD\_MODULE\_PROPERTIES\_EX
+\}
+\end{DoxyCode}
+
+
+Definition at line 167 of file symfony\+\_\+debug.\+c.
+

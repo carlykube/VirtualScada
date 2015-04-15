@@ -1,0 +1,8 @@
+var namespace_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception =
+[
+    [ "AccessDeniedException", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_access_denied_exception.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_access_denied_exception" ],
+    [ "FileException", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_file_exception.html", null ],
+    [ "FileNotFoundException", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_file_not_found_exception.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_file_not_found_exception" ],
+    [ "UnexpectedTypeException", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_unexpected_type_exception.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_unexpected_type_exception" ],
+    [ "UploadException", "class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_exception_1_1_upload_exception.html", null ]
+];

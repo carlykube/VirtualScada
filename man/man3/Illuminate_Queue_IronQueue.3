@@ -1,0 +1,381 @@
+.TH "IronQueue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IronQueue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP, and \fBQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (IronMQ $iron, \fBRequest\fP $request, $default, $shouldEncrypt=false)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBrecreate\fP ($payload, $\fBqueue\fP=null, $\fBdelay\fP)"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteMessage\fP ($\fBqueue\fP, $id)"
+.br
+.ti -1c
+.RI "\fBmarshal\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetIron\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmarshalPushedJob\fP ()"
+.br
+.ti -1c
+.RI "\fBcreatePushedIronJob\fP ($job)"
+.br
+.ti -1c
+.RI "\fBcreatePayload\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBparseJobBody\fP ($body)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$iron\fP"
+.br
+.ti -1c
+.RI "\fB$request\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP"
+.br
+.ti -1c
+.RI "\fB$shouldEncrypt\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file IronQueue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (IronMQ $iron, \fBRequest\fP $request,  $default,  $shouldEncrypt = \fCfalse\fP)"
+Create a new IronMQ queue instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$iron\fP 
+.br
+\fI$request\fP 
+.br
+\fI$default\fP 
+.br
+\fI$shouldEncrypt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file IronQueue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createPayload ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [protected]\fP"
+Create a payload string from the given job and data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file IronQueue\&.php\&.
+.SS "createPushedIronJob ( $job)\fC [protected]\fP"
+Create a new IronJob for a pushed job\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 186 of file IronQueue\&.php\&.
+.SS "deleteMessage ( $queue,  $id)"
+Delete a message from the Iron queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file IronQueue\&.php\&.
+.SS "getIron ()"
+Get the underlying IronMQ instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 233 of file IronQueue\&.php\&.
+.SS "getQueue ( $queue)"
+Get the queue or return the default\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file IronQueue\&.php\&.
+.SS "getRequest ()"
+Get the request instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 243 of file IronQueue\&.php\&.
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 108 of file IronQueue\&.php\&.
+.SS "marshal ()"
+Marshal a push queue request and fire the job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 157 of file IronQueue\&.php\&.
+.SS "marshalPushedJob ()\fC [protected]\fP"
+Marshal out the pushed job and payload\&.
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file IronQueue\&.php\&.
+.SS "parseJobBody ( $body)\fC [protected]\fP"
+Parse the job body for firing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$body\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file IronQueue\&.php\&.
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 123 of file IronQueue\&.php\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 64 of file IronQueue\&.php\&.
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 77 of file IronQueue\&.php\&.
+.SS "recreate ( $payload,  $queue = \fCnull\fP,  $delay)"
+Push a raw payload onto the queue after encrypting the payload\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file IronQueue\&.php\&.
+.SS "setRequest (\fBRequest\fP $request)"
+Set the request instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file IronQueue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$default\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file IronQueue\&.php\&.
+.SS "$iron\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file IronQueue\&.php\&.
+.SS "$request\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file IronQueue\&.php\&.
+.SS "$shouldEncrypt\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file IronQueue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

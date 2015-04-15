@@ -1,0 +1,101 @@
+\section{Lock\+Handler Class Reference}
+\label{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler}\index{Lock\+Handler@{Lock\+Handler}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf name}, \$lock\+Path=null)
+\item 
+{\bf lock} (\$blocking=false)
+\item 
+{\bf release} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Lock\+Handler}{p.}{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler} class provides a simple abstraction to lock anything by means of a file lock.
+
+\doxyref{A}{p.}{class_a} locked file is created based on the lock name when calling \doxyref{lock()}{p.}{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler_ae370e38547e4f437ceac857c010d8061}. \doxyref{Other}{p.}{namespace_other} lock handlers will not be able to lock the same name until it is released (explicitly by calling \doxyref{release()}{p.}{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler_ad575b496528688fd44a59dd58c18060a} or implicitly when the instance holding the lock is destroyed).
+
+\begin{DoxyAuthor}{Author}
+Grégoire Pineau {\tt lyrixx@lyrixx.\+info} 
+
+Romain Neutron {\tt imprec@gmail.\+com} 
+
+Nicolas Grekas {\tt p@tchwork.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 29 of file Lock\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$lock\+Path = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler_a1886912d6dbbbafefe740a3ac4ad2a83}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The lock name \\
+\hline
+string | null & {\em \$lock\+Path} & The directory to store the lock. Default values will use temporary directory \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & If the lock directory could not be created or is not writable \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 39 of file Lock\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}!lock@{lock}}
+\index{lock@{lock}!Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}lock (
+\begin{DoxyParamCaption}
+\item[{}]{\$blocking = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler_ae370e38547e4f437ceac857c010d8061}
+Lock the resource
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$blocking} & wait until the lock is released \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if the lock was acquired, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & If the lock file could not be created or opened \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 62 of file Lock\+Handler.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}!release@{release}}
+\index{release@{release}!Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler@{Symfony\+::\+Component\+::\+Filesystem\+::\+Lock\+Handler}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_lock_handler_ad575b496528688fd44a59dd58c18060a}
+Release the resource 
+
+Definition at line 103 of file Lock\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/filesystem/\+Symfony/\+Component/\+Filesystem/{\bf Lock\+Handler.\+php}\end{DoxyCompactItemize}

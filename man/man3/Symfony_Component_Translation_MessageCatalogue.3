@@ -1,0 +1,379 @@
+.TH "MessageCatalogue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MessageCatalogue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBMessageCatalogueInterface\fP, and \fBMetadataAwareInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBlocale\fP, array $messages=array())"
+.br
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDomains\fP ()"
+.br
+.ti -1c
+.RI "\fBall\fP ($domain=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($id, $translation, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBhas\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBdefines\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBget\fP ($id, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBreplace\fP ($messages, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBadd\fP ($messages, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBaddCatalogue\fP (\fBMessageCatalogueInterface\fP $catalogue)"
+.br
+.ti -1c
+.RI "\fBaddFallbackCatalogue\fP (\fBMessageCatalogueInterface\fP $catalogue)"
+.br
+.ti -1c
+.RI "\fBgetFallbackCatalogue\fP ()"
+.br
+.ti -1c
+.RI "\fBgetResources\fP ()"
+.br
+.ti -1c
+.RI "\fBaddResource\fP (ResourceInterface $resource)"
+.br
+.ti -1c
+.RI "\fBgetMetadata\fP ($key= '', $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBsetMetadata\fP ($key, $value, $domain= 'messages')"
+.br
+.ti -1c
+.RI "\fBdeleteMetadata\fP ($key= '', $domain= 'messages')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMessageCatalogue\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 23 of file MessageCatalogue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $locale, array $messages = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP The locale 
+.br
+\fI$messages\fP An array of messages classified by domain
+.RE
+.PP
+
+.PP
+Definition at line 40 of file MessageCatalogue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $messages,  $domain = \fC'messages'\fP)"
+{Adds translations for a given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP An array of translations 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 151 of file MessageCatalogue\&.php\&.
+.SS "addCatalogue (\fBMessageCatalogueInterface\fP $catalogue)"
+{Merges translations from the given \fBCatalogue\fP into the current one\&.
+.PP
+The two catalogues must have the same locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$catalogue\fP \fBA\fP \fBMessageCatalogueInterface\fP instance
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 165 of file MessageCatalogue\&.php\&.
+.SS "addFallbackCatalogue (\fBMessageCatalogueInterface\fP $catalogue)"
+{Merges translations from the given \fBCatalogue\fP into the current one only when the translation does not exist\&.
+.PP
+This is used to provide default translations when they do not exist for the current locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$catalogue\fP \fBA\fP \fBMessageCatalogueInterface\fP instance
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 190 of file MessageCatalogue\&.php\&.
+.SS "addResource (ResourceInterface $resource)"
+{Adds a resource for this collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP \fBA\fP resource instance
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 233 of file MessageCatalogue\&.php\&.
+.SS "all ( $domain = \fCnull\fP)"
+{Gets the messages within a given domain\&.
+.PP
+If $domain is null, it returns all messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of messages
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 71 of file MessageCatalogue\&.php\&.
+.SS "defines ( $id,  $domain = \fC'messages'\fP)"
+{Checks if a message has a translation (it does not take into account the fallback mechanism)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the message has a translation, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 111 of file MessageCatalogue\&.php\&.
+.SS "deleteMetadata ( $key = \fC''\fP,  $domain = \fC'messages'\fP)"
+{Deletes metadata for the given key and domain\&.
+.PP
+Passing an empty domain will delete all metadata\&. Passing an empty key will delete all metadata for the given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+} 
+.PP
+Implements \fBMetadataAwareInterface\fP\&.
+.PP
+Definition at line 269 of file MessageCatalogue\&.php\&.
+.SS "get ( $id,  $domain = \fC'messages'\fP)"
+{Gets a message translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The message translation
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 121 of file MessageCatalogue\&.php\&.
+.SS "getDomains ()"
+{Gets the domains\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of domains
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 61 of file MessageCatalogue\&.php\&.
+.SS "getFallbackCatalogue ()"
+{Gets the fallback catalogue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+MessageCatalogueInterface|null \fBA\fP \fBMessageCatalogueInterface\fP instance or null when no fallback has been set
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 213 of file MessageCatalogue\&.php\&.
+.SS "getLocale ()"
+{Gets the catalogue locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The locale
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 51 of file MessageCatalogue\&.php\&.
+.SS "getMetadata ( $key = \fC''\fP,  $domain = \fC'messages'\fP)"
+{Gets metadata for the given domain and key\&.
+.PP
+Passing an empty domain will return an array with all metadata indexed by domain and then by key\&. Passing an empty key will return an array with all metadata for the given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The value that was set or an array with the domains/keys or null
+.RE
+.PP
+} 
+.PP
+Implements \fBMetadataAwareInterface\fP\&.
+.PP
+Definition at line 241 of file MessageCatalogue\&.php\&.
+.SS "getResources ()"
+{Returns an array of resources loaded to build this collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ResourceInterface[] An array of resources
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 223 of file MessageCatalogue\&.php\&.
+.SS "has ( $id,  $domain = \fC'messages'\fP)"
+{Checks if a message has a translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the message has a translation, false otherwise
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 95 of file MessageCatalogue\&.php\&.
+.SS "replace ( $messages,  $domain = \fC'messages'\fP)"
+{Sets translations for a given domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP An array of translations 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 139 of file MessageCatalogue\&.php\&.
+.SS "set ( $id,  $translation,  $domain = \fC'messages'\fP)"
+{Sets a message translation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP The message id 
+.br
+\fI$translation\fP The messages translation 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+}
+.PP
+Implements \fBMessageCatalogueInterface\fP\&.
+.PP
+Definition at line 85 of file MessageCatalogue\&.php\&.
+.SS "setMetadata ( $key,  $value,  $domain = \fC'messages'\fP)"
+{Adds metadata to a message domain\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key 
+.br
+\fI$value\fP The value 
+.br
+\fI$domain\fP The domain name
+.RE
+.PP
+} 
+.PP
+Implements \fBMetadataAwareInterface\fP\&.
+.PP
+Definition at line 261 of file MessageCatalogue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

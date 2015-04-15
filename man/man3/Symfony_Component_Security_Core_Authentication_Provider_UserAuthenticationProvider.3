@@ -1,0 +1,152 @@
+.TH "UserAuthenticationProvider" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UserAuthenticationProvider \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAuthenticationProviderInterface\fP\&.
+.PP
+Inherited by \fBDaoAuthenticationProvider\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBUserCheckerInterface\fP $userChecker, $providerKey, $hideUserNotFoundExceptions=true)"
+.br
+.ti -1c
+.RI "\fBauthenticate\fP (\fBTokenInterface\fP $token)"
+.br
+.ti -1c
+.RI "\fBsupports\fP (\fBTokenInterface\fP $token)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBretrieveUser\fP ($username, \fBUsernamePasswordToken\fP $token)"
+.br
+.ti -1c
+.RI "\fBcheckAuthentication\fP (\fBUserInterface\fP $user, \fBUsernamePasswordToken\fP $token)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+UserProviderInterface retrieves users for UsernamePasswordToken tokens\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file UserAuthenticationProvider\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBUserCheckerInterface\fP $userChecker,  $providerKey,  $hideUserNotFoundExceptions = \fCtrue\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$userChecker\fP An UserCheckerInterface interface 
+.br
+\fI$providerKey\fP \fBA\fP provider key 
+.br
+\fI$hideUserNotFoundExceptions\fP Whether to hide user not found exception or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 44 of file UserAuthenticationProvider\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "authenticate (\fBTokenInterface\fP $token)"
+{Attempts to authenticate a TokenInterface object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP The TokenInterface instance to authenticate
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TokenInterface An authenticated TokenInterface instance, never null
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIAuthenticationException\fP if the authentication fails
+.RE
+.PP
+} 
+.PP
+Implements \fBAuthenticationManagerInterface\fP\&.
+.PP
+Definition at line 58 of file UserAuthenticationProvider\&.php\&.
+.SS "checkAuthentication (\fBUserInterface\fP $user, \fBUsernamePasswordToken\fP $token)\fC [abstract]\fP, \fC [protected]\fP"
+Does additional checks on the user and token (like validating the credentials)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP The retrieved UserInterface instance 
+.br
+\fI$token\fP The UsernamePasswordToken token to be authenticated
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIAuthenticationException\fP if the credentials could not be validated 
+.RE
+.PP
+
+.SS "retrieveUser ( $username, \fBUsernamePasswordToken\fP $token)\fC [abstract]\fP, \fC [protected]\fP"
+Retrieves the user from an implementation-specific location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP The username to retrieve 
+.br
+\fI$token\fP The \fBToken\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+UserInterface The user
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIAuthenticationException\fP if the credentials could not be validated 
+.RE
+.PP
+
+.SS "supports (\fBTokenInterface\fP $token)"
+{Checks whether this provider supports the given token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP TokenInterface instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the implementation supports the \fBToken\fP, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBAuthenticationProviderInterface\fP\&.
+.PP
+Definition at line 105 of file UserAuthenticationProvider\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,414 @@
+\section{Filesystem\+Manager Class Reference}
+\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager}\index{Filesystem\+Manager@{Filesystem\+Manager}}
+Inheritance diagram for Filesystem\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_filesystem_1_1_filesystem_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$app)
+\item 
+{\bf drive} (\${\bf name}=null)
+\item 
+{\bf disk} (\${\bf name}=null)
+\item 
+{\bf create\+Local\+Driver} (array \$config)
+\item 
+{\bf create\+S3\+Driver} (array \$config)
+\item 
+{\bf create\+Rackspace\+Driver} (array \$config)
+\item 
+{\bf get\+Default\+Driver} ()
+\item 
+{\bf extend} (\$driver, Closure \${\bf callback})
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$parameters)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get} (\${\bf name})
+\item 
+{\bf resolve} (\${\bf name})
+\item 
+{\bf call\+Custom\+Creator} (array \$config)
+\item 
+{\bf get\+Rackspace\+Container} (Rackspace \$client, array \$config)
+\item 
+{\bf adapt} ({\bf Filesystem\+Interface} \$filesystem)
+\item 
+{\bf get\+Config} (\${\bf name})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$app}
+\item 
+{\bf \$disks} = [$\,$]
+\item 
+{\bf \$custom\+Creators} = [$\,$]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Filesystem\+Manager.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$app}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a780a02ea7ec3b69af93d4139793e0df9}
+Create a new filesystem manager instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Filesystem\+Manager.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_ac565bd6a9d062c73a0a0db7afe0ffea9}
+Dynamically call the default driver instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 230 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!adapt@{adapt}}
+\index{adapt@{adapt}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{adapt}]{\setlength{\rightskip}{0pt plus 5cm}adapt (
+\begin{DoxyParamCaption}
+\item[{{\bf Filesystem\+Interface}}]{\$filesystem}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a8a20089f7d87644319084ca1006730c3}
+Adapt the filesystem implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+League\textbackslash{}\+Flysystem\textbackslash{}\+Filesystem\+Interface & {\em \$filesystem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!call\+Custom\+Creator@{call\+Custom\+Creator}}
+\index{call\+Custom\+Creator@{call\+Custom\+Creator}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{call\+Custom\+Creator}]{\setlength{\rightskip}{0pt plus 5cm}call\+Custom\+Creator (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_ae8b1109138a1e98f529697135292f23d}
+Call a custom driver creator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 106 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!create\+Local\+Driver@{create\+Local\+Driver}}
+\index{create\+Local\+Driver@{create\+Local\+Driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{create\+Local\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Local\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a1e5f7337cb5fc0546731d841becf2679}
+Create an instance of the local driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!create\+Rackspace\+Driver@{create\+Rackspace\+Driver}}
+\index{create\+Rackspace\+Driver@{create\+Rackspace\+Driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{create\+Rackspace\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Rackspace\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a48bceeb7f073e816dab0095bf940e2ab}
+Create an instance of the Rackspace driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!create\+S3\+Driver@{create\+S3\+Driver}}
+\index{create\+S3\+Driver@{create\+S3\+Driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{create\+S3\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+S3\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a47e10939695e7b93b9ff0f88e358d6ba}
+Create an instance of the Amazon S3 driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 135 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!disk@{disk}}
+\index{disk@{disk}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{disk}]{\setlength{\rightskip}{0pt plus 5cm}disk (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_ace57615715d6f8e0ba259bfff5459446}
+Get a filesystem instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!drive@{drive}}
+\index{drive@{drive}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{drive}]{\setlength{\rightskip}{0pt plus 5cm}drive (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a27cc50819b0c201cd418f6f0015fa890}
+Get a filesystem instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 53 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!extend@{extend}}
+\index{extend@{extend}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}extend (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a85201371999112b9d4c32796b53f1286}
+Register a custom driver creator Closure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 216 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_af5ea6a083ddb07beb8a30dd32e309ceb}
+Attempt to get the disk from the local cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 77 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!get\+Config@{get\+Config}}
+\index{get\+Config@{get\+Config}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{get\+Config}]{\setlength{\rightskip}{0pt plus 5cm}get\+Config (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a4ab98adeccea03d1df4e300fba39049b}
+Get the filesystem connection configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!get\+Default\+Driver@{get\+Default\+Driver}}
+\index{get\+Default\+Driver@{get\+Default\+Driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{get\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a0bd119b90d7c1935b1c6ce8b8aed09e0}
+Get the default driver name.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 204 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!get\+Rackspace\+Container@{get\+Rackspace\+Container}}
+\index{get\+Rackspace\+Container@{get\+Rackspace\+Container}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{get\+Rackspace\+Container}]{\setlength{\rightskip}{0pt plus 5cm}get\+Rackspace\+Container (
+\begin{DoxyParamCaption}
+\item[{Rackspace}]{\$client, }
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a8f37ad7aac969942ea9b411c0267812b}
+Get the Rackspace Cloud Files container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Rackspace & {\em \$client} & \\
+\hline
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 168 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!resolve@{resolve}}
+\index{resolve@{resolve}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{resolve}]{\setlength{\rightskip}{0pt plus 5cm}resolve (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_ae8ec7bf69a78882c030fe4523476d3ca}
+Resolve the given disk.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 88 of file Filesystem\+Manager.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!\$app@{\$app}}
+\index{\$app@{\$app}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{\$app}]{\setlength{\rightskip}{0pt plus 5cm}\$app\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_adfb117f244076aa9bc269269f7e57403}
+
+
+Definition at line 20 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!\$custom\+Creators@{\$custom\+Creators}}
+\index{\$custom\+Creators@{\$custom\+Creators}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{\$custom\+Creators}]{\setlength{\rightskip}{0pt plus 5cm}\$custom\+Creators = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a86b1d4bc8526082278943d9d3a461016}
+
+
+Definition at line 34 of file Filesystem\+Manager.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}!\$disks@{\$disks}}
+\index{\$disks@{\$disks}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Manager}}
+\subsubsection[{\$disks}]{\setlength{\rightskip}{0pt plus 5cm}\$disks = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_manager_a2354949158401a1c1d6835b4e1df0b89}
+
+
+Definition at line 27 of file Filesystem\+Manager.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Filesystem/{\bf Filesystem\+Manager.\+php}\end{DoxyCompactItemize}

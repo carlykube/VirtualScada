@@ -1,0 +1,47 @@
+\subsection*{Introduction }
+
+The Reflection\+Doc\+Block component of \doxyref{php\+Documentor}{p.}{namespacephp_documentor} provides a Doc\+Block parser that is 100\% compatible with the {\tt P\+H\+P\+Doc standard}.
+
+With this component, a library can provide support for annotations via Doc\+Blocks or otherwise retrieve information that is embedded in a Doc\+Block.
+
+\begin{quote}
+{\bfseries Note}\+: {\itshape this is a core component of \doxyref{php\+Documentor}{p.}{namespacephp_documentor} and is constantly being optimized for performance.} \end{quote}
+
+
+\subsection*{Installation }
+
+You can install the component in the following ways\+:
+
+
+\begin{DoxyItemize}
+\item Use the official Github repository ({\tt https\+://github.\+com/php\+Documentor/\+Reflection\+Doc\+Block})
+\item Via \doxyref{Composer}{p.}{namespace_composer} ({\tt http\+://packagist.\+org/packages/phpdocumentor/reflection-\/docblock})
+\end{DoxyItemize}
+
+\subsection*{Usage }
+
+The Reflection\+Doc\+Block component is designed to work in an identical fashion to \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s own Reflection extension ({\tt http\+://php.\+net/manual/en/book.\+reflection.\+php}).
+
+Parsing can be initiated by instantiating the {\ttfamily \textbackslash{}\doxyref{php\+Documentor}{p.}{namespacephp_documentor}\textbackslash{}Reflection\textbackslash{}Doc\+Block()} class and passing it a string containing a Doc\+Block (including asterisks) or by passing an object supporting the {\ttfamily get\+Doc\+Comment()} method.
+
+\begin{quote}
+{\itshape Examples of objects having the {\ttfamily get\+Doc\+Comment()} method are the {\ttfamily Reflection\+Class} and the {\ttfamily Reflection\+Method} classes of the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} Reflection extension} \end{quote}
+
+
+Example\+: \begin{DoxyVerb}$class = new ReflectionClass('MyClass');
+$phpdoc = new \phpDocumentor\Reflection\DocBlock($class);
+\end{DoxyVerb}
+
+
+or \begin{DoxyVerb}$docblock = <<<DOCBLOCK
+/**
+ * This is a short description.
+ *
+ * This is a *long* description.
+ *
+ * @return void
+ */
+DOCBLOCK;
+
+$phpdoc = new \phpDocumentor\Reflection\DocBlock($docblock);\end{DoxyVerb}
+ 

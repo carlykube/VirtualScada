@@ -1,0 +1,70 @@
+.TH "md_vendor_phpunit_php-timer__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_phpunit_php-timer__r_e_a_d_m_e \- \fBPHP_Timer\fP 
+Utility class for timing things, factored out of \fBPHPUnit\fP into a stand-alone component\&.
+.PP
+.SS "Installation"
+.PP
+You can use the \fCPEAR Installer\fP or \fCComposer\fP to download and install this package as well as its dependencies\&.
+.PP
+.SS "PEAR Installer"
+.PP
+The following two commands (which you may have to run as \fCroot\fP) are all that is required to install this package using the PEAR Installer: 
+.PP
+.nf
+pear config-set auto_discover 1
+pear install pear.phpunit.de/PHP_Timer
+
+.fi
+.PP
+.PP
+.SS "\fBComposer\fP"
+.PP
+To add this package as a local, per-project dependency to your project, simply add a dependency on \fCphpunit/php-timer\fP to your project's \fCcomposer\&.json\fP file\&. Here is a minimal example of a \fCcomposer\&.json\fP file that just defines a dependency on \fBPHP_Timer\fP: 
+.PP
+.nf
+{
+    "require": {
+        "phpunit/php-timer": "*"
+    }
+}
+
+.fi
+.PP
+.PP
+.SS "Usage"
+.PP
+.SS "Basic Timing"
+.PP
+```php \fBPHP_Timer::start()\fP;
+.PP
+$timer->start();
+.PP
+// \&.\&.\&.
+.PP
+$time = \fBPHP_Timer::stop()\fP; var_dump($time);
+.PP
+print \fBPHP_Timer::secondsToTimeString\fP($time); ```
+.PP
+The code above yields the output below: 
+.PP
+.nf
+double(1.0967254638672E-5)
+0 ms
+
+.fi
+.PP
+.PP
+.SS "Resource Consumption Since \fBPHP\fP Startup"
+.PP
+```php print \fBPHP_Timer::resourceUsage()\fP; ```
+.PP
+The code above yields the output below: 
+.PP
+.nf
+Time: 0 ms, Memory: 0.50Mb
+.fi
+.PP
+ 

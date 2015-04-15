@@ -1,0 +1,324 @@
+.TH "PdoSessionHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PdoSessionHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionHandlerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($pdoOrDsn=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBcreateTable\fP ()"
+.br
+.ti -1c
+.RI "\fBisSessionExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($maxlifetime)"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBLOCK_NONE\fP = 0"
+.br
+.ti -1c
+.RI "const \fBLOCK_ADVISORY\fP = 1"
+.br
+.ti -1c
+.RI "const \fBLOCK_TRANSACTIONAL\fP = 2"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBSession\fP handler using a PDO connection to read and write data\&.
+.PP
+It works with MySQL, PostgreSQL, Oracle, SQL Server and SQLite and implements different locking strategies to handle concurrent access to the same session\&. Locking is necessary to prevent loss of data due to race conditions and to keep the session data consistent between \fBread()\fP and \fBwrite()\fP\&. With locking, requests for the same session will wait until the other one finished writing\&. For this reason it's best practice to close a session as early as possible to improve concurrency\&. PHPs internal files session handler also implements locking\&.
+.PP
+Attention: Since SQLite does not support row level locks but locks the whole database, it means only one session can be accessed at a time\&. Even different sessions would wait for another to finish\&. So saving session in SQLite should only be considered for development or prototypes\&.
+.PP
+\fBSession\fP data is a binary string that can contain non-printable characters like the null byte\&. For this reason it must be saved in a binary column in the database like BLOB in MySQL\&. Saving it in a character column could corrupt the data\&. You can use \fBcreateTable()\fP to initialize a correctly defined table\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Michael Williams michael.williams@funsational.com 
+.PP
+Tobias Schultze http://tobion.de 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file PdoSessionHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $pdoOrDsn = \fCnull\fP, array $options = \fCarray()\fP)"
+Constructor\&.
+.PP
+You can either pass an existing database connection as PDO instance or pass a DSN string that will be used to lazy-connect to the database when the session is actually used\&. Furthermore it's possible to pass null which will then use the session\&.save_path ini setting as PDO DSN parameter\&.
+.PP
+List of available options:
+.IP "\(bu" 2
+db_table: The name of the table [default: sessions]
+.IP "\(bu" 2
+db_id_col: The column where to store the session id [default: sess_id]
+.IP "\(bu" 2
+db_data_col: The column where to store the session data [default: sess_data]
+.IP "\(bu" 2
+db_lifetime_col: The column where to store the lifetime [default: sess_lifetime]
+.IP "\(bu" 2
+db_time_col: The column where to store the timestamp [default: sess_time]
+.IP "\(bu" 2
+db_username: The username when lazy-connect [default: '']
+.IP "\(bu" 2
+db_password: The password when lazy-connect [default: '']
+.IP "\(bu" 2
+db_connection_options: An array of driver-specific connection options [default: array()]
+.IP "\(bu" 2
+lock_mode: The strategy for locking, see constants [default: LOCK_TRANSACTIONAL]
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdoOrDsn\fP \fBA\fP  instance or DSN string or null 
+.br
+\fI$options\fP An associative array of options
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 174 of file PdoSessionHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 386 of file PdoSessionHandler\&.php\&.
+.SS "createTable ()"
+Creates the table to store sessions which can be called once for setup\&.
+.PP
+\fBSession\fP ID is saved in a column of maximum length 128 because that is enough even for a 512 bit configured session\&.hash_function like Whirlpool\&. \fBSession\fP data is saved in a BLOB\&. \fBOne\fP could also use a shorter inlined varbinary column if one was sure the data fits into it\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 209 of file PdoSessionHandler\&.php\&.
+.SS "destroy ( $sessionId)"
+{Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 301 of file PdoSessionHandler\&.php\&.
+.SS "bool Whether gc ( $maxlifetime)"
+{Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 289 of file PdoSessionHandler\&.php\&.
+.SS "getConnection ()\fC [protected]\fP"
+Return a PDO instance
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 687 of file PdoSessionHandler\&.php\&.
+.SS "isSessionExpired ()"
+Returns true when the current session exists but expired according to session\&.gc_maxlifetime\&.
+.PP
+Can be used to distinguish between a new session and one that expired due to inactivity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether current session expired 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file PdoSessionHandler\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+{Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 263 of file PdoSessionHandler\&.php\&.
+.SS "read ( $sessionId)"
+{Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 275 of file PdoSessionHandler\&.php\&.
+.SS "write ( $sessionId,  $data)"
+{Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 322 of file PdoSessionHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const LOCK_ADVISORY = 1"
+Creates an application-level lock on a session\&. The disadvantage is that the lock is not enforced by the database and thus other, unaware parts of the application could still concurrently modify the session\&. The advantage is it does not require a transaction\&. This mode is not available for SQLite and not yet implemented for oci and sqlsrv\&. 
+.PP
+Definition at line 58 of file PdoSessionHandler\&.php\&.
+.SS "const LOCK_NONE = 0"
+No locking is done\&. This means sessions are prone to loss of data due to race conditions of concurrent requests to the same session\&. The last session write will win in this case\&. It might be useful when you implement your own logic to deal with this like an optimistic approach\&. 
+.PP
+Definition at line 49 of file PdoSessionHandler\&.php\&.
+.SS "const LOCK_TRANSACTIONAL = 2"
+Issues a real row lock\&. Since it uses a transaction between opening and closing a session, you have to be careful when you use same database connection that you also use for your application logic\&. This mode is the default because it's the only reliable solution across DBMSs\&. 
+.PP
+Definition at line 66 of file PdoSessionHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

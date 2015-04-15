@@ -1,0 +1,1114 @@
+.TH "Builder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Builder \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (QueryBuilder $query)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBfindMany\fP ($ids, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBfindOrFail\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBfirst\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBfirstOrFail\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBget\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBpluck\fP ($column)"
+.br
+.ti -1c
+.RI "\fBchunk\fP ($count, callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBlists\fP ($column, $key=null)"
+.br
+.ti -1c
+.RI "\fBpaginate\fP ($perPage=null, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBsimplePaginate\fP ($perPage=null, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBupdate\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($column, $amount=1, array $extra=array())"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($column, $amount=1, array $extra=array())"
+.br
+.ti -1c
+.RI "\fBdelete\fP ()"
+.br
+.ti -1c
+.RI "\fBforceDelete\fP ()"
+.br
+.ti -1c
+.RI "\fBonDelete\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetModels\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBeagerLoadRelations\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBgetRelation\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBwhere\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhere\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($relation, $operator= '>=', $count=1, $boolean= 'and', Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBdoesntHave\fP ($relation, $boolean= 'and', Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBwhereHas\fP ($relation, Closure $\fBcallback\fP, $operator= '>=', $count=1)"
+.br
+.ti -1c
+.RI "\fBwhereDoesntHave\fP ($relation, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBorHas\fP ($relation, $operator= '>=', $count=1)"
+.br
+.ti -1c
+.RI "\fBorWhereHas\fP ($relation, Closure $\fBcallback\fP, $operator= '>=', $count=1)"
+.br
+.ti -1c
+.RI "\fBwith\fP ($relations)"
+.br
+.ti -1c
+.RI "\fBgetQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBsetQuery\fP ($query)"
+.br
+.ti -1c
+.RI "\fBgetEagerLoads\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEagerLoads\fP (array $eagerLoad)"
+.br
+.ti -1c
+.RI "\fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "\fBsetModel\fP (\fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBmacro\fP ($\fBname\fP, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMacro\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddUpdatedAtColumn\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBloadRelation\fP (array $\fBmodels\fP, $\fBname\fP, Closure $constraints)"
+.br
+.ti -1c
+.RI "\fBnestedRelations\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBisNested\fP ($\fBname\fP, $relation)"
+.br
+.ti -1c
+.RI "\fBhasNested\fP ($relations, $operator= '>=', $count=1, $boolean= 'and', $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBaddHasWhere\fP (\fBBuilder\fP $hasQuery, \fBRelation\fP $relation, $operator, $count, $boolean)"
+.br
+.ti -1c
+.RI "\fBmergeWheresToHas\fP (\fBBuilder\fP $hasQuery, \fBRelation\fP $relation)"
+.br
+.ti -1c
+.RI "\fBgetHasRelationQuery\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBparseRelations\fP (array $relations)"
+.br
+.ti -1c
+.RI "\fBparseNested\fP ($\fBname\fP, $results)"
+.br
+.ti -1c
+.RI "\fBcallScope\fP ($scope, $parameters)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$query\fP"
+.br
+.ti -1c
+.RI "\fB$model\fP"
+.br
+.ti -1c
+.RI "\fB$eagerLoad\fP = array()"
+.br
+.ti -1c
+.RI "\fB$macros\fP = array()"
+.br
+.ti -1c
+.RI "\fB$onDelete\fP"
+.br
+.ti -1c
+.RI "\fB$passthru\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file Builder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (QueryBuilder $query)"
+Create a new \fBEloquent\fP query builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file Builder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically handle calls into the query instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 920 of file Builder\&.php\&.
+.SS "__clone ()"
+Force a clone of the underlying query builder when cloning\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 943 of file Builder\&.php\&.
+.SS "addHasWhere (\fBBuilder\fP $hasQuery, \fBRelation\fP $relation,  $operator,  $count,  $boolean)\fC [protected]\fP"
+Add the 'has' condition where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hasQuery\fP 
+.br
+\fI$relation\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 679 of file Builder\&.php\&.
+.SS "addUpdatedAtColumn (array $values)\fC [protected]\fP"
+Add the 'updated at' column to an array of values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 327 of file Builder\&.php\&.
+.SS "callScope ( $scope,  $parameters)\fC [protected]\fP"
+Call the given model scope on the underlying model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scope\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 812 of file Builder\&.php\&.
+.SS "chunk ( $count, callable $callback)"
+Chunk the results of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file Builder\&.php\&.
+.SS "decrement ( $column,  $amount = \fC1\fP, array $extra = \fCarray()\fP)"
+Decrement a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$extra\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 314 of file Builder\&.php\&.
+.SS "delete ()"
+Delete a record from the database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 341 of file Builder\&.php\&.
+.SS "doesntHave ( $relation,  $boolean = \fC'and'\fP, Closure $callback = \fCnull\fP)"
+Add a relationship count condition to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 611 of file Builder\&.php\&.
+.SS "eagerLoadRelations (array $models)"
+Eager load the relationships for the models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 393 of file Builder\&.php\&.
+.SS "find ( $id,  $columns = \fCarray('*')\fP)"
+Find a model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+||null 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Builder\&.php\&.
+.SS "findMany ( $ids,  $columns = \fCarray('*')\fP)"
+Find a model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ids\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 94 of file Builder\&.php\&.
+.SS "findOrFail ( $id,  $columns = \fCarray('*')\fP)"
+Find a model by its primary key or throw an exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 112 of file Builder\&.php\&.
+.SS "first ( $columns = \fCarray('*')\fP)"
+Execute the query and get the first result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static|null 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file Builder\&.php\&.
+.SS "firstOrFail ( $columns = \fCarray('*')\fP)"
+Execute the query and get the first result or throw an exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 147 of file Builder\&.php\&.
+.SS "forceDelete ()"
+Run the default delete function on the builder\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 356 of file Builder\&.php\&.
+.SS "get ( $columns = \fCarray('*')\fP)"
+Execute the query as a 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file Builder\&.php\&.
+.SS "getEagerLoads ()"
+Get the relationships being eagerly loaded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 847 of file Builder\&.php\&.
+.SS "getHasRelationQuery ( $relation)\fC [protected]\fP"
+Get the 'has relation' base query instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 720 of file Builder\&.php\&.
+.SS "getMacro ( $name)"
+Get the given macro by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 908 of file Builder\&.php\&.
+.SS "getModel ()"
+Get the model instance being queried\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 870 of file Builder\&.php\&.
+.SS "getModels ( $columns = \fCarray('*')\fP)"
+Get the hydrated models without eager loading\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+[] 
+.RE
+.PP
+
+.PP
+Definition at line 378 of file Builder\&.php\&.
+.SS "getQuery ()"
+Get the underlying query builder instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 824 of file Builder\&.php\&.
+.SS "getRelation ( $relation)"
+Get the relation instance for the given relation name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 444 of file Builder\&.php\&.
+.SS "has ( $relation,  $operator = \fC'>='\fP,  $count = \fC1\fP,  $boolean = \fC'and'\fP, Closure $callback = \fCnull\fP)"
+Add a relationship count condition to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 555 of file Builder\&.php\&.
+.SS "hasNested ( $relations,  $operator = \fC'>='\fP,  $count = \fC1\fP,  $boolean = \fC'and'\fP,  $callback = \fCnull\fP)\fC [protected]\fP"
+Add nested relationship count conditions to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 581 of file Builder\&.php\&.
+.SS "increment ( $column,  $amount = \fC1\fP, array $extra = \fCarray()\fP)"
+Increment a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$extra\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 299 of file Builder\&.php\&.
+.SS "isNested ( $name,  $relation)\fC [protected]\fP"
+Determine if the relationship is nested\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 498 of file Builder\&.php\&.
+.SS "lists ( $column,  $key = \fCnull\fP)"
+Get an array with the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file Builder\&.php\&.
+.SS "loadRelation (array $models,  $name, Closure $constraints)\fC [protected]\fP"
+Eagerly load the relationship on a set of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$name\fP 
+.br
+\fI$constraints\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file Builder\&.php\&.
+.SS "macro ( $name, Closure $callback)"
+Extend the builder with a given callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 897 of file Builder\&.php\&.
+.SS "mergeWheresToHas (\fBBuilder\fP $hasQuery, \fBRelation\fP $relation)\fC [protected]\fP"
+Merge the 'wheres' from a relation query to a has query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hasQuery\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 698 of file Builder\&.php\&.
+.SS "nestedRelations ( $relation)\fC [protected]\fP"
+Get the deeply nested relations for a given top-level relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 473 of file Builder\&.php\&.
+.SS "onDelete (Closure $callback)"
+Register a replacement for the default delete function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file Builder\&.php\&.
+.SS "orHas ( $relation,  $operator = \fC'>='\fP,  $count = \fC1\fP)"
+Add a relationship count condition to the query with an 'or'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 650 of file Builder\&.php\&.
+.SS "orWhere ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)"
+Add an 'or where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 540 of file Builder\&.php\&.
+.SS "orWhereHas ( $relation, Closure $callback,  $operator = \fC'>='\fP,  $count = \fC1\fP)"
+Add a relationship count condition to the query with where clauses and an 'or'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 664 of file Builder\&.php\&.
+.SS "paginate ( $perPage = \fCnull\fP,  $columns = \fC['*']\fP)"
+Paginate the given query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 246 of file Builder\&.php\&.
+.SS "parseNested ( $name,  $results)\fC [protected]\fP"
+Parse the nested relationships in a relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$results\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 785 of file Builder\&.php\&.
+.SS "parseRelations (array $relations)\fC [protected]\fP"
+Parse a list of relations into individuals\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 751 of file Builder\&.php\&.
+.SS "pluck ( $column)"
+Pluck a single column from the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 181 of file Builder\&.php\&.
+.SS "setEagerLoads (array $eagerLoad)"
+Set the relationships being eagerly loaded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eagerLoad\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 858 of file Builder\&.php\&.
+.SS "setModel (\fBModel\fP $model)"
+Set a model instance for the model being queried\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 881 of file Builder\&.php\&.
+.SS "setQuery ( $query)"
+Set the underlying query builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 835 of file Builder\&.php\&.
+.SS "simplePaginate ( $perPage = \fCnull\fP,  $columns = \fC['*']\fP)"
+Paginate the given query into a simple paginator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Builder\&.php\&.
+.SS "update (array $values)"
+Update a record in the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 286 of file Builder\&.php\&.
+.SS "where ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)"
+Add a basic where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 514 of file Builder\&.php\&.
+.SS "whereDoesntHave ( $relation, Closure $callback = \fCnull\fP)"
+Add a relationship count condition to the query with where clauses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 637 of file Builder\&.php\&.
+.SS "whereHas ( $relation, Closure $callback,  $operator = \fC'>='\fP,  $count = \fC1\fP)"
+Add a relationship count condition to the query with where clauses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 625 of file Builder\&.php\&.
+.SS "with ( $relations)"
+Set the relationships that should be eager loaded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 734 of file Builder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$eagerLoad = array()\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Builder\&.php\&.
+.SS "$macros = array()\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file Builder\&.php\&.
+.SS "$model\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file Builder\&.php\&.
+.SS "$\fBonDelete\fP\fC [protected]\fP"
+
+.PP
+Definition at line 45 of file Builder\&.php\&.
+.SS "$passthru\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'toSql', 'lists', 'insert', 'insertGetId', 'pluck', 'count',
+        'min', 'max', 'avg', 'sum', 'exists', 'getBindings',
+    )
+.fi
+.PP
+Definition at line 52 of file Builder\&.php\&.
+.SS "$query\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file Builder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

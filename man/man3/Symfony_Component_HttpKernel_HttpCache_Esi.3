@@ -1,0 +1,312 @@
+.TH "Esi" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Esi \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSurrogateInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $contentTypes=array('\fBtext\fP/\fBhtml\fP', '\fBtext\fP/\fBxml\fP', 'application/xhtml+\fBxml\fP', 'application/\fBxml\fP'))"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateCacheStrategy\fP ()"
+.br
+.ti -1c
+.RI "\fBhasSurrogateCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBhasSurrogateEsiCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddSurrogateCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddSurrogateEsiCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddSurrogateControl\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBneedsParsing\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBneedsEsiParsing\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBrenderIncludeTag\fP ($uri, $alt=null, $ignoreErrors=true, $comment= '')"
+.br
+.ti -1c
+.RI "\fBprocess\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (\fBHttpCache\fP $cache, $uri, $alt, $ignoreErrors)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBEsi\fP implements the ESI capabilities to \fBRequest\fP and \fBResponse\fP instances\&.
+.PP
+For more information, read the following W3C notes:
+.PP
+.IP "\(bu" 2
+ESI Language Specification 1\&.0 (http://www.w3.org/TR/esi-lang)
+.IP "\(bu" 2
+Edge Architecture Specification (http://www.w3.org/TR/edge-arch)
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file Esi\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $contentTypes = \fCarray('\fBtext\fP/\fBhtml\fP', '\fBtext\fP/\fBxml\fP', 'application/xhtml+\fBxml\fP', 'application/\fBxml\fP')\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$contentTypes\fP An array of content-type that should be parsed for ESI information\&. (default: text/html, text/xml, application/xhtml+xml, and application/xml) 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file Esi\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addSurrogateCapability (\fBRequest\fP $request)"
+Adds ESI/1\&.0 capability to the given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 98 of file Esi\&.php\&.
+.SS "addSurrogateControl (\fBResponse\fP $response)"
+Adds HTTP headers to specify that the \fBResponse\fP needs to be parsed for ESI\&.
+.PP
+This method only adds an ESI HTTP header if the \fBResponse\fP has some ESI tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 125 of file Esi\&.php\&.
+.SS "addSurrogateEsiCapability (\fBRequest\fP $request)"
+Adds ESI/1\&.0 capability to the given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. Use \fBaddSurrogateCapability()\fP instead 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Esi\&.php\&.
+.SS "createCacheStrategy ()"
+Returns a new cache strategy instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponseCacheStrategyInterface\fP \fBA\fP \fBResponseCacheStrategyInterface\fP instance 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 58 of file Esi\&.php\&.
+.SS "getName ()"
+Returns surrogate name
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 48 of file Esi\&.php\&.
+.SS "handle (\fBHttpCache\fP $cache,  $uri,  $alt,  $ignoreErrors)"
+Handles an ESI from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cache\fP An \fBHttpCache\fP instance 
+.br
+\fI$uri\fP The main URI 
+.br
+\fI$alt\fP An alternative URI 
+.br
+\fI$ignoreErrors\fP Whether to ignore errors or not
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 268 of file Esi\&.php\&.
+.SS "hasSurrogateCapability (\fBRequest\fP $request)"
+Checks that at least one surrogate has ESI/1\&.0 capability\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if one surrogate has ESI/1\&.0 capability, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 70 of file Esi\&.php\&.
+.SS "hasSurrogateEsiCapability (\fBRequest\fP $request)"
+Checks that at least one surrogate has ESI/1\&.0 capability\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if one surrogate has ESI/1\&.0 capability, false otherwise
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. Use \fBhasSurrogateCapability()\fP instead 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file Esi\&.php\&.
+.SS "needsEsiParsing (\fBResponse\fP $response)"
+Checks that the \fBResponse\fP needs to be parsed for ESI tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBResponse\fP needs to be parsed, false otherwise
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. Use \fBneedsParsing()\fP instead 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file Esi\&.php\&.
+.SS "needsParsing (\fBResponse\fP $response)"
+Checks that the \fBResponse\fP needs to be parsed for ESI tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBResponse\fP needs to be parsed, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 139 of file Esi\&.php\&.
+.SS "process (\fBRequest\fP $request, \fBResponse\fP $response)"
+Replaces a \fBResponse\fP ESI tags with the included resource content\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 195 of file Esi\&.php\&.
+.SS "renderIncludeTag ( $uri,  $alt = \fCnull\fP,  $ignoreErrors = \fCtrue\fP,  $comment = \fC''\fP)"
+Renders an ESI tag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP URI 
+.br
+\fI$alt\fP An alternate URI 
+.br
+\fI$ignoreErrors\fP Whether to ignore errors or not 
+.br
+\fI$comment\fP \fBA\fP comment to add as an esi:include tag
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSurrogateInterface\fP\&.
+.PP
+Definition at line 172 of file Esi\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

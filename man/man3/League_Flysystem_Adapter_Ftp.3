@@ -1,0 +1,491 @@
+.TH "Ftp" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Ftp \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractFtpAdapter\fP\&.
+.PP
+Inherited by \fBSynologyFtp\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetTransferMode\fP ($mode)"
+.br
+.ti -1c
+.RI "\fBsetSsl\fP ($ssl)"
+.br
+.ti -1c
+.RI "\fBsetPassive\fP ($passive=true)"
+.br
+.ti -1c
+.RI "\fBconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBwriteStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdateStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBdeleteDir\fP ($dirname)"
+.br
+.ti -1c
+.RI "\fBcreateDir\fP ($dirname, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBgetMetadata\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetMimetype\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBread\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBreadStream\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetConnectionPassiveMode\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConnectionRoot\fP ()"
+.br
+.ti -1c
+.RI "\fBlogin\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateActualDirectory\fP ($directory, $connection)"
+.br
+.ti -1c
+.RI "\fBlistDirectoryContents\fP ($directory, $recursive=true)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$transferMode\fP = FTP_BINARY"
+.br
+.ti -1c
+.RI "\fB$configurable\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 11 of file Ftp\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "connect ()"
+Connect to the FTP server\&. 
+.PP
+Definition at line 72 of file Ftp\&.php\&.
+.SS "createActualDirectory ( $directory,  $connection)\fC [protected]\fP"
+Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file Ftp\&.php\&.
+.SS "createDir ( $dirname, \fBConfig\fP $config)"
+{Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP directory name 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 248 of file Ftp\&.php\&.
+.SS "delete ( $path)"
+{Delete a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 219 of file Ftp\&.php\&.
+.SS "deleteDir ( $dirname)"
+{Delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 227 of file Ftp\&.php\&.
+.SS "disconnect ()"
+Disconnect from the FTP server\&. 
+.PP
+Definition at line 140 of file Ftp\&.php\&.
+.SS "getMetadata ( $path)"
+{Get all the meta data of a file or directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 302 of file Ftp\&.php\&.
+.SS "getMimetype ( $path)"
+{Get the mimetype of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 322 of file Ftp\&.php\&.
+.SS "listDirectoryContents ( $directory,  $recursive = \fCtrue\fP)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file Ftp\&.php\&.
+.SS "login ()\fC [protected]\fP"
+Login\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file Ftp\&.php\&.
+.SS "read ( $path)"
+{Read a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 336 of file Ftp\&.php\&.
+.SS "readStream ( $path)"
+{Read a file as a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 352 of file Ftp\&.php\&.
+.SS "rename ( $path,  $newpath)"
+{Rename a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 211 of file Ftp\&.php\&.
+.SS "setConnectionPassiveMode ()\fC [protected]\fP"
+Set the connections to passive mode\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file Ftp\&.php\&.
+.SS "setConnectionRoot ()\fC [protected]\fP"
+Set the connection root\&. 
+.PP
+Definition at line 104 of file Ftp\&.php\&.
+.SS "setPassive ( $passive = \fCtrue\fP)"
+Set if passive mode should be used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$passive\fP 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file Ftp\&.php\&.
+.SS "setSsl ( $ssl)"
+Set if Ssl is enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ssl\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file Ftp\&.php\&.
+.SS "setTransferMode ( $mode)"
+Set the transfer mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mode\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file Ftp\&.php\&.
+.SS "setVisibility ( $path,  $visibility)"
+{Set the visibility for a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false file meta data
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 370 of file Ftp\&.php\&.
+.SS "update ( $path,  $contents, \fBConfig\fP $config)"
+{Update a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 195 of file Ftp\&.php\&.
+.SS "updateStream ( $path,  $resource, \fBConfig\fP $config)"
+{Update a file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 203 of file Ftp\&.php\&.
+.SS "write ( $path,  $contents, \fBConfig\fP $config)"
+{Write a new file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 152 of file Ftp\&.php\&.
+.SS "writeStream ( $path,  $resource, \fBConfig\fP $config)"
+{Write a new file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 176 of file Ftp\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$configurable\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= [
+        'host', 'port', 'username',
+        'password', 'ssl', 'timeout',
+        'root', 'permPrivate',
+        'permPublic', 'passive',
+        'transferMode',
+    ]
+.fi
+.PP
+Definition at line 23 of file Ftp\&.php\&.
+.SS "$transferMode = FTP_BINARY\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file Ftp\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

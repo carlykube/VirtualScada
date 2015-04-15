@@ -1,0 +1,285 @@
+.TH "Manager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Manager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBContainer\fP $container=null)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBaddConnection\fP (array $config, $\fBname\fP= 'default')"
+.br
+.ti -1c
+.RI "\fBbootEloquent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFetchMode\fP ($fetchMode)"
+.br
+.ti -1c
+.RI "\fBgetDatabaseManager\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEventDispatcher\fP (\fBDispatcher\fP $dispatcher)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBconnection\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBtable\fP ($table, $\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fBschema\fP ($\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fB__callStatic\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetupDefaultConfiguration\fP ()"
+.br
+.ti -1c
+.RI "\fBsetupManager\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$manager\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11 of file Manager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBContainer\fP $container = \fCnull\fP)"
+Create a new database capsule manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Manager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static __callStatic ( $method,  $parameters)\fC [static]\fP"
+Dynamically pass methods to the default connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Manager\&.php\&.
+.SS "addConnection (array $config,  $name = \fC'default'\fP)"
+Register a connection with the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file Manager\&.php\&.
+.SS "bootEloquent ()"
+Bootstrap \fBEloquent\fP so it is ready for usage\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file Manager\&.php\&.
+.SS "static connection ( $connection = \fCnull\fP)\fC [static]\fP"
+Get a connection instance from the global manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 70 of file Manager\&.php\&.
+.SS "getConnection ( $name = \fCnull\fP)"
+Get a registered connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 104 of file Manager\&.php\&.
+.SS "getDatabaseManager ()"
+Get the database manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 161 of file Manager\&.php\&.
+.SS "getEventDispatcher ()"
+Get the current event dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 171 of file Manager\&.php\&.
+.SS "static schema ( $connection = \fCnull\fP)\fC [static]\fP"
+Get a schema builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 93 of file Manager\&.php\&.
+.SS "setEventDispatcher (\fBDispatcher\fP $dispatcher)"
+Set the event dispatcher instance to be used by connections\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dispatcher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 185 of file Manager\&.php\&.
+.SS "setFetchMode ( $fetchMode)"
+Set the fetch mode for the database connections\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fetchMode\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file Manager\&.php\&.
+.SS "setupDefaultConfiguration ()\fC [protected]\fP"
+Setup the default database configuration options\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file Manager\&.php\&.
+.SS "setupManager ()\fC [protected]\fP"
+Build the database manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Manager\&.php\&.
+.SS "static table ( $table,  $connection = \fCnull\fP)\fC [static]\fP"
+Get a fluent query builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 82 of file Manager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$manager\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Manager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

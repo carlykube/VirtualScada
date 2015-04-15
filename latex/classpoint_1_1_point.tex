@@ -1,0 +1,223 @@
+\section{Point Class Reference}
+\label{classpoint_1_1_point}\index{Point@{Point}}
+Inheritance diagram for Point\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpoint_1_1_point}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+} (self, {\bf name}, {\bf typ}=0, value=0, {\bf metadata}=dict(), kwds)
+\item 
+def {\bf add\+\_\+set\+\_\+callback} (self, {\bf f})
+\item 
+def {\bf set} (self, val)
+\item 
+def {\bf reset} (self)
+\item 
+def {\bf get} (self)
+\item 
+def {\bf \+\_\+\+\_\+str\+\_\+\+\_\+} (self)
+\item 
+def {\bf \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf name}
+\item 
+{\bf typ}
+\item 
+{\bf default}
+\item 
+{\bf metadata}
+\item 
+{\bf protocols}
+\item 
+{\bf set\+\_\+callbacks}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    The point class maintains process information local to the virtual 
+    device in an ICS protocol-independent manner. It maintains names for
+    each point for each supported protocol, as well as notes whether a point
+    is for internal use, an device input, or a device output.
+    
+    As an aside, "point" is an ICS term for a variable. Point names are
+    protocol specific. Points may be inputs (like an analog or digital 
+    port), outputs (also analog or digital), or internal variables used to
+    store a state or a calculation. It is a common paradigm for devices to
+    poll other devices for other devices' points.\end{DoxyVerb}
+ 
+
+Definition at line 16 of file point.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{point\+::\+Point@{point\+::\+Point}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{typ = {\ttfamily 0}, }
+\item[{}]{value = {\ttfamily 0}, }
+\item[{}]{metadata = {\ttfamily dict()}, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a940528bddaeee1305a3dc66e98876946}
+\begin{DoxyVerb}Constructor for the point class\end{DoxyVerb}
+ 
+
+Definition at line 34 of file point.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{point\+::\+Point@{point\+::\+Point}!\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{\+\_\+\+\_\+repr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+repr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a9a47563093dfc5ba12274b66e368920c}
+\begin{DoxyVerb}Returns self.__str__()\end{DoxyVerb}
+ 
+
+Definition at line 98 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{\+\_\+\+\_\+str\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+str\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a23e8041ce1015febe4fdace3225714f9}
+\begin{DoxyVerb}String representation of a point.
+    @returns a string giving the type, value, and names of the point\end{DoxyVerb}
+ 
+
+Definition at line 94 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!add\+\_\+set\+\_\+callback@{add\+\_\+set\+\_\+callback}}
+\index{add\+\_\+set\+\_\+callback@{add\+\_\+set\+\_\+callback}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{add\+\_\+set\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}def add\+\_\+set\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_ad69cf110d0ba3020829cb8c522755686}
+\begin{DoxyVerb}Adds a function to the list of callbacks run when the value changes.
+    Such a call back may be useful for initiating external, logging, or
+    debugging or for ensuring that values are maintained in an 
+    appropriate range, like ensuring that an integer remains 
+    within 16-bits. 
+
+    Developers should be careful if more than one callback is
+registered that modifies the new value that the order of
+callbacks is appropriate and watch for unintended side effects.
+
+    @param f a function of form f(point, newvalue) that returns a value
+to be stored as the value of the point. If a callback intends to
+do nothing to the point value, it should return newvalue.\end{DoxyVerb}
+ 
+
+Definition at line 55 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!get@{get}}
+\index{get@{get}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}def get (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a8953cb7726bb77a8f7f0857cde132078}
+\begin{DoxyVerb}This is a get function for the value of this point.
+@returns self.value\end{DoxyVerb}
+ 
+
+Definition at line 89 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!reset@{reset}}
+\index{reset@{reset}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}def reset (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a51829b63adb24ac48d350dee60181002}
+\begin{DoxyVerb}Returns the point value to the default\end{DoxyVerb}
+ 
+
+Definition at line 85 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!set@{set}}
+\index{set@{set}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}def set (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}\label{classpoint_1_1_point_a10dfd219ea014a9dd739c6e6886ce394}
+\begin{DoxyVerb}Used to set the value of the point. Before assigning the new
+    value val to the point, all the set callbacks registered with
+    the point are called in the order that they are present in 
+    the set_callbacks list.
+
+    @param val the new point value\end{DoxyVerb}
+ 
+
+Definition at line 72 of file point.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{point\+::\+Point@{point\+::\+Point}!default@{default}}
+\index{default@{default}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{default}]{\setlength{\rightskip}{0pt plus 5cm}default}\label{classpoint_1_1_point_affb1327b18bf08a379d19eef89cf1ed1}
+
+
+Definition at line 39 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!metadata@{metadata}}
+\index{metadata@{metadata}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{metadata}]{\setlength{\rightskip}{0pt plus 5cm}metadata}\label{classpoint_1_1_point_a9cfcb724bbf4bae5f97bc17cf58cf522}
+
+
+Definition at line 43 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!name@{name}}
+\index{name@{name}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}name}\label{classpoint_1_1_point_ab74e6bf80237ddc4109968cedc58c151}
+
+
+Definition at line 37 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!protocols@{protocols}}
+\index{protocols@{protocols}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{protocols}]{\setlength{\rightskip}{0pt plus 5cm}protocols}\label{classpoint_1_1_point_afd636896b1f6e43aacdb4c31b5da5036}
+
+
+Definition at line 46 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!set\+\_\+callbacks@{set\+\_\+callbacks}}
+\index{set\+\_\+callbacks@{set\+\_\+callbacks}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{set\+\_\+callbacks}]{\setlength{\rightskip}{0pt plus 5cm}set\+\_\+callbacks}\label{classpoint_1_1_point_a27d22c720ac8eedb7322cbbdde7233f2}
+
+
+Definition at line 50 of file point.\+py.
+
+\index{point\+::\+Point@{point\+::\+Point}!typ@{typ}}
+\index{typ@{typ}!point\+::\+Point@{point\+::\+Point}}
+\subsubsection[{typ}]{\setlength{\rightskip}{0pt plus 5cm}typ}\label{classpoint_1_1_point_a5574a1c4b4703a8658c3463fdbde74f3}
+
+
+Definition at line 38 of file point.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/{\bf point.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,216 @@
+\section{Fingers\+Crossed\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler}\index{Fingers\+Crossed\+Handler@{Fingers\+Crossed\+Handler}}
+Inheritance diagram for Fingers\+Crossed\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_monolog_1_1_handler_1_1_fingers_crossed_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$handler, \$activation\+Strategy=null, \$buffer\+Size=0, \$bubble=true, \$stop\+Buffering=true, \$passthru\+Level=null)
+\item 
+{\bf is\+Handling} (array \$record)
+\item 
+{\bf handle} (array \$record)
+\item 
+{\bf close} ()
+\item 
+{\bf reset} ()
+\item 
+{\bf clear} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$handler}
+\item 
+{\bf \$activation\+Strategy}
+\item 
+{\bf \$buffering} = true
+\item 
+{\bf \$buffer\+Size}
+\item 
+{\bf \$buffer} = array()
+\item 
+{\bf \$stop\+Buffering}
+\item 
+{\bf \$passthru\+Level}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Buffers all records until a certain level is reached
+
+The advantage of this approach is that you don\textquotesingle{}t get any clutter in your log files. Only requests which actually trigger an error (or whatever your action\+Level is) will be in the logs, but they will contain all records, not only those above the level threshold.
+
+You can find the various activation strategies in the \doxyref{Monolog}{p.}{namespace_monolog}\textbackslash{} namespace.
+
+\begin{DoxyAuthor}{Author}
+Jordi Boggiano {\tt j.\+boggiano@seld.\+be} 
+\end{DoxyAuthor}
+
+
+Definition at line 30 of file Fingers\+Crossed\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$handler, }
+\item[{}]{\$activation\+Strategy = {\ttfamily null}, }
+\item[{}]{\$buffer\+Size = {\ttfamily 0}, }
+\item[{}]{\$bubble = {\ttfamily true}, }
+\item[{}]{\$stop\+Buffering = {\ttfamily true}, }
+\item[{}]{\$passthru\+Level = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_aa51f3157e2b5506c2bfd2a76115a1794}
+
+\begin{DoxyParams}[1]{Parameters}
+callable | \doxyref{Handler\+Interface}{p.}{interface_monolog_1_1_handler_1_1_handler_interface} & {\em \$handler} & \doxyref{Handler}{p.}{namespace_monolog_1_1_handler} or factory callable(\$record, \$fingers\+Crossed\+Handler). \\
+\hline
+int | Activation\+Strategy\+Interface & {\em \$activation\+Strategy} & Strategy which determines when this handler takes action \\
+\hline
+int & {\em \$buffer\+Size} & How many entries should be buffered at most, beyond that the oldest items are removed from the buffer. \\
+\hline
+Boolean & {\em \$bubble} & Whether the messages that are handled can bubble up the stack or not \\
+\hline
+Boolean & {\em \$stop\+Buffering} & Whether the handler should stop buffering after being triggered (default true) \\
+\hline
+int & {\em \$passthru\+Level} & Minimum level to always flush to handler on close, even if strategy not triggered \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Fingers\+Crossed\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!clear@{clear}}
+\index{clear@{clear}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_aa821bec12eaa7e0f649397c9675ff505}
+Clears the buffer without flushing any messages down to the wrapped handler.
+
+It also resets the handler to its initial buffering state. 
+
+Definition at line 145 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!close@{close}}
+\index{close@{close}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}
+\{\} 
+
+Definition at line 118 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!handle@{handle}}
+\index{handle@{handle}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_ad54b568c673b7b4fc724268a54313603}
+\{\} 
+
+Implements {\bf Handler\+Interface} \doxyref{}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}.
+
+
+
+Definition at line 82 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!is\+Handling@{is\+Handling}}
+\index{is\+Handling@{is\+Handling}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{is\+Handling}]{\setlength{\rightskip}{0pt plus 5cm}is\+Handling (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_abbfbbcd3430dea8422ecd3c725737758}
+\{\} 
+
+Implements {\bf Handler\+Interface} \doxyref{}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}.
+
+
+
+Definition at line 74 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!reset@{reset}}
+\index{reset@{reset}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_a4a20559544fdf4dcb457e258dc976cf8}
+Resets the state of the handler. Stops forwarding records to the wrapped handler. 
+
+Definition at line 135 of file Fingers\+Crossed\+Handler.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$activation\+Strategy@{\$activation\+Strategy}}
+\index{\$activation\+Strategy@{\$activation\+Strategy}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$activation\+Strategy}]{\setlength{\rightskip}{0pt plus 5cm}\$activation\+Strategy\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_a16863f1f2356234a9133f644953127fc}
+
+
+Definition at line 33 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$buffer@{\$buffer}}
+\index{\$buffer@{\$buffer}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$buffer}]{\setlength{\rightskip}{0pt plus 5cm}\$buffer = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_af1862006a19e84e552f66189adc792ae}
+
+
+Definition at line 36 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$buffering@{\$buffering}}
+\index{\$buffering@{\$buffering}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$buffering}]{\setlength{\rightskip}{0pt plus 5cm}\$buffering = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_ad7ca1737d01a61f443060645c1f3ae7a}
+
+
+Definition at line 34 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$buffer\+Size@{\$buffer\+Size}}
+\index{\$buffer\+Size@{\$buffer\+Size}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$buffer\+Size}]{\setlength{\rightskip}{0pt plus 5cm}\$buffer\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_a17c521c4314b58090cecc52aae5e6a5f}
+
+
+Definition at line 35 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$handler@{\$handler}}
+\index{\$handler@{\$handler}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$handler}]{\setlength{\rightskip}{0pt plus 5cm}\$handler\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_a9285a7f684c72e9bb78fdef1bcbe3fd0}
+
+
+Definition at line 32 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$passthru\+Level@{\$passthru\+Level}}
+\index{\$passthru\+Level@{\$passthru\+Level}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$passthru\+Level}]{\setlength{\rightskip}{0pt plus 5cm}\$passthru\+Level\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_aac44af4dd577eca24d1fdb69f1b76060}
+
+
+Definition at line 38 of file Fingers\+Crossed\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}!\$stop\+Buffering@{\$stop\+Buffering}}
+\index{\$stop\+Buffering@{\$stop\+Buffering}!Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler@{Monolog\+::\+Handler\+::\+Fingers\+Crossed\+Handler}}
+\subsubsection[{\$stop\+Buffering}]{\setlength{\rightskip}{0pt plus 5cm}\$stop\+Buffering\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_fingers_crossed_handler_a5d278686eaf4debdc2c5087d02f1e9c4}
+
+
+Definition at line 37 of file Fingers\+Crossed\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Fingers\+Crossed\+Handler.\+php}\end{DoxyCompactItemize}

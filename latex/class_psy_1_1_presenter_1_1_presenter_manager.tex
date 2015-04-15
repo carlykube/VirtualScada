@@ -1,0 +1,270 @@
+\section{Presenter\+Manager Class Reference}
+\label{class_psy_1_1_presenter_1_1_presenter_manager}\index{Presenter\+Manager@{Presenter\+Manager}}
+Inheritance diagram for Presenter\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_psy_1_1_presenter_1_1_presenter_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf add\+Presenters} (array \$presenters)
+\item 
+{\bf add\+Presenter} ({\bf Presenter} \$presenter)
+\item 
+{\bf remove\+Presenter} ({\bf Presenter} \$presenter)
+\item 
+{\bf can\+Present} (\$value)
+\item 
+{\bf present\+Ref} (\$value)
+\item 
+{\bf present} (\$value, \$depth=null, \${\bf options}=0)
+\item 
+{\bf get\+Iterator} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Presenter} (\$value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$presenters} = array()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} manager service.
+
+Presenters are registered with the \doxyref{Presenter\+Manager}{p.}{class_psy_1_1_presenter_1_1_presenter_manager}, which then delegates value presentation to the most recently registered \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} capable of presenting that value. 
+
+Definition at line 21 of file Presenter\+Manager.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_a095c5d389db211932136b53f25f39685}
+\doxyref{Presenter\+Manager}{p.}{class_psy_1_1_presenter_1_1_presenter_manager} constructor.
+
+Initializes default Presenters. 
+
+Definition at line 30 of file Presenter\+Manager.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!add\+Presenter@{add\+Presenter}}
+\index{add\+Presenter@{add\+Presenter}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{add\+Presenter}]{\setlength{\rightskip}{0pt plus 5cm}add\+Presenter (
+\begin{DoxyParamCaption}
+\item[{{\bf Presenter}}]{\$presenter}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_abc6f7c241c9d05b39e8779fbb5f442ff}
+Register a \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter}.
+
+If multiple Presenters are able to present a value, the most recently registered \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} takes precedence.
+
+If \$presenter is already registered, it will be re-\/registered as the highest precedence \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} & {\em \$presenter} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!add\+Presenters@{add\+Presenters}}
+\index{add\+Presenters@{add\+Presenters}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{add\+Presenters}]{\setlength{\rightskip}{0pt plus 5cm}add\+Presenters (
+\begin{DoxyParamCaption}
+\item[{array}]{\$presenters}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_a6a46a1fd1a73ff6c432101dd40dd20ff}
+Register Presenters.
+
+Presenters should be passed in an array from lowest to highest precedence.
+
+\begin{DoxySeeAlso}{See also}
+self\+::add\+Presenter
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em Presenter\mbox{[}$\,$\mbox{]}} & \$presenters \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!can\+Present@{can\+Present}}
+\index{can\+Present@{can\+Present}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{can\+Present}]{\setlength{\rightskip}{0pt plus 5cm}can\+Present (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_a31d85d980356fc0a0b3f0dd6f1c55471}
+Check whether a \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} is registered for \$value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Implements {\bf Presenter} \doxyref{}{p.}{interface_psy_1_1_presenter_1_1_presenter_a31d85d980356fc0a0b3f0dd6f1c55471}.
+
+
+
+Definition at line 101 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!get\+Iterator@{get\+Iterator}}
+\index{get\+Iterator@{get\+Iterator}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{get\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}get\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_a7a9f937c2958e6f4dd7b030f86fb70b7}
+Iterator\+Aggregate interface.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!get\+Presenter@{get\+Presenter}}
+\index{get\+Presenter@{get\+Presenter}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{get\+Presenter}]{\setlength{\rightskip}{0pt plus 5cm}get\+Presenter (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_presenter_manager_a60be9ba218128940cbe607966e947ab9}
+Find the highest precedence \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} available for \$value.
+
+Returns null if none is present.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null$\vert$\+Presenter 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!present@{present}}
+\index{present@{present}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{present}]{\setlength{\rightskip}{0pt plus 5cm}present (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$depth = {\ttfamily null}, }
+\item[{}]{\$options = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_af0bf5ba1b834b50cad2f6f06ac4072bf}
+Present a full representation of the value.
+
+If \$depth is 0, the value will be presented as a ref instead.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+int & {\em \$depth} & (default\+: null) \\
+\hline
+int & {\em \$options} & \doxyref{One}{p.}{class_one} of \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} constants\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Presenter} \doxyref{}{p.}{interface_psy_1_1_presenter_1_1_presenter_af0bf5ba1b834b50cad2f6f06ac4072bf}.
+
+
+
+Definition at line 137 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!present\+Ref@{present\+Ref}}
+\index{present\+Ref@{present\+Ref}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{present\+Ref}]{\setlength{\rightskip}{0pt plus 5cm}present\+Ref (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_a2c9344f377ec5ab4dfabab581d5f97c9}
+Present a reference to the value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Presenter} \doxyref{}{p.}{interface_psy_1_1_presenter_1_1_presenter_a2c9344f377ec5ab4dfabab581d5f97c9}.
+
+
+
+Definition at line 115 of file Presenter\+Manager.\+php.
+
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!remove\+Presenter@{remove\+Presenter}}
+\index{remove\+Presenter@{remove\+Presenter}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{remove\+Presenter}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Presenter (
+\begin{DoxyParamCaption}
+\item[{{\bf Presenter}}]{\$presenter}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_presenter_1_1_presenter_manager_aba9cb95f94f8d327ce24b1535eabc9c0}
+Unregister a \doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Presenter}{p.}{interface_psy_1_1_presenter_1_1_presenter} & {\em \$presenter} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Presenter\+Manager.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}!\$presenters@{\$presenters}}
+\index{\$presenters@{\$presenters}!Psy\+::\+Presenter\+::\+Presenter\+Manager@{Psy\+::\+Presenter\+::\+Presenter\+Manager}}
+\subsubsection[{\$presenters}]{\setlength{\rightskip}{0pt plus 5cm}\$presenters = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_psy_1_1_presenter_1_1_presenter_manager_a7e64a63c0a98f58793e7ac3fea145202}
+
+
+Definition at line 23 of file Presenter\+Manager.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/\+Presenter/{\bf Presenter\+Manager.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,192 @@
+.TH "Swift_Events_SimpleEventDispatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Events_SimpleEventDispatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_EventDispatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateSendEvent\fP (\fBSwift_Transport\fP $source, \fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBcreateCommandEvent\fP (\fBSwift_Transport\fP $source, $command, $successCodes=array())"
+.br
+.ti -1c
+.RI "\fBcreateResponseEvent\fP (\fBSwift_Transport\fP $source, $response, $valid)"
+.br
+.ti -1c
+.RI "\fBcreateTransportChangeEvent\fP (\fBSwift_Transport\fP $source)"
+.br
+.ti -1c
+.RI "\fBcreateTransportExceptionEvent\fP (\fBSwift_Transport\fP $source, \fBSwift_TransportException\fP $ex)"
+.br
+.ti -1c
+.RI "\fBbindEventListener\fP (\fBSwift_Events_EventListener\fP $listener)"
+.br
+.ti -1c
+.RI "\fBdispatchEvent\fP (\fBSwift_Events_EventObject\fP $evt, $target)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The EventDispatcher which handles the event dispatching layer\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file SimpleEventDispatcher\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Create a new EventDispatcher\&. 
+.PP
+Definition at line 30 of file SimpleEventDispatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bindEventListener (\fBSwift_Events_EventListener\fP $listener)"
+Bind an event listener to this dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listener\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 112 of file SimpleEventDispatcher\&.php\&.
+.SS "createCommandEvent (\fBSwift_Transport\fP $source,  $command,  $successCodes = \fCarray()\fP)"
+Create a new CommandEvent for $source and $command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.br
+\fI$command\fP That will be executed 
+.br
+\fI$successCodes\fP That are needed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Events_CommandEvent\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 63 of file SimpleEventDispatcher\&.php\&.
+.SS "createResponseEvent (\fBSwift_Transport\fP $source,  $response,  $valid)"
+Create a new ResponseEvent for $source and $response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.br
+\fI$response\fP 
+.br
+\fI$valid\fP If the response is valid
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Events_ResponseEvent\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 77 of file SimpleEventDispatcher\&.php\&.
+.SS "createSendEvent (\fBSwift_Transport\fP $source, \fBSwift_Mime_Message\fP $message)"
+Create a new SendEvent for $source and $message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.br
+\fI\fBSwift_Mime_Message\fP\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Events_SendEvent\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 49 of file SimpleEventDispatcher\&.php\&.
+.SS "createTransportChangeEvent (\fBSwift_Transport\fP $source)"
+Create a new TransportChangeEvent for $source\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Events_TransportChangeEvent\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 89 of file SimpleEventDispatcher\&.php\&.
+.SS "createTransportExceptionEvent (\fBSwift_Transport\fP $source, \fBSwift_TransportException\fP $ex)"
+Create a new TransportExceptionEvent for $source\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.br
+\fI$ex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Events_TransportExceptionEvent\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 102 of file SimpleEventDispatcher\&.php\&.
+.SS "dispatchEvent (\fBSwift_Events_EventObject\fP $evt,  $target)"
+Dispatch the given \fBEvent\fP to all suitable listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.br
+\fI$target\fP method 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_EventDispatcher\fP\&.
+.PP
+Definition at line 129 of file SimpleEventDispatcher\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

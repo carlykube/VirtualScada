@@ -1,0 +1,5 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_logger_data_collector_test =
+[
+    [ "getCollectTestData", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_logger_data_collector_test.html#a3b2c09bf0745a9f29831cdc97e02ff26", null ],
+    [ "testCollect", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_logger_data_collector_test.html#a742b47cc75519a2eb26494aeaac2625f", null ]
+];

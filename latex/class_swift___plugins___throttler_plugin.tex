@@ -1,0 +1,190 @@
+\section{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin Class Reference}
+\label{class_swift___plugins___throttler_plugin}\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+Inheritance diagram for Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.882353cm]{class_swift___plugins___throttler_plugin}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$rate, \$mode=self\+::\+B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E, {\bf Swift\+\_\+\+Plugins\+\_\+\+Sleeper} \$sleeper=null, {\bf Swift\+\_\+\+Plugins\+\_\+\+Timer} \${\bf timer}=null)
+\item 
+{\bf before\+Send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\item 
+{\bf send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\item 
+{\bf sleep} (\${\bf seconds})
+\item 
+{\bf get\+Timestamp} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E} = 0x01
+\item 
+const {\bf M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D} = 0x11
+\item 
+const {\bf M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E} = 0x10
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Throttles the rate at which emails are sent.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Throttler\+Plugin.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$rate, }
+\item[{}]{\$mode = {\ttfamily self\+:\+:BYTES\+\_\+PER\+\_\+MINUTE}, }
+\item[{{\bf Swift\+\_\+\+Plugins\+\_\+\+Sleeper}}]{\$sleeper = {\ttfamily null}, }
+\item[{{\bf Swift\+\_\+\+Plugins\+\_\+\+Timer}}]{\$timer = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___throttler_plugin_a0c68d2cfff3609423a537129f9e06d14}
+Create a new Throttler\+Plugin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$rate} & \\
+\hline
+int & {\em \$mode,defaults} & to \doxyref{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}{p.}{class_swift___plugins___throttler_plugin_a19f3de21a8ad390f20009e65496ad26a} \\
+\hline
+\doxyref{Swift\+\_\+\+Plugins\+\_\+\+Sleeper}{p.}{interface_swift___plugins___sleeper} & {\em \$sleeper} & (only needed in testing) \\
+\hline
+\doxyref{Swift\+\_\+\+Plugins\+\_\+\+Timer}{p.}{interface_swift___plugins___timer} & {\em \$timer} & (only needed in testing) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file Throttler\+Plugin.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!before\+Send\+Performed@{before\+Send\+Performed}}
+\index{before\+Send\+Performed@{before\+Send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{before\+Send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}before\+Send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___throttler_plugin_a941622ff727bb3121b075a67b09b4a5d}
+Invoked immediately before the Message is sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a941622ff727bb3121b075a67b09b4a5d}.
+
+
+
+Definition at line 92 of file Throttler\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!get\+Timestamp@{get\+Timestamp}}
+\index{get\+Timestamp@{get\+Timestamp}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{get\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timestamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___throttler_plugin_a92aa1d82129ec8cd803d64c28efcb30f}
+Get the current U\+N\+I\+X timestamp.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Plugins\+\_\+\+Timer} \doxyref{}{p.}{interface_swift___plugins___timer_a92aa1d82129ec8cd803d64c28efcb30f}.
+
+
+
+Definition at line 150 of file Throttler\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!send\+Performed@{send\+Performed}}
+\index{send\+Performed@{send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___throttler_plugin_a7c3dcdd16f538ba21696e8b27702e19f}
+Invoked when a Message is sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a7c3dcdd16f538ba21696e8b27702e19f}.
+
+
+
+Definition at line 125 of file Throttler\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!sleep@{sleep}}
+\index{sleep@{sleep}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{sleep}]{\setlength{\rightskip}{0pt plus 5cm}sleep (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___throttler_plugin_a176bcee0424f978cd9da5de434bde676}
+Sleep for \$seconds.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Plugins\+\_\+\+Sleeper} \doxyref{}{p.}{interface_swift___plugins___sleeper_a176bcee0424f978cd9da5de434bde676}.
+
+
+
+Definition at line 136 of file Throttler\+Plugin.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E@{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}}
+\index{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E@{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}const B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E = 0x01}\label{class_swift___plugins___throttler_plugin_a19f3de21a8ad390f20009e65496ad26a}
+Flag for throttling in bytes per minute 
+
+Definition at line 19 of file Throttler\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E@{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}}
+\index{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E@{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}const M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+I\+N\+U\+T\+E = 0x10}\label{class_swift___plugins___throttler_plugin_af7fd95828654070fde0e568f03da1e85}
+Flag for throttling in emails per minute 
+
+Definition at line 25 of file Throttler\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}!M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D@{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D}}
+\index{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D@{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D}!Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Throttler\+Plugin}}
+\subsubsection[{M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}const M\+E\+S\+S\+A\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+N\+D = 0x11}\label{class_swift___plugins___throttler_plugin_ac6fd179d9ad9d4ac4175bd7de6d04419}
+Flag for throttling in emails per second (Amazon S\+E\+S) 
+
+Definition at line 22 of file Throttler\+Plugin.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Plugins/{\bf Throttler\+Plugin.\+php}\end{DoxyCompactItemize}

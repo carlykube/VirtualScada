@@ -1,0 +1,774 @@
+
+
+\doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} string manipulation library with multibyte support. Offers both O\+O method chaining and a procedural-\/style static wrapper. Tested and compatible with \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3+ and H\+H\+V\+M. Inspired by underscore.\+string.\+js.
+
+{\tt ![Build Status](https\+://api.\+travis-\/ci.\+org/danielstjules/\+Stringy.\+svg?branch=master)}
+
+
+\begin{DoxyItemize}
+\item {\tt Requiring/\+Loading}
+\item {\tt O\+O and Procedural}
+\item {\tt Implemented Interfaces}
+\item {\tt P\+H\+P 5.\+6 Creation}
+\item {\tt Methods}
+\begin{DoxyItemize}
+\item {\tt at}
+\item {\tt camelize}
+\item {\tt chars}
+\item {\tt collapse\+Whitespace}
+\item {\tt contains}
+\item {\tt contains\+All}
+\item {\tt contains\+Any}
+\item {\tt count\+Substr}
+\item {\tt create}
+\item {\tt dasherize}
+\item {\tt ends\+With}
+\item {\tt ensure\+Left}
+\item {\tt ensure\+Right}
+\item {\tt first}
+\item {\tt get\+Encoding}
+\item {\tt has\+Lower\+Case}
+\item {\tt has\+Upper\+Case}
+\item {\tt humanize}
+\item {\tt insert}
+\item {\tt is\+Alpha}
+\item {\tt is\+Alphanumeric}
+\item {\tt is\+Blank}
+\item {\tt is\+Hexadecimal}
+\item {\tt is\+Json}
+\item {\tt is\+Lower\+Case}
+\item {\tt is\+Serialized}
+\item {\tt is\+Upper\+Case}
+\item {\tt last}
+\item {\tt length}
+\item {\tt longest\+Common\+Prefix}
+\item {\tt longest\+Common\+Suffix}
+\item {\tt longest\+Common\+Substring}
+\item {\tt lower\+Case\+First}
+\item {\tt pad}
+\item {\tt pad\+Both}
+\item {\tt pad\+Left}
+\item {\tt pad\+Right}
+\item {\tt regex\+Replace}
+\item {\tt remove\+Left}
+\item {\tt remove\+Right}
+\item {\tt replace}
+\item {\tt reverse}
+\item {\tt safe\+Truncate}
+\item {\tt shuffle}
+\item {\tt slugify}
+\item {\tt starts\+With}
+\item {\tt substr}
+\item {\tt surround}
+\item {\tt swap\+Case}
+\item {\tt tidy}
+\item {\tt titleize}
+\item {\tt to\+Ascii}
+\item {\tt to\+Lower\+Case}
+\item {\tt to\+Spaces}
+\item {\tt to\+Tabs}
+\item {\tt to\+Title\+Case}
+\item {\tt to\+Upper\+Case}
+\item {\tt trim}
+\item {\tt truncate}
+\item {\tt underscored}
+\item {\tt upper\+Camelize}
+\item {\tt upper\+Case\+First}
+\end{DoxyItemize}
+\item {\tt Links}
+\item {\tt Tests}
+\item {\tt License}
+\end{DoxyItemize}
+
+\subsection*{Requiring/\+Loading}
+
+If you\textquotesingle{}re using \doxyref{Composer}{p.}{namespace_composer} to manage dependencies, you can include the following in your composer.\+json file\+:
+
+```json \{ \char`\"{}require\char`\"{}\+: \{ \char`\"{}danielstjules/stringy\char`\"{}\+: \char`\"{}$\sim$1.\+9\char`\"{} \} \} ```
+
+Then, after running {\ttfamily composer update} or {\ttfamily php composer.\+phar update}, you can load the class using \doxyref{Composer}{p.}{namespace_composer}\textquotesingle{}s autoloading\+:
+
+```php require \textquotesingle{}\doxyref{vendor/autoload.\+php}{p.}{vendor_2autoload_8php}\textquotesingle{}; ```
+
+Otherwise, you can simply require the file directly\+:
+
+```php require\+\_\+once \textquotesingle{}path/to/\+Stringy/src/\+Stringy.\+php\textquotesingle{}; // or require\+\_\+once \textquotesingle{}path/to/\+Stringy/src/\+Static\+Stringy.\+php\textquotesingle{}; ```
+
+And in either case, I\textquotesingle{}d suggest using an alias.
+
+```php use \doxyref{Stringy}{p.}{namespace_stringy} as S; // or use \doxyref{Stringy}{p.}{namespace_stringy} as S; ```
+
+\subsection*{O\+O and Procedural}
+
+The library offers both O\+O method chaining with {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}\doxyref{Stringy}{p.}{namespace_stringy}}, as well as procedural-\/style static method calls with {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}Static\+Stringy}. An example of the former is the following\+:
+
+```php use \doxyref{Stringy}{p.}{namespace_stringy} as S; echo S\+::create(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$collapse\+Whitespace()-\/$>$swap\+Case(); // \textquotesingle{}fÒÔ bÀŘ\textquotesingle{} ```
+
+{\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}\doxyref{Stringy}{p.}{namespace_stringy}} has a \+\_\+\+\_\+to\+String() method, which returns the current string when the object is used in a string context, ie\+: `(string) S\+::create(\textquotesingle{}foo\textquotesingle{}) // \textquotesingle{}foo\textquotesingle{}`
+
+Using the static wrapper, an alternative is the following\+:
+
+```php use \doxyref{Stringy}{p.}{namespace_stringy} as S; \$string = S\+::collapse\+Whitespace(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); echo S\+::swap\+Case(\$string, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fÒÔ bÀŘ\textquotesingle{} ```
+
+\subsection*{Implemented Interfaces}
+
+{\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}\doxyref{Stringy}{p.}{namespace_stringy}} implements the {\ttfamily Iterator\+Aggregate} interface, meaning that {\ttfamily foreach} can be used with an instance of the class\+:
+
+``` php \$stringy = S\+::create(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); foreach (\$stringy as \$char) \{ echo \$char; \} // \textquotesingle{}Fòô Bàř\textquotesingle{} ```
+
+It implements the {\ttfamily Countable} interface, enabling the use of {\ttfamily count()} to retrieve the number of characters in the string\+:
+
+``` php \$stringy = S\+::create(\textquotesingle{}Fòô\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); count(\$stringy); // 3 ```
+
+Furthermore, the {\ttfamily Array\+Access} interface has been implemented. As a result, {\ttfamily isset()} can be used to check if a character at a specific index exists. And since {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}\doxyref{Stringy}{p.}{namespace_stringy}} is immutable, any call to {\ttfamily offset\+Set} or {\ttfamily offset\+Unset} will throw an exception. {\ttfamily offset\+Get} has been implemented, however, and accepts both positive and negative indexes. Invalid indexes result in an {\ttfamily Out\+Of\+Bounds\+Exception}.
+
+``` php \$stringy = S\+::create(\textquotesingle{}Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); echo \$stringy[2]; // \textquotesingle{}ř\textquotesingle{} echo \$stringy[-\/2]; // \textquotesingle{}à\textquotesingle{} isset(\$stringy[-\/4]); // false
+
+\$stringy[3]; // Out\+Of\+Bounds\+Exception \$stringy[2] = \textquotesingle{}a\textquotesingle{}; // Exception ```
+
+\subsection*{\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6 Creation}
+
+As of \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6, {\tt `use function`} is available for importing functions. \doxyref{Stringy}{p.}{namespace_stringy} exposes a namespaced function, {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}create}, which emits the same behaviour as {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}Stringy\+::create()}. If running \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6, or another runtime that supports the {\ttfamily use function} syntax, you can take advantage of an even simpler A\+P\+I as seen below\+:
+
+``` php use function \doxyref{Stringy}{p.}{namespace_stringy} as s;
+
+// Instead of\+: S\+::create(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}) s(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$collapse\+Whitespace()-\/$>$swap\+Case(); ```
+
+\subsection*{Methods}
+
+In the list below, any static method other than S\+::create refers to a method in {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}Static\+Stringy}. For all others, they\textquotesingle{}re found in {\ttfamily \doxyref{Stringy}{p.}{namespace_stringy}\textbackslash{}\doxyref{Stringy}{p.}{namespace_stringy}}. Furthermore, all methods that return a \doxyref{Stringy}{p.}{namespace_stringy} object or string do not modify the original. \doxyref{Stringy}{p.}{namespace_stringy} objects are immutable.
+
+{\itshape Note\+: If {\ttfamily \$encoding} is not given, it defaults to {\ttfamily mb\+\_\+internal\+\_\+encoding()}.}
+
+\paragraph*{at}
+
+\$stringy-\/$>$at(int \$index)
+
+S\+::at(int \$index [, string \$encoding ])
+
+Returns the character at \$index, with indexes starting at 0.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$at(6); S\+::at(\textquotesingle{}fòô bàř\textquotesingle{}, 6, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}ř\textquotesingle{} ```
+
+\paragraph*{camelize}
+
+\$stringy-\/$>$camelize();
+
+S\+::camelize(string \$str [, string \$encoding ])
+
+Returns a camel\+Case version of the string. Trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, as well as underscores.
+
+```php S\+::create(\textquotesingle{}Camel-\/\+Case\textquotesingle{})-\/$>$camelize(); S\+::camelize(\textquotesingle{}Camel-\/\+Case\textquotesingle{}); // \textquotesingle{}camel\+Case\textquotesingle{} ```
+
+\paragraph*{chars}
+
+\$stringy-\/$>$chars();
+
+S\+::chars(string \$str [, string \$encoding ])
+
+Returns an array consisting of the characters in the string.
+
+```php S\+::create(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$chars(); S\+::chars(\textquotesingle{}Fòô Bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // array(F\textquotesingle{}, \textquotesingle{}ò\textquotesingle{}, \textquotesingle{}ô\textquotesingle{}, \textquotesingle{} \textquotesingle{}, \textquotesingle{}B\textquotesingle{}, \textquotesingle{}à\textquotesingle{}, \textquotesingle{}ř\textquotesingle{}) ```
+
+\paragraph*{collapse\+Whitespace}
+
+\$stringy-\/$>$collapse\+Whitespace()
+
+S\+::collapse\+Whitespace(string \$str [, string \$encoding ])
+
+Trims the string and replaces consecutive whitespace characters with a single space. This includes tabs and newline characters, as well as multibyte whitespace such as the thin space and ideographic space.
+
+```php S\+::create(\textquotesingle{} Ο συγγραφέας \textquotesingle{})-\/$>$collapse\+Whitespace(); S\+::collapse\+Whitespace(\textquotesingle{} Ο συγγραφέας \textquotesingle{}); // \textquotesingle{}Ο συγγραφέας\textquotesingle{} ```
+
+\paragraph*{contains}
+
+\$stringy-\/$>$contains(string \$needle [, boolean \$case\+Sensitive = true ])
+
+S\+::contains(string \$haystack, string \$needle [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns true if the string contains \$needle, false otherwise. By default, the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}Ο συγγραφέας είπε\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$contains(\textquotesingle{}συγγραφέας\textquotesingle{}); S\+::contains(\textquotesingle{}Ο συγγραφέας είπε\textquotesingle{}, \textquotesingle{}συγγραφέας\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{contains\+All}
+
+\$stringy-\/$>$contains\+All(array \$needles [, boolean \$case\+Sensitive = true ])
+
+S\+::contains\+All(string \$haystack, array \$needles [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns true if the string contains all \$needles, false otherwise. By default the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}\doxyref{Str}{p.}{class_str} contains foo and bar\textquotesingle{})-\/$>$contains\+All(array(\textquotesingle{}foo\textquotesingle{}, \textquotesingle{}bar\textquotesingle{})); S\+::contains\+All(\textquotesingle{}\doxyref{Str}{p.}{class_str} contains foo and bar\textquotesingle{}, array(\textquotesingle{}foo\textquotesingle{}, \textquotesingle{}bar\textquotesingle{})); // true ```
+
+\paragraph*{contains\+Any}
+
+\$stringy-\/$>$contains\+Any(array \$needles [, boolean \$case\+Sensitive = true ])
+
+S\+::contains\+Any(string \$haystack, array \$needles [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns true if the string contains any \$needles, false otherwise. By default the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}\doxyref{Str}{p.}{class_str} contains foo\textquotesingle{})-\/$>$contains\+Any(array(\textquotesingle{}foo\textquotesingle{}, \textquotesingle{}bar\textquotesingle{})); S\+::contains\+Any(\textquotesingle{}\doxyref{Str}{p.}{class_str} contains foo\textquotesingle{}, array(\textquotesingle{}foo\textquotesingle{}, \textquotesingle{}bar\textquotesingle{})); // true ```
+
+\paragraph*{count\+Substr}
+
+\$stringy-\/$>$count\+Substr(string \$substring [, boolean \$case\+Sensitive = true ])
+
+S\+::count\+Substr(string \$str, string \$substring [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns the number of occurrences of \$substring in the given string. By default, the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}Ο συγγραφέας είπε\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$count\+Substr(\textquotesingle{}α\textquotesingle{}); S\+::count\+Substr(\textquotesingle{}Ο συγγραφέας είπε\textquotesingle{}, \textquotesingle{}α\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // 2 ```
+
+\paragraph*{create}
+
+S\+::create(mixed \$str [, \$encoding ])
+
+Creates a \doxyref{Stringy}{p.}{namespace_stringy} object and assigns both str and encoding properties the supplied values. \$str is cast to a string prior to assignment, and if \$encoding is not specified, it defaults to mb\+\_\+internal\+\_\+encoding(). It then returns the initialized object. Throws an Invalid\+Argument\+Exception if the first argument is an array or object without a \+\_\+\+\_\+to\+String method.
+
+```php \$stringy = S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fòô bàř\textquotesingle{} ```
+
+\paragraph*{dasherize}
+
+\$stringy-\/$>$dasherize();
+
+S\+::dasherize(string \$str [, string \$encoding ])
+
+Returns a lowercase and trimmed string separated by dashes. Dashes are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as underscores.
+
+```php S\+::create(\textquotesingle{}Test\+D\+Case\textquotesingle{})-\/$>$dasherize(); S\+::dasherize(\textquotesingle{}Test\+D\+Case\textquotesingle{}); // \textquotesingle{}test-\/d-\/case\textquotesingle{} ```
+
+\paragraph*{ends\+With}
+
+\$stringy-\/$>$ends\+With(string \$substring [, boolean \$case\+Sensitive = true ])
+
+S\+::ends\+With(string \$str, string \$substring [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns true if the string ends with \$substring, false otherwise. By default, the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}FÒÔ bàřs\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$ends\+With(\textquotesingle{}àřs\textquotesingle{}, true); S\+::ends\+With(\textquotesingle{}FÒÔ bàřs\textquotesingle{}, \textquotesingle{}àřs\textquotesingle{}, true, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{ensure\+Left}
+
+\$stringy-\/$>$ensure\+Left(string \$substring)
+
+S\+::ensure\+Left(string \$substring [, string \$encoding ])
+
+Ensures that the string begins with \$substring. If it doesn\textquotesingle{}t, it\textquotesingle{}s prepended.
+
+```php S\+::create(\textquotesingle{}foobar\textquotesingle{})-\/$>$ensure\+Left(\textquotesingle{}{\tt http\+://\textquotesingle{}}); S\+::ensure\+Left(\textquotesingle{}foobar\textquotesingle{}, \textquotesingle{}{\tt http\+://\textquotesingle{}}); // \textquotesingle{}{\tt http\+://foobar\textquotesingle{}} ```
+
+\paragraph*{ensure\+Right}
+
+\$stringy-\/$>$ensure\+Right(string \$substring)
+
+S\+::ensure\+Right(string \$substring [, string \$encoding ])
+
+Ensures that the string begins with \$substring. If it doesn\textquotesingle{}t, it\textquotesingle{}s appended.
+
+```php S\+::create(\textquotesingle{}foobar\textquotesingle{})-\/$>$ensure\+Right(\textquotesingle{}.com\textquotesingle{}); S\+::ensure\+Right(\textquotesingle{}foobar\textquotesingle{}, \textquotesingle{}.com\textquotesingle{}); // \textquotesingle{}foobar.\+com\textquotesingle{} ```
+
+\paragraph*{first}
+
+\$stringy-\/$>$first(int \$n)
+
+S\+::first(int \$n [, string \$encoding ])
+
+Returns the first \$n characters of the string.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$first(3); S\+::first(\textquotesingle{}fòô bàř\textquotesingle{}, 3, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fòô\textquotesingle{} ```
+
+\paragraph*{get\+Encoding}
+
+\$stringy-\/$>$get\+Encoding()
+
+Returns the encoding used by the \doxyref{Stringy}{p.}{namespace_stringy} object.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$get\+Encoding(); // \textquotesingle{}U\+T\+F-\/8\textquotesingle{} ```
+
+\paragraph*{has\+Lower\+Case}
+
+\$stringy-\/$>$has\+Lower\+Case()
+
+S\+::has\+Lower\+Case(string \$str [, string \$encoding ])
+
+Returns true if the string contains a lower case char, false otherwise.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$has\+Lower\+Case(); S\+::has\+Lower\+Case(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{has\+Upper\+Case}
+
+\$stringy-\/$>$has\+Upper\+Case()
+
+S\+::has\+Upper\+Case(string \$str [, string \$encoding ])
+
+Returns true if the string contains an upper case char, false otherwise.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$has\+Upper\+Case(); S\+::has\+Upper\+Case(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // false ```
+
+\paragraph*{humanize}
+
+\$stringy-\/$>$humanize()
+
+S\+::humanize(string \$str [, string \$encoding ])
+
+Capitalizes the first word of the string, replaces underscores with spaces, and strips \textquotesingle{}\+\_\+id\textquotesingle{}.
+
+```php S\+::create(\textquotesingle{}author\+\_\+id\textquotesingle{})-\/$>$humanize(); S\+::humanize(\textquotesingle{}author\+\_\+id\textquotesingle{}); // \textquotesingle{}\doxyref{Author}{p.}{class_author}\textquotesingle{} ```
+
+\paragraph*{insert}
+
+\$stringy-\/$>$insert(int \$index, string \$substring)
+
+S\+::insert(string \$str, int \$index, string \$substring [, string \$encoding ])
+
+Inserts \$substring into the string at the \$index provided.
+
+```php S\+::create(\textquotesingle{}fòô bà\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$insert(\textquotesingle{}ř\textquotesingle{}, 6); S\+::insert(\textquotesingle{}fòô bà\textquotesingle{}, \textquotesingle{}ř\textquotesingle{}, 6, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fòô bàř\textquotesingle{} ```
+
+\paragraph*{is\+Alpha}
+
+\$stringy-\/$>$is\+Alpha()
+
+S\+::is\+Alpha(string \$str [, string \$encoding ])
+
+Returns true if the string contains only alphabetic chars, false otherwise.
+
+```php S\+::create(\textquotesingle{}丹尼爾\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$is\+Alpha(); S\+::is\+Alpha(\textquotesingle{}丹尼爾\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{is\+Alphanumeric}
+
+\$stringy-\/$>$is\+Alphanumeric()
+
+S\+::is\+Alphanumeric(string \$str [, string \$encoding ])
+
+Returns true if the string contains only alphabetic and numeric chars, false otherwise.
+
+```php S\+::create(\textquotesingle{}دانيال1\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$is\+Alphanumeric(); S\+::is\+Alphanumeric(\textquotesingle{}دانيال1\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{is\+Blank}
+
+\$stringy-\/$>$is\+Blank()
+
+S\+::is\+Blank(string \$str [, string \$encoding ])
+
+Returns true if the string contains only whitespace chars, false otherwise.
+
+```php S\+::create(\char`\"{}\textbackslash{}n\textbackslash{}t  \textbackslash{}v\textbackslash{}f\char`\"{})-\/$>$is\+Blank(); S\+::is\+Blank(\char`\"{}\textbackslash{}n\textbackslash{}t  \textbackslash{}v\textbackslash{}f\char`\"{}); // true ```
+
+\paragraph*{is\+Hexadecimal}
+
+\$stringy-\/$>$is\+Hexadecimal()
+
+S\+::is\+Hexadecimal(string \$str [, string \$encoding ])
+
+Returns true if the string contains only hexadecimal chars, false otherwise.
+
+```php S\+::create(\textquotesingle{}A102\+F\textquotesingle{})-\/$>$is\+Hexadecimal(); S\+::is\+Hexadecimal(\textquotesingle{}A102\+F\textquotesingle{}); // true ```
+
+\paragraph*{is\+Json}
+
+\$stringy-\/$>$\doxyref{is\+Json()}{p.}{phpunit_2phpunit_2src_2_framework_2_assert_2functions_8php_a7b5758aea973ef707d377b4eb0a29dee}
+
+S\+::is\+Json(string \$str [, string \$encoding ])
+
+Returns true if the string is J\+S\+O\+N, false otherwise.
+
+```php S\+::create(\textquotesingle{}\{\char`\"{}foo\char`\"{}\+:\char`\"{}bar\char`\"{}\}\textquotesingle{})-\/$>$\doxyref{is\+Json()}{p.}{phpunit_2phpunit_2src_2_framework_2_assert_2functions_8php_a7b5758aea973ef707d377b4eb0a29dee}; S\+::is\+Json(\textquotesingle{}\{\char`\"{}foo\char`\"{}\+:\char`\"{}bar\char`\"{}\}\textquotesingle{}); // true ```
+
+\paragraph*{is\+Lower\+Case}
+
+\$stringy-\/$>$is\+Lower\+Case()
+
+S\+::is\+Lower\+Case(string \$str [, string \$encoding ])
+
+Returns true if the string contains only lower case chars, false otherwise.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$is\+Lower\+Case(); S\+::is\+Lower\+Case(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{is\+Serialized}
+
+\$stringy-\/$>$is\+Serialized()
+
+S\+::is\+Serialized(string \$str [, string \$encoding ])
+
+Returns true if the string is serialized, false otherwise.
+
+```php S\+::create(\textquotesingle{}a\+:1\+:\{s\+:3\+:\char`\"{}foo\char`\"{};s\+:3\+:\char`\"{}bar\char`\"{};\}\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$is\+Serialized(); S\+::is\+Serialized(\textquotesingle{}a\+:1\+:\{s\+:3\+:\char`\"{}foo\char`\"{};s\+:3\+:\char`\"{}bar\char`\"{};\}\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{is\+Upper\+Case}
+
+\$stringy-\/$>$is\+Upper\+Case()
+
+S\+::is\+Upper\+Case(string \$str [, string \$encoding ])
+
+Returns true if the string contains only upper case chars, false otherwise.
+
+```php S\+::create(\textquotesingle{}FÒÔ\+BÀŘ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$is\+Upper\+Case(); S\+::is\+Upper\+Case(\textquotesingle{}FÒÔ\+BÀŘ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{last}
+
+\$stringy-\/$>$last(int \$n)
+
+S\+::last(int \$n [, string \$encoding ])
+
+Returns the last \$n characters of the string.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$last(3); S\+::last(\textquotesingle{}fòô bàř\textquotesingle{}, 3, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}bàř\textquotesingle{} ```
+
+\paragraph*{length}
+
+\$stringy-\/$>$length()
+
+S\+::length(string \$str [, string \$encoding ])
+
+Returns the length of the string. An alias for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s mb\+\_\+strlen() function.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$length(); S\+::length(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // 7 ```
+
+\paragraph*{longest\+Common\+Prefix}
+
+\$stringy-\/$>$longest\+Common\+Prefix(string \$other\+Str)
+
+S\+::longest\+Common\+Prefix(string \$str, string \$other\+Str [, \$encoding ])
+
+Returns the longest common prefix between the string and \$other\+Str.
+
+```php S\+::create(\textquotesingle{}fòô bar\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$longest\+Common\+Prefix(\textquotesingle{}fòr bar\textquotesingle{}); S\+::longest\+Common\+Prefix(\textquotesingle{}fòô bar\textquotesingle{}, \textquotesingle{}fòr bar\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fò\textquotesingle{} ```
+
+\paragraph*{longest\+Common\+Suffix}
+
+\$stringy-\/$>$longest\+Common\+Suffix(string \$other\+Str)
+
+S\+::longest\+Common\+Suffix(string \$str, string \$other\+Str [, \$encoding ])
+
+Returns the longest common suffix between the string and \$other\+Str.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$longest\+Common\+Suffix(\textquotesingle{}fòr bàř\textquotesingle{}); S\+::longest\+Common\+Suffix(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}fòr bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{} bàř\textquotesingle{} ```
+
+\paragraph*{longest\+Common\+Substring}
+
+\$stringy-\/$>$longest\+Common\+Substring(string \$other\+Str)
+
+S\+::longest\+Common\+Substring(string \$str, string \$other\+Str [, \$encoding ])
+
+Returns the longest common substring between the string and \$other\+Str. In the case of ties, it returns that which occurs first.
+
+```php S\+::create(\textquotesingle{}foo bar\textquotesingle{})-\/$>$longest\+Common\+Substring(\textquotesingle{}boo far\textquotesingle{}); S\+::longest\+Common\+Substring(\textquotesingle{}foo bar\textquotesingle{}, \textquotesingle{}boo far\textquotesingle{}); // \textquotesingle{}oo \textquotesingle{} ```
+
+\paragraph*{lower\+Case\+First}
+
+\$stringy-\/$>$lower\+Case\+First();
+
+S\+::lower\+Case\+First(string \$str [, string \$encoding ])
+
+Converts the first character of the supplied string to lower case.
+
+```php S\+::create(\textquotesingle{}Σ test\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$lower\+Case\+First(); S\+::lower\+Case\+First(\textquotesingle{}Σ test\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}σ test\textquotesingle{} ```
+
+\paragraph*{pad}
+
+\$stringy-\/$>$pad(int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} [, string \$pad\+Type = \textquotesingle{}right\textquotesingle{} ]])
+
+S\+::pad(string \$str , int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} [, string \$pad\+Type = \textquotesingle{}right\textquotesingle{} [, string \$encoding ]]])
+
+Pads the string to a given length with \$pad\+Str. If length is less than or equal to the length of the string, no padding takes places. The default string used for padding is a space, and the default type (one of \textquotesingle{}left\textquotesingle{}, \textquotesingle{}right\textquotesingle{}, \textquotesingle{}both\textquotesingle{}) is \textquotesingle{}right\textquotesingle{}. Throws an Invalid\+Argument\+Exception if \$pad\+Type isn\textquotesingle{}t one of those 3 values.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$pad( 10, \textquotesingle{}¬ø\textquotesingle{}, \textquotesingle{}left\textquotesingle{}); S\+::pad(\textquotesingle{}fòô bàř\textquotesingle{}, 10, \textquotesingle{}¬ø\textquotesingle{}, \textquotesingle{}left\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}¬ø¬fòô bàř\textquotesingle{} ```
+
+\paragraph*{pad\+Both}
+
+\$stringy-\/$>$pad\+Both(int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} ])
+
+S\+::pad\+Both(string \$str , int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} [, string \$encoding ]])
+
+Returns a new string of a given length such that both sides of the string string are padded. Alias for pad() with a \$pad\+Type of \textquotesingle{}both\textquotesingle{}.
+
+```php S\+::create(\textquotesingle{}foo bar\textquotesingle{})-\/$>$pad\+Both(9, \textquotesingle{} \textquotesingle{}); S\+::pad\+Both(\textquotesingle{}foo bar\textquotesingle{}, 9, \textquotesingle{} \textquotesingle{}); // \textquotesingle{} foo bar \textquotesingle{} ```
+
+\paragraph*{pad\+Left}
+
+\$stringy-\/$>$pad\+Left(int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} ])
+
+S\+::pad\+Left(string \$str , int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} [, string \$encoding ]])
+
+Returns a new string of a given length such that the beginning of the string is padded. Alias for pad() with a \$pad\+Type of \textquotesingle{}left\textquotesingle{}.
+
+```php S\+::create(\$str, \$encoding)-\/$>$pad\+Left(\$length, \$pad\+Str); S\+::pad\+Left(\textquotesingle{}foo bar\textquotesingle{}, 9, \textquotesingle{} \textquotesingle{}); // \textquotesingle{} foo bar\textquotesingle{} ```
+
+\paragraph*{pad\+Right}
+
+\$stringy-\/$>$pad\+Right(int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} ])
+
+S\+::pad\+Right(string \$str , int \$length [, string \$pad\+Str = \textquotesingle{} \textquotesingle{} [, string \$encoding ]])
+
+Returns a new string of a given length such that the end of the string is padded. Alias for pad() with a \$pad\+Type of \textquotesingle{}right\textquotesingle{}.
+
+```php S\+::create(\textquotesingle{}foo bar\textquotesingle{})-\/$>$pad\+Right(10, \textquotesingle{}\+\_\+$\ast$\textquotesingle{}); S\+::pad\+Right(\textquotesingle{}foo bar\textquotesingle{}, 10, \textquotesingle{}\+\_\+$\ast$\textquotesingle{}); // \textquotesingle{}foo bar\+\_\+$\ast$\+\_\+\textquotesingle{} ```
+
+\paragraph*{regex\+Replace}
+
+\$stringy-\/$>$regex\+Replace(string \$pattern, string \$replacement [, string \$options = \textquotesingle{}msr\textquotesingle{}])
+
+S\+::regex\+Replace(string \$str, string \$pattern, string \$replacement [, string \$options = \textquotesingle{}msr\textquotesingle{} [, string \$encoding ]])
+
+Replaces all occurrences of \$pattern in \$str by \$replacement. An alias for mb\+\_\+ereg\+\_\+replace(). Note that the \textquotesingle{}i\textquotesingle{} option with multibyte patterns in mb\+\_\+ereg\+\_\+replace() requires \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4+. This is due to a lack of support in the bundled version of Oniguruma in \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3.
+
+```php S\+::create(\textquotesingle{}fòô \textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$regex\+Replace(\textquotesingle{}f[òô]+\textquotesingle{}, \textquotesingle{}bàř\textquotesingle{}, \textquotesingle{}msr\textquotesingle{}); S\+::regex\+Replace(\textquotesingle{}fòô \textquotesingle{}, \textquotesingle{}f[òô]+\textquotesingle{}, \textquotesingle{}bàř\textquotesingle{}, \textquotesingle{}msr\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}bàř\textquotesingle{} ```
+
+\paragraph*{remove\+Left}
+
+\$stringy-\/$>$remove\+Left(string \$substring)
+
+S\+::remove\+Left(string \$str, string \$substring [, string \$encoding ])
+
+Returns a new string with the prefix \$substring removed, if present.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$remove\+Left(\textquotesingle{}fòô \textquotesingle{}); S\+::remove\+Left(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}fòô \textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}bàř\textquotesingle{} ```
+
+\paragraph*{remove\+Right}
+
+\$stringy-\/$>$remove\+Right(string \$substring)
+
+S\+::remove\+Right(string \$str, string \$substring [, string \$encoding ])
+
+Returns a new string with the suffix \$substring removed, if present.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$remove\+Right(\textquotesingle{} bàř\textquotesingle{}); S\+::remove\+Right(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{} bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fòô\textquotesingle{} ```
+
+\paragraph*{replace}
+
+\$stringy-\/$>$replace(string \$search, string \$replacement)
+
+S\+::replace(string \$str, string \$search, string \$replacement [, string \$encoding ])
+
+Replaces all occurrences of \$search in \$str by \$replacement.
+
+```php S\+::create(\textquotesingle{}fòô bàř fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$replace(\textquotesingle{}fòô \textquotesingle{}, \textquotesingle{}\textquotesingle{}); S\+::replace(\textquotesingle{}fòô bàř fòô bàř\textquotesingle{}, \textquotesingle{}fòô \textquotesingle{}, \textquotesingle{}\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}bàř bàř\textquotesingle{} ```
+
+\paragraph*{reverse}
+
+\$stringy-\/$>$\doxyref{reverse()}{p.}{d3_8min_8js_a75b10c66749fc754fd03b6c11e4d828a}
+
+S\+::reverse(string \$str [, string \$encoding ])
+
+Returns a reversed string. \doxyref{A}{p.}{class_a} multibyte version of strrev().
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$\doxyref{reverse()}{p.}{d3_8min_8js_a75b10c66749fc754fd03b6c11e4d828a}; S\+::reverse(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}řàb ôòf\textquotesingle{} ```
+
+\paragraph*{safe\+Truncate}
+
+\$stringy-\/$>$safe\+Truncate(int \$length [, string \$substring = \textquotesingle{}\textquotesingle{} ])
+
+S\+::safe\+Truncate(string \$str, int \$length [, string \$substring = \textquotesingle{}\textquotesingle{} [, string \$encoding ]])
+
+Truncates the string to a given length, while ensuring that it does not split words. If \$substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length.
+
+```php S\+::create(\textquotesingle{}What are your plans today?\textquotesingle{})-\/$>$safe\+Truncate(22, \textquotesingle{}...\textquotesingle{}); S\+::safe\+Truncate(\textquotesingle{}What are your plans today?\textquotesingle{}, 22, \textquotesingle{}...\textquotesingle{}); // \textquotesingle{}What are your plans...\textquotesingle{} ```
+
+\paragraph*{shuffle}
+
+\$stringy-\/$>$\doxyref{shuffle()}{p.}{d3_8min_8js_a3eb96ea6ac1816b968c255b632c3892b}
+
+S\+::shuffle(string \$str [, string \$encoding ])
+
+\doxyref{A}{p.}{class_a} multibyte str\+\_\+shuffle() function. It returns a string with its characters in random order.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$\doxyref{shuffle()}{p.}{d3_8min_8js_a3eb96ea6ac1816b968c255b632c3892b}; S\+::shuffle(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}àôřb òf\textquotesingle{} ```
+
+\paragraph*{slugify}
+
+\$stringy-\/$>$slugify([ string \$replacement = \textquotesingle{}-\/\textquotesingle{} ])
+
+S\+::slugify(string \$str [, string \$replacement = \textquotesingle{}-\/\textquotesingle{} ])
+
+Converts the string into an \doxyref{U\+R\+L}{p.}{class_u_r_l} slug. This includes replacing non-\/\+A\+S\+C\+I\+I characters with their closest A\+S\+C\+I\+I equivalents, removing remaining non-\/\+A\+S\+C\+I\+I and non-\/alphanumeric characters, and replacing whitespace with \$replacement. The replacement defaults to a single dash, and the string is also converted to lowercase.
+
+```php S\+::create(\textquotesingle{}Using strings like fòô bàř\textquotesingle{})-\/$>$slugify(); S\+::slugify(\textquotesingle{}Using strings like fòô bàř\textquotesingle{}); // \textquotesingle{}using-\/strings-\/like-\/foo-\/bar\textquotesingle{} ```
+
+\paragraph*{starts\+With}
+
+\$stringy-\/$>$starts\+With(string \$substring [, boolean \$case\+Sensitive = true ])
+
+S\+::starts\+With(string \$str, string \$substring [, boolean \$case\+Sensitive = true [, string \$encoding ]])
+
+Returns true if the string begins with \$substring, false otherwise. By default, the comparison is case-\/sensitive, but can be made insensitive by setting \$case\+Sensitive to false.
+
+```php S\+::create(\textquotesingle{}FÒÔ bàřs\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$starts\+With(\textquotesingle{}fòô bàř\textquotesingle{}, false); S\+::starts\+With(\textquotesingle{}FÒÔ bàřs\textquotesingle{}, \textquotesingle{}fòô bàř\textquotesingle{}, false, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // true ```
+
+\paragraph*{substr}
+
+\$stringy-\/$>$substr(int \$start [, int \$length ])
+
+S\+::substr(string \$str, int \$start [, int \$length [, string \$encoding ]])
+
+Returns the substring beginning at \$start with the specified \$length. It differs from the mb\+\_\+substr() function in that providing a \$length of null will return the rest of the string, rather than an empty string.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$substr(2, 3); S\+::substr(\textquotesingle{}fòô bàř\textquotesingle{}, 2, 3, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}ô b\textquotesingle{} ```
+
+\paragraph*{surround}
+
+\$stringy-\/$>$surround(string \$substring)
+
+S\+::surround(string \$str, string \$substring)
+
+Surrounds a string with the given substring.
+
+```php S\+::create(\textquotesingle{} ͜ \textquotesingle{})-\/$>$surround(\textquotesingle{}ʘ\textquotesingle{}); S\+::surround(\textquotesingle{} ͜ \textquotesingle{}, \textquotesingle{}ʘ\textquotesingle{}); // \textquotesingle{}ʘ ͜ ʘ\textquotesingle{} ```
+
+\paragraph*{swap\+Case}
+
+\$stringy-\/$>$swap\+Case();
+
+S\+::swap\+Case(string \$str [, string \$encoding ])
+
+Returns a case swapped version of the string.
+
+```php S\+::create(\textquotesingle{}Ντανιλ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$swap\+Case(); S\+::swap\+Case(\textquotesingle{}Ντανιλ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}νΤΑΝΙΛ\textquotesingle{} ```
+
+\paragraph*{tidy}
+
+\$stringy-\/$>$tidy()
+
+S\+::tidy(string \$str)
+
+Returns a string with smart quotes, ellipsis characters, and dashes from Windows-\/1252 (commonly used in Word documents) replaced by their A\+S\+C\+I\+I equivalents.
+
+```php S\+::create(\textquotesingle{}“\+I see…”\textquotesingle{})-\/$>$tidy(); S\+::tidy(\textquotesingle{}“\+I see…”\textquotesingle{}); // \textquotesingle{}\char`\"{}\+I see...\char`\"{}\textquotesingle{} ```
+
+\paragraph*{titleize}
+
+\$stringy-\/$>$titleize([ string \$encoding ])
+
+S\+::titleize(string \$str [, array \$ignore [, string \$encoding ]])
+
+Returns a trimmed string with the first letter of each word capitalized. Ignores the case of other letters, preserving any acronyms. Also accepts an array, \$ignore, allowing you to list words not to be capitalized.
+
+```php \$ignore = array(\textquotesingle{}at\textquotesingle{}, \textquotesingle{}by\textquotesingle{}, \textquotesingle{}for\textquotesingle{}, \textquotesingle{}in\textquotesingle{}, \textquotesingle{}of\textquotesingle{}, \textquotesingle{}on\textquotesingle{}, \textquotesingle{}out\textquotesingle{}, \textquotesingle{}to\textquotesingle{}, \textquotesingle{}the\textquotesingle{}); S\+::create(\textquotesingle{}i like to watch D\+V\+Ds at home\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$titleize(\$ignore); S\+::titleize(\textquotesingle{}i like to watch D\+V\+Ds at home\textquotesingle{}, \$ignore, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}I Like to Watch D\+V\+Ds at Home\textquotesingle{} ```
+
+\paragraph*{to\+Ascii}
+
+\$stringy-\/$>$to\+Ascii()
+
+S\+::to\+Ascii(string \$str [, boolean \$remove\+Unsupported = true])
+
+Returns an A\+S\+C\+I\+I version of the string. \doxyref{A}{p.}{class_a} set of non-\/\+A\+S\+C\+I\+I characters are replaced with their closest A\+S\+C\+I\+I counterparts, and the rest are removed unless instructed otherwise.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{})-\/$>$to\+Ascii(); S\+::to\+Ascii(\textquotesingle{}fòô bàř\textquotesingle{}); // \textquotesingle{}foo bar\textquotesingle{} ```
+
+\paragraph*{to\+Lower\+Case}
+
+\$stringy-\/$>$to\+Lower\+Case()
+
+S\+::to\+Lower\+Case(string \$str [, string \$encoding ])
+
+Converts all characters in the string to lowercase. An alias for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s mb\+\_\+strtolower().
+
+```php S\+::create(\textquotesingle{}FÒÔ BÀŘ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$to\+Lower\+Case(); S\+::to\+Lower\+Case(\textquotesingle{}FÒÔ BÀŘ\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}fòô bàř\textquotesingle{} ```
+
+\paragraph*{to\+Spaces}
+
+\$stringy-\/$>$to\+Spaces([ tab\+Length = 4 ])
+
+S\+::to\+Spaces(string \$str [, int \$tab\+Length = 4 ])
+
+Converts each tab in the string to some number of spaces, as defined by \$tab\+Length. By default, each tab is converted to 4 consecutive spaces.
+
+```php S\+::create(\textquotesingle{} String speech = \char`\"{}\+Hi\char`\"{}\textquotesingle{})-\/$>$to\+Spaces(); S\+::to\+Spaces(\textquotesingle{} String speech = \char`\"{}\+Hi\char`\"{}\textquotesingle{}); // \textquotesingle{} String speech = \char`\"{}\+Hi\char`\"{}\textquotesingle{} ```
+
+\paragraph*{to\+Tabs}
+
+\$stringy-\/$>$to\+Tabs([ tab\+Length = 4 ])
+
+S\+::to\+Tabs(string \$str [, int \$tab\+Length = 4 ])
+
+Converts each occurrence of some consecutive number of spaces, as defined by \$tab\+Length, to a tab. By default, each 4 consecutive spaces are converted to a tab.
+
+```php S\+::create(\textquotesingle{} fòô bàř\textquotesingle{})-\/$>$to\+Tabs(); S\+::to\+Tabs(\textquotesingle{} fòô bàř\textquotesingle{}); // \textquotesingle{} fòô bàř\textquotesingle{} ```
+
+\paragraph*{to\+Title\+Case}
+
+\$stringy-\/$>$to\+Title\+Case()
+
+S\+::to\+Title\+Case(string \$str [, string \$encoding ])
+
+Converts the first character of each word in the string to uppercase.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$to\+Title\+Case(); S\+::to\+Title\+Case(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}Fòô Bàř\textquotesingle{} ```
+
+\paragraph*{to\+Upper\+Case}
+
+\$stringy-\/$>$to\+Upper\+Case()
+
+S\+::to\+Upper\+Case(string \$str [, string \$encoding ])
+
+Converts all characters in the string to uppercase. An alias for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s mb\+\_\+strtoupper().
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$to\+Upper\+Case(); S\+::to\+Upper\+Case(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}FÒÔ BÀŘ\textquotesingle{} ```
+
+\paragraph*{trim}
+
+\$stringy-\/$>$trim()
+
+S\+::trim(string \$str)
+
+Returns the trimmed string. An alias for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s trim() function.
+
+```php S\+::create(\textquotesingle{}fòô bàř\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$trim(); S\+::trim(\textquotesingle{} fòô bàř \textquotesingle{}); // \textquotesingle{}fòô bàř\textquotesingle{} ```
+
+\paragraph*{truncate}
+
+\$stringy-\/$>$truncate(int \$length [, string \$substring = \textquotesingle{}\textquotesingle{} ])
+
+S\+::truncate(string \$str, int \$length [, string \$substring = \textquotesingle{}\textquotesingle{} [, string \$encoding ]])
+
+Truncates the string to a given length. If \$substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length.
+
+```php S\+::create(\textquotesingle{}What are your plans today?\textquotesingle{})-\/$>$truncate(19, \textquotesingle{}...\textquotesingle{}); S\+::truncate(\textquotesingle{}What are your plans today?\textquotesingle{}, 19, \textquotesingle{}...\textquotesingle{}); // \textquotesingle{}What are your pl...\textquotesingle{} ```
+
+\paragraph*{underscored}
+
+\$stringy-\/$>$underscored();
+
+S\+::underscored(string \$str [, string \$encoding ])
+
+Returns a lowercase and trimmed string separated by underscores. Underscores are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as dashes.
+
+```php S\+::create(\textquotesingle{}Test\+U\+Case\textquotesingle{})-\/$>$underscored(); S\+::underscored(\textquotesingle{}Test\+U\+Case\textquotesingle{}); // \textquotesingle{}test\+\_\+u\+\_\+case\textquotesingle{} ```
+
+\paragraph*{upper\+Camelize}
+
+\$stringy-\/$>$upper\+Camelize();
+
+S\+::upper\+Camelize(string \$str [, string \$encoding ])
+
+Returns an Upper\+Camel\+Case version of the supplied string. It trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, underscores.
+
+```php S\+::create(\textquotesingle{}Upper Camel-\/\+Case\textquotesingle{})-\/$>$upper\+Camelize(); S\+::upper\+Camelize(\textquotesingle{}Upper Camel-\/\+Case\textquotesingle{}); // \textquotesingle{}Upper\+Camel\+Case\textquotesingle{} ```
+
+\paragraph*{upper\+Case\+First}
+
+\$stringy-\/$>$upper\+Case\+First();
+
+S\+::upper\+Case\+First(string \$str [, string \$encoding ])
+
+Converts the first character of the supplied string to upper case.
+
+```php S\+::create(\textquotesingle{}σ test\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{})-\/$>$upper\+Case\+First(); S\+::upper\+Case\+First(\textquotesingle{}σ test\textquotesingle{}, \textquotesingle{}U\+T\+F-\/8\textquotesingle{}); // \textquotesingle{}Σ test\textquotesingle{} ```
+
+\subsection*{Links}
+
+The following is a list of libraries that extend \doxyref{Stringy}{p.}{namespace_stringy}\+:
+
+
+\begin{DoxyItemize}
+\item {\tt Sliceable\+Stringy}\+: Python-\/like string slices in \doxyref{P\+H\+P}{p.}{namespace_p_h_p}
+\end{DoxyItemize}
+
+\subsection*{Tests}
+
+From the project directory, tests can be ran using {\ttfamily phpunit}
+
+\subsection*{License}
+
+Released under the M\+I\+T License -\/ see {\ttfamily L\+I\+C\+E\+N\+S\+E.\+txt} for details. 

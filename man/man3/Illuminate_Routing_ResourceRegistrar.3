@@ -1,0 +1,502 @@
+.TH "ResourceRegistrar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ResourceRegistrar \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRouter\fP $router)"
+.br
+.ti -1c
+.RI "\fBregister\fP ($\fBname\fP, $controller, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgetResourceUri\fP ($resource)"
+.br
+.ti -1c
+.RI "\fBgetResourceWildcard\fP ($value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprefixedResource\fP ($\fBname\fP, $controller, array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetResourcePrefix\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetResourceMethods\fP ($defaults, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetNestedResourceUri\fP (array $segments)"
+.br
+.ti -1c
+.RI "\fBgetResourceAction\fP ($resource, $controller, $method, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetResourceName\fP ($resource, $method, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetGroupResourceName\fP ($prefix, $resource, $method)"
+.br
+.ti -1c
+.RI "\fBaddResourceIndex\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddResourceCreate\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddResourceStore\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddResourceShow\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddResourceEdit\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddResourceUpdate\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddPutResourceUpdate\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBaddPatchResourceUpdate\fP ($\fBname\fP, $base, $controller)"
+.br
+.ti -1c
+.RI "\fBaddResourceDestroy\fP ($\fBname\fP, $base, $controller, $\fBoptions\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$router\fP"
+.br
+.ti -1c
+.RI "\fB$resourceDefaults\fP = array('index', 'create', 'store', '\fBshow\fP', 'edit', '\fBupdate\fP', 'destroy')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file ResourceRegistrar\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRouter\fP $router)"
+Create a new resource registrar instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$router\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file ResourceRegistrar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addPatchResourceUpdate ( $name,  $base,  $controller)\fC [protected]\fP"
+Add the update method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file ResourceRegistrar\&.php\&.
+.SS "addPutResourceUpdate ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the update method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 350 of file ResourceRegistrar\&.php\&.
+.SS "addResourceCreate ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the create method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 262 of file ResourceRegistrar\&.php\&.
+.SS "addResourceDestroy ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the destroy method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 383 of file ResourceRegistrar\&.php\&.
+.SS "addResourceEdit ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the edit method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 316 of file ResourceRegistrar\&.php\&.
+.SS "addResourceIndex ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the index method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 244 of file ResourceRegistrar\&.php\&.
+.SS "addResourceShow ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the show method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 298 of file ResourceRegistrar\&.php\&.
+.SS "addResourceStore ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the store method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 280 of file ResourceRegistrar\&.php\&.
+.SS "addResourceUpdate ( $name,  $base,  $controller,  $options)\fC [protected]\fP"
+Add the update method for a resourceful route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$base\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 334 of file ResourceRegistrar\&.php\&.
+.SS "getGroupResourceName ( $prefix,  $resource,  $method)\fC [protected]\fP"
+Get the resource name for a grouped resource\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file ResourceRegistrar\&.php\&.
+.SS "getNestedResourceUri (array $segments)\fC [protected]\fP"
+Get the URI for a nested resource segment array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$segments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file ResourceRegistrar\&.php\&.
+.SS "getResourceAction ( $resource,  $controller,  $method,  $options)\fC [protected]\fP"
+Get the action array for a resource route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$method\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file ResourceRegistrar\&.php\&.
+.SS "getResourceMethods ( $defaults,  $options)\fC [protected]\fP"
+Get the applicable resource methods\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defaults\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file ResourceRegistrar\&.php\&.
+.SS "getResourceName ( $resource,  $method,  $options)\fC [protected]\fP"
+Get the name for a given resource\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP 
+.br
+\fI$method\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file ResourceRegistrar\&.php\&.
+.SS "getResourcePrefix ( $name)\fC [protected]\fP"
+Extract the resource and prefix from a resource name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file ResourceRegistrar\&.php\&.
+.SS "getResourceUri ( $resource)"
+Get the base resource URI for a given resource\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file ResourceRegistrar\&.php\&.
+.SS "getResourceWildcard ( $value)"
+Format a resource wildcard for usage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file ResourceRegistrar\&.php\&.
+.SS "prefixedResource ( $name,  $controller, array $options)\fC [protected]\fP"
+Build a set of prefixed resource routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file ResourceRegistrar\&.php\&.
+.SS "register ( $name,  $controller, array $options = \fCarray()\fP)"
+\fBRoute\fP a resource to a controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file ResourceRegistrar\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$resourceDefaults = array('index', 'create', 'store', '\fBshow\fP', 'edit', '\fBupdate\fP', 'destroy')\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file ResourceRegistrar\&.php\&.
+.SS "$router\fC [protected]\fP"
+Create a new resource registrar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 10 of file ResourceRegistrar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

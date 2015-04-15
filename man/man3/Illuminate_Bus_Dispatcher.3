@@ -1,0 +1,683 @@
+.TH "Dispatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Dispatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBDispatcher\fP, \fBQueueingDispatcher\fP, \fBHandlerResolver\fP, \fBDispatcher\fP, \fBQueueingDispatcher\fP, and \fBHandlerResolver\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBContainer\fP $container, Closure $queueResolver=null)"
+.br
+.ti -1c
+.RI "\fBdispatchFromArray\fP ($command, array $array)"
+.br
+.ti -1c
+.RI "\fBdispatchFrom\fP ($command, ArrayAccess $source, array $extras=array())"
+.br
+.ti -1c
+.RI "\fBdispatch\fP ($command, Closure $afterResolving=null)"
+.br
+.ti -1c
+.RI "\fBdispatchNow\fP ($command, Closure $afterResolving=null)"
+.br
+.ti -1c
+.RI "\fBdispatchToQueue\fP ($command)"
+.br
+.ti -1c
+.RI "\fBresolveHandler\fP ($command)"
+.br
+.ti -1c
+.RI "\fBgetHandlerClass\fP ($command)"
+.br
+.ti -1c
+.RI "\fBgetHandlerMethod\fP ($command)"
+.br
+.ti -1c
+.RI "\fBmaps\fP (array $commands)"
+.br
+.ti -1c
+.RI "\fBmapUsing\fP (Closure $mapper)"
+.br
+.ti -1c
+.RI "\fBpipeThrough\fP (array $pipes)"
+.br
+.ti -1c
+.RI "\fB__construct\fP (\fBContainer\fP $container, Closure $queueResolver=null)"
+.br
+.ti -1c
+.RI "\fBdispatchFromArray\fP ($command, array $array)"
+.br
+.ti -1c
+.RI "\fBdispatchFrom\fP ($command, ArrayAccess $source, array $extras=[])"
+.br
+.ti -1c
+.RI "\fBdispatch\fP ($command, Closure $afterResolving=null)"
+.br
+.ti -1c
+.RI "\fBdispatchNow\fP ($command, Closure $afterResolving=null)"
+.br
+.ti -1c
+.RI "\fBdispatchToQueue\fP ($command)"
+.br
+.ti -1c
+.RI "\fBresolveHandler\fP ($command)"
+.br
+.ti -1c
+.RI "\fBgetHandlerClass\fP ($command)"
+.br
+.ti -1c
+.RI "\fBgetHandlerMethod\fP ($command)"
+.br
+.ti -1c
+.RI "\fBmaps\fP (array $commands)"
+.br
+.ti -1c
+.RI "\fBmapUsing\fP (Closure $mapper)"
+.br
+.ti -1c
+.RI "\fBpipeThrough\fP (array $pipes)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBsimpleMapping\fP ($command, $commandNamespace, $handlerNamespace)"
+.br
+.ti -1c
+.RI "static \fBsimpleMapping\fP ($command, $commandNamespace, $handlerNamespace)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmarshalFromArray\fP ($command, array $array)"
+.br
+.ti -1c
+.RI "\fBmarshal\fP ($command, ArrayAccess $source, array $extras=array())"
+.br
+.ti -1c
+.RI "\fBgetParameterValueForCommand\fP ($command, ArrayAccess $source, ReflectionParameter $parameter, array $extras=array())"
+.br
+.ti -1c
+.RI "\fBcommandShouldBeQueued\fP ($command)"
+.br
+.ti -1c
+.RI "\fBinflectSegment\fP ($command, $segment)"
+.br
+.ti -1c
+.RI "\fBgetMappingSegment\fP ($className, $segment)"
+.br
+.ti -1c
+.RI "\fBgetMapperSegment\fP ($command, $segment)"
+.br
+.ti -1c
+.RI "\fBmarshalFromArray\fP ($command, array $array)"
+.br
+.ti -1c
+.RI "\fBmarshal\fP ($command, ArrayAccess $source, array $extras=[])"
+.br
+.ti -1c
+.RI "\fBgetParameterValueForCommand\fP ($command, ArrayAccess $source, ReflectionParameter $parameter, array $extras=array())"
+.br
+.ti -1c
+.RI "\fBcommandShouldBeQueued\fP ($command)"
+.br
+.ti -1c
+.RI "\fBinflectSegment\fP ($command, $segment)"
+.br
+.ti -1c
+.RI "\fBgetMappingSegment\fP ($className, $segment)"
+.br
+.ti -1c
+.RI "\fBgetMapperSegment\fP ($command, $segment)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$pipeline\fP"
+.br
+.ti -1c
+.RI "\fB$pipes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$queueResolver\fP"
+.br
+.ti -1c
+.RI "\fB$mappings\fP = array()"
+.br
+.ti -1c
+.RI "\fB$mapper\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8828 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBContainer\fP $container, Closure $queueResolver = \fCnull\fP)"
+
+.PP
+Definition at line 8836 of file compiled\&.php\&.
+.SS "__construct (\fBContainer\fP $container, Closure $queueResolver = \fCnull\fP)"
+Create a new command dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.br
+\fI$queueResolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file Dispatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "commandShouldBeQueued ( $command)\fC [protected]\fP"
+Determine if the given command should be queued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file Dispatcher\&.php\&.
+.SS "commandShouldBeQueued ( $command)\fC [protected]\fP"
+
+.PP
+Definition at line 8899 of file compiled\&.php\&.
+.SS "dispatch ( $command, Closure $afterResolving = \fCnull\fP)"
+Dispatch a command to its appropriate handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$afterResolving\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 175 of file Dispatcher\&.php\&.
+.SS "dispatch ( $command, Closure $afterResolving = \fCnull\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 8878 of file compiled\&.php\&.
+.SS "dispatchFrom ( $command, ArrayAccess $source, array $extras = \fC[]\fP)"
+Marshal a command and dispatch it to its appropriate handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$source\fP 
+.br
+\fI$extras\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 95 of file Dispatcher\&.php\&.
+.SS "dispatchFrom ( $command, ArrayAccess $source, array $extras = \fCarray()\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 8846 of file compiled\&.php\&.
+.SS "dispatchFromArray ( $command, array $array)"
+Marshal a command and dispatch it to its appropriate handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$array\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 82 of file Dispatcher\&.php\&.
+.SS "dispatchFromArray ( $command, array $array)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 8842 of file compiled\&.php\&.
+.SS "dispatchNow ( $command, Closure $afterResolving = \fCnull\fP)"
+Dispatch a command to its appropriate handler in the current process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$afterResolving\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 194 of file Dispatcher\&.php\&.
+.SS "dispatchNow ( $command, Closure $afterResolving = \fCnull\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 8886 of file compiled\&.php\&.
+.SS "dispatchToQueue ( $command)"
+Dispatch a command to its appropriate handler behind a queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBQueueingDispatcher\fP\&.
+.PP
+Definition at line 236 of file Dispatcher\&.php\&.
+.SS "dispatchToQueue ( $command)"
+
+.PP
+Implements \fBQueueingDispatcher\fP\&.
+.PP
+Definition at line 8906 of file compiled\&.php\&.
+.SS "getHandlerClass ( $command)"
+Get the handler class for the given command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 274 of file Dispatcher\&.php\&.
+.SS "getHandlerClass ( $command)"
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 8925 of file compiled\&.php\&.
+.SS "getHandlerMethod ( $command)"
+Get the handler method for the given command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 287 of file Dispatcher\&.php\&.
+.SS "getHandlerMethod ( $command)"
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 8932 of file compiled\&.php\&.
+.SS "getMapperSegment ( $command,  $segment)\fC [protected]\fP"
+Get the given segment from a given class handler using the custom mapper\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$segment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file Dispatcher\&.php\&.
+.SS "getMapperSegment ( $command,  $segment)\fC [protected]\fP"
+
+.PP
+Definition at line 8953 of file compiled\&.php\&.
+.SS "getMappingSegment ( $className,  $segment)\fC [protected]\fP"
+Get the given segment from a given class handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$className\fP 
+.br
+\fI$segment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 324 of file Dispatcher\&.php\&.
+.SS "getMappingSegment ( $className,  $segment)\fC [protected]\fP"
+
+.PP
+Definition at line 8949 of file compiled\&.php\&.
+.SS "getParameterValueForCommand ( $command, ArrayAccess $source, ReflectionParameter $parameter, array $extras = \fCarray()\fP)\fC [protected]\fP"
+Get a parameter value for a marshaled command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$source\fP 
+.br
+\fI$parameter\fP 
+.br
+\fI$extras\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file Dispatcher\&.php\&.
+.SS "getParameterValueForCommand ( $command, ArrayAccess $source, ReflectionParameter $parameter, array $extras = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 8865 of file compiled\&.php\&.
+.SS "inflectSegment ( $command,  $segment)\fC [protected]\fP"
+Get the given handler segment for the given command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$segment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file Dispatcher\&.php\&.
+.SS "inflectSegment ( $command,  $segment)\fC [protected]\fP"
+
+.PP
+Definition at line 8939 of file compiled\&.php\&.
+.SS "maps (array $commands)"
+Register command to handler mappings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$commands\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 347 of file Dispatcher\&.php\&.
+.SS "maps (array $commands)"
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 8957 of file compiled\&.php\&.
+.SS "mapUsing (Closure $mapper)"
+Register a fallback mapper callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mapper\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 358 of file Dispatcher\&.php\&.
+.SS "mapUsing (Closure $mapper)"
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 8961 of file compiled\&.php\&.
+.SS "marshal ( $command, ArrayAccess $source, array $extras = \fC[]\fP)\fC [protected]\fP"
+Marshal a command from the given array accessible object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$source\fP 
+.br
+\fI$extras\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file Dispatcher\&.php\&.
+.SS "marshal ( $command, ArrayAccess $source, array $extras = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 8854 of file compiled\&.php\&.
+.SS "marshalFromArray ( $command, array $array)\fC [protected]\fP"
+Marshal a command from the given array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$array\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file Dispatcher\&.php\&.
+.SS "marshalFromArray ( $command, array $array)\fC [protected]\fP"
+
+.PP
+Definition at line 8850 of file compiled\&.php\&.
+.SS "pipeThrough (array $pipes)"
+Set the pipes commands should be piped through before dispatching\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pipes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 384 of file Dispatcher\&.php\&.
+.SS "pipeThrough (array $pipes)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 8970 of file compiled\&.php\&.
+.SS "resolveHandler ( $command)"
+Get the handler instance for the given command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 261 of file Dispatcher\&.php\&.
+.SS "resolveHandler ( $command)"
+
+.PP
+Implements \fBHandlerResolver\fP\&.
+.PP
+Definition at line 8918 of file compiled\&.php\&.
+.SS "static simpleMapping ( $command,  $commandNamespace,  $handlerNamespace)\fC [static]\fP"
+Map the command to a handler within a given root namespace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$commandNamespace\fP 
+.br
+\fI$handlerNamespace\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Dispatcher\&.php\&.
+.SS "static simpleMapping ( $command,  $commandNamespace,  $handlerNamespace)\fC [static]\fP"
+
+.PP
+Definition at line 8965 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 8830 of file compiled\&.php\&.
+.SS "$mapper\fC [protected]\fP"
+
+.PP
+Definition at line 8835 of file compiled\&.php\&.
+.SS "$mappings = array()\fC [protected]\fP"
+
+.PP
+Definition at line 8834 of file compiled\&.php\&.
+.SS "$pipeline\fC [protected]\fP"
+
+.PP
+Definition at line 8831 of file compiled\&.php\&.
+.SS "$pipes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 8832 of file compiled\&.php\&.
+.SS "$queueResolver\fC [protected]\fP"
+
+.PP
+Definition at line 8833 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

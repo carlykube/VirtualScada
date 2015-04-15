@@ -1,0 +1,237 @@
+.TH "Swift_Plugins_PopBeforeSmtpPlugin" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Plugins_PopBeforeSmtpPlugin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_TransportChangeListener\fP, and \fBSwift_Plugins_Pop_Pop3Connection\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($host, $port=110, $crypto=null)"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP (\fBSwift_Plugins_Pop_Pop3Connection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBbindSmtp\fP (\fBSwift_Transport\fP $smtp)"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBsetUsername\fP ($username)"
+.br
+.ti -1c
+.RI "\fBsetPassword\fP ($password)"
+.br
+.ti -1c
+.RI "\fBconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBbeforeTransportStarted\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBtransportStarted\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBbeforeTransportStopped\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBtransportStopped\fP (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP ($host, $port=110, $crypto=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Makes sure a connection to a POP3 host has been established prior to connecting to SMTP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file PopBeforeSmtpPlugin\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $host,  $port = \fC110\fP,  $crypto = \fCnull\fP)"
+Create a new PopBeforeSmtpPlugin for $host and $port\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.br
+\fI$port\fP 
+.br
+\fI$crypto\fP as 'tls' or 'ssl' 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file PopBeforeSmtpPlugin\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeTransportStarted (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Invoked just before a Transport is started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 197 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "beforeTransportStopped (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Not used\&. 
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 219 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "bindSmtp (\fBSwift_Transport\fP $smtp)"
+Bind this plugin to a specific SMTP transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fBSwift_Transport\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "connect ()"
+Connect to the POP3 host and authenticate\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_Plugins_Pop_Pop3Exception\fP\fP if connection fails 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Pop_Pop3Connection\fP\&.
+.PP
+Definition at line 144 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "disconnect ()"
+Disconnect from the POP3 host\&. 
+.PP
+Implements \fBSwift_Plugins_Pop_Pop3Connection\fP\&.
+.PP
+Definition at line 177 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "static newInstance ( $host,  $port = \fC110\fP,  $crypto = \fCnull\fP)\fC [static]\fP"
+Create a new PopBeforeSmtpPlugin for $host and $port\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.br
+\fI$port\fP 
+.br
+\fI$crypto\fP as 'tls' or 'ssl'
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Plugins_PopBeforeSmtpPlugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "setConnection (\fBSwift_Plugins_Pop_Pop3Connection\fP $connection)"
+Set a Pop3Connection to delegate to instead of connecting directly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Plugins_PopBeforeSmtpPlugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "setPassword ( $password)"
+Set the password to use when connecting (if needed)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Plugins_PopBeforeSmtpPlugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "setTimeout ( $timeout)"
+Set the connection timeout in seconds (default 10)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Plugins_PopBeforeSmtpPlugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "setUsername ( $username)"
+Set the username to use when connecting (if needed)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Plugins_PopBeforeSmtpPlugin\fP 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "transportStarted (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Not used\&. 
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 212 of file PopBeforeSmtpPlugin\&.php\&.
+.SS "transportStopped (\fBSwift_Events_TransportChangeEvent\fP $evt)"
+Not used\&. 
+.PP
+Implements \fBSwift_Events_TransportChangeListener\fP\&.
+.PP
+Definition at line 226 of file PopBeforeSmtpPlugin\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

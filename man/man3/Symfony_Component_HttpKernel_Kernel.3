@@ -1,0 +1,776 @@
+.TH "Kernel" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Kernel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBKernelInterface\fP, and \fBTerminableInterface\fP\&.
+.PP
+Inherited by \fBKernelForTest\fP, \fBKernelForOverrideName\fP, and \fBKernelForTest\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($environment, $debug)"
+.br
+.ti -1c
+.RI "\fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.ti -1c
+.RI "\fBboot\fP ()"
+.br
+.ti -1c
+.RI "\fBterminate\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "\fBhandle\fP (\fBRequest\fP $request, $type=\fBHttpKernelInterface::MASTER_REQUEST\fP, $catch=true)"
+.br
+.ti -1c
+.RI "\fBgetBundles\fP ()"
+.br
+.ti -1c
+.RI "\fBisClassInActiveBundle\fP ($class)"
+.br
+.ti -1c
+.RI "\fBgetBundle\fP ($\fBname\fP, $first=true)"
+.br
+.ti -1c
+.RI "\fBlocateResource\fP ($\fBname\fP, $dir=null, $first=true)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEnvironment\fP ()"
+.br
+.ti -1c
+.RI "\fBisDebug\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRootDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBloadClassCache\fP ($\fBname\fP= 'classes', $extension= '\&.php')"
+.br
+.ti -1c
+.RI "\fBsetClassCache\fP (array $classes)"
+.br
+.ti -1c
+.RI "\fBgetStartTime\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCacheDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLogDir\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCharset\fP ()"
+.br
+.ti -1c
+.RI "\fBserialize\fP ()"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($\fBdata\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBstripComments\fP ($source)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERSION\fP = '2\&.6\&.6'"
+.br
+.ti -1c
+.RI "const \fBVERSION_ID\fP = '20606'"
+.br
+.ti -1c
+.RI "const \fBMAJOR_VERSION\fP = '2'"
+.br
+.ti -1c
+.RI "const \fBMINOR_VERSION\fP = '6'"
+.br
+.ti -1c
+.RI "const \fBRELEASE_VERSION\fP = '6'"
+.br
+.ti -1c
+.RI "const \fBEXTRA_VERSION\fP = ''"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetHttpKernel\fP ()"
+.br
+.ti -1c
+.RI "\fBdoLoadClassCache\fP ($\fBname\fP, $extension)"
+.br
+.ti -1c
+.RI "\fBinitializeBundles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContainerClass\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContainerBaseClass\fP ()"
+.br
+.ti -1c
+.RI "\fBinitializeContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBgetKernelParameters\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEnvParameters\fP ()"
+.br
+.ti -1c
+.RI "\fBbuildContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBprepareContainer\fP (ContainerBuilder $container)"
+.br
+.ti -1c
+.RI "\fBgetContainerBuilder\fP ()"
+.br
+.ti -1c
+.RI "\fBdumpContainer\fP (ConfigCache $cache, ContainerBuilder $container, $class, $baseClass)"
+.br
+.ti -1c
+.RI "\fBgetContainerLoader\fP (ContainerInterface $container)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$bundles\fP = array()"
+.br
+.ti -1c
+.RI "\fB$bundleMap\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$rootDir\fP"
+.br
+.ti -1c
+.RI "\fB$environment\fP"
+.br
+.ti -1c
+.RI "\fB$debug\fP"
+.br
+.ti -1c
+.RI "\fB$booted\fP = false"
+.br
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$startTime\fP"
+.br
+.ti -1c
+.RI "\fB$loadClassCache\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBKernel\fP is the heart of the \fBSymfony\fP system\&.
+.PP
+It manages an environment made of bundles\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 46 of file Kernel\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $environment,  $debug)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$environment\fP The environment 
+.br
+\fI$debug\fP Whether to enable debugging or not
+.RE
+.PP
+
+.PP
+Definition at line 78 of file Kernel\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+
+.PP
+Definition at line 99 of file Kernel\&.php\&.
+.SS "boot ()"
+Boots the current kernel\&.
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 114 of file Kernel\&.php\&.
+.SS "buildContainer ()\fC [protected]\fP"
+Builds the service container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ContainerBuilder The compiled service container
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 604 of file Kernel\&.php\&.
+.SS "doLoadClassCache ( $name,  $extension)\fC [protected]\fP"
+
+.PP
+Definition at line 428 of file Kernel\&.php\&.
+.SS "dumpContainer (ConfigCache $cache, ContainerBuilder $container,  $class,  $baseClass)\fC [protected]\fP"
+Dumps the service container to \fBPHP\fP code in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cache\fP The config cache 
+.br
+\fI$container\fP The service container 
+.br
+\fI$class\fP The name of the class to generate 
+.br
+\fI$baseClass\fP The name of the container's base class 
+.RE
+.PP
+
+.PP
+Definition at line 680 of file Kernel\&.php\&.
+.SS "getBundle ( $name,  $first = \fCtrue\fP)"
+{Returns a bundle and optionally its descendants by its name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBBundle\fP name 
+.br
+\fI$first\fP Whether to return the first bundle only or together with its descendants
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BundleInterface|BundleInterface[] \fBA\fP BundleInterface instance or an array of BundleInterface instances if $first is false
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 232 of file Kernel\&.php\&.
+.SS "getBundles ()"
+{Gets the registered bundle instances\&.
+.PP
+\fBReturns:\fP
+.RS 4
+BundleInterface[] An array of registered bundle instances
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 204 of file Kernel\&.php\&.
+.SS "getCacheDir ()"
+{Gets the cache directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The cache directory
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 403 of file Kernel\&.php\&.
+.SS "getCharset ()"
+{Gets the charset of the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The charset
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 423 of file Kernel\&.php\&.
+.SS "getContainer ()"
+{Gets the current container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ContainerInterface \fBA\fP ContainerInterface instance
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 358 of file Kernel\&.php\&.
+.SS "getContainerBaseClass ()\fC [protected]\fP"
+Gets the container's base class\&.
+.PP
+All names except Container must be fully qualified\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 516 of file Kernel\&.php\&.
+.SS "getContainerBuilder ()\fC [protected]\fP"
+Gets a new ContainerBuilder instance used to build the service container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ContainerBuilder 
+.RE
+.PP
+
+.PP
+Definition at line 661 of file Kernel\&.php\&.
+.SS "getContainerClass ()\fC [protected]\fP"
+Gets the container class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The container class 
+.RE
+.PP
+
+.PP
+Definition at line 504 of file Kernel\&.php\&.
+.SS "getContainerLoader (ContainerInterface $container)\fC [protected]\fP"
+Returns a loader for the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP The service container
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DelegatingLoader The loader 
+.RE
+.PP
+
+.PP
+Definition at line 704 of file Kernel\&.php\&.
+.SS "getEnvironment ()"
+{Gets the environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current environment
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 323 of file Kernel\&.php\&.
+.SS "getEnvParameters ()\fC [protected]\fP"
+Gets the environment parameters\&.
+.PP
+Only the parameters starting with 'SYMFONY__' are considered\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of parameters 
+.RE
+.PP
+
+.PP
+Definition at line 585 of file Kernel\&.php\&.
+.SS "getHttpKernel ()\fC [protected]\fP"
+Gets a HTTP kernel from the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBHttpKernel\fP 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Kernel\&.php\&.
+.SS "getKernelParameters ()\fC [protected]\fP"
+Returns the kernel parameters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of kernel parameters 
+.RE
+.PP
+
+.PP
+Definition at line 555 of file Kernel\&.php\&.
+.SS "getLogDir ()"
+{Gets the log directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The log directory
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 413 of file Kernel\&.php\&.
+.SS "getName ()"
+{Gets the name of the kernel\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The kernel name
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 309 of file Kernel\&.php\&.
+.SS "getRootDir ()"
+{Gets the application root dir\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The application root dir
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 343 of file Kernel\&.php\&.
+.SS "getStartTime ()"
+{Gets the request start time (not available if debug is disabled)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The request start timestamp
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 393 of file Kernel\&.php\&.
+.SS "handle (\fBRequest\fP $request,  $type = \fC\fBHttpKernelInterface::MASTER_REQUEST\fP\fP,  $catch = \fCtrue\fP)"
+{}
+.PP
+Implements \fBHttpKernelInterface\fP\&.
+.PP
+Definition at line 180 of file Kernel\&.php\&.
+.SS "init ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.3, to be removed in 3\&.0\&. Move your logic in the constructor instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Kernel\&.php\&.
+.SS "initializeBundles ()\fC [protected]\fP"
+Initializes the data structures related to the bundle management\&.
+.PP
+.IP "\(bu" 2
+the bundles property maps a bundle name to the bundle instance,
+.IP "\(bu" 2
+the bundleMap property maps a bundle name to the bundle inheritance hierarchy (most derived bundle first)\&.
+.PP
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 446 of file Kernel\&.php\&.
+.SS "initializeContainer ()\fC [protected]\fP"
+Initializes the service container\&.
+.PP
+The cached version of the service container is used when fresh, otherwise the container is built\&. 
+.PP
+Definition at line 527 of file Kernel\&.php\&.
+.SS "isClassInActiveBundle ( $class)"
+{Checks if a given class name belongs to an active bundle\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP \fBA\fP class name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the class belongs to an active bundle, false otherwise
+.RE
+.PP
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. 
+.RE
+.PP
+}
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 216 of file Kernel\&.php\&.
+.SS "isDebug ()"
+{Checks if debug mode is enabled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if debug mode is enabled, false otherwise
+.RE
+.PP
+}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 333 of file Kernel\&.php\&.
+.SS "loadClassCache ( $name = \fC'classes'\fP,  $extension = \fC'\&.php'\fP)"
+Loads the \fBPHP\fP class cache\&.
+.PP
+This methods only registers the fact that you want to load the cache classes\&. The cache will actually only be loaded when the \fBKernel\fP is booted\&.
+.PP
+That optimization is mainly useful when using the \fBHttpCache\fP class in which case the class cache is not loaded if the \fBResponse\fP is in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The cache name prefix 
+.br
+\fI$extension\fP \fBFile\fP extension of the resulting file 
+.RE
+.PP
+
+.PP
+Definition at line 375 of file Kernel\&.php\&.
+.SS "locateResource ( $name,  $dir = \fCnull\fP,  $first = \fCtrue\fP)"
+Returns the file path for a given resource\&.
+.PP
+\fBA\fP Resource can be a file or a directory\&.
+.PP
+The resource name must follow the following pattern: 
+.PP
+.nf
+"@BundleName/path/to/a/file.something"
+
+.fi
+.PP
+.PP
+where BundleName is the name of the bundle and the remaining part is the relative path in the bundle\&.
+.PP
+If $dir is passed, and the first segment of the path is 'Resources', this method will look for a file named: 
+.PP
+.nf
+$dir/<BundleName>/path/without/Resources
+
+.fi
+.PP
+.PP
+before looking in the bundle resource folder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP resource name to locate 
+.br
+\fI$dir\fP \fBA\fP directory where to look for the resource first 
+.br
+\fI$first\fP Whether to return the first path or paths for all matching bundles
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|array The absolute path of the resource or an array if $first is false
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 250 of file Kernel\&.php\&.
+.SS "prepareContainer (ContainerBuilder $container)\fC [protected]\fP"
+Prepares the ContainerBuilder before it is compiled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP \fBA\fP ContainerBuilder instance 
+.RE
+.PP
+
+.PP
+Definition at line 635 of file Kernel\&.php\&.
+.SS "serialize ()"
+
+.PP
+Definition at line 774 of file Kernel\&.php\&.
+.SS "setClassCache (array $classes)"
+Used internally\&. 
+.PP
+Definition at line 383 of file Kernel\&.php\&.
+.SS "shutdown ()"
+{Shutdowns the kernel\&.
+.PP
+This method is mainly useful when doing functional testing\&.}
+.PP
+Implements \fBKernelInterface\fP\&.
+.PP
+Definition at line 159 of file Kernel\&.php\&.
+.SS "static stripComments ( $source)\fC [static]\fP"
+Removes comments from a \fBPHP\fP source string\&.
+.PP
+We don't use the \fBPHP\fP php_strip_whitespace() function as we want the content to be readable and well-formatted\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP \fBA\fP \fBPHP\fP string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBPHP\fP string with the comments removed 
+.RE
+.PP
+
+.PP
+Definition at line 728 of file Kernel\&.php\&.
+.SS "terminate (\fBRequest\fP $request, \fBResponse\fP $response)"
+{}
+.PP
+Implements \fBTerminableInterface\fP\&.
+.PP
+Definition at line 143 of file Kernel\&.php\&.
+.SS "unserialize ( $data)"
+
+.PP
+Definition at line 779 of file Kernel\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$booted = false\fC [protected]\fP"
+
+.PP
+Definition at line 58 of file Kernel\&.php\&.
+.SS "$bundleMap\fC [protected]\fP"
+
+.PP
+Definition at line 53 of file Kernel\&.php\&.
+.SS "$bundles = array()\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file Kernel\&.php\&.
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file Kernel\&.php\&.
+.SS "$debug\fC [protected]\fP"
+
+.PP
+Definition at line 57 of file Kernel\&.php\&.
+.SS "$environment\fC [protected]\fP"
+
+.PP
+Definition at line 56 of file Kernel\&.php\&.
+.SS "$\fBloadClassCache\fP\fC [protected]\fP"
+
+.PP
+Definition at line 61 of file Kernel\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 59 of file Kernel\&.php\&.
+.SS "$rootDir\fC [protected]\fP"
+
+.PP
+Definition at line 55 of file Kernel\&.php\&.
+.SS "$startTime\fC [protected]\fP"
+
+.PP
+Definition at line 60 of file Kernel\&.php\&.
+.SS "const EXTRA_VERSION = ''"
+
+.PP
+Definition at line 68 of file Kernel\&.php\&.
+.SS "const MAJOR_VERSION = '2'"
+
+.PP
+Definition at line 65 of file Kernel\&.php\&.
+.SS "const MINOR_VERSION = '6'"
+
+.PP
+Definition at line 66 of file Kernel\&.php\&.
+.SS "const RELEASE_VERSION = '6'"
+
+.PP
+Definition at line 67 of file Kernel\&.php\&.
+.SS "const VERSION = '2\&.6\&.6'"
+
+.PP
+Definition at line 63 of file Kernel\&.php\&.
+.SS "const VERSION_ID = '20606'"
+
+.PP
+Definition at line 64 of file Kernel\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

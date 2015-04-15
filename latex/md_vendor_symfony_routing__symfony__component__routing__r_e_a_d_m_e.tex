@@ -1,0 +1,22 @@
+Routing associates a request with the code that will convert it to a response.
+
+The example below demonstrates how you can set up a fully working routing system\+:
+
+```php use \doxyref{Symfony}{p.}{namespace_symfony}; use \doxyref{Symfony}{p.}{namespace_symfony}; use \doxyref{Symfony}{p.}{namespace_symfony}; use \doxyref{Symfony}{p.}{namespace_symfony}; use \doxyref{Symfony}{p.}{namespace_symfony};
+
+\$routes = new Route\+Collection(); \$routes-\/$>$add(\textquotesingle{}hello\textquotesingle{}, new \doxyref{Route}{p.}{class_route}(\textquotesingle{}/hello\textquotesingle{}, array(\textquotesingle{}controller\textquotesingle{} =$>$ \textquotesingle{}foo\textquotesingle{})));
+
+\$context = new Request\+Context();
+
+// this is optional and can be done without a \doxyref{Request}{p.}{class_request} instance \$context-\/$>$from\+Request(\+Request\+::create\+From\+Globals());
+
+\$matcher = new Url\+Matcher(\$routes, \$context);
+
+\$parameters = \$matcher-\/$>$match(\textquotesingle{}/hello\textquotesingle{}); ```
+
+\subsection*{Resources }
+
+You can run the unit tests with the following command\+: \begin{DoxyVerb}$ cd path/to/Symfony/Component/Routing/
+$ composer install
+$ phpunit\end{DoxyVerb}
+ 

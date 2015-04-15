@@ -1,0 +1,696 @@
+.TH "AbstractFtpAdapter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractFtpAdapter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractAdapter\fP\&.
+.PP
+Inherited by \fBFtp\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBsetConfig\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($host)"
+.br
+.ti -1c
+.RI "\fBsetPermPublic\fP ($permPublic)"
+.br
+.ti -1c
+.RI "\fBsetPermPrivate\fP ($permPrivate)"
+.br
+.ti -1c
+.RI "\fBgetPort\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRoot\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPort\fP ($port)"
+.br
+.ti -1c
+.RI "\fBsetRoot\fP ($root)"
+.br
+.ti -1c
+.RI "\fBgetUsername\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUsername\fP ($username)"
+.br
+.ti -1c
+.RI "\fBgetPassword\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPassword\fP ($password)"
+.br
+.ti -1c
+.RI "\fBgetTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBlistContents\fP ($directory= '', $recursive=false)"
+.br
+.ti -1c
+.RI "\fBremoveDotDirectories\fP (array $list)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetSize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetTimestamp\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetVisibility\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBensureDirectory\fP ($dirname)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPermPublic\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPermPrivate\fP ()"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fBconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBnormalizeListing\fP (array $listing, $prefix= '')"
+.br
+.ti -1c
+.RI "\fBsortListing\fP (array $result)"
+.br
+.ti -1c
+.RI "\fBnormalizeObject\fP ($item, $base)"
+.br
+.ti -1c
+.RI "\fBdetectType\fP ($permissions)"
+.br
+.ti -1c
+.RI "\fBnormalizePermissions\fP ($permissions)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$host\fP"
+.br
+.ti -1c
+.RI "\fB$port\fP = 21"
+.br
+.ti -1c
+.RI "\fB$username\fP"
+.br
+.ti -1c
+.RI "\fB$password\fP"
+.br
+.ti -1c
+.RI "\fB$ssl\fP = false"
+.br
+.ti -1c
+.RI "\fB$timeout\fP = 90"
+.br
+.ti -1c
+.RI "\fB$passive\fP = true"
+.br
+.ti -1c
+.RI "\fB$separator\fP = '/'"
+.br
+.ti -1c
+.RI "\fB$root\fP"
+.br
+.ti -1c
+.RI "\fB$permPublic\fP = 0744"
+.br
+.ti -1c
+.RI "\fB$permPrivate\fP = 0700"
+.br
+.ti -1c
+.RI "\fB$configurable\fP = []"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file AbstractFtpAdapter\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $config)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file AbstractFtpAdapter\&.php\&.
+.SS "__destruct ()"
+Disconnect on destruction\&. 
+.PP
+Definition at line 445 of file AbstractFtpAdapter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "connect ()\fC [abstract]\fP"
+Establish a connection\&. 
+.SS "detectType ( $permissions)\fC [protected]\fP"
+Get the file type from the permissions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$permissions\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string file type 
+.RE
+.PP
+
+.PP
+Definition at line 311 of file AbstractFtpAdapter\&.php\&.
+.SS "disconnect ()\fC [abstract]\fP"
+Close the connection\&. 
+.SS "ensureDirectory ( $dirname)"
+Ensure a directory exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP 
+.RE
+.PP
+
+.PP
+Definition at line 403 of file AbstractFtpAdapter\&.php\&.
+.SS "getConnection ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+resource|Net_SFTP 
+.RE
+.PP
+
+.PP
+Definition at line 413 of file AbstractFtpAdapter\&.php\&.
+.SS "getHost ()"
+Returns the host\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file AbstractFtpAdapter\&.php\&.
+.SS "getPassword ()"
+Returns the password\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string password 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file AbstractFtpAdapter\&.php\&.
+.SS "getPermPrivate ()"
+Get the private permission value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 437 of file AbstractFtpAdapter\&.php\&.
+.SS "getPermPublic ()"
+Get the public permission value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 427 of file AbstractFtpAdapter\&.php\&.
+.SS "getPort ()"
+Returns the ftp port\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file AbstractFtpAdapter\&.php\&.
+.SS "getRoot ()"
+Returns the root folder to work from\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file AbstractFtpAdapter\&.php\&.
+.SS "getSize ( $path)"
+{Get all the meta data of a file or directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 375 of file AbstractFtpAdapter\&.php\&.
+.SS "getTimeout ()"
+Returns the amount of seconds before the connection will timeout\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file AbstractFtpAdapter\&.php\&.
+.SS "getTimestamp ( $path)"
+{Get the timestamp of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 383 of file AbstractFtpAdapter\&.php\&.
+.SS "getUsername ()"
+Returns the ftp username\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string username 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file AbstractFtpAdapter\&.php\&.
+.SS "getVisibility ( $path)"
+{Get the visibility of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 393 of file AbstractFtpAdapter\&.php\&.
+.SS "has ( $path)"
+{Check whether a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|bool|null
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 367 of file AbstractFtpAdapter\&.php\&.
+.SS "listContents ( $directory = \fC''\fP,  $recursive = \fCfalse\fP)"
+{List contents of a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 229 of file AbstractFtpAdapter\&.php\&.
+.SS "normalizeListing (array $listing,  $prefix = \fC''\fP)\fC [protected]\fP"
+Normalize a directory listing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listing\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array directory listing 
+.RE
+.PP
+
+.PP
+Definition at line 242 of file AbstractFtpAdapter\&.php\&.
+.SS "normalizeObject ( $item,  $base)\fC [protected]\fP"
+Normalize a file entry\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$item\fP 
+.br
+\fI$base\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array normalized file array 
+.RE
+.PP
+
+.PP
+Definition at line 286 of file AbstractFtpAdapter\&.php\&.
+.SS "normalizePermissions ( $permissions)\fC [protected]\fP"
+Normalize a permissions string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$permissions\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file AbstractFtpAdapter\&.php\&.
+.SS "removeDotDirectories (array $list)"
+Filter out dot-directories\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$list\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file AbstractFtpAdapter\&.php\&.
+.SS "setConfig (array $config)"
+Set the config\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file AbstractFtpAdapter\&.php\&.
+.SS "setHost ( $host)"
+Set the host\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file AbstractFtpAdapter\&.php\&.
+.SS "setPassword ( $password)"
+Set the ftp password\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file AbstractFtpAdapter\&.php\&.
+.SS "setPermPrivate ( $permPrivate)"
+Set the private permission value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$permPrivate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file AbstractFtpAdapter\&.php\&.
+.SS "setPermPublic ( $permPublic)"
+Set the public permission value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$permPublic\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file AbstractFtpAdapter\&.php\&.
+.SS "setPort ( $port)"
+Set the ftp port\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$port\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file AbstractFtpAdapter\&.php\&.
+.SS "setRoot ( $root)"
+Set the root folder to work from\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file AbstractFtpAdapter\&.php\&.
+.SS "setTimeout ( $timeout)"
+Set the amount of seconds before the connection should timeout\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file AbstractFtpAdapter\&.php\&.
+.SS "setUsername ( $username)"
+Set ftp username\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file AbstractFtpAdapter\&.php\&.
+.SS "sortListing (array $result)\fC [protected]\fP"
+Sort a directory listing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array sorted listing 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file AbstractFtpAdapter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$configurable = []\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file AbstractFtpAdapter\&.php\&.
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 11 of file AbstractFtpAdapter\&.php\&.
+.SS "$host\fC [protected]\fP"
+
+.PP
+Definition at line 12 of file AbstractFtpAdapter\&.php\&.
+.SS "$passive = true\fC [protected]\fP"
+
+.PP
+Definition at line 18 of file AbstractFtpAdapter\&.php\&.
+.SS "$password\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file AbstractFtpAdapter\&.php\&.
+.SS "$permPrivate = 0700\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file AbstractFtpAdapter\&.php\&.
+.SS "$permPublic = 0744\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file AbstractFtpAdapter\&.php\&.
+.SS "$port = 21\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file AbstractFtpAdapter\&.php\&.
+.SS "$root\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file AbstractFtpAdapter\&.php\&.
+.SS "$separator = '/'\fC [protected]\fP"
+
+.PP
+Definition at line 19 of file AbstractFtpAdapter\&.php\&.
+.SS "$ssl = false\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file AbstractFtpAdapter\&.php\&.
+.SS "$timeout = 90\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file AbstractFtpAdapter\&.php\&.
+.SS "$username\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file AbstractFtpAdapter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

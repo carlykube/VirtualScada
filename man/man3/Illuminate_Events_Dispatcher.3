@@ -1,0 +1,785 @@
+.TH "Dispatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Dispatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBDispatcher\fP, and \fBDispatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (ContainerContract $container=null)"
+.br
+.ti -1c
+.RI "\fBlisten\fP ($events, $listener, $priority=0)"
+.br
+.ti -1c
+.RI "\fBhasListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($\fBevent\fP, $payload=array())"
+.br
+.ti -1c
+.RI "\fBsubscribe\fP ($subscriber)"
+.br
+.ti -1c
+.RI "\fBuntil\fP ($\fBevent\fP, $payload=array())"
+.br
+.ti -1c
+.RI "\fBflush\fP ($\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBfiring\fP ()"
+.br
+.ti -1c
+.RI "\fBfire\fP ($\fBevent\fP, $payload=array(), $halt=false)"
+.br
+.ti -1c
+.RI "\fBgetListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBmakeListener\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBcreateClassListener\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBforgetPushed\fP ()"
+.br
+.ti -1c
+.RI "\fBsetQueueResolver\fP (callable $resolver)"
+.br
+.ti -1c
+.RI "\fB__construct\fP (ContainerContract $container=null)"
+.br
+.ti -1c
+.RI "\fBlisten\fP ($events, $listener, $priority=0)"
+.br
+.ti -1c
+.RI "\fBhasListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($\fBevent\fP, $payload=array())"
+.br
+.ti -1c
+.RI "\fBsubscribe\fP ($subscriber)"
+.br
+.ti -1c
+.RI "\fBuntil\fP ($\fBevent\fP, $payload=array())"
+.br
+.ti -1c
+.RI "\fBflush\fP ($\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBfiring\fP ()"
+.br
+.ti -1c
+.RI "\fBfire\fP ($\fBevent\fP, $payload=array(), $halt=false)"
+.br
+.ti -1c
+.RI "\fBgetListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBmakeListener\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBcreateClassListener\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBforgetPushed\fP ()"
+.br
+.ti -1c
+.RI "\fBsetQueueResolver\fP (callable $resolver)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetupWildcardListen\fP ($\fBevent\fP, $listener)"
+.br
+.ti -1c
+.RI "\fBresolveSubscriber\fP ($subscriber)"
+.br
+.ti -1c
+.RI "\fBgetWildcardListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBsortListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBcreateClassCallable\fP ($listener, $container)"
+.br
+.ti -1c
+.RI "\fBparseClassCallable\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBhandlerShouldBeQueued\fP ($class)"
+.br
+.ti -1c
+.RI "\fBcreateQueuedHandlerCallable\fP ($class, $method)"
+.br
+.ti -1c
+.RI "\fBcloneArgumentsForQueueing\fP (array $arguments)"
+.br
+.ti -1c
+.RI "\fBcallQueueMethodOnHandler\fP ($class, $method, $arguments)"
+.br
+.ti -1c
+.RI "\fBresolveQueue\fP ()"
+.br
+.ti -1c
+.RI "\fBsetupWildcardListen\fP ($\fBevent\fP, $listener)"
+.br
+.ti -1c
+.RI "\fBresolveSubscriber\fP ($subscriber)"
+.br
+.ti -1c
+.RI "\fBgetWildcardListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBsortListeners\fP ($eventName)"
+.br
+.ti -1c
+.RI "\fBcreateClassCallable\fP ($listener, $container)"
+.br
+.ti -1c
+.RI "\fBparseClassCallable\fP ($listener)"
+.br
+.ti -1c
+.RI "\fBhandlerShouldBeQueued\fP ($class)"
+.br
+.ti -1c
+.RI "\fBcreateQueuedHandlerCallable\fP ($class, $method)"
+.br
+.ti -1c
+.RI "\fBcloneArgumentsForQueueing\fP (array $arguments)"
+.br
+.ti -1c
+.RI "\fBcallQueueMethodOnHandler\fP ($class, $method, $arguments)"
+.br
+.ti -1c
+.RI "\fBresolveQueue\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$listeners\fP = array()"
+.br
+.ti -1c
+.RI "\fB$wildcards\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sorted\fP = array()"
+.br
+.ti -1c
+.RI "\fB$firing\fP = array()"
+.br
+.ti -1c
+.RI "\fB$queueResolver\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9099 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (ContainerContract $container = \fCnull\fP)"
+
+.PP
+Definition at line 9107 of file compiled\&.php\&.
+.SS "__construct (ContainerContract $container = \fCnull\fP)"
+Create a new event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file Dispatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "callQueueMethodOnHandler ( $class,  $method,  $arguments)\fC [protected]\fP"
+Call the queue method on the handler class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$method\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 430 of file Dispatcher\&.php\&.
+.SS "callQueueMethodOnHandler ( $class,  $method,  $arguments)\fC [protected]\fP"
+
+.PP
+Definition at line 9260 of file compiled\&.php\&.
+.SS "cloneArgumentsForQueueing (array $arguments)\fC [protected]\fP"
+Clone the given arguments for queueing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file Dispatcher\&.php\&.
+.SS "cloneArgumentsForQueueing (array $arguments)\fC [protected]\fP"
+
+.PP
+Definition at line 9254 of file compiled\&.php\&.
+.SS "createClassCallable ( $listener,  $container)\fC [protected]\fP"
+Create the class based event callable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listener\fP 
+.br
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable 
+.RE
+.PP
+
+.PP
+Definition at line 338 of file Dispatcher\&.php\&.
+.SS "createClassCallable ( $listener,  $container)\fC [protected]\fP"
+
+.PP
+Definition at line 9221 of file compiled\&.php\&.
+.SS "createClassListener ( $listener)"
+Create a class based listener using the IoC container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listener\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 319 of file Dispatcher\&.php\&.
+.SS "createClassListener ( $listener)"
+
+.PP
+Definition at line 9214 of file compiled\&.php\&.
+.SS "createQueuedHandlerCallable ( $class,  $method)\fC [protected]\fP"
+Create a callable for putting an event handler on the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 392 of file Dispatcher\&.php\&.
+.SS "createQueuedHandlerCallable ( $class,  $method)\fC [protected]\fP"
+
+.PP
+Definition at line 9243 of file compiled\&.php\&.
+.SS "fire ( $event,  $payload = \fCarray()\fP,  $halt = \fCfalse\fP)"
+Fire an event and call the listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$payload\fP 
+.br
+\fI$halt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|null 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 197 of file Dispatcher\&.php\&.
+.SS "fire ( $event,  $payload = \fCarray()\fP,  $halt = \fCfalse\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9160 of file compiled\&.php\&.
+.SS "firing ()"
+Get the event that is currently firing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 184 of file Dispatcher\&.php\&.
+.SS "firing ()"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9156 of file compiled\&.php\&.
+.SS "flush ( $event)"
+Flush a set of pushed events\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file Dispatcher\&.php\&.
+.SS "flush ( $event)"
+
+.PP
+Definition at line 9152 of file compiled\&.php\&.
+.SS "forget ( $event)"
+Remove a set of listeners from the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 445 of file Dispatcher\&.php\&.
+.SS "forget ( $event)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9265 of file compiled\&.php\&.
+.SS "forgetPushed ()"
+Forget all of the pushed listeners\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 455 of file Dispatcher\&.php\&.
+.SS "forgetPushed ()"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9269 of file compiled\&.php\&.
+.SS "getListeners ( $eventName)"
+Get all of the listeners for a given event name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file Dispatcher\&.php\&.
+.SS "getListeners ( $eventName)"
+
+.PP
+Definition at line 9184 of file compiled\&.php\&.
+.SS "getWildcardListeners ( $eventName)\fC [protected]\fP"
+Get the wildcard listeners for the event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Dispatcher\&.php\&.
+.SS "getWildcardListeners ( $eventName)\fC [protected]\fP"
+
+.PP
+Definition at line 9192 of file compiled\&.php\&.
+.SS "handlerShouldBeQueued ( $class)\fC [protected]\fP"
+Determine if the event handler class should be queued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Dispatcher\&.php\&.
+.SS "handlerShouldBeQueued ( $class)\fC [protected]\fP"
+
+.PP
+Definition at line 9235 of file compiled\&.php\&.
+.SS "hasListeners ( $eventName)"
+Determine if a given event has listeners\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 107 of file Dispatcher\&.php\&.
+.SS "hasListeners ( $eventName)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9126 of file compiled\&.php\&.
+.SS "listen ( $events,  $listener,  $priority = \fC0\fP)"
+Register an event listener with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$events\fP 
+.br
+\fI$listener\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 72 of file Dispatcher\&.php\&.
+.SS "listen ( $events,  $listener,  $priority = \fC0\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9111 of file compiled\&.php\&.
+.SS "makeListener ( $listener)"
+Register an event listener with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listener\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 308 of file Dispatcher\&.php\&.
+.SS "makeListener ( $listener)"
+
+.PP
+Definition at line 9210 of file compiled\&.php\&.
+.SS "parseClassCallable ( $listener)\fC [protected]\fP"
+Parse the class listener into class and method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$listener\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file Dispatcher\&.php\&.
+.SS "parseClassCallable ( $listener)\fC [protected]\fP"
+
+.PP
+Definition at line 9230 of file compiled\&.php\&.
+.SS "push ( $event,  $payload = \fCarray()\fP)"
+Register an event and payload to be fired later\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file Dispatcher\&.php\&.
+.SS "push ( $event,  $payload = \fCarray()\fP)"
+
+.PP
+Definition at line 9130 of file compiled\&.php\&.
+.SS "resolveQueue ()\fC [protected]\fP"
+Get the queue implementation from the resolver\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 468 of file Dispatcher\&.php\&.
+.SS "resolveQueue ()\fC [protected]\fP"
+
+.PP
+Definition at line 9277 of file compiled\&.php\&.
+.SS "resolveSubscriber ( $subscriber)\fC [protected]\fP"
+Resolve the subscriber instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subscriber\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Dispatcher\&.php\&.
+.SS "resolveSubscriber ( $subscriber)\fC [protected]\fP"
+
+.PP
+Definition at line 9141 of file compiled\&.php\&.
+.SS "setQueueResolver (callable $resolver)"
+Set the queue resolver implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 479 of file Dispatcher\&.php\&.
+.SS "setQueueResolver (callable $resolver)"
+
+.PP
+Definition at line 9281 of file compiled\&.php\&.
+.SS "setupWildcardListen ( $event,  $listener)\fC [protected]\fP"
+Setup a wildcard listener callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$listener\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file Dispatcher\&.php\&.
+.SS "setupWildcardListen ( $event,  $listener)\fC [protected]\fP"
+
+.PP
+Definition at line 9122 of file compiled\&.php\&.
+.SS "sortListeners ( $eventName)\fC [protected]\fP"
+Sort the listeners for a given event by priority\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 285 of file Dispatcher\&.php\&.
+.SS "sortListeners ( $eventName)\fC [protected]\fP"
+
+.PP
+Definition at line 9202 of file compiled\&.php\&.
+.SS "subscribe ( $subscriber)"
+Register an event subscriber with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subscriber\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file Dispatcher\&.php\&.
+.SS "subscribe ( $subscriber)"
+
+.PP
+Definition at line 9136 of file compiled\&.php\&.
+.SS "until ( $event,  $payload = \fCarray()\fP)"
+Fire an event until the first non-null response is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 163 of file Dispatcher\&.php\&.
+.SS "until ( $event,  $payload = \fCarray()\fP)"
+
+.PP
+Implements \fBDispatcher\fP\&.
+.PP
+Definition at line 9148 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 9101 of file compiled\&.php\&.
+.SS "$\fBfiring\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9105 of file compiled\&.php\&.
+.SS "$listeners = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9102 of file compiled\&.php\&.
+.SS "$queueResolver\fC [protected]\fP"
+
+.PP
+Definition at line 9106 of file compiled\&.php\&.
+.SS "$sorted = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9104 of file compiled\&.php\&.
+.SS "$wildcards = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9103 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

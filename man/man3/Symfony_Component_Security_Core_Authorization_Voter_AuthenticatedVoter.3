@@ -1,0 +1,148 @@
+.TH "AuthenticatedVoter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AuthenticatedVoter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBVoterInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBAuthenticationTrustResolverInterface\fP $authenticationTrustResolver)"
+.br
+.ti -1c
+.RI "\fBsupportsAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBsupportsClass\fP ($class)"
+.br
+.ti -1c
+.RI "\fBvote\fP (\fBTokenInterface\fP $token, $object, array $attributes)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBIS_AUTHENTICATED_FULLY\fP = 'IS_AUTHENTICATED_FULLY'"
+.br
+.ti -1c
+.RI "const \fBIS_AUTHENTICATED_REMEMBERED\fP = 'IS_AUTHENTICATED_REMEMBERED'"
+.br
+.ti -1c
+.RI "const \fBIS_AUTHENTICATED_ANONYMOUSLY\fP = 'IS_AUTHENTICATED_ANONYMOUSLY'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBAuthenticatedVoter\fP votes if an attribute like IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_REMEMBERED, or IS_AUTHENTICATED_ANONYMOUSLY is present\&.
+.PP
+This list is most restrictive to least restrictive checking\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file AuthenticatedVoter\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBAuthenticationTrustResolverInterface\fP $authenticationTrustResolver)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$authenticationTrustResolver\fP 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file AuthenticatedVoter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "supportsAttribute ( $attribute)"
+{Checks if the voter supports the given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP An attribute
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if this \fBVoter\fP supports the attribute, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 47 of file AuthenticatedVoter\&.php\&.
+.SS "supportsClass ( $class)"
+{Checks if the voter supports the given class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP \fBA\fP class name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if this \fBVoter\fP can process the class
+.RE
+.PP
+} 
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 55 of file AuthenticatedVoter\&.php\&.
+.SS "vote (\fBTokenInterface\fP $token,  $object, array $attributes)"
+{Returns the vote for the given parameters\&.
+.PP
+This method must return one of the following constants: ACCESS_GRANTED, ACCESS_DENIED, or ACCESS_ABSTAIN\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP TokenInterface instance 
+.br
+\fI$object\fP The object to secure 
+.br
+\fI$attributes\fP An array of attributes associated with the method being invoked
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int either ACCESS_GRANTED, ACCESS_ABSTAIN, or ACCESS_DENIED
+.RE
+.PP
+} 
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 63 of file AuthenticatedVoter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY'"
+
+.PP
+Definition at line 30 of file AuthenticatedVoter\&.php\&.
+.SS "const IS_AUTHENTICATED_FULLY = 'IS_AUTHENTICATED_FULLY'"
+
+.PP
+Definition at line 28 of file AuthenticatedVoter\&.php\&.
+.SS "const IS_AUTHENTICATED_REMEMBERED = 'IS_AUTHENTICATED_REMEMBERED'"
+
+.PP
+Definition at line 29 of file AuthenticatedVoter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

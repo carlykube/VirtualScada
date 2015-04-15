@@ -1,0 +1,1326 @@
+.TH "Process" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Process \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBPhpProcess\fP, and \fBProcessInSigchildEnvironment\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($commandline, $cwd=null, array $env=null, $input=null, $timeout=60, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.ti -1c
+.RI "\fBrun\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBmustRun\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBstart\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBrestart\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBwait\fP ($\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetPid\fP ()"
+.br
+.ti -1c
+.RI "\fBsignal\fP ($signal)"
+.br
+.ti -1c
+.RI "\fBdisableOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBenableOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBisOutputDisabled\fP ()"
+.br
+.ti -1c
+.RI "\fBgetOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIncrementalOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBclearOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetErrorOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIncrementalErrorOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBclearErrorOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExitCode\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExitCodeText\fP ()"
+.br
+.ti -1c
+.RI "\fBisSuccessful\fP ()"
+.br
+.ti -1c
+.RI "\fBhasBeenSignaled\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTermSignal\fP ()"
+.br
+.ti -1c
+.RI "\fBhasBeenStopped\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStopSignal\fP ()"
+.br
+.ti -1c
+.RI "\fBisRunning\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBisTerminated\fP ()"
+.br
+.ti -1c
+.RI "\fBgetStatus\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ($timeout=10, $\fBsignal\fP=null)"
+.br
+.ti -1c
+.RI "\fBaddOutput\fP ($\fBline\fP)"
+.br
+.ti -1c
+.RI "\fBaddErrorOutput\fP ($\fBline\fP)"
+.br
+.ti -1c
+.RI "\fBgetCommandLine\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCommandLine\fP ($commandline)"
+.br
+.ti -1c
+.RI "\fBgetTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIdleTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBsetIdleTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBsetTty\fP ($tty)"
+.br
+.ti -1c
+.RI "\fBisTty\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPty\fP ($bool)"
+.br
+.ti -1c
+.RI "\fBisPty\fP ()"
+.br
+.ti -1c
+.RI "\fBgetWorkingDirectory\fP ()"
+.br
+.ti -1c
+.RI "\fBsetWorkingDirectory\fP ($cwd)"
+.br
+.ti -1c
+.RI "\fBgetEnv\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEnv\fP (array $env)"
+.br
+.ti -1c
+.RI "\fBgetStdin\fP ()"
+.br
+.ti -1c
+.RI "\fBgetInput\fP ()"
+.br
+.ti -1c
+.RI "\fBsetStdin\fP ($stdin)"
+.br
+.ti -1c
+.RI "\fBsetInput\fP ($input)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBsetOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetEnhanceWindowsCompatibility\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEnhanceWindowsCompatibility\fP ($enhance)"
+.br
+.ti -1c
+.RI "\fBgetEnhanceSigchildCompatibility\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEnhanceSigchildCompatibility\fP ($enhance)"
+.br
+.ti -1c
+.RI "\fBcheckTimeout\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisPtySupported\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBERR\fP = 'err'"
+.br
+.ti -1c
+.RI "const \fBOUT\fP = 'out'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_READY\fP = 'ready'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_STARTED\fP = 'started'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_TERMINATED\fP = 'terminated'"
+.br
+.ti -1c
+.RI "const \fBSTDIN\fP = 0"
+.br
+.ti -1c
+.RI "const \fBSTDOUT\fP = 1"
+.br
+.ti -1c
+.RI "const \fBSTDERR\fP = 2"
+.br
+.ti -1c
+.RI "const \fBTIMEOUT_PRECISION\fP = 0\&.2"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$exitCodes\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbuildCallback\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBupdateStatus\fP ($blocking)"
+.br
+.ti -1c
+.RI "\fBisSigchildEnabled\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProcess\fP is a thin wrapper around proc_* functions to easily start independent \fBPHP\fP processes\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Romain Neutron imprec@gmail.com
+.RE
+.PP
+
+.PP
+Definition at line 32 of file Process\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $commandline,  $cwd = \fCnull\fP, array $env = \fCnull\fP,  $input = \fCnull\fP,  $timeout = \fC60\fP, array $options = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$commandline\fP The command line to run 
+.br
+\fI$cwd\fP The working directory or null to use the working dir of the current \fBPHP\fP process 
+.br
+\fI$env\fP The environment variables or null to inherit 
+.br
+\fI$input\fP The input 
+.br
+\fI$timeout\fP The timeout in seconds or null to disable 
+.br
+\fI$options\fP An array of options for proc_open
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP When proc_open is not installed
+.RE
+.PP
+
+.PP
+Definition at line 145 of file Process\&.php\&.
+.SS "__destruct ()"
+
+.PP
+Definition at line 174 of file Process\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+
+.PP
+Definition at line 180 of file Process\&.php\&.
+.SS "addErrorOutput ( $line)"
+Adds a line to the STDERR stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$line\fP The line to append 
+.RE
+.PP
+
+.PP
+Definition at line 845 of file Process\&.php\&.
+.SS "addOutput ( $line)"
+Adds a line to the STDOUT stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$line\fP The line to append 
+.RE
+.PP
+
+.PP
+Definition at line 834 of file Process\&.php\&.
+.SS "buildCallback ( $callback)\fC [protected]\fP"
+Builds up the callback used by \fBwait()\fP\&.
+.PP
+The callbacks adds all occurred output to the specific buffer and calls the user callback (if present) with the received output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP The user defined \fBPHP\fP callback
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable \fBA\fP \fBPHP\fP callable 
+.RE
+.PP
+
+.PP
+Definition at line 1290 of file Process\&.php\&.
+.SS "checkTimeout ()"
+Performs a check between the timeout definition and the time the process started\&.
+.PP
+In case you run a background process (with the start method), you should trigger this method regularly to ensure the process timeout
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIProcessTimedOutException\fP In case the timeout was reached 
+.RE
+.PP
+
+.PP
+Definition at line 1210 of file Process\&.php\&.
+.SS "clearErrorOutput ()"
+Clears the process output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP 
+.RE
+.PP
+
+.PP
+Definition at line 580 of file Process\&.php\&.
+.SS "clearOutput ()"
+Clears the process output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP 
+.RE
+.PP
+
+.PP
+Definition at line 515 of file Process\&.php\&.
+.SS "disableOutput ()"
+Disables fetching output and error output from the underlying process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case the process is already running 
+.br
+\fILogicException\fP if an idle timeout is set 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file Process\&.php\&.
+.SS "enableOutput ()"
+Enables fetching output and error output from the underlying process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case the process is already running 
+.RE
+.PP
+
+.PP
+Definition at line 438 of file Process\&.php\&.
+.SS "getCommandLine ()"
+Gets the command line to be executed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The command to execute 
+.RE
+.PP
+
+.PP
+Definition at line 856 of file Process\&.php\&.
+.SS "getEnhanceSigchildCompatibility ()"
+Returns whether sigchild compatibility mode is activated or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1179 of file Process\&.php\&.
+.SS "getEnhanceWindowsCompatibility ()"
+Gets whether or not Windows compatibility is enabled\&.
+.PP
+This is true by default\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1155 of file Process\&.php\&.
+.SS "getEnv ()"
+Gets the environment variables\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The current environment variables 
+.RE
+.PP
+
+.PP
+Definition at line 1028 of file Process\&.php\&.
+.SS "getErrorOutput ()"
+Returns the current error output of the process (STDERR)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The process error output
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP in case the output has been disabled 
+.br
+\fILogicException\fP In case the process is not started
+.RE
+.PP
+
+.PP
+Definition at line 533 of file Process\&.php\&.
+.SS "getExitCode ()"
+Returns the exit code returned by the process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|int The exit status code, null if the \fBProcess\fP is not terminated
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case --enable-sigchild is activated and the sigchild compatibility mode is disabled
+.RE
+.PP
+
+.PP
+Definition at line 597 of file Process\&.php\&.
+.SS "getExitCodeText ()"
+Returns a string representation for the exit code returned by the process\&.
+.PP
+This method relies on the Unix exit code status standardization and might not be relevant for other operating systems\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|string \fBA\fP string representation for the exit status code, null if the \fBProcess\fP is not terminated\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case --enable-sigchild is activated and the sigchild compatibility mode is disabled
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://tldp.org/LDP/abs/html/exitcodes.html 
+.PP
+http://en.wikipedia.org/wiki/Unix_signal 
+.RE
+.PP
+
+.PP
+Definition at line 621 of file Process\&.php\&.
+.SS "getIdleTimeout ()"
+Gets the process idle timeout (max\&. time since last output)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+float|null The timeout in seconds or null if it's disabled 
+.RE
+.PP
+
+.PP
+Definition at line 890 of file Process\&.php\&.
+.SS "getIncrementalErrorOutput ()"
+Returns the errorOutput incrementally\&.
+.PP
+In comparison with the getErrorOutput method which always return the whole error output, this one returns the new error output since the last call\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP in case the output has been disabled 
+.br
+\fILogicException\fP In case the process is not started
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The process error output since the last call 
+.RE
+.PP
+
+.PP
+Definition at line 558 of file Process\&.php\&.
+.SS "getIncrementalOutput ()"
+Returns the output incrementally\&.
+.PP
+In comparison with the getOutput method which always return the whole output, this one returns the new output since the last call\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP in case the output has been disabled 
+.br
+\fILogicException\fP In case the process is not started
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The process output since the last call 
+.RE
+.PP
+
+.PP
+Definition at line 493 of file Process\&.php\&.
+.SS "getInput ()"
+Gets the \fBProcess\fP input\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|string The \fBProcess\fP input 
+.RE
+.PP
+
+.PP
+Definition at line 1079 of file Process\&.php\&.
+.SS "getOptions ()"
+Gets the options for proc_open\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The current options 
+.RE
+.PP
+
+.PP
+Definition at line 1129 of file Process\&.php\&.
+.SS "getOutput ()"
+Returns the current output of the process (STDOUT)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The process output
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP in case the output has been disabled 
+.br
+\fILogicException\fP In case the process is not started
+.RE
+.PP
+
+.PP
+Definition at line 469 of file Process\&.php\&.
+.SS "getPid ()"
+Returns the Pid (process identifier), if applicable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null The process id if running, null otherwise
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case --enable-sigchild is activated 
+.RE
+.PP
+
+.PP
+Definition at line 380 of file Process\&.php\&.
+.SS "getStatus ()"
+Gets the process status\&.
+.PP
+The status is one of: ready, started, terminated\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current process status 
+.RE
+.PP
+
+.PP
+Definition at line 777 of file Process\&.php\&.
+.SS "getStdin ()"
+Gets the contents of STDIN\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The current contents
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.5, to be removed in 3\&.0\&. This method is deprecated in favor of getInput\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1069 of file Process\&.php\&.
+.SS "getStopSignal ()"
+Returns the number of the signal that caused the child process to stop its execution\&.
+.PP
+It is only meaningful if \fBhasBeenStopped()\fP returns true\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case the process is not terminated
+.RE
+.PP
+
+.PP
+Definition at line 723 of file Process\&.php\&.
+.SS "getTermSignal ()"
+Returns the number of the signal that caused the child process to terminate its execution\&.
+.PP
+It is only meaningful if \fBhasBeenSignaled()\fP returns true\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case --enable-sigchild is activated 
+.br
+\fILogicException\fP In case the process is not terminated
+.RE
+.PP
+
+.PP
+Definition at line 679 of file Process\&.php\&.
+.SS "getTimeout ()"
+Gets the process timeout (max\&. runtime)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+float|null The timeout in seconds or null if it's disabled 
+.RE
+.PP
+
+.PP
+Definition at line 880 of file Process\&.php\&.
+.SS "getWorkingDirectory ()"
+Gets the working directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The current working directory or null on failure 
+.RE
+.PP
+
+.PP
+Definition at line 998 of file Process\&.php\&.
+.SS "hasBeenSignaled ()"
+Returns true if the child process has been terminated by an uncaught signal\&.
+.PP
+It always returns false on Windows\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case --enable-sigchild is activated 
+.br
+\fILogicException\fP In case the process is not terminated
+.RE
+.PP
+
+.PP
+Definition at line 654 of file Process\&.php\&.
+.SS "hasBeenStopped ()"
+Returns true if the child process has been stopped by a signal\&.
+.PP
+It always returns false on Windows\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case the process is not terminated
+.RE
+.PP
+
+.PP
+Definition at line 703 of file Process\&.php\&.
+.SS "isOutputDisabled ()"
+Returns true in case the output is disabled, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Process\&.php\&.
+.SS "isPty ()"
+Returns PTY state\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 988 of file Process\&.php\&.
+.SS "static isPtySupported ()\fC [static]\fP"
+Returns whether PTY is supported on the current operating system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1234 of file Process\&.php\&.
+.SS "isRunning ()"
+Checks if the process is currently running\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the process is currently running, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 737 of file Process\&.php\&.
+.SS "isSigchildEnabled ()\fC [protected]\fP"
+Returns whether \fBPHP\fP has been compiled with the '--enable-sigchild' option or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1335 of file Process\&.php\&.
+.SS "isStarted ()"
+Checks if the process has been started with no regard to the current state\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if status is ready, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 753 of file Process\&.php\&.
+.SS "isSuccessful ()"
+Checks if the process ended successfully\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the process ended successfully, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 637 of file Process\&.php\&.
+.SS "isTerminated ()"
+Checks if the process is terminated\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if process is terminated, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 763 of file Process\&.php\&.
+.SS "isTty ()"
+Checks if the TTY mode is enabled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the TTY mode is enabled, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 964 of file Process\&.php\&.
+.SS "mustRun ( $callback = \fCnull\fP)"
+Runs the process\&.
+.PP
+This is identical to \fBrun()\fP except that an exception is thrown if the process exits with a non-zero exit code\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP if \fBPHP\fP was compiled with --enable-sigchild and the enhanced sigchild compatibility mode is not enabled 
+.br
+\fIProcessFailedException\fP if the process didn't terminate successfully 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file Process\&.php\&.
+.SS "restart ( $callback = \fCnull\fP)"
+Restarts the process\&.
+.PP
+Be warned that the process is cloned before being started\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP \fBPHP\fP callback to run whenever there is some output available on STDOUT or STDERR
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP The new process
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP When process can't be launched 
+.br
+\fIRuntimeException\fP When process is already running
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBstart()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 319 of file Process\&.php\&.
+.SS "run ( $callback = \fCnull\fP)"
+Runs the process\&.
+.PP
+The callback receives the type of output (out or err) and some bytes from the output in real-time\&. It allows to have feedback from the independent process during execution\&.
+.PP
+The STDOUT and STDERR are also available after the process is finished via the \fBgetOutput()\fP and \fBgetErrorOutput()\fP methods\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP \fBPHP\fP callback to run whenever there is some output available on STDOUT or STDERR
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The exit status code
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP When process can't be launched 
+.br
+\fIRuntimeException\fP When process stopped after receiving signal 
+.br
+\fILogicException\fP In case a callback is provided and output has been disabled
+.RE
+.PP
+
+.PP
+Definition at line 206 of file Process\&.php\&.
+.SS "setCommandLine ( $commandline)"
+Sets the command line to be executed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$commandline\fP The command to execute
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 868 of file Process\&.php\&.
+.SS "setEnhanceSigchildCompatibility ( $enhance)"
+Activates sigchild compatibility mode\&.
+.PP
+Sigchild compatibility mode is required to get the exit code and determine the success of a process when \fBPHP\fP has been compiled with the --enable-sigchild option
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$enhance\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 1195 of file Process\&.php\&.
+.SS "setEnhanceWindowsCompatibility ( $enhance)"
+Sets whether or not Windows compatibility is enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$enhance\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 1167 of file Process\&.php\&.
+.SS "setEnv (array $env)"
+Sets the environment variables\&.
+.PP
+An environment variable value should be a string\&. If it is an array, the variable is ignored\&.
+.PP
+That happens in \fBPHP\fP when 'argv' is registered into the $_ENV array for instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$env\fP The new environment variables
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 1046 of file Process\&.php\&.
+.SS "setIdleTimeout ( $timeout)"
+Sets the process idle timeout (max\&. time since last output)\&.
+.PP
+To disable the timeout, set this value to null\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP The timeout in seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP if the output is disabled 
+.br
+\fIInvalidArgumentException\fP if the timeout is negative 
+.RE
+.PP
+
+.PP
+Definition at line 925 of file Process\&.php\&.
+.SS "setInput ( $input)"
+Sets the input\&.
+.PP
+This content will be passed to the underlying process standard input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP The content
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case the process is running 
+.RE
+.PP
+
+.PP
+Definition at line 1113 of file Process\&.php\&.
+.SS "setOptions (array $options)"
+Sets the options for proc_open\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP The new options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 1141 of file Process\&.php\&.
+.SS "setPty ( $bool)"
+Sets PTY mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bool\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self 
+.RE
+.PP
+
+.PP
+Definition at line 976 of file Process\&.php\&.
+.SS "setStdin ( $stdin)"
+Sets the contents of STDIN\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stdin\fP The new contents
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.5, to be removed in 3\&.0\&. This method is deprecated in favor of setInput\&.
+.RE
+.PP
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case the process is running 
+.br
+\fIInvalidArgumentException\fP In case the argument is invalid 
+.RE
+.PP
+
+.PP
+Definition at line 1097 of file Process\&.php\&.
+.SS "setTimeout ( $timeout)"
+Sets the process timeout (max\&. runtime)\&.
+.PP
+To disable the timeout, set this value to null\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP The timeout in seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP if the timeout is negative 
+.RE
+.PP
+
+.PP
+Definition at line 906 of file Process\&.php\&.
+.SS "setTty ( $tty)"
+Enables or disables the TTY mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tty\fP True to enabled and false to disable
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP In case the TTY mode is not supported 
+.RE
+.PP
+
+.PP
+Definition at line 945 of file Process\&.php\&.
+.SS "setWorkingDirectory ( $cwd)"
+Sets the current working directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cwd\fP The new working directory
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+self The current \fBProcess\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 1016 of file Process\&.php\&.
+.SS "signal ( $signal)"
+Sends a POSIX signal to the process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signal\fP \fBA\fP valid POSIX signal (see http://www.php.net/manual/en/pcntl.constants.php)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case the process is not running 
+.br
+\fIRuntimeException\fP In case --enable-sigchild is activated 
+.br
+\fIRuntimeException\fP In case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file Process\&.php\&.
+.SS "start ( $callback = \fCnull\fP)"
+Starts the process and returns after writing the input to STDIN\&.
+.PP
+This method blocks until all STDIN data is sent to the process then it returns while the process runs in the background\&.
+.PP
+The termination of the process can be awaited with \fBwait()\fP\&.
+.PP
+The callback receives the type of output (out or err) and some bytes from the output in real-time while writing the standard input to the process\&. It allows to have feedback from the independent process during execution\&. If there is no callback passed, the \fBwait()\fP method can be called with true as a second parameter then the callback will get all data occurred in (and since) the start call\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP \fBPHP\fP callback to run whenever there is some output available on STDOUT or STDERR
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP When process can't be launched 
+.br
+\fIRuntimeException\fP When process is already running 
+.br
+\fILogicException\fP In case a callback is provided and output has been disabled 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file Process\&.php\&.
+.SS "stop ( $timeout = \fC10\fP,  $signal = \fCnull\fP)"
+Stops the process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP The timeout in seconds 
+.br
+\fI$signal\fP \fBA\fP POSIX signal to send in case the process has not stop at timeout, default is SIGKILL
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The exit-code of the process
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP if the process got signaled 
+.RE
+.PP
+
+.PP
+Definition at line 794 of file Process\&.php\&.
+.SS "updateStatus ( $blocking)\fC [protected]\fP"
+Updates the status of the process, reads pipes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blocking\fP Whether to use a blocking read call\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1314 of file Process\&.php\&.
+.SS "wait ( $callback = \fCnull\fP)"
+Waits for the process to terminate\&.
+.PP
+The callback receives the type of output (out or err) and some bytes from the output in real-time while writing the standard input to the process\&. It allows to have feedback from the independent process during execution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP \fBA\fP valid \fBPHP\fP callback
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The exitcode of the process
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRuntimeException\fP When process timed out 
+.br
+\fIRuntimeException\fP When process stopped after receiving signal 
+.br
+\fILogicException\fP When process is not yet started 
+.RE
+.PP
+
+.PP
+Definition at line 346 of file Process\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$exitCodes\fC [static]\fP"
+
+.PP
+Definition at line 88 of file Process\&.php\&.
+.SS "const ERR = 'err'"
+
+.PP
+Definition at line 34 of file Process\&.php\&.
+.SS "const OUT = 'out'"
+
+.PP
+Definition at line 35 of file Process\&.php\&.
+.SS "const STATUS_READY = 'ready'"
+
+.PP
+Definition at line 37 of file Process\&.php\&.
+.SS "const STATUS_STARTED = 'started'"
+
+.PP
+Definition at line 38 of file Process\&.php\&.
+.SS "const STATUS_TERMINATED = 'terminated'"
+
+.PP
+Definition at line 39 of file Process\&.php\&.
+.SS "const STDERR = 2"
+
+.PP
+Definition at line 43 of file Process\&.php\&.
+.SS "const STDIN = 0"
+
+.PP
+Definition at line 41 of file Process\&.php\&.
+.SS "const STDOUT = 1"
+
+.PP
+Definition at line 42 of file Process\&.php\&.
+.SS "const TIMEOUT_PRECISION = 0\&.2"
+
+.PP
+Definition at line 46 of file Process\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

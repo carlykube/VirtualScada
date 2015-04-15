@@ -1,0 +1,199 @@
+.TH "RecursivePresenter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RecursivePresenter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPresenter\fP, and \fBPresenterManagerAware\fP\&.
+.PP
+Inherited by \fBArrayPresenter\fP, \fBObjectPresenter\fP, and \fBResourcePresenter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetPresenterManager\fP (\fBPresenterManager\fP $manager)"
+.br
+.ti -1c
+.RI "\fBpresent\fP ($value, $depth=null, $\fBoptions\fP=0)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBMAX_DEPTH\fP = 5"
+.br
+.ti -1c
+.RI "const \fBINDENT\fP = ' '"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpresentValue\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetDepth\fP ($depth=null)"
+.br
+.ti -1c
+.RI "\fBpresentSubValue\fP ($value, $\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBindentValue\fP ($value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$manager\fP"
+.br
+.ti -1c
+.RI "\fB$depth\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract \fBPresenter\fP capable of recursively presenting sub-values\&. 
+.PP
+Definition at line 17 of file RecursivePresenter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "indentValue ( $value)\fC [protected]\fP"
+Indent every line of a value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file RecursivePresenter\&.php\&.
+.SS "present ( $value,  $depth = \fCnull\fP,  $options = \fC0\fP)"
+Present the recursive value\&.
+.PP
+Subclasses should implement \fCpresentValue\fP rather than overriding this method\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::presentValue()
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$depth\fP (default: null) 
+.br
+\fI$options\fP \fBOne\fP of \fBPresenter\fP constants
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 49 of file RecursivePresenter\&.php\&.
+.SS "presentSubValue ( $value,  $options = \fC0\fP)\fC [protected]\fP"
+Present a sub-value\&.
+.PP
+If the current recursion depth is greater than self::MAX_DEPTH, it will present a reference, otherwise it will present the full representation of the sub-value\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBPresenterManager::present()\fP 
+.PP
+\fBPresenterManager::presentRef()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$options\fP \fBOne\fP of \fBPresenter\fP constants
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file RecursivePresenter\&.php\&.
+.SS "presentValue ( $value)\fC [abstract]\fP, \fC [protected]\fP"
+\fBRecursivePresenter\fP subclasses implement a \fCpresentValue\fP method for actually doing the presentation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "setDepth ( $depth = \fCnull\fP)\fC [protected]\fP"
+Keep track of the remaining recursion depth\&.
+.PP
+If $depth is null, set it to \fCself::MAX_DEPTH\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$depth\fP (default: null) 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file RecursivePresenter\&.php\&.
+.SS "setPresenterManager (\fBPresenterManager\fP $manager)"
+\fBPresenterManagerAware\fP interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$manager\fP 
+.RE
+.PP
+
+.PP
+Implements \fBPresenterManagerAware\fP\&.
+.PP
+Definition at line 30 of file RecursivePresenter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$depth\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file RecursivePresenter\&.php\&.
+.SS "$manager\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file RecursivePresenter\&.php\&.
+.SS "const INDENT = ' '"
+
+.PP
+Definition at line 20 of file RecursivePresenter\&.php\&.
+.SS "const MAX_DEPTH = 5"
+
+.PP
+Definition at line 19 of file RecursivePresenter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

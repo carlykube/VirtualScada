@@ -1,0 +1,593 @@
+.TH "Local" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Local \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($root)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBwriteStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBreadStream\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBupdateStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBread\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlistContents\fP ($directory= '', $recursive=false)"
+.br
+.ti -1c
+.RI "\fBgetMetadata\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetSize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetMimetype\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetTimestamp\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetVisibility\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.ti -1c
+.RI "\fBcreateDir\fP ($dirname, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBdeleteDir\fP ($dirname)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBensureDirectory\fP ($root)"
+.br
+.ti -1c
+.RI "\fBnormalizeFileInfo\fP (SplFileInfo $file)"
+.br
+.ti -1c
+.RI "\fBgetFilePath\fP (SplFileInfo $file)"
+.br
+.ti -1c
+.RI "\fBgetRecursiveDirectoryIterator\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetDirectoryIterator\fP ($\fBpath\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$pathSeparator\fP = DIRECTORY_SEPARATOR"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$permissions\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 15 of file Local\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $root)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file Local\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "copy ( $path,  $newpath)"
+{Copy a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 184 of file Local\&.php\&.
+.SS "createDir ( $dirname, \fBConfig\fP $config)"
+{Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP directory name 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 293 of file Local\&.php\&.
+.SS "delete ( $path)"
+{Delete a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 196 of file Local\&.php\&.
+.SS "deleteDir ( $dirname)"
+{Delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 307 of file Local\&.php\&.
+.SS "ensureDirectory ( $root)\fC [protected]\fP"
+Ensure the root directory exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP root directory path
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string real path to root 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file Local\&.php\&.
+.SS "getDirectoryIterator ( $path)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DirectoryIterator 
+.RE
+.PP
+
+.PP
+Definition at line 384 of file Local\&.php\&.
+.SS "getFilePath (SplFileInfo $file)\fC [protected]\fP"
+Get the normalized path from a SplFileInfo object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file Local\&.php\&.
+.SS "getMetadata ( $path)"
+{Get all the meta data of a file or directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 231 of file Local\&.php\&.
+.SS "getMimetype ( $path)"
+{Get the mimetype of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 250 of file Local\&.php\&.
+.SS "getRecursiveDirectoryIterator ( $path)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RecursiveIteratorIterator 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Local\&.php\&.
+.SS "getSize ( $path)"
+{Get all the meta data of a file or directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 242 of file Local\&.php\&.
+.SS "getTimestamp ( $path)"
+{Get the timestamp of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 261 of file Local\&.php\&.
+.SS "getVisibility ( $path)"
+{Get the visibility of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 269 of file Local\&.php\&.
+.SS "has ( $path)"
+{Check whether a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|bool|null
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 62 of file Local\&.php\&.
+.SS "listContents ( $directory = \fC''\fP,  $recursive = \fCfalse\fP)"
+{List contents of a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 206 of file Local\&.php\&.
+.SS "normalizeFileInfo (SplFileInfo $file)\fC [protected]\fP"
+Normalize the file info\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file Local\&.php\&.
+.SS "read ( $path)"
+{Read a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 156 of file Local\&.php\&.
+.SS "readStream ( $path)"
+{Read a file as a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false
+.RE
+.PP
+} 
+.PP
+Implements \fBReadInterface\fP\&.
+.PP
+Definition at line 122 of file Local\&.php\&.
+.SS "rename ( $path,  $newpath)"
+{Rename a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 171 of file Local\&.php\&.
+.SS "setVisibility ( $path,  $visibility)"
+{Set the visibility for a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false file meta data
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 282 of file Local\&.php\&.
+.SS "update ( $path,  $contents, \fBConfig\fP $config)"
+{Update a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 141 of file Local\&.php\&.
+.SS "updateStream ( $path,  $resource, \fBConfig\fP $config)"
+{Update a file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 133 of file Local\&.php\&.
+.SS "write ( $path,  $contents, \fBConfig\fP $config)"
+{Write a new file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 72 of file Local\&.php\&.
+.SS "writeStream ( $path,  $resource, \fBConfig\fP $config)"
+{Write a new file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success
+.RE
+.PP
+} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 95 of file Local\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$pathSeparator = DIRECTORY_SEPARATOR\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file Local\&.php\&.
+.SS "$permissions\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= [
+        'public' => 0744
+.fi
+.PP
+Definition at line 17 of file Local\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

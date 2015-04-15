@@ -1,0 +1,157 @@
+.TH "HipChatHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HipChatHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSocketHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($token, $room, $\fBname\fP= 'Monolog', $notify=false, $level=\fBLogger::CRITICAL\fP, $bubble=true, $useSSL=true, $\fBformat\fP= '\fBtext\fP', $host= 'api\&.hipchat\&.com')"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBMAXIMUM_NAME_LENGTH\fP = 15"
+.br
+.ti -1c
+.RI "const \fBMAXIMUM_MESSAGE_LENGTH\fP = 9500"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateDataStream\fP ($record)"
+.br
+.ti -1c
+.RI "\fBgetAlertColor\fP ($level)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Sends notifications through the hipchat api to a hipchat room
+.PP
+Notes: API token - HipChat API token Room - HipChat Room Id or name, where messages are sent Name - Name used to send the message (from) notify - Should the message trigger a notification in the clients
+.PP
+\fBAuthor:\fP
+.RS 4
+Rafael Dohms rafael@doh.ms 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+https://www.hipchat.com/docs/api 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file HipChatHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $token,  $room,  $name = \fC'Monolog'\fP,  $notify = \fCfalse\fP,  $level = \fC\fBLogger::CRITICAL\fP\fP,  $bubble = \fCtrue\fP,  $useSSL = \fCtrue\fP,  $format = \fC'\fBtext\fP'\fP,  $host = \fC'api\&.hipchat\&.com'\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP HipChat API Token 
+.br
+\fI$room\fP The room that should be alerted of the message (Id or Name) 
+.br
+\fI$name\fP Name used in the 'from' field 
+.br
+\fI$notify\fP Trigger a notification in clients or not 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$useSSL\fP Whether to connect via SSL\&. 
+.br
+\fI$format\fP The format of the messages (default to text, can be set to html if you have html in the messages) 
+.br
+\fI$host\fP The HipChat server hostname\&. 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file HipChatHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "generateDataStream ( $record)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file HipChatHandler\&.php\&.
+.SS "getAlertColor ( $level)\fC [protected]\fP"
+Assigns a color to each level of log records\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file HipChatHandler\&.php\&.
+.SS "handleBatch (array $records)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 184 of file HipChatHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file HipChatHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const MAXIMUM_MESSAGE_LENGTH = 9500"
+The maximum allowed length for the message\&. 
+.PP
+Definition at line 38 of file HipChatHandler\&.php\&.
+.SS "const MAXIMUM_NAME_LENGTH = 15"
+The maximum allowed length for the name used in the 'from' field\&. 
+.PP
+Definition at line 33 of file HipChatHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

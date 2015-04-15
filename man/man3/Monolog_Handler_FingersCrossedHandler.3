@@ -1,0 +1,159 @@
+.TH "FingersCrossedHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FingersCrossedHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($handler, $activationStrategy=null, $bufferSize=0, $bubble=true, $stopBuffering=true, $passthruLevel=null)"
+.br
+.ti -1c
+.RI "\fBisHandling\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.ti -1c
+.RI "\fB$activationStrategy\fP"
+.br
+.ti -1c
+.RI "\fB$buffering\fP = true"
+.br
+.ti -1c
+.RI "\fB$bufferSize\fP"
+.br
+.ti -1c
+.RI "\fB$buffer\fP = array()"
+.br
+.ti -1c
+.RI "\fB$stopBuffering\fP"
+.br
+.ti -1c
+.RI "\fB$passthruLevel\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Buffers all records until a certain level is reached
+.PP
+The advantage of this approach is that you don't get any clutter in your log files\&. Only requests which actually trigger an error (or whatever your actionLevel is) will be in the logs, but they will contain all records, not only those above the level threshold\&.
+.PP
+You can find the various activation strategies in the \fBMonolog\fP\\ namespace\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file FingersCrossedHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $handler,  $activationStrategy = \fCnull\fP,  $bufferSize = \fC0\fP,  $bubble = \fCtrue\fP,  $stopBuffering = \fCtrue\fP,  $passthruLevel = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP \fBHandler\fP or factory callable($record, $fingersCrossedHandler)\&. 
+.br
+\fI$activationStrategy\fP Strategy which determines when this handler takes action 
+.br
+\fI$bufferSize\fP How many entries should be buffered at most, beyond that the oldest items are removed from the buffer\&. 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$stopBuffering\fP Whether the handler should stop buffering after being triggered (default true) 
+.br
+\fI$passthruLevel\fP Minimum level to always flush to handler on close, even if strategy not triggered 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file FingersCrossedHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clear ()"
+Clears the buffer without flushing any messages down to the wrapped handler\&.
+.PP
+It also resets the handler to its initial buffering state\&. 
+.PP
+Definition at line 145 of file FingersCrossedHandler\&.php\&.
+.SS "close ()"
+{} 
+.PP
+Definition at line 118 of file FingersCrossedHandler\&.php\&.
+.SS "handle (array $record)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 82 of file FingersCrossedHandler\&.php\&.
+.SS "isHandling (array $record)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 74 of file FingersCrossedHandler\&.php\&.
+.SS "reset ()"
+Resets the state of the handler\&. Stops forwarding records to the wrapped handler\&. 
+.PP
+Definition at line 135 of file FingersCrossedHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$activationStrategy\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file FingersCrossedHandler\&.php\&.
+.SS "$buffer = array()\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file FingersCrossedHandler\&.php\&.
+.SS "$buffering = true\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file FingersCrossedHandler\&.php\&.
+.SS "$bufferSize\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file FingersCrossedHandler\&.php\&.
+.SS "$handler\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file FingersCrossedHandler\&.php\&.
+.SS "$passthruLevel\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file FingersCrossedHandler\&.php\&.
+.SS "$stopBuffering\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file FingersCrossedHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

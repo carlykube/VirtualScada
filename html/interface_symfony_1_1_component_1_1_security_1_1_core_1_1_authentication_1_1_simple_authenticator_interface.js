@@ -1,0 +1,5 @@
+var interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_simple_authenticator_interface =
+[
+    [ "authenticateToken", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_simple_authenticator_interface.html#acb1ee8e920d924c250f78e009e0791ba", null ],
+    [ "supportsToken", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_simple_authenticator_interface.html#a180d5949e296e7d951dd1750b46f9009", null ]
+];

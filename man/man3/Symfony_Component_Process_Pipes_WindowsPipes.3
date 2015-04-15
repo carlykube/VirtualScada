@@ -1,0 +1,161 @@
+.TH "WindowsPipes" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WindowsPipes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractPipes\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($disableOutput, $input)"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDescriptors\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFiles\fP ()"
+.br
+.ti -1c
+.RI "\fBreadAndWrite\fP ($blocking, $\fBclose\fP=false)"
+.br
+.ti -1c
+.RI "\fBareOpen\fP ()"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP (\fBProcess\fP $process, $input)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBWindowsPipes\fP implementation uses temporary files as handles\&.
+.PP
+\fBSee also:\fP
+.RS 4
+https://bugs.php.net/bug.php?id=51800 
+.PP
+https://bugs.php.net/bug.php?id=65650
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Romain Neutron imprec@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file WindowsPipes\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $disableOutput,  $input)"
+
+.PP
+Definition at line 41 of file WindowsPipes\&.php\&.
+.SS "__destruct ()"
+
+.PP
+Definition at line 69 of file WindowsPipes\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "areOpen ()"
+{Returns if the current state has open file handles or pipes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBPipesInterface\fP\&.
+.PP
+Definition at line 145 of file WindowsPipes\&.php\&.
+.SS "close ()"
+{Closes file handles and pipes\&.} 
+.PP
+Implements \fBPipesInterface\fP\&.
+.PP
+Definition at line 153 of file WindowsPipes\&.php\&.
+.SS "static create (\fBProcess\fP $process,  $input)\fC [static]\fP"
+Creates a new \fBWindowsPipes\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$process\fP The process 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBWindowsPipes\fP 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file WindowsPipes\&.php\&.
+.SS "getDescriptors ()"
+{Returns an array of descriptors for the use of proc_open\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+} 
+.PP
+Implements \fBPipesInterface\fP\&.
+.PP
+Definition at line 78 of file WindowsPipes\&.php\&.
+.SS "getFiles ()"
+{Returns an array of filenames indexed by their related stream in case these pipes use temporary files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[]
+.RE
+.PP
+} 
+.PP
+Implements \fBPipesInterface\fP\&.
+.PP
+Definition at line 103 of file WindowsPipes\&.php\&.
+.SS "readAndWrite ( $blocking,  $close = \fCfalse\fP)"
+{Reads data in file handles and pipes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blocking\fP Whether to use blocking calls or not\&. 
+.br
+\fI$close\fP Whether to close pipes if they've reached EOF\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[] An array of read data indexed by their fd\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBPipesInterface\fP\&.
+.PP
+Definition at line 111 of file WindowsPipes\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.
