@@ -152,7 +152,7 @@
 		serverResponseEquals: "OK",
 		
 		// user is considered idle after this many seconds.  Set to 55 minutes
-		idleAfter: 3300,
+		idleAfter: 330000,
 		
 		// a polling request will be sent to the server every X seconds
 		pollingInterval: 60,
