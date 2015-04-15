@@ -1,0 +1,1 @@
+The virtual SCADA server will be down from {{ date("M d, Y g:i A",strtotime($end))  }} until {{ date("M d, Y g:i A",strtotime($end))  }}.

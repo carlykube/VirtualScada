@@ -10,25 +10,19 @@ public function run()
     DB::table('users')->delete();
     App\User::create(array(
         'name'     => 'Patrick Brannen',
-        'email'    => 'patrick@smu.edu',
+        'email'    => 'pbrannen@smu.edu',
         'password' => Hash::make('awesome'),
     ));
 
     App\User::create(array(
         'name'     => 'Lauren McManamon',
-        'email'    => 'lauren@smu.edu',
+        'email'    => 'lmcmanamon@smu.edu',
         'password' => Hash::make('awesome'),
     ));
 
     App\User::create(array(
         'name'     => 'Ketetha Olengue',
-        'email'    => 'ketetha@smu.edu',
-        'password' => Hash::make('awesome'),
-        ));
-
-    App\User::create(array(
-        'name'     => 'Carly Kubacak',
-        'email'    => 'carly@smu.edu',
+        'email'    => 'kolengue@smu.edu',
         'password' => Hash::make('awesome'),
         ));
 
@@ -40,7 +34,7 @@ public function run()
 
     App\User::create(array(
         'name'     => 'Austin Heerwagen',
-        'email'    => 'austin@smu.edu',
+        'email'    => 'aheerwagen@smu.edu',
         'password' => Hash::make('awesome'),
     ));
 }
