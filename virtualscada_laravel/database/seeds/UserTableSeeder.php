@@ -18,6 +18,7 @@ public function run()
         'name'     => 'Lauren McManamon',
         'email'    => 'lmcmanamon@smu.edu',
         'password' => Hash::make('awesome'),
+        'admin'   => true
     ));
 
     App\User::create(array(
@@ -30,12 +31,14 @@ public function run()
         'name'     => 'Carly Kubacak',
         'email'    => 'ckubacak@smu.edu',
         'password' => Hash::make('awesome'),
+        'admin'   => true
     ));
 
     App\User::create(array(
         'name'     => 'Austin Heerwagen',
         'email'    => 'aheerwagen@smu.edu',
         'password' => Hash::make('awesome'),
+        'admin'   => true
     ));
 }
 
