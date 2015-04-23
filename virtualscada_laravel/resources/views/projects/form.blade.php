@@ -1,9 +1,8 @@
 <div class="form-group">
-	<!-- {!! Form::label('name', 'Project name:') !!}  -->
-	{!! Form::text('name', null, ['placeholder' => 'PROJECT NAME','class'=>'wide-input']) !!}
+	{!! Form::label('name', 'Project name:') !!} {!! Form::text('name', null, ['class'=>'input-group']) !!}
 	
 </div>
 
 <div class="form-group">
-	{!! Form::submit($submitButtonText, ['class'=>'btn add-permission-button']) !!}
+	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary btn-md']) !!}
 </div>  

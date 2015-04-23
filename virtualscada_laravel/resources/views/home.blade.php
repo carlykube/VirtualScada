@@ -5,58 +5,20 @@
 <div id="container-fluid" class="container" style="margin-top:10%">
     @include('flash::message')
 
-	<div class="panel" style="text-align:center;">
-			<h2>Project Dashboard</h2>
+	<div class="panel">
+			<div class="panel-heading">Current Projects</div>
+
 			<div class="panel-body">
-
-
-
-				<div style="width:50%;float:left;text-align:center;">
-					<h3>Create Project</h3>
-					<p style="margin-top:13px;">
-                    {!! Form::open(['url'=>'/projects', 'method'=>'POST']) !!}
-                    @include ('projects.form', ['submitButtonText' => 'CREATE'])      		
-        			{!! Form::close() !!}
-                	@include ('errors.list')</p>
-				</div>
-
-
-				<div style="width:50%;float:right;text-align:center;border-left:1px solid #dddddd;">
-					<h3>Current Projects</h3>
-					@if ( empty($projects) )
-						<p>You do not have any projects.</p>
-					@else
-
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr >
-									<th style="text-align:center;">Project Name</th>
-									<th style="text-align:center;">Date Created</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach ( $projects as $prj )
-								<tr>
-									<td width="50%">
-										<a href="/projects/{{ $prj->id }}"> {{ $prj->name }} </a>
-									</td>
-									<td width="50%">
-										{{ date("M d, Y", strtotime($prj->created_at )) }}
-									</td>
-								</tr>
-								@endforeach	
-							</tbody>
-						</table>
-					</div>
-
-
-
-					@endif
-				</div>
-
-
-
+				@if ( empty($projects) )
+					<p>You do not have any projects.</p>
+				@else
+					<ul>
+					@foreach ( $projects as $prj )
+						<li><a href="/projects/{{ $prj->id }}"> {{ $prj->name }} </a>
+						</li>
+					@endforeach
+					</ul>
+				@endif
 			</div>
 
             @if(Auth::user()->admin)
@@ -77,9 +39,9 @@
                 </div>
             @endif
 
-<!-- 			<div class="panel-footer">
-				<a href="/projects/create">Create Project</a>
-			</div>	 -->			
+			<div class="panel-footer">
+				<a href="/projects/create">Add A Project</a>
+			</div>				
 		</div>
 	</div>
 </div>
