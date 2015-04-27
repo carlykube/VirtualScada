@@ -1,0 +1,227 @@
+\section{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint Class Reference}
+\label{class_p_h_p_unit___framework___constraint}\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+Inheritance diagram for P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_p_h_p_unit___framework___constraint}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf evaluate} (\$other, \$description= \textquotesingle{}\textquotesingle{}, \$return\+Result=false)
+\item 
+{\bf count} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf matches} (\$other)
+\item 
+{\bf fail} (\$other, \$description, {\bf Sebastian\+Bergmann\textbackslash{}\+Comparator\textbackslash{}\+Comparison\+Failure} \$comparison\+Failure=null)
+\item 
+{\bf additional\+Failure\+Description} (\$other)
+\item 
+{\bf failure\+Description} (\$other)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$exporter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 25 of file Constraint.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___constraint_a095c5d389db211932136b53f25f39685}
+
+
+Definition at line 29 of file Constraint.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!additional\+Failure\+Description@{additional\+Failure\+Description}}
+\index{additional\+Failure\+Description@{additional\+Failure\+Description}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{additional\+Failure\+Description}]{\setlength{\rightskip}{0pt plus 5cm}additional\+Failure\+Description (
+\begin{DoxyParamCaption}
+\item[{}]{\$other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___constraint_ac90d1ef6c5737c595b1a8b1f3d3b230b}
+Return additional failure description where needed
+
+The function can be overridden to provide additional failure information like a diff
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$other} & Evaluated value or object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file Constraint.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!count@{count}}
+\index{count@{count}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___constraint_ac751e87b3d4c4bf2feb03bee8b092755}
+Counts the number of constraint elements.
+
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 87 of file Constraint.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}evaluate (
+\begin{DoxyParamCaption}
+\item[{}]{\$other, }
+\item[{}]{\$description = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$return\+Result = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___constraint_a8b9b6045063f86d8fb675cb05f93b778}
+Evaluates the constraint for parameter \$other
+
+If \$return\+Result is set to false (the default), an exception is thrown in case of a failure. null is returned otherwise.
+
+If \$return\+Result is true, the result of the evaluation is returned as a boolean value instead\+: true in case of success, false in case of a failure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$other} & Value or object to evaluate. \\
+\hline
+string & {\em \$description} & Additional information about the test \\
+\hline
+bool & {\em \$return\+Result} & Whether to return a result or throw an exception \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Expectation\+Failed\+Exception}{p.}{class_p_h_p_unit___framework___expectation_failed_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 50 of file Constraint.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!fail@{fail}}
+\index{fail@{fail}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{fail}]{\setlength{\rightskip}{0pt plus 5cm}fail (
+\begin{DoxyParamCaption}
+\item[{}]{\$other, }
+\item[{}]{\$description, }
+\item[{{\bf Sebastian\+Bergmann\textbackslash{}\+Comparator\textbackslash{}\+Comparison\+Failure}}]{\$comparison\+Failure = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___constraint_a4d91acc3f5ec5213f60c8f67b3b54125}
+Throws an exception for the given compared value and test description
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$other} & Evaluated value or object. \\
+\hline
+string & {\em \$description} & Additional information about the test \\
+\hline
+Sebastian\+Bergmann\textbackslash{}\+Comparator\textbackslash{}\+Comparison\+Failure & {\em \$comparison\+Failure} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Expectation\+Failed\+Exception}{p.}{class_p_h_p_unit___framework___expectation_failed_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 100 of file Constraint.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!failure\+Description@{failure\+Description}}
+\index{failure\+Description@{failure\+Description}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{failure\+Description}]{\setlength{\rightskip}{0pt plus 5cm}failure\+Description (
+\begin{DoxyParamCaption}
+\item[{}]{\$other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___constraint_aaabb679273bfb812df4d81c283754a59}
+Returns the description of the failure
+
+The beginning of failure messages is \char`\"{}\+Failed asserting that\char`\"{} in most cases. This method should return the second part of that sentence.
+
+To provide additional failure information additional\+Failure\+Description can be used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$other} & Evaluated value or object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file Constraint.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!matches@{matches}}
+\index{matches@{matches}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{matches}]{\setlength{\rightskip}{0pt plus 5cm}matches (
+\begin{DoxyParamCaption}
+\item[{}]{\$other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___constraint_a9c9c337de483bbdbb9fa249a6c7c9cc5}
+Evaluates the constraint for parameter \$other. Returns true if the constraint is met, false otherwise.
+
+This method can be overridden to implement the evaluation algorithm.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$other} & Value or object to evaluate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file Constraint.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}!\$exporter@{\$exporter}}
+\index{\$exporter@{\$exporter}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Constraint}}
+\subsubsection[{\$exporter}]{\setlength{\rightskip}{0pt plus 5cm}\$exporter\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___constraint_af9b6401d3b379ed200e8fde8d4600523}
+
+
+Definition at line 27 of file Constraint.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpunit/phpunit/src/\+Framework/{\bf Constraint.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+.TH "FleepHookHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FleepHookHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSocketHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($token, $level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBFLEEP_HOST\fP = '\fBfleep\&.io\fP'"
+.br
+.ti -1c
+.RI "const \fBFLEEP_HOOK_URI\fP = '/hook/'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBgenerateDataStream\fP ($record)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$token\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sends logs to Fleep\&.io using Webhook integrations
+.PP
+You'll need a Fleep\&.io account to use this handler\&.
+.PP
+\fBSee also:\fP
+.RS 4
+https://fleep.io/integrations/webhooks/ Fleep Webhooks Documentation 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ando Roots ando@sqroot.eu 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file FleepHookHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $token,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+Construct a new Fleep\&.io \fBHandler\fP\&.
+.PP
+For instructions on how to create a new web hook in your conversations see https://fleep.io/integrations/webhooks/
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP Webhook token 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMissingExtensionException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file FleepHookHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "generateDataStream ( $record)\fC [protected]\fP"
+{}
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file FleepHookHandler\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+Returns the default formatter to use with this handler
+.PP
+Overloaded to remove empty context and extra arrays from the end of the log message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+LineFormatter 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file FleepHookHandler\&.php\&.
+.SS "write (array $record)"
+Handles a log record
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file FleepHookHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$token\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file FleepHookHandler\&.php\&.
+.SS "const FLEEP_HOOK_URI = '/hook/'"
+
+.PP
+Definition at line 29 of file FleepHookHandler\&.php\&.
+.SS "const FLEEP_HOST = '\fBfleep\&.io\fP'"
+
+.PP
+Definition at line 27 of file FleepHookHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

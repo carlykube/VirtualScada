@@ -1,0 +1,1182 @@
+.TH "UrlGenerator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UrlGenerator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBUrlGenerator\fP, and \fBUrlGenerator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRouteCollection\fP $routes, \fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBfull\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBprevious\fP ()"
+.br
+.ti -1c
+.RI "\fBto\fP ($\fBpath\fP, $extra=array(), $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBsecure\fP ($\fBpath\fP, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBasset\fP ($\fBpath\fP, $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBsecureAsset\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBforceSchema\fP ($schema)"
+.br
+.ti -1c
+.RI "\fBroute\fP ($\fBname\fP, $parameters=array(), $absolute=true)"
+.br
+.ti -1c
+.RI "\fBaction\fP ($action, $parameters=array(), $absolute=true)"
+.br
+.ti -1c
+.RI "\fBforceRootUrl\fP ($root)"
+.br
+.ti -1c
+.RI "\fBisValidUrl\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBsetRoutes\fP (\fBRouteCollection\fP $routes)"
+.br
+.ti -1c
+.RI "\fBsetSessionResolver\fP (callable $sessionResolver)"
+.br
+.ti -1c
+.RI "\fBsetRootControllerNamespace\fP ($rootNamespace)"
+.br
+.ti -1c
+.RI "\fB__construct\fP (\fBRouteCollection\fP $routes, \fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBfull\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBprevious\fP ()"
+.br
+.ti -1c
+.RI "\fBto\fP ($\fBpath\fP, $extra=array(), $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBsecure\fP ($\fBpath\fP, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBasset\fP ($\fBpath\fP, $\fBsecure\fP=null)"
+.br
+.ti -1c
+.RI "\fBsecureAsset\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBforceSchema\fP ($schema)"
+.br
+.ti -1c
+.RI "\fBroute\fP ($\fBname\fP, $parameters=array(), $absolute=true)"
+.br
+.ti -1c
+.RI "\fBaction\fP ($action, $parameters=array(), $absolute=true)"
+.br
+.ti -1c
+.RI "\fBforceRootUrl\fP ($root)"
+.br
+.ti -1c
+.RI "\fBisValidUrl\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBsetRoutes\fP (\fBRouteCollection\fP $routes)"
+.br
+.ti -1c
+.RI "\fBsetSessionResolver\fP (callable $sessionResolver)"
+.br
+.ti -1c
+.RI "\fBsetRootControllerNamespace\fP ($rootNamespace)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBremoveIndex\fP ($root)"
+.br
+.ti -1c
+.RI "\fBgetScheme\fP ($\fBsecure\fP)"
+.br
+.ti -1c
+.RI "\fBtoRoute\fP ($\fBroute\fP, $parameters, $absolute)"
+.br
+.ti -1c
+.RI "\fBreplaceRoot\fP ($\fBroute\fP, $domain, &$parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRouteParameters\fP ($\fBpath\fP, array &$parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceNamedParameters\fP ($\fBpath\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBaddQueryString\fP ($uri, array $parameters)"
+.br
+.ti -1c
+.RI "\fBformatParameters\fP ($parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRoutableParameters\fP ($parameters=array())"
+.br
+.ti -1c
+.RI "\fBgetRouteQueryString\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetStringParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetNumericParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetRouteDomain\fP ($\fBroute\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBformatDomain\fP ($\fBroute\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBgetDomainAndScheme\fP ($\fBroute\fP)"
+.br
+.ti -1c
+.RI "\fBaddPortToDomain\fP ($domain)"
+.br
+.ti -1c
+.RI "\fBgetRouteRoot\fP ($\fBroute\fP, $domain)"
+.br
+.ti -1c
+.RI "\fBgetRouteScheme\fP ($\fBroute\fP)"
+.br
+.ti -1c
+.RI "\fBgetRootUrl\fP ($scheme, $root=null)"
+.br
+.ti -1c
+.RI "\fBtrimUrl\fP ($root, $\fBpath\fP, $tail= '')"
+.br
+.ti -1c
+.RI "\fBgetPreviousUrlFromSession\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSession\fP ()"
+.br
+.ti -1c
+.RI "\fBremoveIndex\fP ($root)"
+.br
+.ti -1c
+.RI "\fBgetScheme\fP ($\fBsecure\fP)"
+.br
+.ti -1c
+.RI "\fBtoRoute\fP ($\fBroute\fP, $parameters, $absolute)"
+.br
+.ti -1c
+.RI "\fBreplaceRoot\fP ($\fBroute\fP, $domain, &$parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRouteParameters\fP ($\fBpath\fP, array &$parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceNamedParameters\fP ($\fBpath\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBaddQueryString\fP ($uri, array $parameters)"
+.br
+.ti -1c
+.RI "\fBformatParameters\fP ($parameters)"
+.br
+.ti -1c
+.RI "\fBreplaceRoutableParameters\fP ($parameters=array())"
+.br
+.ti -1c
+.RI "\fBgetRouteQueryString\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetStringParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetNumericParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetRouteDomain\fP ($\fBroute\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBformatDomain\fP ($\fBroute\fP, &$parameters)"
+.br
+.ti -1c
+.RI "\fBgetDomainAndScheme\fP ($\fBroute\fP)"
+.br
+.ti -1c
+.RI "\fBaddPortToDomain\fP ($domain)"
+.br
+.ti -1c
+.RI "\fBgetRouteRoot\fP ($\fBroute\fP, $domain)"
+.br
+.ti -1c
+.RI "\fBgetRouteScheme\fP ($\fBroute\fP)"
+.br
+.ti -1c
+.RI "\fBgetRootUrl\fP ($scheme, $root=null)"
+.br
+.ti -1c
+.RI "\fBtrimUrl\fP ($root, $\fBpath\fP, $tail= '')"
+.br
+.ti -1c
+.RI "\fBgetPreviousUrlFromSession\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSession\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$routes\fP"
+.br
+.ti -1c
+.RI "\fB$request\fP"
+.br
+.ti -1c
+.RI "\fB$forcedRoot\fP"
+.br
+.ti -1c
+.RI "\fB$forceSchema\fP"
+.br
+.ti -1c
+.RI "\fB$cachedRoot\fP"
+.br
+.ti -1c
+.RI "\fB$cachedSchema\fP"
+.br
+.ti -1c
+.RI "\fB$rootNamespace\fP"
+.br
+.ti -1c
+.RI "\fB$sessionResolver\fP"
+.br
+.ti -1c
+.RI "\fB$dontEncode\fP = array('%2F' => '/', '%40' => '@', '%3A' => ':', '%3B' => ';', '%2C' => ',', '%3D' => '=', '%2B' => '+', '%21' => '!', '%2A' => '*', '%7C' => '|', '%3F' => '?', '%26' => '&', '%23' => '#', '%25' => '%')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8532 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRouteCollection\fP $routes, \fBRequest\fP $request)"
+
+.PP
+Definition at line 8543 of file compiled\&.php\&.
+.SS "__construct (\fBRouteCollection\fP $routes, \fBRequest\fP $request)"
+Create a new \fBURL\fP Generator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file UrlGenerator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "action ( $action,  $parameters = \fCarray()\fP,  $absolute = \fCtrue\fP)"
+Get the \fBURL\fP to a controller action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$absolute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 545 of file UrlGenerator\&.php\&.
+.SS "action ( $action,  $parameters = \fCarray()\fP,  $absolute = \fCtrue\fP)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8717 of file compiled\&.php\&.
+.SS "addPortToDomain ( $domain)\fC [protected]\fP"
+Add the port to the domain if necessary\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 493 of file UrlGenerator\&.php\&.
+.SS "addPortToDomain ( $domain)\fC [protected]\fP"
+
+.PP
+Definition at line 8697 of file compiled\&.php\&.
+.SS "addQueryString ( $uri, array $parameters)\fC [protected]\fP"
+Add a query string to the URI\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|string 
+.RE
+.PP
+
+.PP
+Definition at line 353 of file UrlGenerator\&.php\&.
+.SS "addQueryString ( $uri, array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8640 of file compiled\&.php\&.
+.SS "asset ( $path,  $secure = \fCnull\fP)"
+Generate a \fBURL\fP to an application asset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 186 of file UrlGenerator\&.php\&.
+.SS "asset ( $path,  $secure = \fCnull\fP)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8577 of file compiled\&.php\&.
+.SS "current ()"
+Get the current \fBURL\fP for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file UrlGenerator\&.php\&.
+.SS "current ()"
+
+.PP
+Definition at line 8552 of file compiled\&.php\&.
+.SS "forceRootUrl ( $root)"
+Set the forced root \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 594 of file UrlGenerator\&.php\&.
+.SS "forceRootUrl ( $root)"
+
+.PP
+Definition at line 8740 of file compiled\&.php\&.
+.SS "forceSchema ( $schema)"
+Force the schema for URLs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$schema\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file UrlGenerator\&.php\&.
+.SS "forceSchema ( $schema)"
+
+.PP
+Definition at line 8604 of file compiled\&.php\&.
+.SS "formatDomain ( $route, & $parameters)\fC [protected]\fP"
+Format the domain and port for the route and request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 471 of file UrlGenerator\&.php\&.
+.SS "formatDomain ( $route, & $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8689 of file compiled\&.php\&.
+.SS "formatParameters ( $parameters)\fC [protected]\fP"
+Format the array of \fBURL\fP parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 374 of file UrlGenerator\&.php\&.
+.SS "formatParameters ( $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8648 of file compiled\&.php\&.
+.SS "full ()"
+Get the full \fBURL\fP for the current request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file UrlGenerator\&.php\&.
+.SS "full ()"
+
+.PP
+Definition at line 8548 of file compiled\&.php\&.
+.SS "getDomainAndScheme ( $route)\fC [protected]\fP"
+Get the domain and scheme for the route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 482 of file UrlGenerator\&.php\&.
+.SS "getDomainAndScheme ( $route)\fC [protected]\fP"
+
+.PP
+Definition at line 8693 of file compiled\&.php\&.
+.SS "getNumericParameters (array $parameters)\fC [protected]\fP"
+Get the numeric parameters from a given list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file UrlGenerator\&.php\&.
+.SS "getNumericParameters (array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8679 of file compiled\&.php\&.
+.SS "getPreviousUrlFromSession ()\fC [protected]\fP"
+Get the previous \fBURL\fP from the session if possible\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 668 of file UrlGenerator\&.php\&.
+.SS "getPreviousUrlFromSession ()\fC [protected]\fP"
+
+.PP
+Definition at line 8771 of file compiled\&.php\&.
+.SS "getRequest ()"
+Get the request instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 631 of file UrlGenerator\&.php\&.
+.SS "getRequest ()"
+
+.PP
+Definition at line 8756 of file compiled\&.php\&.
+.SS "getRootUrl ( $scheme,  $root = \fCnull\fP)\fC [protected]\fP"
+Get the base \fBURL\fP for the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scheme\fP 
+.br
+\fI$root\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 571 of file UrlGenerator\&.php\&.
+.SS "getRootUrl ( $scheme,  $root = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 8729 of file compiled\&.php\&.
+.SS "getRouteDomain ( $route, & $parameters)\fC [protected]\fP"
+Get the formatted domain for a given route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 459 of file UrlGenerator\&.php\&.
+.SS "getRouteDomain ( $route, & $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8685 of file compiled\&.php\&.
+.SS "getRouteQueryString (array $parameters)\fC [protected]\fP"
+Get the query string for a given route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 406 of file UrlGenerator\&.php\&.
+.SS "getRouteQueryString (array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8662 of file compiled\&.php\&.
+.SS "getRouteRoot ( $route,  $domain)\fC [protected]\fP"
+Get the root of the route \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file UrlGenerator\&.php\&.
+.SS "getRouteRoot ( $route,  $domain)\fC [protected]\fP"
+
+.PP
+Definition at line 8704 of file compiled\&.php\&.
+.SS "getRouteScheme ( $route)\fC [protected]\fP"
+Get the scheme for the given route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 521 of file UrlGenerator\&.php\&.
+.SS "getRouteScheme ( $route)\fC [protected]\fP"
+
+.PP
+Definition at line 8708 of file compiled\&.php\&.
+.SS "getScheme ( $secure)\fC [protected]\fP"
+Get the scheme for a raw \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 228 of file UrlGenerator\&.php\&.
+.SS "getScheme ( $secure)\fC [protected]\fP"
+
+.PP
+Definition at line 8594 of file compiled\&.php\&.
+.SS "getSession ()\fC [protected]\fP"
+Get the session implementation from the resolver\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 680 of file UrlGenerator\&.php\&.
+.SS "getSession ()\fC [protected]\fP"
+
+.PP
+Definition at line 8776 of file compiled\&.php\&.
+.SS "getStringParameters (array $parameters)\fC [protected]\fP"
+Get the string parameters from a given list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file UrlGenerator\&.php\&.
+.SS "getStringParameters (array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8673 of file compiled\&.php\&.
+.SS "isValidUrl ( $path)"
+Determine if the given path is a valid \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 606 of file UrlGenerator\&.php\&.
+.SS "isValidUrl ( $path)"
+
+.PP
+Definition at line 8745 of file compiled\&.php\&.
+.SS "previous ()"
+Get the \fBURL\fP for the previous request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 127 of file UrlGenerator\&.php\&.
+.SS "previous ()"
+
+.PP
+Definition at line 8556 of file compiled\&.php\&.
+.SS "removeIndex ( $root)\fC [protected]\fP"
+Remove the \fBindex\&.php\fP file from a path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 204 of file UrlGenerator\&.php\&.
+.SS "removeIndex ( $root)\fC [protected]\fP"
+
+.PP
+Definition at line 8585 of file compiled\&.php\&.
+.SS "replaceNamedParameters ( $path, & $parameters)\fC [protected]\fP"
+Replace all of the named parameters in the path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 337 of file UrlGenerator\&.php\&.
+.SS "replaceNamedParameters ( $path, & $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8634 of file compiled\&.php\&.
+.SS "replaceRoot ( $route,  $domain, & $parameters)\fC [protected]\fP"
+Replace the parameters on the root path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 306 of file UrlGenerator\&.php\&.
+.SS "replaceRoot ( $route,  $domain, & $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8623 of file compiled\&.php\&.
+.SS "replaceRoutableParameters ( $parameters = \fCarray()\fP)\fC [protected]\fP"
+Replace UrlRoutable parameters with their route parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 385 of file UrlGenerator\&.php\&.
+.SS "replaceRoutableParameters ( $parameters = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 8652 of file compiled\&.php\&.
+.SS "replaceRouteParameters ( $path, array & $parameters)\fC [protected]\fP"
+Replace all of the wildcard parameters for a route path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 318 of file UrlGenerator\&.php\&.
+.SS "replaceRouteParameters ( $path, array & $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 8627 of file compiled\&.php\&.
+.SS "route ( $name,  $parameters = \fCarray()\fP,  $absolute = \fCtrue\fP)"
+Get the \fBURL\fP to a named route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$absolute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 266 of file UrlGenerator\&.php\&.
+.SS "route ( $name,  $parameters = \fCarray()\fP,  $absolute = \fCtrue\fP)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8609 of file compiled\&.php\&.
+.SS "secure ( $path,  $parameters = \fCarray()\fP)"
+Generate a secure, absolute \fBURL\fP to the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 174 of file UrlGenerator\&.php\&.
+.SS "secure ( $path,  $parameters = \fCarray()\fP)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8573 of file compiled\&.php\&.
+.SS "secureAsset ( $path)"
+Generate a \fBURL\fP to a secure asset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file UrlGenerator\&.php\&.
+.SS "secureAsset ( $path)"
+
+.PP
+Definition at line 8590 of file compiled\&.php\&.
+.SS "setRequest (\fBRequest\fP $request)"
+Set the current request instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 642 of file UrlGenerator\&.php\&.
+.SS "setRequest (\fBRequest\fP $request)"
+
+.PP
+Definition at line 8760 of file compiled\&.php\&.
+.SS "setRootControllerNamespace ( $rootNamespace)"
+Set the root controller namespace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rootNamespace\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 704 of file UrlGenerator\&.php\&.
+.SS "setRootControllerNamespace ( $rootNamespace)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8786 of file compiled\&.php\&.
+.SS "setRoutes (\fBRouteCollection\fP $routes)"
+Set the route collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 656 of file UrlGenerator\&.php\&.
+.SS "setRoutes (\fBRouteCollection\fP $routes)"
+
+.PP
+Definition at line 8766 of file compiled\&.php\&.
+.SS "setSessionResolver (callable $sessionResolver)"
+Set the session resolver for the generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionResolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 691 of file UrlGenerator\&.php\&.
+.SS "setSessionResolver (callable $sessionResolver)"
+
+.PP
+Definition at line 8781 of file compiled\&.php\&.
+.SS "to ( $path,  $extra = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate a absolute \fBURL\fP to the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$extra\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 144 of file UrlGenerator\&.php\&.
+.SS "to ( $path,  $extra = \fCarray()\fP,  $secure = \fCnull\fP)"
+
+.PP
+Implements \fBUrlGenerator\fP\&.
+.PP
+Definition at line 8562 of file compiled\&.php\&.
+.SS "toRoute ( $route,  $parameters,  $absolute)\fC [protected]\fP"
+Get the \fBURL\fP for a given route instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$absolute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file UrlGenerator\&.php\&.
+.SS "toRoute ( $route,  $parameters,  $absolute)\fC [protected]\fP"
+
+.PP
+Definition at line 8616 of file compiled\&.php\&.
+.SS "trimUrl ( $root,  $path,  $tail = \fC''\fP)\fC [protected]\fP"
+Format the given \fBURL\fP segments into a single \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$root\fP 
+.br
+\fI$path\fP 
+.br
+\fI$tail\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 621 of file UrlGenerator\&.php\&.
+.SS "trimUrl ( $root,  $path,  $tail = \fC''\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 8752 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$cachedRoot\fC [protected]\fP"
+
+.PP
+Definition at line 8538 of file compiled\&.php\&.
+.SS "$cachedSchema\fC [protected]\fP"
+
+.PP
+Definition at line 8539 of file compiled\&.php\&.
+.SS "$dontEncode = array('%2F' => '/', '%40' => '@', '%3A' => ':', '%3B' => ';', '%2C' => ',', '%3D' => '=', '%2B' => '+', '%21' => '!', '%2A' => '*', '%7C' => '|', '%3F' => '?', '%26' => '&', '%23' => '#', '%25' => '%')\fC [protected]\fP"
+
+.PP
+Definition at line 8542 of file compiled\&.php\&.
+.SS "$forcedRoot\fC [protected]\fP"
+
+.PP
+Definition at line 8536 of file compiled\&.php\&.
+.SS "$\fBforceSchema\fP\fC [protected]\fP"
+
+.PP
+Definition at line 8537 of file compiled\&.php\&.
+.SS "$request\fC [protected]\fP"
+
+.PP
+Definition at line 8535 of file compiled\&.php\&.
+.SS "$rootNamespace\fC [protected]\fP"
+
+.PP
+Definition at line 8540 of file compiled\&.php\&.
+.SS "$routes\fC [protected]\fP"
+
+.PP
+Definition at line 8534 of file compiled\&.php\&.
+.SS "$sessionResolver\fC [protected]\fP"
+
+.PP
+Definition at line 8541 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

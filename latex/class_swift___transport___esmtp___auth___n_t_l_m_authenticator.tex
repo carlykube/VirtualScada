@@ -1,0 +1,790 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator Class Reference}
+\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator}\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_swift___transport___esmtp___auth___n_t_l_m_authenticator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Auth\+Keyword} ()
+\item 
+{\bf authenticate} ({\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \$agent, \$username, \$password)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf N\+T\+L\+M\+S\+I\+G} = \char`\"{}N\+T\+L\+M\+S\+S\+P\textbackslash{}x00\char`\"{}
+\item 
+const {\bf D\+E\+S\+C\+O\+N\+S\+T} = \char`\"{}K\+G\+S!@\#\$\%\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf si2bin} (\${\bf si}, \$bits=32)
+\item 
+{\bf send\+Message1} ({\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \$agent)
+\item 
+{\bf parse\+Message2} (\$response)
+\item 
+{\bf read\+Sub\+Block} (\$block)
+\item 
+{\bf send\+Message3} (\$response, \$username, \$password, \$timestamp, \$client, {\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \$agent, \$v2=true)
+\item 
+{\bf create\+Message1} ()
+\item 
+{\bf create\+Message3} (\$domain, \$username, \$workstation, \$lm\+Response, \$ntlm\+Response)
+\item 
+{\bf create\+Blob} (\$timestamp, \$client, \$target\+Info)
+\item 
+{\bf get\+Domain\+And\+Username} (\${\bf name})
+\item 
+{\bf create\+L\+M\+Password} (\$password, \$challenge)
+\item 
+{\bf create\+N\+T\+L\+M\+Password} (\$password, \$challenge)
+\item 
+{\bf get\+Correct\+Timestamp} (\$time)
+\item 
+{\bf create\+L\+Mv2\+Password} (\$password, \$username, \$domain, \$challenge, \$client)
+\item 
+{\bf create\+N\+T\+L\+Mv2\+Hash} (\$password, \$username, \$domain, \$challenge, \$target\+Info, \$timestamp, \$client)
+\item 
+{\bf create\+Des\+Key} (\$key)
+\item 
+{\bf create\+Security\+Buffer} (\$value, \$offset, \$is16=false)
+\item 
+{\bf read\+Security\+Buffer} (\$value)
+\item 
+{\bf cast\+To\+Byte} (\$v)
+\item 
+{\bf u\+R\+Shift} (\${\bf a}, \${\bf b})
+\item 
+{\bf create\+Byte} (\$input, \$bytes=4, \$is\+Hex=true)
+\item 
+{\bf get\+Random\+Bytes} (\$length)
+\item 
+{\bf des\+Encrypt} (\$value, \$key)
+\item 
+{\bf md5\+Encrypt} (\$key, \$msg)
+\item 
+{\bf md4\+Encrypt} (\$input)
+\item 
+{\bf convert\+To16bit} (\$input)
+\item 
+{\bf hex2bin} (\$hex)
+\item 
+{\bf debug} (\$message)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles N\+T\+L\+M authentication.
+
+\begin{DoxyAuthor}{Author}
+Ward Peeters {\tt ward@coding-\/tech.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 18 of file N\+T\+L\+M\+Authenticator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{authenticate}]{\setlength{\rightskip}{0pt plus 5cm}authenticate (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}}]{\$agent, }
+\item[{}]{\$username, }
+\item[{}]{\$password}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a31dbc6b53c7437e485b96e1337db5e61}
+Try to authenticate the user with \$username and \$password.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}{p.}{interface_swift___transport___smtp_agent} & {\em \$agent} & \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Authenticator} \doxyref{}{p.}{interface_swift___transport___esmtp___authenticator_a31dbc6b53c7437e485b96e1337db5e61}.
+
+
+
+Definition at line 42 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!cast\+To\+Byte@{cast\+To\+Byte}}
+\index{cast\+To\+Byte@{cast\+To\+Byte}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{cast\+To\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}cast\+To\+Byte (
+\begin{DoxyParamCaption}
+\item[{}]{\$v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ac7bb4b760dd72bc7967392e7b4773c72}
+Cast to byte java equivalent to (byte)
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 490 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!convert\+To16bit@{convert\+To16bit}}
+\index{convert\+To16bit@{convert\+To16bit}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{convert\+To16bit}]{\setlength{\rightskip}{0pt plus 5cm}convert\+To16bit (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a8c28d0fc83e1286719deda5854ef9dc4}
+Convert U\+T\+F-\/8 to U\+T\+F-\/16
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 605 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Blob@{create\+Blob}}
+\index{create\+Blob@{create\+Blob}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Blob}]{\setlength{\rightskip}{0pt plus 5cm}create\+Blob (
+\begin{DoxyParamCaption}
+\item[{}]{\$timestamp, }
+\item[{}]{\$client, }
+\item[{}]{\$target\+Info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a591933cc97403086f0424787b8f5d2e5}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$timestamp} & Epoch timestamp in microseconds \\
+\hline
+string & {\em \$client} & Random bytes \\
+\hline
+string & {\em \$target\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 271 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Byte@{create\+Byte}}
+\index{create\+Byte@{create\+Byte}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}create\+Byte (
+\begin{DoxyParamCaption}
+\item[{}]{\$input, }
+\item[{}]{\$bytes = {\ttfamily 4}, }
+\item[{}]{\$is\+Hex = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_aa171f35b2464058a0b4ffde1a62305e3}
+Right padding with 0 to certain length
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & \\
+\hline
+int & {\em \$bytes} & Length of bytes \\
+\hline
+bool & {\em \$is\+Hex} & Did we provided hex value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 520 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Des\+Key@{create\+Des\+Key}}
+\index{create\+Des\+Key@{create\+Des\+Key}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Des\+Key}]{\setlength{\rightskip}{0pt plus 5cm}create\+Des\+Key (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a7995cb39a5281192c8932c9af37ea7b1}
+
+
+Definition at line 423 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+L\+M\+Password@{create\+L\+M\+Password}}
+\index{create\+L\+M\+Password@{create\+L\+M\+Password}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+L\+M\+Password}]{\setlength{\rightskip}{0pt plus 5cm}create\+L\+M\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password, }
+\item[{}]{\$challenge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a774be0fdbca276097b943ba0527bef36}
+Create L\+Mv1 response
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+string & {\em \$challenge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 308 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+L\+Mv2\+Password@{create\+L\+Mv2\+Password}}
+\index{create\+L\+Mv2\+Password@{create\+L\+Mv2\+Password}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+L\+Mv2\+Password}]{\setlength{\rightskip}{0pt plus 5cm}create\+L\+Mv2\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password, }
+\item[{}]{\$username, }
+\item[{}]{\$domain, }
+\item[{}]{\$challenge, }
+\item[{}]{\$client}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a2ce70482fa0ccb95de3b571978ca514e}
+Create L\+Mv2 response
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+string & {\em \$challenge} & N\+T\+L\+M Challenge \\
+\hline
+string & {\em \$client} & Random string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 383 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Message1@{create\+Message1}}
+\index{create\+Message1@{create\+Message1}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Message1}]{\setlength{\rightskip}{0pt plus 5cm}create\+Message1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_abe8b4bd2bab2f52f1ec11c600da954bb}
+Create our message 1
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Message3@{create\+Message3}}
+\index{create\+Message3@{create\+Message3}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Message3}]{\setlength{\rightskip}{0pt plus 5cm}create\+Message3 (
+\begin{DoxyParamCaption}
+\item[{}]{\$domain, }
+\item[{}]{\$username, }
+\item[{}]{\$workstation, }
+\item[{}]{\$lm\+Response, }
+\item[{}]{\$ntlm\+Response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a8a023513057cd86265fe50c81fc11835}
+Create our message 3
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain} & \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$workstation} & \\
+\hline
+string & {\em \$lm\+Response} & \\
+\hline
+string & {\em \$ntlm\+Response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+N\+T\+L\+M\+Password@{create\+N\+T\+L\+M\+Password}}
+\index{create\+N\+T\+L\+M\+Password@{create\+N\+T\+L\+M\+Password}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+N\+T\+L\+M\+Password}]{\setlength{\rightskip}{0pt plus 5cm}create\+N\+T\+L\+M\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password, }
+\item[{}]{\$challenge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a2a684cf0757760c1d1fcaa4b510af346}
+Create N\+T\+L\+Mv1 response
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+string & {\em \$challenge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 336 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+N\+T\+L\+Mv2\+Hash@{create\+N\+T\+L\+Mv2\+Hash}}
+\index{create\+N\+T\+L\+Mv2\+Hash@{create\+N\+T\+L\+Mv2\+Hash}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+N\+T\+L\+Mv2\+Hash}]{\setlength{\rightskip}{0pt plus 5cm}create\+N\+T\+L\+Mv2\+Hash (
+\begin{DoxyParamCaption}
+\item[{}]{\$password, }
+\item[{}]{\$username, }
+\item[{}]{\$domain, }
+\item[{}]{\$challenge, }
+\item[{}]{\$target\+Info, }
+\item[{}]{\$timestamp, }
+\item[{}]{\$client}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a9a9330c816cfdcc0958bb8b86dc7533f}
+Create N\+T\+L\+Mv2 response
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+string & {\em \$challenge} & Hex values \\
+\hline
+string & {\em \$target\+Info} & Hex values \\
+\hline
+string & {\em \$timestamp} & \\
+\hline
+string & {\em \$client} & Random bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://davenport.\+sourceforge.\+net/ntlm.\+html\#the\+Ntlm\+Response} 
+\end{DoxySeeAlso}
+
+
+Definition at line 410 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!create\+Security\+Buffer@{create\+Security\+Buffer}}
+\index{create\+Security\+Buffer@{create\+Security\+Buffer}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{create\+Security\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}create\+Security\+Buffer (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$offset, }
+\item[{}]{\$is16 = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a68df572507ad55624897bc83ec697d86}
+H\+E\+L\+P\+E\+R F\+U\+N\+C\+T\+I\+O\+N\+S Create our security buffer depending on length and offset
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & Value we want to put in \\
+\hline
+int & {\em \$offset} & start of value \\
+\hline
+bool & {\em \$is16} & Do we 16bit string or not? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 461 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!debug@{debug}}
+\index{debug@{debug}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}debug (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a568d49c8c4f47314610017c56d159482}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 627 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!des\+Encrypt@{des\+Encrypt}}
+\index{des\+Encrypt@{des\+Encrypt}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{des\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}des\+Encrypt (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a5c111eed09ebb9864531473434cb78a4}
+E\+N\+C\+R\+Y\+P\+T\+I\+O\+N A\+L\+G\+O\+R\+I\+T\+H\+M\+S D\+E\+S Encryption
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 556 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!get\+Auth\+Keyword@{get\+Auth\+Keyword}}
+\index{get\+Auth\+Keyword@{get\+Auth\+Keyword}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{get\+Auth\+Keyword}]{\setlength{\rightskip}{0pt plus 5cm}get\+Auth\+Keyword (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a0e624347a41af5150f04849d5f97c806}
+Get the name of the A\+U\+T\+H mechanism this Authenticator handles.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Authenticator} \doxyref{}{p.}{interface_swift___transport___esmtp___authenticator_a0e624347a41af5150f04849d5f97c806}.
+
+
+
+Definition at line 28 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!get\+Correct\+Timestamp@{get\+Correct\+Timestamp}}
+\index{get\+Correct\+Timestamp@{get\+Correct\+Timestamp}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{get\+Correct\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}get\+Correct\+Timestamp (
+\begin{DoxyParamCaption}
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_aa32c9158805aaa17ed9e420f48590805}
+Convert a normal timestamp to a tenth of a microtime epoch time
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 355 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!get\+Domain\+And\+Username@{get\+Domain\+And\+Username}}
+\index{get\+Domain\+And\+Username@{get\+Domain\+And\+Username}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{get\+Domain\+And\+Username}]{\setlength{\rightskip}{0pt plus 5cm}get\+Domain\+And\+Username (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ae37521402b2ec730e55710ce150988f6}
+
+
+Definition at line 290 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!get\+Random\+Bytes@{get\+Random\+Bytes}}
+\index{get\+Random\+Bytes@{get\+Random\+Bytes}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{get\+Random\+Bytes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Random\+Bytes (
+\begin{DoxyParamCaption}
+\item[{}]{\$length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a1aa1ff6bc25998a263e833e01cd52680}
+Create random bytes
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 537 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!hex2bin@{hex2bin}}
+\index{hex2bin@{hex2bin}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{hex2bin}]{\setlength{\rightskip}{0pt plus 5cm}hex2bin (
+\begin{DoxyParamCaption}
+\item[{}]{\$hex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a2d78692e3bc6dcb2f0f941dc601790a3}
+Hex2bin replacement for $<$ \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$hex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Binary 
+\end{DoxyReturn}
+
+
+Definition at line 615 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!md4\+Encrypt@{md4\+Encrypt}}
+\index{md4\+Encrypt@{md4\+Encrypt}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{md4\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}md4\+Encrypt (
+\begin{DoxyParamCaption}
+\item[{}]{\$input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a15ce128620e156105465446f83706f79}
+M\+D4 Encryption
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/manual/en/ref.\+hash.\+php} 
+\end{DoxySeeAlso}
+
+
+Definition at line 592 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!md5\+Encrypt@{md5\+Encrypt}}
+\index{md5\+Encrypt@{md5\+Encrypt}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{md5\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}md5\+Encrypt (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ac5b8bca25b8eb60f8c53b8ced21a0ba2}
+M\+D5 Encryption
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & Encryption key \\
+\hline
+string & {\em \$msg} & Message to encrypt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 571 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!parse\+Message2@{parse\+Message2}}
+\index{parse\+Message2@{parse\+Message2}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{parse\+Message2}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Message2 (
+\begin{DoxyParamCaption}
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a038447d9b4a1ef211395f9f7e439cfff}
+Fetch all details of our response (message 2)
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array our response parsed 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!read\+Security\+Buffer@{read\+Security\+Buffer}}
+\index{read\+Security\+Buffer@{read\+Security\+Buffer}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{read\+Security\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}read\+Security\+Buffer (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a141015c54f8beea39c6a4c4c6fd1a7da}
+Read our security buffer to fetch length and offset of our value
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & Securitybuffer in hex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array array with length and offset 
+\end{DoxyReturn}
+
+
+Definition at line 476 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!read\+Sub\+Block@{read\+Sub\+Block}}
+\index{read\+Sub\+Block@{read\+Sub\+Block}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{read\+Sub\+Block}]{\setlength{\rightskip}{0pt plus 5cm}read\+Sub\+Block (
+\begin{DoxyParamCaption}
+\item[{}]{\$block}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a0975f7db498dc7dfc8b5eb93d09d0f4f}
+Read the blob information in from message2
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$block} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!send\+Message1@{send\+Message1}}
+\index{send\+Message1@{send\+Message1}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{send\+Message1}]{\setlength{\rightskip}{0pt plus 5cm}send\+Message1 (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}}]{\$agent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ae85feac02a4bbbf6a214c39f459e6693}
+Send our auth message and returns the response
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}{p.}{interface_swift___transport___smtp_agent} & {\em \$agent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string S\+M\+T\+P \doxyref{Response}{p.}{class_response} 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!send\+Message3@{send\+Message3}}
+\index{send\+Message3@{send\+Message3}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{send\+Message3}]{\setlength{\rightskip}{0pt plus 5cm}send\+Message3 (
+\begin{DoxyParamCaption}
+\item[{}]{\$response, }
+\item[{}]{\$username, }
+\item[{}]{\$password, }
+\item[{}]{\$timestamp, }
+\item[{}]{\$client, }
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}}]{\$agent, }
+\item[{}]{\$v2 = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_aa5d4893d188844cbef42fa330ff7ce43}
+Send our final message with all our data
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$response} & Message 1 response (message 2) \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+string & {\em \$timestamp} & \\
+\hline
+string & {\em \$client} & \\
+\hline
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}{p.}{interface_swift___transport___smtp_agent} & {\em \$agent} & \\
+\hline
+bool & {\em \$v2} & Use version2 of the protocol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 191 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!si2bin@{si2bin}}
+\index{si2bin@{si2bin}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{si2bin}]{\setlength{\rightskip}{0pt plus 5cm}si2bin (
+\begin{DoxyParamCaption}
+\item[{}]{\$si, }
+\item[{}]{\$bits = {\ttfamily 32}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a1ccd6e5823a79846dd557e3ab4eb9ed5}
+
+
+Definition at line 76 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!u\+R\+Shift@{u\+R\+Shift}}
+\index{u\+R\+Shift@{u\+R\+Shift}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{u\+R\+Shift}]{\setlength{\rightskip}{0pt plus 5cm}u\+R\+Shift (
+\begin{DoxyParamCaption}
+\item[{}]{\$a, }
+\item[{}]{\$b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_a960822caf76d2a23a28b7d8b6c265d18}
+Java unsigned right bitwise \$a $>$$>$$>$ \$b
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$a} & \\
+\hline
+int & {\em \$b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 503 of file N\+T\+L\+M\+Authenticator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!D\+E\+S\+C\+O\+N\+S\+T@{D\+E\+S\+C\+O\+N\+S\+T}}
+\index{D\+E\+S\+C\+O\+N\+S\+T@{D\+E\+S\+C\+O\+N\+S\+T}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{D\+E\+S\+C\+O\+N\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}const D\+E\+S\+C\+O\+N\+S\+T = \char`\"{}K\+G\+S!@\#\$\%\char`\"{}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ac0f810f9ec042b107c6c48bba5cb0e7b}
+
+
+Definition at line 21 of file N\+T\+L\+M\+Authenticator.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}!N\+T\+L\+M\+S\+I\+G@{N\+T\+L\+M\+S\+I\+G}}
+\index{N\+T\+L\+M\+S\+I\+G@{N\+T\+L\+M\+S\+I\+G}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+\_\+\+N\+T\+L\+M\+Authenticator}}
+\subsubsection[{N\+T\+L\+M\+S\+I\+G}]{\setlength{\rightskip}{0pt plus 5cm}const N\+T\+L\+M\+S\+I\+G = \char`\"{}N\+T\+L\+M\+S\+S\+P\textbackslash{}x00\char`\"{}}\label{class_swift___transport___esmtp___auth___n_t_l_m_authenticator_ae35da2cc4fa45498fb8617cfee4bca59}
+
+
+Definition at line 20 of file N\+T\+L\+M\+Authenticator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/\+Esmtp/\+Auth/{\bf N\+T\+L\+M\+Authenticator.\+php}\end{DoxyCompactItemize}

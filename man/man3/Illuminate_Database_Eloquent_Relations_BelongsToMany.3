@@ -1,0 +1,1236 @@
+.TH "BelongsToMany" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BelongsToMany \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRelation\fP\&.
+.PP
+Inherited by \fBMorphToMany\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent, $table, $foreignKey, $otherKey, $relationName=null)"
+.br
+.ti -1c
+.RI "\fBgetResults\fP ()"
+.br
+.ti -1c
+.RI "\fBwherePivot\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWherePivot\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "\fBfirst\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBfirstOrFail\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBget\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBpaginate\fP ($perPage=null, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBaddConstraints\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQuery\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQueryForSelfJoin\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBgetRelationCountHash\fP ()"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBinitRelation\fP (array $\fBmodels\fP, $relation)"
+.br
+.ti -1c
+.RI "\fBmatch\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBtouch\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelatedIds\fP ()"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBModel\fP $model, array $joining=array(), $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBsaveMany\fP (array $\fBmodels\fP, array $joinings=array())"
+.br
+.ti -1c
+.RI "\fBfind\fP ($id, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfindMany\fP ($ids, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfindOrNew\fP ($id, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfirstOrNew\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBfirstOrCreate\fP (array $attributes, array $joining=[], $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBupdateOrCreate\fP (array $attributes, array $\fBvalues\fP=[], array $joining=[], $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBcreate\fP (array $attributes, array $joining=array(), $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBcreateMany\fP (array $records, array $joinings=array())"
+.br
+.ti -1c
+.RI "\fBsync\fP ($ids, $detaching=true)"
+.br
+.ti -1c
+.RI "\fBupdateExistingPivot\fP ($id, array $attributes, $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBattach\fP ($id, array $attributes=array(), $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBdetach\fP ($ids=array(), $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBtouchIfTouching\fP ()"
+.br
+.ti -1c
+.RI "\fBnewPivotStatement\fP ()"
+.br
+.ti -1c
+.RI "\fBnewPivotStatementForId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBnewPivot\fP (array $attributes=array(), $exists=false)"
+.br
+.ti -1c
+.RI "\fBnewExistingPivot\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBwithPivot\fP ($columns)"
+.br
+.ti -1c
+.RI "\fBwithTimestamps\fP ($\fBcreatedAt\fP=null, $\fBupdatedAt\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetRelatedFreshUpdate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHasCompareKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetForeignKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetOtherKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTable\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelationName\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhydratePivotRelation\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBcleanPivotAttributes\fP (\fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBgetSelectColumns\fP (array $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBgetAliasedPivotColumns\fP ()"
+.br
+.ti -1c
+.RI "\fBhasPivotColumn\fP ($column)"
+.br
+.ti -1c
+.RI "\fBsetJoin\fP ($query=null)"
+.br
+.ti -1c
+.RI "\fBsetWhere\fP ()"
+.br
+.ti -1c
+.RI "\fBbuildDictionary\fP (\fBCollection\fP $results)"
+.br
+.ti -1c
+.RI "\fBformatSyncList\fP (array $records)"
+.br
+.ti -1c
+.RI "\fBattachNew\fP (array $records, array $current, $\fBtouch\fP=true)"
+.br
+.ti -1c
+.RI "\fBcreateAttachRecords\fP ($ids, array $attributes)"
+.br
+.ti -1c
+.RI "\fBattacher\fP ($key, $value, $attributes, $timed)"
+.br
+.ti -1c
+.RI "\fBgetAttachId\fP ($key, $value, array $attributes)"
+.br
+.ti -1c
+.RI "\fBcreateAttachRecord\fP ($id, $timed)"
+.br
+.ti -1c
+.RI "\fBsetTimestampsOnAttach\fP (array $record, $exists=false)"
+.br
+.ti -1c
+.RI "\fBtouchingParent\fP ()"
+.br
+.ti -1c
+.RI "\fBguessInverseRelation\fP ()"
+.br
+.ti -1c
+.RI "\fBnewPivotQuery\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$table\fP"
+.br
+.ti -1c
+.RI "\fB$foreignKey\fP"
+.br
+.ti -1c
+.RI "\fB$otherKey\fP"
+.br
+.ti -1c
+.RI "\fB$relationName\fP"
+.br
+.ti -1c
+.RI "\fB$pivotColumns\fP = array()"
+.br
+.ti -1c
+.RI "\fB$pivotWheres\fP = []"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file BelongsToMany\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent,  $table,  $foreignKey,  $otherKey,  $relationName = \fCnull\fP)"
+Create a new belongs to many relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$table\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$relationName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file BelongsToMany\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConstraints ()"
+Set the base constraints on the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file BelongsToMany\&.php\&.
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file BelongsToMany\&.php\&.
+.SS "attach ( $id, array $attributes = \fCarray()\fP,  $touch = \fCtrue\fP)"
+Attach a model to the parent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 820 of file BelongsToMany\&.php\&.
+.SS "attacher ( $key,  $value,  $attributes,  $timed)\fC [protected]\fP"
+Create a full attachment record payload\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$timed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 865 of file BelongsToMany\&.php\&.
+.SS "attachNew (array $records, array $current,  $touch = \fCtrue\fP)\fC [protected]\fP"
+Attach all of the IDs that aren't in the current array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$records\fP 
+.br
+\fI$current\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 761 of file BelongsToMany\&.php\&.
+.SS "buildDictionary (\fBCollection\fP $results)\fC [protected]\fP"
+Build model dictionary keyed by the relation's foreign key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$results\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 442 of file BelongsToMany\&.php\&.
+.SS "cleanPivotAttributes (\fBModel\fP $model)\fC [protected]\fP"
+Get the pivot attributes from a model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 214 of file BelongsToMany\&.php\&.
+.SS "create (array $attributes, array $joining = \fCarray()\fP,  $touch = \fCtrue\fP)"
+Create a new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$joining\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 646 of file BelongsToMany\&.php\&.
+.SS "createAttachRecord ( $id,  $timed)\fC [protected]\fP"
+Create a new pivot attachment record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$timed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 902 of file BelongsToMany\&.php\&.
+.SS "createAttachRecords ( $ids, array $attributes)\fC [protected]\fP"
+Create an array of records to insert into the pivot table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ids\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 838 of file BelongsToMany\&.php\&.
+.SS "createMany (array $records, array $joinings = \fCarray()\fP)"
+Create an array of new instances of the related models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$records\fP 
+.br
+\fI$joinings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 667 of file BelongsToMany\&.php\&.
+.SS "detach ( $ids = \fCarray()\fP,  $touch = \fCtrue\fP)"
+Detach models from the relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ids\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 950 of file BelongsToMany\&.php\&.
+.SS "find ( $id,  $columns = \fC['*']\fP)"
+Find a related model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+||null 
+.RE
+.PP
+
+.PP
+Definition at line 540 of file BelongsToMany\&.php\&.
+.SS "findMany ( $ids,  $columns = \fC['*']\fP)"
+Find multiple related models by their primary keys\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 559 of file BelongsToMany\&.php\&.
+.SS "findOrNew ( $id,  $columns = \fC['*']\fP)"
+Find a related model by its primary key or return new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+| 
+.RE
+.PP
+
+.PP
+Definition at line 575 of file BelongsToMany\&.php\&.
+.SS "first ( $columns = \fCarray('*')\fP)"
+Execute the query and get the first result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file BelongsToMany\&.php\&.
+.SS "firstOrCreate (array $attributes, array $joining = \fC[]\fP,  $touch = \fCtrue\fP)"
+Get the first related record matching the attributes or create it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 607 of file BelongsToMany\&.php\&.
+.SS "firstOrFail ( $columns = \fCarray('*')\fP)"
+Execute the query and get the first result or throw an exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 134 of file BelongsToMany\&.php\&.
+.SS "firstOrNew (array $attributes)"
+Get the first related model record matching the attributes or instantiate it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 591 of file BelongsToMany\&.php\&.
+.SS "formatSyncList (array $records)\fC [protected]\fP"
+Format the sync list so that it is keyed by ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$records\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 736 of file BelongsToMany\&.php\&.
+.SS "get ( $columns = \fCarray('*')\fP)"
+Execute the query as a 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 147 of file BelongsToMany\&.php\&.
+.SS "getAliasedPivotColumns ()\fC [protected]\fP"
+Get the pivot columns for the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 316 of file BelongsToMany\&.php\&.
+.SS "getAttachId ( $key,  $value, array $attributes)\fC [protected]\fP"
+Get the attach record ID and extra attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 885 of file BelongsToMany\&.php\&.
+.SS "getForeignKey ()"
+Get the fully qualified foreign key for the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1123 of file BelongsToMany\&.php\&.
+.SS "getHasCompareKey ()"
+Get the key for comparing against the parent key in 'has' query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1113 of file BelongsToMany\&.php\&.
+.SS "getOtherKey ()"
+Get the fully qualified 'other key' for the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1133 of file BelongsToMany\&.php\&.
+.SS "getRelatedFreshUpdate ()"
+Get the related model's updated at column name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1103 of file BelongsToMany\&.php\&.
+.SS "getRelatedIds ()"
+Get all of the IDs for the related models\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 488 of file BelongsToMany\&.php\&.
+.SS "getRelationCountHash ()"
+Get a relationship join table hash\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file BelongsToMany\&.php\&.
+.SS "getRelationCountQuery (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Add the constraints for a relationship count query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 253 of file BelongsToMany\&.php\&.
+.SS "getRelationCountQueryForSelfJoin (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Add the constraints for a relationship count query on the same table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 272 of file BelongsToMany\&.php\&.
+.SS "getRelationName ()"
+Get the relationship name for the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1153 of file BelongsToMany\&.php\&.
+.SS "getResults ()"
+Get the results of the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file BelongsToMany\&.php\&.
+.SS "getSelectColumns (array $columns = \fCarray('*')\fP)\fC [protected]\fP"
+Set the select clause for the relation query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 301 of file BelongsToMany\&.php\&.
+.SS "getTable ()"
+Get the intermediate table for the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1143 of file BelongsToMany\&.php\&.
+.SS "guessInverseRelation ()\fC [protected]\fP"
+Attempt to guess the name of the inverse of the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1003 of file BelongsToMany\&.php\&.
+.SS "hasPivotColumn ( $column)\fC [protected]\fP"
+Determine whether the given column is defined as a pivot column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file BelongsToMany\&.php\&.
+.SS "hydratePivotRelation (array $models)\fC [protected]\fP"
+Hydrate the pivot table relationship on the models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file BelongsToMany\&.php\&.
+.SS "initRelation (array $models,  $relation)"
+Initialize the relation on a set of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 398 of file BelongsToMany\&.php\&.
+.SS "match (array $models, \fBCollection\fP $results,  $relation)"
+Match the eagerly loaded results to their parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 416 of file BelongsToMany\&.php\&.
+.SS "newExistingPivot (array $attributes = \fCarray()\fP)"
+Create a new existing pivot model instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1066 of file BelongsToMany\&.php\&.
+.SS "newPivot (array $attributes = \fCarray()\fP,  $exists = \fCfalse\fP)"
+Create a new pivot model instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$exists\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1053 of file BelongsToMany\&.php\&.
+.SS "newPivotQuery ()\fC [protected]\fP"
+Create a new query builder for the pivot table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1013 of file BelongsToMany\&.php\&.
+.SS "newPivotStatement ()"
+Get a new plain query builder for the pivot table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1030 of file BelongsToMany\&.php\&.
+.SS "newPivotStatementForId ( $id)"
+Get a new pivot statement for a given 'other' ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1041 of file BelongsToMany\&.php\&.
+.SS "orWherePivot ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)"
+Set an or where clause for a pivot table column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 108 of file BelongsToMany\&.php\&.
+.SS "paginate ( $perPage = \fCnull\fP,  $columns = \fCarray('*')\fP)"
+Get a paginator for the 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 178 of file BelongsToMany\&.php\&.
+.SS "save (\fBModel\fP $model, array $joining = \fCarray()\fP,  $touch = \fCtrue\fP)"
+Save a new model and attach it to the parent model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.br
+\fI$joining\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 505 of file BelongsToMany\&.php\&.
+.SS "saveMany (array $models, array $joinings = \fCarray()\fP)"
+Save an array of new models and attach them to the parent model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$joinings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 521 of file BelongsToMany\&.php\&.
+.SS "setJoin ( $query = \fCnull\fP)\fC [protected]\fP"
+Set the join clause for the relation query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 350 of file BelongsToMany\&.php\&.
+.SS "setTimestampsOnAttach (array $record,  $exists = \fCfalse\fP)\fC [protected]\fP"
+Set the creation and update timestamps on an attach record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.br
+\fI$exists\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 926 of file BelongsToMany\&.php\&.
+.SS "setWhere ()\fC [protected]\fP"
+Set the where clause for the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file BelongsToMany\&.php\&.
+.SS "sync ( $ids,  $detaching = \fCtrue\fP)"
+Sync the intermediate tables with a list of IDs or collection of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ids\fP 
+.br
+\fI$detaching\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 688 of file BelongsToMany\&.php\&.
+.SS "touch ()"
+Touch all of the related models for the relationship\&.
+.PP
+E\&.g\&.: Touch all roles associated with this user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 466 of file BelongsToMany\&.php\&.
+.SS "touchIfTouching ()"
+If we're touching the parent model, touch\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 981 of file BelongsToMany\&.php\&.
+.SS "touchingParent ()\fC [protected]\fP"
+Determine if we should touch the parent on sync\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 993 of file BelongsToMany\&.php\&.
+.SS "updateExistingPivot ( $id, array $attributes,  $touch = \fCtrue\fP)"
+Update an existing pivot record on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$touch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 798 of file BelongsToMany\&.php\&.
+.SS "updateOrCreate (array $attributes, array $values = \fC[]\fP, array $joining = \fC[]\fP,  $touch = \fCtrue\fP)"
+Create or update a related record matching the attributes, and fill it with values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 624 of file BelongsToMany\&.php\&.
+.SS "wherePivot ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)"
+Set a where clause for a pivot table column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 93 of file BelongsToMany\&.php\&.
+.SS "withPivot ( $columns)"
+Set the columns on the pivot table to retrieve\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1077 of file BelongsToMany\&.php\&.
+.SS "withTimestamps ( $createdAt = \fCnull\fP,  $updatedAt = \fCnull\fP)"
+Specify that the pivot table has creation and update timestamps\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$createdAt\fP 
+.br
+\fI$updatedAt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1093 of file BelongsToMany\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$foreignKey\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file BelongsToMany\&.php\&.
+.SS "$otherKey\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file BelongsToMany\&.php\&.
+.SS "$pivotColumns = array()\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file BelongsToMany\&.php\&.
+.SS "$pivotWheres = []\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file BelongsToMany\&.php\&.
+.SS "$relationName\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file BelongsToMany\&.php\&.
+.SS "$table\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file BelongsToMany\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

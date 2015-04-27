@@ -1,0 +1,875 @@
+.TH "Shell" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Shell \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBApplication\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBConfiguration\fP $config=null)"
+.br
+.ti -1c
+.RI "\fBadd\fP (BaseCommand $command)"
+.br
+.ti -1c
+.RI "\fBaddTabCompletionMatchers\fP (array $matchers)"
+.br
+.ti -1c
+.RI "\fBsetOutput\fP (\fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBInputInterface\fP $input=null, \fBOutputInterface\fP $output=null)"
+.br
+.ti -1c
+.RI "\fBdoRun\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBgetInput\fP ()"
+.br
+.ti -1c
+.RI "\fBbeforeLoop\fP ()"
+.br
+.ti -1c
+.RI "\fBafterLoop\fP ()"
+.br
+.ti -1c
+.RI "\fBsetScopeVariables\fP (array $\fBvars\fP)"
+.br
+.ti -1c
+.RI "\fBgetScopeVariables\fP ()"
+.br
+.ti -1c
+.RI "\fBgetScopeVariableNames\fP ()"
+.br
+.ti -1c
+.RI "\fBgetScopeVariable\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetIncludes\fP (array $includes=array())"
+.br
+.ti -1c
+.RI "\fBgetIncludes\fP ()"
+.br
+.ti -1c
+.RI "\fBhasCode\fP ()"
+.br
+.ti -1c
+.RI "\fBaddCode\fP ($code)"
+.br
+.ti -1c
+.RI "\fBgetCodeBuffer\fP ()"
+.br
+.ti -1c
+.RI "\fBresetCodeBuffer\fP ()"
+.br
+.ti -1c
+.RI "\fBaddInput\fP ($input)"
+.br
+.ti -1c
+.RI "\fBflushCode\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNamespace\fP ()"
+.br
+.ti -1c
+.RI "\fBwriteStdout\fP ($out, $phase=PHP_OUTPUT_HANDLER_END)"
+.br
+.ti -1c
+.RI "\fBwriteReturnValue\fP ($ret)"
+.br
+.ti -1c
+.RI "\fBwriteException\fP (\\Exception $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBrenderException\fP ($\fBe\fP, $output)"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($errno, $errstr, $errfile, $errline)"
+.br
+.ti -1c
+.RI "\fBgetVersion\fP ()"
+.br
+.ti -1c
+.RI "\fBgetManualDb\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBisIncluded\fP (array $trace)"
+.br
+.ti -1c
+.RI "static \fBdebug\fP (array $\fBvars\fP=array(), $bind=null)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERSION\fP = 'v0\&.4\&.4'"
+.br
+.ti -1c
+.RI "const \fBPROMPT\fP = '>>> '"
+.br
+.ti -1c
+.RI "const \fBBUFF_PROMPT\fP = '\&.\&.\&. '"
+.br
+.ti -1c
+.RI "const \fBREPLAY\fP = '--> '"
+.br
+.ti -1c
+.RI "const \fBRETVAL\fP = '=> '"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultInputDefinition\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDefaultCommands\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTabCompletionMatchers\fP ()"
+.br
+.ti -1c
+.RI "\fBhasValidCode\fP ()"
+.br
+.ti -1c
+.RI "\fBrunCommand\fP ($input)"
+.br
+.ti -1c
+.RI "\fBgetSeverity\fP (\\\fBErrorException\fP $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBpresentValue\fP ($val)"
+.br
+.ti -1c
+.RI "\fBgetCommand\fP ($input)"
+.br
+.ti -1c
+.RI "\fBhasCommand\fP ($input)"
+.br
+.ti -1c
+.RI "\fBgetPrompt\fP ()"
+.br
+.ti -1c
+.RI "\fBreadline\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHeader\fP ()"
+.br
+.ti -1c
+.RI "\fBautocomplete\fP ($\fBtext\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBPsy\fP \fBShell\fP application\&.
+.PP
+Usage: 
+.PP
+.nf
+$shell = new Shell;
+$shell->run();
+
+.fi
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Justin Hileman justin@justinhileman.info 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file Shell\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBConfiguration\fP $config = \fCnull\fP)"
+Create a new \fBPsy\fP \fBShell\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP (default: null) 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Shell\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add (BaseCommand $command)"
+Adds a command object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP \fBA\fP \fBSymfony\fP Console \fBCommand\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BaseCommand The registered command 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file Shell\&.php\&.
+.SS "addCode ( $code)"
+Add code to the code buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP 
+.RE
+.PP
+
+.PP
+Definition at line 479 of file Shell\&.php\&.
+.SS "addInput ( $input)"
+Inject input into the input buffer\&.
+.PP
+This is useful for commands which want to replay history\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+
+.PP
+Definition at line 559 of file Shell\&.php\&.
+.SS "addTabCompletionMatchers (array $matchers)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$matchers\fP 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file Shell\&.php\&.
+.SS "afterLoop ()"
+Pass the afterLoop callback through to the Loop instance\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBLoop::afterLoop\fP 
+.RE
+.PP
+
+.PP
+Definition at line 385 of file Shell\&.php\&.
+.SS "autocomplete ( $text)\fC [protected]\fP"
+Autocomplete variable names\&.
+.PP
+This is used by \fCreadline\fP for tab completion\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$text\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed Array possible completions for the given input, if any\&. 
+.RE
+.PP
+
+.PP
+Definition at line 863 of file Shell\&.php\&.
+.SS "beforeLoop ()"
+Pass the beforeLoop callback through to the Loop instance\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBLoop::beforeLoop\fP 
+.RE
+.PP
+
+.PP
+Definition at line 375 of file Shell\&.php\&.
+.SS "static debug (array $vars = \fCarray()\fP,  $bind = \fCnull\fP)\fC [static]\fP"
+Invoke a \fBPsy\fP \fBShell\fP from the current context\&.
+.PP
+For example: 
+.PP
+.nf
+foreach ($items as $item) {
+    \Psy\Shell::debug(get_defined_vars());
+}
+
+.fi
+.PP
+.PP
+If you would like your shell interaction to affect the state of the current context, you can extract() the values returned from this call: 
+.PP
+.nf
+foreach ($items as $item) {
+    extract(\Psy\Shell::debug(get_defined_vars()));
+    var_dump($item); // will be whatever you set $item to in Psy Shell
+}
+
+.fi
+.PP
+.PP
+Optionally, supply an object as the \fC$bind\fP parameter\&. This determines the value \fC$this\fP will have in the shell, and sets up class scope so that private and protected members are accessible: 
+.PP
+.nf
+class Foo {
+    function bar() {
+        \Psy\Shell::debug(get_defined_vars(), $this);
+    }
+}
+
+.fi
+.PP
+.PP
+This only really works in \fBPHP\fP 5\&.4+ and HHVM 3\&.5+, so upgrade already\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$vars\fP Scope variables from the calling context (default: array()) 
+.br
+\fI$bind\fP Bound object ($this) value for the shell
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array Scope variables from the debugger session\&. 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Shell\&.php\&.
+.SS "doRun (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+Runs the current application\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBException\fP\fP if thrown via the \fCthrow-up\fP command\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An \fBInput\fP instance 
+.br
+\fI$output\fP An \fBOutput\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+integer 0 if everything went fine, or an error code 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Shell\&.php\&.
+.SS "flushCode ()"
+Flush the current (valid) code buffer\&.
+.PP
+If the code buffer is valid, resets the code buffer and returns the current code\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBPHP\fP code buffer contents\&. 
+.RE
+.PP
+
+.PP
+Definition at line 574 of file Shell\&.php\&.
+.SS "getCodeBuffer ()"
+Get the current code buffer\&.
+.PP
+This is useful for commands which manipulate the buffer\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 506 of file Shell\&.php\&.
+.SS "getCommand ( $input)\fC [protected]\fP"
+Get a command (if one exists) for the current input string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Command 
+.RE
+.PP
+
+.PP
+Definition at line 766 of file Shell\&.php\&.
+.SS "getDefaultCommands ()\fC [protected]\fP"
+Gets the default commands that should always be available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of default \fBCommand\fP instances 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file Shell\&.php\&.
+.SS "getDefaultInputDefinition ()\fC [protected]\fP"
+Gets the default input definition\&.
+.PP
+\fBReturns:\fP
+.RS 4
+InputDefinition An InputDefinition instance 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file Shell\&.php\&.
+.SS "getHeader ()\fC [protected]\fP"
+Get the shell output header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 829 of file Shell\&.php\&.
+.SS "getIncludes ()"
+Get \fBPHP\fP files to be parsed and executed before running the interactive shell\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file Shell\&.php\&.
+.SS "getInput ()"
+Read user input\&.
+.PP
+This will continue fetching user input until the code buffer contains valid code\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIBreakException\fP if user hits Ctrl+D 
+.RE
+.PP
+
+.PP
+Definition at line 329 of file Shell\&.php\&.
+.SS "getManualDb ()"
+Get a \fBPHP\fP manual database instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+PDO|null 
+.RE
+.PP
+
+.PP
+Definition at line 849 of file Shell\&.php\&.
+.SS "getNamespace ()"
+Get the current evaluation scope namespace\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBCodeCleaner::getNamespace\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Current code namespace\&. 
+.RE
+.PP
+
+.PP
+Definition at line 592 of file Shell\&.php\&.
+.SS "getPrompt ()\fC [protected]\fP"
+Get the current input prompt\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 796 of file Shell\&.php\&.
+.SS "getScopeVariable ( $name)"
+Get a scope variable value by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 427 of file Shell\&.php\&.
+.SS "getScopeVariableNames ()"
+Get the set of variable names currently in scope\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array Array of variable names\&. 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file Shell\&.php\&.
+.SS "getScopeVariables ()"
+Return the set of variables currently in scope\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array Associative array of scope variables\&. 
+.RE
+.PP
+
+.PP
+Definition at line 405 of file Shell\&.php\&.
+.SS "getSeverity (\\\fBErrorException\fP $e)\fC [protected]\fP"
+Helper for getting an output style for the given ErrorException's level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 691 of file Shell\&.php\&.
+.SS "getTabCompletionMatchers ()\fC [protected]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file Shell\&.php\&.
+.SS "getVersion ()"
+Get the current version of \fBPsy\fP \fBShell\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 839 of file Shell\&.php\&.
+.SS "handleError ( $errno,  $errstr,  $errfile,  $errline)"
+Helper for throwing an ErrorException\&.
+.PP
+This allows us to: 
+.PP
+.nf
+set_error_handler(array($psysh, 'handleError'));
+
+.fi
+.PP
+.PP
+Unlike \fBErrorException::throwException\fP, this error handler respects the current error_reporting level; i\&.e\&. it logs warnings and notices, but doesn't throw an exception unless it's above the current error_reporting threshold\&. This should probably only be used in the inner execution loop of the shell, as most of the time a thrown exception is much more useful\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBthrowException\fP 
+.PP
+::writeException
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$errno\fP \fBError\fP type 
+.br
+\fI$errstr\fP Message 
+.br
+\fI$errfile\fP Filename 
+.br
+\fI$errline\fP Line number 
+.RE
+.PP
+
+.PP
+Definition at line 735 of file Shell\&.php\&.
+.SS "hasCode ()"
+Check whether this shell's code buffer contains code\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the code buffer contains code\&. 
+.RE
+.PP
+
+.PP
+Definition at line 457 of file Shell\&.php\&.
+.SS "hasCommand ( $input)\fC [protected]\fP"
+Check whether a command is set for the current input string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the shell has a command for the given input\&. 
+.RE
+.PP
+
+.PP
+Definition at line 781 of file Shell\&.php\&.
+.SS "hasValidCode ()\fC [protected]\fP"
+Check whether the code in this shell's code buffer is valid\&.
+.PP
+If the code is valid, the code buffer should be flushed and evaluated\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the code buffer content is valid\&. 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file Shell\&.php\&.
+.SS "static isIncluded (array $trace)\fC [static]\fP"
+Check whether the first thing in a backtrace is an include call\&.
+.PP
+This is used by the psysh bin to decide whether to start a shell on boot, or to simply autoload the library\&. 
+.PP
+Definition at line 103 of file Shell\&.php\&.
+.SS "presentValue ( $val)\fC [protected]\fP"
+Format a value for display\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBPresenterManager::present\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$val\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Formatted value 
+.RE
+.PP
+
+.PP
+Definition at line 754 of file Shell\&.php\&.
+.SS "readline ()\fC [protected]\fP"
+Read a line of user input\&.
+.PP
+This will return a line from the input buffer (if any exist)\&. Otherwise, it will ask the user for input\&.
+.PP
+If readline is enabled, this delegates to readline\&. Otherwise, it's an ugly \fCfgets\fP call\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBOne\fP line of user input\&. 
+.RE
+.PP
+
+.PP
+Definition at line 812 of file Shell\&.php\&.
+.SS "renderException ( $e,  $output)"
+Renders a caught \fBException\fP\&.
+.PP
+Exceptions are formatted according to severity\&. ErrorExceptions which were warnings or Strict errors aren't rendered as harshly as real errors\&.
+.PP
+Stores $e as the last \fBException\fP in the \fBShell\fP \fBContext\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP An exception instance 
+.br
+\fI$output\fP An OutputInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 669 of file Shell\&.php\&.
+.SS "resetCodeBuffer ()"
+Reset the current code buffer\&.
+.PP
+This should be run after evaluating user input, catching exceptions, or on demand by commands such as BufferCommand\&. 
+.PP
+Definition at line 546 of file Shell\&.php\&.
+.SS "run (\fBInputInterface\fP $input = \fCnull\fP, \fBOutputInterface\fP $output = \fCnull\fP)"
+Runs the current application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An \fBInput\fP instance 
+.br
+\fI$output\fP An \fBOutput\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+integer 0 if everything went fine, or an error code 
+.RE
+.PP
+
+.PP
+Definition at line 272 of file Shell\&.php\&.
+.SS "runCommand ( $input)\fC [protected]\fP"
+Run a \fBPsy\fP \fBShell\fP command given the user input\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP if the input is not a valid command\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP User input string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed Who knows? 
+.RE
+.PP
+
+.PP
+Definition at line 520 of file Shell\&.php\&.
+.SS "setIncludes (array $includes = \fCarray()\fP)"
+Add includes, to be parsed and executed before running the interactive shell\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$includes\fP 
+.RE
+.PP
+
+.PP
+Definition at line 437 of file Shell\&.php\&.
+.SS "setOutput (\fBOutputInterface\fP $output)"
+Set the \fBShell\fP output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file Shell\&.php\&.
+.SS "setScopeVariables (array $vars)"
+Set the variables currently in scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$vars\fP 
+.RE
+.PP
+
+.PP
+Definition at line 395 of file Shell\&.php\&.
+.SS "writeException (\\Exception $e)"
+Write a caught \fBException\fP to stdout\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::renderException
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.RE
+.PP
+
+.PP
+Definition at line 653 of file Shell\&.php\&.
+.SS "writeReturnValue ( $ret)"
+Write a return value to stdout\&.
+.PP
+The return value is formatted or pretty-printed, and rendered in a visibly distinct manner (in this case, as cyan)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::presentValue
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ret\fP 
+.RE
+.PP
+
+.PP
+Definition at line 637 of file Shell\&.php\&.
+.SS "writeStdout ( $out,  $phase = \fCPHP_OUTPUT_HANDLER_END\fP)"
+Write a string to stdout\&.
+.PP
+This is used by the shell loop for rendering output from evaluated code\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$out\fP 
+.br
+\fI$phase\fP \fBOutput\fP buffering phase 
+.RE
+.PP
+
+.PP
+Definition at line 607 of file Shell\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const BUFF_PROMPT = '\&.\&.\&. '"
+
+.PP
+Definition at line 47 of file Shell\&.php\&.
+.SS "const PROMPT = '>>> '"
+
+.PP
+Definition at line 46 of file Shell\&.php\&.
+.SS "const REPLAY = '--> '"
+
+.PP
+Definition at line 48 of file Shell\&.php\&.
+.SS "const RETVAL = '=> '"
+
+.PP
+Definition at line 49 of file Shell\&.php\&.
+.SS "const VERSION = 'v0\&.4\&.4'"
+
+.PP
+Definition at line 44 of file Shell\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

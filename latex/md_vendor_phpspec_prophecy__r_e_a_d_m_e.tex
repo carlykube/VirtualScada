@@ -1,0 +1,224 @@
+{\tt ![Build Status](https\+://travis-\/ci.\+org/phpspec/prophecy.\+svg?branch=master)}
+
+\doxyref{Prophecy}{p.}{namespace_prophecy} is a highly opinionated yet very powerful and flexible \doxyref{P\+H\+P}{p.}{namespace_p_h_p} object mocking framework. Though initially it was created to fulfil phpspec2 needs, it is flexible enough to be used inside any testing framework out there with minimal effort.
+
+\subsection*{\doxyref{A}{p.}{class_a} simple example}
+
+```php $<$?php
+
+class User\+Test extends \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Case}{p.}{class_p_h_p_unit___framework___test_case} \{ private \$prophet;
+
+public function test\+Password\+Hashing() \{ \$hasher = \$this-\/$>$prophet-\/$>$prophesize(\textquotesingle{}\doxyref{App}{p.}{class_app}\textquotesingle{}); \$user = new \doxyref{App}{p.}{class_app}(\$hasher-\/$>$reveal());
+
+\$hasher-\/$>$generate\+Hash(\$user, \textquotesingle{}qwerty\textquotesingle{})-\/$>$will\+Return(\textquotesingle{}hashed\+\_\+pass\textquotesingle{});
+
+\$user-\/$>$set\+Password(\textquotesingle{}qwerty\textquotesingle{});
+
+\$this-\/$>$assert\+Equals(\textquotesingle{}hashed\+\_\+pass\textquotesingle{}, \$user-\/$>$get\+Password()); \}
+
+protected function \doxyref{setup()}{p.}{holder_8js_a0f519f971c3295e1b42fe377f3905837} \{ \$this-\/$>$prophet = new ; \}
+
+protected function tear\+Down() \{ \$this-\/$>$prophet-\/$>$check\+Predictions(); \} \} ```
+
+\subsection*{Installation}
+
+\subsubsection*{Prerequisites}
+
+\doxyref{Prophecy}{p.}{namespace_prophecy} requires \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3.\+3 or greater.
+
+\subsubsection*{Setup through composer}
+
+First, add \doxyref{Prophecy}{p.}{namespace_prophecy} to the list of dependencies inside your {\ttfamily composer.\+json}\+:
+
+```json \{ \char`\"{}require-\/dev\char`\"{}\+: \{ \char`\"{}phpspec/prophecy\char`\"{}\+: \char`\"{}$\sim$1.\+0\char`\"{} \} \} ```
+
+Then simply install it with composer\+:
+
+```bash \$$>$ composer install --prefer-\/dist ```
+
+You can read more about \doxyref{Composer}{p.}{namespace_composer} on its {\tt official webpage}.
+
+\subsection*{How to use it}
+
+First of all, in \doxyref{Prophecy}{p.}{namespace_prophecy} every word has a logical meaning, even the name of the library itself (\doxyref{Prophecy}{p.}{namespace_prophecy}). When you start feeling that, you\textquotesingle{}ll become very fluid with this tool.
+
+For example, \doxyref{Prophecy}{p.}{namespace_prophecy} has been named that way because it concentrates on describing the future behavior of objects with very limited knowledge about them. But as with any other prophecy, those object prophecies can\textquotesingle{}t create themselves -\/ there should be a Prophet\+:
+
+```php \$prophet = new \doxyref{Prophecy}{p.}{namespace_prophecy}; ```
+
+The Prophet creates prophecies by {\itshape prophesizing} them\+:
+
+```php \$prophecy = \$prophet-\/$>$prophesize(); ```
+
+The result of the {\ttfamily prophesize()} method call is a new object of class {\ttfamily Object\+Prophecy}. Yes, that\textquotesingle{}s your specific object prophecy, which describes how your object would behave in the near future. But first, you need to specify which object you\textquotesingle{}re talking about, right?
+
+```php \$prophecy-\/$>$will\+Extend(\textquotesingle{}std\+Class\textquotesingle{}); \$prophecy-\/$>$will\+Implement(\textquotesingle{}\doxyref{Session\+Handler\+Interface}{p.}{interface_session_handler_interface}\textquotesingle{}); ```
+
+There are 2 interesting calls -\/ {\ttfamily will\+Extend} and {\ttfamily will\+Implement}. The first one tells object prophecy that our object should extend specific class, the second one says that it should implement some interface. Obviously, objects in \doxyref{P\+H\+P}{p.}{namespace_p_h_p} can implement multiple interfaces, but extend only one parent class.
+
+\subsubsection*{Dummies}
+
+Ok, now we have our object prophecy. What can we do with it? First of all, we can get our object {\itshape dummy} by revealing its prophecy\+:
+
+```php \$dummy = \$prophecy-\/$>$reveal(); ```
+
+The {\ttfamily \$dummy} variable now holds a special dummy object. Dummy objects are objects that extend and/or implement preset classes/interfaces by overriding all their public methods. The key point about dummies is that they do not hold any logic -\/ they just do nothing. Any method of the dummy will always return {\ttfamily null} and the dummy will never throw any exceptions. Dummy is your friend if you don\textquotesingle{}t care about the actual behavior of this double and just need a token object to satisfy a method typehint.
+
+You need to understand one thing -\/ a dummy is not a prophecy. Your object prophecy is still assigned to {\ttfamily \$prophecy} variable and in order to manipulate with your expectations, you should work with it. {\ttfamily \$dummy} is a dummy -\/ a simple php object that tries to fulfil your prophecy.
+
+\subsubsection*{Stubs}
+
+Ok, now we know how to create basic prophecies and reveal dummies from them. That\textquotesingle{}s awesome if we don\textquotesingle{}t care about our {\itshape doubles} (objects that reflect originals) interactions. If we do, we need to use {\itshape stubs} or {\itshape mocks}.
+
+\doxyref{A}{p.}{class_a} stub is an object double, which doesn\textquotesingle{}t have any expectations about the object behavior, but when put in specific environment, behaves in specific way. Ok, I know, it\textquotesingle{}s cryptic, but bear with me for a minute. Simply put, a stub is a dummy, which depending on the called method signature does different things (has logic). To create stubs in \doxyref{Prophecy}{p.}{namespace_prophecy}\+:
+
+```php \$prophecy-\/$>$read(\textquotesingle{}123\textquotesingle{})-\/$>$will\+Return(\textquotesingle{}value\textquotesingle{}); ```
+
+Oh wow. We\textquotesingle{}ve just made an arbitrary call on the object prophecy? Yes, we did. And this call returned us a new object instance of class {\ttfamily Method\+Prophecy}. Yep, that\textquotesingle{}s a specific method with arguments prophecy. Method prophecies give you the ability to create method promises or predictions. We\textquotesingle{}ll talk about method predictions later in the {\itshape Mocks} section.
+
+\paragraph*{Promises}
+
+Promises are logical blocks, that represent your fictional methods in prophecy terms and they are handled by the {\ttfamily Method\+Prophecy\+::will(Promise\+Interface \$promise)} method. As a matter of fact, the call that we made earlier (`will\+Return(\textquotesingle{}value\textquotesingle{})`) is a simple shortcut to\+:
+
+```php \$prophecy-\/$>$read(\textquotesingle{}123\textquotesingle{})-\/$>$will(new \doxyref{Prophecy}{p.}{namespace_prophecy}(array(\textquotesingle{}value\textquotesingle{}))); ```
+
+This promise will cause any call to our double\textquotesingle{}s {\ttfamily read()} method with exactly one argument -\/ {\ttfamily \textquotesingle{}123\textquotesingle{}} to always return {\ttfamily \textquotesingle{}value\textquotesingle{}}. But that\textquotesingle{}s only for this promise, there\textquotesingle{}s plenty others you can use\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Return\+Promise} or {\ttfamily -\/$>$will\+Return(1)} -\/ returns a value from a method call
+\item {\ttfamily Return\+Argument\+Promise} or {\ttfamily -\/$>$will\+Return\+Argument(\$index)} -\/ returns the nth method argument from call
+\item {\ttfamily Throw\+Promise} or {\ttfamily -\/$>$will\+Throw} -\/ causes the method to throw specific exception
+\item {\ttfamily Callback\+Promise} or {\ttfamily -\/$>$will(\$callback)} -\/ gives you a quick way to define your own custom logic
+\end{DoxyItemize}
+
+Keep in mind, that you can always add even more promises by implementing {\ttfamily \doxyref{Prophecy}{p.}{namespace_prophecy}\textbackslash{}Promise\textbackslash{}Promise\+Interface}.
+
+\paragraph*{Method prophecies idempotency}
+
+\doxyref{Prophecy}{p.}{namespace_prophecy} enforces same method prophecies and, as a consequence, same promises and predictions for the same method calls with the same arguments. This means\+:
+
+```php \$method\+Prophecy1 = \$prophecy-\/$>$read(\textquotesingle{}123\textquotesingle{}); \$method\+Prophecy2 = \$prophecy-\/$>$read(\textquotesingle{}123\textquotesingle{}); \$method\+Prophecy3 = \$prophecy-\/$>$read(\textquotesingle{}321\textquotesingle{});
+
+\$method\+Prophecy1 === \$method\+Prophecy2; \$method\+Prophecy1 !== \$method\+Prophecy3; ```
+
+That\textquotesingle{}s interesting, right? Now you might ask me how would you define more complex behaviors where some method call changes behavior of others. In \doxyref{P\+H\+P\+Unit}{p.}{namespace_p_h_p_unit} or Mockery you do that by predicting how many times your method will be called. In \doxyref{Prophecy}{p.}{namespace_prophecy}, you\textquotesingle{}ll use promises for that\+:
+
+```php \$user-\/$>$get\+Name()-\/$>$will\+Return(null);
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4 \$user-\/$>$set\+Name(\textquotesingle{}everzet\textquotesingle{})-\/$>$will(function () \{ \$this-\/$>$get\+Name()-\/$>$will\+Return(\textquotesingle{}everzet\textquotesingle{}); \});
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 \$user-\/$>$set\+Name(\textquotesingle{}everzet\textquotesingle{})-\/$>$will(function (\$args, \$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\textquotesingle{}everzet\textquotesingle{}); \});
+
+// Or \$user-\/$>$set\+Name(\textquotesingle{}everzet\textquotesingle{})-\/$>$will(function (\$args) use (\$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\textquotesingle{}everzet\textquotesingle{}); \}); ```
+
+And now it doesn\textquotesingle{}t matter how many times or in which order your methods are called. What matters is their behaviors and how well you faked it.
+
+\paragraph*{Arguments wildcarding}
+
+The previous example is awesome (at least I hope it is for you), but that\textquotesingle{}s not optimal enough. We hardcoded {\ttfamily \textquotesingle{}everzet\textquotesingle{}} in our expectation. Isn\textquotesingle{}t there a better way? In fact there is, but it involves understanding what this {\ttfamily \textquotesingle{}everzet\textquotesingle{}} actually is.
+
+You see, even if method arguments used during method prophecy creation look like simple method arguments, in reality they are not. They are argument token wildcards. As a matter of fact, `-\/$>$set\+Name(\textquotesingle{}everzet\textquotesingle{})` looks like a simple call just because \doxyref{Prophecy}{p.}{namespace_prophecy} automatically transforms it under the hood into\+:
+
+```php \$user-\/$>$set\+Name(new \doxyref{Prophecy}{p.}{namespace_prophecy}(\textquotesingle{}everzet\textquotesingle{})); ```
+
+Those argument tokens are simple \doxyref{P\+H\+P}{p.}{namespace_p_h_p} classes, that implement {\ttfamily \doxyref{Prophecy}{p.}{namespace_prophecy}\textbackslash{}Argument\textbackslash{}Token\textbackslash{}Token\+Interface} and tell \doxyref{Prophecy}{p.}{namespace_prophecy} how to compare real arguments with your expectations. And yes, those classnames are damn big. That\textquotesingle{}s why there\textquotesingle{}s a shortcut class {\ttfamily \doxyref{Prophecy}{p.}{namespace_prophecy}\textbackslash{}Argument}, which you can use to create tokens like that\+:
+
+```php use \doxyref{Prophecy}{p.}{namespace_prophecy};
+
+\$user-\/$>$set\+Name(Argument\+::exact(\textquotesingle{}everzet\textquotesingle{})); ```
+
+{\ttfamily Exact\+Value\+Token} is not very useful in our case as it forced us to hardcode the username. That\textquotesingle{}s why \doxyref{Prophecy}{p.}{namespace_prophecy} comes bundled with a bunch of other tokens\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Identical\+Value\+Token} or {\ttfamily Argument\+::is(\$value)} -\/ checks that the argument is identical to a specific value
+\item {\ttfamily Exact\+Value\+Token} or {\ttfamily Argument\+::exact(\$value)} -\/ checks that the argument matches a specific value
+\item {\ttfamily Type\+Token} or {\ttfamily Argument\+::type(\$type\+Or\+Class)} -\/ checks that the argument matches a specific type or classname
+\item {\ttfamily Object\+State\+Token} or {\ttfamily Argument\+::which(\$method, \$value)} -\/ checks that the argument method returns a specific value
+\item {\ttfamily Callback\+Token} or {\ttfamily Argument\+::that(callback)} -\/ checks that the argument matches a custom callback
+\item {\ttfamily Any\+Value\+Token} or {\ttfamily Argument\+::any()} -\/ matches any argument
+\item {\ttfamily Any\+Values\+Token} or {\ttfamily Argument\+::cetera()} -\/ matches any arguments to the rest of the signature
+\end{DoxyItemize}
+
+And you can add even more by implementing {\ttfamily Token\+Interface} with your own custom classes.
+
+So, let\textquotesingle{}s refactor our initial {\ttfamily \{set,get\}Name()} logic with argument tokens\+:
+
+```php use \doxyref{Prophecy}{p.}{namespace_prophecy};
+
+\$user-\/$>$get\+Name()-\/$>$will\+Return(null);
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4 \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args) \{ \$this-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \});
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args, \$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \});
+
+// Or \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args) use (\$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \}); ```
+
+That\textquotesingle{}s it. Now our {\ttfamily \{set,get\}Name()} prophecy will work with any string argument provided to it. We\textquotesingle{}ve just described how our stub object should behave, even though the original object could have no behavior whatsoever.
+
+\doxyref{One}{p.}{class_one} last bit about arguments now. You might ask, what happens in case of\+:
+
+```php use \doxyref{Prophecy}{p.}{namespace_prophecy};
+
+\$user-\/$>$get\+Name()-\/$>$will\+Return(null);
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4 \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args) \{ \$this-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \});
+
+// For \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args, \$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \});
+
+// Or \$user-\/$>$set\+Name(Argument\+::type(\textquotesingle{}string\textquotesingle{}))-\/$>$will(function (\$args) use (\$user) \{ \$user-\/$>$get\+Name()-\/$>$will\+Return(\$args[0]); \});
+
+\$user-\/$>$set\+Name(\+Argument\+::any())-\/$>$will(function () \{ \}); ```
+
+Nothing. Your stub will continue behaving the way it did before. That\textquotesingle{}s because of how arguments wildcarding works. Every argument token type has a different score level, which wildcard then uses to calculate the final arguments match score and use the method prophecy promise that has the highest score. In this case, {\ttfamily Argument\+::type()} in case of success scores {\ttfamily 5} and {\ttfamily Argument\+::any()} scores {\ttfamily 3}. So the type token wins, as does the first {\ttfamily set\+Name()} method prophecy and its promise. The simple rule of thumb -\/ more precise token always wins.
+
+\paragraph*{Getting stub objects}
+
+Ok, now we know how to define our prophecy method promises, let\textquotesingle{}s get our stub from it\+:
+
+```php \$stub = \$prophecy-\/$>$reveal(); ```
+
+As you might see, the only difference between how we get dummies and stubs is that with stubs we describe every object conversation instead of just agreeing with {\ttfamily null} returns (object being {\itshape dummy}). As a matter of fact, after you define your first promise (method call), \doxyref{Prophecy}{p.}{namespace_prophecy} will force you to define all the communications -\/ it throws the {\ttfamily Unexpected\+Call\+Exception} for any call you didn\textquotesingle{}t describe with object prophecy before calling it on a stub.
+
+\subsubsection*{Mocks}
+
+Now we know how to define doubles without behavior (dummies) and doubles with behavior, but no expectations (stubs). What\textquotesingle{}s left is doubles for which we have some expectations. These are called mocks and in \doxyref{Prophecy}{p.}{namespace_prophecy} they look almost exactly the same as stubs, except that they define {\itshape predictions} instead of {\itshape promises} on method prophecies\+:
+
+```php \$entity\+Manager-\/$>$\doxyref{flush()}{p.}{d3_8min_8js_a818fbba7a975c6edc82859a681127bf2}-\/$>$should\+Be\+Called(); ```
+
+\paragraph*{Predictions}
+
+The {\ttfamily should\+Be\+Called()} method here assigns {\ttfamily Call\+Prediction} to our method prophecy. Predictions are a delayed behavior check for your prophecies. You see, during the entire lifetime of your doubles, \doxyref{Prophecy}{p.}{namespace_prophecy} records every single call you\textquotesingle{}re making against it inside your code. After that, \doxyref{Prophecy}{p.}{namespace_prophecy} can use this collected information to check if it matches defined predictions. You can assign predictions to method prophecies using the {\ttfamily Method\+Prophecy\+::should(Prediction\+Interface \$prediction)} method. As a matter of fact, the {\ttfamily should\+Be\+Called()} method we used earlier is just a shortcut to\+:
+
+```php \$entity\+Manager-\/$>$\doxyref{flush()}{p.}{d3_8min_8js_a818fbba7a975c6edc82859a681127bf2}-\/$>$should(new \doxyref{Prophecy}{p.}{namespace_prophecy}()); ```
+
+It checks if your method of interest (that matches both the method name and the arguments wildcard) was called 1 or more times. If the prediction failed then it throws an exception. When does this check happen? Whenever you call {\ttfamily check\+Predictions()} on the main Prophet object\+:
+
+```php \$prophet-\/$>$check\+Predictions(); ```
+
+In \doxyref{P\+H\+P\+Unit}{p.}{namespace_p_h_p_unit}, you would want to put this call into the {\ttfamily tear\+Down()} method. If no predictions are defined, it would do nothing. So it won\textquotesingle{}t harm to call it after every test.
+
+There are plenty more predictions you can play with\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Call\+Prediction} or {\ttfamily should\+Be\+Called()} -\/ checks that the method has been called 1 or more times
+\item {\ttfamily No\+Calls\+Prediction} or {\ttfamily should\+Not\+Be\+Called()} -\/ checks that the method has not been called
+\item {\ttfamily Call\+Times\+Prediction} or {\ttfamily should\+Be\+Called\+Times(\$count)} -\/ checks that the method has been called {\ttfamily \$count} times
+\item {\ttfamily Callback\+Prediction} or {\ttfamily should(\$callback)} -\/ checks the method against your own custom callback
+\end{DoxyItemize}
+
+Of course, you can always create your own custom prediction any time by implementing {\ttfamily Prediction\+Interface}.
+
+\subsubsection*{Spies}
+
+The last bit of awesomeness in \doxyref{Prophecy}{p.}{namespace_prophecy} is out-\/of-\/the-\/box spies support. As I said in the previous section, \doxyref{Prophecy}{p.}{namespace_prophecy} records every call made during the double\textquotesingle{}s entire lifetime. This means you don\textquotesingle{}t need to record predictions in order to check them. You can also do it manually by using the {\ttfamily Method\+Prophecy\+::should\+Have(Prediction\+Interface \$prediction)} method\+:
+
+```php \$em = \$prophet-\/$>$prophesize(\textquotesingle{}\doxyref{Doctrine}{p.}{namespace_doctrine}\textquotesingle{});
+
+\$controller-\/$>$create\+User(\$em-\/$>$reveal());
+
+\$em-\/$>$\doxyref{flush()}{p.}{d3_8min_8js_a818fbba7a975c6edc82859a681127bf2}-\/$>$should\+Have\+Been\+Called(); ```
+
+Such manipulation with doubles is called spying. And with \doxyref{Prophecy}{p.}{namespace_prophecy} it just works. 

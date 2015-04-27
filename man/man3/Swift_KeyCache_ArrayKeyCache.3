@@ -1,0 +1,230 @@
+.TH "Swift_KeyCache_ArrayKeyCache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_KeyCache_ArrayKeyCache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_KeyCache\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_KeyCache_KeyCacheInputStream\fP $\fBstream\fP)"
+.br
+.ti -1c
+.RI "\fBsetString\fP ($nsKey, $itemKey, $string, $mode)"
+.br
+.ti -1c
+.RI "\fBimportFromByteStream\fP ($nsKey, $itemKey, \fBSwift_OutputByteStream\fP $os, $mode)"
+.br
+.ti -1c
+.RI "\fBgetInputByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $writeThrough=null)"
+.br
+.ti -1c
+.RI "\fBgetString\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBexportToByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBhasKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearAll\fP ($nsKey)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP basic KeyCache backed by an array\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file ArrayKeyCache\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_KeyCache_KeyCacheInputStream\fP $stream)"
+Create a new ArrayKeyCache with the given $stream for cloning to make InputByteStreams\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stream\fP 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file ArrayKeyCache\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clearAll ( $nsKey)"
+Clear all data in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 190 of file ArrayKeyCache\&.php\&.
+.SS "clearKey ( $nsKey,  $itemKey)"
+Clear data for $itemKey in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 180 of file ArrayKeyCache\&.php\&.
+.SS "exportToByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $is)"
+Get data back out of the cache as a ByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$is\fP to write the data to 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 153 of file ArrayKeyCache\&.php\&.
+.SS "getInputByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $writeThrough = \fCnull\fP)"
+Provides a ByteStream which when written to, writes data to $itemKey\&.
+.PP
+NOTE: The stream will always write in append mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$writeThrough\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_InputByteStream\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 117 of file ArrayKeyCache\&.php\&.
+.SS "getString ( $nsKey,  $itemKey)"
+Get data back out of the cache as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 138 of file ArrayKeyCache\&.php\&.
+.SS "hasKey ( $nsKey,  $itemKey)"
+Check if the given $itemKey exists in the namespace $nsKey\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 167 of file ArrayKeyCache\&.php\&.
+.SS "importFromByteStream ( $nsKey,  $itemKey, \fBSwift_OutputByteStream\fP $os,  $mode)"
+Set a ByteStream into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$os\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 84 of file ArrayKeyCache\&.php\&.
+.SS "setString ( $nsKey,  $itemKey,  $string,  $mode)"
+Set a string into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$string\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 53 of file ArrayKeyCache\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

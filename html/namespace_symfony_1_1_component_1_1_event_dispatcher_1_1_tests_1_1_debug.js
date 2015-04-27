@@ -1,0 +1,5 @@
+var namespace_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_debug =
+[
+    [ "EventSubscriber", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_debug_1_1_event_subscriber.html", null ],
+    [ "TraceableEventDispatcherTest", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_debug_1_1_traceable_event_dispatcher_test.html", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_debug_1_1_traceable_event_dispatcher_test" ]
+];

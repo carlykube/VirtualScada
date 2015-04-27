@@ -1,0 +1,683 @@
+\section{Filesystem\+Adapter Class Reference}
+\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter}\index{Filesystem\+Adapter@{Filesystem\+Adapter}}
+Inheritance diagram for Filesystem\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_illuminate_1_1_filesystem_1_1_filesystem_adapter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Filesystem\+Interface} \$driver)
+\item 
+{\bf exists} (\${\bf path})
+\item 
+{\bf get} (\${\bf path})
+\item 
+{\bf put} (\${\bf path}, \$contents, \$visibility=null)
+\item 
+{\bf get\+Visibility} (\${\bf path})
+\item 
+{\bf set\+Visibility} (\${\bf path}, \$visibility)
+\item 
+{\bf prepend} (\${\bf path}, \${\bf data})
+\item 
+{\bf append} (\${\bf path}, \${\bf data})
+\item 
+{\bf delete} (\$paths)
+\item 
+{\bf copy} (\$from, \${\bf to})
+\item 
+{\bf move} (\$from, \${\bf to})
+\item 
+{\bf size} (\${\bf path})
+\item 
+{\bf mime\+Type} (\${\bf path})
+\item 
+{\bf last\+Modified} (\${\bf path})
+\item 
+{\bf files} (\$directory=null, \$recursive=false)
+\item 
+{\bf all\+Files} (\$directory=null)
+\item 
+{\bf directories} (\$directory=null, \$recursive=false)
+\item 
+{\bf all\+Directories} (\$directory=null, \$recursive=false)
+\item 
+{\bf make\+Directory} (\${\bf path})
+\item 
+{\bf delete\+Directory} (\$directory)
+\item 
+{\bf get\+Driver} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf filter\+Contents\+By\+Type} (\$contents, \$type)
+\item 
+{\bf parse\+Visibility} (\$visibility)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$driver}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file Filesystem\+Adapter.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Filesystem\+Interface}}]{\$driver}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_af6f9a1e7b7efd2db95c2e6ae9c10b518}
+Create a new filesystem adapter instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+League\textbackslash{}\+Flysystem\textbackslash{}\+Filesystem\+Interface & {\em \$driver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Filesystem\+Adapter.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!all\+Directories@{all\+Directories}}
+\index{all\+Directories@{all\+Directories}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{all\+Directories}]{\setlength{\rightskip}{0pt plus 5cm}all\+Directories (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory = {\ttfamily null}, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a67d6832a1427747286960f3c91761ce9}
+Get all (recursive) of the directories within a given directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$directory} & \\
+\hline
+bool & {\em \$recursive} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!all\+Files@{all\+Files}}
+\index{all\+Files@{all\+Files}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{all\+Files}]{\setlength{\rightskip}{0pt plus 5cm}all\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_af079adfa371f75ef0c809e394aea1087}
+Get all of the files from the given directory (recursive).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$directory} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_af079adfa371f75ef0c809e394aea1087}.
+
+
+
+Definition at line 223 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!append@{append}}
+\index{append@{append}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}append (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a9f9f8aa7c527afd6083fca3c20068e79}
+Append to a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+string & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a9f9f8aa7c527afd6083fca3c20068e79}.
+
+
+
+Definition at line 123 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!copy@{copy}}
+\index{copy@{copy}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}copy (
+\begin{DoxyParamCaption}
+\item[{}]{\$from, }
+\item[{}]{\$to}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a95617c0a3e44d7c8b470f68c2ae20c43}
+Copy a file to a new location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$from} & \\
+\hline
+string & {\em \$to} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a95617c0a3e44d7c8b470f68c2ae20c43}.
+
+
+
+Definition at line 153 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$paths}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a2b82b99133b2fab72c2c1f0cb6fe106c}
+Delete the file at a given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$paths} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a2b82b99133b2fab72c2c1f0cb6fe106c}.
+
+
+
+Definition at line 134 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!delete\+Directory@{delete\+Directory}}
+\index{delete\+Directory@{delete\+Directory}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{delete\+Directory}]{\setlength{\rightskip}{0pt plus 5cm}delete\+Directory (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a5257f5f95fed211e3acd730c6a709a04}
+Recursively delete a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$directory} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a5257f5f95fed211e3acd730c6a709a04}.
+
+
+
+Definition at line 271 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!directories@{directories}}
+\index{directories@{directories}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{directories}]{\setlength{\rightskip}{0pt plus 5cm}directories (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory = {\ttfamily null}, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_aebe2dc82ab82e821a12468e441a3d3d4}
+Get all of the directories within a given directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$directory} & \\
+\hline
+bool & {\em \$recursive} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_aebe2dc82ab82e821a12468e441a3d3d4}.
+
+
+
+Definition at line 235 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!exists@{exists}}
+\index{exists@{exists}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a783ffc4bf254b33e87d7efdab17d4d96}
+Determine if a file exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a783ffc4bf254b33e87d7efdab17d4d96}.
+
+
+
+Definition at line 38 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!files@{files}}
+\index{files@{files}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{files}]{\setlength{\rightskip}{0pt plus 5cm}files (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory = {\ttfamily null}, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a68f64bd21d9a23cf0523a4952d986d1c}
+Get an array of all files in a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$directory} & \\
+\hline
+bool & {\em \$recursive} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a68f64bd21d9a23cf0523a4952d986d1c}.
+
+
+
+Definition at line 210 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!filter\+Contents\+By\+Type@{filter\+Contents\+By\+Type}}
+\index{filter\+Contents\+By\+Type@{filter\+Contents\+By\+Type}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{filter\+Contents\+By\+Type}]{\setlength{\rightskip}{0pt plus 5cm}filter\+Contents\+By\+Type (
+\begin{DoxyParamCaption}
+\item[{}]{\$contents, }
+\item[{}]{\$type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a3f8d235758609214b426e5d7ccb61f25}
+Filter directory contents by type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$contents} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a855513a4c81c44402a11efb9a6145fe2}
+Get the contents of a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a855513a4c81c44402a11efb9a6145fe2}.
+
+
+
+Definition at line 51 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!get\+Driver@{get\+Driver}}
+\index{get\+Driver@{get\+Driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{get\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}get\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_ac88d3a4c3a1bf357eda28403a4704995}
+Get the Flysystem driver.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 281 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!get\+Visibility@{get\+Visibility}}
+\index{get\+Visibility@{get\+Visibility}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{get\+Visibility}]{\setlength{\rightskip}{0pt plus 5cm}get\+Visibility (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a3ff714bb742f49058547f9907768608e}
+Get the visibility for the given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a3ff714bb742f49058547f9907768608e}.
+
+
+
+Definition at line 82 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!last\+Modified@{last\+Modified}}
+\index{last\+Modified@{last\+Modified}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{last\+Modified}]{\setlength{\rightskip}{0pt plus 5cm}last\+Modified (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a20b53510be51ac83381226a53da1f052}
+Get the file\textquotesingle{}s last modification time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a20b53510be51ac83381226a53da1f052}.
+
+
+
+Definition at line 198 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!make\+Directory@{make\+Directory}}
+\index{make\+Directory@{make\+Directory}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{make\+Directory}]{\setlength{\rightskip}{0pt plus 5cm}make\+Directory (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a3f8d510adc6998fca482c56fd5dd77fe}
+Create a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a3f8d510adc6998fca482c56fd5dd77fe}.
+
+
+
+Definition at line 260 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!mime\+Type@{mime\+Type}}
+\index{mime\+Type@{mime\+Type}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{mime\+Type}]{\setlength{\rightskip}{0pt plus 5cm}mime\+Type (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a1b4b5a3cb64493dd5bf36a3d8e82b3ad}
+Get the mime-\/type of a given file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$false 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!move@{move}}
+\index{move@{move}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}move (
+\begin{DoxyParamCaption}
+\item[{}]{\$from, }
+\item[{}]{\$to}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a2b48c1cdec5aab51c360df179bf6a25f}
+Move a file to a new location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$from} & \\
+\hline
+string & {\em \$to} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a2b48c1cdec5aab51c360df179bf6a25f}.
+
+
+
+Definition at line 165 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!parse\+Visibility@{parse\+Visibility}}
+\index{parse\+Visibility@{parse\+Visibility}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{parse\+Visibility}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Visibility (
+\begin{DoxyParamCaption}
+\item[{}]{\$visibility}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a6a128bf76e7069766802bb7a20357cd9}
+Parse the given visibility value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$visibility} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 308 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!prepend@{prepend}}
+\index{prepend@{prepend}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{prepend}]{\setlength{\rightskip}{0pt plus 5cm}prepend (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a842382f7dc6d0a4c3eb38f7dc5d6d0ad}
+Prepend to a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+string & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a842382f7dc6d0a4c3eb38f7dc5d6d0ad}.
+
+
+
+Definition at line 111 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$contents, }
+\item[{}]{\$visibility = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a4632da7d7e8ed38e51be0c775ea2470a}
+Write the contents of a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+string & {\em \$contents} & \\
+\hline
+string & {\em \$visibility} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a4632da7d7e8ed38e51be0c775ea2470a}.
+
+
+
+Definition at line 71 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!set\+Visibility@{set\+Visibility}}
+\index{set\+Visibility@{set\+Visibility}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{set\+Visibility}]{\setlength{\rightskip}{0pt plus 5cm}set\+Visibility (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$visibility}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a983ea793cb0fc56007b0b234b33cacd2}
+Set the visibility for the given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+string & {\em \$visibility} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_a983ea793cb0fc56007b0b234b33cacd2}.
+
+
+
+Definition at line 99 of file Filesystem\+Adapter.\+php.
+
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!size@{size}}
+\index{size@{size}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_ab81b2fcdcce182104aa8f835eb6aa836}
+Get the file size of a given file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Filesystem} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_filesystem_1_1_filesystem_ab81b2fcdcce182104aa8f835eb6aa836}.
+
+
+
+Definition at line 176 of file Filesystem\+Adapter.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}!\$driver@{\$driver}}
+\index{\$driver@{\$driver}!Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter@{Illuminate\+::\+Filesystem\+::\+Filesystem\+Adapter}}
+\subsubsection[{\$driver}]{\setlength{\rightskip}{0pt plus 5cm}\$driver\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_filesystem_1_1_filesystem_adapter_a142c9a24d4f80b32faeb93ca6e77f5e3}
+
+
+Definition at line 19 of file Filesystem\+Adapter.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Filesystem/{\bf Filesystem\+Adapter.\+php}\end{DoxyCompactItemize}

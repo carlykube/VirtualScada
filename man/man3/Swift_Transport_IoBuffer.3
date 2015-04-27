@@ -1,0 +1,130 @@
+.TH "Swift_Transport_IoBuffer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_IoBuffer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_InputByteStream\fP, and \fBSwift_OutputByteStream\fP\&.
+.PP
+Inherited by \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinitialize\fP (array $params)"
+.br
+.ti -1c
+.RI "\fBsetParam\fP ($param, $value)"
+.br
+.ti -1c
+.RI "\fBterminate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetWriteTranslations\fP (array $replacements)"
+.br
+.ti -1c
+.RI "\fBreadLine\fP ($sequence)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTYPE_SOCKET\fP = 0x0001"
+.br
+.ti -1c
+.RI "const \fBTYPE_PROCESS\fP = 0x0010"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Buffers input and output to a resource\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file IoBuffer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "initialize (array $params)"
+Perform any initialization needed, using the given $params\&.
+.PP
+Parameters will vary depending upon the type of IoBuffer used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "readLine ( $sequence)"
+Get a line of output (including any CRLF)\&.
+.PP
+The $sequence number comes from any writes and may or may not be used depending upon the implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sequence\fP of last write to scan from
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "setParam ( $param,  $value)"
+Set an individual param on the buffer (e\&.g\&. switching to SSL)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$param\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "setWriteTranslations (array $replacements)"
+Set an array of string replacements which should be made on data written to the buffer\&.
+.PP
+This could replace LF with CRLF for example\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $replacements 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP\&.
+.SS "terminate ()"
+Perform any shutdown logic needed\&. 
+.PP
+Implemented in \fBSwift_Transport_StreamBuffer\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const TYPE_PROCESS = 0x0010"
+\fBA\fP process buffer with I/O support 
+.PP
+Definition at line 22 of file IoBuffer\&.php\&.
+.SS "const TYPE_SOCKET = 0x0001"
+\fBA\fP socket buffer over TCP 
+.PP
+Definition at line 19 of file IoBuffer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

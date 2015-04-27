@@ -1,0 +1,110 @@
+.TH "Illuminate\Routing" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Illuminate\Routing \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBConsole\fP"
+.br
+.ti -1c
+.RI " \fBMatching\fP"
+.br
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBController\fP"
+.br
+.ti -1c
+.RI "class \fBControllerDispatcher\fP"
+.br
+.ti -1c
+.RI "class \fBControllerInspector\fP"
+.br
+.ti -1c
+.RI "class \fBControllerServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBGeneratorServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBRedirector\fP"
+.br
+.ti -1c
+.RI "class \fBResourceRegistrar\fP"
+.br
+.ti -1c
+.RI "class \fBResponseFactory\fP"
+.br
+.ti -1c
+.RI "class \fBRoute\fP"
+.br
+.ti -1c
+.RI "class \fBRouteCollection\fP"
+.br
+.ti -1c
+.RI "class \fBRouter\fP"
+.br
+.ti -1c
+.RI "class \fBRoutingServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBUrlGenerator\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "trait \fBRouteDependencyResolverTrait\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "trait RouteDependencyResolverTrait"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    protected function callWithDependencies($instance, $method)
+    {
+        return call_user_func_array(array($instance, $method), $this->resolveClassMethodDependencies(array(), $instance, $method));
+    }
+    protected function resolveClassMethodDependencies(array $parameters, $instance, $method)
+    {
+        if (!method_exists($instance, $method)) {
+            return $parameters;
+        }
+        return $this->resolveMethodDependencies($parameters, new ReflectionMethod($instance, $method));
+    }
+    public function resolveMethodDependencies(array $parameters, ReflectionFunctionAbstract $reflector)
+    {
+        foreach ($reflector->getParameters() as $key => $parameter) {
+            $class = $parameter->getClass();
+            if ($class && !$this->alreadyInParameters($class->name, $parameters)) {
+                array_splice($parameters, $key, 0, array($this->container->make($class->name)));
+            }
+        }
+        return $parameters;
+    }
+    protected function alreadyInParameters($class, array $parameters)
+    {
+        return !is_null(array_first($parameters, function ($key, $value) use($class) {
+            return $value instanceof $class;
+        }));
+    }
+}
+namespace Illuminate\\Routing
+.fi
+.PP
+Definition at line 6741 of file compiled\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

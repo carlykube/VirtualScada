@@ -1,0 +1,370 @@
+\section{Progress\+Helper Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper}\index{Progress\+Helper@{Progress\+Helper}}
+Inheritance diagram for Progress\+Helper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Bar\+Width} (\${\bf size})
+\item 
+{\bf set\+Bar\+Character} (\$char)
+\item 
+{\bf set\+Empty\+Bar\+Character} (\$char)
+\item 
+{\bf set\+Progress\+Character} (\$char)
+\item 
+{\bf set\+Format} (\${\bf format})
+\item 
+{\bf set\+Redraw\+Frequency} (\$freq)
+\item 
+{\bf start} ({\bf Output\+Interface} \$output, \${\bf max}=null)
+\item 
+{\bf advance} (\$step=1, \$redraw=false)
+\item 
+{\bf set\+Current} (\$current, \$redraw=false)
+\item 
+{\bf display} (\${\bf finish}=false)
+\item 
+{\bf clear} ()
+\item 
+{\bf finish} ()
+\item 
+{\bf get\+Name} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T} = \textquotesingle{} \%percent\%\%\textquotesingle{}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L} = \textquotesingle{} \%current\%/\%{\bf max}\% [\%bar\%] \%percent\%\%\textquotesingle{}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E} = \textquotesingle{} \%current\%/\%{\bf max}\% [\%bar\%] \%percent\%\% Elapsed\+: \%elapsed\%\textquotesingle{}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X} = \textquotesingle{} \%current\%\textquotesingle{}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X} = \textquotesingle{} \%current\% [\%bar\%]\textquotesingle{}
+\item 
+const {\bf F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X} = \textquotesingle{} \%current\% [\%bar\%] Elapsed\+: \%elapsed\%\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The Progress class provides helpers to display progress output.
+
+\begin{DoxyAuthor}{Author}
+Chris Jones {\tt leeked@gmail.\+com} 
+
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since 2.\+5, to be removed in 3.\+0; use \doxyref{Progress\+Bar}{p.}{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_bar} instead. \end{DoxyRefDesc}
+
+
+Definition at line 25 of file Progress\+Helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!advance@{advance}}
+\index{advance@{advance}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{advance}]{\setlength{\rightskip}{0pt plus 5cm}advance (
+\begin{DoxyParamCaption}
+\item[{}]{\$step = {\ttfamily 1}, }
+\item[{}]{\$redraw = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a4c80062bb9d37cf7994e4b865483b536}
+Advances the progress output X steps.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$step} & Number of steps to advance \\
+\hline
+bool & {\em \$redraw} & Whether to redraw or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 233 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!clear@{clear}}
+\index{clear@{clear}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_aa821bec12eaa7e0f649397c9675ff505}
+Removes the progress bar from the current line.
+
+This is useful if you wish to write some output while a progress bar is running. Call \doxyref{display()}{p.}{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a9855a252f0a5c156506a883728f546b8} to show the progress bar again. 
+
+Definition at line 299 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!display@{display}}
+\index{display@{display}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}display (
+\begin{DoxyParamCaption}
+\item[{}]{\$finish = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a9855a252f0a5c156506a883728f546b8}
+Outputs the current progress string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$finish} & Forces the end result\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 279 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!finish@{finish}}
+\index{finish@{finish}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{finish}]{\setlength{\rightskip}{0pt plus 5cm}finish (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a826a7fe6f0083f2a1e81c1e3750d9c3e}
+Finishes the progress output. 
+
+Definition at line 307 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a3d0963e68bb313b163a73f2803c64600}
+\{Returns the canonical name of this helper.
+
+\begin{DoxyReturn}{Returns}
+string The canonical name
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Helper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_helper_1_1_helper_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 453 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Bar\+Character@{set\+Bar\+Character}}
+\index{set\+Bar\+Character@{set\+Bar\+Character}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Bar\+Character}]{\setlength{\rightskip}{0pt plus 5cm}set\+Bar\+Character (
+\begin{DoxyParamCaption}
+\item[{}]{\$char}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a752293e8447271de24456ec320e32d11}
+Sets the bar character.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$char} & \doxyref{A}{p.}{class_a} character \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Bar\+Width@{set\+Bar\+Width}}
+\index{set\+Bar\+Width@{set\+Bar\+Width}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Bar\+Width}]{\setlength{\rightskip}{0pt plus 5cm}set\+Bar\+Width (
+\begin{DoxyParamCaption}
+\item[{}]{\$size}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a250d884e6081916b2f178424c23f7117}
+Sets the progress bar width.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$size} & The progress bar size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Current@{set\+Current}}
+\index{set\+Current@{set\+Current}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Current}]{\setlength{\rightskip}{0pt plus 5cm}set\+Current (
+\begin{DoxyParamCaption}
+\item[{}]{\$current, }
+\item[{}]{\$redraw = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a40c56031f8820b1507654a95e7a36d1f}
+Sets the current progress.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$current} & The current progress \\
+\hline
+bool & {\em \$redraw} & Whether to redraw or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 246 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Empty\+Bar\+Character@{set\+Empty\+Bar\+Character}}
+\index{set\+Empty\+Bar\+Character@{set\+Empty\+Bar\+Character}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Empty\+Bar\+Character}]{\setlength{\rightskip}{0pt plus 5cm}set\+Empty\+Bar\+Character (
+\begin{DoxyParamCaption}
+\item[{}]{\$char}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a817cae942c24fc1fedeca3dfe371574d}
+Sets the empty bar character.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$char} & \doxyref{A}{p.}{class_a} character \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Format@{set\+Format}}
+\index{set\+Format@{set\+Format}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Format}]{\setlength{\rightskip}{0pt plus 5cm}set\+Format (
+\begin{DoxyParamCaption}
+\item[{}]{\$format}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_ab5466edec684cb74af2924c02a950c3c}
+Sets the progress bar format.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$format} & The format \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 165 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Progress\+Character@{set\+Progress\+Character}}
+\index{set\+Progress\+Character@{set\+Progress\+Character}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Progress\+Character}]{\setlength{\rightskip}{0pt plus 5cm}set\+Progress\+Character (
+\begin{DoxyParamCaption}
+\item[{}]{\$char}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a9e9e4b56ff9075d1ab74c39706af02d3}
+Sets the progress bar character.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$char} & \doxyref{A}{p.}{class_a} character \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 155 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!set\+Redraw\+Frequency@{set\+Redraw\+Frequency}}
+\index{set\+Redraw\+Frequency@{set\+Redraw\+Frequency}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{set\+Redraw\+Frequency}]{\setlength{\rightskip}{0pt plus 5cm}set\+Redraw\+Frequency (
+\begin{DoxyParamCaption}
+\item[{}]{\$freq}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a8a8031caea2acea1385ea75c355b307a}
+Sets the redraw frequency.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$freq} & The frequency in steps \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!start@{start}}
+\index{start@{start}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$max = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_aec82e6c49de614ac6e0c9361d8a059cb}
+Starts the progress output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+int | null & {\em \$max} & Maximum steps \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 186 of file Progress\+Helper.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L@{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L@{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L = \textquotesingle{} \%current\%/\%{\bf max}\% [\%bar\%] \%percent\%\%\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_aba2c78630002746317874f3b6ce0cdd7}
+
+
+Definition at line 28 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+N\+O\+R\+M\+A\+L\+\_\+\+N\+O\+M\+A\+X = \textquotesingle{} \%current\% [\%bar\%]\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a410466753020a4a17472829f4761f820}
+
+
+Definition at line 31 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T@{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T@{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T = \textquotesingle{} \%percent\%\%\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a6254c5b60514ea9db1d6981410af13ae}
+
+
+Definition at line 27 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+Q\+U\+I\+E\+T\+\_\+\+N\+O\+M\+A\+X = \textquotesingle{} \%current\%\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_ac52a5024cd93d8d21aedb12652e38dfa}
+
+
+Definition at line 30 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E@{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E@{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E = \textquotesingle{} \%current\%/\%{\bf max}\% [\%bar\%] \%percent\%\% Elapsed\+: \%elapsed\%\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_ae48254dbc94dd346666fd4ba16bfbfda}
+
+
+Definition at line 29 of file Progress\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}!F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X}}
+\index{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X@{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Progress\+Helper}}
+\subsubsection[{F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}const F\+O\+R\+M\+A\+T\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+N\+O\+M\+A\+X = \textquotesingle{} \%current\% [\%bar\%] Elapsed\+: \%elapsed\%\textquotesingle{}}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_progress_helper_a1e0da63c368e6dd2eda491a920faa8cd}
+
+
+Definition at line 32 of file Progress\+Helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/\+Helper/{\bf Progress\+Helper.\+php}\end{DoxyCompactItemize}

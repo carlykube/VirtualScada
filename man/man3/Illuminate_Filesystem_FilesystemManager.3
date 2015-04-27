@@ -1,0 +1,332 @@
+.TH "FilesystemManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FilesystemManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($app)"
+.br
+.ti -1c
+.RI "\fBdrive\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBdisk\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBcreateLocalDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateS3Driver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateRackspaceDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBgetDefaultDriver\fP ()"
+.br
+.ti -1c
+.RI "\fBextend\fP ($driver, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBresolve\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcallCustomCreator\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBgetRackspaceContainer\fP (Rackspace $client, array $config)"
+.br
+.ti -1c
+.RI "\fBadapt\fP (\fBFilesystemInterface\fP $filesystem)"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($\fBname\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$app\fP"
+.br
+.ti -1c
+.RI "\fB$disks\fP = []"
+.br
+.ti -1c
+.RI "\fB$customCreators\fP = []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file FilesystemManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $app)"
+Create a new filesystem manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file FilesystemManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically call the default driver instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file FilesystemManager\&.php\&.
+.SS "adapt (\fBFilesystemInterface\fP $filesystem)\fC [protected]\fP"
+Adapt the filesystem implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filesystem\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 183 of file FilesystemManager\&.php\&.
+.SS "callCustomCreator (array $config)\fC [protected]\fP"
+Call a custom driver creator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 106 of file FilesystemManager\&.php\&.
+.SS "createLocalDriver (array $config)"
+Create an instance of the local driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 124 of file FilesystemManager\&.php\&.
+.SS "createRackspaceDriver (array $config)"
+Create an instance of the Rackspace driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 150 of file FilesystemManager\&.php\&.
+.SS "createS3Driver (array $config)"
+Create an instance of the Amazon S3 driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 135 of file FilesystemManager\&.php\&.
+.SS "disk ( $name = \fCnull\fP)"
+Get a filesystem instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 64 of file FilesystemManager\&.php\&.
+.SS "drive ( $name = \fCnull\fP)"
+Get a filesystem instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 53 of file FilesystemManager\&.php\&.
+.SS "extend ( $driver, Closure $callback)"
+Register a custom driver creator Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file FilesystemManager\&.php\&.
+.SS "get ( $name)\fC [protected]\fP"
+Attempt to get the disk from the local cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 77 of file FilesystemManager\&.php\&.
+.SS "getConfig ( $name)\fC [protected]\fP"
+Get the filesystem connection configuration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file FilesystemManager\&.php\&.
+.SS "getDefaultDriver ()"
+Get the default driver name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 204 of file FilesystemManager\&.php\&.
+.SS "getRackspaceContainer (Rackspace $client, array $config)\fC [protected]\fP"
+Get the Rackspace Cloud Files container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$client\fP 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 168 of file FilesystemManager\&.php\&.
+.SS "resolve ( $name)\fC [protected]\fP"
+Resolve the given disk\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 88 of file FilesystemManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$app\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file FilesystemManager\&.php\&.
+.SS "$customCreators = []\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file FilesystemManager\&.php\&.
+.SS "$disks = []\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file FilesystemManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

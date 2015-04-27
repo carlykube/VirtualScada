@@ -1,0 +1,420 @@
+\section{Parser\+Abstract Class Reference}
+\label{class_php_parser_1_1_parser_abstract}\index{Parser\+Abstract@{Parser\+Abstract}}
+Inheritance diagram for Parser\+Abstract\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_php_parser_1_1_parser_abstract}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Lexer} \$lexer)
+\item 
+{\bf parse} (\$code)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E} = -\/1
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Expected\+Tokens} (\$state)
+\item 
+{\bf trace\+New\+State} (\$state, \${\bf symbol})
+\item 
+{\bf trace\+Read} (\${\bf symbol})
+\item 
+{\bf trace\+Shift} (\${\bf symbol})
+\item 
+{\bf trace\+Accept} ()
+\item 
+{\bf trace\+Reduce} (\${\bf n})
+\item 
+{\bf handle\+Namespaces} (array \$stmts)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$token\+To\+Symbol\+Map\+Size}
+\item 
+{\bf \$action\+Table\+Size}
+\item 
+{\bf \$goto\+Table\+Size}
+\item 
+{\bf \$invalid\+Symbol}
+\item 
+{\bf \$default\+Action}
+\item 
+{\bf \$unexpected\+Token\+Rule}
+\item 
+{\bf \$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E}
+\item 
+{\bf \$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S}
+\item 
+{\bf \$token\+To\+Symbol}
+\item 
+{\bf \$symbol\+To\+Name}
+\item 
+{\bf \$productions}
+\item 
+{\bf \$action\+Base}
+\item 
+{\bf \$action}
+\item 
+{\bf \$action\+Check}
+\item 
+{\bf \$action\+Default}
+\item 
+{\bf \$goto\+Base}
+\item 
+{\bf \$goto}
+\item 
+{\bf \$goto\+Check}
+\item 
+{\bf \$goto\+Default}
+\item 
+{\bf \$rule\+To\+Non\+Terminal}
+\item 
+{\bf \$rule\+To\+Length}
+\item 
+{\bf \$lexer}
+\item 
+{\bf \$sem\+Value}
+\item 
+{\bf \$sem\+Stack}
+\item 
+{\bf \$stack\+Pos}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Parser\+Abstract.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Lexer}}]{\$lexer}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_parser_abstract_af0fabc8007f8c61dcb02cd778eb9e3b7}
+Creates a parser instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Lexer}{p.}{class_php_parser_1_1_lexer} & {\em \$lexer} & \doxyref{A}{p.}{class_a} lexer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file Parser\+Abstract.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!get\+Expected\+Tokens@{get\+Expected\+Tokens}}
+\index{get\+Expected\+Tokens@{get\+Expected\+Tokens}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{get\+Expected\+Tokens}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expected\+Tokens (
+\begin{DoxyParamCaption}
+\item[{}]{\$state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_abf949f61e6383475756e6ee83be95650}
+
+
+Definition at line 251 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!handle\+Namespaces@{handle\+Namespaces}}
+\index{handle\+Namespaces@{handle\+Namespaces}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{handle\+Namespaces}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Namespaces (
+\begin{DoxyParamCaption}
+\item[{array}]{\$stmts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a02955540c9cf4bca37dff2e4871be625}
+Moves statements of semicolon-\/style namespaces into \$ns-\/$>$stmts and checks various error conditions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\mbox{[}$\,$\mbox{]}} & \$stmts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Node}{p.}{interface_php_parser_1_1_node}[] 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!parse@{parse}}
+\index{parse@{parse}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}parse (
+\begin{DoxyParamCaption}
+\item[{}]{\$code}
+\end{DoxyParamCaption}
+)}\label{class_php_parser_1_1_parser_abstract_ad79efea202d19638d901d9154ca8e6db}
+Parses \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code into a node tree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$code} & The source code to parse\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Node}{p.}{interface_php_parser_1_1_node}[] Array of statements 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!trace\+Accept@{trace\+Accept}}
+\index{trace\+Accept@{trace\+Accept}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{trace\+Accept}]{\setlength{\rightskip}{0pt plus 5cm}trace\+Accept (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a0f79232bee3d6adc82ab337cf37a7656}
+
+
+Definition at line 293 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!trace\+New\+State@{trace\+New\+State}}
+\index{trace\+New\+State@{trace\+New\+State}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{trace\+New\+State}]{\setlength{\rightskip}{0pt plus 5cm}trace\+New\+State (
+\begin{DoxyParamCaption}
+\item[{}]{\$state, }
+\item[{}]{\$symbol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a6c7fcbc2bca2b83ce0b67814c852b3e1}
+
+
+Definition at line 280 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!trace\+Read@{trace\+Read}}
+\index{trace\+Read@{trace\+Read}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{trace\+Read}]{\setlength{\rightskip}{0pt plus 5cm}trace\+Read (
+\begin{DoxyParamCaption}
+\item[{}]{\$symbol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_abbe14f534c007b48bb1dfe6317155e41}
+
+
+Definition at line 285 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!trace\+Reduce@{trace\+Reduce}}
+\index{trace\+Reduce@{trace\+Reduce}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{trace\+Reduce}]{\setlength{\rightskip}{0pt plus 5cm}trace\+Reduce (
+\begin{DoxyParamCaption}
+\item[{}]{\$n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a869f4880130dff81a70692f9377d2f08}
+
+
+Definition at line 297 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!trace\+Shift@{trace\+Shift}}
+\index{trace\+Shift@{trace\+Shift}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{trace\+Shift}]{\setlength{\rightskip}{0pt plus 5cm}trace\+Shift (
+\begin{DoxyParamCaption}
+\item[{}]{\$symbol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ac6d8fba823b376987d0b9bb2ab8d8520}
+
+
+Definition at line 289 of file Parser\+Abstract.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$action@{\$action}}
+\index{\$action@{\$action}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$action}]{\setlength{\rightskip}{0pt plus 5cm}\$action\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_aa698a3e72116e8e778be0e95d908ee30}
+
+
+Definition at line 46 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$action\+Base@{\$action\+Base}}
+\index{\$action\+Base@{\$action\+Base}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$action\+Base}]{\setlength{\rightskip}{0pt plus 5cm}\$action\+Base\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ae9bdb4f86eb535f3976a53960994897f}
+
+
+Definition at line 44 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$action\+Check@{\$action\+Check}}
+\index{\$action\+Check@{\$action\+Check}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$action\+Check}]{\setlength{\rightskip}{0pt plus 5cm}array Table indexed analogously {\bf to} \$action If \$action\+Check[\$action\+Base[\$state]+\${\bf symbol}]!=\${\bf symbol}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ad7c77ace5d7c8d353ee24cdec3f96932}
+then the action is defaulted, i.\+e. \$action\+Default[\$state] should be used instead. 
+
+Definition at line 49 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$action\+Default@{\$action\+Default}}
+\index{\$action\+Default@{\$action\+Default}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$action\+Default}]{\setlength{\rightskip}{0pt plus 5cm}\$action\+Default\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_af991e4203853ce002848a27d1a53e453}
+
+
+Definition at line 51 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$action\+Table\+Size@{\$action\+Table\+Size}}
+\index{\$action\+Table\+Size@{\$action\+Table\+Size}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$action\+Table\+Size}]{\setlength{\rightskip}{0pt plus 5cm}\$action\+Table\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a380809e8efd8aca3ae0641a132dc6369}
+
+
+Definition at line 20 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$default\+Action@{\$default\+Action}}
+\index{\$default\+Action@{\$default\+Action}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$default\+Action}]{\setlength{\rightskip}{0pt plus 5cm}\$default\+Action\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ab8b5213f191f4e05bec89f1841a35c16}
+
+
+Definition at line 27 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$goto@{\$goto}}
+\index{\$goto@{\$goto}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$goto}]{\setlength{\rightskip}{0pt plus 5cm}\$goto\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a4037a8ff7343cce7ab4dadfd490ad3ee}
+
+
+Definition at line 57 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$goto\+Base@{\$goto\+Base}}
+\index{\$goto\+Base@{\$goto\+Base}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$goto\+Base}]{\setlength{\rightskip}{0pt plus 5cm}\$goto\+Base\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a7029a078912eb36a27fd72f9e851741b}
+
+
+Definition at line 55 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$goto\+Check@{\$goto\+Check}}
+\index{\$goto\+Check@{\$goto\+Check}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$goto\+Check}]{\setlength{\rightskip}{0pt plus 5cm}array Table indexed analogously {\bf to} \$goto If \$goto\+Check[\$goto\+Base[\$non\+Terminal]+\$state]!=\$non\+Terminal\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a28badf89708acb3366c09793dee39838}
+then the goto state is defaulted, i.\+e. \$goto\+Default[\$non\+Terminal] should be used. 
+
+Definition at line 60 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$goto\+Default@{\$goto\+Default}}
+\index{\$goto\+Default@{\$goto\+Default}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$goto\+Default}]{\setlength{\rightskip}{0pt plus 5cm}\$goto\+Default\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_acc0e9d56033200d3981ea79b079da45d}
+
+
+Definition at line 62 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$goto\+Table\+Size@{\$goto\+Table\+Size}}
+\index{\$goto\+Table\+Size@{\$goto\+Table\+Size}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$goto\+Table\+Size}]{\setlength{\rightskip}{0pt plus 5cm}\$goto\+Table\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ae23bb25a2f8c39bb0503c60d46d83fca}
+
+
+Definition at line 22 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$invalid\+Symbol@{\$invalid\+Symbol}}
+\index{\$invalid\+Symbol@{\$invalid\+Symbol}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$invalid\+Symbol}]{\setlength{\rightskip}{0pt plus 5cm}\$invalid\+Symbol\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a0b5076f1d0bc03155fcaf6d70c80e298}
+
+
+Definition at line 25 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$lexer@{\$lexer}}
+\index{\$lexer@{\$lexer}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$lexer}]{\setlength{\rightskip}{0pt plus 5cm}\$lexer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a63508a0b3a11f514f2b2124f99a05baf}
+
+
+Definition at line 76 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$productions@{\$productions}}
+\index{\$productions@{\$productions}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$productions}]{\setlength{\rightskip}{0pt plus 5cm}\$productions\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_aa812303c94015c76aeada3fb8730b3b0}
+
+
+Definition at line 39 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$rule\+To\+Length@{\$rule\+To\+Length}}
+\index{\$rule\+To\+Length@{\$rule\+To\+Length}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$rule\+To\+Length}]{\setlength{\rightskip}{0pt plus 5cm}\$rule\+To\+Length\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a1df19a0db4d2a8baba1cf32953b885ab}
+
+
+Definition at line 69 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$rule\+To\+Non\+Terminal@{\$rule\+To\+Non\+Terminal}}
+\index{\$rule\+To\+Non\+Terminal@{\$rule\+To\+Non\+Terminal}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$rule\+To\+Non\+Terminal}]{\setlength{\rightskip}{0pt plus 5cm}\$rule\+To\+Non\+Terminal\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a92efcd22f8b0cafe1f816fa3ce8906e7}
+
+
+Definition at line 66 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$sem\+Stack@{\$sem\+Stack}}
+\index{\$sem\+Stack@{\$sem\+Stack}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$sem\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}\$sem\+Stack\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a4fea9074715dcccb8878f3b92afeb8b5}
+
+
+Definition at line 80 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$sem\+Value@{\$sem\+Value}}
+\index{\$sem\+Value@{\$sem\+Value}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$sem\+Value}]{\setlength{\rightskip}{0pt plus 5cm}\$sem\+Value\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a0fd81353a63be4e3e444b5ab4fda1f50}
+
+
+Definition at line 78 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$stack\+Pos@{\$stack\+Pos}}
+\index{\$stack\+Pos@{\$stack\+Pos}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$stack\+Pos}]{\setlength{\rightskip}{0pt plus 5cm}\$stack\+Pos\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_ae5c3b275cdc0c8a70f6cc4408fccbf43}
+
+
+Definition at line 82 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$symbol\+To\+Name@{\$symbol\+To\+Name}}
+\index{\$symbol\+To\+Name@{\$symbol\+To\+Name}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$symbol\+To\+Name}]{\setlength{\rightskip}{0pt plus 5cm}\$symbol\+To\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a839420df66ac974fcdfb03d7fef6ac22}
+
+
+Definition at line 37 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$token\+To\+Symbol@{\$token\+To\+Symbol}}
+\index{\$token\+To\+Symbol@{\$token\+To\+Symbol}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$token\+To\+Symbol}]{\setlength{\rightskip}{0pt plus 5cm}\$token\+To\+Symbol\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a41efbf20fda52937f83e93ddb74d3415}
+
+
+Definition at line 35 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$token\+To\+Symbol\+Map\+Size@{\$token\+To\+Symbol\+Map\+Size}}
+\index{\$token\+To\+Symbol\+Map\+Size@{\$token\+To\+Symbol\+Map\+Size}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$token\+To\+Symbol\+Map\+Size}]{\setlength{\rightskip}{0pt plus 5cm}\$token\+To\+Symbol\+Map\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a062ab989e650599e6e50020667c08d0b}
+
+
+Definition at line 18 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$unexpected\+Token\+Rule@{\$unexpected\+Token\+Rule}}
+\index{\$unexpected\+Token\+Rule@{\$unexpected\+Token\+Rule}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$unexpected\+Token\+Rule}]{\setlength{\rightskip}{0pt plus 5cm}\$unexpected\+Token\+Rule\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a48e2994348985d1d048e88212b98b349}
+
+
+Definition at line 29 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E@{\$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E}}
+\index{\$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E@{\$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$\+Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\$Y\+Y2\+T\+B\+L\+S\+T\+A\+T\+E\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_acfbcf0ff91029c0489e5397c7dd0910f}
+
+
+Definition at line 31 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!\$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S@{\$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S}}
+\index{\$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S@{\$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{\$\+Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\$Y\+Y\+N\+L\+S\+T\+A\+T\+E\+S\hspace{0.3cm}{\ttfamily [protected]}}\label{class_php_parser_1_1_parser_abstract_a780d925c350847fa8d33083b45a4aa1f}
+
+
+Definition at line 32 of file Parser\+Abstract.\+php.
+
+\index{Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}!S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E@{S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E}}
+\index{S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E@{S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E}!Php\+Parser\+::\+Parser\+Abstract@{Php\+Parser\+::\+Parser\+Abstract}}
+\subsubsection[{S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}const S\+Y\+M\+B\+O\+L\+\_\+\+N\+O\+N\+E = -\/1}\label{class_php_parser_1_1_parser_abstract_a531e8bd9b6cb00fbd4d43607379a862e}
+
+
+Definition at line 11 of file Parser\+Abstract.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/nikic/php-\/parser/lib/\+Php\+Parser/{\bf Parser\+Abstract.\+php}\end{DoxyCompactItemize}

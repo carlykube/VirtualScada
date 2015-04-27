@@ -1,0 +1,306 @@
+.TH "RedisStore" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RedisStore \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTaggableStore\fP, and \fBStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRedis\fP $redis, $prefix= '', $\fBconnection\fP= 'default')"
+.br
+.ti -1c
+.RI "\fBget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBtags\fP ($names)"
+.br
+.ti -1c
+.RI "\fBconnection\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP ($\fBconnection\fP)"
+.br
+.ti -1c
+.RI "\fBgetRedis\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPrefix\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$redis\fP"
+.br
+.ti -1c
+.RI "\fB$prefix\fP"
+.br
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file RedisStore\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRedis\fP $redis,  $prefix = \fC''\fP,  $connection = \fC'default'\fP)"
+Create a new \fBRedis\fP store\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$redis\fP 
+.br
+\fI$prefix\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file RedisStore\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "connection ()"
+Get the \fBRedis\fP connection instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 150 of file RedisStore\&.php\&.
+.SS "decrement ( $key,  $value = \fC1\fP)"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 94 of file RedisStore\&.php\&.
+.SS "flush ()"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 129 of file RedisStore\&.php\&.
+.SS "forever ( $key,  $value)"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 106 of file RedisStore\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 119 of file RedisStore\&.php\&.
+.SS "get ( $key)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 50 of file RedisStore\&.php\&.
+.SS "getPrefix ()"
+Get the cache key prefix\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 181 of file RedisStore\&.php\&.
+.SS "getRedis ()"
+Get the \fBRedis\fP database instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 171 of file RedisStore\&.php\&.
+.SS "increment ( $key,  $value = \fC1\fP)"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 82 of file RedisStore\&.php\&.
+.SS "put ( $key,  $value,  $minutes)"
+Store an item in the cache for a given number of minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 66 of file RedisStore\&.php\&.
+.SS "setConnection ( $connection)"
+Set the connection name to be used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file RedisStore\&.php\&.
+.SS "tags ( $names)"
+Begin executing a new tags operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$names\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 140 of file RedisStore\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBconnection\fP\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file RedisStore\&.php\&.
+.SS "$prefix\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file RedisStore\&.php\&.
+.SS "$redis\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file RedisStore\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

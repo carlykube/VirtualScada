@@ -1,0 +1,192 @@
+\section{Hip\+Chat\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_hip_chat_handler}\index{Hip\+Chat\+Handler@{Hip\+Chat\+Handler}}
+Inheritance diagram for Hip\+Chat\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_monolog_1_1_handler_1_1_hip_chat_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$token, \$room, \${\bf name}= \textquotesingle{}Monolog\textquotesingle{}, \$notify=false, \$level={\bf Logger\+::\+C\+R\+I\+T\+I\+C\+A\+L}, \$bubble=true, \$use\+S\+S\+L=true, \${\bf format}= \textquotesingle{}{\bf text}\textquotesingle{}, \$host= \textquotesingle{}api.\+hipchat.\+com\textquotesingle{})
+\item 
+{\bf handle\+Batch} (array \$records)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H} = 15
+\item 
+const {\bf M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H} = 9500
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf generate\+Data\+Stream} (\$record)
+\item 
+{\bf get\+Alert\+Color} (\$level)
+\item 
+{\bf write} (array \$record)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Sends notifications through the hipchat api to a hipchat room
+
+Notes\+: A\+P\+I token -\/ Hip\+Chat A\+P\+I token Room -\/ Hip\+Chat Room Id or name, where messages are sent Name -\/ Name used to send the message (from) notify -\/ Should the message trigger a notification in the clients
+
+\begin{DoxyAuthor}{Author}
+Rafael Dohms {\tt rafael@doh.\+ms} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+{\tt https\+://www.\+hipchat.\+com/docs/api} 
+\end{DoxySeeAlso}
+
+
+Definition at line 28 of file Hip\+Chat\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$room, }
+\item[{}]{\$name = {\ttfamily \textquotesingle{}Monolog\textquotesingle{}}, }
+\item[{}]{\$notify = {\ttfamily false}, }
+\item[{}]{\$level = {\ttfamily {\bf Logger\+::\+C\+R\+I\+T\+I\+C\+A\+L}}, }
+\item[{}]{\$bubble = {\ttfamily true}, }
+\item[{}]{\$use\+S\+S\+L = {\ttfamily true}, }
+\item[{}]{\$format = {\ttfamily \textquotesingle{}{\bf text}\textquotesingle{}}, }
+\item[{}]{\$host = {\ttfamily \textquotesingle{}api.hipchat.com\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_a9eda5388fbfb88f1fd1864e74090e21b}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & Hip\+Chat A\+P\+I Token \\
+\hline
+string & {\em \$room} & The room that should be alerted of the message (Id or Name) \\
+\hline
+string & {\em \$name} & Name used in the \char`\"{}from\char`\"{} field \\
+\hline
+bool & {\em \$notify} & Trigger a notification in clients or not \\
+\hline
+int & {\em \$level} & The minimum logging level at which this handler will be triggered \\
+\hline
+bool & {\em \$bubble} & Whether the messages that are handled can bubble up the stack or not \\
+\hline
+bool & {\em \$use\+S\+S\+L} & Whether to connect via S\+S\+L. \\
+\hline
+string & {\em \$format} & The format of the messages (default to text, can be set to html if you have html in the messages) \\
+\hline
+string & {\em \$host} & The Hip\+Chat server hostname. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Hip\+Chat\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!generate\+Data\+Stream@{generate\+Data\+Stream}}
+\index{generate\+Data\+Stream@{generate\+Data\+Stream}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{generate\+Data\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Data\+Stream (
+\begin{DoxyParamCaption}
+\item[{}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_a76ccdd721af6d391ee8e26d66656ab9d}
+\{\}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Hip\+Chat\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!get\+Alert\+Color@{get\+Alert\+Color}}
+\index{get\+Alert\+Color@{get\+Alert\+Color}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{get\+Alert\+Color}]{\setlength{\rightskip}{0pt plus 5cm}get\+Alert\+Color (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_ac07ee6fb3f21549b3ac016c89d87778e}
+Assigns a color to each level of log records.
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file Hip\+Chat\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!handle\+Batch@{handle\+Batch}}
+\index{handle\+Batch@{handle\+Batch}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{handle\+Batch}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Batch (
+\begin{DoxyParamCaption}
+\item[{array}]{\$records}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_a944865926b0302ad2d802bea1eec3a57}
+\{\} 
+
+Implements {\bf Handler\+Interface} \doxyref{}{p.}{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}.
+
+
+
+Definition at line 184 of file Hip\+Chat\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!write@{write}}
+\index{write@{write}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_afa17604fd899fffdc1ee326afe177cb5}
+\{\}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file Hip\+Chat\+Handler.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const M\+A\+X\+I\+M\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+T\+H = 9500}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_a51f22f3c667c12f9e8a169db351a6e32}
+The maximum allowed length for the message. 
+
+Definition at line 38 of file Hip\+Chat\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}!M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H}!Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler@{Monolog\+::\+Handler\+::\+Hip\+Chat\+Handler}}
+\subsubsection[{M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const M\+A\+X\+I\+M\+U\+M\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H = 15}\label{class_monolog_1_1_handler_1_1_hip_chat_handler_a475b03cf7543e5c4aa476b19d489e3a3}
+The maximum allowed length for the name used in the \char`\"{}from\char`\"{} field. 
+
+Definition at line 33 of file Hip\+Chat\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Hip\+Chat\+Handler.\+php}\end{DoxyCompactItemize}

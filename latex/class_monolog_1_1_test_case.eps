@@ -1,0 +1,427 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: ClassName
+%%Creator: Doxygen
+%%CreationDate: Time
+%%For: 
+%Magnification: 1.00
+%%Orientation: Portrait
+%%BoundingBox: 0 0 500 1622.418879
+%%Pages: 0
+%%BeginSetup
+%%EndSetup
+%%EndComments
+
+% ----- variables -----
+
+/boxwidth 0 def
+/boxheight 40 def
+/fontheight 24 def
+/marginwidth 10 def
+/distx 20 def
+/disty 40 def
+/boundaspect 0.308182 def  % aspect ratio of the BoundingBox (width/height)
+/boundx 500 def
+/boundy boundx boundaspect div def
+/xspacing 0 def
+/yspacing 0 def
+/rows 55 def
+/cols 3 def
+/scalefactor 0 def
+/boxfont /Times-Roman findfont fontheight scalefont def
+
+% ----- procedures -----
+
+/dotted { [1 4] 0 setdash } def
+/dashed { [5] 0 setdash } def
+/solid  { [] 0 setdash } def
+
+/max % result = MAX(arg1,arg2)
+{
+  /a exch def
+  /b exch def
+  a b gt {a} {b} ifelse
+} def
+
+/xoffset % result = MAX(0,(scalefactor-(boxwidth*cols+distx*(cols-1)))/2)
+{
+  0 scalefactor boxwidth cols mul distx cols 1 sub mul add sub 2 div max
+} def
+
+/cw % boxwidth = MAX(boxwidth, stringwidth(arg1))
+{
+  /str exch def
+  /boxwidth boxwidth str stringwidth pop max def
+} def
+
+/box % draws a box with text `arg1' at grid pos (arg2,arg3)
+{ gsave
+  2 setlinewidth
+  newpath
+  exch xspacing mul xoffset add
+  exch yspacing mul
+  moveto
+  boxwidth 0 rlineto 
+  0 boxheight rlineto 
+  boxwidth neg 0 rlineto 
+  0 boxheight neg rlineto 
+  closepath
+  dup stringwidth pop neg boxwidth add 2 div
+  boxheight fontheight 2 div sub 2 div
+  rmoveto show stroke
+  grestore
+} def  
+
+/mark
+{ newpath
+  exch xspacing mul xoffset add boxwidth add
+  exch yspacing mul
+  moveto
+  0 boxheight 4 div rlineto
+  boxheight neg 4 div boxheight neg 4 div rlineto
+  closepath
+  eofill
+  stroke
+} def
+
+/arrow
+{ newpath
+  moveto
+  3 -8 rlineto
+  -6 0 rlineto
+  3 8 rlineto
+  closepath
+  eofill
+  stroke
+} def
+
+/out % draws an output connector for the block at (arg1,arg2)
+{
+  newpath
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul boxheight add
+  /y exch def
+  /x exch def
+  x y moveto
+  0 disty 2 div rlineto 
+  stroke
+  1 eq { x y disty 2 div add arrow } if
+} def
+
+/in % draws an input connector for the block at (arg1,arg2)
+{
+  newpath
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul disty 2 div sub
+  /y exch def
+  /x exch def
+  x y moveto
+  0 disty 2 div rlineto
+  stroke
+  1 eq { x y disty 2 div add arrow } if
+} def
+
+/hedge
+{
+  exch xspacing mul xoffset add boxwidth 2 div add
+  exch yspacing mul boxheight 2 div sub
+  /y exch def
+  /x exch def
+  newpath
+  x y moveto
+  boxwidth 2 div distx add 0 rlineto
+  stroke
+  1 eq
+  { newpath x boxwidth 2 div distx add add y moveto
+    -8 3 rlineto
+    0 -6 rlineto
+    8 3 rlineto
+    closepath
+    eofill
+    stroke
+  } if
+} def
+
+/vedge
+{
+  /ye exch def
+  /ys exch def
+  /xs exch def
+  newpath
+  xs xspacing mul xoffset add boxwidth 2 div add dup
+  ys yspacing mul boxheight 2 div sub
+  moveto
+  ye yspacing mul boxheight 2 div sub
+  lineto
+  stroke
+} def
+
+/conn % connections the blocks from col `arg1' to `arg2' of row `arg3'
+{
+  /ys exch def
+  /xe exch def
+  /xs exch def
+  newpath
+  xs xspacing mul xoffset add boxwidth 2 div add
+  ys yspacing mul disty 2 div sub
+  moveto
+  xspacing xe xs sub mul 0
+  rlineto
+  stroke
+} def
+
+% ----- main ------
+
+boxfont setfont
+1 boundaspect scale
+(TestCase) cw
+(PHPUnit_Framework_TestCase) cw
+(PHPUnit_Framework_Assert) cw
+(PHPUnit_Framework_Test) cw
+(PHPUnit_Framework_SelfDescribing) cw
+(Countable) cw
+(FlowdockFormatterTest) cw
+(JsonFormatterTest) cw
+(LogglyFormatterTest) cw
+(AbstractHandlerTest) cw
+(AbstractProcessingHandlerTest) cw
+(AmqpHandlerTest) cw
+(BrowserConsoleHandlerTest) cw
+(BufferHandlerTest) cw
+(ChromePHPHandlerTest) cw
+(CouchDBHandlerTest) cw
+(DoctrineCouchDBHandlerTest) cw
+(DynamoDbHandlerTest) cw
+(ElasticSearchHandlerTest) cw
+(ErrorLogHandlerTest) cw
+(FilterHandlerTest) cw
+(FingersCrossedHandlerTest) cw
+(FirePHPHandlerTest) cw
+(FleepHookHandlerTest) cw
+(FlowdockHandlerTest) cw
+(GelfHandlerLegacyTest) cw
+(GelfHandlerTest) cw
+(GroupHandlerTest) cw
+(HipChatHandlerTest) cw
+(LogEntriesHandlerTest) cw
+(MailHandlerTest) cw
+(MongoDBHandlerTest) cw
+(NativeMailerHandlerTest) cw
+(NewRelicHandlerTest) cw
+(NullHandlerTest) cw
+(PsrHandlerTest) cw
+(PushoverHandlerTest) cw
+(RavenHandlerTest) cw
+(RedisHandlerTest) cw
+(RotatingFileHandlerTest) cw
+(SamplingHandlerTest) cw
+(SlackHandlerTest) cw
+(SocketHandlerTest) cw
+(StreamHandlerTest) cw
+(SwiftMailerHandlerTest) cw
+(TestHandlerTest) cw
+(UdpSocketTest) cw
+(WhatFailureGroupHandlerTest) cw
+(ZendMonitorHandlerTest) cw
+(GitProcessorTest) cw
+(IntrospectionProcessorTest) cw
+(MemoryPeakUsageProcessorTest) cw
+(MemoryUsageProcessorTest) cw
+(ProcessIdProcessorTest) cw
+(TagProcessorTest) cw
+(UidProcessorTest) cw
+(WebProcessorTest) cw
+/boxwidth boxwidth marginwidth 2 mul add def
+/xspacing boxwidth distx add def
+/yspacing boxheight disty add def
+/scalefactor 
+  boxwidth cols mul distx cols 1 sub mul add
+  boxheight rows mul disty rows 1 sub mul add boundaspect mul 
+  max def
+boundx scalefactor div boundy scalefactor div scale
+
+% ----- classes -----
+
+ (TestCase) 1.000000 51.000000 box
+ (PHPUnit_Framework_TestCase) 1.000000 52.000000 box
+ (PHPUnit_Framework_Assert) 0.000000 53.000000 box
+ (PHPUnit_Framework_Test) 1.000000 53.000000 box
+ (PHPUnit_Framework_SelfDescribing) 2.000000 53.000000 box
+ (Countable) 1.000000 54.000000 box
+ (FlowdockFormatterTest) 2.000000 50.000000 box
+ (JsonFormatterTest) 2.000000 49.000000 box
+ (LogglyFormatterTest) 2.000000 48.000000 box
+ (AbstractHandlerTest) 2.000000 47.000000 box
+ (AbstractProcessingHandlerTest) 2.000000 46.000000 box
+ (AmqpHandlerTest) 2.000000 45.000000 box
+ (BrowserConsoleHandlerTest) 2.000000 44.000000 box
+ (BufferHandlerTest) 2.000000 43.000000 box
+ (ChromePHPHandlerTest) 2.000000 42.000000 box
+ (CouchDBHandlerTest) 2.000000 41.000000 box
+ (DoctrineCouchDBHandlerTest) 2.000000 40.000000 box
+ (DynamoDbHandlerTest) 2.000000 39.000000 box
+ (ElasticSearchHandlerTest) 2.000000 38.000000 box
+ (ErrorLogHandlerTest) 2.000000 37.000000 box
+ (FilterHandlerTest) 2.000000 36.000000 box
+ (FingersCrossedHandlerTest) 2.000000 35.000000 box
+ (FirePHPHandlerTest) 2.000000 34.000000 box
+ (FleepHookHandlerTest) 2.000000 33.000000 box
+ (FlowdockHandlerTest) 2.000000 32.000000 box
+ (GelfHandlerLegacyTest) 2.000000 31.000000 box
+ (GelfHandlerTest) 2.000000 30.000000 box
+ (GroupHandlerTest) 2.000000 29.000000 box
+ (HipChatHandlerTest) 2.000000 28.000000 box
+ (LogEntriesHandlerTest) 2.000000 27.000000 box
+ (MailHandlerTest) 2.000000 26.000000 box
+ (MongoDBHandlerTest) 2.000000 25.000000 box
+ (NativeMailerHandlerTest) 2.000000 24.000000 box
+ (NewRelicHandlerTest) 2.000000 23.000000 box
+ (NullHandlerTest) 2.000000 22.000000 box
+ (PsrHandlerTest) 2.000000 21.000000 box
+ (PushoverHandlerTest) 2.000000 20.000000 box
+ (RavenHandlerTest) 2.000000 19.000000 box
+ (RedisHandlerTest) 2.000000 18.000000 box
+ (RotatingFileHandlerTest) 2.000000 17.000000 box
+ (SamplingHandlerTest) 2.000000 16.000000 box
+ (SlackHandlerTest) 2.000000 15.000000 box
+ (SocketHandlerTest) 2.000000 14.000000 box
+ (StreamHandlerTest) 2.000000 13.000000 box
+ (SwiftMailerHandlerTest) 2.000000 12.000000 box
+ (TestHandlerTest) 2.000000 11.000000 box
+ (UdpSocketTest) 2.000000 10.000000 box
+ (WhatFailureGroupHandlerTest) 2.000000 9.000000 box
+ (ZendMonitorHandlerTest) 2.000000 8.000000 box
+ (GitProcessorTest) 2.000000 7.000000 box
+ (IntrospectionProcessorTest) 2.000000 6.000000 box
+ (MemoryPeakUsageProcessorTest) 2.000000 5.000000 box
+ (MemoryUsageProcessorTest) 2.000000 4.000000 box
+ (ProcessIdProcessorTest) 2.000000 3.000000 box
+ (TagProcessorTest) 2.000000 2.000000 box
+ (UidProcessorTest) 2.000000 1.000000 box
+ (WebProcessorTest) 2.000000 0.000000 box
+
+% ----- relations -----
+
+solid
+0 1.000000 51.000000 out
+solid
+1 1.000000 52.000000 in
+solid
+0 1.000000 52.000000 out
+solid
+0.000000 2.000000 53.000000 conn
+solid
+1 0.000000 53.000000 in
+solid
+1 1.000000 53.000000 in
+solid
+0 1.000000 53.000000 out
+solid
+1 2.000000 53.000000 in
+solid
+1 1.000000 54.000000 in
+solid
+1 1.000000 50.250000 out
+solid
+0 1.000000 50.500000 hedge
+solid
+0 1.000000 49.500000 hedge
+solid
+0 1.000000 48.500000 hedge
+solid
+0 1.000000 47.500000 hedge
+solid
+0 1.000000 46.500000 hedge
+solid
+0 1.000000 45.500000 hedge
+solid
+0 1.000000 44.500000 hedge
+solid
+0 1.000000 43.500000 hedge
+solid
+0 1.000000 42.500000 hedge
+solid
+0 1.000000 41.500000 hedge
+solid
+0 1.000000 40.500000 hedge
+solid
+0 1.000000 39.500000 hedge
+solid
+0 1.000000 38.500000 hedge
+solid
+0 1.000000 37.500000 hedge
+solid
+0 1.000000 36.500000 hedge
+solid
+0 1.000000 35.500000 hedge
+solid
+0 1.000000 34.500000 hedge
+solid
+0 1.000000 33.500000 hedge
+solid
+0 1.000000 32.500000 hedge
+solid
+0 1.000000 31.500000 hedge
+solid
+0 1.000000 30.500000 hedge
+solid
+0 1.000000 29.500000 hedge
+solid
+0 1.000000 28.500000 hedge
+solid
+0 1.000000 27.500000 hedge
+solid
+0 1.000000 26.500000 hedge
+solid
+0 1.000000 25.500000 hedge
+solid
+0 1.000000 24.500000 hedge
+solid
+0 1.000000 23.500000 hedge
+solid
+0 1.000000 22.500000 hedge
+solid
+0 1.000000 21.500000 hedge
+solid
+0 1.000000 20.500000 hedge
+solid
+0 1.000000 19.500000 hedge
+solid
+0 1.000000 18.500000 hedge
+solid
+0 1.000000 17.500000 hedge
+solid
+0 1.000000 16.500000 hedge
+solid
+0 1.000000 15.500000 hedge
+solid
+0 1.000000 14.500000 hedge
+solid
+0 1.000000 13.500000 hedge
+solid
+0 1.000000 12.500000 hedge
+solid
+0 1.000000 11.500000 hedge
+solid
+0 1.000000 10.500000 hedge
+solid
+0 1.000000 9.500000 hedge
+solid
+0 1.000000 8.500000 hedge
+solid
+0 1.000000 7.500000 hedge
+solid
+0 1.000000 6.500000 hedge
+solid
+0 1.000000 5.500000 hedge
+solid
+0 1.000000 4.500000 hedge
+solid
+0 1.000000 3.500000 hedge
+solid
+0 1.000000 2.500000 hedge
+solid
+0 1.000000 1.500000 hedge
+solid
+0 1.000000 0.500000 hedge
+solid
+1.000000 51.000000 0.500000 vedge

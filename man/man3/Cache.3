@@ -1,0 +1,628 @@
+.TH "Cache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Cache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCache\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetPrefix\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetPrefix\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBgetDefaultDriver\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDefaultDriver\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBdriver\fP ($driver=null)"
+.br
+.ti -1c
+.RI "static \fBextend\fP ($\fBdriver\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBgetDrivers\fP ()"
+.br
+.ti -1c
+.RI "static \fBhas\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBget\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "static \fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "static \fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "static \fBadd\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "static \fBremember\fP ($key, $\fBminutes\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBsear\fP ($key, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBrememberForever\fP ($key, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBgetDefaultCacheTime\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDefaultCacheTime\fP ($\fBminutes\fP)"
+.br
+.ti -1c
+.RI "static \fBgetStore\fP ()"
+.br
+.ti -1c
+.RI "static \fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "static \fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBmacro\fP ($\fBname\fP, $macro)"
+.br
+.ti -1c
+.RI "static \fBhasMacro\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBmacroCall\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "static \fBincrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "static \fBdecrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "static \fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "static \fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "static \fBflush\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetFilesystem\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetDirectory\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 1973 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static add ( $key,  $value,  $minutes)\fC [static]\fP"
+Store an item in the cache if the key does not exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2110 of file _ide_helper\&.php\&.
+.SS "static decrement ( $key,  $value = \fC1\fP)\fC [static]\fP"
+Decrement the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2283 of file _ide_helper\&.php\&.
+.SS "static driver ( $driver = \fCnull\fP)\fC [static]\fP"
+Get a driver instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2024 of file _ide_helper\&.php\&.
+.SS "static extend ( $driver,  $callback)\fC [static]\fP"
+Register a custom driver creator Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2037 of file _ide_helper\&.php\&.
+.SS "static flush ()\fC [static]\fP"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2316 of file _ide_helper\&.php\&.
+.SS "static forever ( $key,  $value)\fC [static]\fP"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2295 of file _ide_helper\&.php\&.
+.SS "static forget ( $key)\fC [static]\fP"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2306 of file _ide_helper\&.php\&.
+.SS "static get ( $key,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2072 of file _ide_helper\&.php\&.
+.SS "static getDefaultCacheTime ()\fC [static]\fP"
+Get the default cache time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2157 of file _ide_helper\&.php\&.
+.SS "static getDefaultDriver ()\fC [static]\fP"
+Get the default cache driver name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2002 of file _ide_helper\&.php\&.
+.SS "static getDirectory ()\fC [static]\fP"
+Get the working directory of the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2336 of file _ide_helper\&.php\&.
+.SS "static getDrivers ()\fC [static]\fP"
+Get all of the created 'drivers'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2048 of file _ide_helper\&.php\&.
+.SS "static getFilesystem ()\fC [static]\fP"
+Get the Filesystem instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2326 of file _ide_helper\&.php\&.
+.SS "static getPrefix ()\fC [static]\fP"
+Get the cache 'prefix' value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1981 of file _ide_helper\&.php\&.
+.SS "static getStore ()\fC [static]\fP"
+Get the cache store implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2178 of file _ide_helper\&.php\&.
+.SS "static has ( $key)\fC [static]\fP"
+Determine if an item exists in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2060 of file _ide_helper\&.php\&.
+.SS "static hasMacro ( $name)\fC [static]\fP"
+Checks if macro is registered
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 2246 of file _ide_helper\&.php\&.
+.SS "static increment ( $key,  $value = \fC1\fP)\fC [static]\fP"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2271 of file _ide_helper\&.php\&.
+.SS "static macro ( $name,  $macro)\fC [static]\fP"
+Register a custom macro\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$macro\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2235 of file _ide_helper\&.php\&.
+.SS "static macroCall ( $method,  $parameters)\fC [static]\fP"
+Dynamically handle calls to the class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 2259 of file _ide_helper\&.php\&.
+.SS "static offsetExists ( $key)\fC [static]\fP"
+Determine if a cached value exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2189 of file _ide_helper\&.php\&.
+.SS "static offsetGet ( $key)\fC [static]\fP"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2200 of file _ide_helper\&.php\&.
+.SS "static offsetSet ( $key,  $value)\fC [static]\fP"
+Store an item in the cache for the default time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2212 of file _ide_helper\&.php\&.
+.SS "static offsetUnset ( $key)\fC [static]\fP"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2223 of file _ide_helper\&.php\&.
+.SS "static pull ( $key,  $default = \fCnull\fP)\fC [static]\fP"
+Retrieve an item from the cache and delete it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2084 of file _ide_helper\&.php\&.
+.SS "static put ( $key,  $value,  $minutes)\fC [static]\fP"
+Store an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2097 of file _ide_helper\&.php\&.
+.SS "static remember ( $key,  $minutes,  $callback)\fC [static]\fP"
+Get an item from the cache, or store the default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$minutes\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2123 of file _ide_helper\&.php\&.
+.SS "static rememberForever ( $key,  $callback)\fC [static]\fP"
+Get an item from the cache, or store the default value forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2147 of file _ide_helper\&.php\&.
+.SS "static sear ( $key,  $callback)\fC [static]\fP"
+Get an item from the cache, or store the default value forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2135 of file _ide_helper\&.php\&.
+.SS "static setDefaultCacheTime ( $minutes)\fC [static]\fP"
+Set the default cache time in minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2168 of file _ide_helper\&.php\&.
+.SS "static setDefaultDriver ( $name)\fC [static]\fP"
+Set the default cache driver name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2013 of file _ide_helper\&.php\&.
+.SS "static setPrefix ( $name)\fC [static]\fP"
+Set the cache 'prefix' value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1992 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

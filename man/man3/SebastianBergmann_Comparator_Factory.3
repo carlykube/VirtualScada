@@ -1,0 +1,101 @@
+.TH "Factory" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Factory \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBgetComparatorFor\fP ($expected, $actual)"
+.br
+.ti -1c
+.RI "\fBregister\fP (\fBComparator\fP $comparator)"
+.br
+.ti -1c
+.RI "\fBunregister\fP (\fBComparator\fP $comparator)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file Factory\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Constructs a new factory\&. 
+.PP
+Definition at line 37 of file Factory\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getComparatorFor ( $expected,  $actual)"
+Returns the correct comparator for comparing two values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expected\fP The first value to compare 
+.br
+\fI$actual\fP The second value to compare 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBComparator\fP 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Factory\&.php\&.
+.SS "static getInstance ()\fC [static]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFactory\fP 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file Factory\&.php\&.
+.SS "register (\fBComparator\fP $comparator)"
+Registers a new comparator\&.
+.PP
+This comparator will be returned by \fBgetInstance()\fP if its accept() method returns TRUE for the compared values\&. It has higher priority than the existing comparators, meaning that its accept() method will be tested before those of the other comparators\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$comparator\fP The registered comparator 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file Factory\&.php\&.
+.SS "unregister (\fBComparator\fP $comparator)"
+Unregisters a comparator\&.
+.PP
+This comparator will no longer be returned by \fBgetInstance()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$comparator\fP The unregistered comparator 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file Factory\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

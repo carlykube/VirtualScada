@@ -1,0 +1,56 @@
+.TH "md_vendor_nikic_php-parser__u_p_g_r_a_d_e-1.0" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_nikic_php-parser__u_p_g_r_a_d_e-1.0 \- Upgrading from PHP-Parser 0\&.9 to 1\&.0 
+
+.SS "\fBPHP\fP version requirements"
+.PP
+PHP-Parser now requires \fBPHP\fP 5\&.3 or newer to run\&. It is however still possible to \fIparse\fP \fBPHP\fP 5\&.2 source code, while running on a newer version\&.
+.PP
+.SS "Move to namespaced names"
+.PP
+The library has been moved to use namespaces with the \fC\fBPhpParser\fP\fP vendor prefix\&. However, the old names using underscores are still available as aliases, as such most code should continue running on the new version without further changes\&.
+.PP
+Old (still works, but discouraged):
+.PP
+```php $parser = new (new ); $prettyPrinter = new ; ```
+.PP
+New:
+.PP
+```php $parser = new (new \fBPhpParser\fP); $prettyPrinter = new ; ```
+.PP
+Note that the \fCPHPParser\fP prefix was changed to \fC\fBPhpParser\fP\fP\&. While \fBPHP\fP class names are technically case-insensitive, the autoloader will not be able to load \fCPHPParser\\Parser\fP or other case variants\&.
+.PP
+Due to conflicts with reserved keywords, some class names now end with an underscore, e\&.g\&. \fCPHPParser_Node_Stmt_Class\fP is now \fC\fBPhpParser\fP\\Node\\Stmt\\Class_\fP\&. (But as usual, the old name is still available\&.)
+.PP
+.SS "Changes to \fCNode::getType()\fP"
+.PP
+The \fCNode::getType()\fP method continues to return names using underscores instead of namespace separators and also does not contain the trailing underscore that may be present in the class name\&. As such its output will not change in many cases\&.
+.PP
+However, some node classes have been moved to a different namespace or renamed, which will result in a different \fCNode::getType()\fP output:
+.PP
+``` Expr_AssignBitwiseAnd => Expr_AssignOp_BitwiseAnd Expr_AssignBitwiseOr => Expr_AssignOp_BitwiseOr Expr_AssignBitwiseXor => Expr_AssignOp_BitwiseXor Expr_AssignConcat => Expr_AssignOp_Concat Expr_AssignDiv => Expr_AssignOp_Div Expr_AssignMinus => Expr_AssignOp_Minus Expr_AssignMod => Expr_AssignOp_Mod Expr_AssignMul => Expr_AssignOp_Mul Expr_AssignPlus => Expr_AssignOp_Plus Expr_AssignShiftLeft => Expr_AssignOp_ShiftLeft Expr_AssignShiftRight => Expr_AssignOp_ShiftRight
+.PP
+Expr_BitwiseAnd => Expr_BinaryOp_BitwiseAnd Expr_BitwiseOr => Expr_BinaryOp_BitwiseOr Expr_BitwiseXor => Expr_BinaryOp_BitwiseXor Expr_BooleanAnd => Expr_BinaryOp_BooleanAnd Expr_BooleanOr => Expr_BinaryOp_BooleanOr Expr_Concat => Expr_BinaryOp_Concat Expr_Div => Expr_BinaryOp_Div Expr_Equal => Expr_BinaryOp_Equal Expr_Greater => Expr_BinaryOp_Greater Expr_GreaterOrEqual => Expr_BinaryOp_GreaterOrEqual Expr_Identical => Expr_BinaryOp_Identical Expr_LogicalAnd => Expr_BinaryOp_LogicalAnd Expr_LogicalOr => Expr_BinaryOp_LogicalOr Expr_LogicalXor => Expr_BinaryOp_LogicalXor Expr_Minus => Expr_BinaryOp_Minus Expr_Mod => Expr_BinaryOp_Mod Expr_Mul => Expr_BinaryOp_Mul Expr_NotEqual => Expr_BinaryOp_NotEqual Expr_NotIdentical => Expr_BinaryOp_NotIdentical Expr_Plus => Expr_BinaryOp_Plus Expr_ShiftLeft => Expr_BinaryOp_ShiftLeft Expr_ShiftRight => Expr_BinaryOp_ShiftRight Expr_Smaller => Expr_BinaryOp_Smaller Expr_SmallerOrEqual => Expr_BinaryOp_SmallerOrEqual
+.PP
+Scalar_ClassConst => Scalar_MagicConst_Class Scalar_DirConst => Scalar_MagicConst_Dir Scalar_FileConst => Scalar_MagicConst_File Scalar_FuncConst => Scalar_MagicConst_Function Scalar_LineConst => Scalar_MagicConst_Line Scalar_MethodConst => Scalar_MagicConst_Method Scalar_NSConst => Scalar_MagicConst_Namespace Scalar_TraitConst => Scalar_MagicConst_Trait ```
+.PP
+These changes may affect custom pretty printers and code comparing the return value of \fCNode::getType()\fP to specific strings\&.
+.PP
+.SS "Miscellaneous"
+.PP
+.IP "\(bu" 2
+The classes \fC\fBTemplate\fP\fP and \fCTemplateLoader\fP have been removed\&. You should use some other \fCcode generation\fP project built on top of PHP-Parser instead\&.
+.IP "\(bu" 2
+The \fCPrettyPrinterAbstract::pStmts()\fP method now emits a leading newline if the statement list is not empty\&. Custom pretty printers should remove the explicit newline before \fCpStmts()\fP calls\&.
+.PP
+Old:
+.PP
+```php public function pStmt_Trait(PHPParser_Node_Stmt_Trait $node) { return 'trait ' \&. $node->name \&. '\\n' \&. '{' \&. '\\n' \&. $this->pStmts($node->stmts) \&. '\\n' \&. '}'; } ```
+.PP
+New:
+.PP
+```php public function pStmt_Trait(Stmt $node) { return 'trait ' \&. $node->name \&. '\\n' \&. '{' \&. $this->pStmts($node->stmts) \&. '\\n' \&. '}'; } ``` 
+.PP
+

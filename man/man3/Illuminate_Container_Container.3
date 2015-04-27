@@ -1,0 +1,1901 @@
+.TH "Container" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Container \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ArrayAccess, \fBContainer\fP, ArrayAccess, and \fBContainer\fP\&.
+.PP
+Inherited by \fBApplication\fP, and \fBApplication\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwhen\fP ($concrete)"
+.br
+.ti -1c
+.RI "\fBbound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBresolved\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisAlias\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBbind\fP ($abstract, $concrete=null, $shared=false)"
+.br
+.ti -1c
+.RI "\fBaddContextualBinding\fP ($concrete, $abstract, $implementation)"
+.br
+.ti -1c
+.RI "\fBbindIf\fP ($abstract, $concrete=null, $shared=false)"
+.br
+.ti -1c
+.RI "\fBsingleton\fP ($abstract, $concrete=null)"
+.br
+.ti -1c
+.RI "\fBshare\fP (Closure $closure)"
+.br
+.ti -1c
+.RI "\fBbindShared\fP ($abstract, Closure $closure)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($abstract, Closure $closure)"
+.br
+.ti -1c
+.RI "\fBinstance\fP ($abstract, $instance)"
+.br
+.ti -1c
+.RI "\fBtag\fP ($abstracts, $tags)"
+.br
+.ti -1c
+.RI "\fBtagged\fP ($\fBtag\fP)"
+.br
+.ti -1c
+.RI "\fBalias\fP ($abstract, $alias)"
+.br
+.ti -1c
+.RI "\fBrebinding\fP ($abstract, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrefresh\fP ($abstract, $target, $method)"
+.br
+.ti -1c
+.RI "\fBwrap\fP (Closure $\fBcallback\fP, array $parameters=array())"
+.br
+.ti -1c
+.RI "\fBcall\fP ($\fBcallback\fP, array $parameters=array(), $defaultMethod=null)"
+.br
+.ti -1c
+.RI "\fBmake\fP ($abstract, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBbuild\fP ($concrete, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBresolving\fP ($abstract, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBafterResolving\fP ($abstract, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBisShared\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBforgetInstance\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBforgetInstances\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__get\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBwhen\fP ($concrete)"
+.br
+.ti -1c
+.RI "\fBbound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBresolved\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisAlias\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBbind\fP ($abstract, $concrete=null, $shared=false)"
+.br
+.ti -1c
+.RI "\fBaddContextualBinding\fP ($concrete, $abstract, $implementation)"
+.br
+.ti -1c
+.RI "\fBbindIf\fP ($abstract, $concrete=null, $shared=false)"
+.br
+.ti -1c
+.RI "\fBsingleton\fP ($abstract, $concrete=null)"
+.br
+.ti -1c
+.RI "\fBshare\fP (Closure $closure)"
+.br
+.ti -1c
+.RI "\fBbindShared\fP ($abstract, Closure $closure)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($abstract, Closure $closure)"
+.br
+.ti -1c
+.RI "\fBinstance\fP ($abstract, $instance)"
+.br
+.ti -1c
+.RI "\fBtag\fP ($abstracts, $tags)"
+.br
+.ti -1c
+.RI "\fBtagged\fP ($\fBtag\fP)"
+.br
+.ti -1c
+.RI "\fBalias\fP ($abstract, $alias)"
+.br
+.ti -1c
+.RI "\fBrebinding\fP ($abstract, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrefresh\fP ($abstract, $target, $method)"
+.br
+.ti -1c
+.RI "\fBwrap\fP (Closure $\fBcallback\fP, array $parameters=[])"
+.br
+.ti -1c
+.RI "\fBcall\fP ($\fBcallback\fP, array $parameters=[], $defaultMethod=null)"
+.br
+.ti -1c
+.RI "\fBmake\fP ($abstract, $parameters=[])"
+.br
+.ti -1c
+.RI "\fBbuild\fP ($concrete, $parameters=[])"
+.br
+.ti -1c
+.RI "\fBresolving\fP ($abstract, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBafterResolving\fP ($abstract, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBisShared\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBforgetInstance\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBforgetInstances\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__get\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($key, $value)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetInstance\fP (ContainerContract $container)"
+.br
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetInstance\fP (ContainerContract $container)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$contextual\fP = array()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBresolvable\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetClosure\fP ($abstract, $concrete)"
+.br
+.ti -1c
+.RI "\fBextractAlias\fP (array $definition)"
+.br
+.ti -1c
+.RI "\fBrebound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetReboundCallbacks\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisCallableWithAtSign\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMethodDependencies\fP ($\fBcallback\fP, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBgetCallReflector\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBaddDependencyForCallParameter\fP (ReflectionParameter $parameter, array &$parameters, &$dependencies)"
+.br
+.ti -1c
+.RI "\fBcallClass\fP ($target, array $parameters=array(), $defaultMethod=null)"
+.br
+.ti -1c
+.RI "\fBgetConcrete\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetContextualConcrete\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBmissingLeadingSlash\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetExtenders\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetDependencies\fP ($parameters, array $primitives=array())"
+.br
+.ti -1c
+.RI "\fBresolveNonClass\fP (ReflectionParameter $parameter)"
+.br
+.ti -1c
+.RI "\fBresolveClass\fP (ReflectionParameter $parameter)"
+.br
+.ti -1c
+.RI "\fBkeyParametersByArgument\fP (array $dependencies, array $parameters)"
+.br
+.ti -1c
+.RI "\fBresolvingCallback\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafterResolvingCallback\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetFunctionHint\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBfireResolvingCallbacks\fP ($abstract, $object)"
+.br
+.ti -1c
+.RI "\fBgetCallbacksForType\fP ($abstract, $object, array $callbacksPerType)"
+.br
+.ti -1c
+.RI "\fBfireCallbackArray\fP ($object, array $callbacks)"
+.br
+.ti -1c
+.RI "\fBisBuildable\fP ($concrete, $abstract)"
+.br
+.ti -1c
+.RI "\fBgetAlias\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBdropStaleInstances\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBresolvable\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetClosure\fP ($abstract, $concrete)"
+.br
+.ti -1c
+.RI "\fBextractAlias\fP (array $definition)"
+.br
+.ti -1c
+.RI "\fBrebound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetReboundCallbacks\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisCallableWithAtSign\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMethodDependencies\fP ($\fBcallback\fP, $parameters=[])"
+.br
+.ti -1c
+.RI "\fBgetCallReflector\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBaddDependencyForCallParameter\fP (ReflectionParameter $parameter, array &$parameters, &$dependencies)"
+.br
+.ti -1c
+.RI "\fBcallClass\fP ($target, array $parameters=[], $defaultMethod=null)"
+.br
+.ti -1c
+.RI "\fBgetConcrete\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetContextualConcrete\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBmissingLeadingSlash\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetExtenders\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBgetDependencies\fP ($parameters, array $primitives=[])"
+.br
+.ti -1c
+.RI "\fBresolveNonClass\fP (ReflectionParameter $parameter)"
+.br
+.ti -1c
+.RI "\fBresolveClass\fP (ReflectionParameter $parameter)"
+.br
+.ti -1c
+.RI "\fBkeyParametersByArgument\fP (array $dependencies, array $parameters)"
+.br
+.ti -1c
+.RI "\fBresolvingCallback\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafterResolvingCallback\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetFunctionHint\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBfireResolvingCallbacks\fP ($abstract, $object)"
+.br
+.ti -1c
+.RI "\fBgetCallbacksForType\fP ($abstract, $object, array $callbacksPerType)"
+.br
+.ti -1c
+.RI "\fBfireCallbackArray\fP ($object, array $callbacks)"
+.br
+.ti -1c
+.RI "\fBisBuildable\fP ($concrete, $abstract)"
+.br
+.ti -1c
+.RI "\fBgetAlias\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBdropStaleInstances\fP ($abstract)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$resolved\fP = array()"
+.br
+.ti -1c
+.RI "\fB$bindings\fP = array()"
+.br
+.ti -1c
+.RI "\fB$instances\fP = array()"
+.br
+.ti -1c
+.RI "\fB$aliases\fP = array()"
+.br
+.ti -1c
+.RI "\fB$extenders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$tags\fP = array()"
+.br
+.ti -1c
+.RI "\fB$buildStack\fP = array()"
+.br
+.ti -1c
+.RI "\fB$reboundCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$globalResolvingCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$globalAfterResolvingCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$resolvingCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$afterResolvingCallbacks\fP = array()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$instance\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 747 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__get ( $key)"
+
+.PP
+Definition at line 1228 of file compiled\&.php\&.
+.SS "__get ( $key)"
+Dynamically access container services\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1274 of file Container\&.php\&.
+.SS "__set ( $key,  $value)"
+
+.PP
+Definition at line 1232 of file compiled\&.php\&.
+.SS "__set ( $key,  $value)"
+Dynamically set container services\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1286 of file Container\&.php\&.
+.SS "addContextualBinding ( $concrete,  $abstract,  $implementation)"
+Add a contextual binding to the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$concrete\fP 
+.br
+\fI$abstract\fP 
+.br
+\fI$implementation\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file Container\&.php\&.
+.SS "addContextualBinding ( $concrete,  $abstract,  $implementation)"
+
+.PP
+Definition at line 808 of file compiled\&.php\&.
+.SS "addDependencyForCallParameter (ReflectionParameter $parameter, array & $parameters, & $dependencies)\fC [protected]\fP"
+Get the dependency for the given call parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameter\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$dependencies\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 587 of file Container\&.php\&.
+.SS "addDependencyForCallParameter (ReflectionParameter $parameter, array & $parameters, & $dependencies)\fC [protected]\fP"
+
+.PP
+Definition at line 952 of file compiled\&.php\&.
+.SS "afterResolving ( $abstract, Closure $callback = \fCnull\fP)"
+Register a new after resolving callback for all types\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 952 of file Container\&.php\&.
+.SS "afterResolving ( $abstract, Closure $callback = \fCnull\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 1098 of file compiled\&.php\&.
+.SS "afterResolvingCallback (Closure $callback)\fC [protected]\fP"
+Register a new after resolving callback by type of its first argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 990 of file Container\&.php\&.
+.SS "afterResolvingCallback (Closure $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 1115 of file compiled\&.php\&.
+.SS "alias ( $abstract,  $alias)"
+Alias a type to a different name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$alias\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 413 of file Container\&.php\&.
+.SS "alias ( $abstract,  $alias)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 878 of file compiled\&.php\&.
+.SS "bind ( $abstract,  $concrete = \fCnull\fP,  $shared = \fCfalse\fP)"
+Register a binding with the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$concrete\fP 
+.br
+\fI$shared\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 175 of file Container\&.php\&.
+.SS "bind ( $abstract,  $concrete = \fCnull\fP,  $shared = \fCfalse\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 783 of file compiled\&.php\&.
+.SS "bindIf ( $abstract,  $concrete = \fCnull\fP,  $shared = \fCfalse\fP)"
+Register a binding if it hasn't already been registered\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$concrete\fP 
+.br
+\fI$shared\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 253 of file Container\&.php\&.
+.SS "bindIf ( $abstract,  $concrete = \fCnull\fP,  $shared = \fCfalse\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 812 of file compiled\&.php\&.
+.SS "bindShared ( $abstract, Closure $closure)"
+Bind a shared Closure into the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$closure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file Container\&.php\&.
+.SS "bindShared ( $abstract, Closure $closure)"
+
+.PP
+Definition at line 832 of file compiled\&.php\&.
+.SS "bound ( $abstract)"
+Determine if the given abstract type has been bound\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 140 of file Container\&.php\&.
+.SS "bound ( $abstract)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 771 of file compiled\&.php\&.
+.SS "build ( $concrete,  $parameters = \fC[]\fP)"
+Instantiate a concrete instance of the given type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$concrete\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBBindingResolutionException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 766 of file Container\&.php\&.
+.SS "build ( $concrete,  $parameters = \fCarray()\fP)"
+
+.PP
+Definition at line 1024 of file compiled\&.php\&.
+.SS "call ( $callback, array $parameters = \fC[]\fP,  $defaultMethod = \fCnull\fP)"
+Call the given Closure / class and inject its dependencies\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$defaultMethod\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 514 of file Container\&.php\&.
+.SS "call ( $callback, array $parameters = \fCarray()\fP,  $defaultMethod = \fCnull\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 919 of file compiled\&.php\&.
+.SS "callClass ( $target, array $parameters = \fC[]\fP,  $defaultMethod = \fCnull\fP)\fC [protected]\fP"
+Call a string reference to a class using Class syntax\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$target\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$defaultMethod\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 613 of file Container\&.php\&.
+.SS "callClass ( $target, array $parameters = \fCarray()\fP,  $defaultMethod = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 963 of file compiled\&.php\&.
+.SS "dropStaleInstances ( $abstract)\fC [protected]\fP"
+Drop all of the stale instances and aliases\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1152 of file Container\&.php\&.
+.SS "dropStaleInstances ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1180 of file compiled\&.php\&.
+.SS "extend ( $abstract, Closure $closure)"
+'Extend' an abstract type in the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$closure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 318 of file Container\&.php\&.
+.SS "extend ( $abstract, Closure $closure)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 836 of file compiled\&.php\&.
+.SS "extractAlias (array $definition)\fC [protected]\fP"
+Extract the type and alias from a given definition\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$definition\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 424 of file Container\&.php\&.
+.SS "extractAlias (array $definition)\fC [protected]\fP"
+
+.PP
+Definition at line 882 of file compiled\&.php\&.
+.SS "fireCallbackArray ( $object, array $callbacks)\fC [protected]\fP"
+Fire an array of callbacks with an object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$object\fP 
+.br
+\fI$callbacks\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1085 of file Container\&.php\&.
+.SS "fireCallbackArray ( $object, array $callbacks)\fC [protected]\fP"
+
+.PP
+Definition at line 1153 of file compiled\&.php\&.
+.SS "fireResolvingCallbacks ( $abstract,  $object)\fC [protected]\fP"
+Fire all of the resolving callbacks\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$object\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1036 of file Container\&.php\&.
+.SS "fireResolvingCallbacks ( $abstract,  $object)\fC [protected]\fP"
+
+.PP
+Definition at line 1136 of file compiled\&.php\&.
+.SS "flush ()"
+Flush the container of all bindings and resolved instances\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1183 of file Container\&.php\&.
+.SS "flush ()"
+
+.PP
+Definition at line 1192 of file compiled\&.php\&.
+.SS "forgetInstance ( $abstract)"
+Remove a resolved instance from the instance cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1163 of file Container\&.php\&.
+.SS "forgetInstance ( $abstract)"
+
+.PP
+Definition at line 1184 of file compiled\&.php\&.
+.SS "forgetInstances ()"
+Clear all of the instances from the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1173 of file Container\&.php\&.
+.SS "forgetInstances ()"
+
+.PP
+Definition at line 1188 of file compiled\&.php\&.
+.SS "getAlias ( $abstract)\fC [protected]\fP"
+Get the alias for an abstract if available\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1131 of file Container\&.php\&.
+.SS "getAlias ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1172 of file compiled\&.php\&.
+.SS "getBindings ()"
+Get the container's bindings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1141 of file Container\&.php\&.
+.SS "getBindings ()"
+
+.PP
+Definition at line 1176 of file compiled\&.php\&.
+.SS "getCallbacksForType ( $abstract,  $object, array $callbacksPerType)\fC [protected]\fP"
+Get all callbacks for a given type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$object\fP 
+.br
+\fI$callbacksPerType\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1064 of file Container\&.php\&.
+.SS "getCallbacksForType ( $abstract,  $object, array $callbacksPerType)\fC [protected]\fP"
+
+.PP
+Definition at line 1143 of file compiled\&.php\&.
+.SS "getCallReflector ( $callback)\fC [protected]\fP"
+Get the proper reflection instance for the given callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 564 of file Container\&.php\&.
+.SS "getCallReflector ( $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 942 of file compiled\&.php\&.
+.SS "getClosure ( $abstract,  $concrete)\fC [protected]\fP"
+Get the Closure to be used when building a type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$concrete\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 223 of file Container\&.php\&.
+.SS "getClosure ( $abstract,  $concrete)\fC [protected]\fP"
+
+.PP
+Definition at line 801 of file compiled\&.php\&.
+.SS "getConcrete ( $abstract)\fC [protected]\fP"
+Get the concrete type for a given abstract\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed $concrete 
+.RE
+.PP
+
+.PP
+Definition at line 692 of file Container\&.php\&.
+.SS "getConcrete ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 994 of file compiled\&.php\&.
+.SS "getContextualConcrete ( $abstract)\fC [protected]\fP"
+Get the contextual concrete binding for the given abstract\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 722 of file Container\&.php\&.
+.SS "getContextualConcrete ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1007 of file compiled\&.php\&.
+.SS "getDependencies ( $parameters, array $primitives = \fC[]\fP)\fC [protected]\fP"
+Resolve all of the dependencies from the ReflectionParameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.br
+\fI$primitives\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 827 of file Container\&.php\&.
+.SS "getDependencies ( $parameters, array $primitives = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 1046 of file compiled\&.php\&.
+.SS "getExtenders ( $abstract)\fC [protected]\fP"
+Get the extender callbacks for a given type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 747 of file Container\&.php\&.
+.SS "getExtenders ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1017 of file compiled\&.php\&.
+.SS "getFunctionHint (Closure $callback)\fC [protected]\fP"
+Get the type hint for this closure's first argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1010 of file Container\&.php\&.
+.SS "getFunctionHint (Closure $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 1124 of file compiled\&.php\&.
+.SS "static getInstance ()\fC [static]\fP"
+Set the globally available instance of the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 1196 of file Container\&.php\&.
+.SS "static getInstance ()\fC [static]\fP"
+
+.PP
+Definition at line 1199 of file compiled\&.php\&.
+.SS "getMethodDependencies ( $callback,  $parameters = \fC[]\fP)\fC [protected]\fP"
+Get all dependencies for a given method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 546 of file Container\&.php\&.
+.SS "getMethodDependencies ( $callback,  $parameters = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 934 of file compiled\&.php\&.
+.SS "getReboundCallbacks ( $abstract)\fC [protected]\fP"
+Get the rebound callbacks for a given type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 481 of file Container\&.php\&.
+.SS "getReboundCallbacks ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 906 of file compiled\&.php\&.
+.SS "instance ( $abstract,  $instance)"
+Register an existing instance as shared in the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$instance\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 339 of file Container\&.php\&.
+.SS "instance ( $abstract,  $instance)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 845 of file compiled\&.php\&.
+.SS "isAlias ( $name)"
+Determine if a given string is an alias\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file Container\&.php\&.
+.SS "isAlias ( $name)"
+
+.PP
+Definition at line 779 of file compiled\&.php\&.
+.SS "isBuildable ( $concrete,  $abstract)\fC [protected]\fP"
+Determine if the given concrete is buildable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$concrete\fP 
+.br
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1120 of file Container\&.php\&.
+.SS "isBuildable ( $concrete,  $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1168 of file compiled\&.php\&.
+.SS "isCallableWithAtSign ( $callback)\fC [protected]\fP"
+Determine if the given string is in Class syntax\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 532 of file Container\&.php\&.
+.SS "isCallableWithAtSign ( $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 927 of file compiled\&.php\&.
+.SS "isShared ( $abstract)"
+Determine if a given type is shared\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1099 of file Container\&.php\&.
+.SS "isShared ( $abstract)"
+
+.PP
+Definition at line 1159 of file compiled\&.php\&.
+.SS "keyParametersByArgument (array $dependencies, array $parameters)\fC [protected]\fP"
+If extra parameters are passed by numeric ID, rekey them by argument name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dependencies\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 911 of file Container\&.php\&.
+.SS "keyParametersByArgument (array $dependencies, array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 1080 of file compiled\&.php\&.
+.SS "make ( $abstract,  $parameters = \fC[]\fP)"
+Resolve the given type from the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 637 of file Container\&.php\&.
+.SS "make ( $abstract,  $parameters = \fCarray()\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 972 of file compiled\&.php\&.
+.SS "missingLeadingSlash ( $abstract)\fC [protected]\fP"
+Determine if the given abstract has a leading slash\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 736 of file Container\&.php\&.
+.SS "missingLeadingSlash ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 1013 of file compiled\&.php\&.
+.SS "offsetExists ( $key)"
+
+.PP
+Definition at line 1207 of file compiled\&.php\&.
+.SS "offsetExists ( $key)"
+Determine if a given offset exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1218 of file Container\&.php\&.
+.SS "offsetGet ( $key)"
+
+.PP
+Definition at line 1211 of file compiled\&.php\&.
+.SS "offsetGet ( $key)"
+Get the value at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1229 of file Container\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+
+.PP
+Definition at line 1215 of file compiled\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+Set the value at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1241 of file Container\&.php\&.
+.SS "offsetUnset ( $key)"
+
+.PP
+Definition at line 1224 of file compiled\&.php\&.
+.SS "offsetUnset ( $key)"
+Unset the value at a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1263 of file Container\&.php\&.
+.SS "rebinding ( $abstract, Closure $callback)"
+Bind a new callback to an abstract's rebind event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file Container\&.php\&.
+.SS "rebinding ( $abstract, Closure $callback)"
+
+.PP
+Definition at line 886 of file compiled\&.php\&.
+.SS "rebound ( $abstract)\fC [protected]\fP"
+Fire the 'rebound' callbacks for the given abstract type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 465 of file Container\&.php\&.
+.SS "rebound ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 899 of file compiled\&.php\&.
+.SS "refresh ( $abstract,  $target,  $method)"
+Refresh an instance on the given target and method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$target\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 451 of file Container\&.php\&.
+.SS "refresh ( $abstract,  $target,  $method)"
+
+.PP
+Definition at line 893 of file compiled\&.php\&.
+.SS "resolvable ( $abstract)\fC [protected]\fP"
+Determine if a given string is resolvable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file Container\&.php\&.
+.SS "resolvable ( $abstract)\fC [protected]\fP"
+
+.PP
+Definition at line 767 of file compiled\&.php\&.
+.SS "resolveClass (ReflectionParameter $parameter)\fC [protected]\fP"
+Resolve a class based dependency from the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameter\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBBindingResolutionException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 883 of file Container\&.php\&.
+.SS "resolveClass (ReflectionParameter $parameter)\fC [protected]\fP"
+
+.PP
+Definition at line 1069 of file compiled\&.php\&.
+.SS "resolved ( $abstract)"
+Determine if the given abstract type has been resolved\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 151 of file Container\&.php\&.
+.SS "resolved ( $abstract)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 775 of file compiled\&.php\&.
+.SS "resolveNonClass (ReflectionParameter $parameter)\fC [protected]\fP"
+Resolve a non-class hinted dependency\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameter\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBBindingResolutionException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 863 of file Container\&.php\&.
+.SS "resolveNonClass (ReflectionParameter $parameter)\fC [protected]\fP"
+
+.PP
+Definition at line 1061 of file compiled\&.php\&.
+.SS "resolving ( $abstract, Closure $callback = \fCnull\fP)"
+Register a new resolving callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 933 of file Container\&.php\&.
+.SS "resolving ( $abstract, Closure $callback = \fCnull\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 1090 of file compiled\&.php\&.
+.SS "resolvingCallback (Closure $callback)\fC [protected]\fP"
+Register a new resolving callback by type of its first argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 970 of file Container\&.php\&.
+.SS "resolvingCallback (Closure $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 1106 of file compiled\&.php\&.
+.SS "static setInstance (ContainerContract $container)\fC [static]\fP"
+
+.PP
+Definition at line 1203 of file compiled\&.php\&.
+.SS "static setInstance (ContainerContract $container)\fC [static]\fP"
+Set the shared instance of the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1207 of file Container\&.php\&.
+.SS "share (Closure $closure)"
+Wrap a Closure such that it is shared\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$closure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 279 of file Container\&.php\&.
+.SS "share (Closure $closure)"
+
+.PP
+Definition at line 822 of file compiled\&.php\&.
+.SS "singleton ( $abstract,  $concrete = \fCnull\fP)"
+Register a shared binding in the container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$concrete\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 268 of file Container\&.php\&.
+.SS "singleton ( $abstract,  $concrete = \fCnull\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 818 of file compiled\&.php\&.
+.SS "tag ( $abstracts,  $tags)"
+Assign a set of tags to a given binding\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstracts\fP 
+.br
+\fIarray|mixed\fP \&.\&.\&.$tags 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 373 of file Container\&.php\&.
+.SS "tag ( $abstracts,  $tags)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 858 of file compiled\&.php\&.
+.SS "tagged ( $tag)"
+Resolve all of the bindings for a given tag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tag\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 394 of file Container\&.php\&.
+.SS "tagged ( $tag)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 870 of file compiled\&.php\&.
+.SS "when ( $concrete)"
+Define a contextual binding\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$concrete\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 118 of file Container\&.php\&.
+.SS "when ( $concrete)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 763 of file compiled\&.php\&.
+.SS "wrap (Closure $callback, array $parameters = \fC[]\fP)"
+Wrap the given closure such that its dependencies will be injected when executed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 498 of file Container\&.php\&.
+.SS "wrap (Closure $callback, array $parameters = \fCarray()\fP)"
+
+.PP
+Definition at line 913 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$afterResolvingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 762 of file compiled\&.php\&.
+.SS "$aliases = array()\fC [protected]\fP"
+
+.PP
+Definition at line 753 of file compiled\&.php\&.
+.SS "$bindings = array()\fC [protected]\fP"
+
+.PP
+Definition at line 751 of file compiled\&.php\&.
+.SS "$buildStack = array()\fC [protected]\fP"
+
+.PP
+Definition at line 756 of file compiled\&.php\&.
+.SS "$contextual = array()"
+
+.PP
+Definition at line 757 of file compiled\&.php\&.
+.SS "$extenders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 754 of file compiled\&.php\&.
+.SS "$globalAfterResolvingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 760 of file compiled\&.php\&.
+.SS "$globalResolvingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 759 of file compiled\&.php\&.
+.SS "static $\fBinstance\fP\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 749 of file compiled\&.php\&.
+.SS "$instances = array()\fC [protected]\fP"
+
+.PP
+Definition at line 752 of file compiled\&.php\&.
+.SS "$reboundCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 758 of file compiled\&.php\&.
+.SS "$\fBresolved\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 750 of file compiled\&.php\&.
+.SS "$resolvingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 761 of file compiled\&.php\&.
+.SS "$tags = array()\fC [protected]\fP"
+
+.PP
+Definition at line 755 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

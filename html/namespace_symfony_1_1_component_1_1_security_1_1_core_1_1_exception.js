@@ -1,0 +1,26 @@
+var namespace_symfony_1_1_component_1_1_security_1_1_core_1_1_exception =
+[
+    [ "AccessDeniedException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_access_denied_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_access_denied_exception" ],
+    [ "AccountExpiredException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_account_expired_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_account_expired_exception" ],
+    [ "AccountStatusException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_account_status_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_account_status_exception" ],
+    [ "AuthenticationCredentialsNotFoundException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_credentials_not_found_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_credentials_not_found_exception" ],
+    [ "AuthenticationException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_exception" ],
+    [ "AuthenticationServiceException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_service_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_authentication_service_exception" ],
+    [ "BadCredentialsException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_bad_credentials_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_bad_credentials_exception" ],
+    [ "CookieTheftException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_cookie_theft_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_cookie_theft_exception" ],
+    [ "CredentialsExpiredException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_credentials_expired_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_credentials_expired_exception" ],
+    [ "DisabledException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_disabled_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_disabled_exception" ],
+    [ "ExceptionInterface", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_exception_interface.html", null ],
+    [ "InsufficientAuthenticationException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_insufficient_authentication_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_insufficient_authentication_exception" ],
+    [ "InvalidArgumentException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_invalid_argument_exception.html", null ],
+    [ "InvalidCsrfTokenException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_invalid_csrf_token_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_invalid_csrf_token_exception" ],
+    [ "LockedException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_locked_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_locked_exception" ],
+    [ "LogoutException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_logout_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_logout_exception" ],
+    [ "NonceExpiredException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_nonce_expired_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_nonce_expired_exception" ],
+    [ "ProviderNotFoundException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_provider_not_found_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_provider_not_found_exception" ],
+    [ "RuntimeException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_runtime_exception.html", null ],
+    [ "SessionUnavailableException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_session_unavailable_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_session_unavailable_exception" ],
+    [ "TokenNotFoundException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_token_not_found_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_token_not_found_exception" ],
+    [ "UnsupportedUserException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_unsupported_user_exception.html", null ],
+    [ "UsernameNotFoundException", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_username_not_found_exception.html", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_exception_1_1_username_not_found_exception" ]
+];

@@ -1,0 +1,923 @@
+.TH "Configuration" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Configuration \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $config=array())"
+.br
+.ti -1c
+.RI "\fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConfigFile\fP ()"
+.br
+.ti -1c
+.RI "\fBloadConfig\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBloadConfigFile\fP ($file)"
+.br
+.ti -1c
+.RI "\fBsetDefaultIncludes\fP (array $includes=array())"
+.br
+.ti -1c
+.RI "\fBgetDefaultIncludes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConfigDir\fP ($dir)"
+.br
+.ti -1c
+.RI "\fBgetConfigDir\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDataDir\fP ($dir)"
+.br
+.ti -1c
+.RI "\fBgetDataDir\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRuntimeDir\fP ($dir)"
+.br
+.ti -1c
+.RI "\fBgetRuntimeDir\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTempDir\fP ($dir)"
+.br
+.ti -1c
+.RI "\fBgetTempDir\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHistoryFile\fP ($file)"
+.br
+.ti -1c
+.RI "\fBgetHistoryFile\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHistorySize\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetHistorySize\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEraseDuplicates\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetEraseDuplicates\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTempFile\fP ($type, $pid)"
+.br
+.ti -1c
+.RI "\fBgetPipe\fP ($type, $pid)"
+.br
+.ti -1c
+.RI "\fBhasReadline\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUseReadline\fP ($\fBuseReadline\fP)"
+.br
+.ti -1c
+.RI "\fBuseReadline\fP ()"
+.br
+.ti -1c
+.RI "\fBsetReadline\fP (\fBReadline\fP $readline)"
+.br
+.ti -1c
+.RI "\fBgetReadline\fP ()"
+.br
+.ti -1c
+.RI "\fBhasPcntl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUsePcntl\fP ($\fBusePcntl\fP)"
+.br
+.ti -1c
+.RI "\fBusePcntl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequireSemicolons\fP ($\fBrequireSemicolons\fP)"
+.br
+.ti -1c
+.RI "\fBrequireSemicolons\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCodeCleaner\fP (\fBCodeCleaner\fP $cleaner)"
+.br
+.ti -1c
+.RI "\fBgetCodeCleaner\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTabCompletion\fP ($tabCompletion)"
+.br
+.ti -1c
+.RI "\fBgetTabCompletion\fP ()"
+.br
+.ti -1c
+.RI "\fBsetOutput\fP (\fBShellOutput\fP $output)"
+.br
+.ti -1c
+.RI "\fBgetOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPager\fP ($pager)"
+.br
+.ti -1c
+.RI "\fBgetPager\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLoop\fP (\fBLoop\fP $loop)"
+.br
+.ti -1c
+.RI "\fBgetLoop\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAutoCompleter\fP (\fBAutoCompleter\fP $completer)"
+.br
+.ti -1c
+.RI "\fBgetAutoCompleter\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTabCompletionMatchers\fP ()"
+.br
+.ti -1c
+.RI "\fBaddTabCompletionMatchers\fP (array $matchers)"
+.br
+.ti -1c
+.RI "\fBaddCommands\fP (array $commands)"
+.br
+.ti -1c
+.RI "\fBsetShell\fP (\fBShell\fP $shell)"
+.br
+.ti -1c
+.RI "\fBsetManualDbFile\fP ($filename)"
+.br
+.ti -1c
+.RI "\fBgetManualDbFile\fP ()"
+.br
+.ti -1c
+.RI "\fBgetManualDb\fP ()"
+.br
+.ti -1c
+.RI "\fBaddPresenters\fP (array $presenters)"
+.br
+.ti -1c
+.RI "\fBgetPresenterManager\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetConfigDirs\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDataDirs\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBPsy\fP \fBShell\fP configuration\&. 
+.PP
+Definition at line 30 of file Configuration\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $config = \fCarray()\fP)"
+Construct a \fBConfiguration\fP instance\&.
+.PP
+Optionally, supply an array of configuration values to load\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP Optional array of configuration values\&. 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Configuration\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addCommands (array $commands)"
+Add commands to the \fBShell\fP\&.
+.PP
+This will buffer new commands in the event that the \fBShell\fP has not yet been instantiated\&. This allows the user to specify commands in their config rc file, despite the fact that their file is needed in the \fBShell\fP constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$commands\fP 
+.RE
+.PP
+
+.PP
+Definition at line 894 of file Configuration\&.php\&.
+.SS "addPresenters (array $presenters)"
+Add an array of Presenters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$presenters\fP 
+.RE
+.PP
+
+.PP
+Definition at line 987 of file Configuration\&.php\&.
+.SS "addTabCompletionMatchers (array $matchers)"
+Add additional tab completion matchers to the AutoCompleter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$matchers\fP 
+.RE
+.PP
+
+.PP
+Definition at line 876 of file Configuration\&.php\&.
+.SS "getAutoCompleter ()"
+Get an AutoCompleter service instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+AutoCompleter 
+.RE
+.PP
+
+.PP
+Definition at line 852 of file Configuration\&.php\&.
+.SS "getCodeCleaner ()"
+Get a \fBCodeCleaner\fP service instance\&.
+.PP
+If none has been explicitly defined, this will create a new instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCodeCleaner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 703 of file Configuration\&.php\&.
+.SS "getConfigDir ()"
+Get the current configuration directory, if any is explicitly set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 333 of file Configuration\&.php\&.
+.SS "getConfigDirs ()\fC [protected]\fP"
+Get potential config directory paths\&.
+.PP
+If a \fCconfigDir\fP option was explicitly set, returns an array containing just that directory\&.
+.PP
+Otherwise, it returns \fC~/\&.psysh\fP and all XDG Base Directory config directories: 
+.PP
+.nf
+http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+.fi
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Configuration\&.php\&.
+.SS "getConfigFile ()"
+Get the current PsySH config file\&.
+.PP
+If a \fCconfigFile\fP option was passed to the \fBConfiguration\fP constructor, this file will be returned\&. If not, all possible config directories will be searched, and the first \fCconfig\&.php\fP or \fCrc\&.php\fP file which exists will be returned\&.
+.PP
+If you're trying to decide where to put your config file, pick 
+.PP
+.nf
+~/.config/psysh/config.php
+
+.fi
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Configuration\&.php\&.
+.SS "getDataDir ()"
+Get the current data directory, if any is explicitly set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 353 of file Configuration\&.php\&.
+.SS "getDataDirs ()\fC [protected]\fP"
+Get potential data directory paths\&.
+.PP
+If a \fCdataDir\fP option was explicitly set, returns an array containing just that directory\&.
+.PP
+Otherwise, it returns \fC~/\&.psysh\fP and all XDG Base Directory data directories: 
+.PP
+.nf
+http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+.fi
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file Configuration\&.php\&.
+.SS "getDefaultIncludes ()"
+Get files to be included by default at the start of each shell session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 313 of file Configuration\&.php\&.
+.SS "getEraseDuplicates ()"
+Get whether readline erases old duplicate history entries\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 502 of file Configuration\&.php\&.
+.SS "getHistoryFile ()"
+Get the readline history file path\&.
+.PP
+Defaults to \fC/history\fP inside the shell's base config dir unless explicitly overridden\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 432 of file Configuration\&.php\&.
+.SS "getHistorySize ()"
+Get the readline max history size\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 482 of file Configuration\&.php\&.
+.SS "getLoop ()"
+Get a \fBShell\fP evaluation Loop service instance\&.
+.PP
+If none has been explicitly defined, this will create a new instance\&. If Pcntl is available and enabled, the new instance will be a ForkingLoop\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Loop 
+.RE
+.PP
+
+.PP
+Definition at line 824 of file Configuration\&.php\&.
+.SS "getManualDb ()"
+Get a \fBPHP\fP manual database connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+PDO 
+.RE
+.PP
+
+.PP
+Definition at line 962 of file Configuration\&.php\&.
+.SS "getManualDbFile ()"
+Get the current \fBPHP\fP manual database file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Default: '~/\&.local/share/psysh/php_manual\&.sqlite' 
+.RE
+.PP
+
+.PP
+Definition at line 943 of file Configuration\&.php\&.
+.SS "getOutput ()"
+Get a \fBShell\fP \fBOutput\fP service instance\&.
+.PP
+If none has been explicitly provided, this will create a new instance with VERBOSITY_NORMAL and the output page supplied by self::getPager
+.PP
+\fBSee also:\fP
+.RS 4
+self::getPager
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+ShellOutput 
+.RE
+.PP
+
+.PP
+Definition at line 755 of file Configuration\&.php\&.
+.SS "getPager ()"
+Get an OutputPager instance or a command for an external Proc pager\&.
+.PP
+If no Pager has been explicitly provided, and Pcntl is available, this will default to \fCcli\&.pager\fP ini value, falling back to \fCwhich less\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|OutputPager 
+.RE
+.PP
+
+.PP
+Definition at line 791 of file Configuration\&.php\&.
+.SS "getPipe ( $type,  $pid)"
+Get a filename suitable for a FIFO pipe of $type for process $pid\&.
+.PP
+The pipe will be created inside the current temporary directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$pid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Pipe name 
+.RE
+.PP
+
+.PP
+Definition at line 534 of file Configuration\&.php\&.
+.SS "getPresenterManager ()"
+Get the PresenterManager service\&.
+.PP
+\fBReturns:\fP
+.RS 4
+PresenterManager 
+.RE
+.PP
+
+.PP
+Definition at line 1000 of file Configuration\&.php\&.
+.SS "getReadline ()"
+Get the \fBPsy\fP \fBShell\fP readline service\&.
+.PP
+By default, this service uses (in order of preference):
+.PP
+.IP "\(bu" 2
+GNU \fBReadline\fP
+.IP "\(bu" 2
+Libedit
+.IP "\(bu" 2
+\fBA\fP transient array-based readline emulation\&.
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+\fBReadline\fP 
+.RE
+.PP
+
+.PP
+Definition at line 593 of file Configuration\&.php\&.
+.SS "getRuntimeDir ()"
+Get the shell's temporary directory location\&.
+.PP
+Defaults to \fC/psysh\fP inside the system's temp dir unless explicitly overridden\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 376 of file Configuration\&.php\&.
+.SS "getTabCompletion ()"
+Check whether to use tab completion\&.
+.PP
+If \fCsetTabCompletion\fP has been set to true, but readline is not actually available, this will return false\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the current \fBShell\fP should use tab completion\&. 
+.RE
+.PP
+
+.PP
+Definition at line 730 of file Configuration\&.php\&.
+.SS "getTabCompletionMatchers ()"
+Get user specified tab completion matchers for the AutoCompleter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 866 of file Configuration\&.php\&.
+.SS "getTempDir ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBgetRuntimeDir()\fP instead\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 407 of file Configuration\&.php\&.
+.SS "getTempFile ( $type,  $pid)"
+Get a temporary file of type $type for process $pid\&.
+.PP
+The file will be created inside the current temporary directory\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::getRuntimeDir
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$pid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Temporary file name 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file Configuration\&.php\&.
+.SS "hasPcntl ()"
+Check whether this \fBPHP\fP instance has Pcntl available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if Pcntl is available\&. 
+.RE
+.PP
+
+.PP
+Definition at line 632 of file Configuration\&.php\&.
+.SS "hasReadline ()"
+Check whether this \fBPHP\fP instance has \fBReadline\fP available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if \fBReadline\fP is available\&. 
+.RE
+.PP
+
+.PP
+Definition at line 544 of file Configuration\&.php\&.
+.SS "init ()"
+Initialize the configuration\&.
+.PP
+This checks for the presence of \fBReadline\fP and Pcntl extensions\&.
+.PP
+If a config file is available, it will be loaded and merged with the current config\&. 
+.PP
+Definition at line 107 of file Configuration\&.php\&.
+.SS "loadConfig (array $options)"
+Load configuration values from an array of options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file Configuration\&.php\&.
+.SS "loadConfigFile ( $file)"
+Load a configuration file (default: \fC$HOME/\&.config/psysh/config\&.php\fP)\&.
+.PP
+This configuration instance will be available to the config file as $config\&. The config file may directly manipulate the configuration, or may return an array of options which will be merged with the current configuration\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 278 of file Configuration\&.php\&.
+.SS "requireSemicolons ()"
+Check whether to require semicolons on all statements\&.
+.PP
+By default, PsySH will automatically insert semicolons at the end of statements if they're missing\&. To strictly require semicolons, set \fCrequireSemicolons\fP to true\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 681 of file Configuration\&.php\&.
+.SS "setAutoCompleter (\fBAutoCompleter\fP $completer)"
+Set the \fBShell\fP autocompleter service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$completer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 842 of file Configuration\&.php\&.
+.SS "setCodeCleaner (\fBCodeCleaner\fP $cleaner)"
+Set a \fBCodeCleaner\fP service instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cleaner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 691 of file Configuration\&.php\&.
+.SS "setConfigDir ( $dir)"
+Set the shell's config directory location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dir\fP 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file Configuration\&.php\&.
+.SS "setDataDir ( $dir)"
+Set the shell's data directory location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dir\fP 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file Configuration\&.php\&.
+.SS "setDefaultIncludes (array $includes = \fCarray()\fP)"
+Set files to be included by default at the start of each shell session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$includes\fP 
+.RE
+.PP
+
+.PP
+Definition at line 303 of file Configuration\&.php\&.
+.SS "setEraseDuplicates ( $value)"
+Sets whether readline erases old duplicate history entries\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 492 of file Configuration\&.php\&.
+.SS "setHistoryFile ( $file)"
+Set the readline history file path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+
+.PP
+Definition at line 419 of file Configuration\&.php\&.
+.SS "setHistorySize ( $value)"
+Set the readline max history size\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 472 of file Configuration\&.php\&.
+.SS "setLoop (\fBLoop\fP $loop)"
+Set the \fBShell\fP evaluation Loop service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loop\fP 
+.RE
+.PP
+
+.PP
+Definition at line 811 of file Configuration\&.php\&.
+.SS "setManualDbFile ( $filename)"
+Set the \fBPHP\fP manual database file\&.
+.PP
+This file should be an SQLite database generated from the phpdoc source with the \fCbin/build_manual\fP script\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filename\fP 
+.RE
+.PP
+
+.PP
+Definition at line 933 of file Configuration\&.php\&.
+.SS "setOutput (\fBShellOutput\fP $output)"
+Set the \fBShell\fP \fBOutput\fP service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP 
+.RE
+.PP
+
+.PP
+Definition at line 740 of file Configuration\&.php\&.
+.SS "setPager ( $pager)"
+Set the OutputPager service\&.
+.PP
+If a string is supplied, a ProcOutputPager will be used which shells out to the specified command\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 774 of file Configuration\&.php\&.
+.SS "setReadline (\fBReadline\fP $readline)"
+Set the \fBPsy\fP \fBShell\fP readline service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$readline\fP 
+.RE
+.PP
+
+.PP
+Definition at line 577 of file Configuration\&.php\&.
+.SS "setRequireSemicolons ( $requireSemicolons)"
+Enable or disable strict requirement of semicolons\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::requireSemicolons()
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$requireSemicolons\fP 
+.RE
+.PP
+
+.PP
+Definition at line 667 of file Configuration\&.php\&.
+.SS "setRuntimeDir ( $dir)"
+Set the shell's temporary directory location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dir\fP 
+.RE
+.PP
+
+.PP
+Definition at line 363 of file Configuration\&.php\&.
+.SS "setShell (\fBShell\fP $shell)"
+Set the \fBShell\fP backreference and add any new commands to the \fBShell\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$shell\fP 
+.RE
+.PP
+
+.PP
+Definition at line 919 of file Configuration\&.php\&.
+.SS "setTabCompletion ( $tabCompletion)"
+Enable or disable tab completion\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tabCompletion\fP 
+.RE
+.PP
+
+.PP
+Definition at line 717 of file Configuration\&.php\&.
+.SS "setTempDir ( $dir)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBsetRuntimeDir()\fP instead\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dir\fP 
+.RE
+.PP
+
+.PP
+Definition at line 395 of file Configuration\&.php\&.
+.SS "setUsePcntl ( $usePcntl)"
+Enable or disable Pcntl usage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$usePcntl\fP 
+.RE
+.PP
+
+.PP
+Definition at line 642 of file Configuration\&.php\&.
+.SS "setUseReadline ( $useReadline)"
+Enable or disable \fBReadline\fP usage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$useReadline\fP 
+.RE
+.PP
+
+.PP
+Definition at line 554 of file Configuration\&.php\&.
+.SS "usePcntl ()"
+Check whether to use Pcntl\&.
+.PP
+If \fCsetUsePcntl\fP has been set to true, but Pcntl is not actually available, this will return false\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the current \fBShell\fP should use Pcntl\&. 
+.RE
+.PP
+
+.PP
+Definition at line 655 of file Configuration\&.php\&.
+.SS "useReadline ()"
+Check whether to use \fBReadline\fP\&.
+.PP
+If \fCsetUseReadline\fP as been set to true, but \fBReadline\fP is not actually available, this will return false\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the current \fBShell\fP should use \fBReadline\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 567 of file Configuration\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

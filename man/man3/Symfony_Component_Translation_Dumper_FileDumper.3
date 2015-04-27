@@ -1,0 +1,133 @@
+.TH "FileDumper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FileDumper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBDumperInterface\fP\&.
+.PP
+Inherited by \fBCsvFileDumper\fP, \fBIcuResFileDumper\fP, \fBIniFileDumper\fP, \fBJsonFileDumper\fP, \fBMoFileDumper\fP, \fBPhpFileDumper\fP, \fBPoFileDumper\fP, \fBQtFileDumper\fP, \fBXliffFileDumper\fP, \fBYamlFileDumper\fP, and \fBConcreteFileDumper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetRelativePathTemplate\fP ($relativePathTemplate)"
+.br
+.ti -1c
+.RI "\fBsetBackup\fP ($backup)"
+.br
+.ti -1c
+.RI "\fBdump\fP (\fBMessageCatalogue\fP $messages, $\fBoptions\fP=array())"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBformat\fP (\fBMessageCatalogue\fP $messages, $domain)"
+.br
+.ti -1c
+.RI "\fBgetExtension\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$relativePathTemplate\fP = '%domain%\&.%\fBlocale\fP%\&.%extension%'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBFileDumper\fP is an implementation of \fBDumperInterface\fP that dump a message catalogue to file(s)\&. Performs backup of already existing files\&.
+.PP
+Options:
+.IP "\(bu" 2
+path (mandatory): the directory where the files should be saved
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Michel Salib michelsalib@hotmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file FileDumper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "dump (\fBMessageCatalogue\fP $messages,  $options = \fCarray()\fP)"
+{Dumps the message catalogue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP The message catalogue 
+.br
+\fI$options\fP Options that are used by the dumper
+.RE
+.PP
+} 
+.PP
+Implements \fBDumperInterface\fP\&.
+.PP
+Definition at line 64 of file FileDumper\&.php\&.
+.SS "format (\fBMessageCatalogue\fP $messages,  $domain)\fC [abstract]\fP, \fC [protected]\fP"
+Transforms a domain of a message catalogue to its string representation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string representation 
+.RE
+.PP
+
+.SS "getExtension ()\fC [abstract]\fP, \fC [protected]\fP"
+Gets the file extension of the dumper\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string file extension 
+.RE
+.PP
+
+.SS "setBackup ( $backup)"
+Sets backup flag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbool\fP 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file FileDumper\&.php\&.
+.SS "setRelativePathTemplate ( $relativePathTemplate)"
+Sets the template for the relative paths to files\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relativePathTemplate\fP \fBA\fP template for the relative paths to files 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file FileDumper\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$relativePathTemplate = '%domain%\&.%\fBlocale\fP%\&.%extension%'\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file FileDumper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

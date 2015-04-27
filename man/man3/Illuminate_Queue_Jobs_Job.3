@@ -1,0 +1,361 @@
+.TH "Job" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Job \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBeanstalkdJob\fP, \fBDatabaseJob\fP, \fBIronJob\fP, \fBRedisJob\fP, \fBSqsJob\fP, and \fBSyncJob\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfire\fP ()"
+.br
+.ti -1c
+.RI "\fBdelete\fP ()"
+.br
+.ti -1c
+.RI "\fBisDeleted\fP ()"
+.br
+.ti -1c
+.RI "\fBrelease\fP ($\fBdelay\fP=0)"
+.br
+.ti -1c
+.RI "\fBisReleased\fP ()"
+.br
+.ti -1c
+.RI "\fBisDeletedOrReleased\fP ()"
+.br
+.ti -1c
+.RI "\fBattempts\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRawBody\fP ()"
+.br
+.ti -1c
+.RI "\fBfailed\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBresolveAndFire\fP (array $payload)"
+.br
+.ti -1c
+.RI "\fBparseJob\fP ($job)"
+.br
+.ti -1c
+.RI "\fBresolve\fP ($class)"
+.br
+.ti -1c
+.RI "\fBresolveQueueableEntities\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBresolveQueueableEntity\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetEntityResolver\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSeconds\fP ($\fBdelay\fP)"
+.br
+.ti -1c
+.RI "\fBgetTime\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$instance\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$queue\fP"
+.br
+.ti -1c
+.RI "\fB$deleted\fP = false"
+.br
+.ti -1c
+.RI "\fB$released\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file Job\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "attempts ()\fC [abstract]\fP"
+Get the number of times the job has been attempted\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "delete ()"
+Delete the job from the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file Job\&.php\&.
+.SS "failed ()"
+Call the failed method on the job instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Job\&.php\&.
+.SS "fire ()\fC [abstract]\fP"
+Fire the job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "getEntityResolver ()\fC [protected]\fP"
+Get an entity resolver instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 216 of file Job\&.php\&.
+.SS "getName ()"
+Get the name of the queued job class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file Job\&.php\&.
+.SS "getQueue ()"
+Get the name of the queue the job belongs to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 262 of file Job\&.php\&.
+.SS "getRawBody ()\fC [abstract]\fP"
+Get the raw body string for the job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "getSeconds ( $delay)\fC [protected]\fP"
+Calculate the number of seconds with the given delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file Job\&.php\&.
+.SS "getTime ()\fC [protected]\fP"
+Get the current system time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 242 of file Job\&.php\&.
+.SS "isDeleted ()"
+Determine if the job has been deleted\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file Job\&.php\&.
+.SS "isDeletedOrReleased ()"
+Determine if the job has been deleted or released\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Job\&.php\&.
+.SS "isReleased ()"
+Determine if the job was released back into the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file Job\&.php\&.
+.SS "parseJob ( $job)\fC [protected]\fP"
+Parse the job declaration into class and method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file Job\&.php\&.
+.SS "release ( $delay = \fC0\fP)"
+Release the job back into the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Job\&.php\&.
+.SS "resolve ( $class)\fC [protected]\fP"
+Resolve the given job handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Job\&.php\&.
+.SS "resolveAndFire (array $payload)\fC [protected]\fP"
+Resolve and fire the job handler method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file Job\&.php\&.
+.SS "resolveQueueableEntities ( $data)\fC [protected]\fP"
+Resolve all of the queueable entities in the given payload\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file Job\&.php\&.
+.SS "resolveQueueableEntity ( $value)\fC [protected]\fP"
+Resolve a single queueable entity from the resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 180 of file Job\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 19 of file Job\&.php\&.
+.SS "$deleted = false\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file Job\&.php\&.
+.SS "$instance\fC [protected]\fP"
+
+.PP
+Definition at line 12 of file Job\&.php\&.
+.SS "$\fBqueue\fP\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file Job\&.php\&.
+.SS "$released = false\fC [protected]\fP"
+
+.PP
+Definition at line 40 of file Job\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

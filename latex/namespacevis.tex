@@ -1,0 +1,273 @@
+\section{vis Namespace Reference}
+\label{namespacevis}\index{vis@{vis}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf vis}
+\item 
+def {\bf unvis} (src)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list {\bf \+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+int {\bf V\+I\+S\+\_\+\+O\+C\+T\+A\+L} = 0x0001
+\begin{DoxyCompactList}\small\item\em Constants from bsd/vis.\+h. \end{DoxyCompactList}\item 
+int {\bf V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E} = 0x0002
+\item 
+int {\bf V\+I\+S\+\_\+\+S\+P} = 0x0004
+\item 
+int {\bf V\+I\+S\+\_\+\+T\+A\+B} = 0x0008
+\item 
+int {\bf V\+I\+S\+\_\+\+N\+L} = 0x0010
+\item 
+{\bf V\+I\+S\+\_\+\+W\+H\+I\+T\+E} = {\bf V\+I\+S\+\_\+\+S\+P}$\vert${\bf V\+I\+S\+\_\+\+T\+A\+B}$\vert${\bf V\+I\+S\+\_\+\+N\+L}
+\item 
+int {\bf V\+I\+S\+\_\+\+S\+A\+F\+E} = 0x0020
+\item 
+int {\bf V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H} = 0x0040
+\item 
+int {\bf V\+I\+S\+\_\+\+H\+T\+T\+P1808} = 0x0080
+\item 
+int {\bf V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E} = 0x0080
+\item 
+int {\bf V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E} = 0x0100
+\item 
+int {\bf V\+I\+S\+\_\+\+H\+T\+T\+P1866} = 0x0200
+\item 
+int {\bf V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E} = 0x0400
+\item 
+int {\bf V\+I\+S\+\_\+\+G\+L\+O\+B} = 0x1000
+\item 
+tuple {\bf \+\_\+libbsd} = C\+D\+L\+L(find\+\_\+library(\textquotesingle{}bsd\textquotesingle{}))
+\begin{DoxyCompactList}\small\item\em Import libbsd/vis functions. \end{DoxyCompactList}\item 
+{\bf \+\_\+strvis} = \+\_\+libbsd.\+strvis
+\item 
+{\bf \+\_\+strunvis} = \+\_\+libbsd.\+strunvis
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}vis.py
+======
+
+Ctypes based module to access libbsd's strvis & strunvis functions.
+
+The `vis` function is the equivalent of strvis.
+The `unvis` function is the equivalent of strunvis.
+All functions accept unicode string as input and return a unicode string.
+
+Constants:
+----------
+
+* to select alternate encoding format
+  `VIS_OCTAL`:      use octal \ddd format
+  `VIS_CSTYLE`:     use \[nrft0..] where appropiate
+
+* to alter set of characters encoded
+  (default is to encode all non-graphic except space, tab, and newline).
+  `VIS_SP`:         also encode space
+  `VIS_TAB`:        also encode tab
+  `VIS_NL`:         also encode newline
+  `VIS_WHITE`:      same as (VIS_SP | VIS_TAB | VIS_NL)
+  `VIS_SAFE`:       only encode "unsafe" characters
+
+* other
+  `VIS_NOSLASH`:    inhibit printing '\'
+  `VIS_HTTP1808`:   http-style escape % hex hex
+  `VIS_HTTPSTYLE`:  http-style escape % hex hex
+  `VIS_MIMESTYLE`:  mime-style escape = HEX HEX
+  `VIS_HTTP1866`:   http-style &#num; or &string;
+  `VIS_NOESCAPE`:   don't decode `\'
+  `VIS_GLOB`:       encode glob(3) magic characters
+
+:Authors:
+- ju1ius (http://github.com/ju1ius)
+:Version: 1
+:Date: 2014-01-05
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\index{vis@{vis}!unvis@{unvis}}
+\index{unvis@{unvis}!vis@{vis}}
+\subsubsection[{unvis}]{\setlength{\rightskip}{0pt plus 5cm}def vis.\+unvis (
+\begin{DoxyParamCaption}
+\item[{}]{src}
+\end{DoxyParamCaption}
+)}\label{namespacevis_a2764b7f4a5afe5c5775c44353eb79f67}
+\begin{DoxyVerb}Decodes a string encoded by vis.
+
+C definition:
+int strunvis(char *dst, char *src);
+\end{DoxyVerb}
+ 
+
+Definition at line 111 of file vis.\+py.
+
+\index{vis@{vis}!vis@{vis}}
+\index{vis@{vis}!vis@{vis}}
+\subsubsection[{vis}]{\setlength{\rightskip}{0pt plus 5cm}def vis.\+vis (
+\begin{DoxyParamCaption}
+\item[{}]{src, }
+\item[{}]{flags = {\ttfamily {\bf V\+I\+S\+\_\+\+W\+H\+I\+T\+E}}}
+\end{DoxyParamCaption}
+)}\label{namespacevis_a90d089947b272709a4ecdf4c6f02b6ae}
+\begin{DoxyVerb}Encodes the string `src` into libbsd's vis encoding.
+`flags` must be one of the VIS_* constants
+
+C definition:
+int strvis(char *dst, char *src, int flags);
+\end{DoxyVerb}
+ 
+
+Definition at line 91 of file vis.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{vis@{vis}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!vis@{vis}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list \+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacevis_aa4a022e6ddacd362b83964da5cc5d044}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     \textcolor{stringliteral}{'vis'}, \textcolor{stringliteral}{'unvis'},
+3     \textcolor{stringliteral}{'VIS\_OCTAL'}, \textcolor{stringliteral}{'VIS\_CSTYLE'},
+4     \textcolor{stringliteral}{'VIS\_SP'}, \textcolor{stringliteral}{'VIS\_TAB'}, \textcolor{stringliteral}{'VIS\_NL'}, \textcolor{stringliteral}{'VIS\_WHITE'}, \textcolor{stringliteral}{'VIS\_SAFE'},
+5     \textcolor{stringliteral}{'VIS\_NOSLASH'}, \textcolor{stringliteral}{'VIS\_HTTP1808'}, \textcolor{stringliteral}{'VIS\_HTTPSTYLE'}, \textcolor{stringliteral}{'VIS\_MIMESTYLE'},
+6     \textcolor{stringliteral}{'VIS\_HTTP1866'}, \textcolor{stringliteral}{'VIS\_NOESCAPE'}, \textcolor{stringliteral}{'VIS\_GLOB'}
+7 ]
+\end{DoxyCode}
+
+
+Definition at line 44 of file vis.\+py.
+
+\index{vis@{vis}!\+\_\+libbsd@{\+\_\+libbsd}}
+\index{\+\_\+libbsd@{\+\_\+libbsd}!vis@{vis}}
+\subsubsection[{\+\_\+libbsd}]{\setlength{\rightskip}{0pt plus 5cm}tuple \+\_\+libbsd = C\+D\+L\+L(find\+\_\+library(\textquotesingle{}bsd\textquotesingle{}))}\label{namespacevis_adad1e7eed134c2fbf46411c6772454a6}
+
+
+Import libbsd/vis functions. 
+
+
+
+Definition at line 80 of file vis.\+py.
+
+\index{vis@{vis}!\+\_\+strunvis@{\+\_\+strunvis}}
+\index{\+\_\+strunvis@{\+\_\+strunvis}!vis@{vis}}
+\subsubsection[{\+\_\+strunvis}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+strunvis = \+\_\+libbsd.\+strunvis}\label{namespacevis_a76fd49edaf934bae009459f58b3cc296}
+
+
+Definition at line 86 of file vis.\+py.
+
+\index{vis@{vis}!\+\_\+strvis@{\+\_\+strvis}}
+\index{\+\_\+strvis@{\+\_\+strvis}!vis@{vis}}
+\subsubsection[{\+\_\+strvis}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+strvis = \+\_\+libbsd.\+strvis}\label{namespacevis_a3a7a390e31863808322b8b78909857e6}
+
+
+Definition at line 82 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E}}
+\index{V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+C\+S\+T\+Y\+L\+E = 0x0002}\label{namespacevis_adf6d8b066f3caec99a03c4b50f8312de}
+
+
+Definition at line 59 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+G\+L\+O\+B@{V\+I\+S\+\_\+\+G\+L\+O\+B}}
+\index{V\+I\+S\+\_\+\+G\+L\+O\+B@{V\+I\+S\+\_\+\+G\+L\+O\+B}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+G\+L\+O\+B}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+G\+L\+O\+B = 0x1000}\label{namespacevis_ab3156563beec875859d0cadebf069ea9}
+
+
+Definition at line 74 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+H\+T\+T\+P1808@{V\+I\+S\+\_\+\+H\+T\+T\+P1808}}
+\index{V\+I\+S\+\_\+\+H\+T\+T\+P1808@{V\+I\+S\+\_\+\+H\+T\+T\+P1808}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+H\+T\+T\+P1808}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+H\+T\+T\+P1808 = 0x0080}\label{namespacevis_a3346841405590a3d8120b378c8ef9783}
+
+
+Definition at line 69 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+H\+T\+T\+P1866@{V\+I\+S\+\_\+\+H\+T\+T\+P1866}}
+\index{V\+I\+S\+\_\+\+H\+T\+T\+P1866@{V\+I\+S\+\_\+\+H\+T\+T\+P1866}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+H\+T\+T\+P1866}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+H\+T\+T\+P1866 = 0x0200}\label{namespacevis_a8136e55aef8647b46639c0dc5f91638a}
+
+
+Definition at line 72 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E}}
+\index{V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+H\+T\+T\+P\+S\+T\+Y\+L\+E = 0x0080}\label{namespacevis_a08cada6cfdf6dc2b66d5b80cba666e41}
+
+
+Definition at line 70 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E}}
+\index{V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E@{V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+M\+I\+M\+E\+S\+T\+Y\+L\+E = 0x0100}\label{namespacevis_ab20b44c1bf3cf48848b33d27d83af817}
+
+
+Definition at line 71 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+N\+L@{V\+I\+S\+\_\+\+N\+L}}
+\index{V\+I\+S\+\_\+\+N\+L@{V\+I\+S\+\_\+\+N\+L}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+N\+L}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+N\+L = 0x0010}\label{namespacevis_ae1d7e50962721a6d4f82225d1143108f}
+
+
+Definition at line 64 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E@{V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E}}
+\index{V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E@{V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+N\+O\+E\+S\+C\+A\+P\+E = 0x0400}\label{namespacevis_aacc1c87eb43ad1dc36f64e8ae41847e6}
+
+
+Definition at line 73 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H@{V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H}}
+\index{V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H@{V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+N\+O\+S\+L\+A\+S\+H = 0x0040}\label{namespacevis_a2cf362f3a1fa24a7fd03ec6e18d2d1ae}
+
+
+Definition at line 68 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+O\+C\+T\+A\+L@{V\+I\+S\+\_\+\+O\+C\+T\+A\+L}}
+\index{V\+I\+S\+\_\+\+O\+C\+T\+A\+L@{V\+I\+S\+\_\+\+O\+C\+T\+A\+L}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+O\+C\+T\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+O\+C\+T\+A\+L = 0x0001}\label{namespacevis_a00500464ce3dde130f6e58262e7f9122}
+
+
+Constants from bsd/vis.\+h. 
+
+
+
+Definition at line 58 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+S\+A\+F\+E@{V\+I\+S\+\_\+\+S\+A\+F\+E}}
+\index{V\+I\+S\+\_\+\+S\+A\+F\+E@{V\+I\+S\+\_\+\+S\+A\+F\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+S\+A\+F\+E}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+S\+A\+F\+E = 0x0020}\label{namespacevis_a5643147e3f575749e54c01cca3517c3b}
+
+
+Definition at line 66 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+S\+P@{V\+I\+S\+\_\+\+S\+P}}
+\index{V\+I\+S\+\_\+\+S\+P@{V\+I\+S\+\_\+\+S\+P}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+S\+P}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+S\+P = 0x0004}\label{namespacevis_afb48fd3b04b5990dcb3a744ebbd8d5d7}
+
+
+Definition at line 62 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+T\+A\+B@{V\+I\+S\+\_\+\+T\+A\+B}}
+\index{V\+I\+S\+\_\+\+T\+A\+B@{V\+I\+S\+\_\+\+T\+A\+B}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+T\+A\+B}]{\setlength{\rightskip}{0pt plus 5cm}int V\+I\+S\+\_\+\+T\+A\+B = 0x0008}\label{namespacevis_af1b7a925ee29f7869d7c02f5fee9bfa0}
+
+
+Definition at line 63 of file vis.\+py.
+
+\index{vis@{vis}!V\+I\+S\+\_\+\+W\+H\+I\+T\+E@{V\+I\+S\+\_\+\+W\+H\+I\+T\+E}}
+\index{V\+I\+S\+\_\+\+W\+H\+I\+T\+E@{V\+I\+S\+\_\+\+W\+H\+I\+T\+E}!vis@{vis}}
+\subsubsection[{V\+I\+S\+\_\+\+W\+H\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}V\+I\+S\+\_\+\+W\+H\+I\+T\+E = {\bf V\+I\+S\+\_\+\+S\+P}$\vert${\bf V\+I\+S\+\_\+\+T\+A\+B}$\vert${\bf V\+I\+S\+\_\+\+N\+L}}\label{namespacevis_a18ed068eaf7072d4d24873547c907f67}
+
+
+Definition at line 65 of file vis.\+py.
+

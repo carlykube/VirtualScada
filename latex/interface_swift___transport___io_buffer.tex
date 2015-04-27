@@ -1,0 +1,160 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer Interface Reference}
+\label{interface_swift___transport___io_buffer}\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_swift___transport___io_buffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf initialize} (array \$params)
+\item 
+{\bf set\+Param} (\$param, \$value)
+\item 
+{\bf terminate} ()
+\item 
+{\bf set\+Write\+Translations} (array \$replacements)
+\item 
+{\bf read\+Line} (\$sequence)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T} = 0x0001
+\item 
+const {\bf T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S} = 0x0010
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Buffers input and output to a resource.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Io\+Buffer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!initialize@{initialize}}
+\index{initialize@{initialize}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}initialize (
+\begin{DoxyParamCaption}
+\item[{array}]{\$params}
+\end{DoxyParamCaption}
+)}\label{interface_swift___transport___io_buffer_ada6f73e99259423863fe312baa4dad10}
+Perform any initialization needed, using the given \$params.
+
+Parameters will vary depending upon the type of Io\+Buffer used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Swift\+\_\+\+Transport\+\_\+\+Stream\+Buffer} \doxyref{}{p.}{class_swift___transport___stream_buffer_ada6f73e99259423863fe312baa4dad10}.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!read\+Line@{read\+Line}}
+\index{read\+Line@{read\+Line}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{read\+Line}]{\setlength{\rightskip}{0pt plus 5cm}read\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$sequence}
+\end{DoxyParamCaption}
+)}\label{interface_swift___transport___io_buffer_ae92d38f95f81310fe14c861bf752c22f}
+Get a line of output (including any C\+R\+L\+F).
+
+The \$sequence number comes from any writes and may or may not be used depending upon the implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$sequence} & of last write to scan from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Swift\+\_\+\+Transport\+\_\+\+Stream\+Buffer} \doxyref{}{p.}{class_swift___transport___stream_buffer_ae92d38f95f81310fe14c861bf752c22f}.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!set\+Param@{set\+Param}}
+\index{set\+Param@{set\+Param}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{set\+Param}]{\setlength{\rightskip}{0pt plus 5cm}set\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$param, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{interface_swift___transport___io_buffer_acea5a6751051a653870cb7812bdc530f}
+Set an individual param on the buffer (e.\+g. switching to S\+S\+L).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$param} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Swift\+\_\+\+Transport\+\_\+\+Stream\+Buffer} \doxyref{}{p.}{class_swift___transport___stream_buffer_acea5a6751051a653870cb7812bdc530f}.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!set\+Write\+Translations@{set\+Write\+Translations}}
+\index{set\+Write\+Translations@{set\+Write\+Translations}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{set\+Write\+Translations}]{\setlength{\rightskip}{0pt plus 5cm}set\+Write\+Translations (
+\begin{DoxyParamCaption}
+\item[{array}]{\$replacements}
+\end{DoxyParamCaption}
+)}\label{interface_swift___transport___io_buffer_ad1f7a87e66f8234cf634552bb01907d2}
+Set an array of string replacements which should be made on data written to the buffer.
+
+This could replace L\+F with C\+R\+L\+F for example.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\mbox{[}$\,$\mbox{]}} & \$replacements \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Swift\+\_\+\+Transport\+\_\+\+Stream\+Buffer} \doxyref{}{p.}{class_swift___transport___stream_buffer_ad1f7a87e66f8234cf634552bb01907d2}.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!terminate@{terminate}}
+\index{terminate@{terminate}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}terminate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_swift___transport___io_buffer_aae6d2f0ed43d77087c71ffd4919dcf5d}
+Perform any shutdown logic needed. 
+
+Implemented in {\bf Swift\+\_\+\+Transport\+\_\+\+Stream\+Buffer} \doxyref{}{p.}{class_swift___transport___stream_buffer_aae6d2f0ed43d77087c71ffd4919dcf5d}.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S@{T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S}}
+\index{T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S@{T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}const T\+Y\+P\+E\+\_\+\+P\+R\+O\+C\+E\+S\+S = 0x0010}\label{interface_swift___transport___io_buffer_aba5f25d0187e9dfadc519648909ef0d4}
+\doxyref{A}{p.}{class_a} process buffer with I/\+O support 
+
+Definition at line 22 of file Io\+Buffer.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}!T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T@{T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T}}
+\index{T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T@{T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T}!Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer@{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}
+\subsubsection[{T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}const T\+Y\+P\+E\+\_\+\+S\+O\+C\+K\+E\+T = 0x0001}\label{interface_swift___transport___io_buffer_acac981720dab42ad1fc14ec7c5ef285a}
+\doxyref{A}{p.}{class_a} socket buffer over T\+C\+P 
+
+Definition at line 19 of file Io\+Buffer.\+php.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/{\bf Io\+Buffer.\+php}\end{DoxyCompactItemize}

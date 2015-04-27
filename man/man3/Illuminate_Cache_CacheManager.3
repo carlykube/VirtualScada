@@ -1,0 +1,451 @@
+.TH "CacheManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CacheManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($app)"
+.br
+.ti -1c
+.RI "\fBstore\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBdriver\fP ($driver=null)"
+.br
+.ti -1c
+.RI "\fBrepository\fP (\fBStore\fP $\fBstore\fP)"
+.br
+.ti -1c
+.RI "\fBgetDefaultDriver\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultDriver\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($\fBdriver\fP, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBresolve\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcallCustomCreator\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateApcDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateArrayDriver\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateFileDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateMemcachedDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateNullDriver\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateWincacheDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateXcacheDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateRedisDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBcreateDatabaseDriver\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBgetPrefix\fP (array $config)"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($\fBname\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$app\fP"
+.br
+.ti -1c
+.RI "\fB$stores\fP = []"
+.br
+.ti -1c
+.RI "\fB$customCreators\fP = []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file CacheManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $app)"
+Create a new \fBCache\fP manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file CacheManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically call the default driver instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file CacheManager\&.php\&.
+.SS "callCustomCreator (array $config)\fC [protected]\fP"
+Call a custom driver creator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file CacheManager\&.php\&.
+.SS "createApcDriver (array $config)\fC [protected]\fP"
+Create an instance of the APC cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 119 of file CacheManager\&.php\&.
+.SS "createArrayDriver ()\fC [protected]\fP"
+Create an instance of the array cache driver\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 131 of file CacheManager\&.php\&.
+.SS "createDatabaseDriver (array $config)\fC [protected]\fP"
+Create an instance of the database cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 215 of file CacheManager\&.php\&.
+.SS "createFileDriver (array $config)\fC [protected]\fP"
+Create an instance of the file cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 142 of file CacheManager\&.php\&.
+.SS "createMemcachedDriver (array $config)\fC [protected]\fP"
+Create an instance of the Memcached cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 153 of file CacheManager\&.php\&.
+.SS "createNullDriver ()\fC [protected]\fP"
+Create an instance of the Null cache driver\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 167 of file CacheManager\&.php\&.
+.SS "createRedisDriver (array $config)\fC [protected]\fP"
+Create an instance of the \fBRedis\fP cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 200 of file CacheManager\&.php\&.
+.SS "createWincacheDriver (array $config)\fC [protected]\fP"
+Create an instance of the WinCache cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 178 of file CacheManager\&.php\&.
+.SS "createXcacheDriver (array $config)\fC [protected]\fP"
+Create an instance of the XCache cache driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 189 of file CacheManager\&.php\&.
+.SS "driver ( $driver = \fCnull\fP)"
+Get a cache driver instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file CacheManager\&.php\&.
+.SS "extend ( $driver, Closure $callback)"
+Register a custom driver creator Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 296 of file CacheManager\&.php\&.
+.SS "get ( $name)\fC [protected]\fP"
+Attempt to get the store from the local cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 72 of file CacheManager\&.php\&.
+.SS "getConfig ( $name)\fC [protected]\fP"
+Get the cache connection configuration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 263 of file CacheManager\&.php\&.
+.SS "getDefaultDriver ()"
+Get the default cache driver name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file CacheManager\&.php\&.
+.SS "getPrefix (array $config)\fC [protected]\fP"
+Get the cache prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file CacheManager\&.php\&.
+.SS "repository (\fBStore\fP $store)"
+Create a new cache repository with the given implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$store\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 232 of file CacheManager\&.php\&.
+.SS "resolve ( $name)\fC [protected]\fP"
+Resolve the given store\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 83 of file CacheManager\&.php\&.
+.SS "setDefaultDriver ( $name)"
+Set the default cache driver name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file CacheManager\&.php\&.
+.SS "store ( $name = \fCnull\fP)"
+Get a cache store instance by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file CacheManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$app\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file CacheManager\&.php\&.
+.SS "$customCreators = []\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file CacheManager\&.php\&.
+.SS "$stores = []\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file CacheManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

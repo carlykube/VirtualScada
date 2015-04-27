@@ -1,0 +1,986 @@
+.TH "Event" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Event \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBCallbackEvent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($command)"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBbuildCommand\fP ()"
+.br
+.ti -1c
+.RI "\fBisDue\fP (\fBApplication\fP $app)"
+.br
+.ti -1c
+.RI "\fBrunsInEnvironment\fP ($environment)"
+.br
+.ti -1c
+.RI "\fBrunsInMaintenanceMode\fP ()"
+.br
+.ti -1c
+.RI "\fBcron\fP ($expression)"
+.br
+.ti -1c
+.RI "\fBhourly\fP ()"
+.br
+.ti -1c
+.RI "\fBdaily\fP ()"
+.br
+.ti -1c
+.RI "\fBat\fP ($time)"
+.br
+.ti -1c
+.RI "\fBdailyAt\fP ($time)"
+.br
+.ti -1c
+.RI "\fBtwiceDaily\fP ()"
+.br
+.ti -1c
+.RI "\fBweekdays\fP ()"
+.br
+.ti -1c
+.RI "\fBmondays\fP ()"
+.br
+.ti -1c
+.RI "\fBtuesdays\fP ()"
+.br
+.ti -1c
+.RI "\fBwednesdays\fP ()"
+.br
+.ti -1c
+.RI "\fBthursdays\fP ()"
+.br
+.ti -1c
+.RI "\fBfridays\fP ()"
+.br
+.ti -1c
+.RI "\fBsaturdays\fP ()"
+.br
+.ti -1c
+.RI "\fBsundays\fP ()"
+.br
+.ti -1c
+.RI "\fBweekly\fP ()"
+.br
+.ti -1c
+.RI "\fBweeklyOn\fP ($\fBday\fP, $time= '0:0')"
+.br
+.ti -1c
+.RI "\fBmonthly\fP ()"
+.br
+.ti -1c
+.RI "\fByearly\fP ()"
+.br
+.ti -1c
+.RI "\fBeveryFiveMinutes\fP ()"
+.br
+.ti -1c
+.RI "\fBeveryTenMinutes\fP ()"
+.br
+.ti -1c
+.RI "\fBeveryThirtyMinutes\fP ()"
+.br
+.ti -1c
+.RI "\fBdays\fP ($days)"
+.br
+.ti -1c
+.RI "\fBtimezone\fP ($timezone)"
+.br
+.ti -1c
+.RI "\fBuser\fP ($user)"
+.br
+.ti -1c
+.RI "\fBenvironments\fP ($environments)"
+.br
+.ti -1c
+.RI "\fBevenInMaintenanceMode\fP ()"
+.br
+.ti -1c
+.RI "\fBwithoutOverlapping\fP ()"
+.br
+.ti -1c
+.RI "\fBwhen\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBskip\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsendOutputTo\fP ($location)"
+.br
+.ti -1c
+.RI "\fBemailOutputTo\fP ($addresses)"
+.br
+.ti -1c
+.RI "\fBthenPing\fP ($url)"
+.br
+.ti -1c
+.RI "\fBthen\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBname\fP ($\fBdescription\fP)"
+.br
+.ti -1c
+.RI "\fBdescription\fP ($description)"
+.br
+.ti -1c
+.RI "\fBgetSummaryForDisplay\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpression\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$command\fP"
+.br
+.ti -1c
+.RI "\fB$expression\fP = '* * * * * *'"
+.br
+.ti -1c
+.RI "\fB$timezone\fP"
+.br
+.ti -1c
+.RI "\fB$user\fP"
+.br
+.ti -1c
+.RI "\fB$environments\fP = []"
+.br
+.ti -1c
+.RI "\fB$evenInMaintenanceMode\fP = false"
+.br
+.ti -1c
+.RI "\fB$withoutOverlapping\fP = false"
+.br
+.ti -1c
+.RI "\fB$output\fP = '/\fBdev\fP/null'"
+.br
+.ti -1c
+.RI "\fB$description\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrunCommandInBackground\fP ()"
+.br
+.ti -1c
+.RI "\fBrunCommandInForeground\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBcallAfterCallbacks\fP (\fBContainer\fP $container)"
+.br
+.ti -1c
+.RI "\fBmutexPath\fP ()"
+.br
+.ti -1c
+.RI "\fBexpressionPasses\fP ()"
+.br
+.ti -1c
+.RI "\fBfiltersPass\fP (\fBApplication\fP $app)"
+.br
+.ti -1c
+.RI "\fBemailOutput\fP (\fBMailer\fP $mailer, $addresses)"
+.br
+.ti -1c
+.RI "\fBgetEmailSubject\fP ()"
+.br
+.ti -1c
+.RI "\fBspliceIntoPosition\fP ($position, $value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$filter\fP"
+.br
+.ti -1c
+.RI "\fB$reject\fP"
+.br
+.ti -1c
+.RI "\fB$afterCallbacks\fP = []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file Event\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $command)"
+Create a new event instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file Event\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "at ( $time)"
+\fBSchedule\fP the command at a given time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 311 of file Event\&.php\&.
+.SS "buildCommand ()"
+Build the comand string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file Event\&.php\&.
+.SS "callAfterCallbacks (\fBContainer\fP $container)\fC [protected]\fP"
+Call all of the 'after' callbacks for the event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file Event\&.php\&.
+.SS "cron ( $expression)"
+The \fBCron\fP expression representing the event's frequency\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expression\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file Event\&.php\&.
+.SS "daily ()"
+\fBSchedule\fP the event to run daily\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 300 of file Event\&.php\&.
+.SS "dailyAt ( $time)"
+\fBSchedule\fP the event to run daily at a given time (10:00, 19:30, etc)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file Event\&.php\&.
+.SS "days ( $days)"
+Set the days of the week the command should run on\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$days\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 500 of file Event\&.php\&.
+.SS "description ( $description)"
+Set the human-friendly description of the event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$description\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 711 of file Event\&.php\&.
+.SS "emailOutput (\fBMailer\fP $mailer,  $addresses)\fC [protected]\fP"
+E-mail the output of the event to the recipients\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mailer\fP 
+.br
+\fI$addresses\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 642 of file Event\&.php\&.
+.SS "emailOutputTo ( $addresses)"
+E-mail the results of the scheduled operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$addresses\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 620 of file Event\&.php\&.
+.SS "environments ( $environments)"
+Limit the environments the command should run in\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$environments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 539 of file Event\&.php\&.
+.SS "evenInMaintenanceMode ()"
+State that the command should run even in maintenance mode\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 551 of file Event\&.php\&.
+.SS "everyFiveMinutes ()"
+\fBSchedule\fP the event to run every five minutes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file Event\&.php\&.
+.SS "everyTenMinutes ()"
+\fBSchedule\fP the event to run every ten minutes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 479 of file Event\&.php\&.
+.SS "everyThirtyMinutes ()"
+\fBSchedule\fP the event to run every thirty minutes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 489 of file Event\&.php\&.
+.SS "expressionPasses ()\fC [protected]\fP"
+Determine if the \fBCron\fP expression passes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Event\&.php\&.
+.SS "filtersPass (\fBApplication\fP $app)\fC [protected]\fP"
+Determine if the filters pass for the event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file Event\&.php\&.
+.SS "fridays ()"
+\fBSchedule\fP the event to run only on Fridays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 395 of file Event\&.php\&.
+.SS "getEmailSubject ()\fC [protected]\fP"
+Get the e-mail subject line for output results\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 660 of file Event\&.php\&.
+.SS "getExpression ()"
+Get the \fBCron\fP expression for the event\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 751 of file Event\&.php\&.
+.SS "getSummaryForDisplay ()"
+Get the summary of the event for display\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 739 of file Event\&.php\&.
+.SS "hourly ()"
+\fBSchedule\fP the event to run hourly\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file Event\&.php\&.
+.SS "isDue (\fBApplication\fP $app)"
+Determine if the given event should run based on the \fBCron\fP expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Event\&.php\&.
+.SS "mondays ()"
+\fBSchedule\fP the event to run only on Mondays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 355 of file Event\&.php\&.
+.SS "monthly ()"
+\fBSchedule\fP the event to run monthly\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 449 of file Event\&.php\&.
+.SS "mutexPath ()\fC [protected]\fP"
+Get the mutex path for the scheduled command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Event\&.php\&.
+.SS "name ( $description)"
+Set the human-friendly description of the event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$description\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 700 of file Event\&.php\&.
+.SS "run (\fBContainer\fP $container)"
+Run the given event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file Event\&.php\&.
+.SS "runCommandInBackground ()\fC [protected]\fP"
+Run the command in the background using exec\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file Event\&.php\&.
+.SS "runCommandInForeground (\fBContainer\fP $container)\fC [protected]\fP"
+Run the command in the foreground\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Event\&.php\&.
+.SS "runsInEnvironment ( $environment)"
+Determine if the event runs in the given environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$environment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 257 of file Event\&.php\&.
+.SS "runsInMaintenanceMode ()"
+Determine if the event runs in maintenance mode\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Event\&.php\&.
+.SS "saturdays ()"
+\fBSchedule\fP the event to run only on Saturdays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 405 of file Event\&.php\&.
+.SS "sendOutputTo ( $location)"
+Send the output of the command to a given location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$location\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 605 of file Event\&.php\&.
+.SS "skip (Closure $callback)"
+Register a callback to further filter the schedule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 592 of file Event\&.php\&.
+.SS "spliceIntoPosition ( $position,  $value)\fC [protected]\fP"
+Splice the given value into the given position of the expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$position\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 725 of file Event\&.php\&.
+.SS "sundays ()"
+\fBSchedule\fP the event to run only on Sundays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file Event\&.php\&.
+.SS "then (Closure $callback)"
+Register a callback to be called after the operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 687 of file Event\&.php\&.
+.SS "thenPing ( $url)"
+Register a callback to ping a given \fBURL\fP after the job runs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 676 of file Event\&.php\&.
+.SS "thursdays ()"
+\fBSchedule\fP the event to run only on Thursdays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 385 of file Event\&.php\&.
+.SS "timezone ( $timezone)"
+Set the timezone the date should be evaluated on\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timezone\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 513 of file Event\&.php\&.
+.SS "tuesdays ()"
+\fBSchedule\fP the event to run only on Tuesdays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file Event\&.php\&.
+.SS "twiceDaily ()"
+\fBSchedule\fP the event to run twice daily\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 335 of file Event\&.php\&.
+.SS "user ( $user)"
+Set which user the command should run as\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 526 of file Event\&.php\&.
+.SS "wednesdays ()"
+\fBSchedule\fP the event to run only on Wednesdays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 375 of file Event\&.php\&.
+.SS "weekdays ()"
+\fBSchedule\fP the event to run only on weekdays\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 345 of file Event\&.php\&.
+.SS "weekly ()"
+\fBSchedule\fP the event to run weekly\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file Event\&.php\&.
+.SS "weeklyOn ( $day,  $time = \fC'0:0'\fP)"
+\fBSchedule\fP the event to run weekly on a given day and time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$day\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 437 of file Event\&.php\&.
+.SS "when (Closure $callback)"
+Register a callback to further filter the schedule\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 579 of file Event\&.php\&.
+.SS "withoutOverlapping ()"
+Do not allow the event to overlap each other\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 563 of file Event\&.php\&.
+.SS "yearly ()"
+\fBSchedule\fP the event to run yearly\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 459 of file Event\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$afterCallbacks = []\fC [protected]\fP"
+
+.PP
+Definition at line 90 of file Event\&.php\&.
+.SS "$command"
+
+.PP
+Definition at line 20 of file Event\&.php\&.
+.SS "$\fBdescription\fP"
+
+.PP
+Definition at line 97 of file Event\&.php\&.
+.SS "$\fBenvironments\fP = []"
+
+.PP
+Definition at line 48 of file Event\&.php\&.
+.SS "$\fBevenInMaintenanceMode\fP = false"
+
+.PP
+Definition at line 55 of file Event\&.php\&.
+.SS "$expression = '* * * * * *'"
+
+.PP
+Definition at line 27 of file Event\&.php\&.
+.SS "$\fBfilter\fP\fC [protected]\fP"
+
+.PP
+Definition at line 69 of file Event\&.php\&.
+.SS "$output = '/\fBdev\fP/null'"
+
+.PP
+Definition at line 83 of file Event\&.php\&.
+.SS "$reject\fC [protected]\fP"
+
+.PP
+Definition at line 76 of file Event\&.php\&.
+.SS "$\fBtimezone\fP"
+
+.PP
+Definition at line 34 of file Event\&.php\&.
+.SS "$\fBuser\fP"
+
+.PP
+Definition at line 41 of file Event\&.php\&.
+.SS "$\fBwithoutOverlapping\fP = false"
+
+.PP
+Definition at line 62 of file Event\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

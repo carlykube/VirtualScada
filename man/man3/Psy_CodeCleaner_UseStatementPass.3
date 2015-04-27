@@ -1,0 +1,72 @@
+.TH "UseStatementPass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UseStatementPass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNamespaceAwarePass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBenterNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBleaveNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Provide implicit use statements for subsequent execution\&.
+.PP
+The use statement pass remembers the last use statement line encountered: 
+.PP
+.nf
+use Foo\Bar as Baz;
+
+.fi
+.PP
+.PP
+\&.\&.\&. which it then applies implicitly to all future evaluated code, until the current namespace is replaced by another namespace\&. 
+.PP
+Definition at line 30 of file UseStatementPass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "enterNode (\fBNode\fP $node)"
+Re-load the last set of use statements on re-entering a namespace\&.
+.PP
+This isn't how namespaces normally work, but because PsySH has to spin up a new namespace for every line of code, we do this to make things work like you'd expect\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 45 of file UseStatementPass\&.php\&.
+.SS "leaveNode (\fBNode\fP $node)"
+If this statement is a namespace, forget all the aliases we had\&.
+.PP
+If it's a use statement, remember the alias for later\&. Otherwise, apply remembered aliases to the code\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 64 of file UseStatementPass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

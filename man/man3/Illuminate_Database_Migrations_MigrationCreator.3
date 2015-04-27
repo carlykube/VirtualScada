@@ -1,0 +1,249 @@
+.TH "MigrationCreator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MigrationCreator \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBFilesystem\fP $files)"
+.br
+.ti -1c
+.RI "\fBcreate\fP ($\fBname\fP, $\fBpath\fP, $table=null, $create=false)"
+.br
+.ti -1c
+.RI "\fBafterCreate\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetStubPath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFilesystem\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetStub\fP ($table, $\fBcreate\fP)"
+.br
+.ti -1c
+.RI "\fBpopulateStub\fP ($\fBname\fP, $stub, $table)"
+.br
+.ti -1c
+.RI "\fBgetClassName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBfirePostCreateHooks\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPath\fP ($\fBname\fP, $\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBgetDatePrefix\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$files\fP"
+.br
+.ti -1c
+.RI "\fB$postCreate\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file MigrationCreator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBFilesystem\fP $files)"
+Create a new migration creator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file MigrationCreator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "afterCreate (Closure $callback)"
+Register a post migration create hook\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file MigrationCreator\&.php\&.
+.SS "create ( $name,  $path,  $table = \fCnull\fP,  $create = \fCfalse\fP)"
+Create a new migration at the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$path\fP 
+.br
+\fI$table\fP 
+.br
+\fI$create\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file MigrationCreator\&.php\&.
+.SS "firePostCreateHooks ()\fC [protected]\fP"
+Fire the registered post create hooks\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file MigrationCreator\&.php\&.
+.SS "getClassName ( $name)\fC [protected]\fP"
+Get the class name of a migration name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file MigrationCreator\&.php\&.
+.SS "getDatePrefix ()\fC [protected]\fP"
+Get the date prefix for the migration\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file MigrationCreator\&.php\&.
+.SS "getFilesystem ()"
+Get the filesystem instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 178 of file MigrationCreator\&.php\&.
+.SS "getPath ( $name,  $path)\fC [protected]\fP"
+Get the full path name to the migration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file MigrationCreator\&.php\&.
+.SS "getStub ( $table,  $create)\fC [protected]\fP"
+Get the migration stub file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$create\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file MigrationCreator\&.php\&.
+.SS "getStubPath ()"
+Get the path to the stubs\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file MigrationCreator\&.php\&.
+.SS "populateStub ( $name,  $stub,  $table)\fC [protected]\fP"
+Populate the place-holders in the migration stub\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$stub\fP 
+.br
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file MigrationCreator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$files\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file MigrationCreator\&.php\&.
+.SS "$postCreate = array()\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file MigrationCreator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

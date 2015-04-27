@@ -1,0 +1,143 @@
+.TH "FilterHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FilterHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($handler, $minLevelOrList=\fBLogger::DEBUG\fP, $maxLevel=\fBLogger::EMERGENCY\fP, $bubble=true)"
+.br
+.ti -1c
+.RI "\fBgetAcceptedLevels\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAcceptedLevels\fP ($minLevelOrList=\fBLogger::DEBUG\fP, $maxLevel=\fBLogger::EMERGENCY\fP)"
+.br
+.ti -1c
+.RI "\fBisHandling\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.ti -1c
+.RI "\fB$acceptedLevels\fP"
+.br
+.ti -1c
+.RI "\fB$bubble\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Simple handler wrapper that filters records based on a list of levels
+.PP
+It can be configured with an exact list of levels to allow, or a min/max level\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Hennadiy Verkh 
+.PP
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file FilterHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $handler,  $minLevelOrList = \fC\fBLogger::DEBUG\fP\fP,  $maxLevel = \fC\fBLogger::EMERGENCY\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP \fBHandler\fP or factory callable($record, $this)\&. 
+.br
+\fI$minLevelOrList\fP \fBA\fP list of levels to accept or a minimum level if maxLevel is provided 
+.br
+\fI$maxLevel\fP Maximum level to accept, only used if $minLevelOrList is not an array 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file FilterHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getAcceptedLevels ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file FilterHandler\&.php\&.
+.SS "handle (array $record)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 101 of file FilterHandler\&.php\&.
+.SS "handleBatch (array $records)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 129 of file FilterHandler\&.php\&.
+.SS "isHandling (array $record)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 93 of file FilterHandler\&.php\&.
+.SS "setAcceptedLevels ( $minLevelOrList = \fC\fBLogger::DEBUG\fP\fP,  $maxLevel = \fC\fBLogger::EMERGENCY\fP\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$minLevelOrList\fP \fBA\fP list of levels to accept or a minimum level if maxLevel is provided 
+.br
+\fI$maxLevel\fP Maximum level to accept, only used if $minLevelOrList is not an array 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file FilterHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$acceptedLevels\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file FilterHandler\&.php\&.
+.SS "$bubble\fC [protected]\fP"
+
+.PP
+Definition at line 45 of file FilterHandler\&.php\&.
+.SS "$handler\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file FilterHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

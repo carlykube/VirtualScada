@@ -1,0 +1,448 @@
+\section{Filesystem Class Reference}
+\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem}\index{Filesystem@{Filesystem}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf copy} (\$origin\+File, \$target\+File, \$override=false)
+\item 
+{\bf mkdir} (\$dirs, \$mode=0777)
+\item 
+{\bf exists} (\$files)
+\item 
+{\bf touch} (\$files, \$time=null, \$atime=null)
+\item 
+{\bf remove} (\$files)
+\item 
+{\bf chmod} (\$files, \$mode, \$umask=0000, \$recursive=false)
+\item 
+{\bf chown} (\$files, \$user, \$recursive=false)
+\item 
+{\bf chgrp} (\$files, \$group, \$recursive=false)
+\item 
+{\bf rename} (\$origin, \$target, \$overwrite=false)
+\item 
+{\bf symlink} (\$origin\+Dir, \$target\+Dir, \$copy\+On\+Windows=false)
+\item 
+{\bf make\+Path\+Relative} (\$end\+Path, \$start\+Path)
+\item 
+{\bf mirror} (\$origin\+Dir, \$target\+Dir,\textbackslash{}Traversable \$iterator=null, \${\bf options}=array())
+\item 
+{\bf is\+Absolute\+Path} (\$file)
+\item 
+{\bf dump\+File} (\$filename, \$content, \$mode=0666)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides basic utility to manipulate the file system.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 22 of file Filesystem.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!chgrp@{chgrp}}
+\index{chgrp@{chgrp}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{chgrp}]{\setlength{\rightskip}{0pt plus 5cm}chgrp (
+\begin{DoxyParamCaption}
+\item[{}]{\$files, }
+\item[{}]{\$group, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a2e41af73b6db13cb28bf8f4819ab8a95}
+Change the group of an array of files or directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to change group \\
+\hline
+string & {\em \$group} & The group name \\
+\hline
+bool & {\em \$recursive} & Whether change the group recursively or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When the change fail \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 237 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!chmod@{chmod}}
+\index{chmod@{chmod}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{chmod}]{\setlength{\rightskip}{0pt plus 5cm}chmod (
+\begin{DoxyParamCaption}
+\item[{}]{\$files, }
+\item[{}]{\$mode, }
+\item[{}]{\$umask = {\ttfamily 0000}, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a97d8e183f9992b3fff4d24cd0c624121}
+Change mode for an array of files or directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to change mode \\
+\hline
+int & {\em \$mode} & The new mode (octal) \\
+\hline
+int & {\em \$umask} & The mode mask (octal) \\
+\hline
+bool & {\em \$recursive} & Whether change the mod recursively or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When the change fail \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 189 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!chown@{chown}}
+\index{chown@{chown}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{chown}]{\setlength{\rightskip}{0pt plus 5cm}chown (
+\begin{DoxyParamCaption}
+\item[{}]{\$files, }
+\item[{}]{\$user, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a31e21e5befafd87a977686bb0e72147e}
+Change the owner of an array of files or directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to change owner \\
+\hline
+string & {\em \$user} & The new owner user name \\
+\hline
+bool & {\em \$recursive} & Whether change the owner recursively or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When the change fail \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 210 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!copy@{copy}}
+\index{copy@{copy}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}copy (
+\begin{DoxyParamCaption}
+\item[{}]{\$origin\+File, }
+\item[{}]{\$target\+File, }
+\item[{}]{\$override = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_ae2d066a4c49b3ea0acc96aea0289c1f8}
+Copies a file.
+
+This method only copies the file if the origin file is newer than the target file.
+
+By default, if the target already exists, it is not overridden.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$origin\+File} & The original filename \\
+\hline
+string & {\em \$target\+File} & The target filename \\
+\hline
+bool & {\em \$override} & Whether to override an existing file or not\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Exception} & When origin\+File doesn\textquotesingle{}t exist \\
+\hline
+{\em I\+O\+Exception} & When copy fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 38 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!dump\+File@{dump\+File}}
+\index{dump\+File@{dump\+File}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{dump\+File}]{\setlength{\rightskip}{0pt plus 5cm}dump\+File (
+\begin{DoxyParamCaption}
+\item[{}]{\$filename, }
+\item[{}]{\$content, }
+\item[{}]{\$mode = {\ttfamily 0666}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a91f34aa93dc292ff3927775223ae7c4b}
+Atomically dumps content into a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filename} & The file to be written to. \\
+\hline
+string & {\em \$content} & The data to write into the file. \\
+\hline
+null | int & {\em \$mode} & The file mode (octal). If null, file permissions are not modified Deprecated since version 2.\+3.\+12, to be removed in 3.\+0.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & If the file cannot be written to. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 462 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!exists@{exists}}
+\index{exists@{exists}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$files}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a98102b894db91d1e4b8e7e8647ea57d1}
+Checks the existence of files or directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the file exists, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!is\+Absolute\+Path@{is\+Absolute\+Path}}
+\index{is\+Absolute\+Path@{is\+Absolute\+Path}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{is\+Absolute\+Path}]{\setlength{\rightskip}{0pt plus 5cm}is\+Absolute\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_ac573472cf446001b3e5967ecbd4ff062}
+Returns whether the file path is an absolute path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$file} & \doxyref{A}{p.}{class_a} file path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 437 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!make\+Path\+Relative@{make\+Path\+Relative}}
+\index{make\+Path\+Relative@{make\+Path\+Relative}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{make\+Path\+Relative}]{\setlength{\rightskip}{0pt plus 5cm}make\+Path\+Relative (
+\begin{DoxyParamCaption}
+\item[{}]{\$end\+Path, }
+\item[{}]{\$start\+Path}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a5c0b299955dd0f702fb1b12932988fea}
+Given an existing path, convert it to a path relative to a given starting path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$end\+Path} & Absolute path of target \\
+\hline
+string & {\em \$start\+Path} & Absolute path where traversal begins\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Path of target relative to starting path 
+\end{DoxyReturn}
+
+
+Definition at line 325 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!mirror@{mirror}}
+\index{mirror@{mirror}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{mirror}]{\setlength{\rightskip}{0pt plus 5cm}mirror (
+\begin{DoxyParamCaption}
+\item[{}]{\$origin\+Dir, }
+\item[{}]{\$target\+Dir, }
+\item[{\textbackslash{}Traversable}]{\$iterator = {\ttfamily null}, }
+\item[{}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_aec8571ebc04a04827e048ce00f303fb5}
+Mirrors a directory to another.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$origin\+Dir} & The origin directory \\
+\hline
+string & {\em \$target\+Dir} & The target directory \\
+\hline
+\textbackslash{}\+Traversable & {\em \$iterator} & \doxyref{A}{p.}{class_a} Traversable instance \\
+\hline
+array & {\em \$options} & An array of boolean options Valid options are\+:
+\begin{DoxyItemize}
+\item \$options[\textquotesingle{}override\textquotesingle{}] Whether to override an existing file on copy or not (see \doxyref{copy()}{p.}{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_ae2d066a4c49b3ea0acc96aea0289c1f8})
+\item \$options[\textquotesingle{}copy\+\_\+on\+\_\+windows\textquotesingle{}] Whether to copy files instead of links on Windows (see \doxyref{symlink()}{p.}{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a640cc451e168f684b2c90299adf8b31a})
+\item \$options[\textquotesingle{}delete\textquotesingle{}] Whether to delete files that are not in the source directory (defaults to false)
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When file type is unknown \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 371 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{mkdir}]{\setlength{\rightskip}{0pt plus 5cm}mkdir (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirs, }
+\item[{}]{\$mode = {\ttfamily 0777}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_af9f2b2a04a4ec981fffc6ed6ba9b5471}
+Creates a directory recursively.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$dirs} & The directory path \\
+\hline
+int & {\em \$mode} & The directory mode\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & On any directory creation failure \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 85 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!remove@{remove}}
+\index{remove@{remove}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}remove (
+\begin{DoxyParamCaption}
+\item[{}]{\$files}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_ab018c6ceaa60d2e11deb0dd3811ce11a}
+Removes files or directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to remove\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When removal fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 149 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!rename@{rename}}
+\index{rename@{rename}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{rename}]{\setlength{\rightskip}{0pt plus 5cm}rename (
+\begin{DoxyParamCaption}
+\item[{}]{\$origin, }
+\item[{}]{\$target, }
+\item[{}]{\$overwrite = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a5bd609e076384d1d5cf1a239c6d15c23}
+Renames a file or a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$origin} & The origin filename or directory \\
+\hline
+string & {\em \$target} & The new filename or directory \\
+\hline
+bool & {\em \$overwrite} & Whether to overwrite the target if it already exists\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When target file or directory already exists \\
+\hline
+{\em I\+O\+Exception} & When origin cannot be renamed \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 265 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!symlink@{symlink}}
+\index{symlink@{symlink}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{symlink}]{\setlength{\rightskip}{0pt plus 5cm}symlink (
+\begin{DoxyParamCaption}
+\item[{}]{\$origin\+Dir, }
+\item[{}]{\$target\+Dir, }
+\item[{}]{\$copy\+On\+Windows = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a640cc451e168f684b2c90299adf8b31a}
+Creates a symbolic link or copy a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$origin\+Dir} & The origin directory path \\
+\hline
+string & {\em \$target\+Dir} & The symbolic link name \\
+\hline
+bool & {\em \$copy\+On\+Windows} & Whether to copy files if on Windows\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When symlink fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 286 of file Filesystem.\+php.
+
+\index{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}!touch@{touch}}
+\index{touch@{touch}!Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem@{Symfony\+::\+Component\+::\+Filesystem\+::\+Filesystem}}
+\subsubsection[{touch}]{\setlength{\rightskip}{0pt plus 5cm}touch (
+\begin{DoxyParamCaption}
+\item[{}]{\$files, }
+\item[{}]{\$time = {\ttfamily null}, }
+\item[{}]{\$atime = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_filesystem_1_1_filesystem_a833a49b21c5ebfec78a5edfb5f673302}
+Sets access and modification time of file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | \textbackslash{}\+Traversable & {\em \$files} & \doxyref{A}{p.}{class_a} filename, an array of files, or a  instance to create \\
+\hline
+int & {\em \$time} & The touch time as a Unix timestamp \\
+\hline
+int & {\em \$atime} & The access time as a Unix timestamp\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & When touch fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 132 of file Filesystem.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/filesystem/\+Symfony/\+Component/\+Filesystem/{\bf Filesystem.\+php}\end{DoxyCompactItemize}

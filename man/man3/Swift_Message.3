@@ -1,0 +1,248 @@
+.TH "Swift_Message" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Message \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_SimpleMessage\fP\&.
+.PP
+Inherited by \fBSwift_SignedMessage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($subject=null, $body=null, $contentType=null, $charset=null)"
+.br
+.ti -1c
+.RI "\fBaddPart\fP ($body, $contentType=null, $charset=null)"
+.br
+.ti -1c
+.RI "\fBattachSigner\fP (\fBSwift_Signer\fP $signer)"
+.br
+.ti -1c
+.RI "\fBdetachSigner\fP (\fBSwift_Signer\fP $signer)"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBtoByteStream\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fB__wakeup\fP ()"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP ($subject=null, $body=null, $contentType=null, $charset=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdoSign\fP ()"
+.br
+.ti -1c
+.RI "\fBsaveMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBsaveHeaders\fP (array $altered)"
+.br
+.ti -1c
+.RI "\fBrestoreHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBrestoreMessage\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The Message class for building emails\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Message\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $subject = \fCnull\fP,  $body = \fCnull\fP,  $contentType = \fCnull\fP,  $charset = \fCnull\fP)"
+Create a new Message\&.
+.PP
+Details may be optionally passed into the constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subject\fP 
+.br
+\fI$body\fP 
+.br
+\fI$contentType\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file Message\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+Clone Message Signers 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSwift_Mime_SimpleMimeEntity::__clone()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 276 of file Message\&.php\&.
+.SS "__wakeup ()"
+
+.PP
+Definition at line 184 of file Message\&.php\&.
+.SS "addPart ( $body,  $contentType = \fCnull\fP,  $charset = \fCnull\fP)"
+Add a MimePart to this Message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$body\fP 
+.br
+\fI$contentType\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_SimpleMessage\fP 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file Message\&.php\&.
+.SS "attachSigner (\fBSwift_Signer\fP $signer)"
+Attach a new signature handler to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file Message\&.php\&.
+.SS "detachSigner (\fBSwift_Signer\fP $signer)"
+Attach a new signature handler to the message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file Message\&.php\&.
+.SS "doSign ()\fC [protected]\fP"
+loops through signers and apply the signatures 
+.PP
+Definition at line 192 of file Message\&.php\&.
+.SS "static newInstance ( $subject = \fCnull\fP,  $body = \fCnull\fP,  $contentType = \fCnull\fP,  $charset = \fCnull\fP)\fC [static]\fP"
+Create a new Message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subject\fP 
+.br
+\fI$body\fP 
+.br
+\fI$contentType\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file Message\&.php\&.
+.SS "restoreHeaders ()\fC [protected]\fP"
+Remove or restore altered headers 
+.PP
+Definition at line 247 of file Message\&.php\&.
+.SS "restoreMessage ()\fC [protected]\fP"
+Restore message body 
+.PP
+Definition at line 263 of file Message\&.php\&.
+.SS "saveHeaders (array $altered)\fC [protected]\fP"
+save the original headers 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$altered\fP 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file Message\&.php\&.
+.SS "saveMessage ()\fC [protected]\fP"
+save the message before any signature is applied 
+.PP
+Definition at line 218 of file Message\&.php\&.
+.SS "toByteStream (\fBSwift_InputByteStream\fP $is)"
+Write this message to a \fBSwift_InputByteStream\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 167 of file Message\&.php\&.
+.SS "toString ()"
+Get this message as a complete string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 145 of file Message\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

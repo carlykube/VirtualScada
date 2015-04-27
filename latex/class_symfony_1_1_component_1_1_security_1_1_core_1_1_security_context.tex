@@ -1,0 +1,143 @@
+\section{Security\+Context Class Reference}
+\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context}\index{Security\+Context@{Security\+Context}}
+Inheritance diagram for Security\+Context\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$token\+Storage, \$authorization\+Checker, \$always\+Authenticate=false)
+\item 
+{\bf get\+Token} ()
+\item 
+{\bf set\+Token} ({\bf Token\+Interface} \$token=null)
+\item 
+{\bf is\+Granted} (\$attributes, \$object=null)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Security\+Context}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context} is the main entry point of the \doxyref{Security}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security} component.
+
+It gives access to the token representing the current user authentication.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Johannes M. Schmitt {\tt schmittjoh@gmail.\+com} 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. \end{DoxyRefDesc}
+
+
+Definition at line 31 of file Security\+Context.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$token\+Storage, }
+\item[{}]{\$authorization\+Checker, }
+\item[{}]{\$always\+Authenticate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context_a269b7f35023a2aa427870a4c0075d9e3}
+For backwards compatibility, the signature of sf $<$2.\+6 still works
+
+
+\begin{DoxyParams}[1]{Parameters}
+Token\+Storage\+Interface | Authentication\+Manager\+Interface & {\em \$token\+Storage} & \\
+\hline
+Authorization\+Checker\+Interface | Access\+Decision\+Manager\+Interface & {\em \$authorization\+Checker} & \\
+\hline
+bool & {\em \$always\+Authenticate} & only applicable with old signature \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Security\+Context.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}!get\+Token@{get\+Token}}
+\index{get\+Token@{get\+Token}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}}
+\subsubsection[{get\+Token}]{\setlength{\rightskip}{0pt plus 5cm}get\+Token (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context_a211a2979c22afcd7d9056a2bb55aa449}
+\{Returns the current security token.
+
+\begin{DoxyReturn}{Returns}
+Token\+Interface$\vert$null \doxyref{A}{p.}{class_a} \doxyref{Token\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_token_interface} instance or null if no authentication information is available
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Token\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_storage_1_1_token_storage_interface_a211a2979c22afcd7d9056a2bb55aa449}.
+
+
+
+Definition at line 75 of file Security\+Context.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}!is\+Granted@{is\+Granted}}
+\index{is\+Granted@{is\+Granted}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}}
+\subsubsection[{is\+Granted}]{\setlength{\rightskip}{0pt plus 5cm}is\+Granted (
+\begin{DoxyParamCaption}
+\item[{}]{\$attributes, }
+\item[{}]{\$object = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context_a8f51e0aa61118c14fb846058b3db428c}
+\{Checks if the attributes are granted against the current authentication token and optionally supplied object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$attributes} & \\
+\hline
+mixed & {\em \$object} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Authorization\+Checker\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_authorization_checker_interface_a8f51e0aa61118c14fb846058b3db428c}.
+
+
+
+Definition at line 91 of file Security\+Context.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}!set\+Token@{set\+Token}}
+\index{set\+Token@{set\+Token}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Security\+Context}}
+\subsubsection[{set\+Token}]{\setlength{\rightskip}{0pt plus 5cm}set\+Token (
+\begin{DoxyParamCaption}
+\item[{{\bf Token\+Interface}}]{\$token = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_security_context_aa8b23c73b6c4b10303fe30de09c0d169}
+\{Sets the authentication token.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Token\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_token_interface} & {\em \$token} & \doxyref{A}{p.}{class_a} \doxyref{Token\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_token_interface} token, or null if no further authentication information should be stored\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Token\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_token_1_1_storage_1_1_token_storage_interface_aa8b23c73b6c4b10303fe30de09c0d169}.
+
+
+
+Definition at line 83 of file Security\+Context.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/security-\/core/\+Symfony/\+Component/\+Security/\+Core/{\bf Security\+Context.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,365 @@
+.TH "AbstractMatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractMatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAbstractContextAwareMatcher\fP, \fBClassAttributesMatcher\fP, \fBClassMethodsMatcher\fP, \fBClassNamesMatcher\fP, \fBCommandsMatcher\fP, \fBConstantsMatcher\fP, \fBFunctionsMatcher\fP, and \fBKeywordsMatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhasMatched\fP (array $tokens)"
+.br
+.ti -1c
+.RI "\fBgetMatches\fP (array $tokens, array $info=array())"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBstartsWith\fP ($prefix, $word)"
+.br
+.ti -1c
+.RI "static \fBhasSyntax\fP ($token, $syntax=self::VAR_SYNTAX)"
+.br
+.ti -1c
+.RI "static \fBtokenIs\fP ($token, $which)"
+.br
+.ti -1c
+.RI "static \fBisOperator\fP ($token)"
+.br
+.ti -1c
+.RI "static \fBhasToken\fP (array $coll, $token)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBCONSTANT_SYNTAX\fP = '^[\fBa\fP-zA-Z_\\x7f-\\xff][\fBa\fP-zA-Z0-9_\\x7f-\\xff]*$'"
+.br
+.ti -1c
+.RI "const \fBVAR_SYNTAX\fP = '^\\$[\fBa\fP-zA-Z_\\x7f-\\xff][\fBa\fP-zA-Z0-9_\\x7f-\\xff]*$'"
+.br
+.ti -1c
+.RI "const \fBMISC_OPERATORS\fP = '+-*/^|&'"
+.br
+.ti -1c
+.RI "const \fBT_OPEN_TAG\fP = 'T_OPEN_TAG'"
+.br
+.ti -1c
+.RI "const \fBT_VARIABLE\fP = 'T_VARIABLE'"
+.br
+.ti -1c
+.RI "const \fBT_OBJECT_OPERATOR\fP = 'T_OBJECT_OPERATOR'"
+.br
+.ti -1c
+.RI "const \fBT_DOUBLE_COLON\fP = 'T_DOUBLE_COLON'"
+.br
+.ti -1c
+.RI "const \fBT_NEW\fP = 'T_NEW'"
+.br
+.ti -1c
+.RI "const \fBT_CLONE\fP = 'T_CLONE'"
+.br
+.ti -1c
+.RI "const \fBT_NS_SEPARATOR\fP = 'T_NS_SEPARATOR'"
+.br
+.ti -1c
+.RI "const \fBT_STRING\fP = 'T_STRING'"
+.br
+.ti -1c
+.RI "const \fBT_WHITESPACE\fP = 'T_WHITESPACE'"
+.br
+.ti -1c
+.RI "const \fBT_AND_EQUAL\fP = 'T_AND_EQUAL'"
+.br
+.ti -1c
+.RI "const \fBT_BOOLEAN_AND\fP = 'T_BOOLEAN_AND'"
+.br
+.ti -1c
+.RI "const \fBT_BOOLEAN_OR\fP = 'T_BOOLEAN_OR'"
+.br
+.ti -1c
+.RI "const \fBT_ENCAPSED_AND_WHITESPACE\fP = 'T_ENCAPSED_AND_WHITESPACE'"
+.br
+.ti -1c
+.RI "const \fBT_REQUIRE\fP = 'T_REQUIRE'"
+.br
+.ti -1c
+.RI "const \fBT_REQUIRE_ONCE\fP = 'T_REQUIRE_ONCE'"
+.br
+.ti -1c
+.RI "const \fBT_INCLUDE\fP = 'T_INCLUDE'"
+.br
+.ti -1c
+.RI "const \fBT_INCLUDE_ONCE\fP = 'T_INCLUDE_ONCE'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetInput\fP (array $tokens)"
+.br
+.ti -1c
+.RI "\fBgetNamespaceAndClass\fP ($tokens)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract tab completion \fBMatcher\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Marc Garcia markcial@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file AbstractMatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getInput (array $tokens)\fC [protected]\fP"
+Get current readline input word\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP Tokenized readline input (see token_get_all)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file AbstractMatcher\&.php\&.
+.SS "getMatches (array $tokens, array $info = \fCarray()\fP)\fC [abstract]\fP"
+Provide tab completion matches for readline input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP information substracted with get_token_all 
+.br
+\fI$info\fP readline_info object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The matches resulting from the query 
+.RE
+.PP
+
+.SS "getNamespaceAndClass ( $tokens)\fC [protected]\fP"
+Get current namespace and class (if any) from readline input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP Tokenized readline input (see token_get_all)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file AbstractMatcher\&.php\&.
+.SS "hasMatched (array $tokens)"
+Check whether this matcher can provide completions for $tokens\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP Tokenized readline input\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file AbstractMatcher\&.php\&.
+.SS "static hasSyntax ( $token,  $syntax = \fCself::VAR_SYNTAX\fP)\fC [static]\fP"
+Check whether $token matches a given syntax pattern\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP \fBPHP\fP token (see token_get_all) 
+.br
+\fI$syntax\fP \fBA\fP syntax pattern (default: variable pattern)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file AbstractMatcher\&.php\&.
+.SS "static hasToken (array $coll,  $token)\fC [static]\fP"
+Check whether $token type is present in $coll\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$coll\fP \fBA\fP list of token types 
+.br
+\fI$token\fP \fBA\fP \fBPHP\fP token (see token_get_all)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file AbstractMatcher\&.php\&.
+.SS "static isOperator ( $token)\fC [static]\fP"
+Check whether $token is an operator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP \fBPHP\fP token (see token_get_all)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file AbstractMatcher\&.php\&.
+.SS "static startsWith ( $prefix,  $word)\fC [static]\fP"
+Check whether $word starts with $prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.br
+\fI$word\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file AbstractMatcher\&.php\&.
+.SS "static tokenIs ( $token,  $which)\fC [static]\fP"
+Check whether $token type is $which\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$which\fP \fBA\fP \fBPHP\fP token type 
+.br
+\fI$token\fP \fBA\fP \fBPHP\fP token (see token_get_all)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file AbstractMatcher\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const CONSTANT_SYNTAX = '^[\fBa\fP-zA-Z_\\x7f-\\xff][\fBa\fP-zA-Z0-9_\\x7f-\\xff]*$'"
+Syntax types 
+.PP
+Definition at line 22 of file AbstractMatcher\&.php\&.
+.SS "const MISC_OPERATORS = '+-*/^|&'"
+
+.PP
+Definition at line 24 of file AbstractMatcher\&.php\&.
+.SS "const T_AND_EQUAL = 'T_AND_EQUAL'"
+
+.PP
+Definition at line 35 of file AbstractMatcher\&.php\&.
+.SS "const T_BOOLEAN_AND = 'T_BOOLEAN_AND'"
+
+.PP
+Definition at line 36 of file AbstractMatcher\&.php\&.
+.SS "const T_BOOLEAN_OR = 'T_BOOLEAN_OR'"
+
+.PP
+Definition at line 37 of file AbstractMatcher\&.php\&.
+.SS "const T_CLONE = 'T_CLONE'"
+
+.PP
+Definition at line 31 of file AbstractMatcher\&.php\&.
+.SS "const T_DOUBLE_COLON = 'T_DOUBLE_COLON'"
+
+.PP
+Definition at line 29 of file AbstractMatcher\&.php\&.
+.SS "const T_ENCAPSED_AND_WHITESPACE = 'T_ENCAPSED_AND_WHITESPACE'"
+
+.PP
+Definition at line 39 of file AbstractMatcher\&.php\&.
+.SS "const T_INCLUDE = 'T_INCLUDE'"
+
+.PP
+Definition at line 42 of file AbstractMatcher\&.php\&.
+.SS "const T_INCLUDE_ONCE = 'T_INCLUDE_ONCE'"
+
+.PP
+Definition at line 43 of file AbstractMatcher\&.php\&.
+.SS "const T_NEW = 'T_NEW'"
+
+.PP
+Definition at line 30 of file AbstractMatcher\&.php\&.
+.SS "const T_NS_SEPARATOR = 'T_NS_SEPARATOR'"
+
+.PP
+Definition at line 32 of file AbstractMatcher\&.php\&.
+.SS "const T_OBJECT_OPERATOR = 'T_OBJECT_OPERATOR'"
+
+.PP
+Definition at line 28 of file AbstractMatcher\&.php\&.
+.SS "const T_OPEN_TAG = 'T_OPEN_TAG'"
+Token values 
+.PP
+Definition at line 26 of file AbstractMatcher\&.php\&.
+.SS "const T_REQUIRE = 'T_REQUIRE'"
+
+.PP
+Definition at line 40 of file AbstractMatcher\&.php\&.
+.SS "const T_REQUIRE_ONCE = 'T_REQUIRE_ONCE'"
+
+.PP
+Definition at line 41 of file AbstractMatcher\&.php\&.
+.SS "const T_STRING = 'T_STRING'"
+
+.PP
+Definition at line 33 of file AbstractMatcher\&.php\&.
+.SS "const T_VARIABLE = 'T_VARIABLE'"
+
+.PP
+Definition at line 27 of file AbstractMatcher\&.php\&.
+.SS "const T_WHITESPACE = 'T_WHITESPACE'"
+
+.PP
+Definition at line 34 of file AbstractMatcher\&.php\&.
+.SS "const VAR_SYNTAX = '^\\$[\fBa\fP-zA-Z_\\x7f-\\xff][\fBa\fP-zA-Z0-9_\\x7f-\\xff]*$'"
+
+.PP
+Definition at line 23 of file AbstractMatcher\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

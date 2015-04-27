@@ -1,0 +1,9 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304 =
+[
+    [ "getProvider", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#abc7f8e7ec49d7b24bba4336a355e6b17", null ],
+    [ "getSupportedToken", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#a01cc635dff47c31cb5f6968e667dd3bf", null ],
+    [ "testAuthenticate", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#aadd92c1764ce220e3999945a06df0d3d", null ],
+    [ "testAuthenticateWhenKeyIsNotValid", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#ac32de8add3362a0d68f0ca48d84e66a6", null ],
+    [ "testAuthenticateWhenTokenIsNotSupported", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#a078d08e7343ecbee0abb3500e946cf00", null ],
+    [ "testSupports", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_provider_1_1_272e9630a9f813a12ed538b0a109c304.html#a2d6b99237d11b6c0643d572c310ecb4f", null ]
+];

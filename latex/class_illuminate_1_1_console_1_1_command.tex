@@ -1,0 +1,650 @@
+\section{Command Class Reference}
+\label{class_illuminate_1_1_console_1_1_command}\index{Command@{Command}}
+Inheritance diagram for Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_illuminate_1_1_console_1_1_command}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf run} ({\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf call} (\$command, array \$arguments=array())
+\item 
+{\bf call\+Silent} (\$command, array \$arguments=array())
+\item 
+{\bf argument} (\$key=null)
+\item 
+{\bf option} (\$key=null)
+\item 
+{\bf confirm} (\${\bf question}, \$default=false)
+\item 
+{\bf ask} (\${\bf question}, \$default=null)
+\item 
+{\bf ask\+With\+Completion} (\${\bf question}, array \$choices, \$default=null)
+\item 
+{\bf secret} (\${\bf question}, \$fallback=true)
+\item 
+{\bf choice} (\${\bf question}, array \$choices, \$default=null, \$attempts=null, \$multiple=null)
+\item 
+{\bf table} (array \$headers, array \$rows, \${\bf style}= \textquotesingle{}default\textquotesingle{})
+\item 
+{\bf info} (\$string)
+\item 
+{\bf line} (\$string)
+\item 
+{\bf comment} (\$string)
+\item 
+{\bf question} (\$string)
+\item 
+{\bf error} (\$string)
+\item 
+{\bf get\+Output} ()
+\item 
+{\bf get\+Laravel} ()
+\item 
+{\bf set\+Laravel} (Laravel\+Application \$laravel)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf specify\+Parameters} ()
+\item 
+{\bf execute} ({\bf Input\+Interface} \$input, {\bf Output\+Interface} \$output)
+\item 
+{\bf get\+Arguments} ()
+\item 
+{\bf get\+Options} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$laravel}
+\item 
+{\bf \$input}
+\item 
+{\bf \$output}
+\item 
+{\bf \$name}
+\item 
+{\bf \$description}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Command.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a095c5d389db211932136b53f25f39685}
+Create a new console command instance.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Command.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!argument@{argument}}
+\index{argument@{argument}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{argument}]{\setlength{\rightskip}{0pt plus 5cm}argument (
+\begin{DoxyParamCaption}
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a6c55ebeea6e4b3b3b19c61feb59f4404}
+Get the value of a command argument.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$array 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!ask@{ask}}
+\index{ask@{ask}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{ask}]{\setlength{\rightskip}{0pt plus 5cm}ask (
+\begin{DoxyParamCaption}
+\item[{}]{\$question, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a057deec0bb464672503cfbd9f130ee06}
+Prompt the user for input.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$question} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!ask\+With\+Completion@{ask\+With\+Completion}}
+\index{ask\+With\+Completion@{ask\+With\+Completion}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{ask\+With\+Completion}]{\setlength{\rightskip}{0pt plus 5cm}ask\+With\+Completion (
+\begin{DoxyParamCaption}
+\item[{}]{\$question, }
+\item[{array}]{\$choices, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a2474e4ccf4130c5f62058454e933cce7}
+Prompt the user for input with auto completion.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$question} & \\
+\hline
+array & {\em \$choices} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 216 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!call@{call}}
+\index{call@{call}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}call (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{array}]{\$arguments = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a059ac4bc7222cf7d0f1761edabb31336}
+Call another console command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!call\+Silent@{call\+Silent}}
+\index{call\+Silent@{call\+Silent}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{call\+Silent}]{\setlength{\rightskip}{0pt plus 5cm}call\+Silent (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{array}]{\$arguments = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a5977f22a08b94ff31b8c1c645417eac2}
+Call another console command silently.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!choice@{choice}}
+\index{choice@{choice}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{choice}]{\setlength{\rightskip}{0pt plus 5cm}choice (
+\begin{DoxyParamCaption}
+\item[{}]{\$question, }
+\item[{array}]{\$choices, }
+\item[{}]{\$default = {\ttfamily null}, }
+\item[{}]{\$attempts = {\ttfamily null}, }
+\item[{}]{\$multiple = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a90ad29f1551b2332448c36c66043308a}
+Give the user a single choice from an array of answers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$question} & \\
+\hline
+array & {\em \$choices} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+mixed & {\em \$attempts} & \\
+\hline
+bool & {\em \$multiple} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!comment@{comment}}
+\index{comment@{comment}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{comment}]{\setlength{\rightskip}{0pt plus 5cm}comment (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a06e03efa0a3e12292c21ed3b25a1717c}
+Write a string as comment output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 309 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!confirm@{confirm}}
+\index{confirm@{confirm}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{confirm}]{\setlength{\rightskip}{0pt plus 5cm}confirm (
+\begin{DoxyParamCaption}
+\item[{}]{\$question, }
+\item[{}]{\$default = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_aa43ab31eb1e2cc0f761f567046c7c583}
+Confirm a question with the user.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$question} & \\
+\hline
+bool & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!error@{error}}
+\index{error@{error}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}error (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_aa20c6da2977b63e1d26d8925670d9dc2}
+Write a string as error output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 331 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!execute@{execute}}
+\index{execute@{execute}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_ab31c72b72ddaf7116db5d84c055d3c0b}
+Execute the console command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Input\textbackslash{}\+Input\+Interface & {\em \$input} & \\
+\hline
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Output\textbackslash{}\+Output\+Interface & {\em \$output} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!get\+Arguments@{get\+Arguments}}
+\index{get\+Arguments@{get\+Arguments}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{get\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}get\+Arguments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a1d4c324c5a088be98d99d3efbf3502e1}
+Get the console command arguments.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 341 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!get\+Laravel@{get\+Laravel}}
+\index{get\+Laravel@{get\+Laravel}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{get\+Laravel}]{\setlength{\rightskip}{0pt plus 5cm}get\+Laravel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_aab7aca3854218cb065a030769a143418}
+Get the \doxyref{Laravel}{p.}{namespace_laravel} application instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 371 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!get\+Options@{get\+Options}}
+\index{get\+Options@{get\+Options}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{get\+Options}]{\setlength{\rightskip}{0pt plus 5cm}get\+Options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a1a49b8dded6e91a52e2fd07195d334da}
+Get the console command options.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 351 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{get\+Output}]{\setlength{\rightskip}{0pt plus 5cm}get\+Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_aefad4c11248b7c6fa6581c25d82bf9c6}
+Get the output implementation.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 361 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!info@{info}}
+\index{info@{info}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{info}]{\setlength{\rightskip}{0pt plus 5cm}info (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_accce3758b9218daed933baf13d94eeea}
+Write a string as information output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 287 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!line@{line}}
+\index{line@{line}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{line}]{\setlength{\rightskip}{0pt plus 5cm}line (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a968a93d8fe6ed7bbcd704ea65863e9a8}
+Write a string as standard output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 298 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!option@{option}}
+\index{option@{option}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{option}]{\setlength{\rightskip}{0pt plus 5cm}option (
+\begin{DoxyParamCaption}
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a948df3e256a690087a23387d0f4a3304}
+Get the value of a command option.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$array 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!question@{question}}
+\index{question@{question}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{question}]{\setlength{\rightskip}{0pt plus 5cm}question (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_ab93174e24ac6c75ef89a0dd89dca9fee}
+Write a string as question output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 320 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!run@{run}}
+\index{run@{run}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf Input\+Interface}}]{\$input, }
+\item[{{\bf Output\+Interface}}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_acc17fc4b2880856deb16661a443fe08e}
+Run the console command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Input\textbackslash{}\+Input\+Interface & {\em \$input} & \\
+\hline
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Console\textbackslash{}\+Output\textbackslash{}\+Output\+Interface & {\em \$output} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!secret@{secret}}
+\index{secret@{secret}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{secret}]{\setlength{\rightskip}{0pt plus 5cm}secret (
+\begin{DoxyParamCaption}
+\item[{}]{\$question, }
+\item[{}]{\$fallback = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_aa76fd4348422dea1678dc0e038cc2e34}
+Prompt the user for input but hide the answer from the console.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$question} & \\
+\hline
+bool & {\em \$fallback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 234 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!set\+Laravel@{set\+Laravel}}
+\index{set\+Laravel@{set\+Laravel}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{set\+Laravel}]{\setlength{\rightskip}{0pt plus 5cm}set\+Laravel (
+\begin{DoxyParamCaption}
+\item[{Laravel\+Application}]{\$laravel}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_a73108663b9684c06ef514d8dc958d81a}
+Set the \doxyref{Laravel}{p.}{namespace_laravel} application instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$laravel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 382 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!specify\+Parameters@{specify\+Parameters}}
+\index{specify\+Parameters@{specify\+Parameters}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{specify\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}specify\+Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_adab56ba8ad22c06ecf93957484198fc9}
+Specify the arguments and options on the command.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!table@{table}}
+\index{table@{table}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}table (
+\begin{DoxyParamCaption}
+\item[{array}]{\$headers, }
+\item[{array}]{\$rows, }
+\item[{}]{\$style = {\ttfamily \textquotesingle{}default\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_command_ad943f093cdfb1ffb1c314e6ef67accc8}
+Format input to textual table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$headers} & \\
+\hline
+array & {\em \$rows} & \\
+\hline
+string & {\em \$style} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Command.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\$description@{\$description}}
+\index{\$description@{\$description}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\$description}]{\setlength{\rightskip}{0pt plus 5cm}\$description\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a87b032cba06009e3467abf1c8018d960}
+
+
+Definition at line 48 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\$input@{\$input}}
+\index{\$input@{\$input}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\$input}]{\setlength{\rightskip}{0pt plus 5cm}\$input\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a69b271260be394b90709736cccb22c76}
+
+
+Definition at line 27 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\$laravel@{\$laravel}}
+\index{\$laravel@{\$laravel}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\$laravel}]{\setlength{\rightskip}{0pt plus 5cm}\$laravel\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a2483b0a3df07768a50dd53f90fd7ae4b}
+
+
+Definition at line 20 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\$name@{\$name}}
+\index{\$name@{\$name}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf name}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_ab2fc40d43824ea3e1ce5d86dee0d763b}
+
+
+Definition at line 41 of file Command.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}!\$output@{\$output}}
+\index{\$output@{\$output}!Illuminate\+::\+Console\+::\+Command@{Illuminate\+::\+Console\+::\+Command}}
+\subsubsection[{\$output}]{\setlength{\rightskip}{0pt plus 5cm}\$output\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_command_a73004ce9cd673c1bfafd1dc351134797}
+
+
+Definition at line 34 of file Command.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Console/{\bf Command.\+php}\end{DoxyCompactItemize}

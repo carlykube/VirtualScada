@@ -1,0 +1,130 @@
+\section{Profiler\+Storage\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface}\index{Profiler\+Storage\+Interface@{Profiler\+Storage\+Interface}}
+Inheritance diagram for Profiler\+Storage\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.386139cm]{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf find} (\$ip, \$url, \$limit, \$method, \$start=null, \$end=null)
+\item 
+{\bf read} (\$token)
+\item 
+{\bf write} ({\bf Profile} \$profile)
+\item 
+{\bf purge} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Profiler\+Storage\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface}.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Profiler\+Storage\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$limit, }
+\item[{}]{\$method, }
+\item[{}]{\$start = {\ttfamily null}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a78e1a362bc3a4a8b1290f3af9541d8b0}
+Finds profiler tokens for the given criteria.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method \\
+\hline
+int | null & {\em \$start} & The start date to search from \\
+\hline
+int | null & {\em \$end} & The end date to search to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of tokens 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Redis\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}, {\bf File\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}, {\bf Pdo\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}, {\bf Base\+Memcache\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}, and {\bf Mongo\+Db\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_mongo_db_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_ac400be513972a68ea08ef845d5b16824}
+Purges all data from the database. 
+
+Implemented in {\bf Pdo\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_ac400be513972a68ea08ef845d5b16824}, {\bf Redis\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_ac400be513972a68ea08ef845d5b16824}, {\bf Base\+Memcache\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_ac400be513972a68ea08ef845d5b16824}, {\bf File\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ac400be513972a68ea08ef845d5b16824}, and {\bf Mongo\+Db\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_mongo_db_profiler_storage_ac400be513972a68ea08ef845d5b16824}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a2080f7cded6528ace4ee2172e48e5f3c}
+Reads data associated with the given token.
+
+The method returns false if the token does not exist in the storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \doxyref{A}{p.}{class_a} token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} The profile associated with token 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Redis\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}, {\bf Base\+Memcache\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}, {\bf File\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}, {\bf Pdo\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}, and {\bf Mongo\+Db\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_mongo_db_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Profiler\+Storage\+Interface}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Profile}}]{\$profile}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_aea7881699586bacb79b542561f655a05}
+Saves a \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} & {\em \$profile} & \doxyref{A}{p.}{class_a} \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Write operation successful 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Redis\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_redis_profiler_storage_aea7881699586bacb79b542561f655a05}, {\bf Base\+Memcache\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_aea7881699586bacb79b542561f655a05}, {\bf File\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_aea7881699586bacb79b542561f655a05}, {\bf Pdo\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_aea7881699586bacb79b542561f655a05}, and {\bf Mongo\+Db\+Profiler\+Storage} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_mongo_db_profiler_storage_aea7881699586bacb79b542561f655a05}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Profiler/{\bf Profiler\+Storage\+Interface.\+php}\end{DoxyCompactItemize}

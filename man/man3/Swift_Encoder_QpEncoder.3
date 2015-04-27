@@ -1,0 +1,240 @@
+.TH "Swift_Encoder_QpEncoder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Encoder_QpEncoder \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Encoder\fP\&.
+.PP
+Inherited by \fBSwift_Mime_ContentEncoder_QpContentEncoder\fP, and \fBSwift_Mime_HeaderEncoder_QpHeaderEncoder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_CharacterStream\fP $charStream, \fBSwift_StreamFilter\fP $\fBfilter\fP=null)"
+.br
+.ti -1c
+.RI "\fB__sleep\fP ()"
+.br
+.ti -1c
+.RI "\fB__wakeup\fP ()"
+.br
+.ti -1c
+.RI "\fBencodeString\fP ($string, $firstLineOffset=0, $maxLineLength=0)"
+.br
+.ti -1c
+.RI "\fBcharsetChanged\fP ($charset)"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetSafeMapShareId\fP ()"
+.br
+.ti -1c
+.RI "\fBinitSafeMap\fP ()"
+.br
+.ti -1c
+.RI "\fB_encodeByteSequence\fP (array $bytes, &$\fBsize\fP)"
+.br
+.ti -1c
+.RI "\fB_nextSequence\fP ($\fBsize\fP=4)"
+.br
+.ti -1c
+.RI "\fB_standardize\fP ($string)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_charStream\fP"
+.br
+.ti -1c
+.RI "\fB$_filter\fP"
+.br
+.ti -1c
+.RI "\fB$_safeMap\fP = array()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$_qpMap\fP"
+.br
+.ti -1c
+.RI "static \fB$_safeMapShare\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles Quoted Printable (QP) Encoding in \fBSwift\fP Mailer\&.
+.PP
+Possibly the most accurate RFC 2045 QP implementation found in \fBPHP\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file QpEncoder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_CharacterStream\fP $charStream, \fBSwift_StreamFilter\fP $filter = \fCnull\fP)"
+Creates a new QpEncoder for the given CharacterStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charStream\fP to use for reading characters 
+.br
+\fI$filter\fP if input should be canonicalized 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file QpEncoder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+Make a deep copy of object 
+.PP
+Definition at line 285 of file QpEncoder\&.php\&.
+.SS "__sleep ()"
+
+.PP
+Definition at line 121 of file QpEncoder\&.php\&.
+.SS "__wakeup ()"
+
+.PP
+Definition at line 126 of file QpEncoder\&.php\&.
+.SS "_encodeByteSequence (array $bytes, & $size)\fC [protected]\fP"
+Encode the given byte array into a verbatim QP form\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinteger[]\fP $bytes 
+.br
+\fI$size\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file QpEncoder\&.php\&.
+.SS "_nextSequence ( $size = \fC4\fP)\fC [protected]\fP"
+Get the next sequence of bytes to read from the char stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$size\fP number of bytes to read
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+integer[] 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file QpEncoder\&.php\&.
+.SS "_standardize ( $string)\fC [protected]\fP"
+Make sure CRLF is correct and HT/SPACE are in valid places\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 268 of file QpEncoder\&.php\&.
+.SS "charsetChanged ( $charset)"
+Updates the charset used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_CharsetObserver\fP\&.
+.PP
+Definition at line 219 of file QpEncoder\&.php\&.
+.SS "encodeString ( $string,  $firstLineOffset = \fC0\fP,  $maxLineLength = \fC0\fP)"
+Takes an unencoded string and produces a QP encoded string from it\&.
+.PP
+QP encoded strings have a maximum line length of 76 characters\&. If the first line needs to be shorter, indicate the difference with $firstLineOffset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP to encode 
+.br
+\fI$firstLineOffset,optional\fP 
+.br
+\fI$maxLineLength,optional\fP 0 indicates the default of 76 chars
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Encoder\fP\&.
+.PP
+Definition at line 162 of file QpEncoder\&.php\&.
+.SS "getSafeMapShareId ()\fC [protected]\fP"
+
+.PP
+Definition at line 136 of file QpEncoder\&.php\&.
+.SS "initSafeMap ()\fC [protected]\fP"
+
+.PP
+Definition at line 141 of file QpEncoder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_charStream\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file QpEncoder\&.php\&.
+.SS "$_filter\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file QpEncoder\&.php\&.
+.SS "$_qpMap\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 39 of file QpEncoder\&.php\&.
+.SS "$_safeMap = array()\fC [protected]\fP"
+
+.PP
+Definition at line 101 of file QpEncoder\&.php\&.
+.SS "$_safeMapShare = array()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 94 of file QpEncoder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

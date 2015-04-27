@@ -1,0 +1,324 @@
+\section{Swift\+\_\+\+Message Class Reference}
+\label{class_swift___message}\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+Inheritance diagram for Swift\+\_\+\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.949495cm]{class_swift___message}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$subject=null, \$body=null, \$content\+Type=null, \$charset=null)
+\item 
+{\bf add\+Part} (\$body, \$content\+Type=null, \$charset=null)
+\item 
+{\bf attach\+Signer} ({\bf Swift\+\_\+\+Signer} \$signer)
+\item 
+{\bf detach\+Signer} ({\bf Swift\+\_\+\+Signer} \$signer)
+\item 
+{\bf to\+String} ()
+\item 
+{\bf to\+Byte\+Stream} ({\bf Swift\+\_\+\+Input\+Byte\+Stream} \$is)
+\item 
+{\bf \+\_\+\+\_\+wakeup} ()
+\item 
+{\bf \+\_\+\+\_\+clone} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf new\+Instance} (\$subject=null, \$body=null, \$content\+Type=null, \$charset=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf do\+Sign} ()
+\item 
+{\bf save\+Message} ()
+\item 
+{\bf save\+Headers} (array \$altered)
+\item 
+{\bf restore\+Headers} ()
+\item 
+{\bf restore\+Message} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The Message class for building emails.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Message.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$subject = {\ttfamily null}, }
+\item[{}]{\$body = {\ttfamily null}, }
+\item[{}]{\$content\+Type = {\ttfamily null}, }
+\item[{}]{\$charset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a0363f2aca415ca072739c449c88c0d41}
+Create a new Message.
+
+Details may be optionally passed into the constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$subject} & \\
+\hline
+string & {\em \$body} & \\
+\hline
+string & {\em \$content\+Type} & \\
+\hline
+string & {\em \$charset} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file Message.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}}
+\index{\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{\+\_\+\+\_\+clone}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_ad0cb87b388bc74d63dc884accdca8713}
+Clone Message Signers \begin{DoxySeeAlso}{See also}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Mime\+Entity\+::\+\_\+\+\_\+clone()}{p.}{class_swift___mime___simple_mime_entity_ad0cb87b388bc74d63dc884accdca8713} 
+\end{DoxySeeAlso}
+
+
+Definition at line 276 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!\+\_\+\+\_\+wakeup@{\+\_\+\+\_\+wakeup}}
+\index{\+\_\+\+\_\+wakeup@{\+\_\+\+\_\+wakeup}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{\+\_\+\+\_\+wakeup}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+wakeup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a19dd44fe063cfd1cbafe97452e57666c}
+
+
+Definition at line 184 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!add\+Part@{add\+Part}}
+\index{add\+Part@{add\+Part}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{add\+Part}]{\setlength{\rightskip}{0pt plus 5cm}add\+Part (
+\begin{DoxyParamCaption}
+\item[{}]{\$body, }
+\item[{}]{\$content\+Type = {\ttfamily null}, }
+\item[{}]{\$charset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a706c5f8c436fefc7d24ee15104668682}
+Add a Mime\+Part to this Message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \doxyref{Swift\+\_\+\+Output\+Byte\+Stream}{p.}{interface_swift___output_byte_stream} & {\em \$body} & \\
+\hline
+string & {\em \$content\+Type} & \\
+\hline
+string & {\em \$charset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Simple\+Message}{p.}{class_swift___mime___simple_message} 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!attach\+Signer@{attach\+Signer}}
+\index{attach\+Signer@{attach\+Signer}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{attach\+Signer}]{\setlength{\rightskip}{0pt plus 5cm}attach\+Signer (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Signer}}]{\$signer}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_add2277c31be167c20cb70dbc786456f3}
+Attach a new signature handler to the message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Signer}{p.}{interface_swift___signer} & {\em \$signer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!detach\+Signer@{detach\+Signer}}
+\index{detach\+Signer@{detach\+Signer}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{detach\+Signer}]{\setlength{\rightskip}{0pt plus 5cm}detach\+Signer (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Signer}}]{\$signer}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a6bd717e5a0d44d61aee2d643a778ceb4}
+Attach a new signature handler to the message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Signer}{p.}{interface_swift___signer} & {\em \$signer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!do\+Sign@{do\+Sign}}
+\index{do\+Sign@{do\+Sign}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{do\+Sign}]{\setlength{\rightskip}{0pt plus 5cm}do\+Sign (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___message_a63ed5181478b7a6fc009930d9487a35a}
+loops through signers and apply the signatures 
+
+Definition at line 192 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!new\+Instance@{new\+Instance}}
+\index{new\+Instance@{new\+Instance}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{new\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static new\+Instance (
+\begin{DoxyParamCaption}
+\item[{}]{\$subject = {\ttfamily null}, }
+\item[{}]{\$body = {\ttfamily null}, }
+\item[{}]{\$content\+Type = {\ttfamily null}, }
+\item[{}]{\$charset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_swift___message_a255ad13978f69388ae07907ab344d3a6}
+Create a new Message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$subject} & \\
+\hline
+string & {\em \$body} & \\
+\hline
+string & {\em \$content\+Type} & \\
+\hline
+string & {\em \$charset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Message}{p.}{class_swift___message} 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!restore\+Headers@{restore\+Headers}}
+\index{restore\+Headers@{restore\+Headers}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{restore\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}restore\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___message_a4cdc1f8a53f242855344c53c648d3227}
+Remove or restore altered headers 
+
+Definition at line 247 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!restore\+Message@{restore\+Message}}
+\index{restore\+Message@{restore\+Message}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{restore\+Message}]{\setlength{\rightskip}{0pt plus 5cm}restore\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___message_a5f97e94f534f45d66e8c4da4f60cc480}
+Restore message body 
+
+Definition at line 263 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!save\+Headers@{save\+Headers}}
+\index{save\+Headers@{save\+Headers}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{save\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}save\+Headers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$altered}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___message_a9f19fbd301de5b16c5e6ba30e6637384}
+save the original headers 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$altered} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 233 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!save\+Message@{save\+Message}}
+\index{save\+Message@{save\+Message}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{save\+Message}]{\setlength{\rightskip}{0pt plus 5cm}save\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___message_abe970e48686cedc79f23fd78885a4b7f}
+save the message before any signature is applied 
+
+Definition at line 218 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!to\+Byte\+Stream@{to\+Byte\+Stream}}
+\index{to\+Byte\+Stream@{to\+Byte\+Stream}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{to\+Byte\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}to\+Byte\+Stream (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Input\+Byte\+Stream}}]{\$is}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a458ce073818b635a9a43965fd730e93b}
+Write this message to a \doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Input\+Byte\+Stream}{p.}{interface_swift___input_byte_stream} & {\em \$is} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a458ce073818b635a9a43965fd730e93b}.
+
+
+
+Definition at line 167 of file Message.\+php.
+
+\index{Swift\+\_\+\+Message@{Swift\+\_\+\+Message}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Swift\+\_\+\+Message@{Swift\+\_\+\+Message}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___message_a5558c5d549f41597377fa1ea8a1cefa3}
+Get this message as a complete string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Mime\+\_\+\+Mime\+Entity} \doxyref{}{p.}{interface_swift___mime___mime_entity_a5558c5d549f41597377fa1ea8a1cefa3}.
+
+
+
+Definition at line 145 of file Message.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/{\bf Message.\+php}\end{DoxyCompactItemize}

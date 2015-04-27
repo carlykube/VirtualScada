@@ -1,0 +1,501 @@
+\section{Migrator Class Reference}
+\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator}\index{Migrator@{Migrator}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Migration\+Repository\+Interface} \$repository, Resolver \$resolver, {\bf Filesystem} \$files)
+\item 
+{\bf run} (\${\bf path}, \$pretend=false)
+\item 
+{\bf run\+Migration\+List} (\$migrations, \$pretend=false)
+\item 
+{\bf rollback} (\$pretend=false)
+\item 
+{\bf get\+Migration\+Files} (\${\bf path})
+\item 
+{\bf require\+Files} (\${\bf path}, array \$files)
+\item 
+{\bf resolve} (\$file)
+\item 
+{\bf get\+Notes} ()
+\item 
+{\bf resolve\+Connection} (\$connection)
+\item 
+{\bf set\+Connection} (\${\bf name})
+\item 
+{\bf get\+Repository} ()
+\item 
+{\bf repository\+Exists} ()
+\item 
+{\bf get\+Filesystem} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf run\+Up} (\$file, \$batch, \$pretend)
+\item 
+{\bf run\+Down} (\$migration, \$pretend)
+\item 
+{\bf pretend\+To\+Run} (\$migration, \$method)
+\item 
+{\bf get\+Queries} (\$migration, \$method)
+\item 
+{\bf note} (\$message)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$repository}
+\item 
+{\bf \$files}
+\item 
+{\bf \$resolver}
+\item 
+{\bf \$connection}
+\item 
+{\bf \$notes} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file Migrator.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Migration\+Repository\+Interface}}]{\$repository, }
+\item[{Resolver}]{\$resolver, }
+\item[{{\bf Filesystem}}]{\$files}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_afaf2cf16594eee39376b887350dc28c5}
+Create a new migrator instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Migrations\textbackslash{}\+Migration\+Repository\+Interface & {\em \$repository} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection\+Resolver\+Interface & {\em \$resolver} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Filesystem\textbackslash{}\+Filesystem & {\em \$files} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file Migrator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!get\+Filesystem@{get\+Filesystem}}
+\index{get\+Filesystem@{get\+Filesystem}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{get\+Filesystem}]{\setlength{\rightskip}{0pt plus 5cm}get\+Filesystem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a7d113f7456b7a8eb009831ddcbe7fe2b}
+Get the file system instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 379 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!get\+Migration\+Files@{get\+Migration\+Files}}
+\index{get\+Migration\+Files@{get\+Migration\+Files}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{get\+Migration\+Files}]{\setlength{\rightskip}{0pt plus 5cm}get\+Migration\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a07b35649d06679bcff46f0fd56735fa0}
+Get all of the migration files in a given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!get\+Notes@{get\+Notes}}
+\index{get\+Notes@{get\+Notes}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{get\+Notes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Notes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_ae5d103a1f6ef01da2567380016c726c8}
+Get the notes for the last operation.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 320 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!get\+Queries@{get\+Queries}}
+\index{get\+Queries@{get\+Queries}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{get\+Queries}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queries (
+\begin{DoxyParamCaption}
+\item[{}]{\$migration, }
+\item[{}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_adc35df2ea4443a3c5df8ea547bfbb850}
+Get all of the queries that would be run for a migration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+object & {\em \$migration} & \\
+\hline
+string & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!get\+Repository@{get\+Repository}}
+\index{get\+Repository@{get\+Repository}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{get\+Repository}]{\setlength{\rightskip}{0pt plus 5cm}get\+Repository (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a179fe9e45e9f741f57b60884957eb2d3}
+Get the migration repository instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 359 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!note@{note}}
+\index{note@{note}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{note}]{\setlength{\rightskip}{0pt plus 5cm}note (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a49eecc65a4d56580b23c4b341bcc8bf9}
+Raise a note event for the migrator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 310 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!pretend\+To\+Run@{pretend\+To\+Run}}
+\index{pretend\+To\+Run@{pretend\+To\+Run}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{pretend\+To\+Run}]{\setlength{\rightskip}{0pt plus 5cm}pretend\+To\+Run (
+\begin{DoxyParamCaption}
+\item[{}]{\$migration, }
+\item[{}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a772ff2f9b02412bdba7e836dfe5aafe7}
+Pretend to run the migrations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+object & {\em \$migration} & \\
+\hline
+string & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!repository\+Exists@{repository\+Exists}}
+\index{repository\+Exists@{repository\+Exists}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{repository\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}repository\+Exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a76ea3be34a293258ecc23311fe33c145}
+Determine if the migration repository exists.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 369 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!require\+Files@{require\+Files}}
+\index{require\+Files@{require\+Files}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{require\+Files}]{\setlength{\rightskip}{0pt plus 5cm}require\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{array}]{\$files}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a4b417f1e37691debe90592c8b24dc9d8}
+Require in all the migration files in a given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+array & {\em \$files} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!resolve@{resolve}}
+\index{resolve@{resolve}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{resolve}]{\setlength{\rightskip}{0pt plus 5cm}resolve (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a05e17a60b456bb85b5e94b2b9d0e0179}
+Resolve a migration instance from a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!resolve\+Connection@{resolve\+Connection}}
+\index{resolve\+Connection@{resolve\+Connection}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{resolve\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}resolve\+Connection (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a9bdecb51d3dd66a17c6c99379989d76b}
+Resolve the database connection instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 331 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!rollback@{rollback}}
+\index{rollback@{rollback}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{rollback}]{\setlength{\rightskip}{0pt plus 5cm}rollback (
+\begin{DoxyParamCaption}
+\item[{}]{\$pretend = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a4e9ee33d474843d8a777b4cc3439cecb}
+Rollback the last migration operation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$pretend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!run@{run}}
+\index{run@{run}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$pretend = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a2d8a7fa524ea0168bdd5720bd805ad2f}
+Run the outstanding migrations at a given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+bool & {\em \$pretend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!run\+Down@{run\+Down}}
+\index{run\+Down@{run\+Down}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{run\+Down}]{\setlength{\rightskip}{0pt plus 5cm}run\+Down (
+\begin{DoxyParamCaption}
+\item[{}]{\$migration, }
+\item[{}]{\$pretend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a81b3199ee9bde8f45b4926f2bf613953}
+Run \char`\"{}down\char`\"{} a migration instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+object & {\em \$migration} & \\
+\hline
+bool & {\em \$pretend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 185 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!run\+Migration\+List@{run\+Migration\+List}}
+\index{run\+Migration\+List@{run\+Migration\+List}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{run\+Migration\+List}]{\setlength{\rightskip}{0pt plus 5cm}run\+Migration\+List (
+\begin{DoxyParamCaption}
+\item[{}]{\$migrations, }
+\item[{}]{\$pretend = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_aedd45e9f3454d4c7e6457f4afc450d08}
+Run an array of migrations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$migrations} & \\
+\hline
+bool & {\em \$pretend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!run\+Up@{run\+Up}}
+\index{run\+Up@{run\+Up}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{run\+Up}]{\setlength{\rightskip}{0pt plus 5cm}run\+Up (
+\begin{DoxyParamCaption}
+\item[{}]{\$file, }
+\item[{}]{\$batch, }
+\item[{}]{\$pretend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a83b1bafa8ca610affc8efd94f22418d7}
+Run \char`\"{}up\char`\"{} a migration instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$file} & \\
+\hline
+int & {\em \$batch} & \\
+\hline
+bool & {\em \$pretend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!set\+Connection@{set\+Connection}}
+\index{set\+Connection@{set\+Connection}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{set\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}set\+Connection (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_af8090fd0db9f649100e3b89ee8370e98}
+Set the default connection name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 342 of file Migrator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\$connection@{\$connection}}
+\index{\$connection@{\$connection}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\$connection}]{\setlength{\rightskip}{0pt plus 5cm}\$connection\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+
+Definition at line 34 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\$files@{\$files}}
+\index{\$files@{\$files}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\$files}]{\setlength{\rightskip}{0pt plus 5cm}\$files\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a9590b15215a21e9b42eb546aeef79704}
+
+
+Definition at line 20 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\$notes@{\$notes}}
+\index{\$notes@{\$notes}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\$notes}]{\setlength{\rightskip}{0pt plus 5cm}\$notes = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a2bfacb2c81cae66264f765b0a20599c6}
+
+
+Definition at line 41 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\$repository@{\$repository}}
+\index{\$repository@{\$repository}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\$repository}]{\setlength{\rightskip}{0pt plus 5cm}\$repository\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a116ab346146cc30fbffb7ffc52cbd1b3}
+
+
+Definition at line 13 of file Migrator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}!\$resolver@{\$resolver}}
+\index{\$resolver@{\$resolver}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migrator}}
+\subsubsection[{\$resolver}]{\setlength{\rightskip}{0pt plus 5cm}\$resolver\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migrator_a7135f2410a6688dad5c96ff68827d911}
+
+
+Definition at line 27 of file Migrator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Migrations/{\bf Migrator.\+php}\end{DoxyCompactItemize}

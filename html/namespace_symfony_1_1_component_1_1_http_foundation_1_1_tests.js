@@ -1,0 +1,28 @@
+var namespace_symfony_1_1_component_1_1_http_foundation_1_1_tests =
+[
+    [ "File", "namespace_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_file.html", "namespace_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_file" ],
+    [ "Session", "namespace_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session.html", "namespace_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session" ],
+    [ "AcceptHeaderItemTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_accept_header_item_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_accept_header_item_test" ],
+    [ "AcceptHeaderTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_accept_header_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_accept_header_test" ],
+    [ "ApacheRequestTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_apache_request_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_apache_request_test" ],
+    [ "BinaryFileResponseTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_binary_file_response_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_binary_file_response_test" ],
+    [ "CookieTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_cookie_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_cookie_test" ],
+    [ "ExpressionRequestMatcherTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_expression_request_matcher_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_expression_request_matcher_test" ],
+    [ "FileBagTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_file_bag_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_file_bag_test" ],
+    [ "HeaderBagTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_header_bag_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_header_bag_test" ],
+    [ "IpUtilsTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_ip_utils_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_ip_utils_test" ],
+    [ "JsonResponseTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_json_response_test" ],
+    [ "NewRequest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_new_request.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_new_request" ],
+    [ "ParameterBagTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_parameter_bag_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_parameter_bag_test" ],
+    [ "RedirectResponseTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_redirect_response_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_redirect_response_test" ],
+    [ "RequestContentProxy", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_content_proxy.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_content_proxy" ],
+    [ "RequestMatcherTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_matcher_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_matcher_test" ],
+    [ "RequestStackTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_stack_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_stack_test" ],
+    [ "RequestTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_request_test" ],
+    [ "ResponseHeaderBagTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_header_bag_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_header_bag_test" ],
+    [ "ResponseTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_test" ],
+    [ "ResponseTestCase", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_test_case.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_response_test_case" ],
+    [ "ServerBagTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_server_bag_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_server_bag_test" ],
+    [ "StreamedResponseTest", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_streamed_response_test.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_streamed_response_test" ],
+    [ "StringableObject", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_stringable_object.html", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_stringable_object" ]
+];

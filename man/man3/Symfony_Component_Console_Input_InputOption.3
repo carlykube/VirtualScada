@@ -1,0 +1,241 @@
+.TH "InputOption" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+InputOption \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, $shortcut=null, $mode=null, $description= '', $default=null)"
+.br
+.ti -1c
+.RI "\fBgetShortcut\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBacceptValue\fP ()"
+.br
+.ti -1c
+.RI "\fBisValueRequired\fP ()"
+.br
+.ti -1c
+.RI "\fBisValueOptional\fP ()"
+.br
+.ti -1c
+.RI "\fBisArray\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefault\fP ($default=null)"
+.br
+.ti -1c
+.RI "\fBgetDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDescription\fP ()"
+.br
+.ti -1c
+.RI "\fBequals\fP (\fBInputOption\fP $option)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVALUE_NONE\fP = 1"
+.br
+.ti -1c
+.RI "const \fBVALUE_REQUIRED\fP = 2"
+.br
+.ti -1c
+.RI "const \fBVALUE_OPTIONAL\fP = 4"
+.br
+.ti -1c
+.RI "const \fBVALUE_IS_ARRAY\fP = 8"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a command line option\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 21 of file InputOption\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name,  $shortcut = \fCnull\fP,  $mode = \fCnull\fP,  $description = \fC''\fP,  $default = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The option name 
+.br
+\fI$shortcut\fP The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts 
+.br
+\fI$mode\fP The option mode: \fBOne\fP of the VALUE_* constants 
+.br
+\fI$description\fP \fBA\fP description text 
+.br
+\fI$default\fP The default value (must be null for self::VALUE_REQUIRED or self::VALUE_NONE)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 47 of file InputOption\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "acceptValue ()"
+Returns true if the option accepts a value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if value mode is not self::VALUE_NONE, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file InputOption\&.php\&.
+.SS "equals (\fBInputOption\fP $option)"
+Checks whether the given option equals this one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$option\fP option to compare
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 203 of file InputOption\&.php\&.
+.SS "getDefault ()"
+Returns the default value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The default value 
+.RE
+.PP
+
+.PP
+Definition at line 181 of file InputOption\&.php\&.
+.SS "getDescription ()"
+Returns the description text\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The description text 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file InputOption\&.php\&.
+.SS "getName ()"
+Returns the option name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The name 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file InputOption\&.php\&.
+.SS "getShortcut ()"
+Returns the option shortcut\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The shortcut 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file InputOption\&.php\&.
+.SS "isArray ()"
+Returns true if the option can take multiple values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if mode is self::VALUE_IS_ARRAY, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file InputOption\&.php\&.
+.SS "isValueOptional ()"
+Returns true if the option takes an optional value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if value mode is self::VALUE_OPTIONAL, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file InputOption\&.php\&.
+.SS "isValueRequired ()"
+Returns true if the option requires a value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if value mode is self::VALUE_REQUIRED, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 127 of file InputOption\&.php\&.
+.SS "setDefault ( $default = \fCnull\fP)"
+Sets the default value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$default\fP The default value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 159 of file InputOption\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const VALUE_IS_ARRAY = 8"
+
+.PP
+Definition at line 26 of file InputOption\&.php\&.
+.SS "const VALUE_NONE = 1"
+
+.PP
+Definition at line 23 of file InputOption\&.php\&.
+.SS "const VALUE_OPTIONAL = 4"
+
+.PP
+Definition at line 25 of file InputOption\&.php\&.
+.SS "const VALUE_REQUIRED = 2"
+
+.PP
+Definition at line 24 of file InputOption\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

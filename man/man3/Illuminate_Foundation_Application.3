@@ -1,0 +1,1689 @@
+.TH "Application" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Application \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBContainer\fP, \fBApplication\fP, \fBHttpKernelInterface\fP, \fBContainer\fP, \fBApplication\fP, and \fBHttpKernelInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBbasePath\fP=null)"
+.br
+.ti -1c
+.RI "\fBversion\fP ()"
+.br
+.ti -1c
+.RI "\fBbootstrapWith\fP (array $bootstrappers)"
+.br
+.ti -1c
+.RI "\fBafterLoadingEnvironment\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbeforeBootstrapping\fP ($bootstrapper, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafterBootstrapping\fP ($bootstrapper, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBhasBeenBootstrapped\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBasePath\fP ($\fBbasePath\fP)"
+.br
+.ti -1c
+.RI "\fBpath\fP ()"
+.br
+.ti -1c
+.RI "\fBbasePath\fP ()"
+.br
+.ti -1c
+.RI "\fBconfigPath\fP ()"
+.br
+.ti -1c
+.RI "\fBdatabasePath\fP ()"
+.br
+.ti -1c
+.RI "\fBuseDatabasePath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlangPath\fP ()"
+.br
+.ti -1c
+.RI "\fBpublicPath\fP ()"
+.br
+.ti -1c
+.RI "\fBstoragePath\fP ()"
+.br
+.ti -1c
+.RI "\fBuseStoragePath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBloadEnvironmentFrom\fP ($file)"
+.br
+.ti -1c
+.RI "\fBenvironmentFile\fP ()"
+.br
+.ti -1c
+.RI "\fBenvironment\fP ()"
+.br
+.ti -1c
+.RI "\fBisLocal\fP ()"
+.br
+.ti -1c
+.RI "\fBdetectEnvironment\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrunningInConsole\fP ()"
+.br
+.ti -1c
+.RI "\fBrunningUnitTests\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterConfiguredProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBregister\fP ($provider, $\fBoptions\fP=array(), $\fBforce\fP=false)"
+.br
+.ti -1c
+.RI "\fBgetProvider\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBresolveProviderClass\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBloadDeferredProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBloadDeferredProvider\fP ($service)"
+.br
+.ti -1c
+.RI "\fBregisterDeferredProvider\fP ($provider, $service=null)"
+.br
+.ti -1c
+.RI "\fBmake\fP ($abstract, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBbound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisBooted\fP ()"
+.br
+.ti -1c
+.RI "\fBboot\fP ()"
+.br
+.ti -1c
+.RI "\fBbooting\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbooted\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (SymfonyRequest $request, $type=self::MASTER_REQUEST, $catch=true)"
+.br
+.ti -1c
+.RI "\fBconfigurationIsCached\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedConfigPath\fP ()"
+.br
+.ti -1c
+.RI "\fBroutesAreCached\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedRoutesPath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedCompilePath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedServicesPath\fP ()"
+.br
+.ti -1c
+.RI "\fBvendorIsWritableForOptimizations\fP ()"
+.br
+.ti -1c
+.RI "\fBuseStoragePathForOptimizations\fP ($value=true)"
+.br
+.ti -1c
+.RI "\fBisDownForMaintenance\fP ()"
+.br
+.ti -1c
+.RI "\fBdown\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBabort\fP ($code, $message= '', array $headers=array())"
+.br
+.ti -1c
+.RI "\fBterminating\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBterminate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLoadedProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDeferredServices\fP (array $services)"
+.br
+.ti -1c
+.RI "\fBisDeferredService\fP ($service)"
+.br
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBregisterCoreContainerAliases\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($\fBbasePath\fP=null)"
+.br
+.ti -1c
+.RI "\fBversion\fP ()"
+.br
+.ti -1c
+.RI "\fBbootstrapWith\fP (array $bootstrappers)"
+.br
+.ti -1c
+.RI "\fBafterLoadingEnvironment\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbeforeBootstrapping\fP ($bootstrapper, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafterBootstrapping\fP ($bootstrapper, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBhasBeenBootstrapped\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBasePath\fP ($\fBbasePath\fP)"
+.br
+.ti -1c
+.RI "\fBpath\fP ()"
+.br
+.ti -1c
+.RI "\fBbasePath\fP ()"
+.br
+.ti -1c
+.RI "\fBconfigPath\fP ()"
+.br
+.ti -1c
+.RI "\fBdatabasePath\fP ()"
+.br
+.ti -1c
+.RI "\fBuseDatabasePath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlangPath\fP ()"
+.br
+.ti -1c
+.RI "\fBpublicPath\fP ()"
+.br
+.ti -1c
+.RI "\fBstoragePath\fP ()"
+.br
+.ti -1c
+.RI "\fBuseStoragePath\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBloadEnvironmentFrom\fP ($file)"
+.br
+.ti -1c
+.RI "\fBenvironmentFile\fP ()"
+.br
+.ti -1c
+.RI "\fBenvironment\fP ()"
+.br
+.ti -1c
+.RI "\fBisLocal\fP ()"
+.br
+.ti -1c
+.RI "\fBdetectEnvironment\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrunningInConsole\fP ()"
+.br
+.ti -1c
+.RI "\fBrunningUnitTests\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterConfiguredProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBregister\fP ($provider, $\fBoptions\fP=array(), $\fBforce\fP=false)"
+.br
+.ti -1c
+.RI "\fBgetProvider\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBresolveProviderClass\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBloadDeferredProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBloadDeferredProvider\fP ($service)"
+.br
+.ti -1c
+.RI "\fBregisterDeferredProvider\fP ($provider, $service=null)"
+.br
+.ti -1c
+.RI "\fBmake\fP ($abstract, $parameters=array())"
+.br
+.ti -1c
+.RI "\fBbound\fP ($abstract)"
+.br
+.ti -1c
+.RI "\fBisBooted\fP ()"
+.br
+.ti -1c
+.RI "\fBboot\fP ()"
+.br
+.ti -1c
+.RI "\fBbooting\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbooted\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (SymfonyRequest $request, $type=self::MASTER_REQUEST, $catch=true)"
+.br
+.ti -1c
+.RI "\fBconfigurationIsCached\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedConfigPath\fP ()"
+.br
+.ti -1c
+.RI "\fBroutesAreCached\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedRoutesPath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedCompilePath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCachedServicesPath\fP ()"
+.br
+.ti -1c
+.RI "\fBvendorIsWritableForOptimizations\fP ()"
+.br
+.ti -1c
+.RI "\fBuseStoragePathForOptimizations\fP ($value=true)"
+.br
+.ti -1c
+.RI "\fBisDownForMaintenance\fP ()"
+.br
+.ti -1c
+.RI "\fBdown\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBabort\fP ($code, $message= '', array $headers=array())"
+.br
+.ti -1c
+.RI "\fBterminating\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBterminate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLoadedProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDeferredServices\fP (array $services)"
+.br
+.ti -1c
+.RI "\fBisDeferredService\fP ($service)"
+.br
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBregisterCoreContainerAliases\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERSION\fP = '5\&.0\&.27'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregisterBaseBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterBaseServiceProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBbindPathsInContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBmarkAsRegistered\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBbootProvider\fP (\fBServiceProvider\fP $provider)"
+.br
+.ti -1c
+.RI "\fBfireAppCallbacks\fP (array $callbacks)"
+.br
+.ti -1c
+.RI "\fBregisterBaseBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterBaseServiceProviders\fP ()"
+.br
+.ti -1c
+.RI "\fBbindPathsInContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBmarkAsRegistered\fP ($provider)"
+.br
+.ti -1c
+.RI "\fBbootProvider\fP (\fBServiceProvider\fP $provider)"
+.br
+.ti -1c
+.RI "\fBfireAppCallbacks\fP (array $callbacks)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$basePath\fP"
+.br
+.ti -1c
+.RI "\fB$hasBeenBootstrapped\fP = false"
+.br
+.ti -1c
+.RI "\fB$booted\fP = false"
+.br
+.ti -1c
+.RI "\fB$bootingCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$bootedCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$terminatingCallbacks\fP = array()"
+.br
+.ti -1c
+.RI "\fB$serviceProviders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$loadedProviders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$deferredServices\fP = array()"
+.br
+.ti -1c
+.RI "\fB$databasePath\fP"
+.br
+.ti -1c
+.RI "\fB$storagePath\fP"
+.br
+.ti -1c
+.RI "\fB$useStoragePathForOptimizations\fP = false"
+.br
+.ti -1c
+.RI "\fB$environmentFile\fP = '\&.env'"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 1269 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $basePath = \fCnull\fP)"
+
+.PP
+Definition at line 1285 of file compiled\&.php\&.
+.SS "__construct ( $basePath = \fCnull\fP)"
+Create a new \fBIlluminate\fP application instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$basePath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file Application\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "abort ( $code,  $message = \fC''\fP, array $headers = \fCarray()\fP)"
+Throw an HttpException with the given data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP 
+.br
+\fI$message\fP 
+.br
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 895 of file Application\&.php\&.
+.SS "abort ( $code,  $message = \fC''\fP, array $headers = \fCarray()\fP)"
+
+.PP
+Definition at line 1610 of file compiled\&.php\&.
+.SS "afterBootstrapping ( $bootstrapper, Closure $callback)"
+Register a callback to run after a bootstrapper\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bootstrapper\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file Application\&.php\&.
+.SS "afterBootstrapping ( $bootstrapper, Closure $callback)"
+
+.PP
+Definition at line 1326 of file compiled\&.php\&.
+.SS "afterLoadingEnvironment (Closure $callback)"
+Register a callback to run after loading the environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file Application\&.php\&.
+.SS "afterLoadingEnvironment (Closure $callback)"
+
+.PP
+Definition at line 1318 of file compiled\&.php\&.
+.SS "basePath ()"
+Get the base path of the \fBLaravel\fP installation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 281 of file Application\&.php\&.
+.SS "basePath ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1351 of file compiled\&.php\&.
+.SS "beforeBootstrapping ( $bootstrapper, Closure $callback)"
+Register a callback to run before a bootstrapper\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bootstrapper\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 209 of file Application\&.php\&.
+.SS "beforeBootstrapping ( $bootstrapper, Closure $callback)"
+
+.PP
+Definition at line 1322 of file compiled\&.php\&.
+.SS "bindPathsInContainer ()\fC [protected]\fP"
+Bind all of the application paths in the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file Application\&.php\&.
+.SS "bindPathsInContainer ()\fC [protected]\fP"
+
+.PP
+Definition at line 1340 of file compiled\&.php\&.
+.SS "boot ()"
+Boot the application's service providers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 673 of file Application\&.php\&.
+.SS "boot ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1511 of file compiled\&.php\&.
+.SS "booted ( $callback)"
+Register a new 'booted' listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 722 of file Application\&.php\&.
+.SS "booted ( $callback)"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1533 of file compiled\&.php\&.
+.SS "booting ( $callback)"
+Register a new boot listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 711 of file Application\&.php\&.
+.SS "booting ( $callback)"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1529 of file compiled\&.php\&.
+.SS "bootProvider (\fBServiceProvider\fP $provider)\fC [protected]\fP"
+Boot the given service provider\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 697 of file Application\&.php\&.
+.SS "bootProvider (\fBServiceProvider\fP $provider)\fC [protected]\fP"
+
+.PP
+Definition at line 1523 of file compiled\&.php\&.
+.SS "bootstrapWith (array $bootstrappers)"
+Run the given array of bootstrap classes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bootstrappers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file Application\&.php\&.
+.SS "bootstrapWith (array $bootstrappers)"
+
+.PP
+Definition at line 1309 of file compiled\&.php\&.
+.SS "bound ( $abstract)"
+Determine if the given abstract type has been bound\&.
+.PP
+(Overriding \fBContainer::bound\fP)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 653 of file Application\&.php\&.
+.SS "bound ( $abstract)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 1503 of file compiled\&.php\&.
+.SS "configPath ()"
+Get the path to the application configuration files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 291 of file Application\&.php\&.
+.SS "configPath ()"
+
+.PP
+Definition at line 1355 of file compiled\&.php\&.
+.SS "configurationIsCached ()"
+Determine if the application configuration is cached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 742 of file Application\&.php\&.
+.SS "configurationIsCached ()"
+
+.PP
+Definition at line 1544 of file compiled\&.php\&.
+.SS "databasePath ()"
+Get the path to the database directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file Application\&.php\&.
+.SS "databasePath ()"
+
+.PP
+Definition at line 1359 of file compiled\&.php\&.
+.SS "detectEnvironment (Closure $callback)"
+Detect the application's current environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 431 of file Application\&.php\&.
+.SS "detectEnvironment (Closure $callback)"
+
+.PP
+Definition at line 1413 of file compiled\&.php\&.
+.SS "down (Closure $callback)"
+Register a maintenance mode event listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 880 of file Application\&.php\&.
+.SS "down (Closure $callback)"
+
+.PP
+Definition at line 1606 of file compiled\&.php\&.
+.SS "environment ()"
+Get or check the current application environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 395 of file Application\&.php\&.
+.SS "environment ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1396 of file compiled\&.php\&.
+.SS "environmentFile ()"
+Get the environment file the application is using\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 384 of file Application\&.php\&.
+.SS "environmentFile ()"
+
+.PP
+Definition at line 1392 of file compiled\&.php\&.
+.SS "fireAppCallbacks (array $callbacks)\fC [protected]\fP"
+Call the booting callbacks for the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callbacks\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 856 of file Application\&.php\&.
+.SS "fireAppCallbacks (array $callbacks)\fC [protected]\fP"
+
+.PP
+Definition at line 1596 of file compiled\&.php\&.
+.SS "flush ()"
+Flush the container of all bindings and resolved instances\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1046 of file Application\&.php\&.
+.SS "flush ()"
+
+.PP
+Definition at line 1659 of file compiled\&.php\&.
+.SS "getCachedCompilePath ()"
+Get the path to the cached 'compiled\&.php' file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 796 of file Application\&.php\&.
+.SS "getCachedCompilePath ()"
+
+.PP
+Definition at line 1568 of file compiled\&.php\&.
+.SS "getCachedConfigPath ()"
+Get the path to the configuration cache file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 752 of file Application\&.php\&.
+.SS "getCachedConfigPath ()"
+
+.PP
+Definition at line 1548 of file compiled\&.php\&.
+.SS "getCachedRoutesPath ()"
+Get the path to the routes cache file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 779 of file Application\&.php\&.
+.SS "getCachedRoutesPath ()"
+
+.PP
+Definition at line 1560 of file compiled\&.php\&.
+.SS "getCachedServicesPath ()"
+Get the path to the cached services\&.json file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 813 of file Application\&.php\&.
+.SS "getCachedServicesPath ()"
+
+.PP
+Definition at line 1576 of file compiled\&.php\&.
+.SS "getLoadedProviders ()"
+Get the service providers that have been loaded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 936 of file Application\&.php\&.
+.SS "getLoadedProviders ()"
+
+.PP
+Definition at line 1628 of file compiled\&.php\&.
+.SS "getLocale ()"
+Get the current application locale\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 968 of file Application\&.php\&.
+.SS "getLocale ()"
+
+.PP
+Definition at line 1640 of file compiled\&.php\&.
+.SS "getProvider ( $provider)"
+Get the registered service provider instance if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 521 of file Application\&.php\&.
+.SS "getProvider ( $provider)"
+
+.PP
+Definition at line 1449 of file compiled\&.php\&.
+.SS "handle (SymfonyRequest $request,  $type = \fCself::MASTER_REQUEST\fP,  $catch = \fCtrue\fP)"
+{} 
+.PP
+Definition at line 732 of file Application\&.php\&.
+.SS "handle (SymfonyRequest $request,  $type = \fCself::MASTER_REQUEST\fP,  $catch = \fCtrue\fP)"
+
+.PP
+Definition at line 1540 of file compiled\&.php\&.
+.SS "hasBeenBootstrapped ()"
+Determine if the application has been bootstrapped before\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file Application\&.php\&.
+.SS "hasBeenBootstrapped ()"
+
+.PP
+Definition at line 1330 of file compiled\&.php\&.
+.SS "isBooted ()"
+Determine if the application has booted\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 663 of file Application\&.php\&.
+.SS "isBooted ()"
+
+.PP
+Definition at line 1507 of file compiled\&.php\&.
+.SS "isDeferredService ( $service)"
+Determine if the given service is a deferred service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$service\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 958 of file Application\&.php\&.
+.SS "isDeferredService ( $service)"
+
+.PP
+Definition at line 1636 of file compiled\&.php\&.
+.SS "isDownForMaintenance ()"
+Determine if the application is currently down for maintenance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 869 of file Application\&.php\&.
+.SS "isDownForMaintenance ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1602 of file compiled\&.php\&.
+.SS "isLocal ()"
+Determine if application is in local environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 420 of file Application\&.php\&.
+.SS "isLocal ()"
+
+.PP
+Definition at line 1409 of file compiled\&.php\&.
+.SS "langPath ()"
+Get the path to the language files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 326 of file Application\&.php\&.
+.SS "langPath ()"
+
+.PP
+Definition at line 1369 of file compiled\&.php\&.
+.SS "loadDeferredProvider ( $service)"
+Load the provider for a deferred service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$service\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 581 of file Application\&.php\&.
+.SS "loadDeferredProvider ( $service)"
+
+.PP
+Definition at line 1473 of file compiled\&.php\&.
+.SS "loadDeferredProviders ()"
+Load and boot all of the remaining deferred providers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 562 of file Application\&.php\&.
+.SS "loadDeferredProviders ()"
+
+.PP
+Definition at line 1466 of file compiled\&.php\&.
+.SS "loadEnvironmentFrom ( $file)"
+Set the environment file to be loaded during bootstrapping\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 372 of file Application\&.php\&.
+.SS "loadEnvironmentFrom ( $file)"
+
+.PP
+Definition at line 1387 of file compiled\&.php\&.
+.SS "make ( $abstract,  $parameters = \fCarray()\fP)"
+Resolve the given type from the container\&.
+.PP
+(Overriding \fBContainer::make\fP)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$abstract\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 633 of file Application\&.php\&.
+.SS "make ( $abstract,  $parameters = \fCarray()\fP)"
+
+.PP
+Implements \fBContainer\fP\&.
+.PP
+Definition at line 1495 of file compiled\&.php\&.
+.SS "markAsRegistered ( $provider)\fC [protected]\fP"
+Mark the given provider as registered\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 548 of file Application\&.php\&.
+.SS "markAsRegistered ( $provider)\fC [protected]\fP"
+
+.PP
+Definition at line 1460 of file compiled\&.php\&.
+.SS "path ()"
+Get the path to the application 'app' directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 271 of file Application\&.php\&.
+.SS "path ()"
+
+.PP
+Definition at line 1347 of file compiled\&.php\&.
+.SS "publicPath ()"
+Get the path to the public / web directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file Application\&.php\&.
+.SS "publicPath ()"
+
+.PP
+Definition at line 1373 of file compiled\&.php\&.
+.SS "register ( $provider,  $options = \fCarray()\fP,  $force = \fCfalse\fP)"
+Register a service provider with the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.br
+\fI$options\fP 
+.br
+\fI$force\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 479 of file Application\&.php\&.
+.SS "register ( $provider,  $options = \fCarray()\fP,  $force = \fCfalse\fP)"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1431 of file compiled\&.php\&.
+.SS "registerBaseBindings ()\fC [protected]\fP"
+Register the basic bindings into the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Application\&.php\&.
+.SS "registerBaseBindings ()\fC [protected]\fP"
+
+.PP
+Definition at line 1298 of file compiled\&.php\&.
+.SS "registerBaseServiceProviders ()\fC [protected]\fP"
+Register all of the base service providers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file Application\&.php\&.
+.SS "registerBaseServiceProviders ()\fC [protected]\fP"
+
+.PP
+Definition at line 1304 of file compiled\&.php\&.
+.SS "registerConfiguredProviders ()"
+Register all of the configured providers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 463 of file Application\&.php\&.
+.SS "registerConfiguredProviders ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1426 of file compiled\&.php\&.
+.SS "registerCoreContainerAliases ()"
+Register the core class aliases in the container\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 993 of file Application\&.php\&.
+.SS "registerCoreContainerAliases ()"
+
+.PP
+Definition at line 1650 of file compiled\&.php\&.
+.SS "registerDeferredProvider ( $provider,  $service = \fCnull\fP)"
+Register a deferred provider and service\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.br
+\fI$service\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 606 of file Application\&.php\&.
+.SS "registerDeferredProvider ( $provider,  $service = \fCnull\fP)"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1483 of file compiled\&.php\&.
+.SS "resolveProviderClass ( $provider)"
+Resolve a service provider instance from the class name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 537 of file Application\&.php\&.
+.SS "resolveProviderClass ( $provider)"
+
+.PP
+Definition at line 1456 of file compiled\&.php\&.
+.SS "routesAreCached ()"
+Determine if the application routes are cached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 769 of file Application\&.php\&.
+.SS "routesAreCached ()"
+
+.PP
+Definition at line 1556 of file compiled\&.php\&.
+.SS "runningInConsole ()"
+Determine if we are running in the console\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 443 of file Application\&.php\&.
+.SS "runningInConsole ()"
+
+.PP
+Definition at line 1418 of file compiled\&.php\&.
+.SS "runningUnitTests ()"
+Determine if we are running unit tests\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 453 of file Application\&.php\&.
+.SS "runningUnitTests ()"
+
+.PP
+Definition at line 1422 of file compiled\&.php\&.
+.SS "setBasePath ( $basePath)"
+Set the base path for the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$basePath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 242 of file Application\&.php\&.
+.SS "setBasePath ( $basePath)"
+
+.PP
+Definition at line 1334 of file compiled\&.php\&.
+.SS "setDeferredServices (array $services)"
+Set the application's deferred services\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$services\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 947 of file Application\&.php\&.
+.SS "setDeferredServices (array $services)"
+
+.PP
+Definition at line 1632 of file compiled\&.php\&.
+.SS "setLocale ( $locale)"
+Set the current application locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 979 of file Application\&.php\&.
+.SS "setLocale ( $locale)"
+
+.PP
+Definition at line 1644 of file compiled\&.php\&.
+.SS "storagePath ()"
+Get the path to the storage directory\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 346 of file Application\&.php\&.
+.SS "storagePath ()"
+
+.PP
+Definition at line 1377 of file compiled\&.php\&.
+.SS "terminate ()"
+Terminate the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 923 of file Application\&.php\&.
+.SS "terminate ()"
+
+.PP
+Definition at line 1622 of file compiled\&.php\&.
+.SS "terminating (Closure $callback)"
+Register a terminating callback with the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 911 of file Application\&.php\&.
+.SS "terminating (Closure $callback)"
+
+.PP
+Definition at line 1617 of file compiled\&.php\&.
+.SS "useDatabasePath ( $path)"
+Set the database directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 312 of file Application\&.php\&.
+.SS "useDatabasePath ( $path)"
+
+.PP
+Definition at line 1363 of file compiled\&.php\&.
+.SS "useStoragePath ( $path)"
+Set the storage directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file Application\&.php\&.
+.SS "useStoragePath ( $path)"
+
+.PP
+Definition at line 1381 of file compiled\&.php\&.
+.SS "useStoragePathForOptimizations ( $value = \fCtrue\fP)"
+Determines if storage directory should be used for optimizations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 843 of file Application\&.php\&.
+.SS "useStoragePathForOptimizations ( $value = \fCtrue\fP)"
+
+.PP
+Definition at line 1591 of file compiled\&.php\&.
+.SS "vendorIsWritableForOptimizations ()"
+Determine if vendor path is writable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 830 of file Application\&.php\&.
+.SS "vendorIsWritableForOptimizations ()"
+
+.PP
+Definition at line 1584 of file compiled\&.php\&.
+.SS "version ()"
+Get the version number of the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 138 of file Application\&.php\&.
+.SS "version ()"
+
+.PP
+Implements \fBApplication\fP\&.
+.PP
+Definition at line 1294 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBbasePath\fP\fC [protected]\fP"
+
+.PP
+Definition at line 1272 of file compiled\&.php\&.
+.SS "$\fBbooted\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 1274 of file compiled\&.php\&.
+.SS "$bootedCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1276 of file compiled\&.php\&.
+.SS "$bootingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1275 of file compiled\&.php\&.
+.SS "$\fBdatabasePath\fP\fC [protected]\fP"
+
+.PP
+Definition at line 1281 of file compiled\&.php\&.
+.SS "$deferredServices = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1280 of file compiled\&.php\&.
+.SS "$\fBenvironmentFile\fP = '\&.env'\fC [protected]\fP"
+
+.PP
+Definition at line 1284 of file compiled\&.php\&.
+.SS "$\fBhasBeenBootstrapped\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 1273 of file compiled\&.php\&.
+.SS "$loadedProviders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1279 of file compiled\&.php\&.
+.SS "$serviceProviders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1278 of file compiled\&.php\&.
+.SS "$\fBstoragePath\fP\fC [protected]\fP"
+
+.PP
+Definition at line 1282 of file compiled\&.php\&.
+.SS "$terminatingCallbacks = array()\fC [protected]\fP"
+
+.PP
+Definition at line 1277 of file compiled\&.php\&.
+.SS "$\fBuseStoragePathForOptimizations\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 1283 of file compiled\&.php\&.
+.SS "const VERSION = '5\&.0\&.27'"
+
+.PP
+Definition at line 1271 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

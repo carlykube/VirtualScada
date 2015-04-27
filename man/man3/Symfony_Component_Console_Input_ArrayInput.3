@@ -1,0 +1,148 @@
+.TH "ArrayInput" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ArrayInput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBInput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $parameters, \fBInputDefinition\fP $definition=null)"
+.br
+.ti -1c
+.RI "\fBgetFirstArgument\fP ()"
+.br
+.ti -1c
+.RI "\fBhasParameterOption\fP ($\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetParameterOption\fP ($\fBvalues\fP, $default=false)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparse\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBArrayInput\fP represents an input provided as an array\&.
+.PP
+Usage: 
+.PP
+.nf
+$input = new ArrayInput(array('name' => 'foo', '--bar' => 'foobar'));
+
+.fi
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 25 of file ArrayInput\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $parameters, \fBInputDefinition\fP $definition = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP An array of parameters 
+.br
+\fI$definition\fP \fBA\fP \fBInputDefinition\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 37 of file ArrayInput\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns a stringified representation of the args passed to the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file ArrayInput\&.php\&.
+.SS "getFirstArgument ()"
+Returns the first argument from the raw parameters (not parsed)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The value of the first argument or null otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 49 of file ArrayInput\&.php\&.
+.SS "getParameterOption ( $values,  $default = \fCfalse\fP)"
+Returns the value of a raw option (not parsed)\&.
+.PP
+This method is to be used to introspect the input parameters before they have been validated\&. It must be used carefully\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP The value(s) to look for in the raw parameters (can be an array) 
+.br
+\fI$default\fP The default value to return if no result is found
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The option value 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 98 of file ArrayInput\&.php\&.
+.SS "hasParameterOption ( $values)"
+Returns true if the raw parameters (not parsed) contain a value\&.
+.PP
+This method is to be used to introspect the input parameters before they have been validated\&. It must be used carefully\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP The values to look for in the raw parameters (can be an array)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the value is contained in the raw parameters 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 70 of file ArrayInput\&.php\&.
+.SS "parse ()\fC [protected]\fP"
+Processes command line arguments\&. 
+.PP
+Definition at line 137 of file ArrayInput\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

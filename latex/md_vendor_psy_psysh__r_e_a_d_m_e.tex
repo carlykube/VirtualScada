@@ -1,0 +1,70 @@
+{\tt ![Package version](http\+://img.\+shields.\+io/packagist/v/psy/psysh.\+svg?style=flat-\/square)} {\tt ![Build status](http\+://img.\+shields.\+io/travis/bobthecow/psysh/master.\+svg?style=flat-\/square)} {\tt ![Made out of awesome](http\+://img.\+shields.\+io/badge/made\+\_\+out\+\_\+of\+\_\+awesome-\/✓-\/brightgreen.svg?style=flat-\/square)}
+
+\subsection*{About}
+
+Psy\+S\+H is a runtime developer console, interactive debugger and {\tt R\+E\+P\+L} for \doxyref{P\+H\+P}{p.}{namespace_p_h_p}. Learn more at {\tt psysh.\+org}. Check out the {\tt Interactive Debugging in P\+H\+P talk from O\+S\+C\+O\+N} on Presentate.
+
+\subsection*{Installation}
+
+Download the {\ttfamily psysh} phar to install\+:
+
+``` wget psysh.\+org/psysh chmod +x psysh ./psysh ```
+
+It\textquotesingle{}s even awesomer if you put it somewhere in your system path (like {\ttfamily /usr/local/bin} or {\ttfamily $\sim$/bin})!
+
+Psy\+S\+H {\tt is available via Composer}, so you can use it in your project as well\+:
+
+``` composer require psy/psysh\+: ./vendor/bin/psysh ```
+
+Or you can use by checking out the the repository directly\+:
+
+``` git clone {\tt https\+://github.\+com/bobthecow/psysh.\+git} cd psysh ./bin/psysh ```
+
+\subsection*{Psy\+S\+H configuration}
+
+While Psy\+S\+H strives to detect the right settings automatically, you might want to configure it yourself. Just add a file to {\ttfamily $\sim$/.config/psysh/config.\+php} (or {\ttfamily C\+:\textbackslash{}Users\textbackslash{}\{U\+S\+E\+R\}\textbackslash{}App\+Data\textbackslash{}Roaming\textbackslash{}Psy\+S\+H} on Windows)\+:
+
+```php $<$?php
+
+return array( // In \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4+, Psy\+S\+H will default to your {\ttfamily cli.\+pager} ini setting. If this // is not set, it falls back to {\ttfamily less}. It is recommended that you set up // {\ttfamily cli.\+pager} in your {\ttfamily php.\+ini} with your preferred output pager. // // If you are running \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3, or if you want to use a different pager only // for \doxyref{Psy}{p.}{namespace_psy} shell sessions, you can override it here. \textquotesingle{}pager\textquotesingle{} =$>$ \textquotesingle{}more\textquotesingle{},
+
+// Sets the maximum number of entries the history can contain. // If set to zero, the history size is unlimited. \textquotesingle{}history\+Size\textquotesingle{} =$>$ 0,
+
+// If set to true, the history will not keep duplicate entries. // Newest entries override oldest. // This is the equivalent of the H\+I\+S\+T\+C\+O\+N\+T\+R\+O\+L=erasedups setting in bash. \textquotesingle{}erase\+Duplicates\textquotesingle{} =$>$ false,
+
+// By default, Psy\+S\+H will use a \textquotesingle{}forking\textquotesingle{} execution loop if pcntl is // installed. This is by far the best way to use it, but you can override // the default by explicitly enabling or disabling this functionality here. \textquotesingle{}use\+Pcntl\textquotesingle{} =$>$ false,
+
+// Psy\+S\+H uses readline if you have it installed, because interactive input // is pretty awful without it. But you can explicitly disable it if you hate // yourself or something. \textquotesingle{}use\+Readline\textquotesingle{} =$>$ false,
+
+// Psy\+S\+H automatically inserts semicolons at the end of input if a statement // is missing one. To disable this, set {\ttfamily require\+Semicolons} to true. \textquotesingle{}require\+Semicolons\textquotesingle{} =$>$ false,
+
+// \char`\"{}\+Default includes\char`\"{} will be included once at the beginning of every Psy\+S\+H // session. This is a good place to add autoloaders for your favorite // libraries. \textquotesingle{}default\+Includes\textquotesingle{} =$>$ array( {\bfseries D\+I\+R}.\textquotesingle{}/include/bootstrap.php\textquotesingle{}, ),
+
+// While Psy\+S\+H ships with a bunch of great commands, it\textquotesingle{}s possible to add // your own for even more awesome. Any \doxyref{Psy}{p.}{namespace_psy} command added here will be // available in your \doxyref{Psy}{p.}{namespace_psy} shell sessions. \textquotesingle{}commands\textquotesingle{} =$>$ array( // The {\ttfamily parse} command is a command used in the development of Psy\+S\+H. // Given a string of \doxyref{P\+H\+P}{p.}{namespace_p_h_p} code, it pretty-\/prints the // {\tt P\+H\+P Parser} parse tree. It // prolly won\textquotesingle{}t be super useful for most of you, but it\textquotesingle{}s there if you // want to play \+:) new , ),
+
+// Psy\+S\+H ships with presenters for scalars, resources, arrays, and objects. // But you\textquotesingle{}re not limited to those presenters. You can enable additional // presenters (like the included Mongo\+Cursor\+Presenter), or write your own! \textquotesingle{}presenters\textquotesingle{} =$>$ array( new , ),
+
+// You can disable tab completion if you want to. Not sure why you\textquotesingle{}d want to. \textquotesingle{}tab\+Completion\textquotesingle{} =$>$ false,
+
+// You can write your own tab completion matchers, too! Here are some that enable // tab completion for Mongo\+D\+B database and collection names\+: \textquotesingle{}tab\+Completion\+Matchers\textquotesingle{} =$>$ array( new , new , ), ); ```
+
+\subsection*{Downloading the manual}
+
+The Psy\+S\+H {\ttfamily doc} command is great for documenting source code, but you\textquotesingle{}ll need a little something extra for \doxyref{P\+H\+P}{p.}{namespace_p_h_p} core documentation. Download one of the following \doxyref{P\+H\+P}{p.}{namespace_p_h_p} Manual files and drop it in {\ttfamily $\sim$/.local/share/psysh/} (or {\ttfamily C\+:\textbackslash{}Users\textbackslash{}\{U\+S\+E\+R\}\textbackslash{}App\+Data\textbackslash{}Roaming\textbackslash{}Psy\+S\+H} on Windows)\+:
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\tt English}$\ast$$\ast$
+\item {\tt Brazilian Portuguese}
+\item {\tt Chinese (Simplified)}
+\item {\tt French}
+\item {\tt German}
+\item {\tt Italian}
+\item {\tt Japanese}
+\item {\tt Polish}
+\item {\tt Romanian}
+\item {\tt Russian}
+\item {\tt Persian}
+\item {\tt Spanish}
+\item {\tt Turkish} 
+\end{DoxyItemize}

@@ -1,0 +1,87 @@
+.TH "md_vendor_psy_psysh__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_psy_psysh__r_e_a_d_m_e \- PsySH 
+\fC![Package version](http://img\&.shields\&.io/packagist/v/psy/psysh\&.svg?style=flat-square)\fP \fC![Build status](http://img\&.shields\&.io/travis/bobthecow/psysh/master\&.svg?style=flat-square)\fP \fC![Made out of awesome](http://img\&.shields\&.io/badge/made_out_of_awesome-✓-brightgreen\&.svg?style=flat-square)\fP
+.PP
+.SS "About"
+.PP
+PsySH is a runtime developer console, interactive debugger and \fCREPL\fP for \fBPHP\fP\&. Learn more at \fCpsysh\&.org\fP\&. Check out the \fCInteractive Debugging in PHP talk from OSCON\fP on Presentate\&.
+.PP
+.SS "Installation"
+.PP
+Download the \fCpsysh\fP phar to install:
+.PP
+``` wget psysh\&.org/psysh chmod +x psysh \&./psysh ```
+.PP
+It's even awesomer if you put it somewhere in your system path (like \fC/usr/local/bin\fP or \fC~/bin\fP)!
+.PP
+PsySH \fCis available via Composer\fP, so you can use it in your project as well:
+.PP
+``` composer require psy/psysh: \&./vendor/bin/psysh ```
+.PP
+Or you can use by checking out the the repository directly:
+.PP
+``` git clone https://github.com/bobthecow/psysh.git cd psysh \&./bin/psysh ```
+.PP
+.SS "PsySH configuration"
+.PP
+While PsySH strives to detect the right settings automatically, you might want to configure it yourself\&. Just add a file to \fC~/\&.config/psysh/config\&.php\fP (or \fCC:\\Users\\{USER}\\AppData\\Roaming\\PsySH\fP on Windows):
+.PP
+```php <?php
+.PP
+return array( // In \fBPHP\fP 5\&.4+, PsySH will default to your \fCcli\&.pager\fP ini setting\&. If this // is not set, it falls back to \fCless\fP\&. It is recommended that you set up // \fCcli\&.pager\fP in your \fCphp\&.ini\fP with your preferred output pager\&. // // If you are running \fBPHP\fP 5\&.3, or if you want to use a different pager only // for \fBPsy\fP shell sessions, you can override it here\&. 'pager' => 'more',
+.PP
+// Sets the maximum number of entries the history can contain\&. // If set to zero, the history size is unlimited\&. 'historySize' => 0,
+.PP
+// If set to true, the history will not keep duplicate entries\&. // Newest entries override oldest\&. // This is the equivalent of the HISTCONTROL=erasedups setting in bash\&. 'eraseDuplicates' => false,
+.PP
+// By default, PsySH will use a 'forking' execution loop if pcntl is // installed\&. This is by far the best way to use it, but you can override // the default by explicitly enabling or disabling this functionality here\&. 'usePcntl' => false,
+.PP
+// PsySH uses readline if you have it installed, because interactive input // is pretty awful without it\&. But you can explicitly disable it if you hate // yourself or something\&. 'useReadline' => false,
+.PP
+// PsySH automatically inserts semicolons at the end of input if a statement // is missing one\&. To disable this, set \fCrequireSemicolons\fP to true\&. 'requireSemicolons' => false,
+.PP
+// 'Default includes' will be included once at the beginning of every PsySH // session\&. This is a good place to add autoloaders for your favorite // libraries\&. 'defaultIncludes' => array( \fBDIR\fP\&.'/include/bootstrap\&.php', ),
+.PP
+// While PsySH ships with a bunch of great commands, it's possible to add // your own for even more awesome\&. Any \fBPsy\fP command added here will be // available in your \fBPsy\fP shell sessions\&. 'commands' => array( // The \fCparse\fP command is a command used in the development of PsySH\&. // Given a string of \fBPHP\fP code, it pretty-prints the // \fCPHP Parser\fP parse tree\&. It // prolly won't be super useful for most of you, but it's there if you // want to play :) new , ),
+.PP
+// PsySH ships with presenters for scalars, resources, arrays, and objects\&. // But you're not limited to those presenters\&. You can enable additional // presenters (like the included MongoCursorPresenter), or write your own! 'presenters' => array( new , ),
+.PP
+// You can disable tab completion if you want to\&. Not sure why you'd want to\&. 'tabCompletion' => false,
+.PP
+// You can write your own tab completion matchers, too! Here are some that enable // tab completion for MongoDB database and collection names: 'tabCompletionMatchers' => array( new , new , ), ); ```
+.PP
+.SS "Downloading the manual"
+.PP
+The PsySH \fCdoc\fP command is great for documenting source code, but you'll need a little something extra for \fBPHP\fP core documentation\&. Download one of the following \fBPHP\fP Manual files and drop it in \fC~/\&.local/share/psysh/\fP (or \fCC:\\Users\\{USER}\\AppData\\Roaming\\PsySH\fP on Windows):
+.PP
+.IP "\(bu" 2
+**\fCEnglish\fP**
+.IP "\(bu" 2
+\fCBrazilian Portuguese\fP
+.IP "\(bu" 2
+\fCChinese (Simplified)\fP
+.IP "\(bu" 2
+\fCFrench\fP
+.IP "\(bu" 2
+\fCGerman\fP
+.IP "\(bu" 2
+\fCItalian\fP
+.IP "\(bu" 2
+\fCJapanese\fP
+.IP "\(bu" 2
+\fCPolish\fP
+.IP "\(bu" 2
+\fCRomanian\fP
+.IP "\(bu" 2
+\fCRussian\fP
+.IP "\(bu" 2
+\fCPersian\fP
+.IP "\(bu" 2
+\fCSpanish\fP
+.IP "\(bu" 2
+\fCTurkish\fP 
+.PP
+

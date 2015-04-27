@@ -1,0 +1,118 @@
+.TH "WebProcessor" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WebProcessor \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($serverData=null, array $extraFields=null)"
+.br
+.ti -1c
+.RI "\fB__invoke\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBaddExtraField\fP ($extraName, $serverName)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$serverData\fP"
+.br
+.ti -1c
+.RI "\fB$extraFields\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Injects url/method and remote IP of the current web request in all records
+.PP
+\fBAuthor:\fP
+.RS 4
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file WebProcessor\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $serverData = \fCnull\fP, array $extraFields = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$serverData\fP Array or object w/ ArrayAccess that provides access to the $_SERVER data 
+.br
+\fI$extraFields\fP Extra field names to be added (all available by default) 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file WebProcessor\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__invoke (array $record)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file WebProcessor\&.php\&.
+.SS "addExtraField ( $extraName,  $serverName)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$extraName\fP 
+.br
+\fI$serverName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file WebProcessor\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$extraFields\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'url'         => 'REQUEST_URI',
+        'ip'          => 'REMOTE_ADDR',
+        'http_method' => 'REQUEST_METHOD',
+        'server'      => 'SERVER_NAME',
+        'referrer'    => 'HTTP_REFERER',
+    )
+.fi
+.PP
+Definition at line 29 of file WebProcessor\&.php\&.
+.SS "$serverData\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file WebProcessor\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

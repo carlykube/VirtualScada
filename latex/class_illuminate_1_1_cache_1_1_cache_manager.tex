@@ -1,0 +1,562 @@
+\section{Cache\+Manager Class Reference}
+\label{class_illuminate_1_1_cache_1_1_cache_manager}\index{Cache\+Manager@{Cache\+Manager}}
+Inheritance diagram for Cache\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_cache_1_1_cache_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$app)
+\item 
+{\bf store} (\${\bf name}=null)
+\item 
+{\bf driver} (\$driver=null)
+\item 
+{\bf repository} ({\bf Store} \${\bf store})
+\item 
+{\bf get\+Default\+Driver} ()
+\item 
+{\bf set\+Default\+Driver} (\${\bf name})
+\item 
+{\bf extend} (\${\bf driver}, Closure \${\bf callback})
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$parameters)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get} (\${\bf name})
+\item 
+{\bf resolve} (\${\bf name})
+\item 
+{\bf call\+Custom\+Creator} (array \$config)
+\item 
+{\bf create\+Apc\+Driver} (array \$config)
+\item 
+{\bf create\+Array\+Driver} ()
+\item 
+{\bf create\+File\+Driver} (array \$config)
+\item 
+{\bf create\+Memcached\+Driver} (array \$config)
+\item 
+{\bf create\+Null\+Driver} ()
+\item 
+{\bf create\+Wincache\+Driver} (array \$config)
+\item 
+{\bf create\+Xcache\+Driver} (array \$config)
+\item 
+{\bf create\+Redis\+Driver} (array \$config)
+\item 
+{\bf create\+Database\+Driver} (array \$config)
+\item 
+{\bf get\+Prefix} (array \$config)
+\item 
+{\bf get\+Config} (\${\bf name})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$app}
+\item 
+{\bf \$stores} = [$\,$]
+\item 
+{\bf \$custom\+Creators} = [$\,$]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Cache\+Manager.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$app}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a780a02ea7ec3b69af93d4139793e0df9}
+Create a new \doxyref{Cache}{p.}{namespace_illuminate_1_1_cache} manager instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Cache\+Manager.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_ac565bd6a9d062c73a0a0db7afe0ffea9}
+Dynamically call the default driver instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 310 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!call\+Custom\+Creator@{call\+Custom\+Creator}}
+\index{call\+Custom\+Creator@{call\+Custom\+Creator}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{call\+Custom\+Creator}]{\setlength{\rightskip}{0pt plus 5cm}call\+Custom\+Creator (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_ae8b1109138a1e98f529697135292f23d}
+Call a custom driver creator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Apc\+Driver@{create\+Apc\+Driver}}
+\index{create\+Apc\+Driver@{create\+Apc\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Apc\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Apc\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a72114d7c9c85946f1030f32473f89dc9}
+Create an instance of the A\+P\+C cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Array\+Driver@{create\+Array\+Driver}}
+\index{create\+Array\+Driver@{create\+Array\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Array\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Array\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_af94413283380e64fded229df006e8cd7}
+Create an instance of the array cache driver.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 131 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Database\+Driver@{create\+Database\+Driver}}
+\index{create\+Database\+Driver@{create\+Database\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Database\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Database\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_af117879067038595b93991a7ab0a176a}
+Create an instance of the database cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 215 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+File\+Driver@{create\+File\+Driver}}
+\index{create\+File\+Driver@{create\+File\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+File\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+File\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a8ba4acb536abf084cfd142be11b135f7}
+Create an instance of the file cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Memcached\+Driver@{create\+Memcached\+Driver}}
+\index{create\+Memcached\+Driver@{create\+Memcached\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Memcached\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Memcached\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_abafb591b573d2c33b096a455545d7ccb}
+Create an instance of the Memcached cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 153 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Null\+Driver@{create\+Null\+Driver}}
+\index{create\+Null\+Driver@{create\+Null\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Null\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Null\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a9790197d51734e314e253c559ce95d7f}
+Create an instance of the Null cache driver.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 167 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Redis\+Driver@{create\+Redis\+Driver}}
+\index{create\+Redis\+Driver@{create\+Redis\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Redis\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Redis\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a88488ab44376e103d760cef2d13e6fc9}
+Create an instance of the \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 200 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Wincache\+Driver@{create\+Wincache\+Driver}}
+\index{create\+Wincache\+Driver@{create\+Wincache\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Wincache\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Wincache\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_afaebfe6bfe0cfe58482c854cf830acdd}
+Create an instance of the Win\+Cache cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 178 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!create\+Xcache\+Driver@{create\+Xcache\+Driver}}
+\index{create\+Xcache\+Driver@{create\+Xcache\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{create\+Xcache\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}create\+Xcache\+Driver (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_ac503665bb5271e718a8f058fb35e2b42}
+Create an instance of the X\+Cache cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 189 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!driver@{driver}}
+\index{driver@{driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{driver}]{\setlength{\rightskip}{0pt plus 5cm}driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a12310a1fb9d33e2adfbbf0efc6fd7ede}
+Get a cache driver instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!extend@{extend}}
+\index{extend@{extend}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}extend (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a85201371999112b9d4c32796b53f1286}
+Register a custom driver creator Closure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 296 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_af5ea6a083ddb07beb8a30dd32e309ceb}
+Attempt to get the store from the local cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!get\+Config@{get\+Config}}
+\index{get\+Config@{get\+Config}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{get\+Config}]{\setlength{\rightskip}{0pt plus 5cm}get\+Config (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a4ab98adeccea03d1df4e300fba39049b}
+Get the cache connection configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!get\+Default\+Driver@{get\+Default\+Driver}}
+\index{get\+Default\+Driver@{get\+Default\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{get\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a0bd119b90d7c1935b1c6ce8b8aed09e0}
+Get the default cache driver name.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!get\+Prefix@{get\+Prefix}}
+\index{get\+Prefix@{get\+Prefix}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{get\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Prefix (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a6a7ac758950c0aa34dc64be10e4a50c9}
+Get the cache prefix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!repository@{repository}}
+\index{repository@{repository}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{repository}]{\setlength{\rightskip}{0pt plus 5cm}repository (
+\begin{DoxyParamCaption}
+\item[{{\bf Store}}]{\$store}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a8047668ad15e92bab96d891ced60b770}
+Create a new cache repository with the given implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Cache\textbackslash{}\+Store & {\em \$store} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 232 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!resolve@{resolve}}
+\index{resolve@{resolve}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{resolve}]{\setlength{\rightskip}{0pt plus 5cm}resolve (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_ae8ec7bf69a78882c030fe4523476d3ca}
+Resolve the given store.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 83 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!set\+Default\+Driver@{set\+Default\+Driver}}
+\index{set\+Default\+Driver@{set\+Default\+Driver}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{set\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}set\+Default\+Driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_a119975a16c1327bbf3bd969cd455094c}
+Set the default cache driver name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!store@{store}}
+\index{store@{store}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}store (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_cache_manager_ac89e914a5423c6ce0edc0f0fc245ab09}
+Get a cache store instance by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file Cache\+Manager.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!\$app@{\$app}}
+\index{\$app@{\$app}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{\$app}]{\setlength{\rightskip}{0pt plus 5cm}\$app\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_adfb117f244076aa9bc269269f7e57403}
+
+
+Definition at line 15 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!\$custom\+Creators@{\$custom\+Creators}}
+\index{\$custom\+Creators@{\$custom\+Creators}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{\$custom\+Creators}]{\setlength{\rightskip}{0pt plus 5cm}\$custom\+Creators = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a86b1d4bc8526082278943d9d3a461016}
+
+
+Definition at line 29 of file Cache\+Manager.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}!\$stores@{\$stores}}
+\index{\$stores@{\$stores}!Illuminate\+::\+Cache\+::\+Cache\+Manager@{Illuminate\+::\+Cache\+::\+Cache\+Manager}}
+\subsubsection[{\$stores}]{\setlength{\rightskip}{0pt plus 5cm}\$stores = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_cache_manager_a70aa844c9548e266a7be898521bf944f}
+
+
+Definition at line 22 of file Cache\+Manager.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Cache/{\bf Cache\+Manager.\+php}\end{DoxyCompactItemize}

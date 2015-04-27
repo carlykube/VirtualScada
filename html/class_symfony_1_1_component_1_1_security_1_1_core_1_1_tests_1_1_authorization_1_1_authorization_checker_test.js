@@ -1,0 +1,8 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test =
+[
+    [ "isGrantedProvider", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test.html#a3c9d9793e7a1c07492ef51bf2c6a6e61", null ],
+    [ "setUp", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "testIsGranted", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test.html#a5f66b03f0a385b80354b1c2c8007f879", null ],
+    [ "testVoteAuthenticatesTokenIfNecessary", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test.html#ad6edb1d5c0a78f18bcd3d50fc97f580b", null ],
+    [ "testVoteWithoutAuthenticationToken", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authorization_1_1_authorization_checker_test.html#ad2a4e597dfb7330b76dd7a6a789b583c", null ]
+];

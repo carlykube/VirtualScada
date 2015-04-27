@@ -1,0 +1,381 @@
+.TH "MockArraySessionStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MockArraySessionStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionStorageInterface\fP\&.
+.PP
+Inherited by \fBMockFileSessionStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP= 'MOCKSESSID', \fBMetadataBag\fP $metaBag=null)"
+.br
+.ti -1c
+.RI "\fBsetSessionData\fP (array $array)"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBregenerate\fP ($destroy=false, $lifetime=null)"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBsetId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsave\fP ()"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterBag\fP (\fBSessionBagInterface\fP $bag)"
+.br
+.ti -1c
+.RI "\fBgetBag\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMetadataBag\fP (\fBMetadataBag\fP $bag=null)"
+.br
+.ti -1c
+.RI "\fBgetMetadataBag\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateId\fP ()"
+.br
+.ti -1c
+.RI "\fBloadSession\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$id\fP = ''"
+.br
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$started\fP = false"
+.br
+.ti -1c
+.RI "\fB$closed\fP = false"
+.br
+.ti -1c
+.RI "\fB$data\fP = array()"
+.br
+.ti -1c
+.RI "\fB$metadataBag\fP"
+.br
+.ti -1c
+.RI "\fB$bags\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMockArraySessionStorage\fP mocks the session for unit tests\&.
+.PP
+No \fBPHP\fP session is actually started since a session can be initialized and shutdown only once per \fBPHP\fP execution cycle\&.
+.PP
+When doing functional testing, you should use \fBMockFileSessionStorage\fP instead\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Bulat Shakirzyanov mallluhuct@gmail.com 
+.PP
+Drak drak@zikula.org 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file MockArraySessionStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name = \fC'MOCKSESSID'\fP, \fBMetadataBag\fP $metaBag = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBSession\fP name 
+.br
+\fI$metaBag\fP \fBMetadataBag\fP instance\&. 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file MockArraySessionStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clear ()"
+{Clear all session data in memory\&.} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 172 of file MockArraySessionStorage\&.php\&.
+.SS "generateId ()\fC [protected]\fP"
+Generates a session ID\&.
+.PP
+This doesn't need to be particularly cryptographically secure since this is just a mock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file MockArraySessionStorage\&.php\&.
+.SS "getBag ( $name)"
+{Gets a \fBSessionBagInterface\fP by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSessionBagInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 197 of file MockArraySessionStorage\&.php\&.
+.SS "getId ()"
+{Returns the session ID\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The session ID or empty\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 123 of file MockArraySessionStorage\&.php\&.
+.SS "getMetadataBag ()"
+Gets the \fBMetadataBag\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMetadataBag\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 237 of file MockArraySessionStorage\&.php\&.
+.SS "getName ()"
+{Returns the session name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The session name\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 143 of file MockArraySessionStorage\&.php\&.
+.SS "isStarted ()"
+{Checks if the session is started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if started, false otherwise\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 213 of file MockArraySessionStorage\&.php\&.
+.SS "loadSession ()\fC [protected]\fP"
+
+.PP
+Definition at line 255 of file MockArraySessionStorage\&.php\&.
+.SS "regenerate ( $destroy = \fCfalse\fP,  $lifetime = \fCnull\fP)"
+{Regenerates id that represents this storage\&.
+.PP
+This method must invoke session_regenerate_id($destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \fBPHP\fP session would interfere with testing\&.
+.PP
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage\&.
+.PP
+Care: When regenerating the session ID no locking is involved in PHPs session design\&. See https://bugs.php.net/bug.php?id=61470 for a discussion\&. So you must make sure the regenerated session is saved BEFORE sending the headers with the new ID\&. Symfonys \fBHttpKernel\fP offers a listener for this\&. See \fBSymfony\fP\&. Otherwise session data could get lost again for concurrent requests with the new ID\&. \fBOne\fP result could be that you get logged out after just logging in\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$destroy\fP Destroy session when regenerating? 
+.br
+\fI$lifetime\fP Sets the cookie lifetime for the session cookie\&. \fBA\fP null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session\&. Time is in seconds, and is not a Unix timestamp\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if session regenerated, false if error
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 108 of file MockArraySessionStorage\&.php\&.
+.SS "registerBag (\fBSessionBagInterface\fP $bag)"
+{Registers a \fBSessionBagInterface\fP for use\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bag\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 189 of file MockArraySessionStorage\&.php\&.
+.SS "save ()"
+{Force the session to be saved and closed\&.
+.PP
+This method must invoke session_write_close() unless this interface is used for a storage object design for unit or functional testing where a real \fBPHP\fP session would interfere with testing, in which case it it should actually persist the session data if required\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 159 of file MockArraySessionStorage\&.php\&.
+.SS "setId ( $id)"
+{Sets the session ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 131 of file MockArraySessionStorage\&.php\&.
+.SS "setMetadataBag (\fBMetadataBag\fP $bag = \fCnull\fP)"
+Sets the \fBMetadataBag\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bag\fP 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file MockArraySessionStorage\&.php\&.
+.SS "setName ( $name)"
+{Sets the session name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 151 of file MockArraySessionStorage\&.php\&.
+.SS "setSessionData (array $array)"
+Sets the session data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$array\fP 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file MockArraySessionStorage\&.php\&.
+.SS "start ()"
+{Starts the session\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 90 of file MockArraySessionStorage\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$bags\fC [protected]\fP"
+
+.PP
+Definition at line 63 of file MockArraySessionStorage\&.php\&.
+.SS "$closed = false\fC [protected]\fP"
+
+.PP
+Definition at line 48 of file MockArraySessionStorage\&.php\&.
+.SS "$\fBdata\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 53 of file MockArraySessionStorage\&.php\&.
+.SS "$id = ''\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file MockArraySessionStorage\&.php\&.
+.SS "$metadataBag\fC [protected]\fP"
+
+.PP
+Definition at line 58 of file MockArraySessionStorage\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file MockArraySessionStorage\&.php\&.
+.SS "$started = false\fC [protected]\fP"
+
+.PP
+Definition at line 43 of file MockArraySessionStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

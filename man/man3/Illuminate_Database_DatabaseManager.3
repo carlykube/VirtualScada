@@ -1,0 +1,487 @@
+.TH "DatabaseManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DatabaseManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBConnectionResolverInterface\fP, and \fBConnectionResolverInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($app, \fBConnectionFactory\fP $\fBfactory\fP)"
+.br
+.ti -1c
+.RI "\fBconnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBreconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetDefaultConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($\fBname\fP, callable $resolver)"
+.br
+.ti -1c
+.RI "\fBgetConnections\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($app, \fBConnectionFactory\fP $\fBfactory\fP)"
+.br
+.ti -1c
+.RI "\fBconnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBreconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetDefaultConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($\fBname\fP, callable $resolver)"
+.br
+.ti -1c
+.RI "\fBgetConnections\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparseConnectionName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBrefreshPdoConnections\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBmakeConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBprepare\fP (\fBConnection\fP $\fBconnection\fP)"
+.br
+.ti -1c
+.RI "\fBsetPdoForType\fP (\fBConnection\fP $\fBconnection\fP, $type=null)"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBparseConnectionName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBrefreshPdoConnections\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBmakeConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBprepare\fP (\fBConnection\fP $\fBconnection\fP)"
+.br
+.ti -1c
+.RI "\fBsetPdoForType\fP (\fBConnection\fP $\fBconnection\fP, $type=null)"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($\fBname\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$app\fP"
+.br
+.ti -1c
+.RI "\fB$factory\fP"
+.br
+.ti -1c
+.RI "\fB$connections\fP = array()"
+.br
+.ti -1c
+.RI "\fB$extensions\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10615 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $app, \fBConnectionFactory\fP $factory)"
+
+.PP
+Definition at line 10621 of file compiled\&.php\&.
+.SS "__construct ( $app, \fBConnectionFactory\fP $factory)"
+Create a new database manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.br
+\fI$factory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file DatabaseManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically pass methods to the default connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 302 of file DatabaseManager\&.php\&.
+.SS "__call ( $method,  $parameters)"
+
+.PP
+Definition at line 10722 of file compiled\&.php\&.
+.SS "connection ( $name = \fCnull\fP)"
+Get a database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 56 of file DatabaseManager\&.php\&.
+.SS "connection ( $name = \fCnull\fP)"
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 10626 of file compiled\&.php\&.
+.SS "disconnect ( $name = \fCnull\fP)"
+Disconnect from the given database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file DatabaseManager\&.php\&.
+.SS "disconnect ( $name = \fCnull\fP)"
+
+.PP
+Definition at line 10646 of file compiled\&.php\&.
+.SS "extend ( $name, callable $resolver)"
+Register an extension connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 280 of file DatabaseManager\&.php\&.
+.SS "extend ( $name, callable $resolver)"
+
+.PP
+Definition at line 10714 of file compiled\&.php\&.
+.SS "getConfig ( $name)\fC [protected]\fP"
+Get the configuration for a connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 235 of file DatabaseManager\&.php\&.
+.SS "getConfig ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 10697 of file compiled\&.php\&.
+.SS "getConnections ()"
+Return all of the created connections\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file DatabaseManager\&.php\&.
+.SS "getConnections ()"
+
+.PP
+Definition at line 10718 of file compiled\&.php\&.
+.SS "getDefaultConnection ()"
+Get the default connection name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 257 of file DatabaseManager\&.php\&.
+.SS "getDefaultConnection ()"
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 10706 of file compiled\&.php\&.
+.SS "makeConnection ( $name)\fC [protected]\fP"
+Make the database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 155 of file DatabaseManager\&.php\&.
+.SS "makeConnection ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 10665 of file compiled\&.php\&.
+.SS "parseConnectionName ( $name)\fC [protected]\fP"
+Parse the connection into an array of the name and read / write type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file DatabaseManager\&.php\&.
+.SS "parseConnectionName ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 10636 of file compiled\&.php\&.
+.SS "prepare (\fBConnection\fP $connection)\fC [protected]\fP"
+Prepare the database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 186 of file DatabaseManager\&.php\&.
+.SS "prepare (\fBConnection\fP $connection)\fC [protected]\fP"
+
+.PP
+Definition at line 10677 of file compiled\&.php\&.
+.SS "purge ( $name = \fCnull\fP)"
+Disconnect from the given database and remove from local cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file DatabaseManager\&.php\&.
+.SS "purge ( $name = \fCnull\fP)"
+
+.PP
+Definition at line 10641 of file compiled\&.php\&.
+.SS "reconnect ( $name = \fCnull\fP)"
+Reconnect to the given database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 122 of file DatabaseManager\&.php\&.
+.SS "reconnect ( $name = \fCnull\fP)"
+
+.PP
+Definition at line 10652 of file compiled\&.php\&.
+.SS "refreshPdoConnections ( $name)\fC [protected]\fP"
+Refresh the PDO connections on a given connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 140 of file DatabaseManager\&.php\&.
+.SS "refreshPdoConnections ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 10660 of file compiled\&.php\&.
+.SS "setDefaultConnection ( $name)"
+Set the default connection name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 268 of file DatabaseManager\&.php\&.
+.SS "setDefaultConnection ( $name)"
+
+.PP
+Implements \fBConnectionResolverInterface\fP\&.
+.PP
+Definition at line 10710 of file compiled\&.php\&.
+.SS "setPdoForType (\fBConnection\fP $connection,  $type = \fCnull\fP)\fC [protected]\fP"
+Prepare the read write mode for database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 213 of file DatabaseManager\&.php\&.
+.SS "setPdoForType (\fBConnection\fP $connection,  $type = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 10688 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$app\fC [protected]\fP"
+
+.PP
+Definition at line 10617 of file compiled\&.php\&.
+.SS "$connections = array()\fC [protected]\fP"
+
+.PP
+Definition at line 10619 of file compiled\&.php\&.
+.SS "$extensions = array()\fC [protected]\fP"
+
+.PP
+Definition at line 10620 of file compiled\&.php\&.
+.SS "$\fBfactory\fP\fC [protected]\fP"
+
+.PP
+Definition at line 10618 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

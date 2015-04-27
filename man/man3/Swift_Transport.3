@@ -1,0 +1,97 @@
+.TH "Swift_Transport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBLogTransport\fP, \fBMailgunTransport\fP, \fBMandrillTransport\fP, \fBSesTransport\fP, \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBSwift_Transport_NullTransport\fP, and \fBSwift_Transport_SpoolTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sends Messages via an abstract Transport subsystem\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Transport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "isStarted ()"
+Test if this Transport mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_SpoolTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBMailgunTransport\fP, \fBSwift_Transport_NullTransport\fP, \fBLogTransport\fP, \fBMandrillTransport\fP, and \fBSesTransport\fP\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+Register a plugin in the Transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_SpoolTransport\fP, \fBMandrillTransport\fP, \fBSwift_Transport_NullTransport\fP, \fBMailgunTransport\fP, \fBLogTransport\fP, and \fBSesTransport\fP\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBSwift_Transport_SendmailTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_SpoolTransport\fP, \fBMailgunTransport\fP, \fBSwift_Transport_NullTransport\fP, \fBLogTransport\fP, \fBMandrillTransport\fP, \fBSesTransport\fP, and \fBSwift_Transport_FailoverTransport\fP\&.
+.SS "start ()"
+Start this Transport mechanism\&. 
+.PP
+Implemented in \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_SpoolTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBMailgunTransport\fP, \fBSwift_Transport_SendmailTransport\fP, \fBSwift_Transport_NullTransport\fP, \fBLogTransport\fP, \fBMandrillTransport\fP, and \fBSesTransport\fP\&.
+.SS "stop ()"
+Stop this Transport mechanism\&. 
+.PP
+Implemented in \fBSwift_Transport_AbstractSmtpTransport\fP, \fBSwift_Transport_LoadBalancedTransport\fP, \fBSwift_Transport_SpoolTransport\fP, \fBSwift_Transport_MailTransport\fP, \fBMailgunTransport\fP, \fBSwift_Transport_NullTransport\fP, \fBLogTransport\fP, \fBMandrillTransport\fP, and \fBSesTransport\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

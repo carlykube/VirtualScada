@@ -19,6 +19,7 @@ class CreateModulesTable extends Migration {
             $table->string('name', 32);
             $table->string('file_loc', 320);
             $table->string('screen_loc', 32);
+            $table->enum('type', ['hmi', 'rtu', 'plc', 'sensor']);
             $table->timestamps();
 
             // foreign keys

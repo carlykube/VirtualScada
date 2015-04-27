@@ -1,0 +1,356 @@
+.TH "QueueManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QueueManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFactory\fP, and \fBMonitor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($app)"
+.br
+.ti -1c
+.RI "\fBlooping\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBfailing\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBstopping\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBconnected\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBconnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBextend\fP ($driver, Closure $resolver)"
+.br
+.ti -1c
+.RI "\fBaddConnector\fP ($driver, Closure $resolver)"
+.br
+.ti -1c
+.RI "\fBgetDefaultDriver\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultDriver\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ($\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "\fBisDownForMaintenance\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBresolve\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetConnector\fP ($driver)"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($\fBname\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$app\fP"
+.br
+.ti -1c
+.RI "\fB$connections\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file QueueManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $app)"
+Create a new queue manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$app\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file QueueManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Dynamically pass calls to the default connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file QueueManager\&.php\&.
+.SS "addConnector ( $driver, Closure $resolver)"
+Add a queue connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file QueueManager\&.php\&.
+.SS "connected ( $name = \fCnull\fP)"
+Determine if the driver is connected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file QueueManager\&.php\&.
+.SS "connection ( $name = \fCnull\fP)"
+Resolve a queue connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 85 of file QueueManager\&.php\&.
+.SS "extend ( $driver, Closure $resolver)"
+Add a queue connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file QueueManager\&.php\&.
+.SS "failing ( $callback)"
+Register an event listener for the failed job event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBMonitor\fP\&.
+.PP
+Definition at line 52 of file QueueManager\&.php\&.
+.SS "getConfig ( $name)\fC [protected]\fP"
+Get the queue connection configuration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file QueueManager\&.php\&.
+.SS "getConnector ( $driver)\fC [protected]\fP"
+Get the connector for a given driver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 125 of file QueueManager\&.php\&.
+.SS "getDefaultDriver ()"
+Get the name of the default queue connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file QueueManager\&.php\&.
+.SS "getName ( $connection = \fCnull\fP)"
+Get the full name for the given connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file QueueManager\&.php\&.
+.SS "isDownForMaintenance ()"
+Determine if the application is in maintenance mode\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file QueueManager\&.php\&.
+.SS "looping ( $callback)"
+Register an event listener for the daemon queue loop\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBMonitor\fP\&.
+.PP
+Definition at line 41 of file QueueManager\&.php\&.
+.SS "resolve ( $name)\fC [protected]\fP"
+Resolve a queue connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 110 of file QueueManager\&.php\&.
+.SS "setDefaultDriver ( $name)"
+Set the name of the default queue connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file QueueManager\&.php\&.
+.SS "stopping ( $callback)"
+Register an event listener for the daemon queue stopping\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBMonitor\fP\&.
+.PP
+Definition at line 63 of file QueueManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$app\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file QueueManager\&.php\&.
+.SS "$connections = array()\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file QueueManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

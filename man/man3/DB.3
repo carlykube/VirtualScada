@@ -1,0 +1,1150 @@
+.TH "DB" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DB \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBDB\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBconnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBpurge\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBdisconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBreconnect\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBgetDefaultConnection\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDefaultConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBextend\fP ($\fBname\fP, $resolver)"
+.br
+.ti -1c
+.RI "static \fBgetConnections\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetSchemaBuilder\fP ()"
+.br
+.ti -1c
+.RI "static \fBuseDefaultQueryGrammar\fP ()"
+.br
+.ti -1c
+.RI "static \fBuseDefaultSchemaGrammar\fP ()"
+.br
+.ti -1c
+.RI "static \fBuseDefaultPostProcessor\fP ()"
+.br
+.ti -1c
+.RI "static \fBtable\fP ($table)"
+.br
+.ti -1c
+.RI "static \fBraw\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBselectOne\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBselectFromWriteConnection\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBselect\fP ($query, $bindings=array(), $useReadPdo=true)"
+.br
+.ti -1c
+.RI "static \fBinsert\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBupdate\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBdelete\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBstatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBaffectingStatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "static \fBunprepared\fP ($query)"
+.br
+.ti -1c
+.RI "static \fBprepareBindings\fP ($bindings)"
+.br
+.ti -1c
+.RI "static \fBtransaction\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBbeginTransaction\fP ()"
+.br
+.ti -1c
+.RI "static \fBcommit\fP ()"
+.br
+.ti -1c
+.RI "static \fBrollBack\fP ()"
+.br
+.ti -1c
+.RI "static \fBtransactionLevel\fP ()"
+.br
+.ti -1c
+.RI "static \fBpretend\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBlogQuery\fP ($query, $bindings, $time=null)"
+.br
+.ti -1c
+.RI "static \fBlisten\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBgetDoctrineColumn\fP ($\fBtable\fP, $column)"
+.br
+.ti -1c
+.RI "static \fBgetDoctrineSchemaManager\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetDoctrineConnection\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPdo\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetReadPdo\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetPdo\fP ($pdo)"
+.br
+.ti -1c
+.RI "static \fBsetReadPdo\fP ($pdo)"
+.br
+.ti -1c
+.RI "static \fBsetReconnector\fP ($reconnector)"
+.br
+.ti -1c
+.RI "static \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetConfig\fP ($option)"
+.br
+.ti -1c
+.RI "static \fBgetDriverName\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetQueryGrammar\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetQueryGrammar\fP ($grammar)"
+.br
+.ti -1c
+.RI "static \fBgetSchemaGrammar\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetSchemaGrammar\fP ($grammar)"
+.br
+.ti -1c
+.RI "static \fBgetPostProcessor\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetPostProcessor\fP ($processor)"
+.br
+.ti -1c
+.RI "static \fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetEventDispatcher\fP ($events)"
+.br
+.ti -1c
+.RI "static \fBgetPaginator\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetPaginator\fP ($paginator)"
+.br
+.ti -1c
+.RI "static \fBgetCacheManager\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetCacheManager\fP ($cache)"
+.br
+.ti -1c
+.RI "static \fBpretending\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetFetchMode\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetFetchMode\fP ($fetchMode)"
+.br
+.ti -1c
+.RI "static \fBgetQueryLog\fP ()"
+.br
+.ti -1c
+.RI "static \fBflushQueryLog\fP ()"
+.br
+.ti -1c
+.RI "static \fBenableQueryLog\fP ()"
+.br
+.ti -1c
+.RI "static \fBdisableQueryLog\fP ()"
+.br
+.ti -1c
+.RI "static \fBlogging\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetDatabaseName\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDatabaseName\fP ($database)"
+.br
+.ti -1c
+.RI "static \fBgetTablePrefix\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetTablePrefix\fP ($prefix)"
+.br
+.ti -1c
+.RI "static \fBwithTablePrefix\fP ($grammar)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 2750 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static affectingStatement ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run an SQL statement and get the number of rows affected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 3006 of file _ide_helper\&.php\&.
+.SS "static beginTransaction ()\fC [static]\fP"
+Start a new database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3054 of file _ide_helper\&.php\&.
+.SS "static commit ()\fC [static]\fP"
+Commit the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3065 of file _ide_helper\&.php\&.
+.SS "static connection ( $name = \fCnull\fP)\fC [static]\fP"
+Get a database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2759 of file _ide_helper\&.php\&.
+.SS "static delete ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run a delete statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2980 of file _ide_helper\&.php\&.
+.SS "static disableQueryLog ()\fC [static]\fP"
+Disable the query log on the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3468 of file _ide_helper\&.php\&.
+.SS "static disconnect ( $name = \fCnull\fP)\fC [static]\fP"
+Disconnect from the given database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2781 of file _ide_helper\&.php\&.
+.SS "static enableQueryLog ()\fC [static]\fP"
+Enable the query log on the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3457 of file _ide_helper\&.php\&.
+.SS "static extend ( $name,  $resolver)\fC [static]\fP"
+Register an extension connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2825 of file _ide_helper\&.php\&.
+.SS "static flushQueryLog ()\fC [static]\fP"
+Clear the query log\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3446 of file _ide_helper\&.php\&.
+.SS "static getCacheManager ()\fC [static]\fP"
+Get the cache manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3378 of file _ide_helper\&.php\&.
+.SS "static getConfig ( $option)\fC [static]\fP"
+Get an option from the configuration options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$option\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3241 of file _ide_helper\&.php\&.
+.SS "static getConnections ()\fC [static]\fP"
+Return all of the created connections\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2835 of file _ide_helper\&.php\&.
+.SS "static getDatabaseName ()\fC [static]\fP"
+Get the name of the connected database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3490 of file _ide_helper\&.php\&.
+.SS "static getDefaultConnection ()\fC [static]\fP"
+Get the default connection name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2802 of file _ide_helper\&.php\&.
+.SS "static getDoctrineColumn ( $table,  $column)\fC [static]\fP"
+Get a \fBDoctrine\fP \fBSchema\fP Column instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3138 of file _ide_helper\&.php\&.
+.SS "static getDoctrineConnection ()\fC [static]\fP"
+Get the \fBDoctrine\fP DBAL database connection instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3160 of file _ide_helper\&.php\&.
+.SS "static getDoctrineSchemaManager ()\fC [static]\fP"
+Get the \fBDoctrine\fP DBAL schema manager for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3149 of file _ide_helper\&.php\&.
+.SS "static getDriverName ()\fC [static]\fP"
+Get the PDO driver name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3252 of file _ide_helper\&.php\&.
+.SS "static getEventDispatcher ()\fC [static]\fP"
+Get the event dispatcher used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3332 of file _ide_helper\&.php\&.
+.SS "static getFetchMode ()\fC [static]\fP"
+Get the default fetch mode for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 3412 of file _ide_helper\&.php\&.
+.SS "static getName ()\fC [static]\fP"
+Get the database connection name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 3229 of file _ide_helper\&.php\&.
+.SS "static getPaginator ()\fC [static]\fP"
+Get the paginator environment instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3355 of file _ide_helper\&.php\&.
+.SS "static getPdo ()\fC [static]\fP"
+Get the current PDO connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3171 of file _ide_helper\&.php\&.
+.SS "static getPostProcessor ()\fC [static]\fP"
+Get the query post processor used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3309 of file _ide_helper\&.php\&.
+.SS "static getQueryGrammar ()\fC [static]\fP"
+Get the query grammar used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3263 of file _ide_helper\&.php\&.
+.SS "static getQueryLog ()\fC [static]\fP"
+Get the connection query log\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3435 of file _ide_helper\&.php\&.
+.SS "static getReadPdo ()\fC [static]\fP"
+Get the current PDO connection used for reading\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3182 of file _ide_helper\&.php\&.
+.SS "static getSchemaBuilder ()\fC [static]\fP"
+Get a schema builder instance for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2845 of file _ide_helper\&.php\&.
+.SS "static getSchemaGrammar ()\fC [static]\fP"
+Get the schema grammar used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3286 of file _ide_helper\&.php\&.
+.SS "static getTablePrefix ()\fC [static]\fP"
+Get the table prefix for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3513 of file _ide_helper\&.php\&.
+.SS "static insert ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run an insert statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2954 of file _ide_helper\&.php\&.
+.SS "static listen ( $callback)\fC [static]\fP"
+Register a database query listener with the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3125 of file _ide_helper\&.php\&.
+.SS "static logging ()\fC [static]\fP"
+Determine whether we're logging queries\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3479 of file _ide_helper\&.php\&.
+.SS "static logQuery ( $query,  $bindings,  $time = \fCnull\fP)\fC [static]\fP"
+\fBLog\fP a query in the connection's query log\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3113 of file _ide_helper\&.php\&.
+.SS "static prepareBindings ( $bindings)\fC [static]\fP"
+Prepare the query bindings for execution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3030 of file _ide_helper\&.php\&.
+.SS "static pretend ( $callback)\fC [static]\fP"
+Execute the given callback in 'dry run' mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3099 of file _ide_helper\&.php\&.
+.SS "static pretending ()\fC [static]\fP"
+Determine if the connection in a 'dry run'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3401 of file _ide_helper\&.php\&.
+.SS "static purge ( $name = \fCnull\fP)\fC [static]\fP"
+Disconnect from the given database and remove from local cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2770 of file _ide_helper\&.php\&.
+.SS "static raw ( $value)\fC [static]\fP"
+Get a new raw query expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2901 of file _ide_helper\&.php\&.
+.SS "static reconnect ( $name = \fCnull\fP)\fC [static]\fP"
+Reconnect to the given database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2792 of file _ide_helper\&.php\&.
+.SS "static rollBack ()\fC [static]\fP"
+Rollback the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3076 of file _ide_helper\&.php\&.
+.SS "static select ( $query,  $bindings = \fCarray()\fP,  $useReadPdo = \fCtrue\fP)\fC [static]\fP"
+Run a select statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$useReadPdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2941 of file _ide_helper\&.php\&.
+.SS "static selectFromWriteConnection ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run a select statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2927 of file _ide_helper\&.php\&.
+.SS "static selectOne ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run a select statement and return a single result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2914 of file _ide_helper\&.php\&.
+.SS "static setCacheManager ( $cache)\fC [static]\fP"
+Set the cache manager instance on the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cache\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3390 of file _ide_helper\&.php\&.
+.SS "static setDatabaseName ( $database)\fC [static]\fP"
+Set the name of the connected database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$database\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3502 of file _ide_helper\&.php\&.
+.SS "static setDefaultConnection ( $name)\fC [static]\fP"
+Set the default connection name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2813 of file _ide_helper\&.php\&.
+.SS "static setEventDispatcher ( $events)\fC [static]\fP"
+Set the event dispatcher instance on the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3344 of file _ide_helper\&.php\&.
+.SS "static setFetchMode ( $fetchMode)\fC [static]\fP"
+Set the default fetch mode for the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fetchMode\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 3424 of file _ide_helper\&.php\&.
+.SS "static setPaginator ( $paginator)\fC [static]\fP"
+Set the pagination environment instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$paginator\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3367 of file _ide_helper\&.php\&.
+.SS "static setPdo ( $pdo)\fC [static]\fP"
+Set the PDO connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3194 of file _ide_helper\&.php\&.
+.SS "static setPostProcessor ( $processor)\fC [static]\fP"
+Set the query post processor used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3321 of file _ide_helper\&.php\&.
+.SS "static setQueryGrammar ( $grammar)\fC [static]\fP"
+Set the query grammar used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3275 of file _ide_helper\&.php\&.
+.SS "static setReadPdo ( $pdo)\fC [static]\fP"
+Set the PDO connection used for reading\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3206 of file _ide_helper\&.php\&.
+.SS "static setReconnector ( $reconnector)\fC [static]\fP"
+Set the reconnect instance on the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$reconnector\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3218 of file _ide_helper\&.php\&.
+.SS "static setSchemaGrammar ( $grammar)\fC [static]\fP"
+Set the schema grammar used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3298 of file _ide_helper\&.php\&.
+.SS "static setTablePrefix ( $prefix)\fC [static]\fP"
+Set the table prefix in use by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3525 of file _ide_helper\&.php\&.
+.SS "static statement ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Execute an SQL statement and return the boolean result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2993 of file _ide_helper\&.php\&.
+.SS "static table ( $table)\fC [static]\fP"
+Begin a fluent query against a database table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2889 of file _ide_helper\&.php\&.
+.SS "static transaction ( $callback)\fC [static]\fP"
+Execute a Closure within a transaction\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 3043 of file _ide_helper\&.php\&.
+.SS "static transactionLevel ()\fC [static]\fP"
+Get the number of active transactions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 3087 of file _ide_helper\&.php\&.
+.SS "static unprepared ( $query)\fC [static]\fP"
+Run a raw, unprepared query against the PDO connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3018 of file _ide_helper\&.php\&.
+.SS "static update ( $query,  $bindings = \fCarray()\fP)\fC [static]\fP"
+Run an update statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2967 of file _ide_helper\&.php\&.
+.SS "static useDefaultPostProcessor ()\fC [static]\fP"
+Set the query post processor to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2877 of file _ide_helper\&.php\&.
+.SS "static useDefaultQueryGrammar ()\fC [static]\fP"
+Set the query grammar to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2855 of file _ide_helper\&.php\&.
+.SS "static useDefaultSchemaGrammar ()\fC [static]\fP"
+Set the schema grammar to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2866 of file _ide_helper\&.php\&.
+.SS "static withTablePrefix ( $grammar)\fC [static]\fP"
+Set the table prefix and return the grammar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$grammar\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3537 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

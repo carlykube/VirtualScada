@@ -1,0 +1,32 @@
+.TH "md_vendor_symfony_routing__symfony__component__routing__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_routing__symfony__component__routing__r_e_a_d_m_e \- Routing Component 
+Routing associates a request with the code that will convert it to a response\&.
+.PP
+The example below demonstrates how you can set up a fully working routing system:
+.PP
+```php use \fBSymfony\fP; use \fBSymfony\fP; use \fBSymfony\fP; use \fBSymfony\fP; use \fBSymfony\fP;
+.PP
+$routes = new RouteCollection(); $routes->add('hello', new \fBRoute\fP('/hello', array('controller' => 'foo')));
+.PP
+$context = new RequestContext();
+.PP
+// this is optional and can be done without a \fBRequest\fP instance $context->fromRequest(Request::createFromGlobals());
+.PP
+$matcher = new UrlMatcher($routes, $context);
+.PP
+$parameters = $matcher->match('/hello'); ```
+.PP
+.SS "Resources "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/Routing/
+$ composer install
+$ phpunit
+.fi
+.PP
+ 

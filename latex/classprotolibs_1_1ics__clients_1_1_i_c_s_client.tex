@@ -1,0 +1,106 @@
+\section{I\+C\+S\+Client Class Reference}
+\label{classprotolibs_1_1ics__clients_1_1_i_c_s_client}\index{I\+C\+S\+Client@{I\+C\+S\+Client}}
+Inheritance diagram for I\+C\+S\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classprotolibs_1_1ics__clients_1_1_i_c_s_client}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf I\+C\+S\+Client\+Exception}
+\item 
+class {\bf No\+Such\+Point\+Error}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def {\bf read\+Points} (self, points)
+\item 
+def {\bf write\+Points} (self, pointsvalues)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Abstract base class for ICS protocol clients.
+Because there may be confusion between similarly named servers and
+clients, the client defines a class member _CLIENT, which
+can be checked at runtime.\end{DoxyVerb}
+ 
+
+Definition at line 39 of file ics\+\_\+clients.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{to\+\_\+config, }
+\item[{}]{slave\+\_\+points, }
+\item[{}]{from\+\_\+config = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_i_c_s_client_ac775ee34451fdfa742b318538164070e}
+\begin{DoxyVerb}Initializes the ICS client from configuration information\end{DoxyVerb}
+ 
+
+Definition at line 45 of file ics\+\_\+clients.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}!read\+Points@{read\+Points}}
+\index{read\+Points@{read\+Points}!protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}}
+\subsubsection[{read\+Points}]{\setlength{\rightskip}{0pt plus 5cm}def read\+Points (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{points}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_i_c_s_client_afa4592568238b017d9492bb1fa4f4c39}
+\begin{DoxyVerb}Method to return points from a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to request 
+    each point, whether it be individually or in groups. This is
+    necessary to provide a neutral interface to different ICS protocols.
+    Each protocol has different semantics towards polling values of
+    points.
+@param device Name of the device to be polled
+@param points Iterable of names of points to be polled
+
+@returns A tuple of values of the points polled in the order that they
+    were requested.
+\end{DoxyVerb}
+ 
+
+Definition at line 49 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}!write\+Points@{write\+Points}}
+\index{write\+Points@{write\+Points}!protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client@{protolibs\+::ics\+\_\+clients\+::\+I\+C\+S\+Client}}
+\subsubsection[{write\+Points}]{\setlength{\rightskip}{0pt plus 5cm}def write\+Points (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{pointsvalues}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_i_c_s_client_aab66dbd5d4359ee24e733d1746d7ac1c}
+\begin{DoxyVerb}Method to set points on a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to write each
+    point, whether it be individually or in groups. Base clients 
+@param device Name of the device to be polled
+@param pointsvalues List of tuples of (names of point to be written,
+                value)
+\end{DoxyVerb}
+ 
+
+Definition at line 65 of file ics\+\_\+clients.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/protolibs/{\bf ics\+\_\+clients.\+py}\end{DoxyCompactItemize}

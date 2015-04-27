@@ -1,0 +1,440 @@
+.TH "PHPUnit_Util_XML" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_Util_XML \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBprepareString\fP ($string)"
+.br
+.ti -1c
+.RI "static \fBloadFile\fP ($filename, $isHtml=false, $xinclude=false, $strict=false)"
+.br
+.ti -1c
+.RI "static \fBload\fP ($actual, $isHtml=false, $filename= '', $xinclude=false, $strict=false)"
+.br
+.ti -1c
+.RI "static \fBnodeToText\fP (DOMNode $\fBnode\fP)"
+.br
+.ti -1c
+.RI "static \fBremoveCharacterDataNodes\fP (DOMNode $\fBnode\fP)"
+.br
+.ti -1c
+.RI "static \fBxmlToVariable\fP (DOMElement $element)"
+.br
+.ti -1c
+.RI "static \fBassertValidKeys\fP (array $hash, array $validKeys)"
+.br
+.ti -1c
+.RI "static \fBconvertSelectToTag\fP ($selector, $content=true)"
+.br
+.ti -1c
+.RI "static \fBcssSelect\fP ($selector, $content, $actual, $isHtml=true)"
+.br
+.ti -1c
+.RI "static \fBfindNodes\fP (DOMDocument $dom, array $\fBoptions\fP, $isHtml=true)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetDescendants\fP (DOMNode $\fBnode\fP)"
+.br
+.ti -1c
+.RI "static \fBgetElementsByCaseInsensitiveTagName\fP (DOMDocument $dom, $tag)"
+.br
+.ti -1c
+.RI "static \fBgetNodeText\fP (DOMNode $\fBnode\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file XML\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static assertValidKeys (array $hash, array $validKeys)\fC [static]\fP"
+Validate list of keys in the associative array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hash\fP 
+.br
+\fI$validKeys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.RE
+.PP
+
+.PP
+Definition at line 277 of file XML\&.php\&.
+.SS "static convertSelectToTag ( $selector,  $content = \fCtrue\fP)\fC [static]\fP"
+Parse a CSS selector into an associative array suitable for use with \fBfindNodes()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$selector\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file XML\&.php\&.
+.SS "static cssSelect ( $selector,  $content,  $actual,  $isHtml = \fCtrue\fP)\fC [static]\fP"
+Parse an $actual document and return an array of DOMNodes matching the CSS $selector\&. If an error occurs, it will return false\&.
+.PP
+To only return nodes containing a certain content, give the $content to match as a string\&. Otherwise, setting $content to true will return all nodes matching $selector\&.
+.PP
+The $actual document may be a DOMDocument or a string containing XML or \fBHTML\fP, identified by $isHtml\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$selector\fP 
+.br
+\fI$content\fP 
+.br
+\fI$actual\fP 
+.br
+\fI$isHtml\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean|array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.PP
+Tobias Schlitt toby@php.net 
+.RE
+.PP
+
+.PP
+Definition at line 458 of file XML\&.php\&.
+.SS "static findNodes (DOMDocument $dom, array $options,  $isHtml = \fCtrue\fP)\fC [static]\fP"
+Parse out the options from the tag using DOM object tree\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dom\fP 
+.br
+\fI$options\fP 
+.br
+\fI$isHtml\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.PP
+Tobias Schlitt toby@php.net 
+.RE
+.PP
+
+.PP
+Definition at line 479 of file XML\&.php\&.
+.SS "static getDescendants (DOMNode $node)\fC [static]\fP, \fC [protected]\fP"
+Recursively get flat array of all descendants of this node\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.RE
+.PP
+
+.PP
+Definition at line 853 of file XML\&.php\&.
+.SS "static getElementsByCaseInsensitiveTagName (DOMDocument $dom,  $tag)\fC [static]\fP, \fC [protected]\fP"
+Gets elements by case insensitive tagname\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dom\fP 
+.br
+\fI$tag\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DOMNodeList 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 879 of file XML\&.php\&.
+.SS "static getNodeText (DOMNode $node)\fC [static]\fP, \fC [protected]\fP"
+Get the text value of this node's child text node\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.RE
+.PP
+
+.PP
+Definition at line 899 of file XML\&.php\&.
+.SS "static load ( $actual,  $isHtml = \fCfalse\fP,  $filename = \fC''\fP,  $xinclude = \fCfalse\fP,  $strict = \fCfalse\fP)\fC [static]\fP"
+Load an $actual document into a DOMDocument\&. This is called from the selector assertions\&.
+.PP
+If $actual is already a DOMDocument, it is returned with no changes\&. Otherwise, $actual is loaded into a new DOMDocument as either \fBHTML\fP or XML, depending on the value of $isHtml\&. If $isHtml is false and $xinclude is true, xinclude is performed on the loaded DOMDocument\&.
+.PP
+Note: prior to \fBPHPUnit\fP 3\&.3\&.0, this method loaded a file and not a string as it currently does\&. To load a file into a DOMDocument, use \fBloadFile()\fP instead\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$actual\fP 
+.br
+\fI$isHtml\fP 
+.br
+\fI$filename\fP 
+.br
+\fI$xinclude\fP 
+.br
+\fI$strict\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DOMDocument 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mike Naberezny mike@maintainable.com 
+.PP
+Derek DeVries derek@maintainable.com 
+.PP
+Tobias Schlitt toby@php.net 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file XML\&.php\&.
+.SS "static loadFile ( $filename,  $isHtml = \fCfalse\fP,  $xinclude = \fCfalse\fP,  $strict = \fCfalse\fP)\fC [static]\fP"
+Loads an XML (or \fBHTML\fP) file into a DOMDocument object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filename\fP 
+.br
+\fI$isHtml\fP 
+.br
+\fI$xinclude\fP 
+.br
+\fI$strict\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DOMDocument 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file XML\&.php\&.
+.SS "static nodeToText (DOMNode $node)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file XML\&.php\&.
+.SS "static prepareString ( $string)\fC [static]\fP"
+Escapes a string for the use in XML documents Any Unicode character is allowed, excluding the surrogate blocks, FFFE, and FFFF (not even as character reference)\&. See http://www.w3.org/TR/xml/#charsets
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Kore Nordmann mail@kore-nordmann.de 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.6 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file XML\&.php\&.
+.SS "static removeCharacterDataNodes (DOMNode $node)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.3\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Mattis Stordalen Flister mattis@xait.no 
+.RE
+.PP
+
+.PP
+Definition at line 189 of file XML\&.php\&.
+.SS "static xmlToVariable (DOMElement $element)\fC [static]\fP"
+'Convert' a DOMElement object into a \fBPHP\fP variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$element\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file XML\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

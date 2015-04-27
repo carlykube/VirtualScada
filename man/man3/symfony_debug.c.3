@@ -1,0 +1,136 @@
+.TH "vendor/symfony/debug/Symfony/Component/Debug/Resources/ext/symfony_debug.c" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vendor/symfony/debug/Symfony/Component/Debug/Resources/ext/symfony_debug.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'php\&.h'\fP
+.br
+\fC#include 'php_ini\&.h'\fP
+.br
+\fC#include 'ext/standard/info\&.h'\fP
+.br
+\fC#include 'php_symfony_debug\&.h'\fP
+.br
+\fC#include 'ext/standard/php_rand\&.h'\fP
+.br
+\fC#include 'ext/standard/php_lcg\&.h'\fP
+.br
+\fC#include 'ext/spl/php_spl\&.h'\fP
+.br
+\fC#include 'Zend/zend_gc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPHP_FUNCTION\fP (symfony_zval_info)"
+.br
+.ti -1c
+.RI "\fBPHP_GINIT_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_GSHUTDOWN_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_MINIT_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_MSHUTDOWN_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_RINIT_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_RSHUTDOWN_FUNCTION\fP (symfony_debug)"
+.br
+.ti -1c
+.RI "\fBPHP_MINFO_FUNCTION\fP (symfony_debug)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const zend_function_entry \fBsymfony_debug_functions\fP []"
+.br
+.ti -1c
+.RI "zend_module_entry \fBsymfony_debug_module_entry\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "PHP_FUNCTION (symfony_zval_info)"
+
+.PP
+Definition at line 36 of file symfony_debug\&.c\&.
+.SS "PHP_GINIT_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 188 of file symfony_debug\&.c\&.
+.SS "PHP_GSHUTDOWN_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 193 of file symfony_debug\&.c\&.
+.SS "PHP_MINFO_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 218 of file symfony_debug\&.c\&.
+.SS "PHP_MINIT_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 198 of file symfony_debug\&.c\&.
+.SS "PHP_MSHUTDOWN_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 203 of file symfony_debug\&.c\&.
+.SS "PHP_RINIT_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 208 of file symfony_debug\&.c\&.
+.SS "PHP_RSHUTDOWN_FUNCTION (symfony_debug)"
+
+.PP
+Definition at line 213 of file symfony_debug\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const zend_function_entry symfony_debug_functions[]"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+
+    PHP_FE_END
+}
+.fi
+.PP
+Definition at line 31 of file symfony_debug\&.c\&.
+.SS "zend_module_entry symfony_debug_module_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    STANDARD_MODULE_HEADER,
+    "symfony_debug",
+    symfony_debug_functions,
+    PHP_MINIT(symfony_debug),
+    PHP_MSHUTDOWN(symfony_debug),
+    PHP_RINIT(symfony_debug),
+    PHP_RSHUTDOWN(symfony_debug),
+    PHP_MINFO(symfony_debug),
+    PHP_SYMFONY_DEBUG_VERSION,
+    PHP_MODULE_GLOBALS(symfony_debug),
+    PHP_GINIT(symfony_debug),
+    PHP_GSHUTDOWN(symfony_debug),
+    NULL,
+    STANDARD_MODULE_PROPERTIES_EX
+}
+.fi
+.PP
+Definition at line 167 of file symfony_debug\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

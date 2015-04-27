@@ -1,0 +1,637 @@
+\section{Repository Class Reference}
+\label{class_illuminate_1_1_cache_1_1_repository}\index{Repository@{Repository}}
+Inheritance diagram for Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_cache_1_1_repository}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Store} \$store)
+\item 
+{\bf set\+Event\+Dispatcher} ({\bf Dispatcher} \$events)
+\item 
+{\bf has} (\$key)
+\item 
+{\bf get} (\$key, \$default=null)
+\item 
+{\bf pull} (\$key, \$default=null)
+\item 
+{\bf put} (\$key, \$value, \${\bf minutes})
+\item 
+{\bf add} (\$key, \$value, \${\bf minutes})
+\item 
+{\bf forever} (\$key, \$value)
+\item 
+{\bf remember} (\$key, \${\bf minutes}, Closure \${\bf callback})
+\item 
+{\bf sear} (\$key, Closure \${\bf callback})
+\item 
+{\bf remember\+Forever} (\$key, Closure \${\bf callback})
+\item 
+{\bf forget} (\$key)
+\item 
+{\bf get\+Default\+Cache\+Time} ()
+\item 
+{\bf set\+Default\+Cache\+Time} (\${\bf minutes})
+\item 
+{\bf get\+Store} ()
+\item 
+{\bf offset\+Exists} (\$key)
+\item 
+{\bf offset\+Get} (\$key)
+\item 
+{\bf offset\+Set} (\$key, \$value)
+\item 
+{\bf offset\+Unset} (\$key)
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$parameters)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf fire\+Cache\+Event} (\${\bf event}, \$payload)
+\item 
+{\bf get\+Minutes} (\${\bf duration})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$store}
+\item 
+{\bf \$events}
+\item 
+{\bf \$default} = 60
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file Repository.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Store}}]{\$store}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_af1e47cf9ecd476fca0cb8e691b45bd2c}
+Create a new cache repository instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Cache\textbackslash{}\+Store & {\em \$store} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Repository.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_ac565bd6a9d062c73a0a0db7afe0ffea9}
+Handle dynamic calls into macros or pass missing methods to the store.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 359 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!add@{add}}
+\index{add@{add}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a7b71a32e24bbf1c859273ec8463dc6e5}
+Store an item in the cache if the key does not exist.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a7b71a32e24bbf1c859273ec8463dc6e5}.
+
+
+
+Definition at line 155 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!fire\+Cache\+Event@{fire\+Cache\+Event}}
+\index{fire\+Cache\+Event@{fire\+Cache\+Event}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{fire\+Cache\+Event}]{\setlength{\rightskip}{0pt plus 5cm}fire\+Cache\+Event (
+\begin{DoxyParamCaption}
+\item[{}]{\$event, }
+\item[{}]{\$payload}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_repository_a72e3250d502373a76d815fe527dfe120}
+Fire an event for this cache instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event} & \\
+\hline
+array & {\em \$payload} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!forever@{forever}}
+\index{forever@{forever}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{forever}]{\setlength{\rightskip}{0pt plus 5cm}forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a9e878bc609488e3718911915829f29a2}
+Store an item in the cache indefinitely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a9e878bc609488e3718911915829f29a2}.
+
+
+
+Definition at line 179 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!forget@{forget}}
+\index{forget@{forget}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{forget}]{\setlength{\rightskip}{0pt plus 5cm}forget (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a56aaa13f3fc2cac361f2c6545644b341}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a56aaa13f3fc2cac361f2c6545644b341}.
+
+
+
+Definition at line 249 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a499d39d1876a05b20e1ca8e8a1c2b466}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a499d39d1876a05b20e1ca8e8a1c2b466}.
+
+
+
+Definition at line 93 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!get\+Default\+Cache\+Time@{get\+Default\+Cache\+Time}}
+\index{get\+Default\+Cache\+Time@{get\+Default\+Cache\+Time}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{get\+Default\+Cache\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Cache\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_af3c708fbd76ea91fd7cc1c0957582aad}
+Get the default cache time.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!get\+Minutes@{get\+Minutes}}
+\index{get\+Minutes@{get\+Minutes}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{get\+Minutes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Minutes (
+\begin{DoxyParamCaption}
+\item[{}]{\$duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_repository_ab3eecfb3cddfe90a0ad770b93c622f9d}
+Calculate the number of minutes with the given duration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$duration} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!get\+Store@{get\+Store}}
+\index{get\+Store@{get\+Store}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{get\+Store}]{\setlength{\rightskip}{0pt plus 5cm}get\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a523d1f40bae28997db97fd9ac767fdf6}
+Get the cache store implementation.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 284 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a8b23dbb48f0c3c94725695191d06981a}
+Determine if an item exists in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a8b23dbb48f0c3c94725695191d06981a}.
+
+
+
+Definition at line 81 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!offset\+Exists@{offset\+Exists}}
+\index{offset\+Exists@{offset\+Exists}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{offset\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a72b9545b16ea105298bb0d2109bd2fbe}
+Determine if a cached value exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!offset\+Get@{offset\+Get}}
+\index{offset\+Get@{offset\+Get}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{offset\+Get}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a6e8e2b3128ee9bd6be930cb296c02ac7}
+Retrieve an item from the cache by key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!offset\+Set@{offset\+Set}}
+\index{offset\+Set@{offset\+Set}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{offset\+Set}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Set (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a3199adfa66a63d34fb355f3ccf39bf0a}
+Store an item in the cache for the default time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 318 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!offset\+Unset@{offset\+Unset}}
+\index{offset\+Unset@{offset\+Unset}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{offset\+Unset}]{\setlength{\rightskip}{0pt plus 5cm}offset\+Unset (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a1d11d3dade07ef846d01a397abfaf0d9}
+Remove an item from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 329 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!pull@{pull}}
+\index{pull@{pull}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{pull}]{\setlength{\rightskip}{0pt plus 5cm}pull (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_af221134cb856ca918de73feebbe36d9c}
+Retrieve an item from the cache and delete it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_af221134cb856ca918de73feebbe36d9c}.
+
+
+
+Definition at line 118 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_af2a41d0d02cf7e6757044de79551d036}
+Store an item in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_af2a41d0d02cf7e6757044de79551d036}.
+
+
+
+Definition at line 135 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!remember@{remember}}
+\index{remember@{remember}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{remember}]{\setlength{\rightskip}{0pt plus 5cm}remember (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$minutes, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a53c37b0002cdf6c0bd5e6bb8f2711b7d}
+Get an item from the cache, or store the default value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a53c37b0002cdf6c0bd5e6bb8f2711b7d}.
+
+
+
+Definition at line 194 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!remember\+Forever@{remember\+Forever}}
+\index{remember\+Forever@{remember\+Forever}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{remember\+Forever}]{\setlength{\rightskip}{0pt plus 5cm}remember\+Forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_ac3a49505d6548f2e0b9b97294044fe49}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_ac3a49505d6548f2e0b9b97294044fe49}.
+
+
+
+Definition at line 228 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!sear@{sear}}
+\index{sear@{sear}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{sear}]{\setlength{\rightskip}{0pt plus 5cm}sear (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a63cf87dc7fa41b404c2db8dc68f24888}
+Get an item from the cache, or store the default value forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Repository} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_cache_1_1_repository_a63cf87dc7fa41b404c2db8dc68f24888}.
+
+
+
+Definition at line 216 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!set\+Default\+Cache\+Time@{set\+Default\+Cache\+Time}}
+\index{set\+Default\+Cache\+Time@{set\+Default\+Cache\+Time}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{set\+Default\+Cache\+Time}]{\setlength{\rightskip}{0pt plus 5cm}set\+Default\+Cache\+Time (
+\begin{DoxyParamCaption}
+\item[{}]{\$minutes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a6af94455c9870c5a1933ae8a72e1d9d7}
+Set the default cache time in minutes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$minutes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!set\+Event\+Dispatcher@{set\+Event\+Dispatcher}}
+\index{set\+Event\+Dispatcher@{set\+Event\+Dispatcher}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{set\+Event\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}set\+Event\+Dispatcher (
+\begin{DoxyParamCaption}
+\item[{{\bf Dispatcher}}]{\$events}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_cache_1_1_repository_a4b9f7d9f845e655d0589dbb5376bed5a}
+Set the event dispatcher instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Repository.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!\$default@{\$default}}
+\index{\$default@{\$default}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{\$default}]{\setlength{\rightskip}{0pt plus 5cm}\$default = 60\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_repository_a9df479534ecf05fd7575c6275d381687}
+
+
+Definition at line 37 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_repository_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 30 of file Repository.\+php.
+
+\index{Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}!\$store@{\$store}}
+\index{\$store@{\$store}!Illuminate\+::\+Cache\+::\+Repository@{Illuminate\+::\+Cache\+::\+Repository}}
+\subsubsection[{\$store}]{\setlength{\rightskip}{0pt plus 5cm}\$store\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_cache_1_1_repository_a827b42f70d98e1bf51ff54dbbe771421}
+
+
+Definition at line 23 of file Repository.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Cache/{\bf Repository.\+php}\end{DoxyCompactItemize}

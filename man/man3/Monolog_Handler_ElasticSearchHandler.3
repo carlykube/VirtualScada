@@ -1,0 +1,146 @@
+.TH "ElasticSearchHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ElasticSearchHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (Client $client, array $\fBoptions\fP=array(), $level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.ti -1c
+.RI "\fBsetFormatter\fP (\fBFormatterInterface\fP $formatter)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBbulkSend\fP (array $documents)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$client\fP"
+.br
+.ti -1c
+.RI "\fB$options\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Elastic Search handler
+.PP
+Usage example:
+.PP
+$client = new (); $options = array( 'index' => 'elastic_index_name', 'type' => 'elastic_doc_type', ); $handler = new \fBElasticSearchHandler\fP($client, $options); $log = new \fBLogger\fP('application'); $log->pushHandler($handler);
+.PP
+\fBAuthor:\fP
+.RS 4
+Jelle Vink jelle.vink@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file ElasticSearchHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (Client $client, array $options = \fCarray()\fP,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$client\fP Elastica Client object 
+.br
+\fI$options\fP \fBHandler\fP configuration 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file ElasticSearchHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bulkSend (array $documents)\fC [protected]\fP"
+Use Elasticsearch bulk API to send list of documents 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$documents\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 118 of file ElasticSearchHandler\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+
+.PP
+Definition at line 99 of file ElasticSearchHandler\&.php\&.
+.SS "getOptions ()"
+Getter options 
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file ElasticSearchHandler\&.php\&.
+.SS "handleBatch (array $records)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 107 of file ElasticSearchHandler\&.php\&.
+.SS "setFormatter (\fBFormatterInterface\fP $formatter)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 79 of file ElasticSearchHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+
+.PP
+Definition at line 71 of file ElasticSearchHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$client\fC [protected]\fP"
+
+.PP
+Definition at line 41 of file ElasticSearchHandler\&.php\&.
+.SS "$\fBoptions\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 46 of file ElasticSearchHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

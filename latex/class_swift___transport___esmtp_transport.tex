@@ -1,0 +1,411 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport Class Reference}
+\label{class_swift___transport___esmtp_transport}\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_swift___transport___esmtp_transport}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer} \$buf, array \$extension\+Handlers, {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \$dispatcher)
+\item 
+{\bf set\+Host} (\$host)
+\item 
+{\bf get\+Host} ()
+\item 
+{\bf set\+Port} (\$port)
+\item 
+{\bf get\+Port} ()
+\item 
+{\bf set\+Timeout} (\$timeout)
+\item 
+{\bf get\+Timeout} ()
+\item 
+{\bf set\+Encryption} (\$encryption)
+\item 
+{\bf get\+Encryption} ()
+\item 
+{\bf set\+Source\+Ip} (\$source)
+\item 
+{\bf get\+Source\+Ip} ()
+\item 
+{\bf set\+Extension\+Handlers} (array \$handlers)
+\item 
+{\bf get\+Extension\+Handlers} ()
+\item 
+{\bf execute\+Command} (\$command, \$codes=array(), \&\$failures=null)
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$args)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+get\+Buffer\+Params} ()
+\item 
+{\bf \+\_\+do\+Helo\+Command} ()
+\item 
+{\bf \+\_\+do\+Mail\+From\+Command} (\$address)
+\item 
+{\bf \+\_\+do\+Rcpt\+To\+Command} (\$address)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Sends Messages over S\+M\+T\+P with E\+S\+M\+T\+P support.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Esmtp\+Transport.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}]{\$buf, }
+\item[{array}]{\$extension\+Handlers, }
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}}]{\$dispatcher}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a6f0dca745830c6dea8ead3713d38f24f}
+Creates a new Esmtp\+Transport using the given I/\+O buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}{p.}{interface_swift___transport___io_buffer} & {\em \$buf} & \\
+\hline
+ & {\em Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler\mbox{[}$\,$\mbox{]}} & \$extension\+Handlers \\
+\hline
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}{p.}{interface_swift___events___event_dispatcher} & {\em \$dispatcher} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Esmtp\+Transport.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$args}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a9f1179240d068c94a040021326032bed}
+Mixin handling method for E\+S\+M\+T\+P handlers 
+
+Definition at line 249 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+do\+Helo\+Command@{\+\_\+do\+Helo\+Command}}
+\index{\+\_\+do\+Helo\+Command@{\+\_\+do\+Helo\+Command}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+do\+Helo\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Helo\+Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp_transport_a6ed8552cae37395c91570ff2d071fd8d}
+Overridden to perform E\+H\+L\+O instead 
+
+Definition at line 274 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+do\+Mail\+From\+Command@{\+\_\+do\+Mail\+From\+Command}}
+\index{\+\_\+do\+Mail\+From\+Command@{\+\_\+do\+Mail\+From\+Command}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+do\+Mail\+From\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Mail\+From\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp_transport_a73ee0367a476066caf8e0f6502639380}
+Overridden to add Extension support 
+
+Definition at line 312 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+do\+Rcpt\+To\+Command@{\+\_\+do\+Rcpt\+To\+Command}}
+\index{\+\_\+do\+Rcpt\+To\+Command@{\+\_\+do\+Rcpt\+To\+Command}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+do\+Rcpt\+To\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Rcpt\+To\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp_transport_a732893d22fa2653e50af7ec56868c40b}
+Overridden to add Extension support 
+
+Definition at line 326 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!\+\_\+get\+Buffer\+Params@{\+\_\+get\+Buffer\+Params}}
+\index{\+\_\+get\+Buffer\+Params@{\+\_\+get\+Buffer\+Params}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{\+\_\+get\+Buffer\+Params}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Buffer\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp_transport_a68318a5d9e5d75ce6281cc425f008d86}
+Get the params to initialize the buffer 
+
+Definition at line 268 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{execute\+Command}]{\setlength{\rightskip}{0pt plus 5cm}execute\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{}]{\$codes = {\ttfamily array()}, }
+\item[{\&}]{\$failures = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a9ab2b378dc7b691d5e29631b81de6e41}
+Run a command against the buffer, expecting the given response codes.
+
+If no response codes are given, the response will not be validated. If codes are given, an exception will be thrown on an invalid response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+ & {\em int\mbox{[}$\,$\mbox{]}} & \$codes \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failures An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \doxyref{}{p.}{interface_swift___transport___smtp_agent_a9ab2b378dc7b691d5e29631b81de6e41}.
+
+
+
+Definition at line 229 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Encryption@{get\+Encryption}}
+\index{get\+Encryption@{get\+Encryption}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Encryption}]{\setlength{\rightskip}{0pt plus 5cm}get\+Encryption (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_abfb761bf347039614638dd671eec31a3}
+Get the encryption type.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Extension\+Handlers@{get\+Extension\+Handlers}}
+\index{get\+Extension\+Handlers@{get\+Extension\+Handlers}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Extension\+Handlers}]{\setlength{\rightskip}{0pt plus 5cm}get\+Extension\+Handlers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a4dbdc396206a0f07d830570cc24650b7}
+Get E\+S\+M\+T\+P extension handlers.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler}{p.}{interface_swift___transport___esmtp_handler}[] 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Host@{get\+Host}}
+\index{get\+Host@{get\+Host}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Host}]{\setlength{\rightskip}{0pt plus 5cm}get\+Host (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a39895a44b52bdced039e698588aaf18e}
+Get the host to connect to.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Port@{get\+Port}}
+\index{get\+Port@{get\+Port}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Port}]{\setlength{\rightskip}{0pt plus 5cm}get\+Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_afd4db46d3c12f47f0bee19cd2101be64}
+Get the port to connect to.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Source\+Ip@{get\+Source\+Ip}}
+\index{get\+Source\+Ip@{get\+Source\+Ip}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Source\+Ip}]{\setlength{\rightskip}{0pt plus 5cm}get\+Source\+Ip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_acd584a7846ea4a658b609500728ad5f1}
+Returns the I\+P used to connect to the destination.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!get\+Timeout@{get\+Timeout}}
+\index{get\+Timeout@{get\+Timeout}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{get\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_abac5019c5daf3a27d739aa3a249fdb31}
+Get the connection timeout.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Encryption@{set\+Encryption}}
+\index{set\+Encryption@{set\+Encryption}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Encryption}]{\setlength{\rightskip}{0pt plus 5cm}set\+Encryption (
+\begin{DoxyParamCaption}
+\item[{}]{\$encryption}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a8dd12512cd9e28def2c41e2e68d728b3}
+Set the encryption type (tls or ssl)
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$encryption} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Extension\+Handlers@{set\+Extension\+Handlers}}
+\index{set\+Extension\+Handlers@{set\+Extension\+Handlers}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Extension\+Handlers}]{\setlength{\rightskip}{0pt plus 5cm}set\+Extension\+Handlers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$handlers}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_ad4db6162314530f4afa6f739a6c9ce22}
+Set E\+S\+M\+T\+P extension handlers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler\mbox{[}$\,$\mbox{]}} & \$handlers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Host@{set\+Host}}
+\index{set\+Host@{set\+Host}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Host}]{\setlength{\rightskip}{0pt plus 5cm}set\+Host (
+\begin{DoxyParamCaption}
+\item[{}]{\$host}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a3796cc8d08abefbb14f15fde02b883a9}
+Set the host to connect to.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$host} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Port@{set\+Port}}
+\index{set\+Port@{set\+Port}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Port}]{\setlength{\rightskip}{0pt plus 5cm}set\+Port (
+\begin{DoxyParamCaption}
+\item[{}]{\$port}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a000ce1ff20433f6ac9297e01c31d0678}
+Set the port to connect to.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$port} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Source\+Ip@{set\+Source\+Ip}}
+\index{set\+Source\+Ip@{set\+Source\+Ip}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Source\+Ip}]{\setlength{\rightskip}{0pt plus 5cm}set\+Source\+Ip (
+\begin{DoxyParamCaption}
+\item[{}]{\$source}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a576fe979101ebb1791329a0aa2d87192}
+Sets the source I\+P.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$source} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file Esmtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}!set\+Timeout@{set\+Timeout}}
+\index{set\+Timeout@{set\+Timeout}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}}
+\subsubsection[{set\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}set\+Timeout (
+\begin{DoxyParamCaption}
+\item[{}]{\$timeout}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp_transport_a3d80d4d51ec21d8237d6ed6808d70b8e}
+Set the connection timeout.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$timeout} & seconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Transport}{p.}{class_swift___transport___esmtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Esmtp\+Transport.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/{\bf Esmtp\+Transport.\+php}\end{DoxyCompactItemize}

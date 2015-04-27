@@ -1,0 +1,332 @@
+.TH "UrlMatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UrlMatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBUrlMatcherInterface\fP, and \fBRequestMatcherInterface\fP\&.
+.PP
+Inherited by \fBProjectUrlMatcher\fP, \fBProjectUrlMatcher\fP, \fBApacheUrlMatcher\fP, \fBRedirectableUrlMatcher\fP, \fBTraceableUrlMatcher\fP, and \fBRedirectableUrlMatcher\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBRouteCollection\fP $routes, \fBRequestContext\fP $context)"
+.br
+.ti -1c
+.RI "\fBsetContext\fP (\fBRequestContext\fP $context)"
+.br
+.ti -1c
+.RI "\fBgetContext\fP ()"
+.br
+.ti -1c
+.RI "\fBmatch\fP ($pathinfo)"
+.br
+.ti -1c
+.RI "\fBmatchRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddExpressionLanguageProvider\fP (ExpressionFunctionProviderInterface $provider)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBREQUIREMENT_MATCH\fP = 0"
+.br
+.ti -1c
+.RI "const \fBREQUIREMENT_MISMATCH\fP = 1"
+.br
+.ti -1c
+.RI "const \fBROUTE_MATCH\fP = 2"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmatchCollection\fP ($pathinfo, \fBRouteCollection\fP $routes)"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP (\fBRoute\fP $route, $\fBname\fP, array $attributes)"
+.br
+.ti -1c
+.RI "\fBhandleRouteRequirements\fP ($pathinfo, $\fBname\fP, \fBRoute\fP $route)"
+.br
+.ti -1c
+.RI "\fBmergeDefaults\fP ($params, $defaults)"
+.br
+.ti -1c
+.RI "\fBgetExpressionLanguage\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$context\fP"
+.br
+.ti -1c
+.RI "\fB$allow\fP = array()"
+.br
+.ti -1c
+.RI "\fB$routes\fP"
+.br
+.ti -1c
+.RI "\fB$request\fP"
+.br
+.ti -1c
+.RI "\fB$expressionLanguage\fP"
+.br
+.ti -1c
+.RI "\fB$expressionLanguageProviders\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUrlMatcher\fP matches \fBURL\fP based on a set of routes\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 30 of file UrlMatcher\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBRouteCollection\fP $routes, \fBRequestContext\fP $context)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP \fBA\fP \fBRouteCollection\fP instance 
+.br
+\fI$context\fP The context
+.RE
+.PP
+
+.PP
+Definition at line 67 of file UrlMatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addExpressionLanguageProvider (ExpressionFunctionProviderInterface $provider)"
+
+.PP
+Definition at line 119 of file UrlMatcher\&.php\&.
+.SS "getAttributes (\fBRoute\fP $route,  $name, array $attributes)\fC [protected]\fP"
+Returns an array of values to use as request attributes\&.
+.PP
+As this method requires the \fBRoute\fP object, it is not available in matchers that do not have access to the matched \fBRoute\fP instance (like the \fBPHP\fP and Apache matcher dumpers)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP The route we are matching against 
+.br
+\fI$name\fP The name of the route 
+.br
+\fI$attributes\fP An array of attributes from the matcher
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of parameters 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file UrlMatcher\&.php\&.
+.SS "getContext ()"
+{Gets the request context\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The context
+.RE
+.PP
+} 
+.PP
+Implements \fBRequestContextAwareInterface\fP\&.
+.PP
+Definition at line 84 of file UrlMatcher\&.php\&.
+.SS "getExpressionLanguage ()\fC [protected]\fP"
+
+.PP
+Definition at line 244 of file UrlMatcher\&.php\&.
+.SS "handleRouteRequirements ( $pathinfo,  $name, \fBRoute\fP $route)\fC [protected]\fP"
+Handles specific route requirements\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pathinfo\fP The path 
+.br
+\fI$name\fP The route name 
+.br
+\fI$route\fP The route
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The first element represents the status, the second contains additional information 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file UrlMatcher\&.php\&.
+.SS "match ( $pathinfo)"
+{Tries to match a \fBURL\fP path with a set of routes\&.
+.PP
+If the matcher can not find information, it must throw one of the exceptions documented below\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pathinfo\fP The path info to be parsed (raw format, i\&.e\&. not urldecoded)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of parameters
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIResourceNotFoundException\fP If the resource could not be found 
+.br
+\fIMethodNotAllowedException\fP If the resource was found but the request method is not allowed
+.RE
+.PP
+} 
+.PP
+Implements \fBUrlMatcherInterface\fP\&.
+.PP
+Definition at line 92 of file UrlMatcher\&.php\&.
+.SS "matchCollection ( $pathinfo, \fBRouteCollection\fP $routes)\fC [protected]\fP"
+Tries to match a \fBURL\fP with a set of routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pathinfo\fP The path info to be parsed 
+.br
+\fI$routes\fP The set of routes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of parameters
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIResourceNotFoundException\fP If the resource could not be found 
+.br
+\fIMethodNotAllowedException\fP If the resource was found but the request method is not allowed 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file UrlMatcher\&.php\&.
+.SS "matchRequest (\fBRequest\fP $request)"
+{Tries to match a request with a set of routes\&.
+.PP
+If the matcher can not find information, it must throw one of the exceptions documented below\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP The request to match
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of parameters
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIResourceNotFoundException\fP If no matching resource could be found 
+.br
+\fIMethodNotAllowedException\fP If a matching resource was found but the request method is not allowed
+.RE
+.PP
+} 
+.PP
+Implements \fBRequestMatcherInterface\fP\&.
+.PP
+Definition at line 108 of file UrlMatcher\&.php\&.
+.SS "mergeDefaults ( $params,  $defaults)\fC [protected]\fP"
+Get merged default parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP The parameters 
+.br
+\fI$defaults\fP The defaults
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array Merged default parameters 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file UrlMatcher\&.php\&.
+.SS "setContext (\fBRequestContext\fP $context)"
+{Sets the request context\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$context\fP The context
+.RE
+.PP
+} 
+.PP
+Implements \fBRequestContextAwareInterface\fP\&.
+.PP
+Definition at line 76 of file UrlMatcher\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$allow = array()\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file UrlMatcher\&.php\&.
+.SS "$context\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file UrlMatcher\&.php\&.
+.SS "$expressionLanguage\fC [protected]\fP"
+
+.PP
+Definition at line 52 of file UrlMatcher\&.php\&.
+.SS "$expressionLanguageProviders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 57 of file UrlMatcher\&.php\&.
+.SS "$request\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file UrlMatcher\&.php\&.
+.SS "$routes\fC [protected]\fP"
+
+.PP
+Definition at line 49 of file UrlMatcher\&.php\&.
+.SS "const REQUIREMENT_MATCH = 0"
+
+.PP
+Definition at line 32 of file UrlMatcher\&.php\&.
+.SS "const REQUIREMENT_MISMATCH = 1"
+
+.PP
+Definition at line 33 of file UrlMatcher\&.php\&.
+.SS "const ROUTE_MATCH = 2"
+
+.PP
+Definition at line 34 of file UrlMatcher\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

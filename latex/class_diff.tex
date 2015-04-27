@@ -1,0 +1,142 @@
+\section{Diff Class Reference}
+\label{class_diff}\index{Diff@{Diff}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf a}, \${\bf b}, \${\bf options}=array())
+\item 
+{\bf render} ({\bf Diff\+\_\+\+Renderer\+\_\+\+Abstract} \$renderer)
+\item 
+{\bf get\+A} (\$start=0, \$end=null)
+\item 
+{\bf get\+B} (\$start=0, \$end=null)
+\item 
+{\bf get\+Grouped\+Opcodes} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 46 of file Diff.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Diff@{Diff}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Diff@{Diff}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$a, }
+\item[{}]{\$b, }
+\item[{}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_diff_a719c680b1adb06e60e64b78ddb5633ff}
+The constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$a} & Array containing the lines of the first string to compare. \\
+\hline
+array & {\em \$b} & Array containing the lines for the second string to compare. \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Diff.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Diff@{Diff}!get\+A@{get\+A}}
+\index{get\+A@{get\+A}!Diff@{Diff}}
+\subsubsection[{get\+A}]{\setlength{\rightskip}{0pt plus 5cm}get\+A (
+\begin{DoxyParamCaption}
+\item[{}]{\$start = {\ttfamily 0}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_diff_a46bc917b5224a31d5c97f3bf52d5da76}
+Get a range of lines from \$start to \$end from the first comparison string and return them as an array. If no values are supplied, the entire string is returned. It\textquotesingle{}s also possible to specify just one line to return only that line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$start} & The starting number. \\
+\hline
+int & {\em \$end} & The ending number. If not supplied, only the item in \$start will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Array of all of the lines between the specified range. 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Diff.\+php.
+
+\index{Diff@{Diff}!get\+B@{get\+B}}
+\index{get\+B@{get\+B}!Diff@{Diff}}
+\subsubsection[{get\+B}]{\setlength{\rightskip}{0pt plus 5cm}get\+B (
+\begin{DoxyParamCaption}
+\item[{}]{\$start = {\ttfamily 0}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_diff_a6ff553405e41a1466664019c6ccb3b41}
+Get a range of lines from \$start to \$end from the second comparison string and return them as an array. If no values are supplied, the entire string is returned. It\textquotesingle{}s also possible to specify just one line to return only that line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$start} & The starting number. \\
+\hline
+int & {\em \$end} & The ending number. If not supplied, only the item in \$start will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Array of all of the lines between the specified range. 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Diff.\+php.
+
+\index{Diff@{Diff}!get\+Grouped\+Opcodes@{get\+Grouped\+Opcodes}}
+\index{get\+Grouped\+Opcodes@{get\+Grouped\+Opcodes}!Diff@{Diff}}
+\subsubsection[{get\+Grouped\+Opcodes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Grouped\+Opcodes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_diff_ad3bf3e61933ec135c570cbf91281174e}
+Generate a list of the compiled and grouped opcodes for the differences between the two strings. Generally called by the renderer, this class instantiates the sequence matcher and performs the actual diff generation and return an array of the opcodes for it. Once generated, the results are cached in the diff class instance.
+
+\begin{DoxyReturn}{Returns}
+array Array of the grouped opcodes for the generated diff. 
+\end{DoxyReturn}
+
+
+Definition at line 166 of file Diff.\+php.
+
+\index{Diff@{Diff}!render@{render}}
+\index{render@{render}!Diff@{Diff}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}render (
+\begin{DoxyParamCaption}
+\item[{{\bf Diff\+\_\+\+Renderer\+\_\+\+Abstract}}]{\$renderer}
+\end{DoxyParamCaption}
+)}\label{class_diff_a600fd94d23ef67c981101a00a0c3b20e}
+Render a diff using the supplied rendering class and return it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Diff\+\_\+\+Renderer\+\_\+\+Abstract}{p.}{class_diff___renderer___abstract} & {\em \$renderer} & An instance of the rendering object to use for generating the diff. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The generated diff. Exact return value depends on the rendered. 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Diff.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpspec/php-\/diff/lib/{\bf Diff.\+php}\end{DoxyCompactItemize}

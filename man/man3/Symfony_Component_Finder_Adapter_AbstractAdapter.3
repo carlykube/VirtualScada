@@ -1,0 +1,468 @@
+.TH "AbstractAdapter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractAdapter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdapterInterface\fP, and \fBAdapterInterface\fP\&.
+.PP
+Inherited by \fBAbstractFindAdapter\fP, \fBAbstractFindAdapter\fP, \fBPhpAdapter\fP, \fBPhpAdapter\fP, \fBDummyAdapter\fP, \fBFailingAdapter\fP, \fBNamedAdapter\fP, and \fBUnsupportedAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisSupported\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFollowLinks\fP ($followLinks)"
+.br
+.ti -1c
+.RI "\fBsetMode\fP ($mode)"
+.br
+.ti -1c
+.RI "\fBsetDepths\fP (array $depths)"
+.br
+.ti -1c
+.RI "\fBsetExclude\fP (array $exclude)"
+.br
+.ti -1c
+.RI "\fBsetNames\fP (array $names)"
+.br
+.ti -1c
+.RI "\fBsetNotNames\fP (array $notNames)"
+.br
+.ti -1c
+.RI "\fBsetContains\fP (array $\fBcontains\fP)"
+.br
+.ti -1c
+.RI "\fBsetNotContains\fP (array $notContains)"
+.br
+.ti -1c
+.RI "\fBsetSizes\fP (array $sizes)"
+.br
+.ti -1c
+.RI "\fBsetDates\fP (array $dates)"
+.br
+.ti -1c
+.RI "\fBsetFilters\fP (array $filters)"
+.br
+.ti -1c
+.RI "\fBsetSort\fP ($\fBsort\fP)"
+.br
+.ti -1c
+.RI "\fBsetPath\fP (array $paths)"
+.br
+.ti -1c
+.RI "\fBsetNotPath\fP (array $notPaths)"
+.br
+.ti -1c
+.RI "\fBignoreUnreadableDirs\fP ($ignore=true)"
+.br
+.ti -1c
+.RI "\fBisSupported\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFollowLinks\fP ($followLinks)"
+.br
+.ti -1c
+.RI "\fBsetMode\fP ($mode)"
+.br
+.ti -1c
+.RI "\fBsetDepths\fP (array $depths)"
+.br
+.ti -1c
+.RI "\fBsetExclude\fP (array $exclude)"
+.br
+.ti -1c
+.RI "\fBsetNames\fP (array $names)"
+.br
+.ti -1c
+.RI "\fBsetNotNames\fP (array $notNames)"
+.br
+.ti -1c
+.RI "\fBsetContains\fP (array $\fBcontains\fP)"
+.br
+.ti -1c
+.RI "\fBsetNotContains\fP (array $notContains)"
+.br
+.ti -1c
+.RI "\fBsetSizes\fP (array $sizes)"
+.br
+.ti -1c
+.RI "\fBsetDates\fP (array $dates)"
+.br
+.ti -1c
+.RI "\fBsetFilters\fP (array $filters)"
+.br
+.ti -1c
+.RI "\fBsetSort\fP ($\fBsort\fP)"
+.br
+.ti -1c
+.RI "\fBsetPath\fP (array $paths)"
+.br
+.ti -1c
+.RI "\fBsetNotPath\fP (array $notPaths)"
+.br
+.ti -1c
+.RI "\fBignoreUnreadableDirs\fP ($ignore=true)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcanBeUsed\fP ()"
+.br
+.ti -1c
+.RI "\fBcanBeUsed\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$followLinks\fP = false"
+.br
+.ti -1c
+.RI "\fB$mode\fP = 0"
+.br
+.ti -1c
+.RI "\fB$minDepth\fP = 0"
+.br
+.ti -1c
+.RI "\fB$maxDepth\fP = PHP_INT_MAX"
+.br
+.ti -1c
+.RI "\fB$exclude\fP = array()"
+.br
+.ti -1c
+.RI "\fB$names\fP = array()"
+.br
+.ti -1c
+.RI "\fB$notNames\fP = array()"
+.br
+.ti -1c
+.RI "\fB$contains\fP = array()"
+.br
+.ti -1c
+.RI "\fB$notContains\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sizes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$dates\fP = array()"
+.br
+.ti -1c
+.RI "\fB$filters\fP = array()"
+.br
+.ti -1c
+.RI "\fB$sort\fP = false"
+.br
+.ti -1c
+.RI "\fB$paths\fP = array()"
+.br
+.ti -1c
+.RI "\fB$notPaths\fP = array()"
+.br
+.ti -1c
+.RI "\fB$ignoreUnreadableDirs\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for finder engine implementations\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Jean-François Simon contact@jfsimon.fr 
+.RE
+.PP
+
+.PP
+Definition at line 15574 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "canBeUsed ()\fC [abstract]\fP, \fC [protected]\fP"
+Returns whether the adapter is supported in the current environment\&.
+.PP
+This method should be implemented in all adapters\&. Do not implement isSupported in the adapters as the generic implementation provides a cache layer\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisSupported()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether the adapter is supported 
+.RE
+.PP
+
+.SS "canBeUsed ()\fC [abstract]\fP, \fC [protected]\fP"
+
+.SS "ignoreUnreadableDirs ( $ignore = \fCtrue\fP)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 217 of file AbstractAdapter\&.php\&.
+.SS "ignoreUnreadableDirs ( $ignore = \fCtrue\fP)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15690 of file compiled\&.php\&.
+.SS "isSupported ()"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 43 of file AbstractAdapter\&.php\&.
+.SS "isSupported ()"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15593 of file compiled\&.php\&.
+.SS "setContains (array $contains)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 137 of file AbstractAdapter\&.php\&.
+.SS "setContains (array $contains)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15650 of file compiled\&.php\&.
+.SS "setDates (array $dates)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 167 of file AbstractAdapter\&.php\&.
+.SS "setDates (array $dates)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15665 of file compiled\&.php\&.
+.SS "setDepths (array $depths)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 77 of file AbstractAdapter\&.php\&.
+.SS "setDepths (array $depths)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15611 of file compiled\&.php\&.
+.SS "setExclude (array $exclude)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 107 of file AbstractAdapter\&.php\&.
+.SS "setExclude (array $exclude)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15635 of file compiled\&.php\&.
+.SS "setFilters (array $filters)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 177 of file AbstractAdapter\&.php\&.
+.SS "setFilters (array $filters)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15670 of file compiled\&.php\&.
+.SS "setFollowLinks ( $followLinks)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 57 of file AbstractAdapter\&.php\&.
+.SS "setFollowLinks ( $followLinks)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15601 of file compiled\&.php\&.
+.SS "setMode ( $mode)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 67 of file AbstractAdapter\&.php\&.
+.SS "setMode ( $mode)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15606 of file compiled\&.php\&.
+.SS "setNames (array $names)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 117 of file AbstractAdapter\&.php\&.
+.SS "setNames (array $names)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15640 of file compiled\&.php\&.
+.SS "setNotContains (array $notContains)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 147 of file AbstractAdapter\&.php\&.
+.SS "setNotContains (array $notContains)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15655 of file compiled\&.php\&.
+.SS "setNotNames (array $notNames)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 127 of file AbstractAdapter\&.php\&.
+.SS "setNotNames (array $notNames)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15645 of file compiled\&.php\&.
+.SS "setNotPath (array $notPaths)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 207 of file AbstractAdapter\&.php\&.
+.SS "setNotPath (array $notPaths)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15685 of file compiled\&.php\&.
+.SS "setPath (array $paths)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 197 of file AbstractAdapter\&.php\&.
+.SS "setPath (array $paths)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15680 of file compiled\&.php\&.
+.SS "setSizes (array $sizes)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 157 of file AbstractAdapter\&.php\&.
+.SS "setSizes (array $sizes)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15660 of file compiled\&.php\&.
+.SS "setSort ( $sort)"
+{} 
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 187 of file AbstractAdapter\&.php\&.
+.SS "setSort ( $sort)"
+
+.PP
+Implements \fBAdapterInterface\fP\&.
+.PP
+Definition at line 15675 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBcontains\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15583 of file compiled\&.php\&.
+.SS "$dates = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15586 of file compiled\&.php\&.
+.SS "$exclude = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15580 of file compiled\&.php\&.
+.SS "$filters = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15587 of file compiled\&.php\&.
+.SS "$followLinks = false\fC [protected]\fP"
+
+.PP
+Definition at line 15576 of file compiled\&.php\&.
+.SS "$\fBignoreUnreadableDirs\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 15591 of file compiled\&.php\&.
+.SS "$maxDepth = PHP_INT_MAX\fC [protected]\fP"
+
+.PP
+Definition at line 15579 of file compiled\&.php\&.
+.SS "$minDepth = 0\fC [protected]\fP"
+
+.PP
+Definition at line 15578 of file compiled\&.php\&.
+.SS "$mode = 0\fC [protected]\fP"
+
+.PP
+Definition at line 15577 of file compiled\&.php\&.
+.SS "$names = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15581 of file compiled\&.php\&.
+.SS "$notContains = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15584 of file compiled\&.php\&.
+.SS "$notNames = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15582 of file compiled\&.php\&.
+.SS "$notPaths = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15590 of file compiled\&.php\&.
+.SS "$paths = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15589 of file compiled\&.php\&.
+.SS "$sizes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 15585 of file compiled\&.php\&.
+.SS "$\fBsort\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 15588 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

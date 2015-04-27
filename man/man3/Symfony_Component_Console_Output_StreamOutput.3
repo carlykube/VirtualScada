@@ -1,0 +1,116 @@
+.TH "StreamOutput" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StreamOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBOutput\fP\&.
+.PP
+Inherited by \fBPassthruPager\fP, \fBProcOutputPager\fP, and \fBConsoleOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBstream\fP, $verbosity=self::VERBOSITY_NORMAL, $decorated=null, \fBOutputFormatterInterface\fP $formatter=null)"
+.br
+.ti -1c
+.RI "\fBgetStream\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdoWrite\fP ($message, $newline)"
+.br
+.ti -1c
+.RI "\fBhasColorSupport\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBStreamOutput\fP writes the output to a given stream\&.
+.PP
+Usage:
+.PP
+$output = new \fBStreamOutput\fP(fopen('php://stdout', 'w'));
+.PP
+As \fC\fBStreamOutput\fP\fP can use any stream, you can also use a file:
+.PP
+$output = new \fBStreamOutput\fP(fopen('/path/to/output\&.log', 'a', false));
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 31 of file StreamOutput\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $stream,  $verbosity = \fCself::VERBOSITY_NORMAL\fP,  $decorated = \fCnull\fP, \fBOutputFormatterInterface\fP $formatter = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stream\fP \fBA\fP stream resource 
+.br
+\fI$verbosity\fP The verbosity level (one of the VERBOSITY constants in \fBOutputInterface\fP) 
+.br
+\fI$decorated\fP Whether to decorate messages (null for auto-guessing) 
+.br
+\fI$formatter\fP \fBOutput\fP formatter instance (null to use default OutputFormatter)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 47 of file StreamOutput\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "doWrite ( $message,  $newline)\fC [protected]\fP"
+{} 
+.PP
+Definition at line 75 of file StreamOutput\&.php\&.
+.SS "getStream ()"
+Gets the stream attached to this \fBStreamOutput\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+resource \fBA\fP stream resource 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file StreamOutput\&.php\&.
+.SS "hasColorSupport ()\fC [protected]\fP"
+Returns true if the stream supports colorization\&.
+.PP
+Colorization is disabled if not supported by the stream:
+.PP
+.IP "\(bu" 2
+Windows without Ansicon and ConEmu
+.IP "\(bu" 2
+non tty consoles
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the stream supports colorization, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file StreamOutput\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

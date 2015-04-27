@@ -1,0 +1,185 @@
+.TH "ModbusClient" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ModbusClient \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBICSClient\fP\&.
+.PP
+Inherited by \fBModbusRTU\fP, and \fBModbusTCP\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.ti -1c
+.RI "def \fBreadPoints\fP (self, points)"
+.br
+.ti -1c
+.RI "def \fBexecute\fP"
+.br
+.ti -1c
+.RI "def \fBwritePoints\fP (self, pointsvalues)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBto_config\fP"
+.br
+.ti -1c
+.RI "\fBfrom_config\fP"
+.br
+.ti -1c
+.RI "\fBslave_points\fP"
+.br
+.ti -1c
+.RI "\fBmaster\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBMAXDISTANCE\fP = 5"
+.br
+.ti -1c
+.RI "dictionary \fBFUNCTION_MAP\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Parent class for the TCP and RTU varieties of ModbusClients. This class
+    implements most of the logic for creating Modbus requests. Child classes
+    need only implement the _createMaster method for the proper request type
+.fi
+.PP
+ 
+.PP
+Definition at line 88 of file ics_clients\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  to_config,  slave_points,  from_config = \fCNone\fP)"
+
+.PP
+.nf
+Initializes the client from configuration information.
+@param to_config The configuration for the interface on the slave to
+            poll. 
+@param from_config The configuration for the interface on the master 
+            to poll from. This is ignored for TCP but required
+            for RTU.
+@param slave_points The points list from the slave configutation
+
+.fi
+.PP
+ 
+.PP
+Definition at line 112 of file ics_clients\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def execute ( self,  function_name,  start_address,  count,  output_value = \fCNone\fP)"
+
+.PP
+.nf
+This method provides direct access to the ModbusMaster execute
+method. This should be used when the readPoints() and writePoints()
+methods do not perform properly.
+@param function_name Modbus request type as defined in modbus_tk/defines.py
+@param start_address Address of first address to read/write
+@param count Count of addresses to read/write
+@param output_value list of elements to be written; required for writes.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 281 of file ics_clients\&.py\&.
+.SS "def readPoints ( self,  points)"
+
+.PP
+.nf
+Method to return points from a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to request each
+    point, whether it be individually or in groups.
+@param device Name of the device to be polled
+@param points Iterable of names of points to be polled
+
+@returns A tuple of values of the points polled in the order that they
+    were requested.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 267 of file ics_clients\&.py\&.
+.SS "def writePoints ( self,  pointsvalues)"
+
+.PP
+.nf
+Method to set points on a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to write each
+    point, whether it be individually or in groups. Base clients 
+@param pointsvalues List of tuples of (names of point to be written,
+                value) or a dictionary of {pointnames:values}
+
+.fi
+.PP
+ 
+.PP
+Definition at line 298 of file ics_clients\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "from_config"
+
+.PP
+Definition at line 123 of file ics_clients\&.py\&.
+.SS "dictionary FUNCTION_MAP\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+1 = { cst\&.COILS: (cst\&.READ_COILS,cst\&.WRITE_SINGLE_COIL, 
+2                                                 cst\&.WRITE_MULTIPLE_COILS),
+3                       cst\&.DISCRETE_INPUTS : (cst\&.READ_DISCRETE_INPUTS, 
+4                                                 "DiscreteInputsCan'tBeWritten",
+5                                                 "DiscreteInputsCan'tBeWritten"),
+6                       cst\&.HOLDING_REGISTERS : (cst\&.READ_HOLDING_REGISTERS, 
+7                                                 cst\&.WRITE_SINGLE_REGISTER, 
+8                                                cst\&.WRITE_MULTIPLE_REGISTERS),
+9                       cst\&.ANALOG_INPUTS : (cst\&.READ_INPUT_REGISTERS, 
+10                                                 "InputRegistersCan'tBeWritten",
+11                                                 "InputRegistersCan'tBeWritten") 
+12                    }
+.fi
+.PP
+Definition at line 100 of file ics_clients\&.py\&.
+.SS "master"
+
+.PP
+Definition at line 125 of file ics_clients\&.py\&.
+.SS "int MAXDISTANCE = 5\fC [static]\fP"
+
+.PP
+Definition at line 92 of file ics_clients\&.py\&.
+.SS "slave_points"
+
+.PP
+Definition at line 124 of file ics_clients\&.py\&.
+.SS "to_config"
+
+.PP
+Definition at line 122 of file ics_clients\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

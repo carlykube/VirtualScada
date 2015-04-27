@@ -1,0 +1,326 @@
+.TH "Listener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Listener \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($commandPath)"
+.br
+.ti -1c
+.RI "\fBlisten\fP ($connection, $\fBqueue\fP, $\fBdelay\fP, $memory, $timeout=60)"
+.br
+.ti -1c
+.RI "\fBrunProcess\fP (\fBProcess\fP $process, $memory)"
+.br
+.ti -1c
+.RI "\fBmakeProcess\fP ($connection, $\fBqueue\fP, $\fBdelay\fP, $memory, $timeout)"
+.br
+.ti -1c
+.RI "\fBmemoryExceeded\fP ($memoryLimit)"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsetOutputHandler\fP (Closure $outputHandler)"
+.br
+.ti -1c
+.RI "\fBgetEnvironment\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEnvironment\fP ($environment)"
+.br
+.ti -1c
+.RI "\fBgetSleep\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSleep\fP ($sleep)"
+.br
+.ti -1c
+.RI "\fBsetMaxTries\fP ($tries)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhandleWorkerOutput\fP ($type, $\fBline\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$commandPath\fP"
+.br
+.ti -1c
+.RI "\fB$environment\fP"
+.br
+.ti -1c
+.RI "\fB$sleep\fP = 3"
+.br
+.ti -1c
+.RI "\fB$maxTries\fP = 0"
+.br
+.ti -1c
+.RI "\fB$workerCommand\fP"
+.br
+.ti -1c
+.RI "\fB$outputHandler\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Listener\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $commandPath)"
+Create a new queue listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$commandPath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file Listener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getEnvironment ()"
+Get the current listener environment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 190 of file Listener\&.php\&.
+.SS "getSleep ()"
+Get the amount of seconds to wait before polling the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file Listener\&.php\&.
+.SS "handleWorkerOutput ( $type,  $line)\fC [protected]\fP"
+Handle output from the worker process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$line\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file Listener\&.php\&.
+.SS "listen ( $connection,  $queue,  $delay,  $memory,  $timeout = \fC60\fP)"
+Listen to the given queue connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$memory\fP 
+.br
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Listener\&.php\&.
+.SS "makeProcess ( $connection,  $queue,  $delay,  $memory,  $timeout)"
+Create a new \fBSymfony\fP process for the worker\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$memory\fP 
+.br
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 115 of file Listener\&.php\&.
+.SS "memoryExceeded ( $memoryLimit)"
+Determine if the memory limit has been exceeded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$memoryLimit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file Listener\&.php\&.
+.SS "runProcess (\fBProcess\fP $process,  $memory)"
+Run the given process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$process\fP 
+.br
+\fI$memory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file Listener\&.php\&.
+.SS "setEnvironment ( $environment)"
+Set the current environment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$environment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file Listener\&.php\&.
+.SS "setMaxTries ( $tries)"
+Set the amount of times to try a job before logging it failed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tries\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file Listener\&.php\&.
+.SS "setOutputHandler (Closure $outputHandler)"
+Set the output handler callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$outputHandler\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file Listener\&.php\&.
+.SS "setSleep ( $sleep)"
+Set the amount of seconds to wait before polling the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sleep\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Listener\&.php\&.
+.SS "stop ()"
+Stop listening and bail out of the script\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file Listener\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$commandPath\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Listener\&.php\&.
+.SS "$environment\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Listener\&.php\&.
+.SS "$maxTries = 0\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file Listener\&.php\&.
+.SS "$outputHandler\fC [protected]\fP"
+
+.PP
+Definition at line 48 of file Listener\&.php\&.
+.SS "$sleep = 3\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Listener\&.php\&.
+.SS "$workerCommand\fC [protected]\fP"
+
+.PP
+Definition at line 41 of file Listener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

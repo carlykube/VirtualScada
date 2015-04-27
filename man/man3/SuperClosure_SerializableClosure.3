@@ -1,0 +1,139 @@
+.TH "SerializableClosure" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SerializableClosure \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\\Closure $closure, \fBSerializerInterface\fP $serializer=null)"
+.br
+.ti -1c
+.RI "\fBgetClosure\fP ()"
+.br
+.ti -1c
+.RI "\fB__invoke\fP ()"
+.br
+.ti -1c
+.RI "\fBserialize\fP ()"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($serialized)"
+.br
+.ti -1c
+.RI "\fB__debugInfo\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class acts as a wrapper for a closure, and allows it to be serialized\&.
+.PP
+With the combined power of the Reflection API, code parsing, and the infamous \fCeval()\fP function, you can serialize a closure, unserialize it somewhere else (even a different \fBPHP\fP process), and execute it\&. 
+.PP
+Definition at line 12 of file SerializableClosure\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\\Closure $closure, \fBSerializerInterface\fP $serializer = \fCnull\fP)"
+Create a new serializable closure instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$closure\fP 
+.br
+\fI$serializer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file SerializableClosure\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__debugInfo ()"
+Returns closure data for \fCvar_dump()\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 162 of file SerializableClosure\&.php\&.
+.SS "__invoke ()"
+Delegates the closure invocation to the actual closure object\&.
+.PP
+Important Notes:
+.PP
+.IP "\(bu" 2
+\fCReflectionFunction::invokeArgs()\fP should not be used here, because it does not work with closure bindings\&.
+.IP "\(bu" 2
+Args passed-by-reference lose their references when proxied through \fC\fB__invoke()\fP\fP\&. This is is an unfortunate, but understandable, limitation of \fBPHP\fP that will probably never change\&.
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file SerializableClosure\&.php\&.
+.SS "getClosure ()"
+Return the original closure object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 54 of file SerializableClosure\&.php\&.
+.SS "serialize ()"
+Serializes the code, context, and binding of the closure\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/serializable.serialize.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file SerializableClosure\&.php\&.
+.SS "unserialize ( $serialized)"
+Unserializes the closure\&.
+.PP
+Unserializes the closure's data and recreates the closure using a simulation of its original context\&. The used variables (context) are extracted into a fresh scope prior to redefining the closure\&. The closure is also rebound to its former object and scope\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/serializable.unserialize.php
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$serialized\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIClosureUnserializationException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file SerializableClosure\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

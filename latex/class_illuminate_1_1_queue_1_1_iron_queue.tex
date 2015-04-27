@@ -1,0 +1,483 @@
+\section{Iron\+Queue Class Reference}
+\label{class_illuminate_1_1_queue_1_1_iron_queue}\index{Iron\+Queue@{Iron\+Queue}}
+Inheritance diagram for Iron\+Queue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_queue_1_1_iron_queue}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (Iron\+M\+Q \$iron, {\bf Request} \$request, \$default, \$should\+Encrypt=false)
+\item 
+{\bf push} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf push\+Raw} (\$payload, \${\bf queue}=null, array \${\bf options}=array())
+\item 
+{\bf recreate} (\$payload, \${\bf queue}=null, \${\bf delay})
+\item 
+{\bf later} (\${\bf delay}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf pop} (\${\bf queue}=null)
+\item 
+{\bf delete\+Message} (\${\bf queue}, \$id)
+\item 
+{\bf marshal} ()
+\item 
+{\bf get\+Queue} (\${\bf queue})
+\item 
+{\bf get\+Iron} ()
+\item 
+{\bf get\+Request} ()
+\item 
+{\bf set\+Request} ({\bf Request} \$request)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf marshal\+Pushed\+Job} ()
+\item 
+{\bf create\+Pushed\+Iron\+Job} (\$job)
+\item 
+{\bf create\+Payload} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf parse\+Job\+Body} (\$body)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$iron}
+\item 
+{\bf \$request}
+\item 
+{\bf \$default}
+\item 
+{\bf \$should\+Encrypt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Iron\+Queue.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{Iron\+M\+Q}]{\$iron, }
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$default, }
+\item[{}]{\$should\+Encrypt = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a887bb67edaaa0178f5147b2965c4a6e8}
+Create a new Iron\+M\+Q queue instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Iron\+M\+Q & {\em \$iron} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+bool & {\em \$should\+Encrypt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file Iron\+Queue.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!create\+Payload@{create\+Payload}}
+\index{create\+Payload@{create\+Payload}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{create\+Payload}]{\setlength{\rightskip}{0pt plus 5cm}create\+Payload (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_a49975f908da3683544fa55870dfe90d0}
+Create a payload string from the given job and data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!create\+Pushed\+Iron\+Job@{create\+Pushed\+Iron\+Job}}
+\index{create\+Pushed\+Iron\+Job@{create\+Pushed\+Iron\+Job}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{create\+Pushed\+Iron\+Job}]{\setlength{\rightskip}{0pt plus 5cm}create\+Pushed\+Iron\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$job}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_a85c3f53651207553a0901f066eb16ae2}
+Create a new Iron\+Job for a pushed job.
+
+
+\begin{DoxyParams}[1]{Parameters}
+object & {\em \$job} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 186 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!delete\+Message@{delete\+Message}}
+\index{delete\+Message@{delete\+Message}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{delete\+Message}]{\setlength{\rightskip}{0pt plus 5cm}delete\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_ac4a809851464aaa9d236cd315cbf309a}
+Delete a message from the Iron queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 147 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!get\+Iron@{get\+Iron}}
+\index{get\+Iron@{get\+Iron}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{get\+Iron}]{\setlength{\rightskip}{0pt plus 5cm}get\+Iron (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_aafab3afe8833ac6d73f6dbaa449ec8cc}
+Get the underlying Iron\+M\+Q instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 233 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!get\+Queue@{get\+Queue}}
+\index{get\+Queue@{get\+Queue}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{get\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a1def6924b6f6288613a0c963e9127e6d}
+Get the queue or return the default.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 223 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!get\+Request@{get\+Request}}
+\index{get\+Request@{get\+Request}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{get\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_adf1a35ad20e475c59cc0967d5764aa22}
+Get the request instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 243 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!later@{later}}
+\index{later@{later}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{later}]{\setlength{\rightskip}{0pt plus 5cm}later (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a3df041896a4b350861479a68426fae1e}
+Push a new job onto the queue after a delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a3df041896a4b350861479a68426fae1e}.
+
+
+
+Definition at line 108 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!marshal@{marshal}}
+\index{marshal@{marshal}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{marshal}]{\setlength{\rightskip}{0pt plus 5cm}marshal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_ae7fee5a8a0f09b8149487eac47d701cc}
+Marshal a push queue request and fire the job.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 157 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!marshal\+Pushed\+Job@{marshal\+Pushed\+Job}}
+\index{marshal\+Pushed\+Job@{marshal\+Pushed\+Job}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{marshal\+Pushed\+Job}]{\setlength{\rightskip}{0pt plus 5cm}marshal\+Pushed\+Job (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_a03283bd7783544e5f1ec0a8ba3323226}
+Marshal out the pushed job and payload.
+
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!parse\+Job\+Body@{parse\+Job\+Body}}
+\index{parse\+Job\+Body@{parse\+Job\+Body}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{parse\+Job\+Body}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Job\+Body (
+\begin{DoxyParamCaption}
+\item[{}]{\$body}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_ae53b71f551f4bb3e5b735e396cd390cd}
+Parse the job body for firing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$body} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!pop@{pop}}
+\index{pop@{pop}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}pop (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_afc9c07aeca2efd28a0968de45ea1d023}
+Pop the next job off of the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_afc9c07aeca2efd28a0968de45ea1d023}.
+
+
+
+Definition at line 123 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!push@{push}}
+\index{push@{push}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}push (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_ab4a57e4ee77634277452242fb44af86f}
+Push a new job onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_ab4a57e4ee77634277452242fb44af86f}.
+
+
+
+Definition at line 64 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!push\+Raw@{push\+Raw}}
+\index{push\+Raw@{push\+Raw}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{push\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}push\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a04e227c6d96e2e49a0989f4aab87ef21}
+Push a raw payload onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a04e227c6d96e2e49a0989f4aab87ef21}.
+
+
+
+Definition at line 77 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!recreate@{recreate}}
+\index{recreate@{recreate}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{recreate}]{\setlength{\rightskip}{0pt plus 5cm}recreate (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{}]{\$delay}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a12a362816a355eb0219e77154d3af2bc}
+Push a raw payload onto the queue after encrypting the payload.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!set\+Request@{set\+Request}}
+\index{set\+Request@{set\+Request}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{set\+Request}]{\setlength{\rightskip}{0pt plus 5cm}set\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_iron_queue_a5f37f0cbf56308f0ef744ba02a61989e}
+Set the request instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Http\+Foundation\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file Iron\+Queue.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!\$default@{\$default}}
+\index{\$default@{\$default}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{\$default}]{\setlength{\rightskip}{0pt plus 5cm}\$default\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_a9df479534ecf05fd7575c6275d381687}
+
+
+Definition at line 30 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!\$iron@{\$iron}}
+\index{\$iron@{\$iron}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{\$iron}]{\setlength{\rightskip}{0pt plus 5cm}\$iron\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_a6eb1b0101d931743b7f71f2c89a2c9e6}
+
+
+Definition at line 16 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!\$request@{\$request}}
+\index{\$request@{\$request}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{\$request}]{\setlength{\rightskip}{0pt plus 5cm}\$request\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_abb35c8495a232b510389fa6d7b15d38a}
+
+
+Definition at line 23 of file Iron\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}!\$should\+Encrypt@{\$should\+Encrypt}}
+\index{\$should\+Encrypt@{\$should\+Encrypt}!Illuminate\+::\+Queue\+::\+Iron\+Queue@{Illuminate\+::\+Queue\+::\+Iron\+Queue}}
+\subsubsection[{\$should\+Encrypt}]{\setlength{\rightskip}{0pt plus 5cm}\$should\+Encrypt\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_iron_queue_ab8b775129b517524d4b1c0d70b6f96f8}
+
+
+Definition at line 37 of file Iron\+Queue.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Iron\+Queue.\+php}\end{DoxyCompactItemize}

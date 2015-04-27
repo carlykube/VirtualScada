@@ -1,0 +1,280 @@
+\section{Abstract\+Dumper Class Reference}
+\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper}\index{Abstract\+Dumper@{Abstract\+Dumper}}
+Inheritance diagram for Abstract\+Dumper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$output=null, \$charset=null)
+\item 
+{\bf set\+Output} (\$output)
+\item 
+{\bf set\+Charset} (\$charset)
+\item 
+{\bf set\+Indent\+Pad} (\$pad)
+\item 
+{\bf dump} ({\bf Data} \${\bf data}, \$output=null)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$default\+Output} = \textquotesingle{}php\+://output\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf dump\+Line} (\$depth)
+\item 
+{\bf echo\+Line} (\${\bf line}, \$depth, \$indent\+Pad)
+\item 
+{\bf utf8\+Encode} (\$s)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$line} = \textquotesingle{}\textquotesingle{}
+\item 
+{\bf \$line\+Dumper}
+\item 
+{\bf \$output\+Stream}
+\item 
+{\bf \$decimal\+Point}
+\item 
+{\bf \$indent\+Pad} = \textquotesingle{} \textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract mechanism for dumping a Data object.
+
+\begin{DoxyAuthor}{Author}
+Nicolas Grekas {\tt p@tchwork.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 22 of file Abstract\+Dumper.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$output = {\ttfamily null}, }
+\item[{}]{\$charset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a26a0d685d6f045f817ace1be50004de0}
+
+\begin{DoxyParams}[1]{Parameters}
+callable | resource | string | null & {\em \$output} & \doxyref{A}{p.}{class_a} line dumper callable, an opened stream or an output path, defaults to static\+::\$default\+Output. \\
+\hline
+string & {\em \$charset} & The default character encoding to use for non-\/\+U\+T\+F8 strings. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Abstract\+Dumper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!dump@{dump}}
+\index{dump@{dump}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}dump (
+\begin{DoxyParamCaption}
+\item[{{\bf Data}}]{\$data, }
+\item[{}]{\$output = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a336020af9d35d129f3a482d440af97c6}
+Dumps a Data object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Data & {\em \$data} & \doxyref{A}{p.}{class_a} Data object. \\
+\hline
+callable | resource | string | null & {\em \$output} & \doxyref{A}{p.}{class_a} line dumper callable, an opened stream or an output path. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!dump\+Line@{dump\+Line}}
+\index{dump\+Line@{dump\+Line}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{dump\+Line}]{\setlength{\rightskip}{0pt plus 5cm}dump\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a5bf4d020f5980b55ae57f1cf3e4de617}
+Dumps the current line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$depth} & The recursive depth in the dumped structure for the line being dumped. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!echo\+Line@{echo\+Line}}
+\index{echo\+Line@{echo\+Line}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{echo\+Line}]{\setlength{\rightskip}{0pt plus 5cm}echo\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$line, }
+\item[{}]{\$depth, }
+\item[{}]{\$indent\+Pad}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a68bed13831d15c2d4d08efb8c2d964d5}
+Generic line dumper callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$line} & The line to write. \\
+\hline
+int & {\em \$depth} & The recursive depth in the dumped structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 170 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!set\+Charset@{set\+Charset}}
+\index{set\+Charset@{set\+Charset}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{set\+Charset}]{\setlength{\rightskip}{0pt plus 5cm}set\+Charset (
+\begin{DoxyParamCaption}
+\item[{}]{\$charset}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a81ee11b0f5fadecaece55170fea54b29}
+Sets the default character encoding to use for non-\/\+U\+T\+F8 strings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$charset} & The default character encoding to use for non-\/\+U\+T\+F8 strings.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The previous charset. 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!set\+Indent\+Pad@{set\+Indent\+Pad}}
+\index{set\+Indent\+Pad@{set\+Indent\+Pad}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{set\+Indent\+Pad}]{\setlength{\rightskip}{0pt plus 5cm}set\+Indent\+Pad (
+\begin{DoxyParamCaption}
+\item[{}]{\$pad}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a8de92bbdcf2089dc189cefe12723efec}
+Sets the indentation pad string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pad} & \doxyref{A}{p.}{class_a} string the will be prepended to dumped lines, repeated by nesting level.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The indent pad. 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{set\+Output}]{\setlength{\rightskip}{0pt plus 5cm}set\+Output (
+\begin{DoxyParamCaption}
+\item[{}]{\$output}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a66f0ef8e212dc186b2efa1098c2e3eeb}
+Sets the output destination of the dumps.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable | resource | string & {\em \$output} & \doxyref{A}{p.}{class_a} line dumper callable, an opened stream or an output path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable$\vert$resource$\vert$string The previous output destination. 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!utf8\+Encode@{utf8\+Encode}}
+\index{utf8\+Encode@{utf8\+Encode}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{utf8\+Encode}]{\setlength{\rightskip}{0pt plus 5cm}utf8\+Encode (
+\begin{DoxyParamCaption}
+\item[{}]{\$s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a33104dcc52aef07d7cc5f64bf5db97bc}
+Converts a non-\/\+U\+T\+F-\/8 string to U\+T\+F-\/8.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$s} & The non-\/\+U\+T\+F-\/8 string to convert.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The string converted to U\+T\+F-\/8. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file Abstract\+Dumper.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$decimal\+Point@{\$decimal\+Point}}
+\index{\$decimal\+Point@{\$decimal\+Point}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$decimal\+Point}]{\setlength{\rightskip}{0pt plus 5cm}\$decimal\+Point\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a088698d9762b110c19feddc3e1e60050}
+
+
+Definition at line 29 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$default\+Output@{\$default\+Output}}
+\index{\$default\+Output@{\$default\+Output}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$default\+Output}]{\setlength{\rightskip}{0pt plus 5cm}\$default\+Output = \textquotesingle{}php\+://output\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a4a780e221a0398ba659d278ae41c5bc6}
+
+
+Definition at line 24 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$indent\+Pad@{\$indent\+Pad}}
+\index{\$indent\+Pad@{\$indent\+Pad}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$indent\+Pad}]{\setlength{\rightskip}{0pt plus 5cm}\$indent\+Pad = \textquotesingle{} \textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_aed0fe7774981153400848e92a85e2d64}
+
+
+Definition at line 30 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$line@{\$line}}
+\index{\$line@{\$line}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$line}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf line} = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a52f469b0182d9abac2d0f20548680c9c}
+
+
+Definition at line 26 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$line\+Dumper@{\$line\+Dumper}}
+\index{\$line\+Dumper@{\$line\+Dumper}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$line\+Dumper}]{\setlength{\rightskip}{0pt plus 5cm}\$line\+Dumper\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_a29cde694dda741013cc8211d5009d035}
+
+
+Definition at line 27 of file Abstract\+Dumper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}!\$output\+Stream@{\$output\+Stream}}
+\index{\$output\+Stream@{\$output\+Stream}!Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper@{Symfony\+::\+Component\+::\+Var\+Dumper\+::\+Dumper\+::\+Abstract\+Dumper}}
+\subsubsection[{\$output\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}\$output\+Stream\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_var_dumper_1_1_dumper_1_1_abstract_dumper_af3ec40ee5a0a32955027aa155b5aa0b0}
+
+
+Definition at line 28 of file Abstract\+Dumper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/var-\/dumper/\+Symfony/\+Component/\+Var\+Dumper/\+Dumper/{\bf Abstract\+Dumper.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,297 @@
+.TH "BinaryFileResponse" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BinaryFileResponse \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBResponse\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($file, $status=200, $headers=array(), $public=true, $contentDisposition=null, $autoEtag=false, $autoLastModified=true)"
+.br
+.ti -1c
+.RI "\fBsetFile\fP ($file, $contentDisposition=null, $autoEtag=false, $autoLastModified=true)"
+.br
+.ti -1c
+.RI "\fBgetFile\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAutoLastModified\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAutoEtag\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContentDisposition\fP ($disposition, $filename= '', $filenameFallback= '')"
+.br
+.ti -1c
+.RI "\fBprepare\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBsendContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContent\fP ($content)"
+.br
+.ti -1c
+.RI "\fBgetContent\fP ()"
+.br
+.ti -1c
+.RI "\fBdeleteFileAfterSend\fP ($shouldDelete)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP ($file=null, $status=200, $headers=array(), $public=true, $contentDisposition=null, $autoEtag=false, $autoLastModified=true)"
+.br
+.ti -1c
+.RI "static \fBtrustXSendfileTypeHeader\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$file\fP"
+.br
+.ti -1c
+.RI "\fB$offset\fP"
+.br
+.ti -1c
+.RI "\fB$maxlen\fP"
+.br
+.ti -1c
+.RI "\fB$deleteFileAfterSend\fP = false"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$trustXSendfileTypeHeader\fP = false"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBBinaryFileResponse\fP represents an HTTP response delivering a file\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Niklas Fiekas niklas.fiekas@tu-clausthal.de 
+.PP
+stealth35 stealth35-php@live.fr 
+.PP
+Igor Wiedler igor@wiedler.ch 
+.PP
+Jordan Alliot jordan.alliot@gmail.com 
+.PP
+Sergey Linnik linniksa@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file BinaryFileResponse\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $file,  $status = \fC200\fP,  $headers = \fCarray()\fP,  $public = \fCtrue\fP,  $contentDisposition = \fCnull\fP,  $autoEtag = \fCfalse\fP,  $autoLastModified = \fCtrue\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP The file to stream 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers 
+.br
+\fI$public\fP Files are public by default 
+.br
+\fI$contentDisposition\fP The type of Content-Disposition to set automatically with the filename 
+.br
+\fI$autoEtag\fP Whether the ETag header should be automatically set 
+.br
+\fI$autoLastModified\fP Whether the Last-Modified header should be automatically set 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file BinaryFileResponse\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static create ( $file = \fCnull\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP,  $public = \fCtrue\fP,  $contentDisposition = \fCnull\fP,  $autoEtag = \fCfalse\fP,  $autoLastModified = \fCtrue\fP)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP The file to stream 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers 
+.br
+\fI$public\fP Files are public by default 
+.br
+\fI$contentDisposition\fP The type of Content-Disposition to set automatically with the filename 
+.br
+\fI$autoEtag\fP Whether the ETag header should be automatically set 
+.br
+\fI$autoLastModified\fP Whether the Last-Modified header should be automatically set
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBinaryFileResponse\fP The created response 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file BinaryFileResponse\&.php\&.
+.SS "deleteFileAfterSend ( $shouldDelete)"
+If this is set to true, the file will be unlinked after the request is send Note: If the X-Sendfile header is used, the deleteFileAfterSend setting will not be used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$shouldDelete\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBinaryFileResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file BinaryFileResponse\&.php\&.
+.SS "getContent ()"
+{}
+.PP
+\fBReturns:\fP
+.RS 4
+false 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file BinaryFileResponse\&.php\&.
+.SS "getFile ()"
+Gets the file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFile\fP The file to stream 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file BinaryFileResponse\&.php\&.
+.SS "prepare (\fBRequest\fP $request)"
+{} 
+.PP
+Definition at line 170 of file BinaryFileResponse\&.php\&.
+.SS "sendContent ()"
+Sends the file\&. 
+.PP
+Definition at line 253 of file BinaryFileResponse\&.php\&.
+.SS "setAutoEtag ()"
+Automatically sets the ETag header according to the checksum of the file\&. 
+.PP
+Definition at line 139 of file BinaryFileResponse\&.php\&.
+.SS "setAutoLastModified ()"
+Automatically sets the Last-Modified header according the file modification date\&. 
+.PP
+Definition at line 129 of file BinaryFileResponse\&.php\&.
+.SS "setContent ( $content)"
+{}
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 283 of file BinaryFileResponse\&.php\&.
+.SS "setContentDisposition ( $disposition,  $filename = \fC''\fP,  $filenameFallback = \fC''\fP)"
+Sets the Content-Disposition header with the given filename\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$disposition\fP \fBResponseHeaderBag::DISPOSITION_INLINE\fP or \fBResponseHeaderBag::DISPOSITION_ATTACHMENT\fP 
+.br
+\fI$filename\fP Optionally use this filename instead of the real name of the file 
+.br
+\fI$filenameFallback\fP \fBA\fP fallback filename, containing only ASCII characters\&. Defaults to an automatically encoded filename
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBinaryFileResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file BinaryFileResponse\&.php\&.
+.SS "setFile ( $file,  $contentDisposition = \fCnull\fP,  $autoEtag = \fCfalse\fP,  $autoLastModified = \fCtrue\fP)"
+Sets the file to stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP The file to stream 
+.br
+\fI$contentDisposition\fP 
+.br
+\fI$autoEtag\fP 
+.br
+\fI$autoLastModified\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBinaryFileResponse\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file BinaryFileResponse\&.php\&.
+.SS "static trustXSendfileTypeHeader ()\fC [static]\fP"
+Trust X-Sendfile-Type header\&. 
+.PP
+Definition at line 303 of file BinaryFileResponse\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBdeleteFileAfterSend\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file BinaryFileResponse\&.php\&.
+.SS "$file\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file BinaryFileResponse\&.php\&.
+.SS "$maxlen\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file BinaryFileResponse\&.php\&.
+.SS "$offset\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file BinaryFileResponse\&.php\&.
+.SS "$\fBtrustXSendfileTypeHeader\fP = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 28 of file BinaryFileResponse\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

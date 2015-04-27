@@ -1,0 +1,413 @@
+\section{Url\+Matcher Class Reference}
+\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher}\index{Url\+Matcher@{Url\+Matcher}}
+Inheritance diagram for Url\+Matcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.417962cm]{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Route\+Collection} \$routes, {\bf Request\+Context} \$context)
+\item 
+{\bf set\+Context} ({\bf Request\+Context} \$context)
+\item 
+{\bf get\+Context} ()
+\item 
+{\bf match} (\$pathinfo)
+\item 
+{\bf match\+Request} ({\bf Request} \$request)
+\item 
+{\bf add\+Expression\+Language\+Provider} (Expression\+Function\+Provider\+Interface \$provider)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H} = 0
+\item 
+const {\bf R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H} = 1
+\item 
+const {\bf R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H} = 2
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf match\+Collection} (\$pathinfo, {\bf Route\+Collection} \$routes)
+\item 
+{\bf get\+Attributes} ({\bf Route} \$route, \${\bf name}, array \$attributes)
+\item 
+{\bf handle\+Route\+Requirements} (\$pathinfo, \${\bf name}, {\bf Route} \$route)
+\item 
+{\bf merge\+Defaults} (\$params, \$defaults)
+\item 
+{\bf get\+Expression\+Language} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$context}
+\item 
+{\bf \$allow} = array()
+\item 
+{\bf \$routes}
+\item 
+{\bf \$request}
+\item 
+{\bf \$expression\+Language}
+\item 
+{\bf \$expression\+Language\+Providers} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Url\+Matcher}{p.}{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher} matches \doxyref{U\+R\+L}{p.}{class_u_r_l} based on a set of routes.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 30 of file Url\+Matcher.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Route\+Collection}}]{\$routes, }
+\item[{{\bf Request\+Context}}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_ac258067c34ea403eb29bacf11de496c8}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} & {\em \$routes} & \doxyref{A}{p.}{class_a} \doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} instance \\
+\hline
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} & {\em \$context} & The context\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file Url\+Matcher.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!add\+Expression\+Language\+Provider@{add\+Expression\+Language\+Provider}}
+\index{add\+Expression\+Language\+Provider@{add\+Expression\+Language\+Provider}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{add\+Expression\+Language\+Provider}]{\setlength{\rightskip}{0pt plus 5cm}add\+Expression\+Language\+Provider (
+\begin{DoxyParamCaption}
+\item[{Expression\+Function\+Provider\+Interface}]{\$provider}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a641b3496e163de404e6f945c653a5d24}
+
+
+Definition at line 119 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!get\+Attributes@{get\+Attributes}}
+\index{get\+Attributes@{get\+Attributes}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{get\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Attributes (
+\begin{DoxyParamCaption}
+\item[{{\bf Route}}]{\$route, }
+\item[{}]{\$name, }
+\item[{array}]{\$attributes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_aaf0a8a52c4df0a6687742e15ce246bbc}
+Returns an array of values to use as request attributes.
+
+As this method requires the \doxyref{Route}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route} object, it is not available in matchers that do not have access to the matched \doxyref{Route}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route} instance (like the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} and Apache matcher dumpers).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Route}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route} & {\em \$route} & The route we are matching against \\
+\hline
+string & {\em \$name} & The name of the route \\
+\hline
+array & {\em \$attributes} & An array of attributes from the matcher\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of parameters 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!get\+Context@{get\+Context}}
+\index{get\+Context@{get\+Context}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{get\+Context}]{\setlength{\rightskip}{0pt plus 5cm}get\+Context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a51609a8c7faaf9948679e3a291ba4733}
+\{Gets the request context.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} The context
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Request\+Context\+Aware\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_request_context_aware_interface_a51609a8c7faaf9948679e3a291ba4733}.
+
+
+
+Definition at line 84 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!get\+Expression\+Language@{get\+Expression\+Language}}
+\index{get\+Expression\+Language@{get\+Expression\+Language}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{get\+Expression\+Language}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expression\+Language (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_ad9f344dff79646d7de526a8dfa7fb9cf}
+
+
+Definition at line 244 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!handle\+Route\+Requirements@{handle\+Route\+Requirements}}
+\index{handle\+Route\+Requirements@{handle\+Route\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{handle\+Route\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Route\+Requirements (
+\begin{DoxyParamCaption}
+\item[{}]{\$pathinfo, }
+\item[{}]{\$name, }
+\item[{{\bf Route}}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_ad097c85751b7fa8d31ed0a15bbd7aefd}
+Handles specific route requirements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pathinfo} & The path \\
+\hline
+string & {\em \$name} & The route name \\
+\hline
+\doxyref{Route}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route} & {\em \$route} & The route\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The first element represents the status, the second contains additional information 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!match@{match}}
+\index{match@{match}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{match}]{\setlength{\rightskip}{0pt plus 5cm}match (
+\begin{DoxyParamCaption}
+\item[{}]{\$pathinfo}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_aff4a7afca22915429c04dc749d7d5d81}
+\{Tries to match a \doxyref{U\+R\+L}{p.}{class_u_r_l} path with a set of routes.
+
+If the matcher can not find information, it must throw one of the exceptions documented below.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pathinfo} & The path info to be parsed (raw format, i.\+e. not urldecoded)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of parameters
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Resource\+Not\+Found\+Exception} & If the resource could not be found \\
+\hline
+{\em Method\+Not\+Allowed\+Exception} & If the resource was found but the request method is not allowed\\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Url\+Matcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_interface_aff4a7afca22915429c04dc749d7d5d81}.
+
+
+
+Definition at line 92 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!match\+Collection@{match\+Collection}}
+\index{match\+Collection@{match\+Collection}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{match\+Collection}]{\setlength{\rightskip}{0pt plus 5cm}match\+Collection (
+\begin{DoxyParamCaption}
+\item[{}]{\$pathinfo, }
+\item[{{\bf Route\+Collection}}]{\$routes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a4da8253e3005bf71115f8a2ec22f1a85}
+Tries to match a \doxyref{U\+R\+L}{p.}{class_u_r_l} with a set of routes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pathinfo} & The path info to be parsed \\
+\hline
+\doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} & {\em \$routes} & The set of routes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of parameters
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Resource\+Not\+Found\+Exception} & If the resource could not be found \\
+\hline
+{\em Method\+Not\+Allowed\+Exception} & If the resource was found but the request method is not allowed \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 135 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!match\+Request@{match\+Request}}
+\index{match\+Request@{match\+Request}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{match\+Request}]{\setlength{\rightskip}{0pt plus 5cm}match\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a90294f7a00fcda582e5f89e505b3129c}
+\{Tries to match a request with a set of routes.
+
+If the matcher can not find information, it must throw one of the exceptions documented below.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & The request to match\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of parameters
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Resource\+Not\+Found\+Exception} & If no matching resource could be found \\
+\hline
+{\em Method\+Not\+Allowed\+Exception} & If a matching resource was found but the request method is not allowed\\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Request\+Matcher\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_request_matcher_interface_a90294f7a00fcda582e5f89e505b3129c}.
+
+
+
+Definition at line 108 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!merge\+Defaults@{merge\+Defaults}}
+\index{merge\+Defaults@{merge\+Defaults}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{merge\+Defaults}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Defaults (
+\begin{DoxyParamCaption}
+\item[{}]{\$params, }
+\item[{}]{\$defaults}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a5ecca6a71086a509f9c92193f2b80edc}
+Get merged default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$params} & The parameters \\
+\hline
+array & {\em \$defaults} & The defaults\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Merged default parameters 
+\end{DoxyReturn}
+
+
+Definition at line 233 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!set\+Context@{set\+Context}}
+\index{set\+Context@{set\+Context}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{set\+Context}]{\setlength{\rightskip}{0pt plus 5cm}set\+Context (
+\begin{DoxyParamCaption}
+\item[{{\bf Request\+Context}}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a6215ebdd5d9ea5b00685ebf7251c94c0}
+\{Sets the request context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} & {\em \$context} & The context\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Request\+Context\+Aware\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_request_context_aware_interface_a6215ebdd5d9ea5b00685ebf7251c94c0}.
+
+
+
+Definition at line 76 of file Url\+Matcher.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$allow@{\$allow}}
+\index{\$allow@{\$allow}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$allow}]{\setlength{\rightskip}{0pt plus 5cm}\$allow = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_aa624c31251b0a7a90c69e4121217738e}
+
+
+Definition at line 44 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$context@{\$context}}
+\index{\$context@{\$context}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$context}]{\setlength{\rightskip}{0pt plus 5cm}\$context\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_ae05dedb802ada0155efdece2044fed64}
+
+
+Definition at line 39 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$expression\+Language@{\$expression\+Language}}
+\index{\$expression\+Language@{\$expression\+Language}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$expression\+Language}]{\setlength{\rightskip}{0pt plus 5cm}\$expression\+Language\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_aa3cd91451bcf643ebc26401048a5b45d}
+
+
+Definition at line 52 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$expression\+Language\+Providers@{\$expression\+Language\+Providers}}
+\index{\$expression\+Language\+Providers@{\$expression\+Language\+Providers}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$expression\+Language\+Providers}]{\setlength{\rightskip}{0pt plus 5cm}\$expression\+Language\+Providers = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a6810a3aa230fb2e168f651076a8a3ded}
+
+
+Definition at line 57 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$request@{\$request}}
+\index{\$request@{\$request}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$request}]{\setlength{\rightskip}{0pt plus 5cm}\$request\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_abb35c8495a232b510389fa6d7b15d38a}
+
+
+Definition at line 51 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!\$routes@{\$routes}}
+\index{\$routes@{\$routes}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{\$routes}]{\setlength{\rightskip}{0pt plus 5cm}\$routes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a8f7eb04a54e0f0bfc0cedeb9899ce4a8}
+
+
+Definition at line 49 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H@{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H}}
+\index{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H@{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+A\+T\+C\+H = 0}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a7909d5a4ca5c620ed1ca6e21b270f4ed}
+
+
+Definition at line 32 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H@{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H}}
+\index{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H@{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+T\+\_\+\+M\+I\+S\+M\+A\+T\+C\+H = 1}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_ab64d5cf311cf528efb1a98a7a6e743de}
+
+
+Definition at line 33 of file Url\+Matcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}!R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H@{R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H}}
+\index{R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H@{R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H}!Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher@{Symfony\+::\+Component\+::\+Routing\+::\+Matcher\+::\+Url\+Matcher}}
+\subsubsection[{R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H}]{\setlength{\rightskip}{0pt plus 5cm}const R\+O\+U\+T\+E\+\_\+\+M\+A\+T\+C\+H = 2}\label{class_symfony_1_1_component_1_1_routing_1_1_matcher_1_1_url_matcher_a84733f30ae84d6f70de1ec48accd9858}
+
+
+Definition at line 34 of file Url\+Matcher.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/routing/\+Symfony/\+Component/\+Routing/\+Matcher/{\bf Url\+Matcher.\+php}\end{DoxyCompactItemize}

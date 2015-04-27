@@ -1,0 +1,116 @@
+.TH "UserInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UserInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSomeUser\fP, and \fBAdvancedUserInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRoles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPassword\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSalt\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUsername\fP ()"
+.br
+.ti -1c
+.RI "\fBeraseCredentials\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents the interface that all user classes must implement\&.
+.PP
+This interface is useful because the authentication layer can deal with the object through its lifecycle, using the object to get the encoded password (for checking against a submitted password), assigning roles and so on\&.
+.PP
+Regardless of how your user are loaded or where they come from (a database, configuration, web service, etc), you will have a class that implements this interface\&. Objects that implement this interface are created and loaded by different objects that implement \fBUserProviderInterface\fP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBUserProviderInterface\fP 
+.PP
+\fBAdvancedUserInterface\fP
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file UserInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "eraseCredentials ()"
+Removes sensitive data from the user\&.
+.PP
+This is important if, at any given point, sensitive information like the plain-text password is stored on this object\&. 
+.PP
+Implemented in \fBSomeUser\fP, and \fBUser\fP\&.
+.SS "getPassword ()"
+Returns the password used to authenticate the user\&.
+.PP
+This should be the encoded password\&. On authentication, a plain-text password will be salted, encoded, and then compared to this value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The password 
+.RE
+.PP
+
+.PP
+Implemented in \fBSomeUser\fP, and \fBUser\fP\&.
+.SS "getRoles ()"
+Returns the roles granted to the user\&.
+.PP
+\fC public function \fBgetRoles()\fP { return array('ROLE_USER'); } \fP
+.PP
+Alternatively, the roles might be stored on a \fCroles\fP property, and populated in any number of different ways when the user object is created\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRole\fP[] The user roles 
+.RE
+.PP
+
+.PP
+Implemented in \fBSomeUser\fP, and \fBUser\fP\&.
+.SS "getSalt ()"
+Returns the salt that was originally used to encode the password\&.
+.PP
+This can return null if the password was not encoded using a salt\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The salt 
+.RE
+.PP
+
+.PP
+Implemented in \fBSomeUser\fP, and \fBUser\fP\&.
+.SS "getUsername ()"
+Returns the username used to authenticate the user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The username 
+.RE
+.PP
+
+.PP
+Implemented in \fBSomeUser\fP, and \fBUser\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,590 @@
+.TH "Swift_Signers_DKIMSigner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Signers_DKIMSigner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Inherited by \fBSwift_Signers_OpenDKIMSigner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($privateKey, $domainName, $selector)"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBunbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBflushBuffers\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHashAlgorithm\fP ($hash)"
+.br
+.ti -1c
+.RI "\fBsetBodyCanon\fP ($canon)"
+.br
+.ti -1c
+.RI "\fBsetHeaderCanon\fP ($canon)"
+.br
+.ti -1c
+.RI "\fBsetSignerIdentity\fP ($\fBidentity\fP)"
+.br
+.ti -1c
+.RI "\fBsetBodySignedLen\fP ($len)"
+.br
+.ti -1c
+.RI "\fBsetSignatureTimestamp\fP ($time)"
+.br
+.ti -1c
+.RI "\fBsetSignatureExpiration\fP ($time)"
+.br
+.ti -1c
+.RI "\fBsetDebugHeaders\fP ($debug)"
+.br
+.ti -1c
+.RI "\fBstartBody\fP ()"
+.br
+.ti -1c
+.RI "\fBendBody\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAlteredHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBignoreHeader\fP ($header_name)"
+.br
+.ti -1c
+.RI "\fBsetHeaders\fP (\fBSwift_Mime_HeaderSet\fP $headers)"
+.br
+.ti -1c
+.RI "\fBaddSignature\fP (\fBSwift_Mime_HeaderSet\fP $headers)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP ($privateKey, $domainName, $selector)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_addHeader\fP ($header, $is_sig=false)"
+.br
+.ti -1c
+.RI "\fB_endOfHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fB_canonicalizeBody\fP ($string)"
+.br
+.ti -1c
+.RI "\fB_endOfBody\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_privateKey\fP"
+.br
+.ti -1c
+.RI "\fB$_domainName\fP"
+.br
+.ti -1c
+.RI "\fB$_selector\fP"
+.br
+.ti -1c
+.RI "\fB$_hashAlgorithm\fP = 'rsa-sha1'"
+.br
+.ti -1c
+.RI "\fB$_bodyCanon\fP = 'simple'"
+.br
+.ti -1c
+.RI "\fB$_headerCanon\fP = 'simple'"
+.br
+.ti -1c
+.RI "\fB$_ignoredHeaders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$_signerIdentity\fP"
+.br
+.ti -1c
+.RI "\fB$_bodyLen\fP = 0"
+.br
+.ti -1c
+.RI "\fB$_maxLen\fP = PHP_INT_MAX"
+.br
+.ti -1c
+.RI "\fB$_showLen\fP = false"
+.br
+.ti -1c
+.RI "\fB$_signatureTimestamp\fP = true"
+.br
+.ti -1c
+.RI "\fB$_signatureExpiration\fP = false"
+.br
+.ti -1c
+.RI "\fB$_debugHeaders\fP = false"
+.br
+.ti -1c
+.RI "\fB$_signedHeaders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$_dkimHeader\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+DKIM Signer used to apply DKIM Signature to a message
+.PP
+\fBAuthor:\fP
+.RS 4
+Xavier De Cock xdecock@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file DKIMSigner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $privateKey,  $domainName,  $selector)"
+Constructor
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$privateKey\fP 
+.br
+\fI$domainName\fP 
+.br
+\fI$selector\fP 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file DKIMSigner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_addHeader ( $header,  $is_sig = \fCfalse\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 562 of file DKIMSigner\&.php\&.
+.SS "_canonicalizeBody ( $string)\fC [protected]\fP"
+
+.PP
+Definition at line 583 of file DKIMSigner\&.php\&.
+.SS "_endOfBody ()\fC [protected]\fP"
+
+.PP
+Definition at line 636 of file DKIMSigner\&.php\&.
+.SS "_endOfHeaders ()\fC [protected]\fP"
+
+.PP
+Definition at line 578 of file DKIMSigner\&.php\&.
+.SS "addSignature (\fBSwift_Mime_HeaderSet\fP $headers)"
+Add the signature to the given Headers
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 513 of file DKIMSigner\&.php\&.
+.SS "bind (\fBSwift_InputByteStream\fP $is)"
+Attach $is to this stream\&. The stream acts as an observer, receiving all data that is written\&. All \fBwrite()\fP and \fBflushBuffers()\fP operations will be mirrored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 257 of file DKIMSigner\&.php\&.
+.SS "commit ()"
+For any bytes that are currently buffered inside the stream, force them off the buffer\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 244 of file DKIMSigner\&.php\&.
+.SS "endBody ()"
+End Body 
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 446 of file DKIMSigner\&.php\&.
+.SS "flushBuffers ()"
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 293 of file DKIMSigner\&.php\&.
+.SS "getAlteredHeaders ()"
+Returns the list of Headers Tampered by this plugin
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 456 of file DKIMSigner\&.php\&.
+.SS "ignoreHeader ( $header_name)"
+Adds an ignored Header
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$header_name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 471 of file DKIMSigner\&.php\&.
+.SS "static newInstance ( $privateKey,  $domainName,  $selector)\fC [static]\fP"
+Instanciate DKIMSigner
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$privateKey\fP 
+.br
+\fI$domainName\fP 
+.br
+\fI$selector\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file DKIMSigner\&.php\&.
+.SS "reset ()"
+Reset the Signer 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSwift_Signer::reset()\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signer\fP\&.
+.PP
+Definition at line 203 of file DKIMSigner\&.php\&.
+.SS "setBodyCanon ( $canon)"
+Set the body canonicalization algorithm
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$canon\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file DKIMSigner\&.php\&.
+.SS "setBodySignedLen ( $len)"
+Set the length of the body to sign
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$len\fP (bool or int) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 369 of file DKIMSigner\&.php\&.
+.SS "setDebugHeaders ( $debug)"
+Enable / disable the DebugHeaders
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$debug\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file DKIMSigner\&.php\&.
+.SS "setHashAlgorithm ( $hash)"
+Set hash_algorithm, must be one of rsa-sha256 | rsa-sha1 defaults to rsa-sha256
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hash\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file DKIMSigner\&.php\&.
+.SS "setHeaderCanon ( $canon)"
+Set the header canonicalization algorithm
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$canon\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file DKIMSigner\&.php\&.
+.SS "setHeaders (\fBSwift_Mime_HeaderSet\fP $headers)"
+Set the headers to sign
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 484 of file DKIMSigner\&.php\&.
+.SS "setSignatureExpiration ( $time)"
+Set the signature expiration timestamp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 404 of file DKIMSigner\&.php\&.
+.SS "setSignatureTimestamp ( $time)"
+Set the signature timestamp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 391 of file DKIMSigner\&.php\&.
+.SS "setSignerIdentity ( $identity)"
+Set the signer identity
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$identity\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_DKIMSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 356 of file DKIMSigner\&.php\&.
+.SS "startBody ()"
+Start Body 
+.PP
+Implements \fBSwift_Signers_HeaderSigner\fP\&.
+.PP
+Definition at line 428 of file DKIMSigner\&.php\&.
+.SS "unbind (\fBSwift_InputByteStream\fP $is)"
+Remove an already bound stream\&. If $is is not bound, no errors will be raised\&. If the stream currently has any buffered data it will be written to $is before unbinding occurs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 273 of file DKIMSigner\&.php\&.
+.SS "write ( $bytes)"
+Writes $bytes to the end of the stream\&.
+.PP
+Writing may not happen immediately if the stream chooses to buffer\&. If you want to write these bytes with immediate effect, call \fBcommit()\fP after calling \fBwrite()\fP\&.
+.PP
+This method returns the sequence ID of the write (i\&.e\&. 1 for first, 2 for second, etc etc)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 230 of file DKIMSigner\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_bodyCanon = 'simple'\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file DKIMSigner\&.php\&.
+.SS "$_bodyLen = 0\fC [protected]\fP"
+
+.PP
+Definition at line 79 of file DKIMSigner\&.php\&.
+.SS "$_debugHeaders = false\fC [protected]\fP"
+
+.PP
+Definition at line 115 of file DKIMSigner\&.php\&.
+.SS "$_dkimHeader\fC [protected]\fP"
+
+.PP
+Definition at line 144 of file DKIMSigner\&.php\&.
+.SS "$_domainName\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file DKIMSigner\&.php\&.
+.SS "$_hashAlgorithm = 'rsa-sha1'\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file DKIMSigner\&.php\&.
+.SS "$_headerCanon = 'simple'\fC [protected]\fP"
+
+.PP
+Definition at line 58 of file DKIMSigner\&.php\&.
+.SS "$_ignoredHeaders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 65 of file DKIMSigner\&.php\&.
+.SS "$_maxLen = PHP_INT_MAX\fC [protected]\fP"
+
+.PP
+Definition at line 86 of file DKIMSigner\&.php\&.
+.SS "$_privateKey\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file DKIMSigner\&.php\&.
+.SS "$_selector\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file DKIMSigner\&.php\&.
+.SS "$_showLen = false\fC [protected]\fP"
+
+.PP
+Definition at line 93 of file DKIMSigner\&.php\&.
+.SS "$_signatureExpiration = false\fC [protected]\fP"
+
+.PP
+Definition at line 108 of file DKIMSigner\&.php\&.
+.SS "$_signatureTimestamp = true\fC [protected]\fP"
+
+.PP
+Definition at line 100 of file DKIMSigner\&.php\&.
+.SS "$_signedHeaders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 123 of file DKIMSigner\&.php\&.
+.SS "$_signerIdentity\fC [protected]\fP"
+
+.PP
+Definition at line 72 of file DKIMSigner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

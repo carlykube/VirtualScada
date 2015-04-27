@@ -1,0 +1,538 @@
+.TH "FilesystemAdapter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FilesystemAdapter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFilesystem\fP, and \fBCloud\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBFilesystemInterface\fP $driver)"
+.br
+.ti -1c
+.RI "\fBexists\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBput\fP ($\fBpath\fP, $contents, $visibility=null)"
+.br
+.ti -1c
+.RI "\fBgetVisibility\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.ti -1c
+.RI "\fBprepend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBappend\fP ($\fBpath\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($paths)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBmove\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBsize\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBmimeType\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBlastModified\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBfiles\fP ($directory=null, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBallFiles\fP ($directory=null)"
+.br
+.ti -1c
+.RI "\fBdirectories\fP ($directory=null, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBallDirectories\fP ($directory=null, $recursive=false)"
+.br
+.ti -1c
+.RI "\fBmakeDirectory\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBdeleteDirectory\fP ($directory)"
+.br
+.ti -1c
+.RI "\fBgetDriver\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfilterContentsByType\fP ($contents, $type)"
+.br
+.ti -1c
+.RI "\fBparseVisibility\fP ($visibility)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$driver\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file FilesystemAdapter\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBFilesystemInterface\fP $driver)"
+Create a new filesystem adapter instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file FilesystemAdapter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "allDirectories ( $directory = \fCnull\fP,  $recursive = \fCfalse\fP)"
+Get all (recursive) of the directories within a given directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file FilesystemAdapter\&.php\&.
+.SS "allFiles ( $directory = \fCnull\fP)"
+Get all of the files from the given directory (recursive)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 223 of file FilesystemAdapter\&.php\&.
+.SS "append ( $path,  $data)"
+Append to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 123 of file FilesystemAdapter\&.php\&.
+.SS "copy ( $from,  $to)"
+Copy a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 153 of file FilesystemAdapter\&.php\&.
+.SS "delete ( $paths)"
+Delete the file at a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$paths\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 134 of file FilesystemAdapter\&.php\&.
+.SS "deleteDirectory ( $directory)"
+Recursively delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 271 of file FilesystemAdapter\&.php\&.
+.SS "directories ( $directory = \fCnull\fP,  $recursive = \fCfalse\fP)"
+Get all of the directories within a given directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 235 of file FilesystemAdapter\&.php\&.
+.SS "exists ( $path)"
+Determine if a file exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 38 of file FilesystemAdapter\&.php\&.
+.SS "files ( $directory = \fCnull\fP,  $recursive = \fCfalse\fP)"
+Get an array of all files in a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 210 of file FilesystemAdapter\&.php\&.
+.SS "filterContentsByType ( $contents,  $type)\fC [protected]\fP"
+Filter directory contents by type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$contents\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 293 of file FilesystemAdapter\&.php\&.
+.SS "get ( $path)"
+Get the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 51 of file FilesystemAdapter\&.php\&.
+.SS "getDriver ()"
+Get the Flysystem driver\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 281 of file FilesystemAdapter\&.php\&.
+.SS "getVisibility ( $path)"
+Get the visibility for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 82 of file FilesystemAdapter\&.php\&.
+.SS "lastModified ( $path)"
+Get the file's last modification time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 198 of file FilesystemAdapter\&.php\&.
+.SS "makeDirectory ( $path)"
+Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 260 of file FilesystemAdapter\&.php\&.
+.SS "mimeType ( $path)"
+Get the mime-type of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file FilesystemAdapter\&.php\&.
+.SS "move ( $from,  $to)"
+Move a file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 165 of file FilesystemAdapter\&.php\&.
+.SS "parseVisibility ( $visibility)\fC [protected]\fP"
+Parse the given visibility value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 308 of file FilesystemAdapter\&.php\&.
+.SS "prepend ( $path,  $data)"
+Prepend to a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 111 of file FilesystemAdapter\&.php\&.
+.SS "put ( $path,  $contents,  $visibility = \fCnull\fP)"
+Write the contents of a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 71 of file FilesystemAdapter\&.php\&.
+.SS "setVisibility ( $path,  $visibility)"
+Set the visibility for the given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 99 of file FilesystemAdapter\&.php\&.
+.SS "size ( $path)"
+Get the file size of a given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBFilesystem\fP\&.
+.PP
+Definition at line 176 of file FilesystemAdapter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$driver\fC [protected]\fP"
+
+.PP
+Definition at line 19 of file FilesystemAdapter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

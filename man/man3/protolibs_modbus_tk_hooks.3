@@ -1,0 +1,118 @@
+.TH "protolibs.modbus_tk.hooks" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+protolibs.modbus_tk.hooks \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBinstall_hook\fP (\fBname\fP, fct)"
+.br
+.ti -1c
+.RI "def \fBuninstall_hook\fP"
+.br
+.ti -1c
+.RI "def \fBcall_hooks\fP (\fBname\fP, args)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "tuple \fB_lock\fP = threading\&.RLock()"
+.br
+.ti -1c
+.RI "dictionary \fB_hooks\fP = {}"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def protolibs\&.modbus_tk\&.hooks\&.call_hooks ( name,  args)"
+
+.PP
+.nf
+call the function associated with the hook and pass the given args
+.fi
+.PP
+ 
+.PP
+Definition at line 77 of file hooks\&.py\&.
+.SS "def protolibs\&.modbus_tk\&.hooks\&.install_hook ( name,  fct)"
+
+.PP
+.nf
+Install one of the following hook
+
+modbus_rtu.RtuMaster.before_open((master,))
+modbus_rtu.RtuMaster.after_close((master,) 
+modbus_rtu.RtuMaster.before_send((master, request)) returns modified request or None 
+modbus_rtu.RtuMaster.after_recv((master, response)) returns modified response or None
+
+modbus_rtu.RtuServer.before_close((server, ))  
+modbus_rtu.RtuServer.after_close((server, ))  
+modbus_rtu.RtuServer.before_open((server, ))  
+modbus_rtu.RtuServer.after_open(((server, ))      
+modbus_rtu.RtuServer.after_read((server, request)) returns modified request or None
+modbus_rtu.RtuServer.before_write((server, response))  returns modified response or None 
+modbus_rtu.RtuServer.on_error((server, excpt))
+
+modbus_tcp.TcpMaster.before_connect((master, ))  
+modbus_tcp.TcpMaster.after_connect((master, ))      
+modbus_tcp.TcpMaster.before_close((master, ))  
+modbus_tcp.TcpMaster.after_close((master, ))  
+modbus_tcp.TcpMaster.before_send((master, request))  
+modbus_tcp.TcpMaster.after_recv((master, response))  
+
+modbus_tcp.TcpServer.on_connect((server, client, address))  
+modbus_tcp.TcpServer.on_disconnect((server, sock))  
+modbus_tcp.TcpServer.after_recv((server, sock, request)) returns modified request or None  
+modbus_tcp.TcpServer.before_send((server, sock, response)) returns modified response or None
+modbus_tcp.TcpServer.on_error((server, sock, excpt))  
+
+modbus.Master.before_send((master, request)) returns modified request or None
+modbus.Master.after_send((master))  
+modbus.Master.after_recv((master, response)) returns modified response or None  
+
+modbus.Slave.handle_request((slave, request_pdu)) returns modified response or None
+modbus.Slave.on_handle_broadcast((slave, response_pdu)) returns modified response or None  
+modbus.Slave.on_exception((slave, function_code, excpt))  
+
+modbus.Databank.on_error((db, excpt, request_pdu))
+
+modbus.ModbusBlock.setitem((self, slice, value))  
+
+modbus.Server.before_handle_request((server, request)) returns modified request or None
+modbus.Server.after_handle_request((server, response)) returns modified response or None
+
+.fi
+.PP
+ 
+.PP
+Definition at line 18 of file hooks\&.py\&.
+.SS "def protolibs\&.modbus_tk\&.hooks\&.uninstall_hook ( name,  fct = \fCNone\fP)"
+
+.PP
+.nf
+remove the function from the hooks
+.fi
+.PP
+ 
+.PP
+Definition at line 69 of file hooks\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "dictionary _hooks = {}"
+
+.PP
+Definition at line 16 of file hooks\&.py\&.
+.SS "tuple _lock = threading\&.RLock()"
+
+.PP
+Definition at line 15 of file hooks\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

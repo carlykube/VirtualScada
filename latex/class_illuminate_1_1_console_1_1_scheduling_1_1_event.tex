@@ -1,0 +1,1224 @@
+\section{Event Class Reference}
+\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event}\index{Event@{Event}}
+Inheritance diagram for Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_console_1_1_scheduling_1_1_event}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$command)
+\item 
+{\bf run} ({\bf Container} \$container)
+\item 
+{\bf build\+Command} ()
+\item 
+{\bf is\+Due} ({\bf Application} \$app)
+\item 
+{\bf runs\+In\+Environment} (\$environment)
+\item 
+{\bf runs\+In\+Maintenance\+Mode} ()
+\item 
+{\bf cron} (\$expression)
+\item 
+{\bf hourly} ()
+\item 
+{\bf daily} ()
+\item 
+{\bf at} (\$time)
+\item 
+{\bf daily\+At} (\$time)
+\item 
+{\bf twice\+Daily} ()
+\item 
+{\bf weekdays} ()
+\item 
+{\bf mondays} ()
+\item 
+{\bf tuesdays} ()
+\item 
+{\bf wednesdays} ()
+\item 
+{\bf thursdays} ()
+\item 
+{\bf fridays} ()
+\item 
+{\bf saturdays} ()
+\item 
+{\bf sundays} ()
+\item 
+{\bf weekly} ()
+\item 
+{\bf weekly\+On} (\${\bf day}, \$time= \textquotesingle{}0\+:0\textquotesingle{})
+\item 
+{\bf monthly} ()
+\item 
+{\bf yearly} ()
+\item 
+{\bf every\+Five\+Minutes} ()
+\item 
+{\bf every\+Ten\+Minutes} ()
+\item 
+{\bf every\+Thirty\+Minutes} ()
+\item 
+{\bf days} (\$days)
+\item 
+{\bf timezone} (\$timezone)
+\item 
+{\bf user} (\$user)
+\item 
+{\bf environments} (\$environments)
+\item 
+{\bf even\+In\+Maintenance\+Mode} ()
+\item 
+{\bf without\+Overlapping} ()
+\item 
+{\bf when} (Closure \${\bf callback})
+\item 
+{\bf skip} (Closure \${\bf callback})
+\item 
+{\bf send\+Output\+To} (\$location)
+\item 
+{\bf email\+Output\+To} (\$addresses)
+\item 
+{\bf then\+Ping} (\$url)
+\item 
+{\bf then} (Closure \${\bf callback})
+\item 
+{\bf name} (\${\bf description})
+\item 
+{\bf description} (\$description)
+\item 
+{\bf get\+Summary\+For\+Display} ()
+\item 
+{\bf get\+Expression} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$command}
+\item 
+{\bf \$expression} = \textquotesingle{}$\ast$ $\ast$ $\ast$ $\ast$ $\ast$ $\ast$\textquotesingle{}
+\item 
+{\bf \$timezone}
+\item 
+{\bf \$user}
+\item 
+{\bf \$environments} = [$\,$]
+\item 
+{\bf \$even\+In\+Maintenance\+Mode} = false
+\item 
+{\bf \$without\+Overlapping} = false
+\item 
+{\bf \$output} = \textquotesingle{}/{\bf dev}/null\textquotesingle{}
+\item 
+{\bf \$description}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf run\+Command\+In\+Background} ()
+\item 
+{\bf run\+Command\+In\+Foreground} ({\bf Container} \$container)
+\item 
+{\bf call\+After\+Callbacks} ({\bf Container} \$container)
+\item 
+{\bf mutex\+Path} ()
+\item 
+{\bf expression\+Passes} ()
+\item 
+{\bf filters\+Pass} ({\bf Application} \$app)
+\item 
+{\bf email\+Output} ({\bf Mailer} \$mailer, \$addresses)
+\item 
+{\bf get\+Email\+Subject} ()
+\item 
+{\bf splice\+Into\+Position} (\$position, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$filter}
+\item 
+{\bf \$reject}
+\item 
+{\bf \$after\+Callbacks} = [$\,$]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Event.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$command}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_acc81c560eab71a5cab88e365622af635}
+Create a new event instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Event.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!at@{at}}
+\index{at@{at}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}at (
+\begin{DoxyParamCaption}
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a4f19d13e905a4893b245bc5ed9bba88e}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the command at a given time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!build\+Command@{build\+Command}}
+\index{build\+Command@{build\+Command}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{build\+Command}]{\setlength{\rightskip}{0pt plus 5cm}build\+Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ae5784111842555ca64ff370a1dc2dd8d}
+Build the comand string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!call\+After\+Callbacks@{call\+After\+Callbacks}}
+\index{call\+After\+Callbacks@{call\+After\+Callbacks}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{call\+After\+Callbacks}]{\setlength{\rightskip}{0pt plus 5cm}call\+After\+Callbacks (
+\begin{DoxyParamCaption}
+\item[{{\bf Container}}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_acdd216984fb03194b5980a561f517731}
+Call all of the \char`\"{}after\char`\"{} callbacks for the event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!cron@{cron}}
+\index{cron@{cron}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{cron}]{\setlength{\rightskip}{0pt plus 5cm}cron (
+\begin{DoxyParamCaption}
+\item[{}]{\$expression}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a456dee2a30aac63a4f256a8f870a2198}
+The \doxyref{Cron}{p.}{namespace_cron} expression representing the event\textquotesingle{}s frequency.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$expression} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 278 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!daily@{daily}}
+\index{daily@{daily}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{daily}]{\setlength{\rightskip}{0pt plus 5cm}daily (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ad3c21b68bfc94d0d389a1fd727d36438}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run daily.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 300 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!daily\+At@{daily\+At}}
+\index{daily\+At@{daily\+At}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{daily\+At}]{\setlength{\rightskip}{0pt plus 5cm}daily\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_acce27ca26ff2254456b4c1e264565434}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run daily at a given time (10\+:00, 19\+:30, etc).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 322 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!days@{days}}
+\index{days@{days}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{days}]{\setlength{\rightskip}{0pt plus 5cm}days (
+\begin{DoxyParamCaption}
+\item[{}]{\$days}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a1f398b8ca82d94ccfcc525d0536fc592}
+Set the days of the week the command should run on.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | dynamic & {\em \$days} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 500 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!description@{description}}
+\index{description@{description}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}description (
+\begin{DoxyParamCaption}
+\item[{}]{\$description}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aaac627b70d44e3721441dacc6dfb79cb}
+Set the human-\/friendly description of the event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$description} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 711 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!email\+Output@{email\+Output}}
+\index{email\+Output@{email\+Output}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{email\+Output}]{\setlength{\rightskip}{0pt plus 5cm}email\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf Mailer}}]{\$mailer, }
+\item[{}]{\$addresses}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ab1fd006d17e718ab13a8e2a27238a796}
+E-\/mail the output of the event to the recipients.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Mail\textbackslash{}\+Mailer & {\em \$mailer} & \\
+\hline
+array & {\em \$addresses} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 642 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!email\+Output\+To@{email\+Output\+To}}
+\index{email\+Output\+To@{email\+Output\+To}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{email\+Output\+To}]{\setlength{\rightskip}{0pt plus 5cm}email\+Output\+To (
+\begin{DoxyParamCaption}
+\item[{}]{\$addresses}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a883b5d3be328d5bbe02b884821082fc7}
+E-\/mail the results of the scheduled operation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | dynamic & {\em \$addresses} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 620 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!environments@{environments}}
+\index{environments@{environments}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{environments}]{\setlength{\rightskip}{0pt plus 5cm}environments (
+\begin{DoxyParamCaption}
+\item[{}]{\$environments}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a39470766f65c9d68045df442b5b57562}
+Limit the environments the command should run in.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | dynamic & {\em \$environments} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 539 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!even\+In\+Maintenance\+Mode@{even\+In\+Maintenance\+Mode}}
+\index{even\+In\+Maintenance\+Mode@{even\+In\+Maintenance\+Mode}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{even\+In\+Maintenance\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}even\+In\+Maintenance\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aa116676152850a7147c04e6f63149138}
+State that the command should run even in maintenance mode.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 551 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!every\+Five\+Minutes@{every\+Five\+Minutes}}
+\index{every\+Five\+Minutes@{every\+Five\+Minutes}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{every\+Five\+Minutes}]{\setlength{\rightskip}{0pt plus 5cm}every\+Five\+Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a17a6788e67418f182e72adc1bdff93cf}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run every five minutes.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 469 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!every\+Ten\+Minutes@{every\+Ten\+Minutes}}
+\index{every\+Ten\+Minutes@{every\+Ten\+Minutes}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{every\+Ten\+Minutes}]{\setlength{\rightskip}{0pt plus 5cm}every\+Ten\+Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a98cc75c402b33f7e97306dcf2f042e4d}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run every ten minutes.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 479 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!every\+Thirty\+Minutes@{every\+Thirty\+Minutes}}
+\index{every\+Thirty\+Minutes@{every\+Thirty\+Minutes}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{every\+Thirty\+Minutes}]{\setlength{\rightskip}{0pt plus 5cm}every\+Thirty\+Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a7bc6aace55666b5df897a535bcec372a}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run every thirty minutes.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 489 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!expression\+Passes@{expression\+Passes}}
+\index{expression\+Passes@{expression\+Passes}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{expression\+Passes}]{\setlength{\rightskip}{0pt plus 5cm}expression\+Passes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ac3e31b4d465d543ea2be0531a50f3e86}
+Determine if the \doxyref{Cron}{p.}{namespace_cron} expression passes.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!filters\+Pass@{filters\+Pass}}
+\index{filters\+Pass@{filters\+Pass}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{filters\+Pass}]{\setlength{\rightskip}{0pt plus 5cm}filters\+Pass (
+\begin{DoxyParamCaption}
+\item[{{\bf Application}}]{\$app}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a501c6aa8d507c49fa30bae2b274bd0bd}
+Determine if the filters pass for the event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 240 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!fridays@{fridays}}
+\index{fridays@{fridays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{fridays}]{\setlength{\rightskip}{0pt plus 5cm}fridays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a86d6b8139167627eb89c79d7ab9bd610}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Fridays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 395 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!get\+Email\+Subject@{get\+Email\+Subject}}
+\index{get\+Email\+Subject@{get\+Email\+Subject}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{get\+Email\+Subject}]{\setlength{\rightskip}{0pt plus 5cm}get\+Email\+Subject (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ac91b5aa3ce2d40c869f79b6bcb73d2ac}
+Get the e-\/mail subject line for output results.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 660 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ab1cefb04a11dacd3164f79373c1294f0}
+Get the \doxyref{Cron}{p.}{namespace_cron} expression for the event.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 751 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!get\+Summary\+For\+Display@{get\+Summary\+For\+Display}}
+\index{get\+Summary\+For\+Display@{get\+Summary\+For\+Display}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{get\+Summary\+For\+Display}]{\setlength{\rightskip}{0pt plus 5cm}get\+Summary\+For\+Display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a518984dd2f7b77841e01c2b1c1fde2da}
+Get the summary of the event for display.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 739 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!hourly@{hourly}}
+\index{hourly@{hourly}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{hourly}]{\setlength{\rightskip}{0pt plus 5cm}hourly (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a723859ac9ed6808e4ec8e583d93074c5}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run hourly.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 290 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!is\+Due@{is\+Due}}
+\index{is\+Due@{is\+Due}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{is\+Due}]{\setlength{\rightskip}{0pt plus 5cm}is\+Due (
+\begin{DoxyParamCaption}
+\item[{{\bf Application}}]{\$app}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a7a24350a7b6062c389f698e3c6af757f}
+Determine if the given event should run based on the \doxyref{Cron}{p.}{namespace_cron} expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Foundation\textbackslash{}\+Application & {\em \$app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!mondays@{mondays}}
+\index{mondays@{mondays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{mondays}]{\setlength{\rightskip}{0pt plus 5cm}mondays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_af942417dda3d2e5c2836c8574bafb0f5}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Mondays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 355 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!monthly@{monthly}}
+\index{monthly@{monthly}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{monthly}]{\setlength{\rightskip}{0pt plus 5cm}monthly (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a652723e79b08b39fe2b74330286deff9}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run monthly.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 449 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!mutex\+Path@{mutex\+Path}}
+\index{mutex\+Path@{mutex\+Path}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{mutex\+Path}]{\setlength{\rightskip}{0pt plus 5cm}mutex\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a4a49db72c83bc5588671d94d6c7211ec}
+Get the mutex path for the scheduled command.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!name@{name}}
+\index{name@{name}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}name (
+\begin{DoxyParamCaption}
+\item[{}]{\$description}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a4f66f8ce801e4214ce4d8dd41078d543}
+Set the human-\/friendly description of the event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$description} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 700 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!run@{run}}
+\index{run@{run}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf Container}}]{\$container}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a323aac382e40a916ec33b20956c7e7f1}
+Run the given event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!run\+Command\+In\+Background@{run\+Command\+In\+Background}}
+\index{run\+Command\+In\+Background@{run\+Command\+In\+Background}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{run\+Command\+In\+Background}]{\setlength{\rightskip}{0pt plus 5cm}run\+Command\+In\+Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a380651116eea47f513c6d7480c23acce}
+Run the command in the background using exec.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 133 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!run\+Command\+In\+Foreground@{run\+Command\+In\+Foreground}}
+\index{run\+Command\+In\+Foreground@{run\+Command\+In\+Foreground}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{run\+Command\+In\+Foreground}]{\setlength{\rightskip}{0pt plus 5cm}run\+Command\+In\+Foreground (
+\begin{DoxyParamCaption}
+\item[{{\bf Container}}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a7e162839a9e335b93f61ce5384fd769e}
+Run the command in the foreground.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!runs\+In\+Environment@{runs\+In\+Environment}}
+\index{runs\+In\+Environment@{runs\+In\+Environment}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{runs\+In\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}runs\+In\+Environment (
+\begin{DoxyParamCaption}
+\item[{}]{\$environment}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a57bffe2bea8782926cb3cfff6d568d18}
+Determine if the event runs in the given environment.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$environment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!runs\+In\+Maintenance\+Mode@{runs\+In\+Maintenance\+Mode}}
+\index{runs\+In\+Maintenance\+Mode@{runs\+In\+Maintenance\+Mode}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{runs\+In\+Maintenance\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}runs\+In\+Maintenance\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a5e2d3faa063e3a293a8d6cbd03f725fb}
+Determine if the event runs in maintenance mode.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!saturdays@{saturdays}}
+\index{saturdays@{saturdays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{saturdays}]{\setlength{\rightskip}{0pt plus 5cm}saturdays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a6f188845f3275d3b60b2d9d01f3f9938}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Saturdays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!send\+Output\+To@{send\+Output\+To}}
+\index{send\+Output\+To@{send\+Output\+To}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{send\+Output\+To}]{\setlength{\rightskip}{0pt plus 5cm}send\+Output\+To (
+\begin{DoxyParamCaption}
+\item[{}]{\$location}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a8c97b56a6a2af260cf762bf22a7d7eea}
+Send the output of the command to a given location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 605 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!skip@{skip}}
+\index{skip@{skip}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{skip}]{\setlength{\rightskip}{0pt plus 5cm}skip (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a550a99f6bf54325a3d08bbe0c526be5e}
+Register a callback to further filter the schedule.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 592 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!splice\+Into\+Position@{splice\+Into\+Position}}
+\index{splice\+Into\+Position@{splice\+Into\+Position}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{splice\+Into\+Position}]{\setlength{\rightskip}{0pt plus 5cm}splice\+Into\+Position (
+\begin{DoxyParamCaption}
+\item[{}]{\$position, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a6729d36f3a7e3f1c66ef2f7938a7d660}
+Splice the given value into the given position of the expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$position} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 725 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!sundays@{sundays}}
+\index{sundays@{sundays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{sundays}]{\setlength{\rightskip}{0pt plus 5cm}sundays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a91b20de0b57635158f3b0f5e127b1a52}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Sundays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 415 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!then@{then}}
+\index{then@{then}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{then}]{\setlength{\rightskip}{0pt plus 5cm}then (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a6085eed98176787b3714474cc107a445}
+Register a callback to be called after the operation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 687 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!then\+Ping@{then\+Ping}}
+\index{then\+Ping@{then\+Ping}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{then\+Ping}]{\setlength{\rightskip}{0pt plus 5cm}then\+Ping (
+\begin{DoxyParamCaption}
+\item[{}]{\$url}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aa4bc37cefff29aa5a2dc76f6d6a336e4}
+Register a callback to ping a given \doxyref{U\+R\+L}{p.}{class_u_r_l} after the job runs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 676 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!thursdays@{thursdays}}
+\index{thursdays@{thursdays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{thursdays}]{\setlength{\rightskip}{0pt plus 5cm}thursdays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ab96e08337ea2ffc792e669dad1e8ae43}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Thursdays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!timezone@{timezone}}
+\index{timezone@{timezone}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{timezone}]{\setlength{\rightskip}{0pt plus 5cm}timezone (
+\begin{DoxyParamCaption}
+\item[{}]{\$timezone}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a38688538d1329920fb01b13599f3b512}
+Set the timezone the date should be evaluated on.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time\+Zone | string & {\em \$timezone} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 513 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!tuesdays@{tuesdays}}
+\index{tuesdays@{tuesdays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{tuesdays}]{\setlength{\rightskip}{0pt plus 5cm}tuesdays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a4de125996a4dbf492315fb8a155e39c9}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Tuesdays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 365 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!twice\+Daily@{twice\+Daily}}
+\index{twice\+Daily@{twice\+Daily}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{twice\+Daily}]{\setlength{\rightskip}{0pt plus 5cm}twice\+Daily (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a678d4b0bf1350db27de188f418940396}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run twice daily.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 335 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!user@{user}}
+\index{user@{user}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{user}]{\setlength{\rightskip}{0pt plus 5cm}user (
+\begin{DoxyParamCaption}
+\item[{}]{\$user}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a06676eff98b49ee41bb6a6e3acd02b2d}
+Set which user the command should run as.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 526 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!wednesdays@{wednesdays}}
+\index{wednesdays@{wednesdays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{wednesdays}]{\setlength{\rightskip}{0pt plus 5cm}wednesdays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a0db016b966ef8a6a1b88872218422a99}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on Wednesdays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 375 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!weekdays@{weekdays}}
+\index{weekdays@{weekdays}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{weekdays}]{\setlength{\rightskip}{0pt plus 5cm}weekdays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_af09dd4872385e323dfe23b04fdfff314}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run only on weekdays.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 345 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!weekly@{weekly}}
+\index{weekly@{weekly}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{weekly}]{\setlength{\rightskip}{0pt plus 5cm}weekly (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_ae7b02aff02e0a977ef46a0e1fb427dcd}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run weekly.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 425 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!weekly\+On@{weekly\+On}}
+\index{weekly\+On@{weekly\+On}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{weekly\+On}]{\setlength{\rightskip}{0pt plus 5cm}weekly\+On (
+\begin{DoxyParamCaption}
+\item[{}]{\$day, }
+\item[{}]{\$time = {\ttfamily \textquotesingle{}0\+:0\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_af069c2ad64b912e661d91de9351a9b6a}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run weekly on a given day and time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$day} & \\
+\hline
+string & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 437 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!when@{when}}
+\index{when@{when}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{when}]{\setlength{\rightskip}{0pt plus 5cm}when (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a845bc8bc4ae1df3532bf51b25db3f9d3}
+Register a callback to further filter the schedule.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 579 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!without\+Overlapping@{without\+Overlapping}}
+\index{without\+Overlapping@{without\+Overlapping}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{without\+Overlapping}]{\setlength{\rightskip}{0pt plus 5cm}without\+Overlapping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aa6b99cef5aac1f6e3ea2dbd0b2ba7754}
+Do not allow the event to overlap each other.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 563 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!yearly@{yearly}}
+\index{yearly@{yearly}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{yearly}]{\setlength{\rightskip}{0pt plus 5cm}yearly (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a69460f1a01067219731007da97a5a783}
+\doxyref{Schedule}{p.}{class_illuminate_1_1_console_1_1_scheduling_1_1_schedule} the event to run yearly.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 459 of file Event.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$after\+Callbacks@{\$after\+Callbacks}}
+\index{\$after\+Callbacks@{\$after\+Callbacks}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$after\+Callbacks}]{\setlength{\rightskip}{0pt plus 5cm}\$after\+Callbacks = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a00897481ee44ab5081efc1a131f4ba63}
+
+
+Definition at line 90 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$command@{\$command}}
+\index{\$command@{\$command}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$command}]{\setlength{\rightskip}{0pt plus 5cm}\$command}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a8f120409eb9f635ac30b3f9a6d5becdc}
+
+
+Definition at line 20 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$description@{\$description}}
+\index{\$description@{\$description}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$description}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf description}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a87b032cba06009e3467abf1c8018d960}
+
+
+Definition at line 97 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$environments@{\$environments}}
+\index{\$environments@{\$environments}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$environments}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf environments} = [$\,$]}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aae6fe12d267521428ad1ce7f076f1438}
+
+
+Definition at line 48 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$even\+In\+Maintenance\+Mode@{\$even\+In\+Maintenance\+Mode}}
+\index{\$even\+In\+Maintenance\+Mode@{\$even\+In\+Maintenance\+Mode}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$even\+In\+Maintenance\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf even\+In\+Maintenance\+Mode} = false}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a388372b2faad7746292850903baaa0df}
+
+
+Definition at line 55 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$expression@{\$expression}}
+\index{\$expression@{\$expression}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$expression}]{\setlength{\rightskip}{0pt plus 5cm}\$expression = \textquotesingle{}$\ast$ $\ast$ $\ast$ $\ast$ $\ast$ $\ast$\textquotesingle{}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a416687e2e341b170f10d09143986bb70}
+
+
+Definition at line 27 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$filter@{\$filter}}
+\index{\$filter@{\$filter}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$filter}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf filter}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aac53bdb48bdd96ff9c20e2a86f48ce5f}
+
+
+Definition at line 69 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$output@{\$output}}
+\index{\$output@{\$output}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$output}]{\setlength{\rightskip}{0pt plus 5cm}\$output = \textquotesingle{}/{\bf dev}/null\textquotesingle{}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a73004ce9cd673c1bfafd1dc351134797}
+
+
+Definition at line 83 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$reject@{\$reject}}
+\index{\$reject@{\$reject}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$reject}]{\setlength{\rightskip}{0pt plus 5cm}\$reject\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a0d4388930507201e3a9bbe35ec39a68f}
+
+
+Definition at line 76 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$timezone@{\$timezone}}
+\index{\$timezone@{\$timezone}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$timezone}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf timezone}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_af1cceca0f6633f202e2e3eccb72912af}
+
+
+Definition at line 34 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$user@{\$user}}
+\index{\$user@{\$user}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf user}}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_a598ca4e71b15a1313ec95f0df1027ca5}
+
+
+Definition at line 41 of file Event.\+php.
+
+\index{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}!\$without\+Overlapping@{\$without\+Overlapping}}
+\index{\$without\+Overlapping@{\$without\+Overlapping}!Illuminate\+::\+Console\+::\+Scheduling\+::\+Event@{Illuminate\+::\+Console\+::\+Scheduling\+::\+Event}}
+\subsubsection[{\$without\+Overlapping}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf without\+Overlapping} = false}\label{class_illuminate_1_1_console_1_1_scheduling_1_1_event_aeb1bde35c7294acf2171cc1e0e1c4ab8}
+
+
+Definition at line 62 of file Event.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Console/\+Scheduling/{\bf Event.\+php}\end{DoxyCompactItemize}

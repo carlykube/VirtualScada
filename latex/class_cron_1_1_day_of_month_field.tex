@@ -1,0 +1,123 @@
+\section{Day\+Of\+Month\+Field Class Reference}
+\label{class_cron_1_1_day_of_month_field}\index{Day\+Of\+Month\+Field@{Day\+Of\+Month\+Field}}
+Inheritance diagram for Day\+Of\+Month\+Field\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_cron_1_1_day_of_month_field}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf is\+Satisfied\+By} (\textbackslash{}Date\+Time \$date, \$value)
+\item 
+{\bf increment} (\textbackslash{}Date\+Time \$date, \$invert=false)
+\item 
+{\bf validate} (\$value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Day of month field. Allows\+: $\ast$ , / -\/ ? L W
+
+\textquotesingle{}L\textquotesingle{} stands for \char`\"{}last\char`\"{} and specifies the last day of the month.
+
+The \textquotesingle{}W\textquotesingle{} character is used to specify the weekday (Monday-\/\+Friday) nearest the given day. As an example, if you were to specify \char`\"{}15\+W\char`\"{} as the value for the day-\/of-\/month field, the meaning is\+: \char`\"{}the nearest weekday to the 15th of the
+month\char`\"{}. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify \char`\"{}1\+W\char`\"{} as the value for day-\/of-\/month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not \textquotesingle{}jump\textquotesingle{} over the boundary of a month\textquotesingle{}s days. The \textquotesingle{}W\textquotesingle{} character can only be specified when the day-\/of-\/month is a single day, not a range or list of days.
+
+\begin{DoxyAuthor}{Author}
+Michael Dowling {\tt mtdowling@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 23 of file Day\+Of\+Month\+Field.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}!increment@{increment}}
+\index{increment@{increment}!Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}increment (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Date\+Time}]{\$date, }
+\item[{}]{\$invert = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_day_of_month_field_a6657cc11692a45f865021eaba518d200}
+When a C\+R\+O\+N expression is not satisfied, this method is used to increment or decrement a Date\+Time object by the unit of the cron field
+
+
+\begin{DoxyParams}[1]{Parameters}
+Date\+Time & {\em \$date} & Date\+Time object to change \\
+\hline
+bool & {\em \$invert} & (optional) Set to T\+R\+U\+E to decrement\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Field\+Interface}{p.}{interface_cron_1_1_field_interface} 
+\end{DoxyReturn}
+
+
+Implements {\bf Field\+Interface} \doxyref{}{p.}{interface_cron_1_1_field_interface_a6657cc11692a45f865021eaba518d200}.
+
+
+
+Definition at line 86 of file Day\+Of\+Month\+Field.\+php.
+
+\index{Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}!is\+Satisfied\+By@{is\+Satisfied\+By}}
+\index{is\+Satisfied\+By@{is\+Satisfied\+By}!Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}}
+\subsubsection[{is\+Satisfied\+By}]{\setlength{\rightskip}{0pt plus 5cm}is\+Satisfied\+By (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Date\+Time}]{\$date, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_day_of_month_field_aa239a047074eaa5b458b3ce2ac0b108b}
+Check if the respective value of a Date\+Time field satisfies a C\+R\+O\+N exp
+
+
+\begin{DoxyParams}[1]{Parameters}
+Date\+Time & {\em \$date} & Date\+Time object to check \\
+\hline
+string & {\em \$value} & C\+R\+O\+N expression to test against\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns T\+R\+U\+E if satisfied, F\+A\+L\+S\+E otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Field\+Interface} \doxyref{}{p.}{interface_cron_1_1_field_interface_aa239a047074eaa5b458b3ce2ac0b108b}.
+
+
+
+Definition at line 57 of file Day\+Of\+Month\+Field.\+php.
+
+\index{Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}!validate@{validate}}
+\index{validate@{validate}!Cron\+::\+Day\+Of\+Month\+Field@{Cron\+::\+Day\+Of\+Month\+Field}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}validate (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_day_of_month_field_a513c2ce0a04f9dee65dc4c77451a38cf}
+Validates a C\+R\+O\+N expression for a given field
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & C\+R\+O\+N expression value to validate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns T\+R\+U\+E if valid, F\+A\+L\+S\+E otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Field\+Interface} \doxyref{}{p.}{interface_cron_1_1_field_interface_a513c2ce0a04f9dee65dc4c77451a38cf}.
+
+
+
+Definition at line 99 of file Day\+Of\+Month\+Field.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/mtdowling/cron-\/expression/src/\+Cron/{\bf Day\+Of\+Month\+Field.\+php}\end{DoxyCompactItemize}

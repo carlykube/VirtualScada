@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration {
  			$table->string('name', 32);
           	$table->string('email', 320);
           	$table->string('password', 64);
+            $table->boolean('admin')->default(false);
 
             // required for Laravel 4.1.26
             $table->string('remember_token', 100)->nullable();

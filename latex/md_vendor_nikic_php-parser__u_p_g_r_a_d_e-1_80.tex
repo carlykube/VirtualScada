@@ -1,0 +1,49 @@
+\subsubsection*{\doxyref{P\+H\+P}{p.}{namespace_p_h_p} version requirements}
+
+P\+H\+P-\/\+Parser now requires \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 or newer to run. It is however still possible to {\itshape parse} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+2 source code, while running on a newer version.
+
+\subsubsection*{Move to namespaced names}
+
+The library has been moved to use namespaces with the {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}} vendor prefix. However, the old names using underscores are still available as aliases, as such most code should continue running on the new version without further changes.
+
+Old (still works, but discouraged)\+:
+
+```php \$parser = new (new ); \$pretty\+Printer = new ; ```
+
+New\+:
+
+```php \$parser = new (new \doxyref{Php\+Parser}{p.}{namespace_php_parser}); \$pretty\+Printer = new ; ```
+
+Note that the {\ttfamily P\+H\+P\+Parser} prefix was changed to {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}}. While \doxyref{P\+H\+P}{p.}{namespace_p_h_p} class names are technically case-\/insensitive, the autoloader will not be able to load {\ttfamily P\+H\+P\+Parser\textbackslash{}Parser} or other case variants.
+
+Due to conflicts with reserved keywords, some class names now end with an underscore, e.\+g. {\ttfamily P\+H\+P\+Parser\+\_\+\+Node\+\_\+\+Stmt\+\_\+\+Class} is now {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Node\textbackslash{}Stmt\textbackslash{}Class\+\_\+}. (But as usual, the old name is still available.)
+
+\subsubsection*{Changes to {\ttfamily Node\+::get\+Type()}}
+
+The {\ttfamily Node\+::get\+Type()} method continues to return names using underscores instead of namespace separators and also does not contain the trailing underscore that may be present in the class name. As such its output will not change in many cases.
+
+However, some node classes have been moved to a different namespace or renamed, which will result in a different {\ttfamily Node\+::get\+Type()} output\+:
+
+``` Expr\+\_\+\+Assign\+Bitwise\+And =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Bitwise\+And Expr\+\_\+\+Assign\+Bitwise\+Or =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Bitwise\+Or Expr\+\_\+\+Assign\+Bitwise\+Xor =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Bitwise\+Xor Expr\+\_\+\+Assign\+Concat =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Concat Expr\+\_\+\+Assign\+Div =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Div Expr\+\_\+\+Assign\+Minus =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Minus Expr\+\_\+\+Assign\+Mod =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Mod Expr\+\_\+\+Assign\+Mul =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Mul Expr\+\_\+\+Assign\+Plus =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Plus Expr\+\_\+\+Assign\+Shift\+Left =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Shift\+Left Expr\+\_\+\+Assign\+Shift\+Right =$>$ Expr\+\_\+\+Assign\+Op\+\_\+\+Shift\+Right
+
+Expr\+\_\+\+Bitwise\+And =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Bitwise\+And Expr\+\_\+\+Bitwise\+Or =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Bitwise\+Or Expr\+\_\+\+Bitwise\+Xor =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Bitwise\+Xor Expr\+\_\+\+Boolean\+And =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Boolean\+And Expr\+\_\+\+Boolean\+Or =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Boolean\+Or Expr\+\_\+\+Concat =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Concat Expr\+\_\+\+Div =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Div Expr\+\_\+\+Equal =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Equal Expr\+\_\+\+Greater =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Greater Expr\+\_\+\+Greater\+Or\+Equal =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Greater\+Or\+Equal Expr\+\_\+\+Identical =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Identical Expr\+\_\+\+Logical\+And =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Logical\+And Expr\+\_\+\+Logical\+Or =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Logical\+Or Expr\+\_\+\+Logical\+Xor =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Logical\+Xor Expr\+\_\+\+Minus =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Minus Expr\+\_\+\+Mod =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Mod Expr\+\_\+\+Mul =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Mul Expr\+\_\+\+Not\+Equal =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Not\+Equal Expr\+\_\+\+Not\+Identical =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Not\+Identical Expr\+\_\+\+Plus =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Plus Expr\+\_\+\+Shift\+Left =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Shift\+Left Expr\+\_\+\+Shift\+Right =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Shift\+Right Expr\+\_\+\+Smaller =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Smaller Expr\+\_\+\+Smaller\+Or\+Equal =$>$ Expr\+\_\+\+Binary\+Op\+\_\+\+Smaller\+Or\+Equal
+
+Scalar\+\_\+\+Class\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Class Scalar\+\_\+\+Dir\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Dir Scalar\+\_\+\+File\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+File Scalar\+\_\+\+Func\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Function Scalar\+\_\+\+Line\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Line Scalar\+\_\+\+Method\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Method Scalar\+\_\+\+N\+S\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Namespace Scalar\+\_\+\+Trait\+Const =$>$ Scalar\+\_\+\+Magic\+Const\+\_\+\+Trait ```
+
+These changes may affect custom pretty printers and code comparing the return value of {\ttfamily Node\+::get\+Type()} to specific strings.
+
+\subsubsection*{Miscellaneous}
+
+
+\begin{DoxyItemize}
+\item The classes {\ttfamily \doxyref{Template}{p.}{namespace_template}} and {\ttfamily Template\+Loader} have been removed. You should use some other {\tt code generation} project built on top of P\+H\+P-\/\+Parser instead.
+\item The {\ttfamily Pretty\+Printer\+Abstract\+::p\+Stmts()} method now emits a leading newline if the statement list is not empty. Custom pretty printers should remove the explicit newline before {\ttfamily p\+Stmts()} calls.
+
+Old\+:
+
+```php public function p\+Stmt\+\_\+\+Trait(P\+H\+P\+Parser\+\_\+\+Node\+\_\+\+Stmt\+\_\+\+Trait \$node) \{ return \textquotesingle{}trait \textquotesingle{} . \$node-\/$>$name . \char`\"{}\textbackslash{}n\char`\"{} . \textquotesingle{}\{\textquotesingle{} . \char`\"{}\textbackslash{}n\char`\"{} . \$this-\/$>$p\+Stmts(\$node-\/$>$stmts) . \char`\"{}\textbackslash{}n\char`\"{} . \textquotesingle{}\}\textquotesingle{}; \} ```
+
+New\+:
+
+```php public function p\+Stmt\+\_\+\+Trait(Stmt \$node) \{ return \textquotesingle{}trait \textquotesingle{} . \$node-\/$>$name . \char`\"{}\textbackslash{}n\char`\"{} . \textquotesingle{}\{\textquotesingle{} . \$this-\/$>$p\+Stmts(\$node-\/$>$stmts) . \char`\"{}\textbackslash{}n\char`\"{} . \textquotesingle{}\}\textquotesingle{}; \} ``` 
+\end{DoxyItemize}

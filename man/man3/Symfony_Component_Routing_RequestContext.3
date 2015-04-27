@@ -1,0 +1,443 @@
+.TH "RequestContext" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RequestContext \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($baseUrl= '', $method= 'GET', $host= 'localhost', $scheme= 'http', $httpPort=80, $httpsPort=443, $\fBpath\fP= '/', $queryString= '')"
+.br
+.ti -1c
+.RI "\fBfromRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetBaseUrl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBaseUrl\fP ($baseUrl)"
+.br
+.ti -1c
+.RI "\fBgetPathInfo\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPathInfo\fP ($pathInfo)"
+.br
+.ti -1c
+.RI "\fBgetMethod\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMethod\fP ($method)"
+.br
+.ti -1c
+.RI "\fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($host)"
+.br
+.ti -1c
+.RI "\fBgetScheme\fP ()"
+.br
+.ti -1c
+.RI "\fBsetScheme\fP ($scheme)"
+.br
+.ti -1c
+.RI "\fBgetHttpPort\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHttpPort\fP ($httpPort)"
+.br
+.ti -1c
+.RI "\fBgetHttpsPort\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHttpsPort\fP ($httpsPort)"
+.br
+.ti -1c
+.RI "\fBgetQueryString\fP ()"
+.br
+.ti -1c
+.RI "\fBsetQueryString\fP ($queryString)"
+.br
+.ti -1c
+.RI "\fBgetParameters\fP ()"
+.br
+.ti -1c
+.RI "\fBsetParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBgetParameter\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBhasParameter\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetParameter\fP ($\fBname\fP, $parameter)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Holds information about the current request\&.
+.PP
+This class implements a fluent interface\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+
+.PP
+Definition at line 26 of file RequestContext\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $baseUrl = \fC''\fP,  $method = \fC'GET'\fP,  $host = \fC'localhost'\fP,  $scheme = \fC'http'\fP,  $httpPort = \fC80\fP,  $httpsPort = \fC443\fP,  $path = \fC'/'\fP,  $queryString = \fC''\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$baseUrl\fP The base \fBURL\fP 
+.br
+\fI$method\fP The HTTP method 
+.br
+\fI$host\fP The HTTP host name 
+.br
+\fI$scheme\fP The HTTP scheme 
+.br
+\fI$httpPort\fP The HTTP port 
+.br
+\fI$httpsPort\fP The HTTPS port 
+.br
+\fI$path\fP The path 
+.br
+\fI$queryString\fP The query string
+.RE
+.PP
+
+.PP
+Definition at line 56 of file RequestContext\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "fromRequest (\fBRequest\fP $request)"
+Updates the \fBRequestContext\fP information based on a \fBHttpFoundation\fP \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file RequestContext\&.php\&.
+.SS "getBaseUrl ()"
+Gets the base \fBURL\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The base \fBURL\fP 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file RequestContext\&.php\&.
+.SS "getHost ()"
+Gets the HTTP host\&.
+.PP
+The host is always lowercased because it must be treated case-insensitive\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP host 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file RequestContext\&.php\&.
+.SS "getHttpPort ()"
+Gets the HTTP port\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The HTTP port 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file RequestContext\&.php\&.
+.SS "getHttpsPort ()"
+Gets the HTTPS port\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The HTTPS port 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file RequestContext\&.php\&.
+.SS "getMethod ()"
+Gets the HTTP method\&.
+.PP
+The method is always an uppercased string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP method 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file RequestContext\&.php\&.
+.SS "getParameter ( $name)"
+Gets a parameter value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP parameter name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The parameter value or null if nonexistent 
+.RE
+.PP
+
+.PP
+Definition at line 331 of file RequestContext\&.php\&.
+.SS "getParameters ()"
+Returns the parameters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The parameters 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file RequestContext\&.php\&.
+.SS "getPathInfo ()"
+Gets the path info\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The path info 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file RequestContext\&.php\&.
+.SS "getQueryString ()"
+Gets the query string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The query string without the '?' 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file RequestContext\&.php\&.
+.SS "getScheme ()"
+Gets the HTTP scheme\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP scheme 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file RequestContext\&.php\&.
+.SS "hasParameter ( $name)"
+Checks if a parameter value is set for the given parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP parameter name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the parameter value is set, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file RequestContext\&.php\&.
+.SS "setBaseUrl ( $baseUrl)"
+Sets the base \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$baseUrl\fP The base \fBURL\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 108 of file RequestContext\&.php\&.
+.SS "setHost ( $host)"
+Sets the HTTP host\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP The HTTP host
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 188 of file RequestContext\&.php\&.
+.SS "setHttpPort ( $httpPort)"
+Sets the HTTP port\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$httpPort\fP The HTTP port
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 240 of file RequestContext\&.php\&.
+.SS "setHttpsPort ( $httpsPort)"
+Sets the HTTPS port\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$httpsPort\fP The HTTPS port
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 266 of file RequestContext\&.php\&.
+.SS "setMethod ( $method)"
+Sets the HTTP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP The HTTP method
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 160 of file RequestContext\&.php\&.
+.SS "setParameter ( $name,  $parameter)"
+Sets a parameter value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP parameter name 
+.br
+\fI$parameter\fP The parameter value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 358 of file RequestContext\&.php\&.
+.SS "setParameters (array $parameters)"
+Sets the parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP The parameters
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file RequestContext\&.php\&.
+.SS "setPathInfo ( $pathInfo)"
+Sets the path info\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pathInfo\fP The path info
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file RequestContext\&.php\&.
+.SS "setQueryString ( $queryString)"
+Sets the query string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queryString\fP The query string (after '?')
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 292 of file RequestContext\&.php\&.
+.SS "setScheme ( $scheme)"
+Sets the HTTP scheme\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scheme\fP The HTTP scheme
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequestContext\fP The current instance, implementing a fluent interface
+.RE
+.PP
+
+.PP
+Definition at line 214 of file RequestContext\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

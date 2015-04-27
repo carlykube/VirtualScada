@@ -1,0 +1,48 @@
+Utility class for timing things, factored out of \doxyref{P\+H\+P\+Unit}{p.}{namespace_p_h_p_unit} into a stand-\/alone component.
+
+\subsection*{Installation}
+
+You can use the {\tt P\+E\+A\+R Installer} or {\tt Composer} to download and install this package as well as its dependencies.
+
+\subsubsection*{P\+E\+A\+R Installer}
+
+The following two commands (which you may have to run as {\ttfamily root}) are all that is required to install this package using the P\+E\+A\+R Installer\+: \begin{DoxyVerb}pear config-set auto_discover 1
+pear install pear.phpunit.de/PHP_Timer
+\end{DoxyVerb}
+
+
+\subsubsection*{\doxyref{Composer}{p.}{namespace_composer}}
+
+To add this package as a local, per-\/project dependency to your project, simply add a dependency on {\ttfamily phpunit/php-\/timer} to your project\textquotesingle{}s {\ttfamily composer.\+json} file. Here is a minimal example of a {\ttfamily composer.\+json} file that just defines a dependency on \doxyref{P\+H\+P\+\_\+\+Timer}{p.}{class_p_h_p___timer}\+: \begin{DoxyVerb}{
+    "require": {
+        "phpunit/php-timer": "*"
+    }
+}
+\end{DoxyVerb}
+
+
+\subsubsection*{Usage}
+
+\paragraph*{Basic Timing}
+
+```php \doxyref{P\+H\+P\+\_\+\+Timer\+::start()}{p.}{class_p_h_p___timer_a146085d0f3a9d17bdcd7f3d4081d8c0d};
+
+\$timer-\/$>$start();
+
+// ...
+
+\$time = \doxyref{P\+H\+P\+\_\+\+Timer\+::stop()}{p.}{class_p_h_p___timer_a00c3c0c2fc53579e9d1ac28a52623450}; var\+\_\+dump(\$time);
+
+print \doxyref{P\+H\+P\+\_\+\+Timer\+::seconds\+To\+Time\+String}{p.}{class_p_h_p___timer_a953a729d77565c65fae1c2db93bd7566}(\$time); ```
+
+The code above yields the output below\+: \begin{DoxyVerb}double(1.0967254638672E-5)
+0 ms
+\end{DoxyVerb}
+
+
+\paragraph*{Resource Consumption Since \doxyref{P\+H\+P}{p.}{namespace_p_h_p} Startup}
+
+```php print \doxyref{P\+H\+P\+\_\+\+Timer\+::resource\+Usage()}{p.}{class_p_h_p___timer_a0497d98146ffede423c66e0c3dc401c8}; ```
+
+The code above yields the output below\+: \begin{DoxyVerb}Time: 0 ms, Memory: 0.50Mb\end{DoxyVerb}
+ 

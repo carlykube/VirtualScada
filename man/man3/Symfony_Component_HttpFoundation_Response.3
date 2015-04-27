@@ -1,0 +1,1905 @@
+.TH "Response" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Response \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBResponse\fP, \fBResponse\fP, \fBBinaryFileResponse\fP, \fBJsonResponse\fP, \fBRedirectResponse\fP, and \fBStreamedResponse\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($content= '', $status=200, $headers=array())"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.ti -1c
+.RI "\fBprepare\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBsendHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBsendContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContent\fP ($content)"
+.br
+.ti -1c
+.RI "\fBgetContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetProtocolVersion\fP ($\fBversion\fP)"
+.br
+.ti -1c
+.RI "\fBgetProtocolVersion\fP ()"
+.br
+.ti -1c
+.RI "\fBsetStatusCode\fP ($code, $\fBtext\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetStatusCode\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCharset\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBgetCharset\fP ()"
+.br
+.ti -1c
+.RI "\fBisCacheable\fP ()"
+.br
+.ti -1c
+.RI "\fBisFresh\fP ()"
+.br
+.ti -1c
+.RI "\fBisValidateable\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPrivate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPublic\fP ()"
+.br
+.ti -1c
+.RI "\fBmustRevalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDate\fP (\\DateTime $date)"
+.br
+.ti -1c
+.RI "\fBgetAge\fP ()"
+.br
+.ti -1c
+.RI "\fBexpire\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpires\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExpires\fP (\\DateTime $date=null)"
+.br
+.ti -1c
+.RI "\fBgetMaxAge\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMaxAge\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetSharedMaxAge\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetTtl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTtl\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBsetClientTtl\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBgetLastModified\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLastModified\fP (\\DateTime $date=null)"
+.br
+.ti -1c
+.RI "\fBgetEtag\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEtag\fP ($etag=null, $weak=false)"
+.br
+.ti -1c
+.RI "\fBsetCache\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetNotModified\fP ()"
+.br
+.ti -1c
+.RI "\fBhasVary\fP ()"
+.br
+.ti -1c
+.RI "\fBgetVary\fP ()"
+.br
+.ti -1c
+.RI "\fBsetVary\fP ($headers, $replace=true)"
+.br
+.ti -1c
+.RI "\fBisNotModified\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBisInvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBisInformational\fP ()"
+.br
+.ti -1c
+.RI "\fBisSuccessful\fP ()"
+.br
+.ti -1c
+.RI "\fBisRedirection\fP ()"
+.br
+.ti -1c
+.RI "\fBisClientError\fP ()"
+.br
+.ti -1c
+.RI "\fBisServerError\fP ()"
+.br
+.ti -1c
+.RI "\fBisOk\fP ()"
+.br
+.ti -1c
+.RI "\fBisForbidden\fP ()"
+.br
+.ti -1c
+.RI "\fBisNotFound\fP ()"
+.br
+.ti -1c
+.RI "\fBisRedirect\fP ($location=null)"
+.br
+.ti -1c
+.RI "\fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($content= '', $status=200, $headers=array())"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.ti -1c
+.RI "\fBprepare\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBsendHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBsendContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContent\fP ($content)"
+.br
+.ti -1c
+.RI "\fBgetContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetProtocolVersion\fP ($\fBversion\fP)"
+.br
+.ti -1c
+.RI "\fBgetProtocolVersion\fP ()"
+.br
+.ti -1c
+.RI "\fBsetStatusCode\fP ($code, $\fBtext\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetStatusCode\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCharset\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBgetCharset\fP ()"
+.br
+.ti -1c
+.RI "\fBisCacheable\fP ()"
+.br
+.ti -1c
+.RI "\fBisFresh\fP ()"
+.br
+.ti -1c
+.RI "\fBisValidateable\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPrivate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPublic\fP ()"
+.br
+.ti -1c
+.RI "\fBmustRevalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDate\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDate\fP (\\DateTime $date)"
+.br
+.ti -1c
+.RI "\fBgetAge\fP ()"
+.br
+.ti -1c
+.RI "\fBexpire\fP ()"
+.br
+.ti -1c
+.RI "\fBgetExpires\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExpires\fP (\\DateTime $date=null)"
+.br
+.ti -1c
+.RI "\fBgetMaxAge\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMaxAge\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetSharedMaxAge\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetTtl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTtl\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBsetClientTtl\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBgetLastModified\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLastModified\fP (\\DateTime $date=null)"
+.br
+.ti -1c
+.RI "\fBgetEtag\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEtag\fP ($etag=null, $weak=false)"
+.br
+.ti -1c
+.RI "\fBsetCache\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetNotModified\fP ()"
+.br
+.ti -1c
+.RI "\fBhasVary\fP ()"
+.br
+.ti -1c
+.RI "\fBgetVary\fP ()"
+.br
+.ti -1c
+.RI "\fBsetVary\fP ($headers, $replace=true)"
+.br
+.ti -1c
+.RI "\fBisNotModified\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBisInvalid\fP ()"
+.br
+.ti -1c
+.RI "\fBisInformational\fP ()"
+.br
+.ti -1c
+.RI "\fBisSuccessful\fP ()"
+.br
+.ti -1c
+.RI "\fBisRedirection\fP ()"
+.br
+.ti -1c
+.RI "\fBisClientError\fP ()"
+.br
+.ti -1c
+.RI "\fBisServerError\fP ()"
+.br
+.ti -1c
+.RI "\fBisOk\fP ()"
+.br
+.ti -1c
+.RI "\fBisForbidden\fP ()"
+.br
+.ti -1c
+.RI "\fBisNotFound\fP ()"
+.br
+.ti -1c
+.RI "\fBisRedirect\fP ($location=null)"
+.br
+.ti -1c
+.RI "\fBisEmpty\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP ($content= '', $status=200, $headers=array())"
+.br
+.ti -1c
+.RI "static \fBcloseOutputBuffers\fP ($targetLevel, $\fBflush\fP)"
+.br
+.ti -1c
+.RI "static \fBcreate\fP ($content= '', $status=200, $headers=array())"
+.br
+.ti -1c
+.RI "static \fBcloseOutputBuffers\fP ($targetLevel, $\fBflush\fP)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBHTTP_CONTINUE\fP = 100"
+.br
+.ti -1c
+.RI "const \fBHTTP_SWITCHING_PROTOCOLS\fP = 101"
+.br
+.ti -1c
+.RI "const \fBHTTP_PROCESSING\fP = 102"
+.br
+.ti -1c
+.RI "const \fBHTTP_OK\fP = 200"
+.br
+.ti -1c
+.RI "const \fBHTTP_CREATED\fP = 201"
+.br
+.ti -1c
+.RI "const \fBHTTP_ACCEPTED\fP = 202"
+.br
+.ti -1c
+.RI "const \fBHTTP_NON_AUTHORITATIVE_INFORMATION\fP = 203"
+.br
+.ti -1c
+.RI "const \fBHTTP_NO_CONTENT\fP = 204"
+.br
+.ti -1c
+.RI "const \fBHTTP_RESET_CONTENT\fP = 205"
+.br
+.ti -1c
+.RI "const \fBHTTP_PARTIAL_CONTENT\fP = 206"
+.br
+.ti -1c
+.RI "const \fBHTTP_MULTI_STATUS\fP = 207"
+.br
+.ti -1c
+.RI "const \fBHTTP_ALREADY_REPORTED\fP = 208"
+.br
+.ti -1c
+.RI "const \fBHTTP_IM_USED\fP = 226"
+.br
+.ti -1c
+.RI "const \fBHTTP_MULTIPLE_CHOICES\fP = 300"
+.br
+.ti -1c
+.RI "const \fBHTTP_MOVED_PERMANENTLY\fP = 301"
+.br
+.ti -1c
+.RI "const \fBHTTP_FOUND\fP = 302"
+.br
+.ti -1c
+.RI "const \fBHTTP_SEE_OTHER\fP = 303"
+.br
+.ti -1c
+.RI "const \fBHTTP_NOT_MODIFIED\fP = 304"
+.br
+.ti -1c
+.RI "const \fBHTTP_USE_PROXY\fP = 305"
+.br
+.ti -1c
+.RI "const \fBHTTP_RESERVED\fP = 306"
+.br
+.ti -1c
+.RI "const \fBHTTP_TEMPORARY_REDIRECT\fP = 307"
+.br
+.ti -1c
+.RI "const \fBHTTP_PERMANENTLY_REDIRECT\fP = 308"
+.br
+.ti -1c
+.RI "const \fBHTTP_BAD_REQUEST\fP = 400"
+.br
+.ti -1c
+.RI "const \fBHTTP_UNAUTHORIZED\fP = 401"
+.br
+.ti -1c
+.RI "const \fBHTTP_PAYMENT_REQUIRED\fP = 402"
+.br
+.ti -1c
+.RI "const \fBHTTP_FORBIDDEN\fP = 403"
+.br
+.ti -1c
+.RI "const \fBHTTP_NOT_FOUND\fP = 404"
+.br
+.ti -1c
+.RI "const \fBHTTP_METHOD_NOT_ALLOWED\fP = 405"
+.br
+.ti -1c
+.RI "const \fBHTTP_NOT_ACCEPTABLE\fP = 406"
+.br
+.ti -1c
+.RI "const \fBHTTP_PROXY_AUTHENTICATION_REQUIRED\fP = 407"
+.br
+.ti -1c
+.RI "const \fBHTTP_REQUEST_TIMEOUT\fP = 408"
+.br
+.ti -1c
+.RI "const \fBHTTP_CONFLICT\fP = 409"
+.br
+.ti -1c
+.RI "const \fBHTTP_GONE\fP = 410"
+.br
+.ti -1c
+.RI "const \fBHTTP_LENGTH_REQUIRED\fP = 411"
+.br
+.ti -1c
+.RI "const \fBHTTP_PRECONDITION_FAILED\fP = 412"
+.br
+.ti -1c
+.RI "const \fBHTTP_REQUEST_ENTITY_TOO_LARGE\fP = 413"
+.br
+.ti -1c
+.RI "const \fBHTTP_REQUEST_URI_TOO_LONG\fP = 414"
+.br
+.ti -1c
+.RI "const \fBHTTP_UNSUPPORTED_MEDIA_TYPE\fP = 415"
+.br
+.ti -1c
+.RI "const \fBHTTP_REQUESTED_RANGE_NOT_SATISFIABLE\fP = 416"
+.br
+.ti -1c
+.RI "const \fBHTTP_EXPECTATION_FAILED\fP = 417"
+.br
+.ti -1c
+.RI "const \fBHTTP_I_AM_A_TEAPOT\fP = 418"
+.br
+.ti -1c
+.RI "const \fBHTTP_UNPROCESSABLE_ENTITY\fP = 422"
+.br
+.ti -1c
+.RI "const \fBHTTP_LOCKED\fP = 423"
+.br
+.ti -1c
+.RI "const \fBHTTP_FAILED_DEPENDENCY\fP = 424"
+.br
+.ti -1c
+.RI "const \fBHTTP_RESERVED_FOR_WEBDAV_ADVANCED_COLLECTIONS_EXPIRED_PROPOSAL\fP = 425"
+.br
+.ti -1c
+.RI "const \fBHTTP_UPGRADE_REQUIRED\fP = 426"
+.br
+.ti -1c
+.RI "const \fBHTTP_PRECONDITION_REQUIRED\fP = 428"
+.br
+.ti -1c
+.RI "const \fBHTTP_TOO_MANY_REQUESTS\fP = 429"
+.br
+.ti -1c
+.RI "const \fBHTTP_REQUEST_HEADER_FIELDS_TOO_LARGE\fP = 431"
+.br
+.ti -1c
+.RI "const \fBHTTP_INTERNAL_SERVER_ERROR\fP = 500"
+.br
+.ti -1c
+.RI "const \fBHTTP_NOT_IMPLEMENTED\fP = 501"
+.br
+.ti -1c
+.RI "const \fBHTTP_BAD_GATEWAY\fP = 502"
+.br
+.ti -1c
+.RI "const \fBHTTP_SERVICE_UNAVAILABLE\fP = 503"
+.br
+.ti -1c
+.RI "const \fBHTTP_GATEWAY_TIMEOUT\fP = 504"
+.br
+.ti -1c
+.RI "const \fBHTTP_VERSION_NOT_SUPPORTED\fP = 505"
+.br
+.ti -1c
+.RI "const \fBHTTP_VARIANT_ALSO_NEGOTIATES_EXPERIMENTAL\fP = 506"
+.br
+.ti -1c
+.RI "const \fBHTTP_INSUFFICIENT_STORAGE\fP = 507"
+.br
+.ti -1c
+.RI "const \fBHTTP_LOOP_DETECTED\fP = 508"
+.br
+.ti -1c
+.RI "const \fBHTTP_NOT_EXTENDED\fP = 510"
+.br
+.ti -1c
+.RI "const \fBHTTP_NETWORK_AUTHENTICATION_REQUIRED\fP = 511"
+.br
+.ti -1c
+.RI "\fB$headers\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$statusTexts\fP = array(100 => 'Continue', 101 => 'Switching Protocols', 102 => 'Processing', 200 => 'OK', 201 => 'Created', 202 => 'Accepted', 203 => 'Non-Authoritative Information', 204 => '\fBNo\fP Content', 205 => 'Reset Content', 206 => 'Partial Content', 207 => 'Multi-Status', 208 => 'Already Reported', 226 => 'IM Used', 300 => 'Multiple Choices', 301 => 'Moved Permanently', 302 => 'Found', 303 => 'See Other', 304 => 'Not Modified', 305 => 'Use Proxy', 306 => 'Reserved', 307 => 'Temporary \fBRedirect\fP', 308 => 'Permanent \fBRedirect\fP', 400 => 'Bad \fBRequest\fP', 401 => 'Unauthorized', 402 => 'Payment Required', 403 => 'Forbidden', 404 => 'Not Found', 405 => 'Method Not Allowed', 406 => 'Not Acceptable', 407 => 'Proxy Authentication Required', 408 => '\fBRequest\fP Timeout', 409 => 'Conflict', 410 => 'Gone', 411 => 'Length Required', 412 => 'Precondition Failed', 413 => '\fBRequest\fP Entity Too Large', 414 => '\fBRequest\fP-URI Too Long', 415 => 'Unsupported Media Type', 416 => 'Requested Range Not Satisfiable', 417 => 'Expectation Failed', 418 => 'I\\'m \fBa\fP teapot', 422 => 'Unprocessable Entity', 423 => 'Locked', 424 => 'Failed Dependency', 425 => 'Reserved \fBfor\fP WebDAV advanced collections expired proposal', 426 => 'Upgrade Required', 428 => 'Precondition Required', 429 => 'Too Many Requests', 431 => '\fBRequest\fP Header Fields Too Large', 500 => 'Internal Server \fBError\fP', 501 => 'Not Implemented', 502 => 'Bad Gateway', 503 => 'Service Unavailable', 504 => 'Gateway Timeout', 505 => 'HTTP Version Not Supported', 506 => 'Variant Also Negotiates (Experimental)', 507 => 'Insufficient Storage', 508 => 'Loop Detected', 510 => 'Not Extended', 511 => 'Network Authentication Required')"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBensureIEOverSSLCompatibility\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBensureIEOverSSLCompatibility\fP (\fBRequest\fP $request)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$content\fP"
+.br
+.ti -1c
+.RI "\fB$version\fP"
+.br
+.ti -1c
+.RI "\fB$statusCode\fP"
+.br
+.ti -1c
+.RI "\fB$statusText\fP"
+.br
+.ti -1c
+.RI "\fB$charset\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBResponse\fP represents an HTTP response\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 14141 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $content = \fC''\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)"
+
+.PP
+Definition at line 14210 of file compiled\&.php\&.
+.SS "__construct ( $content = \fC''\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$content\fP The response content, see \fBsetContent()\fP 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 199 of file Response\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+Clones the current \fBResponse\fP instance\&. 
+.PP
+Definition at line 251 of file Response\&.php\&.
+.SS "__clone ()"
+
+.PP
+Definition at line 14230 of file compiled\&.php\&.
+.SS "__toString ()"
+Returns the \fBResponse\fP as an HTTP string\&.
+.PP
+The string representation of the \fBResponse\fP is the same as the one that will be sent to the client only if the \fBprepare()\fP method has been called before\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The \fBResponse\fP as an HTTP string
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBprepare()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file Response\&.php\&.
+.SS "__toString ()"
+
+.PP
+Definition at line 14224 of file compiled\&.php\&.
+.SS "static closeOutputBuffers ( $targetLevel,  $flush)\fC [static]\fP"
+Cleans or flushes output buffers up to target level\&.
+.PP
+Resulting level can be greater than target level if a non-removable buffer has been encountered\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$targetLevel\fP The target output buffering level 
+.br
+\fI$flush\fP Whether to flush or clean the buffers 
+.RE
+.PP
+
+.PP
+Definition at line 1241 of file Response\&.php\&.
+.SS "static closeOutputBuffers ( $targetLevel,  $flush)\fC [static]\fP"
+
+.PP
+Definition at line 14630 of file compiled\&.php\&.
+.SS "static create ( $content = \fC''\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)\fC [static]\fP"
+Factory method for chainability\&.
+.PP
+Example: 
+.PP
+.nf
+return Response::create($body, 200)
+    ->setSharedMaxAge(300);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$content\fP The response content, see \fBsetContent()\fP 
+.br
+\fI$status\fP The response status code 
+.br
+\fI$headers\fP An array of response headers
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 224 of file Response\&.php\&.
+.SS "static create ( $content = \fC''\fP,  $status = \fC200\fP,  $headers = \fCarray()\fP)\fC [static]\fP"
+
+.PP
+Definition at line 14220 of file compiled\&.php\&.
+.SS "ensureIEOverSSLCompatibility (\fBRequest\fP $request)\fC [protected]\fP"
+Checks if we need to remove Cache-Control for SSL encrypted downloads when using IE < 9\&.
+.PP
+\fBhttp://support\&.microsoft\&.com/kb/323308\fP
+.PP
+Definition at line 1267 of file Response\&.php\&.
+.SS "ensureIEOverSSLCompatibility (\fBRequest\fP $request)\fC [protected]\fP"
+
+.PP
+Definition at line 14642 of file compiled\&.php\&.
+.SS "expire ()"
+Marks the response stale by setting the Age header to be equal to the maximum age of the response\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 688 of file Response\&.php\&.
+.SS "expire ()"
+
+.PP
+Definition at line 14409 of file compiled\&.php\&.
+.SS "getAge ()"
+Returns the age of the response\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The age of the response in seconds 
+.RE
+.PP
+
+.PP
+Definition at line 672 of file Response\&.php\&.
+.SS "getAge ()"
+
+.PP
+Definition at line 14402 of file compiled\&.php\&.
+.SS "getCharset ()"
+Retrieves the response charset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Character set
+.RE
+.PP
+
+.PP
+Definition at line 525 of file Response\&.php\&.
+.SS "getCharset ()"
+
+.PP
+Definition at line 14354 of file compiled\&.php\&.
+.SS "getContent ()"
+Gets the current response content\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Content
+.RE
+.PP
+
+.PP
+Definition at line 418 of file Response\&.php\&.
+.SS "getContent ()"
+
+.PP
+Definition at line 14315 of file compiled\&.php\&.
+.SS "getDate ()"
+Returns the Date header as a DateTime instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBA\fP  instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 645 of file Response\&.php\&.
+.SS "getDate ()"
+
+.PP
+Definition at line 14392 of file compiled\&.php\&.
+.SS "getEtag ()"
+Returns the literal value of the ETag HTTP header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The ETag HTTP header or null if it does not exist
+.RE
+.PP
+
+.PP
+Definition at line 901 of file Response\&.php\&.
+.SS "getEtag ()"
+
+.PP
+Definition at line 14489 of file compiled\&.php\&.
+.SS "getExpires ()"
+Returns the value of the Expires header as a DateTime instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|null \fBA\fP DateTime instance or null if the header does not exist
+.RE
+.PP
+
+.PP
+Definition at line 704 of file Response\&.php\&.
+.SS "getExpires ()"
+
+.PP
+Definition at line 14416 of file compiled\&.php\&.
+.SS "getLastModified ()"
+Returns the Last-Modified HTTP header as a DateTime instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|null \fBA\fP DateTime instance or null if the header does not exist
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 865 of file Response\&.php\&.
+.SS "getLastModified ()"
+
+.PP
+Definition at line 14474 of file compiled\&.php\&.
+.SS "getMaxAge ()"
+Returns the number of seconds after the time specified in the response's Date header when the response should no longer be considered fresh\&.
+.PP
+First, it checks for a s-maxage directive, then a max-age directive, and then it falls back on an expires header\&. It returns null when no maximum age can be established\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null Number of seconds
+.RE
+.PP
+
+.PP
+Definition at line 749 of file Response\&.php\&.
+.SS "getMaxAge ()"
+
+.PP
+Definition at line 14435 of file compiled\&.php\&.
+.SS "getProtocolVersion ()"
+Gets the HTTP protocol version\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP protocol version
+.RE
+.PP
+
+.PP
+Definition at line 446 of file Response\&.php\&.
+.SS "getProtocolVersion ()"
+
+.PP
+Definition at line 14324 of file compiled\&.php\&.
+.SS "getStatusCode ()"
+Retrieves the status code for the current web response\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int Status code
+.RE
+.PP
+
+.PP
+Definition at line 497 of file Response\&.php\&.
+.SS "getStatusCode ()"
+
+.PP
+Definition at line 14345 of file compiled\&.php\&.
+.SS "getTtl ()"
+Returns the response's time-to-live in seconds\&.
+.PP
+It returns null when no freshness information is present in the response\&.
+.PP
+When the responses TTL is <= 0, the response may not be served from cache without first revalidating with the origin\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null The TTL in seconds
+.RE
+.PP
+
+.PP
+Definition at line 813 of file Response\&.php\&.
+.SS "getTtl ()"
+
+.PP
+Definition at line 14458 of file compiled\&.php\&.
+.SS "getVary ()"
+Returns an array of header names given in the Vary header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of Vary names
+.RE
+.PP
+
+.PP
+Definition at line 1029 of file Response\&.php\&.
+.SS "getVary ()"
+
+.PP
+Definition at line 14551 of file compiled\&.php\&.
+.SS "hasVary ()"
+Returns true if the response includes a Vary header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the response includes a Vary header, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 1017 of file Response\&.php\&.
+.SS "hasVary ()"
+
+.PP
+Definition at line 14547 of file compiled\&.php\&.
+.SS "isCacheable ()"
+Returns true if the response is worth caching under any circumstance\&.
+.PP
+Responses marked 'private' with an explicit Cache-Control directive are considered uncacheable\&.
+.PP
+Responses with neither a freshness lifetime (Expires, max-age) nor cache validator (Last-Modified, ETag) are considered uncacheable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the response is worth caching, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 543 of file Response\&.php\&.
+.SS "isCacheable ()"
+
+.PP
+Definition at line 14358 of file compiled\&.php\&.
+.SS "isClientError ()"
+Is there a client error?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1154 of file Response\&.php\&.
+.SS "isClientError ()"
+
+.PP
+Definition at line 14602 of file compiled\&.php\&.
+.SS "isEmpty ()"
+Is the response empty?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1228 of file Response\&.php\&.
+.SS "isEmpty ()"
+
+.PP
+Definition at line 14626 of file compiled\&.php\&.
+.SS "isForbidden ()"
+Is the response forbidden?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1190 of file Response\&.php\&.
+.SS "isForbidden ()"
+
+.PP
+Definition at line 14614 of file compiled\&.php\&.
+.SS "isFresh ()"
+Returns true if the response is 'fresh'\&.
+.PP
+Fresh responses may be served from cache without any interaction with the origin\&. \fBA\fP response is considered fresh when it includes a Cache-Control/max-age indicator or Expires header and the calculated age is less than the freshness lifetime\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the response is fresh, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 567 of file Response\&.php\&.
+.SS "isFresh ()"
+
+.PP
+Definition at line 14368 of file compiled\&.php\&.
+.SS "isInformational ()"
+Is response informative?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1118 of file Response\&.php\&.
+.SS "isInformational ()"
+
+.PP
+Definition at line 14590 of file compiled\&.php\&.
+.SS "isInvalid ()"
+Is response invalid?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1106 of file Response\&.php\&.
+.SS "isInvalid ()"
+
+.PP
+Definition at line 14586 of file compiled\&.php\&.
+.SS "isNotFound ()"
+Is the response a not found error?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1202 of file Response\&.php\&.
+.SS "isNotFound ()"
+
+.PP
+Definition at line 14618 of file compiled\&.php\&.
+.SS "isNotModified (\fBRequest\fP $request)"
+Determines if the \fBResponse\fP validators (ETag, Last-Modified) match a conditional value specified in the \fBRequest\fP\&.
+.PP
+If the \fBResponse\fP is not modified, it sets the status code to 304 and removes the actual content by calling the \fBsetNotModified()\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBResponse\fP validators match the \fBRequest\fP, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 1073 of file Response\&.php\&.
+.SS "isNotModified (\fBRequest\fP $request)"
+
+.PP
+Definition at line 14567 of file compiled\&.php\&.
+.SS "isOk ()"
+Is the response OK?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1178 of file Response\&.php\&.
+.SS "isOk ()"
+
+.PP
+Definition at line 14610 of file compiled\&.php\&.
+.SS "isRedirect ( $location = \fCnull\fP)"
+Is the response a redirect of some form?
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$location\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1216 of file Response\&.php\&.
+.SS "isRedirect ( $location = \fCnull\fP)"
+
+.PP
+Definition at line 14622 of file compiled\&.php\&.
+.SS "isRedirection ()"
+Is the response a redirect?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1142 of file Response\&.php\&.
+.SS "isRedirection ()"
+
+.PP
+Definition at line 14598 of file compiled\&.php\&.
+.SS "isServerError ()"
+Was there a server side error?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1166 of file Response\&.php\&.
+.SS "isServerError ()"
+
+.PP
+Definition at line 14606 of file compiled\&.php\&.
+.SS "isSuccessful ()"
+Is response successful?
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+
+.PP
+Definition at line 1130 of file Response\&.php\&.
+.SS "isSuccessful ()"
+
+.PP
+Definition at line 14594 of file compiled\&.php\&.
+.SS "isValidateable ()"
+Returns true if the response includes headers that can be used to validate the response with the origin server using a conditional GET request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the response is validateable, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 580 of file Response\&.php\&.
+.SS "isValidateable ()"
+
+.PP
+Definition at line 14372 of file compiled\&.php\&.
+.SS "mustRevalidate ()"
+Returns true if the response must be revalidated by caches\&.
+.PP
+This method indicates that the response must not be served stale by a cache in any circumstance without first revalidating with the origin\&. When present, the TTL of the response should not be overridden to be greater than the value provided by the origin\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the response must be revalidated by a cache, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line 631 of file Response\&.php\&.
+.SS "mustRevalidate ()"
+
+.PP
+Definition at line 14388 of file compiled\&.php\&.
+.SS "prepare (\fBRequest\fP $request)"
+Prepares the \fBResponse\fP before it is sent to the client\&.
+.PP
+This method tweaks the \fBResponse\fP to ensure that it is compliant with RFC 2616\&. Most of the changes are based on the \fBRequest\fP that is 'associated' with this \fBResponse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP The current response\&. 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Response\&.php\&.
+.SS "prepare (\fBRequest\fP $request)"
+
+.PP
+Definition at line 14234 of file compiled\&.php\&.
+.SS "send ()"
+Sends HTTP headers and content\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 373 of file Response\&.php\&.
+.SS "send ()"
+
+.PP
+Definition at line 14296 of file compiled\&.php\&.
+.SS "sendContent ()"
+Sends content for the current web response\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file Response\&.php\&.
+.SS "sendContent ()"
+
+.PP
+Definition at line 14291 of file compiled\&.php\&.
+.SS "sendHeaders ()"
+Sends HTTP headers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 329 of file Response\&.php\&.
+.SS "sendHeaders ()"
+
+.PP
+Definition at line 14275 of file compiled\&.php\&.
+.SS "setCache (array $options)"
+Sets the response's cache headers (validation and/or expiration)\&.
+.PP
+Available options are: etag, last_modified, max_age, s_maxage, private, and public\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP An array of cache options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 944 of file Response\&.php\&.
+.SS "setCache (array $options)"
+
+.PP
+Definition at line 14505 of file compiled\&.php\&.
+.SS "setCharset ( $charset)"
+Sets the response charset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP Character set
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 511 of file Response\&.php\&.
+.SS "setCharset ( $charset)"
+
+.PP
+Definition at line 14349 of file compiled\&.php\&.
+.SS "setClientTtl ( $seconds)"
+Sets the response's time-to-live for private/client caches\&.
+.PP
+This method adjusts the Cache-Control/max-age directive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP Number of seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 849 of file Response\&.php\&.
+.SS "setClientTtl ( $seconds)"
+
+.PP
+Definition at line 14469 of file compiled\&.php\&.
+.SS "setContent ( $content)"
+Sets the response content\&.
+.PP
+Valid types are strings, numbers, null, and objects that implement a \fB__toString()\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$content\fP Content that can be cast to string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 400 of file Response\&.php\&.
+.SS "setContent ( $content)"
+
+.PP
+Definition at line 14307 of file compiled\&.php\&.
+.SS "setDate (\\DateTime $date)"
+Sets the Date header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP \fBA\fP  instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 659 of file Response\&.php\&.
+.SS "setDate (\\DateTime $date)"
+
+.PP
+Definition at line 14396 of file compiled\&.php\&.
+.SS "setEtag ( $etag = \fCnull\fP,  $weak = \fCfalse\fP)"
+Sets the ETag value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$etag\fP The ETag unique identifier or null to remove the header 
+.br
+\fI$weak\fP Whether you want a weak ETag or not
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 916 of file Response\&.php\&.
+.SS "setEtag ( $etag = \fCnull\fP,  $weak = \fCfalse\fP)"
+
+.PP
+Definition at line 14493 of file compiled\&.php\&.
+.SS "setExpires (\\DateTime $date = \fCnull\fP)"
+Sets the Expires HTTP header with a DateTime instance\&.
+.PP
+Passing null as value will remove the header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP \fBA\fP  instance or null to remove the header
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 725 of file Response\&.php\&.
+.SS "setExpires (\\DateTime $date = \fCnull\fP)"
+
+.PP
+Definition at line 14424 of file compiled\&.php\&.
+.SS "setLastModified (\\DateTime $date = \fCnull\fP)"
+Sets the Last-Modified HTTP header with a DateTime instance\&.
+.PP
+Passing null as value will remove the header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP \fBA\fP  instance or null to remove the header
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 881 of file Response\&.php\&.
+.SS "setLastModified (\\DateTime $date = \fCnull\fP)"
+
+.PP
+Definition at line 14478 of file compiled\&.php\&.
+.SS "setMaxAge ( $value)"
+Sets the number of seconds after which the response should no longer be considered fresh\&.
+.PP
+This methods sets the Cache-Control max-age directive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP Number of seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 775 of file Response\&.php\&.
+.SS "setMaxAge ( $value)"
+
+.PP
+Definition at line 14447 of file compiled\&.php\&.
+.SS "setNotModified ()"
+Modifies the response so that it conforms to the rules defined for a 304 status code\&.
+.PP
+This sets the status, removes the body, and discards any headers that MUST NOT be included in 304 responses\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://tools.ietf.org/html/rfc2616#section-10.3.5
+.RE
+.PP
+
+.PP
+Definition at line 997 of file Response\&.php\&.
+.SS "setNotModified ()"
+
+.PP
+Definition at line 14538 of file compiled\&.php\&.
+.SS "setPrivate ()"
+Marks the response as 'private'\&.
+.PP
+It makes the response ineligible for serving other clients\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 594 of file Response\&.php\&.
+.SS "setPrivate ()"
+
+.PP
+Definition at line 14376 of file compiled\&.php\&.
+.SS "setProtocolVersion ( $version)"
+Sets the HTTP protocol version (1\&.0 or 1\&.1)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$version\fP The HTTP protocol version
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 432 of file Response\&.php\&.
+.SS "setProtocolVersion ( $version)"
+
+.PP
+Definition at line 14319 of file compiled\&.php\&.
+.SS "setPublic ()"
+Marks the response as 'public'\&.
+.PP
+It makes the response eligible for serving other clients\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 611 of file Response\&.php\&.
+.SS "setPublic ()"
+
+.PP
+Definition at line 14382 of file compiled\&.php\&.
+.SS "setSharedMaxAge ( $value)"
+Sets the number of seconds after which the response should no longer be considered fresh by shared caches\&.
+.PP
+This methods sets the Cache-Control s-maxage directive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP Number of seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 793 of file Response\&.php\&.
+.SS "setSharedMaxAge ( $value)"
+
+.PP
+Definition at line 14452 of file compiled\&.php\&.
+.SS "setStatusCode ( $code,  $text = \fCnull\fP)"
+Sets the response status code\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP HTTP status code 
+.br
+\fI$text\fP HTTP status text
+.RE
+.PP
+If the status text is null it will be automatically populated for the known status codes and left empty otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 466 of file Response\&.php\&.
+.SS "setStatusCode ( $code,  $text = \fCnull\fP)"
+
+.PP
+Definition at line 14328 of file compiled\&.php\&.
+.SS "setTtl ( $seconds)"
+Sets the response's time-to-live for shared caches\&.
+.PP
+This method adjusts the Cache-Control/s-maxage directive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP Number of seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 831 of file Response\&.php\&.
+.SS "setTtl ( $seconds)"
+
+.PP
+Definition at line 14464 of file compiled\&.php\&.
+.SS "setVary ( $headers,  $replace = \fCtrue\fP)"
+Sets the Vary header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.br
+\fI$replace\fP Whether to replace the actual value of not (true by default)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP
+.RE
+.PP
+
+.PP
+Definition at line 1053 of file Response\&.php\&.
+.SS "setVary ( $headers,  $replace = \fCtrue\fP)"
+
+.PP
+Definition at line 14562 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$charset\fC [protected]\fP"
+
+.PP
+Definition at line 14208 of file compiled\&.php\&.
+.SS "$content\fC [protected]\fP"
+
+.PP
+Definition at line 14204 of file compiled\&.php\&.
+.SS "$headers"
+
+.PP
+Definition at line 14203 of file compiled\&.php\&.
+.SS "$statusCode\fC [protected]\fP"
+
+.PP
+Definition at line 14206 of file compiled\&.php\&.
+.SS "$statusText\fC [protected]\fP"
+
+.PP
+Definition at line 14207 of file compiled\&.php\&.
+.SS "static $statusTexts = array(100 => 'Continue', 101 => 'Switching Protocols', 102 => 'Processing', 200 => 'OK', 201 => 'Created', 202 => 'Accepted', 203 => 'Non-Authoritative Information', 204 => '\fBNo\fP Content', 205 => 'Reset Content', 206 => 'Partial Content', 207 => 'Multi-Status', 208 => 'Already Reported', 226 => 'IM Used', 300 => 'Multiple Choices', 301 => 'Moved Permanently', 302 => 'Found', 303 => 'See Other', 304 => 'Not Modified', 305 => 'Use Proxy', 306 => 'Reserved', 307 => 'Temporary \fBRedirect\fP', 308 => 'Permanent \fBRedirect\fP', 400 => 'Bad \fBRequest\fP', 401 => 'Unauthorized', 402 => 'Payment Required', 403 => 'Forbidden', 404 => 'Not Found', 405 => 'Method Not Allowed', 406 => 'Not Acceptable', 407 => 'Proxy Authentication Required', 408 => '\fBRequest\fP Timeout', 409 => 'Conflict', 410 => 'Gone', 411 => 'Length Required', 412 => 'Precondition Failed', 413 => '\fBRequest\fP Entity Too Large', 414 => '\fBRequest\fP-URI Too Long', 415 => 'Unsupported Media Type', 416 => 'Requested Range Not Satisfiable', 417 => 'Expectation Failed', 418 => 'I\\'m \fBa\fP teapot', 422 => 'Unprocessable Entity', 423 => 'Locked', 424 => 'Failed Dependency', 425 => 'Reserved \fBfor\fP WebDAV advanced collections expired proposal', 426 => 'Upgrade Required', 428 => 'Precondition Required', 429 => 'Too Many Requests', 431 => '\fBRequest\fP Header Fields Too Large', 500 => 'Internal Server \fBError\fP', 501 => 'Not Implemented', 502 => 'Bad Gateway', 503 => 'Service Unavailable', 504 => 'Gateway Timeout', 505 => 'HTTP Version Not Supported', 506 => 'Variant Also Negotiates (Experimental)', 507 => 'Insufficient Storage', 508 => 'Loop Detected', 510 => 'Not Extended', 511 => 'Network Authentication Required')\fC [static]\fP"
+
+.PP
+Definition at line 14209 of file compiled\&.php\&.
+.SS "$\fBversion\fP\fC [protected]\fP"
+
+.PP
+Definition at line 14205 of file compiled\&.php\&.
+.SS "const HTTP_ACCEPTED = 202"
+
+.PP
+Definition at line 14148 of file compiled\&.php\&.
+.SS "const HTTP_ALREADY_REPORTED = 208"
+
+.PP
+Definition at line 14154 of file compiled\&.php\&.
+.SS "const HTTP_BAD_GATEWAY = 502"
+
+.PP
+Definition at line 14194 of file compiled\&.php\&.
+.SS "const HTTP_BAD_REQUEST = 400"
+
+.PP
+Definition at line 14165 of file compiled\&.php\&.
+.SS "const HTTP_CONFLICT = 409"
+
+.PP
+Definition at line 14174 of file compiled\&.php\&.
+.SS "const HTTP_CONTINUE = 100"
+
+.PP
+Definition at line 14143 of file compiled\&.php\&.
+.SS "const HTTP_CREATED = 201"
+
+.PP
+Definition at line 14147 of file compiled\&.php\&.
+.SS "const HTTP_EXPECTATION_FAILED = 417"
+
+.PP
+Definition at line 14182 of file compiled\&.php\&.
+.SS "const HTTP_FAILED_DEPENDENCY = 424"
+
+.PP
+Definition at line 14186 of file compiled\&.php\&.
+.SS "const HTTP_FORBIDDEN = 403"
+
+.PP
+Definition at line 14168 of file compiled\&.php\&.
+.SS "const HTTP_FOUND = 302"
+
+.PP
+Definition at line 14158 of file compiled\&.php\&.
+.SS "const HTTP_GATEWAY_TIMEOUT = 504"
+
+.PP
+Definition at line 14196 of file compiled\&.php\&.
+.SS "const HTTP_GONE = 410"
+
+.PP
+Definition at line 14175 of file compiled\&.php\&.
+.SS "const HTTP_I_AM_A_TEAPOT = 418"
+
+.PP
+Definition at line 14183 of file compiled\&.php\&.
+.SS "const HTTP_IM_USED = 226"
+
+.PP
+Definition at line 14155 of file compiled\&.php\&.
+.SS "const HTTP_INSUFFICIENT_STORAGE = 507"
+
+.PP
+Definition at line 14199 of file compiled\&.php\&.
+.SS "const HTTP_INTERNAL_SERVER_ERROR = 500"
+
+.PP
+Definition at line 14192 of file compiled\&.php\&.
+.SS "const HTTP_LENGTH_REQUIRED = 411"
+
+.PP
+Definition at line 14176 of file compiled\&.php\&.
+.SS "const HTTP_LOCKED = 423"
+
+.PP
+Definition at line 14185 of file compiled\&.php\&.
+.SS "const HTTP_LOOP_DETECTED = 508"
+
+.PP
+Definition at line 14200 of file compiled\&.php\&.
+.SS "const HTTP_METHOD_NOT_ALLOWED = 405"
+
+.PP
+Definition at line 14170 of file compiled\&.php\&.
+.SS "const HTTP_MOVED_PERMANENTLY = 301"
+
+.PP
+Definition at line 14157 of file compiled\&.php\&.
+.SS "const HTTP_MULTI_STATUS = 207"
+
+.PP
+Definition at line 14153 of file compiled\&.php\&.
+.SS "const HTTP_MULTIPLE_CHOICES = 300"
+
+.PP
+Definition at line 14156 of file compiled\&.php\&.
+.SS "const HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511"
+
+.PP
+Definition at line 14202 of file compiled\&.php\&.
+.SS "const HTTP_NO_CONTENT = 204"
+
+.PP
+Definition at line 14150 of file compiled\&.php\&.
+.SS "const HTTP_NON_AUTHORITATIVE_INFORMATION = 203"
+
+.PP
+Definition at line 14149 of file compiled\&.php\&.
+.SS "const HTTP_NOT_ACCEPTABLE = 406"
+
+.PP
+Definition at line 14171 of file compiled\&.php\&.
+.SS "const HTTP_NOT_EXTENDED = 510"
+
+.PP
+Definition at line 14201 of file compiled\&.php\&.
+.SS "const HTTP_NOT_FOUND = 404"
+
+.PP
+Definition at line 14169 of file compiled\&.php\&.
+.SS "const HTTP_NOT_IMPLEMENTED = 501"
+
+.PP
+Definition at line 14193 of file compiled\&.php\&.
+.SS "const HTTP_NOT_MODIFIED = 304"
+
+.PP
+Definition at line 14160 of file compiled\&.php\&.
+.SS "const HTTP_OK = 200"
+
+.PP
+Definition at line 14146 of file compiled\&.php\&.
+.SS "const HTTP_PARTIAL_CONTENT = 206"
+
+.PP
+Definition at line 14152 of file compiled\&.php\&.
+.SS "const HTTP_PAYMENT_REQUIRED = 402"
+
+.PP
+Definition at line 14167 of file compiled\&.php\&.
+.SS "const HTTP_PERMANENTLY_REDIRECT = 308"
+
+.PP
+Definition at line 14164 of file compiled\&.php\&.
+.SS "const HTTP_PRECONDITION_FAILED = 412"
+
+.PP
+Definition at line 14177 of file compiled\&.php\&.
+.SS "const HTTP_PRECONDITION_REQUIRED = 428"
+
+.PP
+Definition at line 14189 of file compiled\&.php\&.
+.SS "const HTTP_PROCESSING = 102"
+
+.PP
+Definition at line 14145 of file compiled\&.php\&.
+.SS "const HTTP_PROXY_AUTHENTICATION_REQUIRED = 407"
+
+.PP
+Definition at line 14172 of file compiled\&.php\&.
+.SS "const HTTP_REQUEST_ENTITY_TOO_LARGE = 413"
+
+.PP
+Definition at line 14178 of file compiled\&.php\&.
+.SS "const HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE = 431"
+
+.PP
+Definition at line 14191 of file compiled\&.php\&.
+.SS "const HTTP_REQUEST_TIMEOUT = 408"
+
+.PP
+Definition at line 14173 of file compiled\&.php\&.
+.SS "const HTTP_REQUEST_URI_TOO_LONG = 414"
+
+.PP
+Definition at line 14179 of file compiled\&.php\&.
+.SS "const HTTP_REQUESTED_RANGE_NOT_SATISFIABLE = 416"
+
+.PP
+Definition at line 14181 of file compiled\&.php\&.
+.SS "const HTTP_RESERVED = 306"
+
+.PP
+Definition at line 14162 of file compiled\&.php\&.
+.SS "const HTTP_RESERVED_FOR_WEBDAV_ADVANCED_COLLECTIONS_EXPIRED_PROPOSAL = 425"
+
+.PP
+Definition at line 14187 of file compiled\&.php\&.
+.SS "const HTTP_RESET_CONTENT = 205"
+
+.PP
+Definition at line 14151 of file compiled\&.php\&.
+.SS "const HTTP_SEE_OTHER = 303"
+
+.PP
+Definition at line 14159 of file compiled\&.php\&.
+.SS "const HTTP_SERVICE_UNAVAILABLE = 503"
+
+.PP
+Definition at line 14195 of file compiled\&.php\&.
+.SS "const HTTP_SWITCHING_PROTOCOLS = 101"
+
+.PP
+Definition at line 14144 of file compiled\&.php\&.
+.SS "const HTTP_TEMPORARY_REDIRECT = 307"
+
+.PP
+Definition at line 14163 of file compiled\&.php\&.
+.SS "const HTTP_TOO_MANY_REQUESTS = 429"
+
+.PP
+Definition at line 14190 of file compiled\&.php\&.
+.SS "const HTTP_UNAUTHORIZED = 401"
+
+.PP
+Definition at line 14166 of file compiled\&.php\&.
+.SS "const HTTP_UNPROCESSABLE_ENTITY = 422"
+
+.PP
+Definition at line 14184 of file compiled\&.php\&.
+.SS "const HTTP_UNSUPPORTED_MEDIA_TYPE = 415"
+
+.PP
+Definition at line 14180 of file compiled\&.php\&.
+.SS "const HTTP_UPGRADE_REQUIRED = 426"
+
+.PP
+Definition at line 14188 of file compiled\&.php\&.
+.SS "const HTTP_USE_PROXY = 305"
+
+.PP
+Definition at line 14161 of file compiled\&.php\&.
+.SS "const HTTP_VARIANT_ALSO_NEGOTIATES_EXPERIMENTAL = 506"
+
+.PP
+Definition at line 14198 of file compiled\&.php\&.
+.SS "const HTTP_VERSION_NOT_SUPPORTED = 505"
+
+.PP
+Definition at line 14197 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

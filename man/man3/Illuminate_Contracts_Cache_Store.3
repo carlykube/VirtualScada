@@ -1,0 +1,175 @@
+.TH "Store" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Store \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBApcStore\fP, \fBArrayStore\fP, \fBDatabaseStore\fP, \fBFileStore\fP, \fBMemcachedStore\fP, \fBNullStore\fP, \fBRedisStore\fP, \fBTaggedCache\fP, \fBWinCacheStore\fP, and \fBXCacheStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value, $\fBminutes\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($key, $value=1)"
+.br
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPrefix\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file Store\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "decrement ( $key,  $value = \fC1\fP)"
+Decrement the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBMemcachedStore\fP, \fBRedisStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+.SS "flush ()"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBRedisStore\fP, \fBMemcachedStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, \fBNullStore\fP, and \fBRedisTaggedCache\fP\&.
+.SS "forever ( $key,  $value)"
+\fBStore\fP an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBMemcachedStore\fP, \fBRedisStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, \fBNullStore\fP, and \fBRedisTaggedCache\fP\&.
+.SS "forget ( $key)"
+Remove an item from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBRedisStore\fP, \fBMemcachedStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+.SS "get ( $key)"
+Retrieve an item from the cache by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBDatabaseStore\fP, \fBRedisStore\fP, \fBFileStore\fP, \fBApcStore\fP, \fBMemcachedStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+.SS "getPrefix ()"
+Get the cache key prefix\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBTaggedCache\fP, \fBDatabaseStore\fP, \fBRedisStore\fP, \fBMemcachedStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+.SS "increment ( $key,  $value = \fC1\fP)"
+Increment the value of an item in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBMemcachedStore\fP, \fBRedisStore\fP, \fBApcStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+.SS "put ( $key,  $value,  $minutes)"
+\fBStore\fP an item in the cache for a given number of minutes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$minutes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBFileStore\fP, \fBDatabaseStore\fP, \fBTaggedCache\fP, \fBRedisStore\fP, \fBApcStore\fP, \fBMemcachedStore\fP, \fBWinCacheStore\fP, \fBXCacheStore\fP, \fBArrayStore\fP, and \fBNullStore\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

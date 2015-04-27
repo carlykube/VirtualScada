@@ -1,0 +1,106 @@
+Loads environment variables from {\ttfamily .env} to {\ttfamily getenv()}, {\ttfamily \$\+\_\+\+E\+N\+V} and {\ttfamily \$\+\_\+\+S\+E\+R\+V\+E\+R} automagically.
+
+This is a \doxyref{P\+H\+P}{p.}{namespace_p_h_p} version of the original {\tt Ruby dotenv}.
+
+{\tt ![Build Status](https\+://secure.\+travis-\/ci.\+org/vlucas/phpdotenv.\+png)}
+
+\subsection*{Why .env? }
+
+{\bfseries You should never store sensitive credentials in your code}. Storing {\tt configuration in the environment} is one of the tenets of a {\tt twelve-\/factor app}. Anything that is likely to change between deployment environments – such as database credentials or credentials for 3rd party services – should be extracted from the code into environment variables.
+
+Basically, a {\ttfamily .env} file is an easy way to load custom configuration variables that your application needs without having to modify .htaccess files or Apache/nginx virtual hosts. This means you won\textquotesingle{}t have to edit any files outside the project, and all the environment variables are always set no matter how you run your project -\/ Apache, Nginx, C\+L\+I, and even \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+4\textquotesingle{}s built-\/in webserver. It\textquotesingle{}s W\+A\+Y easier than all the other ways you know of to set environment variables, and you\textquotesingle{}re going to love it.
+
+
+\begin{DoxyItemize}
+\item N\+O editing virtual hosts in Apache or Nginx
+\item N\+O adding {\ttfamily php\+\_\+value} flags to .htaccess files
+\item E\+A\+S\+Y portability and sharing of required E\+N\+V values
+\item C\+O\+M\+P\+A\+T\+I\+B\+L\+E with \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s built-\/in web server and C\+L\+I runner
+\end{DoxyItemize}
+
+\subsection*{Installation with \doxyref{Composer}{p.}{namespace_composer} }
+
+```shell curl -\/s {\tt http\+://getcomposer.\+org/installer} $\vert$ php php composer.\+phar require vlucas/phpdotenv ```
+
+\subsection*{Usage }
+
+The {\ttfamily .env} file is generally kept out of version control since it can contain sensitive A\+P\+I keys and passwords. \doxyref{A}{p.}{class_a} separate {\ttfamily .env.\+example} file is created with all the required environment variables defined except for the sensitive ones, which are either user-\/supplied for their own development environments or are communicated elsewhere to project collaborators. The project collaborators then independently copy the {\ttfamily .env.\+example} file to a local {\ttfamily .env} and ensure all the settings are correct for their local environment, filling in the secret keys or providing their own values when necessary. In this usage, the {\ttfamily .env} file should be added to the project\textquotesingle{}s {\ttfamily .gitignore} file so that it will never be committed by collaborators. This usage ensures that no sensitive passwords or A\+P\+I keys will ever be in the version control history so there is less risk of a security breach, and production values will never have to be shared with all project collaborators.
+
+Add your application configuration to a {\ttfamily .env} file in the root of your project. {\bfseries Make sure the {\ttfamily .env} file is added to your {\ttfamily .gitignore} so it is not checked-\/in the code}
+
+```shell S3\+\_\+\+B\+U\+C\+K\+E\+T=dotenv S\+E\+C\+R\+E\+T\+\_\+\+K\+E\+Y=souper\+\_\+seekret\+\_\+key ```
+
+Now create a file named {\ttfamily .env.\+example} and check this into the project. This should have the E\+N\+V variables you need to have set, but the values should either be blank or filled with dummy data. The idea is to let people know what variables are required, but not give them the sensitive production values.
+
+```shell S3\+\_\+\+B\+U\+C\+K\+E\+T=devbucket S\+E\+C\+R\+E\+T\+\_\+\+K\+E\+Y=abc123 ```
+
+You can then load {\ttfamily .env} in your application with a single line\+: ```php \doxyref{Dotenv\+::load}{p.}{class_dotenv_a187e4f72efe6efe1292202633ed48676}({\bfseries D\+I\+R}); ```
+
+All of the defined variables are now accessible with the {\ttfamily getenv} method, and are available in the {\ttfamily \$\+\_\+\+E\+N\+V} and {\ttfamily \$\+\_\+\+S\+E\+R\+V\+E\+R} super-\/globals. ```php \$s3\+\_\+bucket = getenv(\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}); \$s3\+\_\+bucket = \$\+\_\+\+E\+N\+V[\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}]; \$s3\+\_\+bucket = \$\+\_\+\+S\+E\+R\+V\+E\+R[\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}]; ```
+
+You should also be able to access them using your framework\textquotesingle{}s \doxyref{Request}{p.}{class_request} class (if you are using a framework). ```php \$s3\+\_\+bucket = \$request-\/$>$env(\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}); \$s3\+\_\+bucket = \$request-\/$>$get\+Env(\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}); \$s3\+\_\+bucket = \$request-\/$>$server-\/$>$get(\textquotesingle{}S3\+\_\+\+B\+U\+C\+K\+E\+T\textquotesingle{}); ```
+
+\subsubsection*{Nesting Variables}
+
+It\textquotesingle{}s possible to nest an environment variable within another, useful to cut down on repetition.
+
+This is done by wrapping an existing environment variable in {\ttfamily \{\$…\}} e.\+g.
+
+```shell B\+A\+S\+E\+\_\+\+D\+I\+R=/var/webroot/project-\/root C\+A\+C\+H\+E\+\_\+\+D\+I\+R=\{\$\+B\+A\+S\+E\+\_\+\+D\+I\+R\}/cache T\+M\+P\+\_\+\+D\+I\+R=\{\$\+B\+A\+S\+E\+\_\+\+D\+I\+R\}/tmp ```
+
+\subsubsection*{Immutability}
+
+By default, \doxyref{Dotenv}{p.}{class_dotenv} treats environment variables as immutable, that is… once set they cannot be changed.
+
+You can make \doxyref{Dotenv}{p.}{class_dotenv} mutable using
+
+```php \doxyref{Dotenv\+::make\+Mutable()}{p.}{class_dotenv_a62f6921fad6214dc1f0661c6c06fefce}; ```
+
+… and you can make \doxyref{Dotenv}{p.}{class_dotenv} immutable again using
+
+```php \doxyref{Dotenv\+::make\+Immutable()}{p.}{class_dotenv_a5350d5ca3e8035918597f75fc6e4c44d}; ```
+
+\subsection*{Requiring Variables to be Set }
+
+Using \doxyref{Dotenv}{p.}{class_dotenv}, you can require specific E\+N\+V vars to be defined, and throw an Exception if they are not. This is particularly useful to let people know any explicit required variables that your app will not work without.
+
+You can use a single string\+: ```php \doxyref{Dotenv\+::required}{p.}{class_dotenv_a875f03123946734e0803759d700448ca}(\textquotesingle{}D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+D\+S\+N\textquotesingle{}); ```
+
+Or an array of strings\+: ```php \doxyref{Dotenv\+::required}{p.}{class_dotenv_a875f03123946734e0803759d700448ca}(array(\textquotesingle{}D\+B\+\_\+\+H\+O\+S\+T\textquotesingle{}, \textquotesingle{}D\+B\+\_\+\+N\+A\+M\+E\textquotesingle{}, \textquotesingle{}D\+B\+\_\+\+U\+S\+E\+R\textquotesingle{}, \textquotesingle{}D\+B\+\_\+\+P\+A\+S\+S\textquotesingle{})); ```
+
+If any E\+N\+V vars are missing, \doxyref{Dotenv}{p.}{class_dotenv} will throw a {\ttfamily Runtime\+Exception} like this\+: ``` Required environment variable missing or value not allowed\+: \textquotesingle{}D\+B\+\_\+\+U\+S\+E\+R\textquotesingle{}, \textquotesingle{}D\+B\+\_\+\+P\+A\+S\+S\textquotesingle{} ```
+
+\subsubsection*{Allowed values}
+
+As you may have noticed from the Exception message above, it\textquotesingle{}s also possible to define a set of values that your environment variable should adhere to.
+
+```php \doxyref{Dotenv\+::required}{p.}{class_dotenv_a875f03123946734e0803759d700448ca}(\textquotesingle{}S\+E\+S\+S\+I\+O\+N\+\_\+\+S\+T\+O\+R\+E\textquotesingle{}, array(\textquotesingle{}Filesystem\textquotesingle{}, \textquotesingle{}Memcached\textquotesingle{})); ```
+
+Again, if the environment variable wasn\textquotesingle{}t in this list, you\textquotesingle{}d get a similar Exception\+: ``` Required environment variable missing or value not allowed\+: \textquotesingle{}S\+E\+S\+S\+I\+O\+N\+\_\+\+S\+T\+O\+R\+E\textquotesingle{} ```
+
+\subsubsection*{Comments}
+
+You can comment your {\ttfamily .env} file using the {\ttfamily \#} character. E.\+g.
+
+```shell \section*{this is a comment}
+
+V\+A\+R=\char`\"{}value\char`\"{} \# comment V\+A\+R=value \# comment ```
+
+\subsection*{Usage Notes }
+
+When a new developer clones your codebase, they will have an additional {\bfseries one-\/time step} to manually copy the {\ttfamily .env.\+example} file to {\ttfamily .env} and fill-\/in their own values (or get any sensitive values from a project co-\/worker).
+
+phpdotenv is made for development environments, and generally should not be used in production. In production, the actual environment variables should be set so that there is no overhead of loading the {\ttfamily .env} file on each request. This can be achieved via an automated deployment process with tools like Vagrant, chef, or Puppet, or can be set manually with cloud hosts like Pagodabox and Heroku.
+
+\subsection*{Contributing }
+
+
+\begin{DoxyEnumerate}
+\item Fork it
+\item Create your feature branch ({\ttfamily git checkout -\/b my-\/new-\/feature})
+\item Make your changes
+\item Run the tests, adding new ones for your own code if necessary ({\ttfamily phpunit})
+\item Commit your changes ({\ttfamily git commit -\/am \textquotesingle{}Added some feature\textquotesingle{}})
+\item Push to the branch ({\ttfamily git push origin my-\/new-\/feature})
+\item Create new Pull \doxyref{Request}{p.}{class_request} 
+\end{DoxyEnumerate}

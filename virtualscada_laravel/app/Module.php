@@ -16,7 +16,7 @@ class Module extends Model {
      *
      * @var array
      */
-    protected $fillable = ['project_id', 'name', 'file_loc', 'screen_loc'];
+    protected $fillable = ['project_id', 'name', 'file_loc', 'screen_loc', 'type'];
 
     public function project(){
         return $this->belongsTo('App\Project');

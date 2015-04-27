@@ -1,0 +1,207 @@
+.TH "ReflectingCommand" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ReflectingCommand \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCommand\fP, and \fBContextAware\fP\&.
+.PP
+Inherited by \fBDocCommand\fP, \fBDumpCommand\fP, \fBListCommand\fP, and \fBShowCommand\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetContext\fP (\fBContext\fP $context)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBCLASS_OR_FUNC\fP = '/^[\\\\\\\\\\w]+$/'"
+.br
+.ti -1c
+.RI "const \fBINSTANCE\fP = '/^\\$(\\w+)$/'"
+.br
+.ti -1c
+.RI "const \fBCLASS_MEMBER\fP = '/^([\\\\\\\\\\w]+)::(\\w+)$/'"
+.br
+.ti -1c
+.RI "const \fBCLASS_STATIC\fP = '/^([\\\\\\\\\\w]+)::\\$(\\w+)$/'"
+.br
+.ti -1c
+.RI "const \fBINSTANCE_MEMBER\fP = '/^\\$(\\w+)(::|->)(\\w+)$/'"
+.br
+.ti -1c
+.RI "const \fBINSTANCE_STATIC\fP = '/^\\$(\\w+)::\\$(\\w+)$/'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetTarget\fP ($valueName, $classOnly=false)"
+.br
+.ti -1c
+.RI "\fBresolveName\fP ($\fBname\fP, $includeFunctions=false)"
+.br
+.ti -1c
+.RI "\fBgetTargetAndReflector\fP ($valueName, $classOnly=false)"
+.br
+.ti -1c
+.RI "\fBresolveInstance\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetScopeVariable\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetScopeVariables\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$context\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract command with helpers for inspecting the current context\&. 
+.PP
+Definition at line 22 of file ReflectingCommand\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getScopeVariable ( $name)\fC [protected]\fP"
+Get a variable from the current shell scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file ReflectingCommand\&.php\&.
+.SS "getScopeVariables ()\fC [protected]\fP"
+Get all scope variables from the current shell scope\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file ReflectingCommand\&.php\&.
+.SS "getTarget ( $valueName,  $classOnly = \fCfalse\fP)\fC [protected]\fP"
+Get the target for a value\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 58 of file ReflectingCommand\&.php\&.
+.SS "getTargetAndReflector ( $valueName,  $classOnly = \fCfalse\fP)\fC [protected]\fP"
+Get a Reflector and documentation for a function, class or instance, constant, method or property\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$valueName\fP Function, class, variable, constant, method or property name\&. 
+.br
+\fI$classOnly\fP True if the name should only refer to a class, function or instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array (value, Reflector) 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file ReflectingCommand\&.php\&.
+.SS "resolveInstance ( $name)\fC [protected]\fP"
+Return a variable instance from the current scope\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 141 of file ReflectingCommand\&.php\&.
+.SS "resolveName ( $name,  $includeFunctions = \fCfalse\fP)\fC [protected]\fP"
+Resolve a class or function name (with the current shell namespace)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$includeFunctions\fP (default: false)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file ReflectingCommand\&.php\&.
+.SS "setContext (\fBContext\fP $context)"
+\fBContextAware\fP interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$context\fP 
+.RE
+.PP
+
+.PP
+Implements \fBContextAware\fP\&.
+.PP
+Definition at line 43 of file ReflectingCommand\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$context\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file ReflectingCommand\&.php\&.
+.SS "const CLASS_MEMBER = '/^([\\\\\\\\\\w]+)::(\\w+)$/'"
+
+.PP
+Definition at line 26 of file ReflectingCommand\&.php\&.
+.SS "const CLASS_OR_FUNC = '/^[\\\\\\\\\\w]+$/'"
+
+.PP
+Definition at line 24 of file ReflectingCommand\&.php\&.
+.SS "const CLASS_STATIC = '/^([\\\\\\\\\\w]+)::\\$(\\w+)$/'"
+
+.PP
+Definition at line 27 of file ReflectingCommand\&.php\&.
+.SS "const INSTANCE = '/^\\$(\\w+)$/'"
+
+.PP
+Definition at line 25 of file ReflectingCommand\&.php\&.
+.SS "const INSTANCE_MEMBER = '/^\\$(\\w+)(::|->)(\\w+)$/'"
+
+.PP
+Definition at line 28 of file ReflectingCommand\&.php\&.
+.SS "const INSTANCE_STATIC = '/^\\$(\\w+)::\\$(\\w+)$/'"
+
+.PP
+Definition at line 29 of file ReflectingCommand\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

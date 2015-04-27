@@ -1,0 +1,405 @@
+\section{Cron\+Expression Class Reference}
+\label{class_cron_1_1_cron_expression}\index{Cron\+Expression@{Cron\+Expression}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$expression, {\bf Field\+Factory} \$field\+Factory)
+\item 
+{\bf set\+Expression} (\$value)
+\item 
+{\bf set\+Part} (\$position, \$value)
+\item 
+{\bf get\+Next\+Run\+Date} (\$current\+Time= \textquotesingle{}{\bf now}\textquotesingle{}, \$nth=0, \$allow\+Current\+Date=false)
+\item 
+{\bf get\+Previous\+Run\+Date} (\$current\+Time= \textquotesingle{}{\bf now}\textquotesingle{}, \$nth=0, \$allow\+Current\+Date=false)
+\item 
+{\bf get\+Multiple\+Run\+Dates} (\$total, \$current\+Time= \textquotesingle{}{\bf now}\textquotesingle{}, \$invert=false, \$allow\+Current\+Date=false)
+\item 
+{\bf get\+Expression} (\$part=null)
+\item 
+{\bf \+\_\+\+\_\+to\+String} ()
+\item 
+{\bf is\+Due} (\$current\+Time= \textquotesingle{}{\bf now}\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf factory} (\$expression, {\bf Field\+Factory} \$field\+Factory=null)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf M\+I\+N\+U\+T\+E} = 0
+\item 
+const {\bf H\+O\+U\+R} = 1
+\item 
+const {\bf D\+A\+Y} = 2
+\item 
+const {\bf M\+O\+N\+T\+H} = 3
+\item 
+const {\bf W\+E\+E\+K\+D\+A\+Y} = 4
+\item 
+const {\bf Y\+E\+A\+R} = 5
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Run\+Date} (\$current\+Time=null, \$nth=0, \$invert=false, \$allow\+Current\+Date=false)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+R\+O\+N expression parser that can determine whether or not a C\+R\+O\+N expression is due to run, the next run date and previous run date of a C\+R\+O\+N expression. The determinations made by this class are accurate if checked run once per minute (seconds are dropped from date time comparisons).
+
+Schedule parts must map to\+: minute [0-\/59], hour [0-\/23], day of month, month [1-\/12$\vert$\+J\+A\+N-\/\+D\+E\+C], day of week [1-\/7$\vert$\+M\+O\+N-\/\+S\+U\+N], and an optional year.
+
+\doxyref{http\+://en.\+wikipedia.\+org/wiki/\+Cron}{p.}{}
+
+Definition at line 17 of file Cron\+Expression.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$expression, }
+\item[{{\bf Field\+Factory}}]{\$field\+Factory}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_a90f1b7a7909b87905ccd3e92fd6923a5}
+Parse a C\+R\+O\+N expression
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$expression} & C\+R\+O\+N expression (e.\+g. \textquotesingle{}8 $\ast$ $\ast$ $\ast$ $\ast$\textquotesingle{}) \\
+\hline
+\doxyref{Field\+Factory}{p.}{class_cron_1_1_field_factory} & {\em \$field\+Factory} & Factory to create cron fields \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Cron\+Expression.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{\+\_\+\+\_\+to\+String}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_a7516ca30af0db3cdbf9a7739b48ce91d}
+Helper method to output the full expression.
+
+\begin{DoxyReturn}{Returns}
+string Full C\+R\+O\+N expression 
+\end{DoxyReturn}
+
+
+Definition at line 217 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!factory@{factory}}
+\index{factory@{factory}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{factory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Factory} C\+R\+O\+N field factory (
+\begin{DoxyParamCaption}
+\item[{}]{\$expression, }
+\item[{{\bf Field\+Factory}}]{\$field\+Factory = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_cron_1_1_cron_expression_aa7e1da35ece64b1725f6b0c1223c44a7}
+Factory method to create a new \doxyref{Cron\+Expression}{p.}{class_cron_1_1_cron_expression}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$expression} & The C\+R\+O\+N expression to create. There are several special predefined values which can be used to substitute the C\+R\+O\+N expression\+:\\
+\hline
+\end{DoxyParams}
+{\ttfamily @yearly}, {\ttfamily @annually} -\/ Run once a year, midnight, Jan. 1 -\/ 0 0 1 1 $\ast$ {\ttfamily @monthly} -\/ Run once a month, midnight, first of month -\/ 0 0 1 $\ast$ $\ast$ {\ttfamily @weekly} -\/ Run once a week, midnight on Sun -\/ 0 0 $\ast$ $\ast$ 0 {\ttfamily @daily} -\/ Run once a day, midnight -\/ 0 0 $\ast$ $\ast$ $\ast$ {\ttfamily @hourly} -\/ Run once an hour, first minute -\/ 0 $\ast$ $\ast$ $\ast$ $\ast$ 
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Field\+Factory}{p.}{class_cron_1_1_field_factory} & {\em \$field\+Factory} & Field factory to use\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Cron\+Expression}{p.}{class_cron_1_1_cron_expression} 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{\$part = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_a886f4a5ac1a4b4bc6fe4da66ae7ccc3d}
+Get all or part of the C\+R\+O\+N expression
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$part} & Specify the part to retrieve or N\+U\+L\+L to get the full cron schedule string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$null Returns the C\+R\+O\+N expression, a part of the C\+R\+O\+N expression, or N\+U\+L\+L if the part was specified but not found 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!get\+Multiple\+Run\+Dates@{get\+Multiple\+Run\+Dates}}
+\index{get\+Multiple\+Run\+Dates@{get\+Multiple\+Run\+Dates}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{get\+Multiple\+Run\+Dates}]{\setlength{\rightskip}{0pt plus 5cm}get\+Multiple\+Run\+Dates (
+\begin{DoxyParamCaption}
+\item[{}]{\$total, }
+\item[{}]{\$current\+Time = {\ttfamily \textquotesingle{}{\bf now}\textquotesingle{}}, }
+\item[{}]{\$invert = {\ttfamily false}, }
+\item[{}]{\$allow\+Current\+Date = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_ad8985b0ae3a3eff9a28adf5c1019e867}
+Get multiple run dates starting at the current date or a specific date
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$total} & Set the total number of dates to calculate \\
+\hline
+string | \textbackslash{}\+Date\+Time & {\em \$current\+Time} & Relative calculation date \\
+\hline
+bool & {\em \$invert} & Set to T\+R\+U\+E to retrieve previous dates \\
+\hline
+bool & {\em \$allow\+Current\+Date} & Set to T\+R\+U\+E to return the current date if it matches the cron expression\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Returns an array of run dates 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!get\+Next\+Run\+Date@{get\+Next\+Run\+Date}}
+\index{get\+Next\+Run\+Date@{get\+Next\+Run\+Date}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{get\+Next\+Run\+Date}]{\setlength{\rightskip}{0pt plus 5cm}get\+Next\+Run\+Date (
+\begin{DoxyParamCaption}
+\item[{}]{\$current\+Time = {\ttfamily \textquotesingle{}{\bf now}\textquotesingle{}}, }
+\item[{}]{\$nth = {\ttfamily 0}, }
+\item[{}]{\$allow\+Current\+Date = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_a553b129be27f722ac8433a199c1ef7ed}
+Get a next run date relative to the current date or a specific date
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \textbackslash{}\+Date\+Time & {\em \$current\+Time} & Relative calculation date \\
+\hline
+int & {\em \$nth} & Number of matches to skip before returning a matching next run date. 0, the default, will return the current date and time if the next run date falls on the current date and time. Setting this value to 1 will skip the first match and go to the second match. Setting this value to 2 will skip the first 2 matches and so on. \\
+\hline
+bool & {\em \$allow\+Current\+Date} & Set to T\+R\+U\+E to return the current date if it matches the cron expression.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 149 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!get\+Previous\+Run\+Date@{get\+Previous\+Run\+Date}}
+\index{get\+Previous\+Run\+Date@{get\+Previous\+Run\+Date}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{get\+Previous\+Run\+Date}]{\setlength{\rightskip}{0pt plus 5cm}get\+Previous\+Run\+Date (
+\begin{DoxyParamCaption}
+\item[{}]{\$current\+Time = {\ttfamily \textquotesingle{}{\bf now}\textquotesingle{}}, }
+\item[{}]{\$nth = {\ttfamily 0}, }
+\item[{}]{\$allow\+Current\+Date = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_abac35826241fc049ea7b676e50aae851}
+Get a previous run date relative to the current date or a specific date
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \textbackslash{}\+Date\+Time & {\em \$current\+Time} & Relative calculation date \\
+\hline
+int & {\em \$nth} & Number of matches to skip before returning \\
+\hline
+bool & {\em \$allow\+Current\+Date} & Set to T\+R\+U\+E to return the current date if it matches the cron expression\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 166 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!get\+Run\+Date@{get\+Run\+Date}}
+\index{get\+Run\+Date@{get\+Run\+Date}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{get\+Run\+Date}]{\setlength{\rightskip}{0pt plus 5cm}get\+Run\+Date (
+\begin{DoxyParamCaption}
+\item[{}]{\$current\+Time = {\ttfamily null}, }
+\item[{}]{\$nth = {\ttfamily 0}, }
+\item[{}]{\$invert = {\ttfamily false}, }
+\item[{}]{\$allow\+Current\+Date = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_cron_1_1_cron_expression_aca11f9fd63ab4c0dd6cf91fa578aff88}
+Get the next or previous run date of the expression relative to a date
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \textbackslash{}\+Date\+Time & {\em \$current\+Time} & Relative calculation date \\
+\hline
+int & {\em \$nth} & Number of matches to skip before returning \\
+\hline
+bool & {\em \$invert} & Set to T\+R\+U\+E to go backwards in time \\
+\hline
+bool & {\em \$allow\+Current\+Date} & Set to T\+R\+U\+E to return the current date if it matches the cron expression\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 268 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!is\+Due@{is\+Due}}
+\index{is\+Due@{is\+Due}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{is\+Due}]{\setlength{\rightskip}{0pt plus 5cm}is\+Due (
+\begin{DoxyParamCaption}
+\item[{}]{\$current\+Time = {\ttfamily \textquotesingle{}{\bf now}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_ae4fb3b8f422e1944d598fda340930d4b}
+Determine if the cron is due to run based on the current date or a specific date. This method assumes that the current number of seconds are irrelevant, and should be called once per minute.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \textbackslash{}\+Date\+Time & {\em \$current\+Time} & Relative calculation date\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns T\+R\+U\+E if the cron is due to run or F\+A\+L\+S\+E if not 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!set\+Expression@{set\+Expression}}
+\index{set\+Expression@{set\+Expression}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{set\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}set\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_ac98873b14ead661232b0a3ff9f0257dc}
+Set or change the C\+R\+O\+N expression
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & C\+R\+O\+N expression (e.\+g. 8 $\ast$ $\ast$ $\ast$ $\ast$)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Cron\+Expression}{p.}{class_cron_1_1_cron_expression} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 95 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!set\+Part@{set\+Part}}
+\index{set\+Part@{set\+Part}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{set\+Part}]{\setlength{\rightskip}{0pt plus 5cm}set\+Part (
+\begin{DoxyParamCaption}
+\item[{}]{\$position, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_cron_1_1_cron_expression_ac4491cf50e5c258fdbf466bd78f98da0}
+Set part of the C\+R\+O\+N expression
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$position} & The position of the C\+R\+O\+N expression to set \\
+\hline
+string & {\em \$value} & The value to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Cron\+Expression}{p.}{class_cron_1_1_cron_expression} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 120 of file Cron\+Expression.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!D\+A\+Y@{D\+A\+Y}}
+\index{D\+A\+Y@{D\+A\+Y}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{D\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const D\+A\+Y = 2}\label{class_cron_1_1_cron_expression_ae880e050e2b8d6ef2278f0738d1a5052}
+
+
+Definition at line 21 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!H\+O\+U\+R@{H\+O\+U\+R}}
+\index{H\+O\+U\+R@{H\+O\+U\+R}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{H\+O\+U\+R}]{\setlength{\rightskip}{0pt plus 5cm}const H\+O\+U\+R = 1}\label{class_cron_1_1_cron_expression_af981d1e8e6c682d7e109831c77af308e}
+
+
+Definition at line 20 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!M\+I\+N\+U\+T\+E@{M\+I\+N\+U\+T\+E}}
+\index{M\+I\+N\+U\+T\+E@{M\+I\+N\+U\+T\+E}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{M\+I\+N\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}const M\+I\+N\+U\+T\+E = 0}\label{class_cron_1_1_cron_expression_aec4665ad3f50417a2e14ff3323eacefc}
+
+
+Definition at line 19 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!M\+O\+N\+T\+H@{M\+O\+N\+T\+H}}
+\index{M\+O\+N\+T\+H@{M\+O\+N\+T\+H}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{M\+O\+N\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const M\+O\+N\+T\+H = 3}\label{class_cron_1_1_cron_expression_afd31cd42304af28c427461a748531138}
+
+
+Definition at line 22 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!W\+E\+E\+K\+D\+A\+Y@{W\+E\+E\+K\+D\+A\+Y}}
+\index{W\+E\+E\+K\+D\+A\+Y@{W\+E\+E\+K\+D\+A\+Y}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{W\+E\+E\+K\+D\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+E\+K\+D\+A\+Y = 4}\label{class_cron_1_1_cron_expression_adb0ccb93159de1b4d6022994adde8cba}
+
+
+Definition at line 23 of file Cron\+Expression.\+php.
+
+\index{Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}!Y\+E\+A\+R@{Y\+E\+A\+R}}
+\index{Y\+E\+A\+R@{Y\+E\+A\+R}!Cron\+::\+Cron\+Expression@{Cron\+::\+Cron\+Expression}}
+\subsubsection[{Y\+E\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}const Y\+E\+A\+R = 5}\label{class_cron_1_1_cron_expression_a2bac491ba1659b48b536a5485af165b5}
+
+
+Definition at line 24 of file Cron\+Expression.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/mtdowling/cron-\/expression/src/\+Cron/{\bf Cron\+Expression.\+php}\end{DoxyCompactItemize}

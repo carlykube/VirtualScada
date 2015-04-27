@@ -1,0 +1,304 @@
+\section{Migration\+Creator Class Reference}
+\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator}\index{Migration\+Creator@{Migration\+Creator}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Filesystem} \$files)
+\item 
+{\bf create} (\${\bf name}, \${\bf path}, \$table=null, \$create=false)
+\item 
+{\bf after\+Create} (Closure \${\bf callback})
+\item 
+{\bf get\+Stub\+Path} ()
+\item 
+{\bf get\+Filesystem} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Stub} (\$table, \${\bf create})
+\item 
+{\bf populate\+Stub} (\${\bf name}, \$stub, \$table)
+\item 
+{\bf get\+Class\+Name} (\${\bf name})
+\item 
+{\bf fire\+Post\+Create\+Hooks} ()
+\item 
+{\bf get\+Path} (\${\bf name}, \${\bf path})
+\item 
+{\bf get\+Date\+Prefix} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$files}
+\item 
+{\bf \$post\+Create} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file Migration\+Creator.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Filesystem}}]{\$files}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_af92cc1db572c231623b15b1ccf61601d}
+Create a new migration creator instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Filesystem\textbackslash{}\+Filesystem & {\em \$files} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Migration\+Creator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!after\+Create@{after\+Create}}
+\index{after\+Create@{after\+Create}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{after\+Create}]{\setlength{\rightskip}{0pt plus 5cm}after\+Create (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_aeccf0418dac521a4296607f9ba648241}
+Register a post migration create hook.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!create@{create}}
+\index{create@{create}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}create (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path, }
+\item[{}]{\$table = {\ttfamily null}, }
+\item[{}]{\$create = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_acf63d467d2d5a52f3dfced71ea6b590f}
+Create a new migration at the given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$path} & \\
+\hline
+string & {\em \$table} & \\
+\hline
+bool & {\em \$create} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!fire\+Post\+Create\+Hooks@{fire\+Post\+Create\+Hooks}}
+\index{fire\+Post\+Create\+Hooks@{fire\+Post\+Create\+Hooks}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{fire\+Post\+Create\+Hooks}]{\setlength{\rightskip}{0pt plus 5cm}fire\+Post\+Create\+Hooks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a91440a5be2bc146e71da34950fa17b4c}
+Fire the registered post create hooks.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Class\+Name@{get\+Class\+Name}}
+\index{get\+Class\+Name@{get\+Class\+Name}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Class\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Class\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a54476f4deb4913d9303f59995d9f2c90}
+Get the class name of a migration name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Date\+Prefix@{get\+Date\+Prefix}}
+\index{get\+Date\+Prefix@{get\+Date\+Prefix}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Date\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Date\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_af788533fd755a1274fcfc1c6a829dc55}
+Get the date prefix for the migration.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Filesystem@{get\+Filesystem}}
+\index{get\+Filesystem@{get\+Filesystem}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Filesystem}]{\setlength{\rightskip}{0pt plus 5cm}get\+Filesystem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a7d113f7456b7a8eb009831ddcbe7fe2b}
+Get the filesystem instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 178 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Path}]{\setlength{\rightskip}{0pt plus 5cm}get\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a5530c3b6c76702afbd37ef94ee5f97ff}
+Get the full path name to the migration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Stub@{get\+Stub}}
+\index{get\+Stub@{get\+Stub}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Stub}]{\setlength{\rightskip}{0pt plus 5cm}get\+Stub (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$create}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_acd310097acf1db755a831adb0123c91c}
+Get the migration stub file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+bool & {\em \$create} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!get\+Stub\+Path@{get\+Stub\+Path}}
+\index{get\+Stub\+Path@{get\+Stub\+Path}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{get\+Stub\+Path}]{\setlength{\rightskip}{0pt plus 5cm}get\+Stub\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_abd1a40b68a02d08715c94b909440a622}
+Get the path to the stubs.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!populate\+Stub@{populate\+Stub}}
+\index{populate\+Stub@{populate\+Stub}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{populate\+Stub}]{\setlength{\rightskip}{0pt plus 5cm}populate\+Stub (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$stub, }
+\item[{}]{\$table}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_adcb19b91646ce3b89a4be788757dd34c}
+Populate the place-\/holders in the migration stub.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$stub} & \\
+\hline
+string & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Migration\+Creator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!\$files@{\$files}}
+\index{\$files@{\$files}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{\$files}]{\setlength{\rightskip}{0pt plus 5cm}\$files\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a9590b15215a21e9b42eb546aeef79704}
+
+
+Definition at line 13 of file Migration\+Creator.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}!\$post\+Create@{\$post\+Create}}
+\index{\$post\+Create@{\$post\+Create}!Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator@{Illuminate\+::\+Database\+::\+Migrations\+::\+Migration\+Creator}}
+\subsubsection[{\$post\+Create}]{\setlength{\rightskip}{0pt plus 5cm}\$post\+Create = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_migrations_1_1_migration_creator_a2e3f2df5c74a66138e917ab122162c07}
+
+
+Definition at line 20 of file Migration\+Creator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Migrations/{\bf Migration\+Creator.\+php}\end{DoxyCompactItemize}

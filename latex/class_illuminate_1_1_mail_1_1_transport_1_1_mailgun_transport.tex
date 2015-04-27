@@ -1,0 +1,326 @@
+\section{Mailgun\+Transport Class Reference}
+\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport}\index{Mailgun\+Transport@{Mailgun\+Transport}}
+Inheritance diagram for Mailgun\+Transport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$key, \$domain)
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf start} ()
+\item 
+{\bf stop} ()
+\item 
+{\bf send} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message, \&\$failed\+Recipients=null)
+\item 
+{\bf register\+Plugin} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener} \$plugin)
+\item 
+{\bf get\+Key} ()
+\item 
+{\bf set\+Key} (\$key)
+\item 
+{\bf get\+Domain} ()
+\item 
+{\bf set\+Domain} (\$domain)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+To} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message)
+\item 
+{\bf get\+Http\+Client} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$key}
+\item 
+{\bf \$domain}
+\item 
+{\bf \$url}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Mailgun\+Transport.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$domain}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_ac8a1c353c29bdb7a0e7c4ddfead5ab53}
+Create a new Mailgun transport instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file Mailgun\+Transport.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!get\+Domain@{get\+Domain}}
+\index{get\+Domain@{get\+Domain}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{get\+Domain}]{\setlength{\rightskip}{0pt plus 5cm}get\+Domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a4d7f2058fe0af483b5eebb1bb78d9ab7}
+Get the domain being used by the transport.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!get\+Http\+Client@{get\+Http\+Client}}
+\index{get\+Http\+Client@{get\+Http\+Client}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{get\+Http\+Client}]{\setlength{\rightskip}{0pt plus 5cm}get\+Http\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a2d33da7f4c2414bdeb504f772d9f5bf8}
+Get a new H\+T\+T\+P client instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!get\+Key@{get\+Key}}
+\index{get\+Key@{get\+Key}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{get\+Key}]{\setlength{\rightskip}{0pt plus 5cm}get\+Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_ad40c766ec8aced9770fe6ae269a1e781}
+Get the A\+P\+I key being used by the transport.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!get\+To@{get\+To}}
+\index{get\+To@{get\+To}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{get\+To}]{\setlength{\rightskip}{0pt plus 5cm}get\+To (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_ac4f87b4a700031d18746fd395cb3c815}
+Get the \char`\"{}to\char`\"{} payload field for the A\+P\+I request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Swift\+\_\+\+Mime\+\_\+\+Message & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a1ffe0e26cd53b764f58c5bbed489c278}
+\{Test if this Transport mechanism has started.
+
+\begin{DoxyReturn}{Returns}
+bool
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 48 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!register\+Plugin@{register\+Plugin}}
+\index{register\+Plugin@{register\+Plugin}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{register\+Plugin}]{\setlength{\rightskip}{0pt plus 5cm}register\+Plugin (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener}}]{\$plugin}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_ab89f0e56e80b5a21c0f09004a418ae92}
+\{Register a plugin in the Transport.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Listener}{p.}{interface_swift___events___event_listener} & {\em \$plugin} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_ab89f0e56e80b5a21c0f09004a418ae92}.
+
+
+
+Definition at line 87 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!send@{send}}
+\index{send@{send}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}send (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a7e179b57bf0cbb197139cf583e7c427e}
+\{Send the given Message.
+
+Recipient/sender data will be retrieved from the Message A\+P\+I. The return value is the number of recipients who were accepted for delivery.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message} & {\em \$message} & \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failed\+Recipients An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a7e179b57bf0cbb197139cf583e7c427e}.
+
+
+
+Definition at line 72 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!set\+Domain@{set\+Domain}}
+\index{set\+Domain@{set\+Domain}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{set\+Domain}]{\setlength{\rightskip}{0pt plus 5cm}set\+Domain (
+\begin{DoxyParamCaption}
+\item[{}]{\$domain}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_ab0340a671be422e71deec8716cbafff0}
+Set the domain being used by the transport.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!set\+Key@{set\+Key}}
+\index{set\+Key@{set\+Key}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{set\+Key}]{\setlength{\rightskip}{0pt plus 5cm}set\+Key (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a9afc10d017d5c65d3e6a941f65cf1904}
+Set the A\+P\+I key being used by the transport.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!start@{start}}
+\index{start@{start}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_af8fa59992209e36dccb3eefb0f75531f}
+\{Start this Transport mechanism.\} 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 56 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!stop@{stop}}
+\index{stop@{stop}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_a8b6fc76a620d7557d06e9a11a9ffb509}
+\{Stop this Transport mechanism.\} 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a8b6fc76a620d7557d06e9a11a9ffb509}.
+
+
+
+Definition at line 64 of file Mailgun\+Transport.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!\$domain@{\$domain}}
+\index{\$domain@{\$domain}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{\$domain}]{\setlength{\rightskip}{0pt plus 5cm}\$domain\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_aef9cf198312d2f89238a8e8e2f0f67f3}
+
+
+Definition at line 23 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!\$key@{\$key}}
+\index{\$key@{\$key}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{\$key}]{\setlength{\rightskip}{0pt plus 5cm}\$key\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_aa60b0284e0dfa2463495481cf11e3cf4}
+
+
+Definition at line 16 of file Mailgun\+Transport.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}!\$url@{\$url}}
+\index{\$url@{\$url}!Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport@{Illuminate\+::\+Mail\+::\+Transport\+::\+Mailgun\+Transport}}
+\subsubsection[{\$url}]{\setlength{\rightskip}{0pt plus 5cm}\$url\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_transport_1_1_mailgun_transport_acf215f34a917d014776ce684a9ee8909}
+
+
+Definition at line 30 of file Mailgun\+Transport.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Mail/\+Transport/{\bf Mailgun\+Transport.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+var namespace_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters =
+[
+    [ "EloquentModelPresenter", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_eloquent_model_presenter.html", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_eloquent_model_presenter" ],
+    [ "IlluminateApplicationPresenter", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_illuminate_application_presenter.html", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_illuminate_application_presenter" ],
+    [ "IlluminateCollectionPresenter", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_illuminate_collection_presenter.html", "class_illuminate_1_1_foundation_1_1_console_1_1_tinker_1_1_presenters_1_1_illuminate_collection_presenter" ]
+];

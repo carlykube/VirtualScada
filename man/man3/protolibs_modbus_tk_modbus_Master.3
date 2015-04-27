@@ -1,0 +1,144 @@
+.TH "Master" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Master \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBRtuMaster\fP, and \fBTcpMaster\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.ti -1c
+.RI "def \fB__del__\fP (self)"
+.br
+.ti -1c
+.RI "def \fBset_verbose\fP (self, verbose)"
+.br
+.ti -1c
+.RI "def \fBopen\fP (self)"
+.br
+.ti -1c
+.RI "def \fBclose\fP (self)"
+.br
+.ti -1c
+.RI "def \fBexecute\fP"
+.br
+.ti -1c
+.RI "def \fBset_timeout\fP (self, timeout_in_sec)"
+.br
+.ti -1c
+.RI "def \fBget_timeout\fP (self)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+This class implements the Modbus Application protocol for a master
+To be subclassed with a class implementing the MAC layer
+
+.fi
+.PP
+ 
+.PP
+Definition at line 151 of file modbus\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  timeout_in_sec,  hooks = \fCNone\fP)"
+
+.PP
+.nf
+Constructor: can define a timeout
+.fi
+.PP
+ 
+.PP
+Definition at line 157 of file modbus\&.py\&.
+.SS "def __del__ ( self)"
+
+.PP
+.nf
+Destructor: close the connection
+.fi
+.PP
+ 
+.PP
+Definition at line 163 of file modbus\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def close ( self)"
+
+.PP
+.nf
+close the communication with the slave
+.fi
+.PP
+ 
+.PP
+Definition at line 177 of file modbus\&.py\&.
+.SS "def execute ( self,  slave,  function_code,  starting_address,  quantity_of_x = \fC0\fP,  output_value = \fC0\fP,  data_format = \fC''\fP,  expected_length = \fC-1\fP)"
+
+.PP
+.nf
+Execute a modbus query and returns the data part of the answer as a tuple
+The returned tuple depends on the query function code. see modbus protocol
+specification for details
+data_format makes possible to extract the data like defined in the
+struct python module documentation
+
+.fi
+.PP
+ 
+.PP
+Definition at line 212 of file modbus\&.py\&.
+.SS "def get_timeout ( self)"
+
+.PP
+.nf
+Gets the current value of the MAC layer timeout
+.fi
+.PP
+ 
+.PP
+Definition at line 360 of file modbus\&.py\&.
+.SS "def open ( self)"
+
+.PP
+.nf
+open the communication with the slave
+.fi
+.PP
+ 
+.PP
+Definition at line 171 of file modbus\&.py\&.
+.SS "def set_timeout ( self,  timeout_in_sec)"
+
+.PP
+.nf
+Defines a timeout on the MAC layer
+.fi
+.PP
+ 
+.PP
+Definition at line 356 of file modbus\&.py\&.
+.SS "def set_verbose ( self,  verbose)"
+
+.PP
+.nf
+print some more log prints for debug purpose
+.fi
+.PP
+ 
+.PP
+Definition at line 167 of file modbus\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

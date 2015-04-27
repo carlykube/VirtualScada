@@ -1,0 +1,521 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport Class Reference}
+\label{class_swift___transport___abstract_smtp_transport}\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.072702cm]{class_swift___transport___abstract_smtp_transport}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer} \$buf, {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \$dispatcher)
+\item 
+{\bf set\+Local\+Domain} (\$domain)
+\item 
+{\bf get\+Local\+Domain} ()
+\item 
+{\bf set\+Source\+Ip} (\$source)
+\item 
+{\bf get\+Source\+Ip} ()
+\item 
+{\bf start} ()
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf send} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message, \&\$failed\+Recipients=null)
+\item 
+{\bf stop} ()
+\item 
+{\bf register\+Plugin} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener} \$plugin)
+\item 
+{\bf reset} ()
+\item 
+{\bf get\+Buffer} ()
+\item 
+{\bf execute\+Command} (\$command, \$codes=array(), \&\$failures=null)
+\item 
+{\bf \+\_\+\+\_\+destruct} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+get\+Buffer\+Params} ()
+\item 
+{\bf \+\_\+read\+Greeting} ()
+\item 
+{\bf \+\_\+do\+Helo\+Command} ()
+\item 
+{\bf \+\_\+do\+Mail\+From\+Command} (\$address)
+\item 
+{\bf \+\_\+do\+Rcpt\+To\+Command} (\$address)
+\item 
+{\bf \+\_\+do\+Data\+Command} ()
+\item 
+{\bf \+\_\+stream\+Message} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message)
+\item 
+{\bf \+\_\+get\+Reverse\+Path} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message)
+\item 
+{\bf \+\_\+throw\+Exception} ({\bf Swift\+\_\+\+Transport\+Exception} \${\bf e})
+\item 
+{\bf \+\_\+assert\+Response\+Code} (\$response, \$wanted)
+\item 
+{\bf \+\_\+get\+Full\+Response} (\$seq)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$\+\_\+buffer}
+\item 
+{\bf \$\+\_\+started} = false
+\item 
+{\bf \$\+\_\+domain} = \textquotesingle{}[127.\+0.\+0.\+1]\textquotesingle{}
+\item 
+{\bf \$\+\_\+event\+Dispatcher}
+\item 
+{\bf \$\+\_\+source\+Ip}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sends Messages over S\+M\+T\+P.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Abstract\+Smtp\+Transport.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}}]{\$buf, }
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}}]{\$dispatcher}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_ad61fa65cd205a6e2dfdc1d68bf6cf8bd}
+Creates a new Esmtp\+Transport using the given I/\+O buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}{p.}{interface_swift___transport___io_buffer} & {\em \$buf} & \\
+\hline
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher}{p.}{interface_swift___events___event_dispatcher} & {\em \$dispatcher} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
+\index{\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+\+\_\+destruct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+destruct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a421831a265621325e1fdd19aace0c758}
+Destructor. 
+
+Definition at line 486 of file Abstract\+Smtp\+Transport.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+assert\+Response\+Code@{\+\_\+assert\+Response\+Code}}
+\index{\+\_\+assert\+Response\+Code@{\+\_\+assert\+Response\+Code}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+assert\+Response\+Code}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+assert\+Response\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{\$response, }
+\item[{}]{\$wanted}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a30753d1f5a198de0ca8067b21f4ae52a}
+Throws an Exception if a response code is incorrect 
+
+Definition at line 371 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+do\+Data\+Command@{\+\_\+do\+Data\+Command}}
+\index{\+\_\+do\+Data\+Command@{\+\_\+do\+Data\+Command}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+do\+Data\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Data\+Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a344ac57befbb63d42e26d1b3e78fe982}
+Send the D\+A\+T\+A command 
+
+Definition at line 317 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+do\+Helo\+Command@{\+\_\+do\+Helo\+Command}}
+\index{\+\_\+do\+Helo\+Command@{\+\_\+do\+Helo\+Command}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+do\+Helo\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Helo\+Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a6ed8552cae37395c91570ff2d071fd8d}
+Send the H\+E\+L\+O welcome 
+
+Definition at line 293 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+do\+Mail\+From\+Command@{\+\_\+do\+Mail\+From\+Command}}
+\index{\+\_\+do\+Mail\+From\+Command@{\+\_\+do\+Mail\+From\+Command}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+do\+Mail\+From\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Mail\+From\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a73ee0367a476066caf8e0f6502639380}
+Send the M\+A\+I\+L F\+R\+O\+M command 
+
+Definition at line 301 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+do\+Rcpt\+To\+Command@{\+\_\+do\+Rcpt\+To\+Command}}
+\index{\+\_\+do\+Rcpt\+To\+Command@{\+\_\+do\+Rcpt\+To\+Command}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+do\+Rcpt\+To\+Command}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+do\+Rcpt\+To\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a732893d22fa2653e50af7ec56868c40b}
+Send the R\+C\+P\+T T\+O command 
+
+Definition at line 309 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+get\+Buffer\+Params@{\+\_\+get\+Buffer\+Params}}
+\index{\+\_\+get\+Buffer\+Params@{\+\_\+get\+Buffer\+Params}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+get\+Buffer\+Params}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Buffer\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a68318a5d9e5d75ce6281cc425f008d86}
+Return an array of params for the Buffer \index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+get\+Full\+Response@{\+\_\+get\+Full\+Response}}
+\index{\+\_\+get\+Full\+Response@{\+\_\+get\+Full\+Response}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+get\+Full\+Response}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Full\+Response (
+\begin{DoxyParamCaption}
+\item[{}]{\$seq}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a1b9c169356452e17b1954de3dbe2a872}
+Get an entire multi-\/line response using its sequence number 
+
+Definition at line 392 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+get\+Reverse\+Path@{\+\_\+get\+Reverse\+Path}}
+\index{\+\_\+get\+Reverse\+Path@{\+\_\+get\+Reverse\+Path}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+get\+Reverse\+Path}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Reverse\+Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a19f1f024f07171e89fe5e01c00bfc78c}
+Determine the best-\/use reverse path for this message 
+
+Definition at line 337 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+read\+Greeting@{\+\_\+read\+Greeting}}
+\index{\+\_\+read\+Greeting@{\+\_\+read\+Greeting}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+read\+Greeting}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+read\+Greeting (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_aa6c9cb754b63ae78eb227e7dead1d41e}
+Read the opening S\+M\+T\+P greeting 
+
+Definition at line 287 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+stream\+Message@{\+\_\+stream\+Message}}
+\index{\+\_\+stream\+Message@{\+\_\+stream\+Message}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+stream\+Message}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+stream\+Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a197e73e2d507ec0693e813e6a0da1d3c}
+Stream the contents of the message over the buffer 
+
+Definition at line 323 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\+\_\+throw\+Exception@{\+\_\+throw\+Exception}}
+\index{\+\_\+throw\+Exception@{\+\_\+throw\+Exception}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\+\_\+throw\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+throw\+Exception (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+Exception}}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_afe58ca7220dcbc2a7150c81bed91c4d4}
+Throw a Transport\+Exception, first sending it to any listeners 
+
+Definition at line 358 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{execute\+Command}]{\setlength{\rightskip}{0pt plus 5cm}execute\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{}]{\$codes = {\ttfamily array()}, }
+\item[{\&}]{\$failures = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a9ab2b378dc7b691d5e29631b81de6e41}
+Run a command against the buffer, expecting the given response codes.
+
+If no response codes are given, the response will not be validated. If codes are given, an exception will be thrown on an invalid response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+ & {\em int\mbox{[}$\,$\mbox{]}} & \$codes \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failures An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{get\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}get\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_ae26c1e9de1a05d5b5dae90a079408ed0}
+Get the Io\+Buffer where read/writes are occurring.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Io\+Buffer}{p.}{interface_swift___transport___io_buffer} 
+\end{DoxyReturn}
+
+
+Definition at line 256 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!get\+Local\+Domain@{get\+Local\+Domain}}
+\index{get\+Local\+Domain@{get\+Local\+Domain}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{get\+Local\+Domain}]{\setlength{\rightskip}{0pt plus 5cm}get\+Local\+Domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a1627a9f04f0c176a5581eaa08d01cf88}
+Get the name of the domain \doxyref{Swift}{p.}{class_swift} will identify as.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!get\+Source\+Ip@{get\+Source\+Ip}}
+\index{get\+Source\+Ip@{get\+Source\+Ip}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{get\+Source\+Ip}]{\setlength{\rightskip}{0pt plus 5cm}get\+Source\+Ip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_acd584a7846ea4a658b609500728ad5f1}
+Returns the I\+P used to connect to the destination
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a1ffe0e26cd53b764f58c5bbed489c278}
+Test if an S\+M\+T\+P connection has been established.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 133 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!register\+Plugin@{register\+Plugin}}
+\index{register\+Plugin@{register\+Plugin}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{register\+Plugin}]{\setlength{\rightskip}{0pt plus 5cm}register\+Plugin (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener}}]{\$plugin}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_ab89f0e56e80b5a21c0f09004a418ae92}
+Register a plugin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Listener}{p.}{interface_swift___events___event_listener} & {\em \$plugin} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_ab89f0e56e80b5a21c0f09004a418ae92}.
+
+
+
+Definition at line 238 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!reset@{reset}}
+\index{reset@{reset}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a4a20559544fdf4dcb457e258dc976cf8}
+Reset the current mail transaction. 
+
+Definition at line 246 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!send@{send}}
+\index{send@{send}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}send (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a7e179b57bf0cbb197139cf583e7c427e}
+Send the given Message.
+
+Recipient/sender data will be retrieved from the Message A\+P\+I. The return value is the number of recipients who were accepted for delivery.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message} & {\em \$message} & \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failed\+Recipients An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a7e179b57bf0cbb197139cf583e7c427e}.
+
+
+
+Definition at line 149 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!set\+Local\+Domain@{set\+Local\+Domain}}
+\index{set\+Local\+Domain@{set\+Local\+Domain}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{set\+Local\+Domain}]{\setlength{\rightskip}{0pt plus 5cm}set\+Local\+Domain (
+\begin{DoxyParamCaption}
+\item[{}]{\$domain}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_aca167d6eae84ad5946b0b982a46ed210}
+Set the name of the local domain which \doxyref{Swift}{p.}{class_swift} will identify itself as.
+
+This should be a fully-\/qualified domain name and should be truly the domain you\textquotesingle{}re using.
+
+If your server doesn\textquotesingle{}t have a domain name, use the I\+P in square brackets (i.\+e. [127.\+0.\+0.\+1]).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}{p.}{class_swift___transport___abstract_smtp_transport} 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!set\+Source\+Ip@{set\+Source\+Ip}}
+\index{set\+Source\+Ip@{set\+Source\+Ip}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{set\+Source\+Ip}]{\setlength{\rightskip}{0pt plus 5cm}set\+Source\+Ip (
+\begin{DoxyParamCaption}
+\item[{}]{\$source}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a576fe979101ebb1791329a0aa2d87192}
+Sets the source I\+P.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$source} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!start@{start}}
+\index{start@{start}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_af8fa59992209e36dccb3eefb0f75531f}
+Start the S\+M\+T\+P connection. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 102 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!stop@{stop}}
+\index{stop@{stop}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___abstract_smtp_transport_a8b6fc76a620d7557d06e9a11a9ffb509}
+Stop the S\+M\+T\+P connection. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a8b6fc76a620d7557d06e9a11a9ffb509}.
+
+
+
+Definition at line 205 of file Abstract\+Smtp\+Transport.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\$\+\_\+buffer@{\$\+\_\+buffer}}
+\index{\$\+\_\+buffer@{\$\+\_\+buffer}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\$\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+buffer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a79d65a505a68daa9b33764798f34b0c7}
+Input-\/\+Output buffer for sending/receiving S\+M\+T\+P commands and responses 
+
+Definition at line 19 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\$\+\_\+domain@{\$\+\_\+domain}}
+\index{\$\+\_\+domain@{\$\+\_\+domain}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\$\+\_\+domain}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+domain = \textquotesingle{}[127.\+0.\+0.\+1]\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a53bc227a8af9bc99c479e552b5076f05}
+The domain name to use in H\+E\+L\+O command 
+
+Definition at line 25 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\$\+\_\+event\+Dispatcher@{\$\+\_\+event\+Dispatcher}}
+\index{\$\+\_\+event\+Dispatcher@{\$\+\_\+event\+Dispatcher}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\$\+\_\+event\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+event\+Dispatcher\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a37f67737719cd59a160128d3d869be08}
+The event dispatching layer 
+
+Definition at line 28 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\$\+\_\+source\+Ip@{\$\+\_\+source\+Ip}}
+\index{\$\+\_\+source\+Ip@{\$\+\_\+source\+Ip}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\$\+\_\+source\+Ip}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+source\+Ip\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a5a732d80687f553c74f5e961b447d296}
+Source Ip 
+
+Definition at line 31 of file Abstract\+Smtp\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}!\$\+\_\+started@{\$\+\_\+started}}
+\index{\$\+\_\+started@{\$\+\_\+started}!Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Abstract\+Smtp\+Transport}}
+\subsubsection[{\$\+\_\+started}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+started = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___abstract_smtp_transport_a27b0dabf0e871a9a63e7e5b85818ccc5}
+Connection status 
+
+Definition at line 22 of file Abstract\+Smtp\+Transport.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/{\bf Abstract\+Smtp\+Transport.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,389 @@
+\section{Esi Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi}\index{Esi@{Esi}}
+Inheritance diagram for Esi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$content\+Types=array(\textquotesingle{}{\bf text}/{\bf html}\textquotesingle{}, \textquotesingle{}{\bf text}/{\bf xml}\textquotesingle{}, \textquotesingle{}application/xhtml+{\bf xml}\textquotesingle{}, \textquotesingle{}application/{\bf xml}\textquotesingle{}))
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf create\+Cache\+Strategy} ()
+\item 
+{\bf has\+Surrogate\+Capability} ({\bf Request} \$request)
+\item 
+{\bf has\+Surrogate\+Esi\+Capability} ({\bf Request} \$request)
+\item 
+{\bf add\+Surrogate\+Capability} ({\bf Request} \$request)
+\item 
+{\bf add\+Surrogate\+Esi\+Capability} ({\bf Request} \$request)
+\item 
+{\bf add\+Surrogate\+Control} ({\bf Response} \$response)
+\item 
+{\bf needs\+Parsing} ({\bf Response} \$response)
+\item 
+{\bf needs\+Esi\+Parsing} ({\bf Response} \$response)
+\item 
+{\bf render\+Include\+Tag} (\$uri, \$alt=null, \$ignore\+Errors=true, \$comment= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf process} ({\bf Request} \$request, {\bf Response} \$response)
+\item 
+{\bf handle} ({\bf Http\+Cache} \$cache, \$uri, \$alt, \$ignore\+Errors)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Esi}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi} implements the E\+S\+I capabilities to \doxyref{Request}{p.}{class_request} and \doxyref{Response}{p.}{class_response} instances.
+
+For more information, read the following W3\+C notes\+:
+
+
+\begin{DoxyItemize}
+\item E\+S\+I Language Specification 1.\+0 ({\tt http\+://www.\+w3.\+org/\+T\+R/esi-\/lang})
+\item Edge Architecture Specification ({\tt http\+://www.\+w3.\+org/\+T\+R/edge-\/arch})
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 29 of file Esi.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$content\+Types = {\ttfamily array(\textquotesingle{}{\bf text}/{\bf html}\textquotesingle{},~\textquotesingle{}{\bf text}/{\bf xml}\textquotesingle{},~\textquotesingle{}application/xhtml+{\bf xml}\textquotesingle{},~\textquotesingle{}application/{\bf xml}\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a095674f8c391e21ece7992838cdd4d14}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$content\+Types} & An array of content-\/type that should be parsed for E\+S\+I information. (default\+: text/html, text/xml, application/xhtml+xml, and application/xml) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file Esi.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!add\+Surrogate\+Capability@{add\+Surrogate\+Capability}}
+\index{add\+Surrogate\+Capability@{add\+Surrogate\+Capability}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{add\+Surrogate\+Capability}]{\setlength{\rightskip}{0pt plus 5cm}add\+Surrogate\+Capability (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a09e148a81aa665d5510f61d97fd18084}
+Adds E\+S\+I/1.\+0 capability to the given \doxyref{Request}{p.}{class_request}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a09e148a81aa665d5510f61d97fd18084}.
+
+
+
+Definition at line 98 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!add\+Surrogate\+Control@{add\+Surrogate\+Control}}
+\index{add\+Surrogate\+Control@{add\+Surrogate\+Control}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{add\+Surrogate\+Control}]{\setlength{\rightskip}{0pt plus 5cm}add\+Surrogate\+Control (
+\begin{DoxyParamCaption}
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a0c687b781f68709a5ef0b535e1947540}
+Adds H\+T\+T\+P headers to specify that the \doxyref{Response}{p.}{class_response} needs to be parsed for E\+S\+I.
+
+This method only adds an E\+S\+I H\+T\+T\+P header if the \doxyref{Response}{p.}{class_response} has some E\+S\+I tags.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a0c687b781f68709a5ef0b535e1947540}.
+
+
+
+Definition at line 125 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!add\+Surrogate\+Esi\+Capability@{add\+Surrogate\+Esi\+Capability}}
+\index{add\+Surrogate\+Esi\+Capability@{add\+Surrogate\+Esi\+Capability}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{add\+Surrogate\+Esi\+Capability}]{\setlength{\rightskip}{0pt plus 5cm}add\+Surrogate\+Esi\+Capability (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a699a8682247aa49fdd551a0265e85926}
+Adds E\+S\+I/1.\+0 capability to the given \doxyref{Request}{p.}{class_request}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. Use \doxyref{add\+Surrogate\+Capability()}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a09e148a81aa665d5510f61d97fd18084} instead \end{DoxyRefDesc}
+
+
+Definition at line 110 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!create\+Cache\+Strategy@{create\+Cache\+Strategy}}
+\index{create\+Cache\+Strategy@{create\+Cache\+Strategy}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{create\+Cache\+Strategy}]{\setlength{\rightskip}{0pt plus 5cm}create\+Cache\+Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a10536a88367a345a54e91a23d77701e5}
+Returns a new cache strategy instance.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Response\+Cache\+Strategy\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_response_cache_strategy_interface} \doxyref{A}{p.}{class_a} \doxyref{Response\+Cache\+Strategy\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_response_cache_strategy_interface} instance 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a10536a88367a345a54e91a23d77701e5}.
+
+
+
+Definition at line 58 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a3d0963e68bb313b163a73f2803c64600}
+Returns surrogate name
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 48 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!handle@{handle}}
+\index{handle@{handle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{{\bf Http\+Cache}}]{\$cache, }
+\item[{}]{\$uri, }
+\item[{}]{\$alt, }
+\item[{}]{\$ignore\+Errors}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_ad0d59ecdac72cdc23496b0b50a6c48a4}
+Handles an E\+S\+I from the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Http\+Cache}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache} & {\em \$cache} & An \doxyref{Http\+Cache}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache} instance \\
+\hline
+string & {\em \$uri} & The main U\+R\+I \\
+\hline
+string & {\em \$alt} & An alternative U\+R\+I \\
+\hline
+bool & {\em \$ignore\+Errors} & Whether to ignore errors or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_ad0d59ecdac72cdc23496b0b50a6c48a4}.
+
+
+
+Definition at line 268 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!has\+Surrogate\+Capability@{has\+Surrogate\+Capability}}
+\index{has\+Surrogate\+Capability@{has\+Surrogate\+Capability}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{has\+Surrogate\+Capability}]{\setlength{\rightskip}{0pt plus 5cm}has\+Surrogate\+Capability (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a7fe3c091a5cafb32e34284a6b6a5cc06}
+Checks that at least one surrogate has E\+S\+I/1.\+0 capability.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if one surrogate has E\+S\+I/1.\+0 capability, false otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a7fe3c091a5cafb32e34284a6b6a5cc06}.
+
+
+
+Definition at line 70 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!has\+Surrogate\+Esi\+Capability@{has\+Surrogate\+Esi\+Capability}}
+\index{has\+Surrogate\+Esi\+Capability@{has\+Surrogate\+Esi\+Capability}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{has\+Surrogate\+Esi\+Capability}]{\setlength{\rightskip}{0pt plus 5cm}has\+Surrogate\+Esi\+Capability (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a4c8942c29970fa621b1936776b3ff9f0}
+Checks that at least one surrogate has E\+S\+I/1.\+0 capability.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if one surrogate has E\+S\+I/1.\+0 capability, false otherwise
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. Use \doxyref{has\+Surrogate\+Capability()}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a7fe3c091a5cafb32e34284a6b6a5cc06} instead \end{DoxyRefDesc}
+
+
+Definition at line 84 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!needs\+Esi\+Parsing@{needs\+Esi\+Parsing}}
+\index{needs\+Esi\+Parsing@{needs\+Esi\+Parsing}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{needs\+Esi\+Parsing}]{\setlength{\rightskip}{0pt plus 5cm}needs\+Esi\+Parsing (
+\begin{DoxyParamCaption}
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_ab3cfea05bf38a2395414094b73b9b988}
+Checks that the \doxyref{Response}{p.}{class_response} needs to be parsed for E\+S\+I tags.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the \doxyref{Response}{p.}{class_response} needs to be parsed, false otherwise
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+6, to be removed in 3.\+0. Use \doxyref{needs\+Parsing()}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_aef081c4d84bdd6f6b57eca8914f86e2c} instead \end{DoxyRefDesc}
+
+
+Definition at line 153 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!needs\+Parsing@{needs\+Parsing}}
+\index{needs\+Parsing@{needs\+Parsing}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{needs\+Parsing}]{\setlength{\rightskip}{0pt plus 5cm}needs\+Parsing (
+\begin{DoxyParamCaption}
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_aef081c4d84bdd6f6b57eca8914f86e2c}
+Checks that the \doxyref{Response}{p.}{class_response} needs to be parsed for E\+S\+I tags.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the \doxyref{Response}{p.}{class_response} needs to be parsed, false otherwise 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_aef081c4d84bdd6f6b57eca8914f86e2c}.
+
+
+
+Definition at line 139 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!process@{process}}
+\index{process@{process}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}process (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_a01e892ef2998ab486938f9b9baa372ae}
+Replaces a \doxyref{Response}{p.}{class_response} E\+S\+I tags with the included resource content.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_a01e892ef2998ab486938f9b9baa372ae}.
+
+
+
+Definition at line 195 of file Esi.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}!render\+Include\+Tag@{render\+Include\+Tag}}
+\index{render\+Include\+Tag@{render\+Include\+Tag}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Esi}}
+\subsubsection[{render\+Include\+Tag}]{\setlength{\rightskip}{0pt plus 5cm}render\+Include\+Tag (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$alt = {\ttfamily null}, }
+\item[{}]{\$ignore\+Errors = {\ttfamily true}, }
+\item[{}]{\$comment = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi_ac46490b019953a8bef05edc1051590db}
+Renders an E\+S\+I tag.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \doxyref{A}{p.}{class_a} U\+R\+I \\
+\hline
+string & {\em \$alt} & An alternate U\+R\+I \\
+\hline
+bool & {\em \$ignore\+Errors} & Whether to ignore errors or not \\
+\hline
+string & {\em \$comment} & \doxyref{A}{p.}{class_a} comment to add as an esi\+:include tag\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Surrogate\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface_ac46490b019953a8bef05edc1051590db}.
+
+
+
+Definition at line 172 of file Esi.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Http\+Cache/{\bf Esi.\+php}\end{DoxyCompactItemize}

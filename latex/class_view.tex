@@ -1,0 +1,934 @@
+\section{View Class Reference}
+\label{class_view}\index{View@{View}}
+Inheritance diagram for View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_view}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf make} (\$view, \${\bf data}=array(), \$merge\+Data=array())
+\item 
+static {\bf of} (\$view, \${\bf data}=array())
+\item 
+static {\bf name} (\$view, \$name)
+\item 
+static {\bf alias} (\$view, \$alias)
+\item 
+static {\bf exists} (\$view)
+\item 
+static {\bf render\+Each} (\$view, \${\bf data}, \$iterator, \${\bf empty}= \textquotesingle{}raw$\vert$\textquotesingle{})
+\item 
+static {\bf get\+Engine\+From\+Path} (\${\bf path})
+\item 
+static {\bf share} (\$key, \$value=null)
+\item 
+static {\bf creator} (\$views, \${\bf callback})
+\item 
+static {\bf composers} (\$composers)
+\item 
+static {\bf composer} (\$views, \${\bf callback}, \$priority=null)
+\item 
+static {\bf call\+Composer} (\$view)
+\item 
+static {\bf call\+Creator} (\$view)
+\item 
+static {\bf start\+Section} (\$section, \$content= \textquotesingle{}\textquotesingle{})
+\item 
+static {\bf inject} (\$section, \$content)
+\item 
+static {\bf yield\+Section} ()
+\item 
+static {\bf stop\+Section} (\$overwrite=false)
+\item 
+static {\bf append\+Section} ()
+\item 
+static {\bf yield\+Content} (\$section, \$default= \textquotesingle{}\textquotesingle{})
+\item 
+static {\bf flush\+Sections} ()
+\item 
+static {\bf flush\+Sections\+If\+Done\+Rendering} ()
+\item 
+static {\bf increment\+Render} ()
+\item 
+static {\bf decrement\+Render} ()
+\item 
+static {\bf done\+Rendering} ()
+\item 
+static {\bf add\+Location} (\$location)
+\item 
+static {\bf add\+Namespace} (\$namespace, \$hints)
+\item 
+static {\bf prepend\+Namespace} (\$namespace, \$hints)
+\item 
+static {\bf add\+Extension} (\$extension, \$engine, \$resolver=null)
+\item 
+static {\bf get\+Extensions} ()
+\item 
+static {\bf get\+Engine\+Resolver} ()
+\item 
+static {\bf get\+Finder} ()
+\item 
+static {\bf set\+Finder} (\$finder)
+\item 
+static {\bf get\+Dispatcher} ()
+\item 
+static {\bf set\+Dispatcher} (\$events)
+\item 
+static {\bf get\+Container} ()
+\item 
+static {\bf set\+Container} (\$container)
+\item 
+static {\bf shared} (\$key, \$default=null)
+\item 
+static {\bf get\+Shared} ()
+\item 
+static {\bf get\+Sections} ()
+\item 
+static {\bf get\+Names} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11875 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{View@{View}!add\+Extension@{add\+Extension}}
+\index{add\+Extension@{add\+Extension}!View@{View}}
+\subsubsection[{add\+Extension}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Extension (
+\begin{DoxyParamCaption}
+\item[{}]{\$extension, }
+\item[{}]{\$engine, }
+\item[{}]{\$resolver = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a689b59a97bd8eb250bd1b97e8baf4674}
+Register a valid view extension and its engine.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$extension} & \\
+\hline
+string & {\em \$engine} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$resolver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12194 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!add\+Location@{add\+Location}}
+\index{add\+Location@{add\+Location}!View@{View}}
+\subsubsection[{add\+Location}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Location (
+\begin{DoxyParamCaption}
+\item[{}]{\$location}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a8ab173ab69e034044656dae398eb4ead}
+Add a location to the array of view locations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12157 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!add\+Namespace@{add\+Namespace}}
+\index{add\+Namespace@{add\+Namespace}!View@{View}}
+\subsubsection[{add\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Namespace (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$hints}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ade2d4ecedb97a6e61422555ae3632135}
+Add a new namespace to the loader.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string | array & {\em \$hints} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12169 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!alias@{alias}}
+\index{alias@{alias}!View@{View}}
+\subsubsection[{alias}]{\setlength{\rightskip}{0pt plus 5cm}static alias (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$alias}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a618a37b3d5331a37245b062c2e9086db}
+Add an alias for a view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+string & {\em \$alias} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 11922 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!append\+Section@{append\+Section}}
+\index{append\+Section@{append\+Section}!View@{View}}
+\subsubsection[{append\+Section}]{\setlength{\rightskip}{0pt plus 5cm}static append\+Section (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_afa0050676e92f75f7f958d77d65879ee}
+Stop injecting content into a section and append it.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 12084 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!call\+Composer@{call\+Composer}}
+\index{call\+Composer@{call\+Composer}!View@{View}}
+\subsubsection[{call\+Composer}]{\setlength{\rightskip}{0pt plus 5cm}static call\+Composer (
+\begin{DoxyParamCaption}
+\item[{}]{\$view}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a11b12d931ca15402f73e316fad715342}
+Call the composer for a given view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+View\textbackslash{}\+View & {\em \$view} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12018 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!call\+Creator@{call\+Creator}}
+\index{call\+Creator@{call\+Creator}!View@{View}}
+\subsubsection[{call\+Creator}]{\setlength{\rightskip}{0pt plus 5cm}static call\+Creator (
+\begin{DoxyParamCaption}
+\item[{}]{\$view}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_aec2f08e52d8b0be2d69274285841cb08}
+Call the creator for a given view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+View\textbackslash{}\+View & {\em \$view} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12029 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!composer@{composer}}
+\index{composer@{composer}!View@{View}}
+\subsubsection[{composer}]{\setlength{\rightskip}{0pt plus 5cm}static composer (
+\begin{DoxyParamCaption}
+\item[{}]{\$views, }
+\item[{}]{\$callback, }
+\item[{}]{\$priority = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_aa204e65f54056db91899eec70125b6fe}
+Register a view composer event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$views} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+int | null & {\em \$priority} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 12007 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!composers@{composers}}
+\index{composers@{composers}!View@{View}}
+\subsubsection[{composers}]{\setlength{\rightskip}{0pt plus 5cm}static composers (
+\begin{DoxyParamCaption}
+\item[{}]{\$composers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ab81d8ba17515433d890f5e22822d99e6}
+Register multiple view composers via an array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$composers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 11994 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!creator@{creator}}
+\index{creator@{creator}!View@{View}}
+\subsubsection[{creator}]{\setlength{\rightskip}{0pt plus 5cm}static creator (
+\begin{DoxyParamCaption}
+\item[{}]{\$views, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ac644ef74f328e1af216f39e31c4ba576}
+Register a view creator event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$views} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 11983 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!decrement\+Render@{decrement\+Render}}
+\index{decrement\+Render@{decrement\+Render}!View@{View}}
+\subsubsection[{decrement\+Render}]{\setlength{\rightskip}{0pt plus 5cm}static decrement\+Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a3ac87e3a4ed71e23cd63b20574a7ac9d}
+Decrement the rendering counter.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12136 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!done\+Rendering@{done\+Rendering}}
+\index{done\+Rendering@{done\+Rendering}!View@{View}}
+\subsubsection[{done\+Rendering}]{\setlength{\rightskip}{0pt plus 5cm}static done\+Rendering (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_aa8691ebc42ea4e78c33e19f323c374aa}
+Check if there are no active render operations.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 12146 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!exists@{exists}}
+\index{exists@{exists}!View@{View}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}static exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$view}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a0b387b5fec2a0bf8312fdb9f5e7e49f8}
+Determine if a given view exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 11933 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!flush\+Sections@{flush\+Sections}}
+\index{flush\+Sections@{flush\+Sections}!View@{View}}
+\subsubsection[{flush\+Sections}]{\setlength{\rightskip}{0pt plus 5cm}static flush\+Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a40a9890dacd219aa002a302bd11de0ca}
+Flush all of the section contents.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12106 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!flush\+Sections\+If\+Done\+Rendering@{flush\+Sections\+If\+Done\+Rendering}}
+\index{flush\+Sections\+If\+Done\+Rendering@{flush\+Sections\+If\+Done\+Rendering}!View@{View}}
+\subsubsection[{flush\+Sections\+If\+Done\+Rendering}]{\setlength{\rightskip}{0pt plus 5cm}static flush\+Sections\+If\+Done\+Rendering (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ad1f6143448d7013a40a1b7b814e98fc0}
+Flush all of the section contents if done rendering.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12116 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Container@{get\+Container}}
+\index{get\+Container@{get\+Container}!View@{View}}
+\subsubsection[{get\+Container}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ad28807d84289c0d4694b44dc2888bc86}
+Get the Io\+C container instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 12266 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Dispatcher@{get\+Dispatcher}}
+\index{get\+Dispatcher@{get\+Dispatcher}!View@{View}}
+\subsubsection[{get\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Dispatcher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_abfd0445876c9f3a2760d70ca100db566}
+Get the event dispatcher instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 12245 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Engine\+From\+Path@{get\+Engine\+From\+Path}}
+\index{get\+Engine\+From\+Path@{get\+Engine\+From\+Path}!View@{View}}
+\subsubsection[{get\+Engine\+From\+Path}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Engine\+From\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a90bb86ea202dd2b68eb18f7afca5fca5}
+Get the appropriate view engine for the given path.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 11959 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Engine\+Resolver@{get\+Engine\+Resolver}}
+\index{get\+Engine\+Resolver@{get\+Engine\+Resolver}!View@{View}}
+\subsubsection[{get\+Engine\+Resolver}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Engine\+Resolver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a97749175d36a9b0a05a4e2c0f301960c}
+Get the engine resolver instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 12214 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Extensions@{get\+Extensions}}
+\index{get\+Extensions@{get\+Extensions}!View@{View}}
+\subsubsection[{get\+Extensions}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Extensions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a8210f1626b3ecaaa1faa9e7db348d876}
+Get the extension to engine bindings.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 12204 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Finder@{get\+Finder}}
+\index{get\+Finder@{get\+Finder}!View@{View}}
+\subsubsection[{get\+Finder}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Finder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a266e1c97e99f44c332cc94f1099f841a}
+Get the view finder instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 12224 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Names@{get\+Names}}
+\index{get\+Names@{get\+Names}!View@{View}}
+\subsubsection[{get\+Names}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a5c4c6d1e0b4350c2beba0db9f0b13189}
+Get all of the registered named views in environment.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 12319 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Sections@{get\+Sections}}
+\index{get\+Sections@{get\+Sections}!View@{View}}
+\subsubsection[{get\+Sections}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a6a219f511a323a51c68e0f87d10885ee}
+Get the entire array of sections.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 12309 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!get\+Shared@{get\+Shared}}
+\index{get\+Shared@{get\+Shared}!View@{View}}
+\subsubsection[{get\+Shared}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Shared (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a1a0886d2883517b929fabaaad8c002e5}
+Get all of the shared data for the environment.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 12299 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!increment\+Render@{increment\+Render}}
+\index{increment\+Render@{increment\+Render}!View@{View}}
+\subsubsection[{increment\+Render}]{\setlength{\rightskip}{0pt plus 5cm}static increment\+Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a3a61ddb531bdc21543a7113c0a1200b6}
+Increment the rendering counter.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12126 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!inject@{inject}}
+\index{inject@{inject}!View@{View}}
+\subsubsection[{inject}]{\setlength{\rightskip}{0pt plus 5cm}static inject (
+\begin{DoxyParamCaption}
+\item[{}]{\$section, }
+\item[{}]{\$content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a7b8a09ff138613a984db989f1ecef06d}
+Inject inline content into a section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$section} & \\
+\hline
+string & {\em \$content} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12053 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!make@{make}}
+\index{make@{make}!View@{View}}
+\subsubsection[{make}]{\setlength{\rightskip}{0pt plus 5cm}static make (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$data = {\ttfamily array()}, }
+\item[{}]{\$merge\+Data = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a74a07b2c907aa27f8f08309091f40f79}
+Get the evaluated view contents for the given view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+array & {\em \$merge\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 11886 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!name@{name}}
+\index{name@{name}!View@{View}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}static name (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a226bb3c720466d6bfbb38ed04aee3e4a}
+Register a named view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 11910 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!of@{of}}
+\index{of@{of}!View@{View}}
+\subsubsection[{of}]{\setlength{\rightskip}{0pt plus 5cm}static of (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$data = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ab89b7159ed00b5dcbb63d44d73902b78}
+Get the evaluated view contents for a named view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 11898 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!prepend\+Namespace@{prepend\+Namespace}}
+\index{prepend\+Namespace@{prepend\+Namespace}!View@{View}}
+\subsubsection[{prepend\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}static prepend\+Namespace (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$hints}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a2b47e3a01bf045efe11d5feeb3bec6ef}
+Prepend a new namespace to the loader.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string | array & {\em \$hints} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12181 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!render\+Each@{render\+Each}}
+\index{render\+Each@{render\+Each}!View@{View}}
+\subsubsection[{render\+Each}]{\setlength{\rightskip}{0pt plus 5cm}static render\+Each (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$data, }
+\item[{}]{\$iterator, }
+\item[{}]{\$empty = {\ttfamily \textquotesingle{}raw$\vert$\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a0614757b3b3a1911d829eb4ffa08a976}
+Get the rendered contents of a partial from a loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+string & {\em \$iterator} & \\
+\hline
+string & {\em \$empty} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 11947 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!set\+Container@{set\+Container}}
+\index{set\+Container@{set\+Container}!View@{View}}
+\subsubsection[{set\+Container}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Container (
+\begin{DoxyParamCaption}
+\item[{}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_acb6a8639573cd5b709a2b25b415c7680}
+Set the Io\+C container instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12277 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!set\+Dispatcher@{set\+Dispatcher}}
+\index{set\+Dispatcher@{set\+Dispatcher}!View@{View}}
+\subsubsection[{set\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Dispatcher (
+\begin{DoxyParamCaption}
+\item[{}]{\$events}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ad4b6fa229808085a78d42578dfc50942}
+Set the event dispatcher instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12256 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!set\+Finder@{set\+Finder}}
+\index{set\+Finder@{set\+Finder}!View@{View}}
+\subsubsection[{set\+Finder}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Finder (
+\begin{DoxyParamCaption}
+\item[{}]{\$finder}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ac803d3b0b21ee74d1e68cdb632100489}
+Set the view finder instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+View\textbackslash{}\+View\+Finder\+Interface & {\em \$finder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12235 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!share@{share}}
+\index{share@{share}!View@{View}}
+\subsubsection[{share}]{\setlength{\rightskip}{0pt plus 5cm}static share (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a6924b0756bb419ff706e26d629a4d7c8}
+Add a piece of shared data to the environment.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 11971 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!shared@{shared}}
+\index{shared@{shared}!View@{View}}
+\subsubsection[{shared}]{\setlength{\rightskip}{0pt plus 5cm}static shared (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a7098bca1e02c88365d842f1446136a4e}
+Get an item from the shared data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 12289 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!start\+Section@{start\+Section}}
+\index{start\+Section@{start\+Section}!View@{View}}
+\subsubsection[{start\+Section}]{\setlength{\rightskip}{0pt plus 5cm}static start\+Section (
+\begin{DoxyParamCaption}
+\item[{}]{\$section, }
+\item[{}]{\$content = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a720c81f57e114c194dae978dea4dda33}
+Start injecting content into a section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$section} & \\
+\hline
+string & {\em \$content} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 12041 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!stop\+Section@{stop\+Section}}
+\index{stop\+Section@{stop\+Section}!View@{View}}
+\subsubsection[{stop\+Section}]{\setlength{\rightskip}{0pt plus 5cm}static stop\+Section (
+\begin{DoxyParamCaption}
+\item[{}]{\$overwrite = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a3cfd822b66ecfcf13d008272a04af203}
+Stop injecting content into a section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$overwrite} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 12074 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!yield\+Content@{yield\+Content}}
+\index{yield\+Content@{yield\+Content}!View@{View}}
+\subsubsection[{yield\+Content}]{\setlength{\rightskip}{0pt plus 5cm}static yield\+Content (
+\begin{DoxyParamCaption}
+\item[{}]{\$section, }
+\item[{}]{\$default = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a51e1d9a3672123afc52e066c1a540181}
+Get the string contents of a section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$section} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 12096 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{View@{View}!yield\+Section@{yield\+Section}}
+\index{yield\+Section@{yield\+Section}!View@{View}}
+\subsubsection[{yield\+Section}]{\setlength{\rightskip}{0pt plus 5cm}static yield\+Section (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a083b5802027191ede1f2f12538b791ea}
+Stop injecting content into a section and return its contents.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 12063 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+ide\+\_\+helper.\+php}\end{DoxyCompactItemize}

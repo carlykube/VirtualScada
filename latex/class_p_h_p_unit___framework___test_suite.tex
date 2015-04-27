@@ -1,0 +1,881 @@
+\section{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite Class Reference}
+\label{class_p_h_p_unit___framework___test_suite}\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+Inheritance diagram for P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.705314cm]{class_p_h_p_unit___framework___test_suite}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$the\+Class= \textquotesingle{}\textquotesingle{}, \${\bf name}= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf to\+String} ()
+\item 
+{\bf add\+Test} ({\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test} \$test, \$groups=array())
+\item 
+{\bf add\+Test\+Suite} (\$test\+Class)
+\item 
+{\bf add\+Test\+File} (\$filename, \$phpt\+Options=array())
+\item 
+{\bf add\+Test\+Files} (\$filenames)
+\item 
+{\bf count} ()
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf get\+Groups} ()
+\item 
+{\bf get\+Group\+Details} ()
+\item 
+{\bf set\+Group\+Details} (array \$groups)
+\item 
+{\bf run} ({\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result} \$result=null)
+\item 
+{\bf set\+Run\+Test\+In\+Separate\+Process} (\$run\+Test\+In\+Separate\+Process)
+\item 
+{\bf run\+Test} ({\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test} \$test, {\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result} \$result)
+\item 
+{\bf set\+Name} (\${\bf name})
+\item 
+{\bf test\+At} (\$index)
+\item 
+{\bf tests} ()
+\item 
+{\bf set\+Tests} (array \${\bf tests})
+\item 
+{\bf mark\+Test\+Suite\+Skipped} (\$message= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf set\+Disallow\+Changes\+To\+Global\+State} (\$disallow\+Changes\+To\+Global\+State)
+\item 
+{\bf set\+Backup\+Globals} (\$backup\+Globals)
+\item 
+{\bf set\+Backup\+Static\+Attributes} (\$backup\+Static\+Attributes)
+\item 
+{\bf get\+Iterator} ()
+\item 
+{\bf inject\+Filter} ({\bf P\+H\+P\+Unit\+\_\+\+Runner\+\_\+\+Filter\+\_\+\+Factory} \${\bf filter})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf create\+Test} (Reflection\+Class \$the\+Class, \${\bf name})
+\item 
+static {\bf is\+Test\+Method} (Reflection\+Method \$method)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf create\+Result} ()
+\item 
+{\bf add\+Test\+Method} (Reflection\+Class \$class, Reflection\+Method \$method)
+\item 
+{\bf set\+Up} ()
+\item 
+{\bf tear\+Down} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf warning} (\$message)
+\item 
+static {\bf skip\+Test} (\$class, \$method\+Name, \$message)
+\item 
+static {\bf incomplete\+Test} (\$class, \$method\+Name, \$message)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$backup\+Globals} = null
+\item 
+{\bf \$backup\+Static\+Attributes} = null
+\item 
+{\bf \$run\+Test\+In\+Separate\+Process} = false
+\item 
+{\bf \$name} = \textquotesingle{}\textquotesingle{}
+\item 
+{\bf \$groups} = array()
+\item 
+{\bf \$tests} = array()
+\item 
+{\bf \$num\+Tests} = -\/1
+\item 
+{\bf \$test\+Case} = false
+\item 
+{\bf \$found\+Classes} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 47 of file Test\+Suite.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$the\+Class = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$name = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_ac88e1a2387af50b485e4c9adc4796f50}
+Constructs a new Test\+Suite\+:
+
+
+\begin{DoxyItemize}
+\item \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite()}{p.}{class_p_h_p_unit___framework___test_suite} constructs an empty Test\+Suite.
+\item \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite(\+Reflection\+Class)}{p.}{class_p_h_p_unit___framework___test_suite} constructs a Test\+Suite from the given class.
+\item \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite(\+Reflection\+Class, String)}{p.}{class_p_h_p_unit___framework___test_suite} constructs a Test\+Suite from the given class with the given name.
+\item \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite(\+String)}{p.}{class_p_h_p_unit___framework___test_suite} either constructs a Test\+Suite from the given class (if the passed string is the name of an existing class) or constructs an empty Test\+Suite with the given name.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$the\+Class} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 137 of file Test\+Suite.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!add\+Test@{add\+Test}}
+\index{add\+Test@{add\+Test}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{add\+Test}]{\setlength{\rightskip}{0pt plus 5cm}add\+Test (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}}]{\$test, }
+\item[{}]{\$groups = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_ae9b4408a202fac22679b66511a4b64f0}
+Adds a test to the suite.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}{p.}{interface_p_h_p_unit___framework___test} & {\em \$test} & \\
+\hline
+array & {\em \$groups} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!add\+Test\+File@{add\+Test\+File}}
+\index{add\+Test\+File@{add\+Test\+File}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{add\+Test\+File}]{\setlength{\rightskip}{0pt plus 5cm}add\+Test\+File (
+\begin{DoxyParamCaption}
+\item[{}]{\$filename, }
+\item[{}]{\$phpt\+Options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a24626d0906af85586d3aca651627e83e}
+Wraps both {\ttfamily \doxyref{add\+Test()}{p.}{class_p_h_p_unit___framework___test_suite_ae9b4408a202fac22679b66511a4b64f0}} and {\ttfamily add\+Test\+Suite} as well as the separate import statements for the user\textquotesingle{}s convenience.
+
+If the named file cannot be read or there are no new tests that can be added, a {\ttfamily \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Warning}{p.}{class_p_h_p_unit___framework___warning}} will be created instead, leaving the current test run untouched.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filename} & \\
+\hline
+array & {\em \$phpt\+Options} & Array with ini settings for the php instance run, key being the name if the setting, value the ini value. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 2.\+3.\+0 
+\end{DoxySince}
+\begin{DoxyAuthor}{Author}
+Stefano F. Rausch {\tt stefano@rausch-\/e.\+net} 
+\end{DoxyAuthor}
+
+
+Definition at line 317 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!add\+Test\+Files@{add\+Test\+Files}}
+\index{add\+Test\+Files@{add\+Test\+Files}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{add\+Test\+Files}]{\setlength{\rightskip}{0pt plus 5cm}add\+Test\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$filenames}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a633ca1412e2918c325d55e9c3eadbfef}
+Wrapper for \doxyref{add\+Test\+File()}{p.}{class_p_h_p_unit___framework___test_suite_a24626d0906af85586d3aca651627e83e} that adds multiple test files.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | Iterator & {\em \$filenames} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 2.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line 394 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!add\+Test\+Method@{add\+Test\+Method}}
+\index{add\+Test\+Method@{add\+Test\+Method}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{add\+Test\+Method}]{\setlength{\rightskip}{0pt plus 5cm}add\+Test\+Method (
+\begin{DoxyParamCaption}
+\item[{Reflection\+Class}]{\$class, }
+\item[{Reflection\+Method}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_ae48cf09b98b8b0ab12a0203511827039}
+
+\begin{DoxyParams}[1]{Parameters}
+Reflection\+Class & {\em \$class} & \\
+\hline
+Reflection\+Method & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 826 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!add\+Test\+Suite@{add\+Test\+Suite}}
+\index{add\+Test\+Suite@{add\+Test\+Suite}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{add\+Test\+Suite}]{\setlength{\rightskip}{0pt plus 5cm}add\+Test\+Suite (
+\begin{DoxyParamCaption}
+\item[{}]{\$test\+Class}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a4b1f67e35a90dbbed2a3eeb38f16d36a}
+Adds the tests from the given class to the suite.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$test\+Class} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 259 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!count@{count}}
+\index{count@{count}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_ac751e87b3d4c4bf2feb03bee8b092755}
+Counts the number of test cases that will be run by this test.
+
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+
+
+Definition at line 414 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!create\+Result@{create\+Result}}
+\index{create\+Result@{create\+Result}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{create\+Result}]{\setlength{\rightskip}{0pt plus 5cm}create\+Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a3f3ab385dd8747091f1bdfbb11ed6eca}
+Creates a default Test\+Result object.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}{p.}{class_p_h_p_unit___framework___test_result} 
+\end{DoxyReturn}
+
+
+Definition at line 605 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!create\+Test@{create\+Test}}
+\index{create\+Test@{create\+Test}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{create\+Test}]{\setlength{\rightskip}{0pt plus 5cm}static create\+Test (
+\begin{DoxyParamCaption}
+\item[{Reflection\+Class}]{\$the\+Class, }
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___framework___test_suite_af96ca1c0b1be0abb3b9686a8010286d4}
+
+\begin{DoxyParams}[1]{Parameters}
+Reflection\+Class & {\em \$the\+Class} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}{p.}{interface_p_h_p_unit___framework___test} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 431 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!get\+Group\+Details@{get\+Group\+Details}}
+\index{get\+Group\+Details@{get\+Group\+Details}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{get\+Group\+Details}]{\setlength{\rightskip}{0pt plus 5cm}get\+Group\+Details (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_ad47457e074241ecc982aa4a51ffe34f4}
+
+
+Definition at line 631 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!get\+Groups@{get\+Groups}}
+\index{get\+Groups@{get\+Groups}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{get\+Groups}]{\setlength{\rightskip}{0pt plus 5cm}get\+Groups (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a6187b4fda76a8055bd08acafa57d9824}
+Returns the test groups of the suite.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line 626 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!get\+Iterator@{get\+Iterator}}
+\index{get\+Iterator@{get\+Iterator}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{get\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}get\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a7a9f937c2958e6f4dd7b030f86fb70b7}
+Returns an iterator for this test suite.
+
+\begin{DoxyReturn}{Returns}
+Recursive\+Iterator\+Iterator 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 954 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a3d0963e68bb313b163a73f2803c64600}
+Returns the name of the suite.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 615 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!incomplete\+Test@{incomplete\+Test}}
+\index{incomplete\+Test@{incomplete\+Test}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{incomplete\+Test}]{\setlength{\rightskip}{0pt plus 5cm}static incomplete\+Test (
+\begin{DoxyParamCaption}
+\item[{}]{\$class, }
+\item[{}]{\$method\+Name, }
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a983a623bdb32337f9f33bf313de3df76}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Incomplete\+Test\+Case}{p.}{class_p_h_p_unit___framework___incomplete_test_case} 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line 909 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!inject\+Filter@{inject\+Filter}}
+\index{inject\+Filter@{inject\+Filter}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{inject\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}inject\+Filter (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Runner\+\_\+\+Filter\+\_\+\+Factory}}]{\$filter}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a6bf30b910cb9caead065cb57d9bac99a}
+
+
+Definition at line 965 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!is\+Test\+Method@{is\+Test\+Method}}
+\index{is\+Test\+Method@{is\+Test\+Method}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{is\+Test\+Method}]{\setlength{\rightskip}{0pt plus 5cm}static is\+Test\+Method (
+\begin{DoxyParamCaption}
+\item[{Reflection\+Method}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___framework___test_suite_a4ef483825c4423bf677e37f104136e28}
+
+\begin{DoxyParams}[1]{Parameters}
+Reflection\+Method & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 867 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!mark\+Test\+Suite\+Skipped@{mark\+Test\+Suite\+Skipped}}
+\index{mark\+Test\+Suite\+Skipped@{mark\+Test\+Suite\+Skipped}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{mark\+Test\+Suite\+Skipped}]{\setlength{\rightskip}{0pt plus 5cm}mark\+Test\+Suite\+Skipped (
+\begin{DoxyParamCaption}
+\item[{}]{\$message = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_aa4250466153dc3827cab214817e15746}
+Mark the test suite as skipped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Skipped\+Test\+Suite\+Error}{p.}{class_p_h_p_unit___framework___skipped_test_suite_error}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 817 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!run@{run}}
+\index{run@{run}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}}]{\$result = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_aba2e5a83092b40735a7a61c572cd6256}
+Runs the tests and collects their result in a Test\+Result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}{p.}{class_p_h_p_unit___framework___test_result} & {\em \$result} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}{p.}{class_p_h_p_unit___framework___test_result} 
+\end{DoxyReturn}
+
+
+Implements {\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test} \doxyref{}{p.}{interface_p_h_p_unit___framework___test_aba2e5a83092b40735a7a61c572cd6256}.
+
+
+
+Definition at line 653 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!run\+Test@{run\+Test}}
+\index{run\+Test@{run\+Test}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{run\+Test}]{\setlength{\rightskip}{0pt plus 5cm}run\+Test (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}}]{\$test, }
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}}]{\$result}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_ab3aa10e3edecc8f2b4175a3215f36b51}
+Runs a test.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}{p.}{interface_p_h_p_unit___framework___test} & {\em \$test} & \\
+\hline
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Result}{p.}{class_p_h_p_unit___framework___test_result} & {\em \$result} & \\
+\hline
+\end{DoxyParams}
+\end{DoxyRefDesc}
+
+
+Definition at line 759 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Backup\+Globals@{set\+Backup\+Globals}}
+\index{set\+Backup\+Globals@{set\+Backup\+Globals}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Backup\+Globals}]{\setlength{\rightskip}{0pt plus 5cm}set\+Backup\+Globals (
+\begin{DoxyParamCaption}
+\item[{}]{\$backup\+Globals}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a05198848657e1a00f153eb72b586d6be}
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$backup\+Globals} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line 929 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Backup\+Static\+Attributes@{set\+Backup\+Static\+Attributes}}
+\index{set\+Backup\+Static\+Attributes@{set\+Backup\+Static\+Attributes}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Backup\+Static\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}set\+Backup\+Static\+Attributes (
+\begin{DoxyParamCaption}
+\item[{}]{\$backup\+Static\+Attributes}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a7f2ed8943e4b0713c34c9b6e3cf2bea8}
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$backup\+Static\+Attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 940 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Disallow\+Changes\+To\+Global\+State@{set\+Disallow\+Changes\+To\+Global\+State}}
+\index{set\+Disallow\+Changes\+To\+Global\+State@{set\+Disallow\+Changes\+To\+Global\+State}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Disallow\+Changes\+To\+Global\+State}]{\setlength{\rightskip}{0pt plus 5cm}set\+Disallow\+Changes\+To\+Global\+State (
+\begin{DoxyParamCaption}
+\item[{}]{\$disallow\+Changes\+To\+Global\+State}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a721be3cc6c5bda6f5c81f9c4058fa177}
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$disallow\+Changes\+To\+Global\+State} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+6.\+0 
+\end{DoxySince}
+
+
+Definition at line 918 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Group\+Details@{set\+Group\+Details}}
+\index{set\+Group\+Details@{set\+Group\+Details}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Group\+Details}]{\setlength{\rightskip}{0pt plus 5cm}set\+Group\+Details (
+\begin{DoxyParamCaption}
+\item[{array}]{\$groups}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_afc15f25fb6cfb16f54c2635a7d267e02}
+Set tests groups of the test case
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$groups} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 642 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a2fe666694997d047711d7653eca2f132}
+Sets the name of the suite.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 769 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Run\+Test\+In\+Separate\+Process@{set\+Run\+Test\+In\+Separate\+Process}}
+\index{set\+Run\+Test\+In\+Separate\+Process@{set\+Run\+Test\+In\+Separate\+Process}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Run\+Test\+In\+Separate\+Process}]{\setlength{\rightskip}{0pt plus 5cm}set\+Run\+Test\+In\+Separate\+Process (
+\begin{DoxyParamCaption}
+\item[{}]{\$run\+Test\+In\+Separate\+Process}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a0cef8c0001d1beb9c775897699ea4f54}
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$run\+Test\+In\+Separate\+Process} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+7.\+0 
+\end{DoxySince}
+
+
+Definition at line 743 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Tests@{set\+Tests}}
+\index{set\+Tests@{set\+Tests}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Tests}]{\setlength{\rightskip}{0pt plus 5cm}set\+Tests (
+\begin{DoxyParamCaption}
+\item[{array}]{\$tests}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a1607846b217222c6cdb30a847bdd0379}
+Set tests of the test suite
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$tests} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 805 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!set\+Up@{set\+Up}}
+\index{set\+Up@{set\+Up}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{set\+Up}]{\setlength{\rightskip}{0pt plus 5cm}set\+Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a0bc688732d2b3b162ffebaf7812e78da}
+\doxyref{Template}{p.}{namespace_template} Method that is called before the tests of this test suite are run.
+
+\begin{DoxySince}{Since}
+Method available since Release 3.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 981 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!skip\+Test@{skip\+Test}}
+\index{skip\+Test@{skip\+Test}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{skip\+Test}]{\setlength{\rightskip}{0pt plus 5cm}static skip\+Test (
+\begin{DoxyParamCaption}
+\item[{}]{\$class, }
+\item[{}]{\$method\+Name, }
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_aac8e6568a8d13955cc77452186ce67ba}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Skipped\+Test\+Case}{p.}{class_p_h_p_unit___framework___skipped_test_case} 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line 897 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!tear\+Down@{tear\+Down}}
+\index{tear\+Down@{tear\+Down}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{tear\+Down}]{\setlength{\rightskip}{0pt plus 5cm}tear\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a80fe3d17e658907fc75346a0ec9d6fc7}
+\doxyref{Template}{p.}{namespace_template} Method that is called after the tests of this test suite have finished running.
+
+\begin{DoxySince}{Since}
+Method available since Release 3.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 991 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!test\+At@{test\+At}}
+\index{test\+At@{test\+At}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{test\+At}]{\setlength{\rightskip}{0pt plus 5cm}test\+At (
+\begin{DoxyParamCaption}
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a3dbe00f62c56c9a1d37021fcec078bc2}
+Returns the test at the given index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em integer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}{p.}{interface_p_h_p_unit___framework___test} 
+\end{DoxyReturn}
+
+
+Definition at line 780 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!tests@{tests}}
+\index{tests@{tests}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{tests}]{\setlength{\rightskip}{0pt plus 5cm}tests (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a4f7cb59970abda717113cc0e51d0b71b}
+Returns the tests as an enumeration.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 794 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___test_suite_a5558c5d549f41597377fa1ea8a1cefa3}
+Returns a string representation of the test suite.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Self\+Describing} \doxyref{}{p.}{interface_p_h_p_unit___framework___self_describing_a5558c5d549f41597377fa1ea8a1cefa3}.
+
+
+
+Definition at line 215 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!warning@{warning}}
+\index{warning@{warning}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{warning}]{\setlength{\rightskip}{0pt plus 5cm}static warning (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a72294fb153640124f6c5ce9fc4d59e1b}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Warning}{p.}{class_p_h_p_unit___framework___warning} 
+\end{DoxyReturn}
+
+
+Definition at line 885 of file Test\+Suite.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$backup\+Globals@{\$backup\+Globals}}
+\index{\$backup\+Globals@{\$backup\+Globals}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$backup\+Globals}]{\setlength{\rightskip}{0pt plus 5cm}\$backup\+Globals = null\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a7c6af4e36636a61ec139a77a1c07cffe}
+
+
+Definition at line 54 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$backup\+Static\+Attributes@{\$backup\+Static\+Attributes}}
+\index{\$backup\+Static\+Attributes@{\$backup\+Static\+Attributes}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$backup\+Static\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}\$backup\+Static\+Attributes = null\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a563497416305ba3d1caeb0dbe4454bb3}
+
+
+Definition at line 61 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$found\+Classes@{\$found\+Classes}}
+\index{\$found\+Classes@{\$found\+Classes}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$found\+Classes}]{\setlength{\rightskip}{0pt plus 5cm}\$found\+Classes = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a2e548e971d1a4176c18fa7b61479ea79}
+
+
+Definition at line 109 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$groups@{\$groups}}
+\index{\$groups@{\$groups}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$groups}]{\setlength{\rightskip}{0pt plus 5cm}\$groups = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a1af3c911abb4f6414a86954705266327}
+
+
+Definition at line 85 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$name@{\$name}}
+\index{\$name@{\$name}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf name} = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_ab2fc40d43824ea3e1ce5d86dee0d763b}
+
+
+Definition at line 78 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$num\+Tests@{\$num\+Tests}}
+\index{\$num\+Tests@{\$num\+Tests}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$num\+Tests}]{\setlength{\rightskip}{0pt plus 5cm}\$num\+Tests = -\/1\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a85a19fb72faf893f5bc2fc25058c2223}
+
+
+Definition at line 99 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$run\+Test\+In\+Separate\+Process@{\$run\+Test\+In\+Separate\+Process}}
+\index{\$run\+Test\+In\+Separate\+Process@{\$run\+Test\+In\+Separate\+Process}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$run\+Test\+In\+Separate\+Process}]{\setlength{\rightskip}{0pt plus 5cm}\$run\+Test\+In\+Separate\+Process = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a7e113cd6fbfe94d18fe43cf7bbd0f899}
+
+
+Definition at line 71 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$test\+Case@{\$test\+Case}}
+\index{\$test\+Case@{\$test\+Case}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$test\+Case}]{\setlength{\rightskip}{0pt plus 5cm}\$test\+Case = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_ab3a28d78c2905f98818a9bee6fb95b35}
+
+
+Definition at line 104 of file Test\+Suite.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}!\$tests@{\$tests}}
+\index{\$tests@{\$tests}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test\+Suite}}
+\subsubsection[{\$tests}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf tests} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___test_suite_a6d7f4b753e7eb18b328a7eeba5e0094f}
+
+
+Definition at line 92 of file Test\+Suite.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpunit/phpunit/src/\+Framework/{\bf Test\+Suite.\+php}\end{DoxyCompactItemize}

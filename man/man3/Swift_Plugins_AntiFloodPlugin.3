@@ -1,0 +1,156 @@
+.TH "Swift_Plugins_AntiFloodPlugin" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Plugins_AntiFloodPlugin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Events_SendListener\fP, and \fBSwift_Plugins_Sleeper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBthreshold\fP=99, $\fBsleep\fP=0, \fBSwift_Plugins_Sleeper\fP $sleeper=null)"
+.br
+.ti -1c
+.RI "\fBsetThreshold\fP ($\fBthreshold\fP)"
+.br
+.ti -1c
+.RI "\fBgetThreshold\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSleepTime\fP ($\fBsleep\fP)"
+.br
+.ti -1c
+.RI "\fBgetSleepTime\fP ()"
+.br
+.ti -1c
+.RI "\fBbeforeSendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBsendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBsleep\fP ($\fBseconds\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reduces network flooding when sending large amounts of mail\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file AntiFloodPlugin\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $threshold = \fC99\fP,  $sleep = \fC0\fP, \fBSwift_Plugins_Sleeper\fP $sleeper = \fCnull\fP)"
+Create a new AntiFloodPlugin with $threshold and $sleep time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$threshold\fP 
+.br
+\fI$sleep\fP time 
+.br
+\fI$sleeper\fP (not needed really) 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file AntiFloodPlugin\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeSendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Invoked immediately before the Message is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 105 of file AntiFloodPlugin\&.php\&.
+.SS "getSleepTime ()"
+Get the number of seconds to sleep for during a restart\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file AntiFloodPlugin\&.php\&.
+.SS "getThreshold ()"
+Get the number of emails to send before restarting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file AntiFloodPlugin\&.php\&.
+.SS "sendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Invoked immediately after the Message is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 114 of file AntiFloodPlugin\&.php\&.
+.SS "setSleepTime ( $sleep)"
+Set the number of seconds to sleep for during a restart\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sleep\fP time 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file AntiFloodPlugin\&.php\&.
+.SS "setThreshold ( $threshold)"
+Set the number of emails to send before restarting\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$threshold\fP 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file AntiFloodPlugin\&.php\&.
+.SS "sleep ( $seconds)"
+Sleep for $seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Sleeper\fP\&.
+.PP
+Definition at line 133 of file AntiFloodPlugin\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

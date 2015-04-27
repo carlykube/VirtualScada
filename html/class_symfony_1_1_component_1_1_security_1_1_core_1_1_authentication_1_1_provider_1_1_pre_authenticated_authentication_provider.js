@@ -1,0 +1,6 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_pre_authenticated_authentication_provider =
+[
+    [ "__construct", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_pre_authenticated_authentication_provider.html#a29116f0aa8d58d310cda300db354be6a", null ],
+    [ "authenticate", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_pre_authenticated_authentication_provider.html#a100b8248a886c4c0aa712eb8ad8970bb", null ],
+    [ "supports", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_provider_1_1_pre_authenticated_authentication_provider.html#a2e204766f13f1ebc7962586b23559c44", null ]
+];

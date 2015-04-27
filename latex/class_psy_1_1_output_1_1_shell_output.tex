@@ -1,0 +1,182 @@
+\section{Shell\+Output Class Reference}
+\label{class_psy_1_1_output_1_1_shell_output}\index{Shell\+Output@{Shell\+Output}}
+Inheritance diagram for Shell\+Output\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_psy_1_1_output_1_1_shell_output}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$verbosity=self\+::\+V\+E\+R\+B\+O\+S\+I\+T\+Y\+\_\+\+N\+O\+R\+M\+A\+L, \$decorated=null, Output\+Formatter\+Interface \$formatter=null, \$pager=null)
+\item 
+{\bf page} (\$messages, \$type=0)
+\item 
+{\bf start\+Paging} ()
+\item 
+{\bf stop\+Paging} ()
+\item 
+{\bf write} (\$messages, \$newline=false, \$type=0)
+\item 
+{\bf do\+Write} (\$message, \$newline)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S} = 128
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} Console\+Output subclass specifically for \doxyref{Psy}{p.}{namespace_psy} \doxyref{Shell}{p.}{class_psy_1_1_shell} output. 
+
+Definition at line 20 of file Shell\+Output.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$verbosity = {\ttfamily self\+:\+:VERBOSITY\+\_\+NORMAL}, }
+\item[{}]{\$decorated = {\ttfamily null}, }
+\item[{Output\+Formatter\+Interface}]{\$formatter = {\ttfamily null}, }
+\item[{}]{\$pager = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_a2d375b3e06619c60a3550e63ee72066c}
+Construct a \doxyref{Shell\+Output}{p.}{class_psy_1_1_output_1_1_shell_output} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$verbosity} & (default\+: self\+::\+V\+E\+R\+B\+O\+S\+I\+T\+Y\+\_\+\+N\+O\+R\+M\+A\+L) \\
+\hline
+boolean & {\em \$decorated} & (default\+: null) \\
+\hline
+Output\+Formatter\+Interface & {\em \$formatter} & (default\+: null) \\
+\hline
+null | string | \doxyref{Output\+Pager}{p.}{interface_psy_1_1_output_1_1_output_pager} & {\em \$pager} & (default\+: null) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file Shell\+Output.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!do\+Write@{do\+Write}}
+\index{do\+Write@{do\+Write}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{do\+Write}]{\setlength{\rightskip}{0pt plus 5cm}do\+Write (
+\begin{DoxyParamCaption}
+\item[{}]{\$message, }
+\item[{}]{\$newline}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_ab7c4cdd27091c71fb685f223042a6d82}
+Writes a message to the output.
+
+Handles paged output, or writes directly to the output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & \doxyref{A}{p.}{class_a} message to write to the output \\
+\hline
+Boolean & {\em \$newline} & Whether to add a newline or not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 150 of file Shell\+Output.\+php.
+
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!page@{page}}
+\index{page@{page}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{page}]{\setlength{\rightskip}{0pt plus 5cm}page (
+\begin{DoxyParamCaption}
+\item[{}]{\$messages, }
+\item[{}]{\$type = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_a30797b83eecb7a13694bc6c93cdbf5f4}
+Page multiple lines of output.
+
+The output pager is started
+
+If \$messages is callable, it will be called, passing this output instance for rendering. Otherwise, all passed \$messages are paged to output.
+
+Upon completion, the output pager is flushed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array | Closure & {\em \$messages} & \doxyref{A}{p.}{class_a} string, array of strings or a callback. \\
+\hline
+int & {\em \$type} & (default\+: 0) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file Shell\+Output.\+php.
+
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!start\+Paging@{start\+Paging}}
+\index{start\+Paging@{start\+Paging}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{start\+Paging}]{\setlength{\rightskip}{0pt plus 5cm}start\+Paging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_ac9fe29d81d7f015baa6842a1d4b46715}
+Start sending output to the output pager. 
+
+Definition at line 89 of file Shell\+Output.\+php.
+
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!stop\+Paging@{stop\+Paging}}
+\index{stop\+Paging@{stop\+Paging}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{stop\+Paging}]{\setlength{\rightskip}{0pt plus 5cm}stop\+Paging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_a5e16b24ec696d8abcd811bc29780d5fe}
+Stop paging output and flush the output pager. 
+
+Definition at line 97 of file Shell\+Output.\+php.
+
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!write@{write}}
+\index{write@{write}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$messages, }
+\item[{}]{\$newline = {\ttfamily false}, }
+\item[{}]{\$type = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_output_1_1_shell_output_ae166cb9da545ba8a4d0c74ad02e6e7da}
+Writes a message to the output.
+
+Optionally, pass {\ttfamily \$type $\vert$ self\+::\+N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S} as the \$type parameter to number the lines of output.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Output\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_output_1_1_output_interface_a80fae9d80928ff9d8ddebf4fa335d8ba}.
+
+
+
+Definition at line 115 of file Shell\+Output.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}!N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S@{N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S}}
+\index{N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S@{N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S}!Psy\+::\+Output\+::\+Shell\+Output@{Psy\+::\+Output\+::\+Shell\+Output}}
+\subsubsection[{N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}const N\+U\+M\+B\+E\+R\+\_\+\+L\+I\+N\+E\+S = 128}\label{class_psy_1_1_output_1_1_shell_output_af4ab5bbf15b48cc5a61f334890b9df7e}
+
+
+Definition at line 22 of file Shell\+Output.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/\+Output/{\bf Shell\+Output.\+php}\end{DoxyCompactItemize}

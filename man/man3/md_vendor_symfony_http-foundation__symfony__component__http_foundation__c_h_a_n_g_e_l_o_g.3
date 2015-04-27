@@ -1,0 +1,148 @@
+.TH "md_vendor_symfony_http-foundation__symfony__component__http_foundation__c_h_a_n_g_e_l_o_g" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_http-foundation__symfony__component__http_foundation__c_h_a_n_g_e_l_o_g \- CHANGELOG 
+
+.SS "2\&.6\&.0 "
+.PP
+.IP "\(bu" 2
+PdoSessionHandler changes
+.IP "  \(bu" 4
+implemented different session locking strategies to prevent loss of data by concurrent access to the same session
+.IP "  \(bu" 4
+[BC BREAK] save session data in a binary column without base64_encode
+.IP "  \(bu" 4
+[BC BREAK] added lifetime column to the session table which allows to have different lifetimes for each session
+.IP "  \(bu" 4
+implemented lazy connections that are only opened when a session is used by either passing a dsn string explicitly or falling back to session\&.save_path ini setting
+.IP "  \(bu" 4
+added a createTable method that initializes a correctly defined table depending on the database vendor
+.PP
+
+.PP
+.PP
+.SS "2\&.5\&.0 "
+.PP
+.IP "\(bu" 2
+added \fCJsonResponse::setEncodingOptions()\fP & \fCJsonResponse::getEncodingOptions()\fP for easier manipulation of the options used while encoding data to JSON format\&.
+.PP
+.PP
+.SS "2\&.4\&.0 "
+.PP
+.IP "\(bu" 2
+added RequestStack
+.IP "\(bu" 2
+added \fBRequest::getEncodings()\fP
+.IP "\(bu" 2
+added accessors methods to session handlers
+.PP
+.PP
+.SS "2\&.3\&.0 "
+.PP
+.IP "\(bu" 2
+added support for ranges of IPs in trusted proxies
+.IP "\(bu" 2
+\fCUploadedFile::isValid\fP now returns false if the file was not uploaded via HTTP (in a non-test mode)
+.IP "\(bu" 2
+Improved error-handling of \fC\\\fBSymfony\fP\\Component\\HttpFoundation\\\fBSession\fP\\Storage\\Handler\\PdoSessionHandler\fP to ensure the supplied PDO handler throws Exceptions on error (as the class expects)\&. Added related test cases to verify that Exceptions are properly thrown when the PDO queries fail\&.
+.PP
+.PP
+.SS "2\&.2\&.0 "
+.PP
+.IP "\(bu" 2
+fixed the \fBRequest::create()\fP precedence (URI information always take precedence now)
+.IP "\(bu" 2
+added \fBRequest::getTrustedProxies()\fP
+.IP "\(bu" 2
+deprecated Request::isProxyTrusted()
+.IP "\(bu" 2
+[BC BREAK] JsonResponse does not turn a top level empty array to an object anymore, use an ArrayObject to enforce objects
+.IP "\(bu" 2
+added a IpUtils class to check if an IP belongs to a CIDR
+.IP "\(bu" 2
+added \fBRequest::getRealMethod()\fP to get the 'real' HTTP method (getMethod() returns the 'intended' HTTP method)
+.IP "\(bu" 2
+disabled _method request parameter support by default (call \fBRequest::enableHttpMethodParameterOverride()\fP to enable it, and \fBRequest::getHttpMethodParameterOverride()\fP to check if it is supported)
+.IP "\(bu" 2
+Request::splitHttpAcceptHeader() method is deprecated and will be removed in 2\&.3
+.IP "\(bu" 2
+Deprecated Flashbag::count() and  interface, will be removed in 2\&.3
+.PP
+.PP
+.SS "2\&.1\&.0 "
+.PP
+.IP "\(bu" 2
+added \fBRequest::getSchemeAndHttpHost()\fP and \fBRequest::getUserInfo()\fP
+.IP "\(bu" 2
+added a fluent interface to the \fBResponse\fP class
+.IP "\(bu" 2
+added Request::isProxyTrusted()
+.IP "\(bu" 2
+added JsonResponse
+.IP "\(bu" 2
+added a getTargetUrl method to RedirectResponse
+.IP "\(bu" 2
+added support for streamed responses
+.IP "\(bu" 2
+made Response::prepare() method the place to enforce HTTP specification
+.IP "\(bu" 2
+[BC BREAK] moved management of the locale from the \fBSession\fP class to the \fBRequest\fP class
+.IP "\(bu" 2
+added a generic access to the \fBPHP\fP built-in filter mechanism: ParameterBag::filter()
+.IP "\(bu" 2
+made FileBinaryMimeTypeGuesser command configurable
+.IP "\(bu" 2
+added \fBRequest::getUser()\fP and \fBRequest::getPassword()\fP
+.IP "\(bu" 2
+added support for the PATCH method in \fBRequest\fP
+.IP "\(bu" 2
+removed the ContentTypeMimeTypeGuesser class as it is deprecated and never used on \fBPHP\fP 5\&.3
+.IP "\(bu" 2
+added ResponseHeaderBag::makeDisposition() (implements RFC 6266)
+.IP "\(bu" 2
+made mimetype to extension conversion configurable
+.IP "\(bu" 2
+[BC BREAK] Moved all session related classes and interfaces into own namespace, as \fC\fBSymfony\fP\\Component\\HttpFoundation\\\fBSession\fP\fP and renamed classes accordingly\&. \fBSession\fP handlers are located in the subnamespace \fC\fBSymfony\fP\\Component\\HttpFoundation\\\fBSession\fP\\Handler\fP\&.
+.IP "\(bu" 2
+SessionHandlers must implement \fC\\\fBSessionHandlerInterface\fP\fP or extend from the \fC\fBSymfony\fP\\Component\\HttpFoundation\\Storage\\Handler\\NativeSessionHandler\fP base class\&.
+.IP "\(bu" 2
+Added internal storage driver proxy mechanism for forward compatibility with \fBPHP\fP 5\&.4 \fC\\SessionHandler\fP class\&.
+.IP "\(bu" 2
+Added session handlers for custom Memcache, Memcached and Null session save handlers\&.
+.IP "\(bu" 2
+[BC BREAK] Removed \fCNativeSessionStorage\fP and replaced with \fCNativeFileSessionHandler\fP\&.
+.IP "\(bu" 2
+[BC BREAK] \fCSessionStorageInterface\fP methods removed: \fCwrite()\fP, \fCread()\fP and \fC\fBremove()\fP\fP\&. Added \fCgetBag()\fP, \fCregisterBag()\fP\&. The \fCNativeSessionStorage\fP class is a mediator for the session storage internals including the session handlers which do the real work of participating in the internal \fBPHP\fP session workflow\&.
+.IP "\(bu" 2
+[BC BREAK] Introduced mock implementations of \fCSessionStorage\fP to enable unit and functional testing without starting real \fBPHP\fP sessions\&. Removed \fCArraySessionStorage\fP, and replaced with \fCMockArraySessionStorage\fP for unit tests; removed \fCFilesystemSessionStorage\fP, and replaced with\fCMockFileSessionStorage\fP for functional tests\&. These do not interact with global session ini configuration values, session functions or \fC$_SESSION\fP superglobal\&. This means they can be configured directly allowing multiple instances to work without conflicting in the same \fBPHP\fP process\&.
+.IP "\(bu" 2
+[BC BREAK] Removed the \fC\fBclose()\fP\fP method from the \fC\fBSession\fP\fP class, as this is now redundant\&.
+.IP "\(bu" 2
+Deprecated the following methods from the \fBSession\fP class: \fCsetFlash()\fP, \fCsetFlashes()\fP \fCgetFlash()\fP, \fChasFlash()\fP, and \fCremoveFlash()\fP\&. Use \fCgetFlashBag()\fP instead which returns a \fCFlashBagInterface\fP\&.
+.IP "\(bu" 2
+\fCSession->clear()\fP now only clears session attributes as before it cleared flash messages and attributes\&. \fCSession->getFlashBag()->all()\fP clears flashes now\&.
+.IP "\(bu" 2
+\fBSession\fP data is now managed by \fCSessionBagInterface\fP to better encapsulate session data\&.
+.IP "\(bu" 2
+Refactored session attribute and flash messages system to their own \fCSessionBagInterface\fP implementations\&.
+.IP "\(bu" 2
+Added \fCFlashBag\fP\&. Flashes expire when retrieved by \fCget()\fP or \fCall()\fP\&. This implementation is ESI compatible\&.
+.IP "\(bu" 2
+Added \fCAutoExpireFlashBag\fP (default) to replicate \fBSymfony\fP 2\&.0\&.x auto expire behaviour of messages auto expiring after one page page load\&. Messages must be retrieved by \fCget()\fP or \fCall()\fP\&.
+.IP "\(bu" 2
+Added \fC\fBSymfony\fP\\Component\\HttpFoundation\\Attribute\\AttributeBag\fP to replicate attributes storage behaviour from 2\&.0\&.x (default)\&.
+.IP "\(bu" 2
+Added \fC\fBSymfony\fP\\Component\\HttpFoundation\\Attribute\\NamespacedAttributeBag\fP for namespace session attributes\&.
+.IP "\(bu" 2
+Flash API can stores messages in an array so there may be multiple messages per flash type\&. The old \fC\fBSession\fP\fP class API remains without BC break as it will allow single messages as before\&.
+.IP "\(bu" 2
+Added basic session meta-data to the session to record session create time, last updated time, and the lifetime of the session cookie that was provided to the client\&.
+.IP "\(bu" 2
+\fBRequest::getClientIp()\fP method doesn't take a parameter anymore but bases itself on the trustProxy parameter\&.
+.IP "\(bu" 2
+Added isMethod() to \fBRequest\fP object\&.
+.IP "\(bu" 2
+[BC BREAK] The methods \fCgetPathInfo()\fP, \fCgetBaseUrl()\fP and \fCgetBasePath()\fP of a \fC\fBRequest\fP\fP now all return a raw value (vs a urldecoded value before)\&. Any call to one of these methods must be checked and wrapped in a \fCrawurldecode()\fP if needed\&. 
+.PP
+

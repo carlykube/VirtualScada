@@ -1,0 +1,427 @@
+.TH "Relation" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Relation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBelongsTo\fP, \fBBelongsToMany\fP, \fBHasManyThrough\fP, and \fBHasOneOrMany\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent)"
+.br
+.ti -1c
+.RI "\fBaddConstraints\fP ()"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBinitRelation\fP (array $\fBmodels\fP, $relation)"
+.br
+.ti -1c
+.RI "\fBmatch\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBgetResults\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEager\fP ()"
+.br
+.ti -1c
+.RI "\fBtouch\fP ()"
+.br
+.ti -1c
+.RI "\fBrawUpdate\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQuery\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBgetQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBaseQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBgetParent\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQualifiedParentKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelated\fP ()"
+.br
+.ti -1c
+.RI "\fBcreatedAt\fP ()"
+.br
+.ti -1c
+.RI "\fBupdatedAt\fP ()"
+.br
+.ti -1c
+.RI "\fBrelatedUpdatedAt\fP ()"
+.br
+.ti -1c
+.RI "\fBwrap\fP ($value)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnoConstraints\fP (Closure $\fBcallback\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetKeys\fP (array $\fBmodels\fP, $key=null)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$query\fP"
+.br
+.ti -1c
+.RI "\fB$parent\fP"
+.br
+.ti -1c
+.RI "\fB$related\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$constraints\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file Relation\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent)"
+Create a new relation instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file Relation\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Handle dynamic method calls to the relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file Relation\&.php\&.
+.SS "addConstraints ()\fC [abstract]\fP"
+Set the base constraints on the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "addEagerConstraints (array $models)\fC [abstract]\fP"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "createdAt ()"
+Get the name of the 'created at' column\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file Relation\&.php\&.
+.SS "getBaseQuery ()"
+Get the base query builder driving the \fBEloquent\fP builder\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 198 of file Relation\&.php\&.
+.SS "getEager ()"
+Get the relationship for eager loading\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 101 of file Relation\&.php\&.
+.SS "getKeys (array $models,  $key = \fCnull\fP)\fC [protected]\fP"
+Get all of the primary keys for an array of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file Relation\&.php\&.
+.SS "getParent ()"
+Get the parent model of the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 208 of file Relation\&.php\&.
+.SS "getQualifiedParentKeyName ()"
+Get the fully qualified parent key name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file Relation\&.php\&.
+.SS "getQuery ()"
+Get the underlying query for the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 188 of file Relation\&.php\&.
+.SS "getRelated ()"
+Get the related model of the relation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 228 of file Relation\&.php\&.
+.SS "getRelationCountQuery (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Add the constraints for a relationship count query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 136 of file Relation\&.php\&.
+.SS "getResults ()\fC [abstract]\fP"
+Get the results of the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "initRelation (array $models,  $relation)\fC [abstract]\fP"
+Initialize the relation on a set of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "match (array $models, \fBCollection\fP $results,  $relation)\fC [abstract]\fP"
+Match the eagerly loaded results to their parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "static noConstraints (Closure $callback)\fC [static]\fP"
+Run a callback with constraints disabled on the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file Relation\&.php\&.
+.SS "rawUpdate (array $attributes = \fCarray()\fP)"
+Run a raw update against the base query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file Relation\&.php\&.
+.SS "relatedUpdatedAt ()"
+Get the name of the related model's 'updated at' column\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 258 of file Relation\&.php\&.
+.SS "touch ()"
+Touch all of the related models for the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file Relation\&.php\&.
+.SS "updatedAt ()"
+Get the name of the 'updated at' column\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file Relation\&.php\&.
+.SS "wrap ( $value)"
+Wrap the given value with the parent query's grammar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file Relation\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$constraints = true\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 37 of file Relation\&.php\&.
+.SS "$parent\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file Relation\&.php\&.
+.SS "$query\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file Relation\&.php\&.
+.SS "$related\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file Relation\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

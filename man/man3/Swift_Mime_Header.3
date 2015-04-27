@@ -1,0 +1,191 @@
+.TH "Swift_Mime_Header" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_Header \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_Mime_Headers_AbstractHeader\fP, \fBSwift_Mime_Headers_OpenDKIMHeader\fP, and \fBSwift_Mime_ParameterizedHeader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetFieldType\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFieldBodyModel\fP ($model)"
+.br
+.ti -1c
+.RI "\fBsetCharset\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBgetFieldBodyModel\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFieldName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFieldBody\fP ()"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTYPE_TEXT\fP = 2"
+.br
+.ti -1c
+.RI "const \fBTYPE_PARAMETERIZED\fP = 6"
+.br
+.ti -1c
+.RI "const \fBTYPE_MAILBOX\fP = 8"
+.br
+.ti -1c
+.RI "const \fBTYPE_DATE\fP = 16"
+.br
+.ti -1c
+.RI "const \fBTYPE_ID\fP = 32"
+.br
+.ti -1c
+.RI "const \fBTYPE_PATH\fP = 64"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP MIME Header\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Header\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFieldBody ()"
+Get the field body, prepared for folding into a final header value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_MailboxHeader\fP, \fBSwift_Mime_Headers_IdentificationHeader\fP, \fBSwift_Mime_Headers_ParameterizedHeader\fP, \fBSwift_Mime_Headers_PathHeader\fP, \fBSwift_Mime_Headers_DateHeader\fP, \fBSwift_Mime_Headers_OpenDKIMHeader\fP, and \fBSwift_Mime_Headers_UnstructuredHeader\fP\&.
+.SS "getFieldBodyModel ()"
+Get the model for the field body\&.
+.PP
+The return type depends on the specifics of the Header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_DateHeader\fP, \fBSwift_Mime_Headers_MailboxHeader\fP, \fBSwift_Mime_Headers_OpenDKIMHeader\fP, \fBSwift_Mime_Headers_IdentificationHeader\fP, \fBSwift_Mime_Headers_UnstructuredHeader\fP, and \fBSwift_Mime_Headers_PathHeader\fP\&.
+.SS "getFieldName ()"
+Get the name of this header (e\&.g\&. Subject)\&.
+.PP
+The name is an identifier and as such will be immutable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_AbstractHeader\fP, and \fBSwift_Mime_Headers_OpenDKIMHeader\fP\&.
+.SS "getFieldType ()"
+Get the type of Header that this instance represents\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBTYPE_TEXT\fP, \fBTYPE_PARAMETERIZED\fP, \fBTYPE_MAILBOX\fP 
+.PP
+\fBTYPE_DATE\fP, \fBTYPE_ID\fP, \fBTYPE_PATH\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_ParameterizedHeader\fP, \fBSwift_Mime_Headers_DateHeader\fP, \fBSwift_Mime_Headers_OpenDKIMHeader\fP, \fBSwift_Mime_Headers_IdentificationHeader\fP, \fBSwift_Mime_Headers_MailboxHeader\fP, \fBSwift_Mime_Headers_UnstructuredHeader\fP, and \fBSwift_Mime_Headers_PathHeader\fP\&.
+.SS "setCharset ( $charset)"
+Set the charset used when rendering the Header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_OpenDKIMHeader\fP, \fBSwift_Mime_Headers_AbstractHeader\fP, and \fBSwift_Mime_Headers_ParameterizedHeader\fP\&.
+.SS "setFieldBodyModel ( $model)"
+Set the model for the field body\&.
+.PP
+The actual types needed will vary depending upon the type of Header\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_DateHeader\fP, \fBSwift_Mime_Headers_OpenDKIMHeader\fP, \fBSwift_Mime_Headers_IdentificationHeader\fP, \fBSwift_Mime_Headers_MailboxHeader\fP, \fBSwift_Mime_Headers_UnstructuredHeader\fP, and \fBSwift_Mime_Headers_PathHeader\fP\&.
+.SS "toString ()"
+Get this Header rendered as a compliant string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Mime_Headers_AbstractHeader\fP, and \fBSwift_Mime_Headers_OpenDKIMHeader\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const TYPE_DATE = 16"
+Date and time headers 
+.PP
+Definition at line 28 of file Header\&.php\&.
+.SS "const TYPE_ID = 32"
+Identification headers 
+.PP
+Definition at line 31 of file Header\&.php\&.
+.SS "const TYPE_MAILBOX = 8"
+Mailbox and address headers 
+.PP
+Definition at line 25 of file Header\&.php\&.
+.SS "const TYPE_PARAMETERIZED = 6"
+headers (text + params) 
+.PP
+Definition at line 22 of file Header\&.php\&.
+.SS "const TYPE_PATH = 64"
+Address path headers 
+.PP
+Definition at line 34 of file Header\&.php\&.
+.SS "const TYPE_TEXT = 2"
+Text headers 
+.PP
+Definition at line 19 of file Header\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

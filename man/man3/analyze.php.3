@@ -1,0 +1,95 @@
+.TH "vendor/nikic/php-parser/grammar/analyze.php" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vendor/nikic/php-parser/grammar/analyze.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregex\fP ($regex)"
+.br
+.ti -1c
+.RI "\fBmagicSplit\fP ($\fBregex\fP, $string)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBGRAMMAR_FILE\fP = '\&./zend_language_parser\&.phpy'"
+.br
+.ti -1c
+.RI "const \fBLIB\fP"
+.br
+.ti -1c
+.RI "const \fBRULE_BLOCK\fP = '(?<\fBname\fP>[\fBa\fP-z_]++):(?<rules>[^\\''/{};]*+(?:(?:(?&string)|(?&comment)|(?&code)|/|})[^\\''/{};]*+)*+);'"
+.br
+.ti -1c
+.RI "\fB$usedTerminals\fP"
+.br
+.ti -1c
+.RI "\fB$unusedNonterminals\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "magicSplit ( $regex,  $string)"
+
+.PP
+Definition at line 27 of file analyze\&.php\&.
+.SS "regex ( $regex)"
+
+.PP
+Definition at line 23 of file analyze\&.php\&.
+.SH "Variable Documentation"
+.PP 
+.SS "$unusedNonterminals"
+\fBInitial value:\fP
+.PP
+.nf
+= array_flip(array(
+    'case_separator', 'optional_comma'
+))
+.fi
+.PP
+Definition at line 19 of file analyze\&.php\&.
+.SS "$usedTerminals"
+\fBInitial value:\fP
+.PP
+.nf
+= array_flip(array(
+    'T_VARIABLE', 'T_STRING', 'T_INLINE_HTML', 'T_ENCAPSED_AND_WHITESPACE',
+    'T_LNUMBER', 'T_DNUMBER', 'T_CONSTANT_ENCAPSED_STRING', 'T_STRING_VARNAME', 'T_NUM_STRING'
+))
+.fi
+.PP
+Definition at line 15 of file analyze\&.php\&.
+.SS "const GRAMMAR_FILE = '\&./zend_language_parser\&.phpy'"
+
+.PP
+Definition at line 3 of file analyze\&.php\&.
+.SS "const LIB"
+\fBInitial value:\fP
+.PP
+.nf
+= '(?(DEFINE)
+    (?<singleQuotedString>\'[^\\\\\']*+(?:\\\\\&.[^\\\\\']*+)*+\')
+    (?<doubleQuotedString>"[^\\\\"]*+(?:\\\\\&.[^\\\\"]*+)*+")
+    (?<string>(?&singleQuotedString)|(?&doubleQuotedString))
+    (?<comment>/\*[^*]*+(?:\*(?!/)[^*]*+)*+\*/)
+    (?<code>\{[^\'"/{}]*+(?:(?:(?&string)|(?&comment)|(?&code)|/)[^\'"/{}]*+)*+})
+)'
+.fi
+.PP
+Definition at line 5 of file analyze\&.php\&.
+.SS "const RULE_BLOCK = '(?<\fBname\fP>[\fBa\fP-z_]++):(?<rules>[^\\''/{};]*+(?:(?:(?&string)|(?&comment)|(?&code)|/|})[^\\''/{};]*+)*+);'"
+
+.PP
+Definition at line 13 of file analyze\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

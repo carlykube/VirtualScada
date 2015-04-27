@@ -1,0 +1,212 @@
+.TH "Client" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Client \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits BaseClient\&.
+.PP
+Inherited by \fBTestClient\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBHttpKernelInterface\fP $kernel, array $server=array(), History $history=null, CookieJar $cookieJar=null)"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetResponse\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdoRequest\fP ($request)"
+.br
+.ti -1c
+.RI "\fBgetScript\fP ($request)"
+.br
+.ti -1c
+.RI "\fBgetHandleScript\fP ()"
+.br
+.ti -1c
+.RI "\fBfilterRequest\fP (DomRequest $request)"
+.br
+.ti -1c
+.RI "\fBfilterFiles\fP (array $files)"
+.br
+.ti -1c
+.RI "\fBfilterResponse\fP ($response)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$kernel\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBClient\fP simulates a browser and makes requests to a \fBKernel\fP object\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 31 of file Client\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBHttpKernelInterface\fP $kernel, array $server = \fCarray()\fP, History $history = \fCnull\fP, CookieJar $cookieJar = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$kernel\fP An \fBHttpKernel\fP instance 
+.br
+\fI$server\fP The server parameters (equivalent of $_SERVER) 
+.br
+\fI$history\fP \fBA\fP History instance to store the browser history 
+.br
+\fI$cookieJar\fP \fBA\fP CookieJar instance to store the cookies 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file Client\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "doRequest ( $request)\fC [protected]\fP"
+Makes a request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file Client\&.php\&.
+.SS "filterFiles (array $files)\fC [protected]\fP"
+Filters an array of files\&.
+.PP
+This method created test instances of UploadedFile so that the move() method can be called on those instances\&.
+.PP
+If the size of a file is greater than the allowed size (from php\&.ini) then an invalid UploadedFile is returned with an error set to UPLOAD_ERR_INI_SIZE\&.
+.PP
+\fBSee also:\fP
+.RS 4
+UploadedFile
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$files\fP An array of files
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array with all uploaded files marked as already moved 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file Client\&.php\&.
+.SS "filterRequest (DomRequest $request)\fC [protected]\fP"
+Converts the BrowserKit request to a \fBHttpKernel\fP request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP DomRequest instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequest\fP \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file Client\&.php\&.
+.SS "filterResponse ( $response)\fC [protected]\fP"
+Converts the \fBHttpKernel\fP response to a BrowserKit response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DomResponse \fBA\fP DomResponse instance 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Client\&.php\&.
+.SS "getHandleScript ()\fC [protected]\fP"
+
+.PP
+Definition at line 125 of file Client\&.php\&.
+.SS "getRequest ()"
+{}
+.PP
+\fBReturns:\fP
+.RS 4
+Request|null \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Client\&.php\&.
+.SS "getResponse ()"
+{}
+.PP
+\fBReturns:\fP
+.RS 4
+Response|null \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file Client\&.php\&.
+.SS "getScript ( $request)\fC [protected]\fP"
+Returns the script to execute when the request must be insulated\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file Client\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$kernel\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file Client\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

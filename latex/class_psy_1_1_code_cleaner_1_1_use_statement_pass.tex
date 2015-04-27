@@ -1,0 +1,85 @@
+\section{Use\+Statement\+Pass Class Reference}
+\label{class_psy_1_1_code_cleaner_1_1_use_statement_pass}\index{Use\+Statement\+Pass@{Use\+Statement\+Pass}}
+Inheritance diagram for Use\+Statement\+Pass\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_psy_1_1_code_cleaner_1_1_use_statement_pass}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf enter\+Node} ({\bf Node} \${\bf node})
+\item 
+{\bf leave\+Node} ({\bf Node} \${\bf node})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Provide implicit use statements for subsequent execution.
+
+The use statement pass remembers the last use statement line encountered\+: \begin{DoxyVerb}use Foo\Bar as Baz;
+\end{DoxyVerb}
+
+
+... which it then applies implicitly to all future evaluated code, until the current namespace is replaced by another namespace. 
+
+Definition at line 30 of file Use\+Statement\+Pass.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass@{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass}!enter\+Node@{enter\+Node}}
+\index{enter\+Node@{enter\+Node}!Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass@{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass}}
+\subsubsection[{enter\+Node}]{\setlength{\rightskip}{0pt plus 5cm}enter\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node}}]{\$node}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_code_cleaner_1_1_use_statement_pass_a72d9ab2b97095f3bf1c97eb453a386d1}
+Re-\/load the last set of use statements on re-\/entering a namespace.
+
+This isn\textquotesingle{}t how namespaces normally work, but because Psy\+S\+H has to spin up a new namespace for every line of code, we do this to make things work like you\textquotesingle{}d expect.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Node\+Visitor} \doxyref{}{p.}{interface_php_parser_1_1_node_visitor_a72d9ab2b97095f3bf1c97eb453a386d1}.
+
+
+
+Definition at line 45 of file Use\+Statement\+Pass.\+php.
+
+\index{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass@{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass}!leave\+Node@{leave\+Node}}
+\index{leave\+Node@{leave\+Node}!Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass@{Psy\+::\+Code\+Cleaner\+::\+Use\+Statement\+Pass}}
+\subsubsection[{leave\+Node}]{\setlength{\rightskip}{0pt plus 5cm}leave\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node}}]{\$node}
+\end{DoxyParamCaption}
+)}\label{class_psy_1_1_code_cleaner_1_1_use_statement_pass_a560dafbb8615947e1fbfa5565bbb832c}
+If this statement is a namespace, forget all the aliases we had.
+
+If it\textquotesingle{}s a use statement, remember the alias for later. Otherwise, apply remembered aliases to the code.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Node\+Visitor} \doxyref{}{p.}{interface_php_parser_1_1_node_visitor_a560dafbb8615947e1fbfa5565bbb832c}.
+
+
+
+Definition at line 64 of file Use\+Statement\+Pass.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/psy/psysh/src/\+Psy/\+Code\+Cleaner/{\bf Use\+Statement\+Pass.\+php}\end{DoxyCompactItemize}

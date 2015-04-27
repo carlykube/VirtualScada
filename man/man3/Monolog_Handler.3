@@ -1,0 +1,354 @@
+.TH "Monolog\Handler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Monolog\Handler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBFingersCrossed\fP"
+.br
+.ti -1c
+.RI " \fBSyslogUdp\fP"
+.br
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBAbstractHandler\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractProcessingHandler\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractProcessingHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractSyslogHandler\fP"
+.br
+.ti -1c
+.RI "class \fBAmqpHandler\fP"
+.br
+.ti -1c
+.RI "class \fBAmqpHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBBrowserConsoleHandler\fP"
+.br
+.ti -1c
+.RI "class \fBBrowserConsoleHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBBufferHandler\fP"
+.br
+.ti -1c
+.RI "class \fBBufferHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBChromePHPHandler\fP"
+.br
+.ti -1c
+.RI "class \fBChromePHPHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBCouchDBHandler\fP"
+.br
+.ti -1c
+.RI "class \fBCouchDBHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBCubeHandler\fP"
+.br
+.ti -1c
+.RI "class \fBDoctrineCouchDBHandler\fP"
+.br
+.ti -1c
+.RI "class \fBDoctrineCouchDBHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBDynamoDbHandler\fP"
+.br
+.ti -1c
+.RI "class \fBDynamoDbHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBElasticSearchHandler\fP"
+.br
+.ti -1c
+.RI "class \fBElasticSearchHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBErrorLogHandler\fP"
+.br
+.ti -1c
+.RI "class \fBErrorLogHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBExceptionTestHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFilterHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFilterHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBFingersCrossedHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFingersCrossedHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBFirePHPHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFirePHPHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBFleepHookHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFleepHookHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBFlowdockHandler\fP"
+.br
+.ti -1c
+.RI "class \fBFlowdockHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBGelfHandler\fP"
+.br
+.ti -1c
+.RI "class \fBGelfHandlerLegacyTest\fP"
+.br
+.ti -1c
+.RI "class \fBGelfHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBGelfMockMessagePublisher\fP"
+.br
+.ti -1c
+.RI "class \fBGroupHandler\fP"
+.br
+.ti -1c
+.RI "class \fBGroupHandlerTest\fP"
+.br
+.ti -1c
+.RI "interface \fBHandlerInterface\fP"
+.br
+.ti -1c
+.RI "class \fBHipChatHandler\fP"
+.br
+.ti -1c
+.RI "class \fBHipChatHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBLogEntriesHandler\fP"
+.br
+.ti -1c
+.RI "class \fBLogEntriesHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBLogglyHandler\fP"
+.br
+.ti -1c
+.RI "class \fBMailHandler\fP"
+.br
+.ti -1c
+.RI "class \fBMailHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBMandrillHandler\fP"
+.br
+.ti -1c
+.RI "class \fBMissingExtensionException\fP"
+.br
+.ti -1c
+.RI "class \fBMockRavenClient\fP"
+.br
+.ti -1c
+.RI "class \fBMongoDBHandler\fP"
+.br
+.ti -1c
+.RI "class \fBMongoDBHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBNativeMailerHandler\fP"
+.br
+.ti -1c
+.RI "class \fBNativeMailerHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBNewRelicHandler\fP"
+.br
+.ti -1c
+.RI "class \fBNewRelicHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBNullHandler\fP"
+.br
+.ti -1c
+.RI "class \fBNullHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBPsrHandler\fP"
+.br
+.ti -1c
+.RI "class \fBPsrHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBPushoverHandler\fP"
+.br
+.ti -1c
+.RI "class \fBPushoverHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBRavenHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRavenHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBRedisHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRedisHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBRollbarHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRotatingFileHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRotatingFileHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBSamplingHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSamplingHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBSlackHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSlackHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBSocketHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSocketHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBStreamHandler\fP"
+.br
+.ti -1c
+.RI "class \fBStreamHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBStubNewRelicHandler\fP"
+.br
+.ti -1c
+.RI "class \fBStubNewRelicHandlerWithoutExtension\fP"
+.br
+.ti -1c
+.RI "class \fBSwiftMailerHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSwiftMailerHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBSyslogHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSyslogHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBSyslogUdpHandler\fP"
+.br
+.ti -1c
+.RI "class \fBSyslogUdpHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBTestChromePHPHandler\fP"
+.br
+.ti -1c
+.RI "class \fBTestFirePHPHandler\fP"
+.br
+.ti -1c
+.RI "class \fBTestHandler\fP"
+.br
+.ti -1c
+.RI "class \fBTestHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBUdpSocketTest\fP"
+.br
+.ti -1c
+.RI "class \fBWhatFailureGroupHandler\fP"
+.br
+.ti -1c
+.RI "class \fBWhatFailureGroupHandlerTest\fP"
+.br
+.ti -1c
+.RI "class \fBZendMonitorHandler\fP"
+.br
+.ti -1c
+.RI "class \fBZendMonitorHandlerTest\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBerror_log\fP ()"
+.br
+.ti -1c
+.RI "\fBnewrelic_notice_error\fP ()"
+.br
+.ti -1c
+.RI "\fBnewrelic_set_appname\fP ($appname)"
+.br
+.ti -1c
+.RI "\fBnewrelic_name_transaction\fP ($transactionName)"
+.br
+.ti -1c
+.RI "\fBnewrelic_add_custom_parameter\fP ($key, $value)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "Monolog\\Handler\\error_log ()"
+
+.PP
+Definition at line 18 of file ErrorLogHandlerTest\&.php\&.
+.SS "Monolog\\Handler\\newrelic_add_custom_parameter ( $key,  $value)"
+
+.PP
+Definition at line 187 of file NewRelicHandlerTest\&.php\&.
+.SS "Monolog\\Handler\\newrelic_name_transaction ( $transactionName)"
+
+.PP
+Definition at line 182 of file NewRelicHandlerTest\&.php\&.
+.SS "Monolog\\Handler\\newrelic_notice_error ()"
+
+.PP
+Definition at line 172 of file NewRelicHandlerTest\&.php\&.
+.SS "Monolog\\Handler\\newrelic_set_appname ( $appname)"
+
+.PP
+Definition at line 177 of file NewRelicHandlerTest\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

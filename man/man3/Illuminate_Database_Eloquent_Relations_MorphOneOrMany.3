@@ -1,0 +1,306 @@
+.TH "MorphOneOrMany" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MorphOneOrMany \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHasOneOrMany\fP\&.
+.PP
+Inherited by \fBMorphMany\fP, and \fBMorphOne\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent, $type, $id, $localKey)"
+.br
+.ti -1c
+.RI "\fBaddConstraints\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQuery\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBfindOrNew\fP ($id, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfirstOrNew\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBfirstOrCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBupdateOrCreate\fP (array $attributes, array $\fBvalues\fP=[])"
+.br
+.ti -1c
+.RI "\fBcreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBgetMorphType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPlainMorphType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphClass\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetForeignAttributesForCreate\fP (\fBModel\fP $model)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$morphType\fP"
+.br
+.ti -1c
+.RI "\fB$morphClass\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file MorphOneOrMany\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent,  $type,  $id,  $localKey)"
+Create a new morph one or many relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$type\fP 
+.br
+\fI$id\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file MorphOneOrMany\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConstraints ()"
+Set the base constraints on the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file MorphOneOrMany\&.php\&.
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file MorphOneOrMany\&.php\&.
+.SS "create (array $attributes)"
+Create a new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 179 of file MorphOneOrMany\&.php\&.
+.SS "findOrNew ( $id,  $columns = \fC['*']\fP)"
+Find a related model by its primary key or return new instance of the related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+| 
+.RE
+.PP
+
+.PP
+Definition at line 103 of file MorphOneOrMany\&.php\&.
+.SS "firstOrCreate (array $attributes)"
+Get the first related record matching the attributes or create it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 145 of file MorphOneOrMany\&.php\&.
+.SS "firstOrNew (array $attributes)"
+Get the first related model record matching the attributes or instantiate it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 124 of file MorphOneOrMany\&.php\&.
+.SS "getMorphClass ()"
+Get the class name of the parent model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file MorphOneOrMany\&.php\&.
+.SS "getMorphType ()"
+Get the foreign key 'type' name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file MorphOneOrMany\&.php\&.
+.SS "getPlainMorphType ()"
+Get the plain morph type name without the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file MorphOneOrMany\&.php\&.
+.SS "getRelationCountQuery (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Get the relationship count query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 63 of file MorphOneOrMany\&.php\&.
+.SS "save (\fBModel\fP $model)"
+Attach a model instance to the parent model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 89 of file MorphOneOrMany\&.php\&.
+.SS "setForeignAttributesForCreate (\fBModel\fP $model)\fC [protected]\fP"
+Set the foreign ID and type for creating a related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file MorphOneOrMany\&.php\&.
+.SS "updateOrCreate (array $attributes, array $values = \fC[]\fP)"
+Create or update a related record matching the attributes, and fill it with values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 162 of file MorphOneOrMany\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$morphClass\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file MorphOneOrMany\&.php\&.
+.SS "$morphType\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file MorphOneOrMany\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

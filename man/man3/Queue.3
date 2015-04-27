@@ -1,0 +1,450 @@
+.TH "Queue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Queue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBlooping\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBfailing\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBstopping\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBconnected\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBconnection\fP ($\fBname\fP=null)"
+.br
+.ti -1c
+.RI "static \fBextend\fP ($driver, $resolver)"
+.br
+.ti -1c
+.RI "static \fBaddConnector\fP ($driver, $resolver)"
+.br
+.ti -1c
+.RI "static \fBgetDefaultDriver\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetDefaultDriver\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBgetName\fP ($\fBconnection\fP=null)"
+.br
+.ti -1c
+.RI "static \fBisDownForMaintenance\fP ()"
+.br
+.ti -1c
+.RI "static \fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "static \fBstoreJob\fP ($job, $\fBdata\fP, $\fBdelay\fP=0)"
+.br
+.ti -1c
+.RI "static \fBstartProcess\fP ($jobId, $\fBdelay\fP=0)"
+.br
+.ti -1c
+.RI "static \fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "static \fBpushRaw\fP ($payload, $\fBqueue\fP=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "static \fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "static \fBmarshal\fP ()"
+.br
+.ti -1c
+.RI "static \fBbulk\fP ($jobs, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "static \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetContainer\fP ($container)"
+.br
+.ti -1c
+.RI "static \fBsetEncrypter\fP ($crypt)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 8288 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static addConnector ( $driver,  $resolver)\fC [static]\fP"
+Add a queue connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8365 of file _ide_helper\&.php\&.
+.SS "static bulk ( $jobs,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [static]\fP"
+Push an array of jobs onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$jobs\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 8511 of file _ide_helper\&.php\&.
+.SS "static connected ( $name = \fCnull\fP)\fC [static]\fP"
+Determine if the driver is connected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 8330 of file _ide_helper\&.php\&.
+.SS "static connection ( $name = \fCnull\fP)\fC [static]\fP"
+Resolve a queue connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 8341 of file _ide_helper\&.php\&.
+.SS "static extend ( $driver,  $resolver)\fC [static]\fP"
+Add a queue connection resolver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$driver\fP 
+.br
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8353 of file _ide_helper\&.php\&.
+.SS "static failing ( $callback)\fC [static]\fP"
+Register an event listener for the failed job event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8308 of file _ide_helper\&.php\&.
+.SS "static getDefaultDriver ()\fC [static]\fP"
+Get the name of the default queue connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 8375 of file _ide_helper\&.php\&.
+.SS "static getName ( $connection = \fCnull\fP)\fC [static]\fP"
+Get the full name for the given connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 8397 of file _ide_helper\&.php\&.
+.SS "static getTime ()\fC [static]\fP"
+Get the current UNIX timestamp\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 8522 of file _ide_helper\&.php\&.
+.SS "static isDownForMaintenance ()\fC [static]\fP"
+Determine if the application is in maintenance mode\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 8407 of file _ide_helper\&.php\&.
+.SS "static later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [static]\fP"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 8461 of file _ide_helper\&.php\&.
+.SS "static looping ( $callback)\fC [static]\fP"
+Register an event listener for the daemon queue loop\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8297 of file _ide_helper\&.php\&.
+.SS "static marshal ()\fC [static]\fP"
+Marshal a push queue request and fire the job\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 8497 of file _ide_helper\&.php\&.
+.SS "static pop ( $queue = \fCnull\fP)\fC [static]\fP"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 8486 of file _ide_helper\&.php\&.
+.SS "static push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)\fC [static]\fP"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 8420 of file _ide_helper\&.php\&.
+.SS "static pushRaw ( $payload,  $queue = \fCnull\fP,  $options = \fCarray()\fP)\fC [static]\fP"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 8474 of file _ide_helper\&.php\&.
+.SS "static setContainer ( $container)\fC [static]\fP"
+Set the IoC container instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8534 of file _ide_helper\&.php\&.
+.SS "static setDefaultDriver ( $name)\fC [static]\fP"
+Set the name of the default queue connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8386 of file _ide_helper\&.php\&.
+.SS "static setEncrypter ( $crypt)\fC [static]\fP"
+Set the encrypter instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$crypt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8546 of file _ide_helper\&.php\&.
+.SS "static startProcess ( $jobId,  $delay = \fC0\fP)\fC [static]\fP"
+Make a Process for the \fBArtisan\fP command for the job id\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$jobId\fP 
+.br
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8447 of file _ide_helper\&.php\&.
+.SS "static stopping ( $callback)\fC [static]\fP"
+Register an event listener for the daemon queue stopping\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 8319 of file _ide_helper\&.php\&.
+.SS "static storeJob ( $job,  $data,  $delay = \fC0\fP)\fC [static]\fP"
+Store the job in the database\&.
+.PP
+Returns the id of the job\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 8435 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,212 @@
+.TH "ChromePHPHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChromePHPHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProcessingHandler\fP\&.
+.PP
+Inherited by \fBTestChromePHPHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($level=\fBLogger::DEBUG\fP, $bubble=true)"
+.br
+.ti -1c
+.RI "\fBhandleBatch\fP (array $records)"
+.br
+.ti -1c
+.RI "\fB__get\fP ($\fBproperty\fP)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($\fBproperty\fP, $value)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERSION\fP = '4\&.0'"
+.br
+.ti -1c
+.RI "const \fBHEADER_NAME\fP = 'X-ChromeLogger-Data'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultFormatter\fP ()"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBsend\fP ()"
+.br
+.ti -1c
+.RI "\fBsendHeader\fP ($header, $content)"
+.br
+.ti -1c
+.RI "\fBheadersAccepted\fP ()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$initialized\fP = false"
+.br
+.ti -1c
+.RI "static \fB$overflowed\fP = false"
+.br
+.ti -1c
+.RI "static \fB$json\fP"
+.br
+.ti -1c
+.RI "static \fB$sendHeaders\fP = true"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBHandler\fP sending logs to the ChromePHP extension (http://www.chromephp.com/)
+.PP
+\fBAuthor:\fP
+.RS 4
+Christophe Coevoet stof@notk.org 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file ChromePHPHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file ChromePHPHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__get ( $property)"
+BC getter for the sendHeaders property that has been made static 
+.PP
+Definition at line 184 of file ChromePHPHandler\&.php\&.
+.SS "__set ( $property,  $value)"
+BC setter for the sendHeaders property that has been made static 
+.PP
+Definition at line 196 of file ChromePHPHandler\&.php\&.
+.SS "getDefaultFormatter ()\fC [protected]\fP"
+
+.PP
+Definition at line 89 of file ChromePHPHandler\&.php\&.
+.SS "handleBatch (array $records)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 68 of file ChromePHPHandler\&.php\&.
+.SS "headersAccepted ()\fC [protected]\fP"
+Verifies if the headers are accepted by the current user agent
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file ChromePHPHandler\&.php\&.
+.SS "send ()\fC [protected]\fP"
+Sends the log header
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsendHeader()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file ChromePHPHandler\&.php\&.
+.SS "sendHeader ( $header,  $content)\fC [protected]\fP"
+Send header string to the client
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$header\fP 
+.br
+\fI$content\fP 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file ChromePHPHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+Creates & sends header for a record
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsendHeader()\fP 
+.PP
+\fBsend()\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$record\fP 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file ChromePHPHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$initialized = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 34 of file ChromePHPHandler\&.php\&.
+.SS "$\fBjson\fP\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'version' => self::VERSION,
+        'columns' => array('label', 'log', 'backtrace', 'type'),
+        'rows' => array(),
+    )
+.fi
+.PP
+Definition at line 45 of file ChromePHPHandler\&.php\&.
+.SS "$overflowed = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 43 of file ChromePHPHandler\&.php\&.
+.SS "$sendHeaders = true\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 51 of file ChromePHPHandler\&.php\&.
+.SS "const HEADER_NAME = 'X-ChromeLogger-Data'"
+Header name 
+.PP
+Definition at line 32 of file ChromePHPHandler\&.php\&.
+.SS "const VERSION = '4\&.0'"
+\fBVersion\fP of the extension 
+.PP
+Definition at line 27 of file ChromePHPHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

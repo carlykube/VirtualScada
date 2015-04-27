@@ -1,0 +1,221 @@
+.TH "SoftDeletingScope" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SoftDeletingScope \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBScopeInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBapply\fP (\fBBuilder\fP $builder, \fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBremove\fP (\fBBuilder\fP $builder, \fBModel\fP $model)"
+.br
+.ti -1c
+.RI "\fBextend\fP (\fBBuilder\fP $builder)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDeletedAtColumn\fP (\fBBuilder\fP $builder)"
+.br
+.ti -1c
+.RI "\fBaddForceDelete\fP (\fBBuilder\fP $builder)"
+.br
+.ti -1c
+.RI "\fBaddRestore\fP (\fBBuilder\fP $builder)"
+.br
+.ti -1c
+.RI "\fBaddWithTrashed\fP (\fBBuilder\fP $builder)"
+.br
+.ti -1c
+.RI "\fBaddOnlyTrashed\fP (\fBBuilder\fP $builder)"
+.br
+.ti -1c
+.RI "\fBisSoftDeleteConstraint\fP (array $where, $column)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$extensions\fP = ['ForceDelete', 'Restore', 'WithTrashed', 'OnlyTrashed']"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file SoftDeletingScope\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addForceDelete (\fBBuilder\fP $builder)\fC [protected]\fP"
+Add the force delete extension to the builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file SoftDeletingScope\&.php\&.
+.SS "addOnlyTrashed (\fBBuilder\fP $builder)\fC [protected]\fP"
+Add the only-trashed extension to the builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file SoftDeletingScope\&.php\&.
+.SS "addRestore (\fBBuilder\fP $builder)\fC [protected]\fP"
+Add the restore extension to the builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file SoftDeletingScope\&.php\&.
+.SS "addWithTrashed (\fBBuilder\fP $builder)\fC [protected]\fP"
+Add the with-trashed extension to the builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file SoftDeletingScope\&.php\&.
+.SS "apply (\fBBuilder\fP $builder, \fBModel\fP $model)"
+Apply the scope to a given \fBEloquent\fP query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.br
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBScopeInterface\fP\&.
+.PP
+Definition at line 19 of file SoftDeletingScope\&.php\&.
+.SS "extend (\fBBuilder\fP $builder)"
+Extend the query builder with the needed functions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file SoftDeletingScope\&.php\&.
+.SS "getDeletedAtColumn (\fBBuilder\fP $builder)\fC [protected]\fP"
+Get the 'deleted at' column for the builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file SoftDeletingScope\&.php\&.
+.SS "isSoftDeleteConstraint (array $where,  $column)\fC [protected]\fP"
+Determine if the given where clause is a soft delete constraint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$where\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file SoftDeletingScope\&.php\&.
+.SS "remove (\fBBuilder\fP $builder, \fBModel\fP $model)"
+Remove the scope from the given \fBEloquent\fP query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.br
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBScopeInterface\fP\&.
+.PP
+Definition at line 33 of file SoftDeletingScope\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$extensions = ['ForceDelete', 'Restore', 'WithTrashed', 'OnlyTrashed']\fC [protected]\fP"
+
+.PP
+Definition at line 10 of file SoftDeletingScope\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

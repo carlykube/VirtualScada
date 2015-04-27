@@ -1,0 +1,567 @@
+.TH "ErrorHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ErrorHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBErrorHandler\fP, and \fBErrorHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetDefaultLogger\fP (\fBLoggerInterface\fP $logger, $levels=null, $replace=false)"
+.br
+.ti -1c
+.RI "\fBsetLoggers\fP (array $loggers)"
+.br
+.ti -1c
+.RI "\fBsetExceptionHandler\fP ($handler)"
+.br
+.ti -1c
+.RI "\fBthrowAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBscopeAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBtraceAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBscreamAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($type, $message, $file, $\fBline\fP, array $context)"
+.br
+.ti -1c
+.RI "\fBhandleException\fP (\\Exception $exception, array $error=null)"
+.br
+.ti -1c
+.RI "\fBsetLevel\fP ($level)"
+.br
+.ti -1c
+.RI "\fBsetDisplayErrors\fP ($displayErrors)"
+.br
+.ti -1c
+.RI "\fBhandle\fP ($level, $message, $file= 'unknown', $\fBline\fP=0, $context=array())"
+.br
+.ti -1c
+.RI "\fBhandleFatal\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDefaultLogger\fP (\fBLoggerInterface\fP $logger, $levels=null, $replace=false)"
+.br
+.ti -1c
+.RI "\fBsetLoggers\fP (array $loggers)"
+.br
+.ti -1c
+.RI "\fBsetExceptionHandler\fP ($handler)"
+.br
+.ti -1c
+.RI "\fBthrowAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBscopeAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBtraceAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBscreamAt\fP ($levels, $replace=false)"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($type, $message, $file, $\fBline\fP, array $context)"
+.br
+.ti -1c
+.RI "\fBhandleException\fP (\\Exception $exception, array $error=null)"
+.br
+.ti -1c
+.RI "\fBsetLevel\fP ($level)"
+.br
+.ti -1c
+.RI "\fBsetDisplayErrors\fP ($displayErrors)"
+.br
+.ti -1c
+.RI "\fBhandle\fP ($level, $message, $file= 'unknown', $\fBline\fP=0, $context=array())"
+.br
+.ti -1c
+.RI "\fBhandleFatal\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBregister\fP ($handler=null, $replace=true)"
+.br
+.ti -1c
+.RI "static \fBhandleFatalError\fP (array $error=null)"
+.br
+.ti -1c
+.RI "static \fBstackErrors\fP ()"
+.br
+.ti -1c
+.RI "static \fBunstackErrors\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetLogger\fP (\fBLoggerInterface\fP $logger, $channel= 'deprecation')"
+.br
+.ti -1c
+.RI "static \fBregister\fP ($handler=null, $replace=true)"
+.br
+.ti -1c
+.RI "static \fBhandleFatalError\fP (array $error=null)"
+.br
+.ti -1c
+.RI "static \fBstackErrors\fP ()"
+.br
+.ti -1c
+.RI "static \fBunstackErrors\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetLogger\fP (\fBLoggerInterface\fP $logger, $channel= 'deprecation')"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTYPE_DEPRECATION\fP = -100"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetFatalErrorHandlers\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFatalErrorHandlers\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP generic \fBErrorHandler\fP for the \fBPHP\fP engine\&.
+.PP
+Provides five bit fields that control how errors are handled:
+.IP "\(bu" 2
+thrownErrors: errors thrown as 
+.IP "\(bu" 2
+loggedErrors: logged errors, when not @-silenced
+.IP "\(bu" 2
+scopedErrors: errors thrown or logged with their local context
+.IP "\(bu" 2
+tracedErrors: errors logged with their stack trace, only once for repeated errors
+.IP "\(bu" 2
+screamedErrors: never @-silenced errors
+.PP
+.PP
+Each error level can be logged by a dedicated PSR-3 logger object\&. Screaming only applies to logging\&. Throwing takes precedence over logging\&. Uncaught exceptions are logged as E_ERROR\&. E_DEPRECATED and E_USER_DEPRECATED levels never throw\&. E_RECOVERABLE_ERROR and E_USER_ERROR levels always throw\&. Non catchable errors that can be detected at shutdown time are logged when the scream bit field allows so\&. As errors have a performance cost, repeated errors are all logged, so that the developer can see them and weight them as more important to fix than others of the same level\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Grekas p@tchwork.com 
+.RE
+.PP
+
+.PP
+Definition at line 5754 of file compiled\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFatalErrorHandlers ()\fC [protected]\fP"
+Gets the fatal error handlers\&.
+.PP
+Override this method if you want to define more fatal error handlers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+FatalErrorHandlerInterface[] An array of FatalErrorHandlerInterface 
+.RE
+.PP
+
+.PP
+Definition at line 575 of file ErrorHandler\&.php\&.
+.SS "getFatalErrorHandlers ()\fC [protected]\fP"
+
+.PP
+Definition at line 6052 of file compiled\&.php\&.
+.SS "handle ( $level,  $message,  $file = \fC'unknown'\fP,  $line = \fC0\fP,  $context = \fCarray()\fP)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBhandleError()\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 646 of file ErrorHandler\&.php\&.
+.SS "handle ( $level,  $message,  $file = \fC'unknown'\fP,  $line = \fC0\fP,  $context = \fCarray()\fP)"
+
+.PP
+Definition at line 6090 of file compiled\&.php\&.
+.SS "handleError ( $type,  $message,  $file,  $line, array $context)"
+Handles errors by filtering then logging them according to the configured bit fields\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP \fBOne\fP of the E_* constants 
+.br
+\fI$file\fP 
+.br
+\fI$line\fP 
+.br
+\fI$context\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns false when no handling happens so that the \fBPHP\fP engine can handle the error itself\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 352 of file ErrorHandler\&.php\&.
+.SS "handleError ( $type,  $message,  $file,  $line, array $context)"
+
+.PP
+Definition at line 5904 of file compiled\&.php\&.
+.SS "handleException (\\Exception $exception, array $error = \fCnull\fP)"
+Handles an exception by logging then forwarding it to an other handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exception\fP An exception to handle 
+.br
+\fI$error\fP An array as returned by error_get_last() 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file ErrorHandler\&.php\&.
+.SS "handleException (\\Exception $exception, array $error = \fCnull\fP)"
+
+.PP
+Definition at line 5962 of file compiled\&.php\&.
+.SS "handleFatal ()"
+Handles \fBPHP\fP fatal errors\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBhandleFatalError()\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 656 of file ErrorHandler\&.php\&.
+.SS "handleFatal ()"
+
+.PP
+Definition at line 6094 of file compiled\&.php\&.
+.SS "static handleFatalError (array $error = \fCnull\fP)\fC [static]\fP"
+Shutdown registered function for handling \fBPHP\fP fatal errors\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$error\fP An array as returned by error_get_last() 
+.RE
+.PP
+
+.PP
+Definition at line 487 of file ErrorHandler\&.php\&.
+.SS "static handleFatalError (array $error = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 5999 of file compiled\&.php\&.
+.SS "static register ( $handler = \fCnull\fP,  $replace = \fCtrue\fP)\fC [static]\fP"
+Registers the error handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP The handler to register, or
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+(since 2\&.6, to be removed in 3\&.0) bit field of thrown levels 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$replace\fP Whether to replace or not any existing handler
+.RE
+.PP
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+self The registered error handler 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file ErrorHandler\&.php\&.
+.SS "static register ( $handler = \fCnull\fP,  $replace = \fCtrue\fP)\fC [static]\fP"
+
+.PP
+Definition at line 5771 of file compiled\&.php\&.
+.SS "scopeAt ( $levels,  $replace = \fCfalse\fP)"
+Sets the error levels that are logged or thrown with their local scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$levels\fP \fBA\fP bit field of E_* constants for scoped errors 
+.br
+\fI$replace\fP Replace or amend the previous value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The previous value 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file ErrorHandler\&.php\&.
+.SS "scopeAt ( $levels,  $replace = \fCfalse\fP)"
+
+.PP
+Definition at line 5865 of file compiled\&.php\&.
+.SS "screamAt ( $levels,  $replace = \fCfalse\fP)"
+Sets the error levels where the @-operator is ignored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$levels\fP \fBA\fP bit field of E_* constants for screamed errors 
+.br
+\fI$replace\fP Replace or amend the previous value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The previous value 
+.RE
+.PP
+
+.PP
+Definition at line 311 of file ErrorHandler\&.php\&.
+.SS "screamAt ( $levels,  $replace = \fCfalse\fP)"
+
+.PP
+Definition at line 5883 of file compiled\&.php\&.
+.SS "setDefaultLogger (\fBLoggerInterface\fP $logger,  $levels = \fCnull\fP,  $replace = \fCfalse\fP)"
+Sets a logger to non assigned errors levels\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP \fBA\fP PSR-3 logger to put as default for the given levels 
+.br
+\fI$levels\fP An array map of E_* to LogLevel::* or an integer bit field of E_* constants 
+.br
+\fI$replace\fP Whether to replace or not any existing logger 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file ErrorHandler\&.php\&.
+.SS "setDefaultLogger (\fBLoggerInterface\fP $logger,  $levels = \fCnull\fP,  $replace = \fCfalse\fP)"
+
+.PP
+Definition at line 5798 of file compiled\&.php\&.
+.SS "setDisplayErrors ( $displayErrors)"
+Sets the display_errors flag value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$displayErrors\fP The display_errors flag value
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBthrowAt()\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 604 of file ErrorHandler\&.php\&.
+.SS "setDisplayErrors ( $displayErrors)"
+
+.PP
+Definition at line 6061 of file compiled\&.php\&.
+.SS "setExceptionHandler ( $handler)"
+Sets a user exception handler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP \fBA\fP handler that will be called on \fBException\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable|null The previous exception handler
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 231 of file ErrorHandler\&.php\&.
+.SS "setExceptionHandler ( $handler)"
+
+.PP
+Definition at line 5845 of file compiled\&.php\&.
+.SS "setLevel ( $level)"
+Sets the level at which the conversion to \fBException\fP is done\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP The level (null to use the error_reporting() value and 0 to disable)
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBthrowAt()\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 591 of file ErrorHandler\&.php\&.
+.SS "setLevel ( $level)"
+
+.PP
+Definition at line 6056 of file compiled\&.php\&.
+.SS "static setLogger (\fBLoggerInterface\fP $logger,  $channel = \fC'deprecation'\fP)\fC [static]\fP"
+Sets a logger for the given channel\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP \fBA\fP logger interface 
+.br
+\fI$channel\fP The channel associated with the logger (deprecation, emergency or scream)
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. Use \fBsetLoggers()\fP or \fBsetDefaultLogger()\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 623 of file ErrorHandler\&.php\&.
+.SS "static setLogger (\fBLoggerInterface\fP $logger,  $channel = \fC'deprecation'\fP)\fC [static]\fP"
+
+.PP
+Definition at line 6071 of file compiled\&.php\&.
+.SS "setLoggers (array $loggers)"
+Sets a logger for each error level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loggers\fP \fBError\fP levels to [LoggerInterface|null, LogLevel::*] map
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The previous map
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 194 of file ErrorHandler\&.php\&.
+.SS "setLoggers (array $loggers)"
+
+.PP
+Definition at line 5820 of file compiled\&.php\&.
+.SS "static stackErrors ()\fC [static]\fP"
+Configures the error handler for delayed handling\&. Ensures also that non-catchable fatal errors are never silenced\&.
+.PP
+As shown by http://bugs.php.net/42098 and http://bugs.php.net/60724 \fBPHP\fP has a compile stage where it behaves unusually\&. To workaround it, we plug an error handler that only stacks errors for later\&.
+.PP
+The most important feature of this is to prevent autoloading until \fBunstackErrors()\fP is called\&. 
+.PP
+Definition at line 538 of file ErrorHandler\&.php\&.
+.SS "static stackErrors ()\fC [static]\fP"
+
+.PP
+Definition at line 6031 of file compiled\&.php\&.
+.SS "throwAt ( $levels,  $replace = \fCfalse\fP)"
+Sets the error levels that are to be thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$levels\fP \fBA\fP bit field of E_* constants for thrown errors 
+.br
+\fI$replace\fP Replace or amend the previous value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The previous value 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file ErrorHandler\&.php\&.
+.SS "throwAt ( $levels,  $replace = \fCfalse\fP)"
+
+.PP
+Definition at line 5854 of file compiled\&.php\&.
+.SS "traceAt ( $levels,  $replace = \fCfalse\fP)"
+Sets the error levels that are logged with their stack trace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$levels\fP \fBA\fP bit field of E_* constants for traced errors 
+.br
+\fI$replace\fP Replace or amend the previous value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The previous value 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file ErrorHandler\&.php\&.
+.SS "traceAt ( $levels,  $replace = \fCfalse\fP)"
+
+.PP
+Definition at line 5874 of file compiled\&.php\&.
+.SS "static unstackErrors ()\fC [static]\fP"
+Unstacks stacked errors and forwards to the logger 
+.PP
+Definition at line 546 of file ErrorHandler\&.php\&.
+.SS "static unstackErrors ()\fC [static]\fP"
+
+.PP
+Definition at line 6035 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const TYPE_DEPRECATION = -100"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+since 2\&.6, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 5756 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

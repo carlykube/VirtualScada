@@ -1,0 +1,141 @@
+\section{virtual Class Reference}
+\label{classprotolibs_1_1ifaces_1_1virtual}\index{virtual@{virtual}}
+Inheritance diagram for virtual\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classprotolibs_1_1ifaces_1_1virtual}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+} (self, args, kwds)
+\item 
+def {\bf initialize} (self, kwds)
+\item 
+def {\bf get\+Message}
+\item 
+def {\bf send\+Message}
+\item 
+def {\bf shutdown} (self)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Virtual class for communications interfaces
+
+This class is meant to be a virtual interface for the other communications 
+interfaces. Most methods here serve as placeholders. Each interface must
+implement an initialize() method, a getMessage() method, and a sendMessage()
+method. The methods are callable, so this can be a placeholder for
+developing other code.
+\end{DoxyVerb}
+ 
+
+Definition at line 12 of file ifaces.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1virtual_a71f63fcb44a8715c5329eaa37d410cd7}
+\begin{DoxyVerb}Constructor for the interface. All constructors should implement
+    variable length call parameters with *args and **kwds. These permit
+    the actual configuration dictionaries to be passed to iface 
+    constructors. The variable arguments will actually be used to catch
+    configuration parameters that aren't used by the constructor. \end{DoxyVerb}
+ 
+
+Definition at line 21 of file ifaces.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}}
+\subsubsection[{get\+Message}]{\setlength{\rightskip}{0pt plus 5cm}def get\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{block = {\ttfamily True}, }
+\item[{}]{timeout = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1virtual_a7839ce08036b2fc74d683ecfed42ddd0}
+\begin{DoxyVerb}getMessage() is used to return a whole message (where possible) from
+the comm channel. The message may be a JSON update, an ICS protocol
+message, or other message.
+
+@param block Boolean. If true, this call blocks until timeout
+@param timeout Floating point value in seconds specifying how long the
+        call should block if parameter block is true. If none 
+        and block == True,  call will block indefinitely. If 
+        block is false, this value has no effect.
+
+@returns A string containing the contents of the message.
+\end{DoxyVerb}
+ 
+
+Definition at line 36 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}!initialize@{initialize}}
+\index{initialize@{initialize}!protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}def initialize (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1virtual_af9478209c0fb25dd8d860436bc71b347}
+\begin{DoxyVerb}initialize() is used to set up the comm channel. It may be used to 
+call bind() or socket(), open or create a file or pipe descriptor, or
+other necessary task. Channel specific parameters, like filenames,
+source or destination addresses or ports, may be provided as 
+arguments\end{DoxyVerb}
+ 
+
+Definition at line 29 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}!send\+Message@{send\+Message}}
+\index{send\+Message@{send\+Message}!protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}}
+\subsubsection[{send\+Message}]{\setlength{\rightskip}{0pt plus 5cm}def send\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message, }
+\item[{}]{recipients = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1virtual_a790de8814a68cc38af53382eb73bebae}
+\begin{DoxyVerb}sendMessage() transmits the message provided in the call over the 
+channel.
+
+@param message A string containing the message to be sent. 
+@param recipients A list of device addresses or file descriptors to 
+       write the message to. If the default None is used, the recipient
+       will be the one(s) established in initialize().
+\end{DoxyVerb}
+ 
+
+Definition at line 50 of file ifaces.\+py.
+
+\index{protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!protolibs\+::ifaces\+::virtual@{protolibs\+::ifaces\+::virtual}}
+\subsubsection[{shutdown}]{\setlength{\rightskip}{0pt plus 5cm}def shutdown (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ifaces_1_1virtual_a4e585b4095ed93edb4ca197cb2884b10}
+\begin{DoxyVerb}shutdown() closes relevant sockets, files, and otherwises cleans up
+the interface.\end{DoxyVerb}
+ 
+
+Definition at line 61 of file ifaces.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/protolibs/{\bf ifaces.\+py}\end{DoxyCompactItemize}

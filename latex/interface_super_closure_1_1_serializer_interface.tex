@@ -1,0 +1,101 @@
+\section{Serializer\+Interface Interface Reference}
+\label{interface_super_closure_1_1_serializer_interface}\index{Serializer\+Interface@{Serializer\+Interface}}
+Inheritance diagram for Serializer\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_super_closure_1_1_serializer_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf serialize} (\textbackslash{}Closure \$closure)
+\item 
+{\bf unserialize} (\$serialized)
+\item 
+{\bf get\+Data} (\textbackslash{}Closure \$closure, \$for\+Serialization=false)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for a serializer that is used to serialize Closure objects. 
+
+Definition at line 8 of file Serializer\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}}
+\subsubsection[{get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}get\+Data (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure, }
+\item[{}]{\$for\+Serialization = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{interface_super_closure_1_1_serializer_interface_a8f74937a0630e633c2098af554418c6e}
+Retrieves data about a closure including its code, context, and binding.
+
+The data returned is dependant on the {\ttfamily Closure\+Analyzer} implementation used and whether the {\ttfamily \$for\+Serialization} parameter is set to true. If {\ttfamily \$for\+Serialization} is true, then only data relevant to serializing the closure is returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$closure} & Closure to analyze. \\
+\hline
+bool & {\em \$for\+Serialization} & Include only serialization data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in {\bf Serializer} \doxyref{}{p.}{class_super_closure_1_1_serializer_a8f74937a0630e633c2098af554418c6e}.
+
+\index{Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}!serialize@{serialize}}
+\index{serialize@{serialize}!Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}}
+\subsubsection[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}serialize (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure}
+\end{DoxyParamCaption}
+)}\label{interface_super_closure_1_1_serializer_interface_aa25e10cee78baca2b74b9ffd8e961828}
+Takes a Closure object, decorates it with a \doxyref{Serializable\+Closure}{p.}{class_super_closure_1_1_serializable_closure} object, then performs the serialization.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$closure} & Closure to serialize.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Serialized closure. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Serializer} \doxyref{}{p.}{class_super_closure_1_1_serializer_aa25e10cee78baca2b74b9ffd8e961828}.
+
+\index{Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}!unserialize@{unserialize}}
+\index{unserialize@{unserialize}!Super\+Closure\+::\+Serializer\+Interface@{Super\+Closure\+::\+Serializer\+Interface}}
+\subsubsection[{unserialize}]{\setlength{\rightskip}{0pt plus 5cm}unserialize (
+\begin{DoxyParamCaption}
+\item[{}]{\$serialized}
+\end{DoxyParamCaption}
+)}\label{interface_super_closure_1_1_serializer_interface_ac2f3a0997c46fd9bb24fe4190f738eb0}
+Takes a serialized closure, performs the unserialization, and then extracts and returns a the Closure object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$serialized} & Serialized closure.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Closure\+Unserialization\+Exception} & if unserialization fails. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Unserialized closure. 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/jeremeamia/\+Super\+Closure/src/{\bf Serializer\+Interface.\+php}\end{DoxyCompactItemize}

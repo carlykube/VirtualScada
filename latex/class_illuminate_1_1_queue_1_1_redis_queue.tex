@@ -1,0 +1,573 @@
+\section{Redis\+Queue Class Reference}
+\label{class_illuminate_1_1_queue_1_1_redis_queue}\index{Redis\+Queue@{Redis\+Queue}}
+Inheritance diagram for Redis\+Queue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_queue_1_1_redis_queue}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Database} \$redis, \$default= \textquotesingle{}default\textquotesingle{}, \$connection=null)
+\item 
+{\bf push} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf push\+Raw} (\$payload, \${\bf queue}=null, array \${\bf options}=array())
+\item 
+{\bf later} (\${\bf delay}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf release} (\${\bf queue}, \$payload, \${\bf delay}, \${\bf attempts})
+\item 
+{\bf pop} (\${\bf queue}=null)
+\item 
+{\bf delete\+Reserved} (\${\bf queue}, \$job)
+\item 
+{\bf migrate\+Expired\+Jobs} (\$from, \${\bf to})
+\item 
+{\bf get\+Redis} ()
+\item 
+{\bf get\+Expire} ()
+\item 
+{\bf set\+Expire} (\${\bf seconds})
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf migrate\+All\+Expired\+Jobs} (\${\bf queue})
+\item 
+{\bf get\+Expired\+Jobs} (\$transaction, \$from, \$time)
+\item 
+{\bf remove\+Expired\+Jobs} (\$transaction, \$from, \$time)
+\item 
+{\bf push\+Expired\+Jobs\+Onto\+New\+Queue} (\$transaction, \${\bf to}, \$jobs)
+\item 
+{\bf create\+Payload} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf get\+Random\+Id} ()
+\item 
+{\bf get\+Queue} (\${\bf queue})
+\item 
+{\bf get\+Connection} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$redis}
+\item 
+{\bf \$connection}
+\item 
+{\bf \$default}
+\item 
+{\bf \$expire} = 60
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file Redis\+Queue.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Database}}]{\$redis, }
+\item[{}]{\$default = {\ttfamily \textquotesingle{}default\textquotesingle{}}, }
+\item[{}]{\$connection = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a3e798627a79e323d40ffb459fe66b668}
+Create a new \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} queue instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Redis\textbackslash{}\+Database & {\em \$redis} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+string & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file Redis\+Queue.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!create\+Payload@{create\+Payload}}
+\index{create\+Payload@{create\+Payload}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{create\+Payload}]{\setlength{\rightskip}{0pt plus 5cm}create\+Payload (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a49975f908da3683544fa55870dfe90d0}
+Create a payload string from the given job and data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!delete\+Reserved@{delete\+Reserved}}
+\index{delete\+Reserved@{delete\+Reserved}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{delete\+Reserved}]{\setlength{\rightskip}{0pt plus 5cm}delete\+Reserved (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$job}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a29c7996285b9f71547bd0296fc056928}
+Delete a reserved job from the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Connection@{get\+Connection}}
+\index{get\+Connection@{get\+Connection}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_ab7a0a080d0e721c656eef11cd641638b}
+Get the connection for the queue.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 284 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Expire@{get\+Expire}}
+\index{get\+Expire@{get\+Expire}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Expire}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_afccec99390039d80aff5a2e7ef9d301b}
+Get the expiration time in seconds.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 304 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Expired\+Jobs@{get\+Expired\+Jobs}}
+\index{get\+Expired\+Jobs@{get\+Expired\+Jobs}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Expired\+Jobs}]{\setlength{\rightskip}{0pt plus 5cm}get\+Expired\+Jobs (
+\begin{DoxyParamCaption}
+\item[{}]{\$transaction, }
+\item[{}]{\$from, }
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_af6e8ae119d2df827d1f9e34fabb973ce}
+Get the expired jobs from a given queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Predis\textbackslash{}\+Transaction\textbackslash{}\+Multi\+Exec & {\em \$transaction} & \\
+\hline
+string & {\em \$from} & \\
+\hline
+int & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Queue@{get\+Queue}}
+\index{get\+Queue@{get\+Queue}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a1def6924b6f6288613a0c963e9127e6d}
+Get the queue or return the default.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Random\+Id@{get\+Random\+Id}}
+\index{get\+Random\+Id@{get\+Random\+Id}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Random\+Id}]{\setlength{\rightskip}{0pt plus 5cm}get\+Random\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_ab5c3d97a917975f1fc71a38af30619f6}
+Get a random I\+D string.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!get\+Redis@{get\+Redis}}
+\index{get\+Redis@{get\+Redis}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{get\+Redis}]{\setlength{\rightskip}{0pt plus 5cm}get\+Redis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a49dbec2199d4407441236790f858b40b}
+Get the underlying \doxyref{Redis}{p.}{namespace_illuminate_1_1_redis} instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 294 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!later@{later}}
+\index{later@{later}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{later}]{\setlength{\rightskip}{0pt plus 5cm}later (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a3df041896a4b350861479a68426fae1e}
+Push a new job onto the queue after a delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a3df041896a4b350861479a68426fae1e}.
+
+
+
+Definition at line 89 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!migrate\+All\+Expired\+Jobs@{migrate\+All\+Expired\+Jobs}}
+\index{migrate\+All\+Expired\+Jobs@{migrate\+All\+Expired\+Jobs}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{migrate\+All\+Expired\+Jobs}]{\setlength{\rightskip}{0pt plus 5cm}migrate\+All\+Expired\+Jobs (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a8d0e871379bd7081c5829e1611d10167}
+Migrate all of the waiting jobs in the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!migrate\+Expired\+Jobs@{migrate\+Expired\+Jobs}}
+\index{migrate\+Expired\+Jobs@{migrate\+Expired\+Jobs}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{migrate\+Expired\+Jobs}]{\setlength{\rightskip}{0pt plus 5cm}migrate\+Expired\+Jobs (
+\begin{DoxyParamCaption}
+\item[{}]{\$from, }
+\item[{}]{\$to}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a97ab3b82a0ae743882384ebe676c412a}
+Migrate the delayed jobs that are ready to the regular queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$from} & \\
+\hline
+string & {\em \$to} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!pop@{pop}}
+\index{pop@{pop}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}pop (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_afc9c07aeca2efd28a0968de45ea1d023}
+Pop the next job off of the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_afc9c07aeca2efd28a0968de45ea1d023}.
+
+
+
+Definition at line 122 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!push@{push}}
+\index{push@{push}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}push (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_ab4a57e4ee77634277452242fb44af86f}
+Push a new job onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_ab4a57e4ee77634277452242fb44af86f}.
+
+
+
+Definition at line 60 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!push\+Expired\+Jobs\+Onto\+New\+Queue@{push\+Expired\+Jobs\+Onto\+New\+Queue}}
+\index{push\+Expired\+Jobs\+Onto\+New\+Queue@{push\+Expired\+Jobs\+Onto\+New\+Queue}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{push\+Expired\+Jobs\+Onto\+New\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}push\+Expired\+Jobs\+Onto\+New\+Queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$transaction, }
+\item[{}]{\$to, }
+\item[{}]{\$jobs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a8dfa2af4de9392b8c82c491c6fa8b15e}
+Push all of the given jobs onto another queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Predis\textbackslash{}\+Transaction\textbackslash{}\+Multi\+Exec & {\em \$transaction} & \\
+\hline
+string & {\em \$to} & \\
+\hline
+array & {\em \$jobs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!push\+Raw@{push\+Raw}}
+\index{push\+Raw@{push\+Raw}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{push\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}push\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a04e227c6d96e2e49a0989f4aab87ef21}
+Push a raw payload onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_queue_1_1_queue_a04e227c6d96e2e49a0989f4aab87ef21}.
+
+
+
+Definition at line 73 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!release@{release}}
+\index{release@{release}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}release (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$payload, }
+\item[{}]{\$delay, }
+\item[{}]{\$attempts}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_a19460cc5227dee5ee55a6b31cdcdc842}
+Release a reserved job back onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string & {\em \$payload} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+int & {\em \$attempts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!remove\+Expired\+Jobs@{remove\+Expired\+Jobs}}
+\index{remove\+Expired\+Jobs@{remove\+Expired\+Jobs}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{remove\+Expired\+Jobs}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Expired\+Jobs (
+\begin{DoxyParamCaption}
+\item[{}]{\$transaction, }
+\item[{}]{\$from, }
+\item[{}]{\$time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a0f6684256726e218351373e21723f27d}
+Remove the expired jobs from a given queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Predis\textbackslash{}\+Transaction\textbackslash{}\+Multi\+Exec & {\em \$transaction} & \\
+\hline
+string & {\em \$from} & \\
+\hline
+int & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!set\+Expire@{set\+Expire}}
+\index{set\+Expire@{set\+Expire}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{set\+Expire}]{\setlength{\rightskip}{0pt plus 5cm}set\+Expire (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_redis_queue_ae9c186d43d52e0bd2fed6ed0863b7a81}
+Set the expiration time in seconds.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int | null & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 315 of file Redis\+Queue.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!\$connection@{\$connection}}
+\index{\$connection@{\$connection}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{\$connection}]{\setlength{\rightskip}{0pt plus 5cm}\$connection\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+
+Definition at line 21 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!\$default@{\$default}}
+\index{\$default@{\$default}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{\$default}]{\setlength{\rightskip}{0pt plus 5cm}\$default\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a9df479534ecf05fd7575c6275d381687}
+
+
+Definition at line 28 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!\$expire@{\$expire}}
+\index{\$expire@{\$expire}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{\$expire}]{\setlength{\rightskip}{0pt plus 5cm}\$expire = 60\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a5d0f068533ab8205b0e7cb0d19ad03d7}
+
+
+Definition at line 35 of file Redis\+Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}!\$redis@{\$redis}}
+\index{\$redis@{\$redis}!Illuminate\+::\+Queue\+::\+Redis\+Queue@{Illuminate\+::\+Queue\+::\+Redis\+Queue}}
+\subsubsection[{\$redis}]{\setlength{\rightskip}{0pt plus 5cm}\$redis\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_redis_queue_a7e7e7dbbfe52839237c99924e35f2717}
+
+
+Definition at line 14 of file Redis\+Queue.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Redis\+Queue.\+php}\end{DoxyCompactItemize}

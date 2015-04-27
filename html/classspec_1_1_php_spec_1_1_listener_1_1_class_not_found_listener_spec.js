@@ -1,0 +1,9 @@
+var classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec =
+[
+    [ "it_does_not_prompt_for_class_generation_if_input_is_not_interactive", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#a30a5c63ee7693af7cfc2f8eea9120f6d", null ],
+    [ "it_does_not_prompt_for_class_generation_if_no_exception_was_thrown", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#ae0d58c967af47970db57ea663ca44bcd", null ],
+    [ "it_does_not_prompt_for_class_generation_if_non_class_exception_was_thrown", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#acd8e899eb87e5a79ebe9148c152bb16d", null ],
+    [ "it_prompts_for_class_generation_if_prophecy_classnotfoundexception_was_thrown_and_input_is_interactive", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#a11eb887be3ba90f1b992ddf972da2a9a", null ],
+    [ "it_prompts_for_method_generation_if_phpspec_classnotfoundexception_was_thrown_and_input_is_interactive", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#a0be9c3112dac5afbe0fa6c278d40302f", null ],
+    [ "let", "classspec_1_1_php_spec_1_1_listener_1_1_class_not_found_listener_spec.html#a5c8bb9c51d1f7b344cecd27fb5ff65ce", null ]
+];

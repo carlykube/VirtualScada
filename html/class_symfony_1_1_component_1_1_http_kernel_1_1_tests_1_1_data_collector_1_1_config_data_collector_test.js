@@ -1,0 +1,4 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_config_data_collector_test =
+[
+    [ "testCollect", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_data_collector_1_1_config_data_collector_test.html#acc07fa0375ca50656f0a38bbcd76cb1e", null ]
+];

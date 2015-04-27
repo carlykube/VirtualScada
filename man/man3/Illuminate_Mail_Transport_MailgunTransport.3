@@ -1,0 +1,250 @@
+.TH "MailgunTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MailgunTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($key, $domain)"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsend\fP (\fBSwift_Mime_Message\fP $message, &$failedRecipients=null)"
+.br
+.ti -1c
+.RI "\fBregisterPlugin\fP (\fBSwift_Events_EventListener\fP $plugin)"
+.br
+.ti -1c
+.RI "\fBgetKey\fP ()"
+.br
+.ti -1c
+.RI "\fBsetKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetDomain\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDomain\fP ($domain)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetTo\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBgetHttpClient\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$key\fP"
+.br
+.ti -1c
+.RI "\fB$domain\fP"
+.br
+.ti -1c
+.RI "\fB$url\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file MailgunTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $key,  $domain)"
+Create a new Mailgun transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file MailgunTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getDomain ()"
+Get the domain being used by the transport\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file MailgunTransport\&.php\&.
+.SS "getHttpClient ()\fC [protected]\fP"
+Get a new HTTP client instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 119 of file MailgunTransport\&.php\&.
+.SS "getKey ()"
+Get the API key being used by the transport\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file MailgunTransport\&.php\&.
+.SS "getTo (\fBSwift_Mime_Message\fP $message)\fC [protected]\fP"
+Get the 'to' payload field for the API request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file MailgunTransport\&.php\&.
+.SS "isStarted ()"
+{Test if this Transport mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 48 of file MailgunTransport\&.php\&.
+.SS "registerPlugin (\fBSwift_Events_EventListener\fP $plugin)"
+{Register a plugin in the Transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$plugin\fP 
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 87 of file MailgunTransport\&.php\&.
+.SS "send (\fBSwift_Mime_Message\fP $message, & $failedRecipients = \fCnull\fP)"
+{Send the given Message\&.
+.PP
+Recipient/sender data will be retrieved from the Message API\&. The return value is the number of recipients who were accepted for delivery\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int
+.RE
+.PP
+} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 72 of file MailgunTransport\&.php\&.
+.SS "setDomain ( $domain)"
+Set the domain being used by the transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file MailgunTransport\&.php\&.
+.SS "setKey ( $key)"
+Set the API key being used by the transport\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file MailgunTransport\&.php\&.
+.SS "start ()"
+{Start this Transport mechanism\&.} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 56 of file MailgunTransport\&.php\&.
+.SS "stop ()"
+{Stop this Transport mechanism\&.} 
+.PP
+Implements \fBSwift_Transport\fP\&.
+.PP
+Definition at line 64 of file MailgunTransport\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$domain\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file MailgunTransport\&.php\&.
+.SS "$key\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file MailgunTransport\&.php\&.
+.SS "$url\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file MailgunTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

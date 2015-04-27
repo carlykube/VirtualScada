@@ -1,0 +1,278 @@
+.TH "ProgressHelper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgressHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHelper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetBarWidth\fP ($\fBsize\fP)"
+.br
+.ti -1c
+.RI "\fBsetBarCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBsetEmptyBarCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBsetProgressCharacter\fP ($char)"
+.br
+.ti -1c
+.RI "\fBsetFormat\fP ($\fBformat\fP)"
+.br
+.ti -1c
+.RI "\fBsetRedrawFrequency\fP ($freq)"
+.br
+.ti -1c
+.RI "\fBstart\fP (\fBOutputInterface\fP $output, $\fBmax\fP=null)"
+.br
+.ti -1c
+.RI "\fBadvance\fP ($step=1, $redraw=false)"
+.br
+.ti -1c
+.RI "\fBsetCurrent\fP ($current, $redraw=false)"
+.br
+.ti -1c
+.RI "\fBdisplay\fP ($\fBfinish\fP=false)"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBfinish\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBFORMAT_QUIET\fP = ' %percent%%'"
+.br
+.ti -1c
+.RI "const \fBFORMAT_NORMAL\fP = ' %current%/%\fBmax\fP% [%bar%] %percent%%'"
+.br
+.ti -1c
+.RI "const \fBFORMAT_VERBOSE\fP = ' %current%/%\fBmax\fP% [%bar%] %percent%% Elapsed: %elapsed%'"
+.br
+.ti -1c
+.RI "const \fBFORMAT_QUIET_NOMAX\fP = ' %current%'"
+.br
+.ti -1c
+.RI "const \fBFORMAT_NORMAL_NOMAX\fP = ' %current% [%bar%]'"
+.br
+.ti -1c
+.RI "const \fBFORMAT_VERBOSE_NOMAX\fP = ' %current% [%bar%] Elapsed: %elapsed%'"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The Progress class provides helpers to display progress output\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Jones leeked@gmail.com 
+.PP
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since 2\&.5, to be removed in 3\&.0; use \fBProgressBar\fP instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file ProgressHelper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "advance ( $step = \fC1\fP,  $redraw = \fCfalse\fP)"
+Advances the progress output X steps\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$step\fP Number of steps to advance 
+.br
+\fI$redraw\fP Whether to redraw or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 233 of file ProgressHelper\&.php\&.
+.SS "clear ()"
+Removes the progress bar from the current line\&.
+.PP
+This is useful if you wish to write some output while a progress bar is running\&. Call \fBdisplay()\fP to show the progress bar again\&. 
+.PP
+Definition at line 299 of file ProgressHelper\&.php\&.
+.SS "display ( $finish = \fCfalse\fP)"
+Outputs the current progress string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$finish\fP Forces the end result
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 279 of file ProgressHelper\&.php\&.
+.SS "finish ()"
+Finishes the progress output\&. 
+.PP
+Definition at line 307 of file ProgressHelper\&.php\&.
+.SS "getName ()"
+{Returns the canonical name of this helper\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The canonical name
+.RE
+.PP
+} 
+.PP
+Implements \fBHelperInterface\fP\&.
+.PP
+Definition at line 453 of file ProgressHelper\&.php\&.
+.SS "setBarCharacter ( $char)"
+Sets the bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file ProgressHelper\&.php\&.
+.SS "setBarWidth ( $size)"
+Sets the progress bar width\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$size\fP The progress bar size 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file ProgressHelper\&.php\&.
+.SS "setCurrent ( $current,  $redraw = \fCfalse\fP)"
+Sets the current progress\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$current\fP The current progress 
+.br
+\fI$redraw\fP Whether to redraw or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 246 of file ProgressHelper\&.php\&.
+.SS "setEmptyBarCharacter ( $char)"
+Sets the empty bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file ProgressHelper\&.php\&.
+.SS "setFormat ( $format)"
+Sets the progress bar format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP The format 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file ProgressHelper\&.php\&.
+.SS "setProgressCharacter ( $char)"
+Sets the progress bar character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$char\fP \fBA\fP character 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file ProgressHelper\&.php\&.
+.SS "setRedrawFrequency ( $freq)"
+Sets the redraw frequency\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$freq\fP The frequency in steps 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file ProgressHelper\&.php\&.
+.SS "start (\fBOutputInterface\fP $output,  $max = \fCnull\fP)"
+Starts the progress output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$max\fP Maximum steps 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file ProgressHelper\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const FORMAT_NORMAL = ' %current%/%\fBmax\fP% [%bar%] %percent%%'"
+
+.PP
+Definition at line 28 of file ProgressHelper\&.php\&.
+.SS "const FORMAT_NORMAL_NOMAX = ' %current% [%bar%]'"
+
+.PP
+Definition at line 31 of file ProgressHelper\&.php\&.
+.SS "const FORMAT_QUIET = ' %percent%%'"
+
+.PP
+Definition at line 27 of file ProgressHelper\&.php\&.
+.SS "const FORMAT_QUIET_NOMAX = ' %current%'"
+
+.PP
+Definition at line 30 of file ProgressHelper\&.php\&.
+.SS "const FORMAT_VERBOSE = ' %current%/%\fBmax\fP% [%bar%] %percent%% Elapsed: %elapsed%'"
+
+.PP
+Definition at line 29 of file ProgressHelper\&.php\&.
+.SS "const FORMAT_VERBOSE_NOMAX = ' %current% [%bar%] Elapsed: %elapsed%'"
+
+.PP
+Definition at line 32 of file ProgressHelper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,128 @@
+\section{Simulation Class Reference}
+\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation}\index{Simulation@{Simulation}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf read\+Config} (self)
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def {\bf step}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf config}
+\begin{DoxyCompactList}\small\item\em Open Config\+File. \end{DoxyCompactList}\item 
+{\bf interface}
+\item 
+{\bf sim\+State}
+\begin{DoxyCompactList}\small\item\em Use a piecewise model because the pressure will converge to around 7.\+8 empirically, and 7.\+3 mathematically. \end{DoxyCompactList}\item 
+{\bf sim\+Internals}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This class obtains simulation information from a configuration file,
+    sets up a simulation state, provides a method to step the simulation
+    forward in time.\end{DoxyVerb}
+ 
+
+Definition at line 38 of file simulation.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_ae64f0875afe3067b97ba370b354b9213}
+\begin{DoxyVerb}Constructor for the simulation class. Calls readConfig() and 
+creates an initial simulation state.\end{DoxyVerb}
+ 
+
+Definition at line 51 of file simulation.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!read\+Config@{read\+Config}}
+\index{read\+Config@{read\+Config}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{read\+Config}]{\setlength{\rightskip}{0pt plus 5cm}def read\+Config (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_a6cd7a9a9306ccbfbce7e780896dbbc18}
+\begin{DoxyVerb}Opens and parses the configuration file in the local directory. The
+    results are available in self.config .\end{DoxyVerb}
+ 
+
+Definition at line 43 of file simulation.\+py.
+
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!step@{step}}
+\index{step@{step}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}def step (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{upto = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_a95621a488f4bd554b9031ae0416b098d}
+\begin{DoxyVerb}Function that modifies the simulation state from the curent
+simulation state to the time given in parameter upto.
+
+@param upto Time to simulate from simState['simtime'] to upto.
+    upto should be a float in the format of the time.time()
+    call -- i.e. unix time. If upto is None, the current time 
+    will be used.
+\end{DoxyVerb}
+ 
+
+Definition at line 70 of file simulation.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!config@{config}}
+\index{config@{config}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}config}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_ad2256458892609d0533df5d72a7257ad}
+
+
+Open Config\+File. 
+
+
+
+Definition at line 47 of file simulation.\+py.
+
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!interface@{interface}}
+\index{interface@{interface}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{interface}]{\setlength{\rightskip}{0pt plus 5cm}interface}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_ae6deea6e7d03b5d4db98ea209159e57f}
+
+
+Definition at line 59 of file simulation.\+py.
+
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!sim\+Internals@{sim\+Internals}}
+\index{sim\+Internals@{sim\+Internals}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{sim\+Internals}]{\setlength{\rightskip}{0pt plus 5cm}sim\+Internals}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_ad9a1d9ec91b2b1f3b2890030194810db}
+
+
+Definition at line 68 of file simulation.\+py.
+
+\index{sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}!sim\+State@{sim\+State}}
+\index{sim\+State@{sim\+State}!sims\+::rtupipe\+::simulation\+::\+Simulation@{sims\+::rtupipe\+::simulation\+::\+Simulation}}
+\subsubsection[{sim\+State}]{\setlength{\rightskip}{0pt plus 5cm}sim\+State}\label{classsims_1_1rtupipe_1_1simulation_1_1_simulation_a41f89dc1173ec57bbed0975711b48c36}
+
+
+Use a piecewise model because the pressure will converge to around 7.\+8 empirically, and 7.\+3 mathematically. 
+
+
+
+Definition at line 64 of file simulation.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/sims/rtupipe/{\bf simulation.\+py}\end{DoxyCompactItemize}

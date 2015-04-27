@@ -1,0 +1,78 @@
+\section{Configurable\+Requirements\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface}\index{Configurable\+Requirements\+Interface@{Configurable\+Requirements\+Interface}}
+Inheritance diagram for Configurable\+Requirements\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Strict\+Requirements} (\$enabled)
+\item 
+{\bf is\+Strict\+Requirements} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Configurable\+Requirements\+Interface}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface} must be implemented by \doxyref{U\+R\+L}{p.}{class_u_r_l} generators that can be configured whether an exception should be generated when the parameters do not match the requirements. It is also possible to disable the requirements check for \doxyref{U\+R\+L}{p.}{class_u_r_l} generation completely.
+
+The possible configurations and use-\/cases\+:
+\begin{DoxyItemize}
+\item set\+Strict\+Requirements(true)\+: Throw an exception for mismatching requirements. This is mostly useful in development environment.
+\item set\+Strict\+Requirements(false)\+: Don\textquotesingle{}t throw an exception but return null as \doxyref{U\+R\+L}{p.}{class_u_r_l} for mismatching requirements and log the problem. Useful when you cannot control all params because they come from third party libs but don\textquotesingle{}t want to have a 404 in production environment. It should log the mismatch so one can review it.
+\item set\+Strict\+Requirements(null)\+: Return the \doxyref{U\+R\+L}{p.}{class_u_r_l} with the given parameters without checking the requirements at all. When generating a \doxyref{U\+R\+L}{p.}{class_u_r_l} you should either trust your params or you validated them beforehand because otherwise it would break your link anyway. So in production environment you should know that params always pass the requirements. Thus this option allows to disable the check on \doxyref{U\+R\+L}{p.}{class_u_r_l} generation for performance reasons (saving a preg\+\_\+match for each requirement every time a \doxyref{U\+R\+L}{p.}{class_u_r_l} is generated).
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Tobias Schultze {\tt http\+://tobion.\+de} 
+\end{DoxyAuthor}
+
+
+Definition at line 38 of file Configurable\+Requirements\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface}!is\+Strict\+Requirements@{is\+Strict\+Requirements}}
+\index{is\+Strict\+Requirements@{is\+Strict\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface}}
+\subsubsection[{is\+Strict\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}is\+Strict\+Requirements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface_a5f58a17a9adf89bd6cb6ad87aaffbbfc}
+Returns whether to throw an exception on incorrect parameters. Null means the requirements check is deactivated completely.
+
+\begin{DoxyReturn}{Returns}
+bool$\vert$null 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Url\+Generator} \doxyref{}{p.}{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a5f58a17a9adf89bd6cb6ad87aaffbbfc}.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface}!set\+Strict\+Requirements@{set\+Strict\+Requirements}}
+\index{set\+Strict\+Requirements@{set\+Strict\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Configurable\+Requirements\+Interface}}
+\subsubsection[{set\+Strict\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}set\+Strict\+Requirements (
+\begin{DoxyParamCaption}
+\item[{}]{\$enabled}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface_a7e26aac5219251a4081779e4ce39df8d}
+Enables or disables the exception on incorrect parameters. Passing null will deactivate the requirements check completely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool | null & {\em \$enabled} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf Url\+Generator} \doxyref{}{p.}{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a7e26aac5219251a4081779e4ce39df8d}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/routing/\+Symfony/\+Component/\+Routing/\+Generator/{\bf Configurable\+Requirements\+Interface.\+php}\end{DoxyCompactItemize}

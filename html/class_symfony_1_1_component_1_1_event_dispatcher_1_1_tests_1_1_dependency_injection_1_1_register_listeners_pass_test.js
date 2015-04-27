@@ -1,0 +1,11 @@
+var class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test =
+[
+    [ "testAbstractEventListener", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#ac08a9e95c0ff653679a4f825d62ecb43", null ],
+    [ "testAbstractEventSubscriber", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#ae64f47b40bc508e4bf9754ba04dbe391", null ],
+    [ "testEventSubscriberResolvableClassName", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#a4543cdc0740b3ed2f15fb78eab590a10", null ],
+    [ "testEventSubscriberUnresolvableClassName", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#ac8e1102bc02489f77a594ef6ef096b5e", null ],
+    [ "testEventSubscriberWithoutInterface", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#aef6ac15117007584a985ee247b0b6886", null ],
+    [ "testPrivateEventListener", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#a83d25820e02a58d8a00f07ce2fa7a46d", null ],
+    [ "testPrivateEventSubscriber", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#a9f74a6d6b6c11523b5d056256f91cbc0", null ],
+    [ "testValidEventSubscriber", "class_symfony_1_1_component_1_1_event_dispatcher_1_1_tests_1_1_dependency_injection_1_1_register_listeners_pass_test.html#a59dd7940a5c17902687c6c563863e18c", null ]
+];

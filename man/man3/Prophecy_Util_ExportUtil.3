@@ -1,0 +1,119 @@
+.TH "ExportUtil" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExportUtil \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBexport\fP ($value, $indentation=0)"
+.br
+.ti -1c
+.RI "static \fBtoArray\fP ($object)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBrecursiveExport\fP ($value, $indentation, &$processedObjects=array())"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exporting utility\&.
+.PP
+This class is derived from the \fBPHPUnit\fP testing framework\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Sebastiaan Stok <s.stok@rollerscapes.net 
+.PP
+Sebastian Bergmann sebastian@phpunit.de  http://www.opensource.org/licenses/BSD-3-Clause The BSD 3-Clause License> 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file ExportUtil\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static export ( $value,  $indentation = \fC0\fP)\fC [static]\fP"
+Exports a value into a string\&.
+.PP
+The output of this method is similar to the output of print_r(), but improved in various aspects:
+.PP
+.IP "\(bu" 2
+NULL is rendered as 'null' (instead of '')
+.IP "\(bu" 2
+true is rendered as 'true' (instead of '1')
+.IP "\(bu" 2
+FALSE is rendered as 'false' (instead of '')
+.IP "\(bu" 2
+Strings are always quoted with single quotes
+.IP "\(bu" 2
+Carriage returns and newlines are normalized to 
+.br
+
+.IP "\(bu" 2
+Recursion and repeated rendering is treated properly
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP The value to export 
+.br
+\fI$indentation\fP The indentation level of the 2nd+ line
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file ExportUtil\&.php\&.
+.SS "static recursiveExport ( $value,  $indentation, & $processedObjects = \fCarray()\fP)\fC [static]\fP, \fC [protected]\fP"
+Recursive implementation of export\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP The value to export 
+.br
+\fI$indentation\fP The indentation level of the 2nd+ line 
+.br
+\fI$processedObjects\fP Contains all objects that were already rendered
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file ExportUtil\&.php\&.
+.SS "static toArray ( $object)\fC [static]\fP"
+Converts an object to an array containing all of its private, protected and public properties\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$object\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file ExportUtil\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

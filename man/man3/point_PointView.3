@@ -1,0 +1,198 @@
+.TH "PointView" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PointView \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits object\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.ti -1c
+.RI "def \fBget\fP (self, args, kwds)"
+.br
+.ti -1c
+.RI "def \fBset\fP (self, args, kwds)"
+.br
+.ti -1c
+.RI "def \fBreset\fP (self)"
+.br
+.ti -1c
+.RI "def \fB__str__\fP (self)"
+.br
+.ti -1c
+.RI "def \fB__repr__\fP (self)"
+.br
+.ti -1c
+.RI "def \fBdefault_get\fP (self)"
+.br
+.ti -1c
+.RI "def \fBdefault_set\fP (self, val)"
+.br
+.ti -1c
+.RI "def \fBlower16bit_get\fP (self)"
+.br
+.ti -1c
+.RI "def \fBlower16bit_set\fP (self, new_val)"
+.br
+.ti -1c
+.RI "def \fBupper16bit_get\fP (self)"
+.br
+.ti -1c
+.RI "def \fBupper16bit_set\fP (self, new_val)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBis_float\fP (point)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBbehavior\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+PointView objects are used when speciallized access to a point is needed.
+    They were initially created to be contained in the slave registers of 
+    the modbus interface.
+.fi
+.PP
+ 
+.PP
+Definition at line 104 of file point\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  point,  behavior = \fC'default'\fP)"
+
+.PP
+.nf
+Constructor for the PointView class. Each point view can have a
+specified get/set behavior for implementing protocol-specific
+interfactes. For example, the behavior for a PointView  may be set to
+'lower_16bit' , which for float value types in points would treat this
+PointView as the bottom half of the point value; this would fit into a
+single 16-bit Modbus register.
+
+@param point The point that this view refers to.
+@oaran behavior The type of get and set methods to use.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 108 of file point\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def __repr__ ( self)"
+
+.PP
+.nf
+String representation of a point.
+    @returns a string giving the type, value, and names of the point
+.fi
+.PP
+ 
+.PP
+Definition at line 138 of file point\&.py\&.
+.SS "def __str__ ( self)"
+
+.PP
+.nf
+String representation of a point.
+    @returns repr(self)
+.fi
+.PP
+ 
+.PP
+Definition at line 133 of file point\&.py\&.
+.SS "def default_get ( self)"
+
+.PP
+Definition at line 146 of file point\&.py\&.
+.SS "def default_set ( self,  val)"
+
+.PP
+Definition at line 149 of file point\&.py\&.
+.SS "def get ( self,  args,  kwds)"
+
+.PP
+Definition at line 122 of file point\&.py\&.
+.SS "def is_float ( point)\fC [static]\fP"
+
+.PP
+.nf
+Used to determine if a point's datatype is a float or not
+@param point Point object to check
+@returns True if the parameter point has a datatype set
+
+.fi
+.PP
+ 
+.PP
+Definition at line 220 of file point\&.py\&.
+.SS "def lower16bit_get ( self)"
+
+.PP
+Definition at line 152 of file point\&.py\&.
+.SS "def lower16bit_set ( self,  new_val)"
+
+.PP
+Definition at line 161 of file point\&.py\&.
+.SS "def reset ( self)"
+
+.PP
+.nf
+Returns the point value to the default
+.fi
+.PP
+ 
+.PP
+Definition at line 129 of file point\&.py\&.
+.SS "def set ( self,  args,  kwds)"
+
+.PP
+Definition at line 125 of file point\&.py\&.
+.SS "def upper16bit_get ( self)"
+
+.PP
+Definition at line 182 of file point\&.py\&.
+.SS "def upper16bit_set ( self,  new_val)"
+
+.PP
+.nf
+Used as an interface to the upper 16 bits of the point value.
+@param new_value Value to obtain the upper 16 bits of the point value
+from. If new_value is a float, the upper 16 bits of the float are used.
+If new_value is an integer, the LOWER 16 bits of the integer become the
+UPPER 16 bits of the point value. While counter-intuitive, this is to
+optimize the common case.
+.fi
+.PP
+ 
+.PP
+Definition at line 191 of file point\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "behavior"
+
+.PP
+Definition at line 120 of file point\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

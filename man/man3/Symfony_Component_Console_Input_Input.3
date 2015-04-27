@@ -1,0 +1,353 @@
+.TH "Input" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Input \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBInputInterface\fP\&.
+.PP
+Inherited by \fBArgvInput\fP, and \fBArrayInput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBInputDefinition\fP $definition=null)"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBInputDefinition\fP $definition)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBisInteractive\fP ()"
+.br
+.ti -1c
+.RI "\fBsetInteractive\fP ($interactive)"
+.br
+.ti -1c
+.RI "\fBgetArguments\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArgument\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetArgument\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBhasArgument\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetOption\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBhasOption\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBescapeToken\fP ($token)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparse\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$definition\fP"
+.br
+.ti -1c
+.RI "\fB$options\fP = array()"
+.br
+.ti -1c
+.RI "\fB$arguments\fP = array()"
+.br
+.ti -1c
+.RI "\fB$interactive\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBInput\fP is the base class for all concrete \fBInput\fP classes\&.
+.PP
+Three concrete classes are provided by default:
+.PP
+.IP "\(bu" 2
+\fC\fBArgvInput\fP\fP: The input comes from the CLI arguments (argv)
+.IP "\(bu" 2
+\fC\fBStringInput\fP\fP: The input is provided as a string
+.IP "\(bu" 2
+\fC\fBArrayInput\fP\fP: The input is provided as an array
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Input\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBInputDefinition\fP $definition = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$definition\fP \fBA\fP \fBInputDefinition\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file Input\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bind (\fBInputDefinition\fP $definition)"
+Binds the current \fBInput\fP instance with the given arguments and options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$definition\fP \fBA\fP \fBInputDefinition\fP instance 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 55 of file Input\&.php\&.
+.SS "escapeToken ( $token)"
+Escapes a token through escapeshellarg if it contains unsafe chars\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Input\&.php\&.
+.SS "getArgument ( $name)"
+Returns the argument value for a given argument name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The argument name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The argument value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 120 of file Input\&.php\&.
+.SS "getArguments ()"
+Returns the argument values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of argument values 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 106 of file Input\&.php\&.
+.SS "getOption ( $name)"
+Returns the option value for a given option name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The option name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The option value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 177 of file Input\&.php\&.
+.SS "getOptions ()"
+Returns the options values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of option values 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 163 of file Input\&.php\&.
+.SS "hasArgument ( $name)"
+Returns true if an \fBInputArgument\fP object exists by name or position\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The \fBInputArgument\fP name or position
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBInputArgument\fP object exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 153 of file Input\&.php\&.
+.SS "hasOption ( $name)"
+Returns true if an \fBInputOption\fP object exists by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The \fBInputOption\fP name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBInputOption\fP object exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 210 of file Input\&.php\&.
+.SS "isInteractive ()"
+Checks if the input is interactive\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns true if the input is interactive 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 86 of file Input\&.php\&.
+.SS "parse ()\fC [abstract]\fP, \fC [protected]\fP"
+Processes command line arguments\&. 
+.SS "setArgument ( $name,  $value)"
+Sets an argument value by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The argument name 
+.br
+\fI$value\fP The argument value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 137 of file Input\&.php\&.
+.SS "setInteractive ( $interactive)"
+Sets the input interactivity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$interactive\fP If the input should be interactive 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 96 of file Input\&.php\&.
+.SS "setOption ( $name,  $value)"
+Sets an option value by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The option name 
+.br
+\fI$value\fP The option value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 194 of file Input\&.php\&.
+.SS "validate ()"
+Validates the input\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 74 of file Input\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$arguments = array()\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file Input\&.php\&.
+.SS "$definition\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file Input\&.php\&.
+.SS "$interactive = true\fC [protected]\fP"
+
+.PP
+Definition at line 33 of file Input\&.php\&.
+.SS "$\fBoptions\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Input\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,5167 @@
+.TH "Model" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Model \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ArrayAccess, \fBArrayable\fP, \fBJsonable\fP, JsonSerializable, \fBQueueableEntity\fP, \fBUrlRoutable\fP, ArrayAccess, \fBArrayable\fP, \fBJsonable\fP, JsonSerializable, \fBQueueableEntity\fP, and \fBUrlRoutable\fP\&.
+.PP
+Inherited by \fBApp\\Module\fP, \fBApp\\Permission\fP, \fBApp\\Project\fP, \fBApp\\User\fP, \fBEloquent\fP, and \fBPivot\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBgetGlobalScopes\fP ()"
+.br
+.ti -1c
+.RI "\fBfill\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBforceFill\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBnewInstance\fP ($attributes=array(), $exists=false)"
+.br
+.ti -1c
+.RI "\fBnewFromBuilder\fP ($attributes=array(), $connection=null)"
+.br
+.ti -1c
+.RI "\fBfresh\fP (array $\fBwith\fP=array())"
+.br
+.ti -1c
+.RI "\fBload\fP ($relations)"
+.br
+.ti -1c
+.RI "\fBhasOne\fP ($related, $foreignKey=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBmorphOne\fP ($related, $\fBname\fP, $type=null, $id=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBbelongsTo\fP ($related, $foreignKey=null, $otherKey=null, $relation=null)"
+.br
+.ti -1c
+.RI "\fBmorphTo\fP ($\fBname\fP=null, $type=null, $id=null)"
+.br
+.ti -1c
+.RI "\fBhasMany\fP ($related, $foreignKey=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBhasManyThrough\fP ($related, $through, $firstKey=null, $secondKey=null)"
+.br
+.ti -1c
+.RI "\fBmorphMany\fP ($related, $\fBname\fP, $type=null, $id=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBbelongsToMany\fP ($related, $table=null, $foreignKey=null, $otherKey=null, $relation=null)"
+.br
+.ti -1c
+.RI "\fBmorphToMany\fP ($related, $\fBname\fP, $table=null, $foreignKey=null, $otherKey=null, $inverse=false)"
+.br
+.ti -1c
+.RI "\fBmorphedByMany\fP ($related, $\fBname\fP, $table=null, $foreignKey=null, $otherKey=null)"
+.br
+.ti -1c
+.RI "\fBjoiningTable\fP ($related)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ()"
+.br
+.ti -1c
+.RI "\fBforceDelete\fP ()"
+.br
+.ti -1c
+.RI "\fBgetObservableEvents\fP ()"
+.br
+.ti -1c
+.RI "\fBsetObservableEvents\fP (array $observables)"
+.br
+.ti -1c
+.RI "\fBaddObservableEvents\fP ($observables)"
+.br
+.ti -1c
+.RI "\fBremoveObservableEvents\fP ($observables)"
+.br
+.ti -1c
+.RI "\fBupdate\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBpush\fP ()"
+.br
+.ti -1c
+.RI "\fBsave\fP (array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBtouchOwners\fP ()"
+.br
+.ti -1c
+.RI "\fBtouches\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBtouch\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCreatedAt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetUpdatedAt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetCreatedAtColumn\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUpdatedAtColumn\fP ()"
+.br
+.ti -1c
+.RI "\fBfreshTimestamp\fP ()"
+.br
+.ti -1c
+.RI "\fBfreshTimestampString\fP ()"
+.br
+.ti -1c
+.RI "\fBnewQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBnewQueryWithoutScope\fP ($scope)"
+.br
+.ti -1c
+.RI "\fBnewQueryWithoutScopes\fP ()"
+.br
+.ti -1c
+.RI "\fBapplyGlobalScopes\fP ($builder)"
+.br
+.ti -1c
+.RI "\fBremoveGlobalScopes\fP ($builder)"
+.br
+.ti -1c
+.RI "\fBnewEloquentBuilder\fP ($\fBquery\fP)"
+.br
+.ti -1c
+.RI "\fBnewCollection\fP (array $\fBmodels\fP=array())"
+.br
+.ti -1c
+.RI "\fBnewPivot\fP (\fBModel\fP $parent, array $attributes, $table, $exists)"
+.br
+.ti -1c
+.RI "\fBgetTable\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTable\fP ($table)"
+.br
+.ti -1c
+.RI "\fBgetKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueueableId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetKeyName\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetQualifiedKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRouteKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRouteKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBusesTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphClass\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPerPage\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPerPage\fP ($perPage)"
+.br
+.ti -1c
+.RI "\fBgetForeignKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHidden\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHidden\fP (array $hidden)"
+.br
+.ti -1c
+.RI "\fBaddHidden\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBgetVisible\fP ()"
+.br
+.ti -1c
+.RI "\fBsetVisible\fP (array $visible)"
+.br
+.ti -1c
+.RI "\fBaddVisible\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBsetAppends\fP (array $appends)"
+.br
+.ti -1c
+.RI "\fBgetFillable\fP ()"
+.br
+.ti -1c
+.RI "\fBfillable\fP (array $fillable)"
+.br
+.ti -1c
+.RI "\fBgetGuarded\fP ()"
+.br
+.ti -1c
+.RI "\fBguard\fP (array $guarded)"
+.br
+.ti -1c
+.RI "\fBisFillable\fP ($key)"
+.br
+.ti -1c
+.RI "\fBisGuarded\fP ($key)"
+.br
+.ti -1c
+.RI "\fBtotallyGuarded\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTouchedRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTouchedRelations\fP (array $\fBtouches\fP)"
+.br
+.ti -1c
+.RI "\fBgetIncrementing\fP ()"
+.br
+.ti -1c
+.RI "\fBsetIncrementing\fP ($value)"
+.br
+.ti -1c
+.RI "\fBtoJson\fP ($\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBjsonSerialize\fP ()"
+.br
+.ti -1c
+.RI "\fBtoArray\fP ()"
+.br
+.ti -1c
+.RI "\fBattributesToArray\fP ()"
+.br
+.ti -1c
+.RI "\fBrelationsToArray\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAttribute\fP ($key)"
+.br
+.ti -1c
+.RI "\fBhasGetMutator\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBhasSetMutator\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetDates\fP ()"
+.br
+.ti -1c
+.RI "\fBfromDateTime\fP ($value)"
+.br
+.ti -1c
+.RI "\fBreplicate\fP (array $except=null)"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRawAttributes\fP (array $attributes, $sync=false)"
+.br
+.ti -1c
+.RI "\fBgetOriginal\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBsyncOriginal\fP ()"
+.br
+.ti -1c
+.RI "\fBsyncOriginalAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBisDirty\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBgetDirty\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelation\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBsetRelation\fP ($relation, $value)"
+.br
+.ti -1c
+.RI "\fBsetRelations\fP (array $relations)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConnectionName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetMutatedAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fB__get\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($offset, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($offset)"
+.br
+.ti -1c
+.RI "\fB__isset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__unset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fB__wakeup\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBgetGlobalScopes\fP ()"
+.br
+.ti -1c
+.RI "\fBfill\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBforceFill\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBnewInstance\fP ($attributes=array(), $exists=false)"
+.br
+.ti -1c
+.RI "\fBnewFromBuilder\fP ($attributes=array(), $connection=null)"
+.br
+.ti -1c
+.RI "\fBfresh\fP (array $\fBwith\fP=array())"
+.br
+.ti -1c
+.RI "\fBload\fP ($relations)"
+.br
+.ti -1c
+.RI "\fBhasOne\fP ($related, $foreignKey=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBmorphOne\fP ($related, $\fBname\fP, $type=null, $id=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBbelongsTo\fP ($related, $foreignKey=null, $otherKey=null, $relation=null)"
+.br
+.ti -1c
+.RI "\fBmorphTo\fP ($\fBname\fP=null, $type=null, $id=null)"
+.br
+.ti -1c
+.RI "\fBhasMany\fP ($related, $foreignKey=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBhasManyThrough\fP ($related, $through, $firstKey=null, $secondKey=null)"
+.br
+.ti -1c
+.RI "\fBmorphMany\fP ($related, $\fBname\fP, $type=null, $id=null, $localKey=null)"
+.br
+.ti -1c
+.RI "\fBbelongsToMany\fP ($related, $table=null, $foreignKey=null, $otherKey=null, $relation=null)"
+.br
+.ti -1c
+.RI "\fBmorphToMany\fP ($related, $\fBname\fP, $table=null, $foreignKey=null, $otherKey=null, $inverse=false)"
+.br
+.ti -1c
+.RI "\fBmorphedByMany\fP ($related, $\fBname\fP, $table=null, $foreignKey=null, $otherKey=null)"
+.br
+.ti -1c
+.RI "\fBjoiningTable\fP ($related)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ()"
+.br
+.ti -1c
+.RI "\fBforceDelete\fP ()"
+.br
+.ti -1c
+.RI "\fBgetObservableEvents\fP ()"
+.br
+.ti -1c
+.RI "\fBsetObservableEvents\fP (array $observables)"
+.br
+.ti -1c
+.RI "\fBaddObservableEvents\fP ($observables)"
+.br
+.ti -1c
+.RI "\fBremoveObservableEvents\fP ($observables)"
+.br
+.ti -1c
+.RI "\fBupdate\fP (array $attributes=array())"
+.br
+.ti -1c
+.RI "\fBpush\fP ()"
+.br
+.ti -1c
+.RI "\fBsave\fP (array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBtouchOwners\fP ()"
+.br
+.ti -1c
+.RI "\fBtouches\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBtouch\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCreatedAt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetUpdatedAt\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetCreatedAtColumn\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUpdatedAtColumn\fP ()"
+.br
+.ti -1c
+.RI "\fBfreshTimestamp\fP ()"
+.br
+.ti -1c
+.RI "\fBfreshTimestampString\fP ()"
+.br
+.ti -1c
+.RI "\fBnewQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBnewQueryWithoutScope\fP ($scope)"
+.br
+.ti -1c
+.RI "\fBnewQueryWithoutScopes\fP ()"
+.br
+.ti -1c
+.RI "\fBapplyGlobalScopes\fP ($builder)"
+.br
+.ti -1c
+.RI "\fBremoveGlobalScopes\fP ($builder)"
+.br
+.ti -1c
+.RI "\fBnewEloquentBuilder\fP ($\fBquery\fP)"
+.br
+.ti -1c
+.RI "\fBnewCollection\fP (array $\fBmodels\fP=array())"
+.br
+.ti -1c
+.RI "\fBnewPivot\fP (\fBModel\fP $parent, array $attributes, $table, $exists)"
+.br
+.ti -1c
+.RI "\fBgetTable\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTable\fP ($table)"
+.br
+.ti -1c
+.RI "\fBgetKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueueableId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetKeyName\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetQualifiedKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRouteKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRouteKeyName\fP ()"
+.br
+.ti -1c
+.RI "\fBusesTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphClass\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPerPage\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPerPage\fP ($perPage)"
+.br
+.ti -1c
+.RI "\fBgetForeignKey\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHidden\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHidden\fP (array $hidden)"
+.br
+.ti -1c
+.RI "\fBaddHidden\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBgetVisible\fP ()"
+.br
+.ti -1c
+.RI "\fBsetVisible\fP (array $visible)"
+.br
+.ti -1c
+.RI "\fBaddVisible\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBsetAppends\fP (array $appends)"
+.br
+.ti -1c
+.RI "\fBgetFillable\fP ()"
+.br
+.ti -1c
+.RI "\fBfillable\fP (array $fillable)"
+.br
+.ti -1c
+.RI "\fBgetGuarded\fP ()"
+.br
+.ti -1c
+.RI "\fBguard\fP (array $guarded)"
+.br
+.ti -1c
+.RI "\fBisFillable\fP ($key)"
+.br
+.ti -1c
+.RI "\fBisGuarded\fP ($key)"
+.br
+.ti -1c
+.RI "\fBtotallyGuarded\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTouchedRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTouchedRelations\fP (array $\fBtouches\fP)"
+.br
+.ti -1c
+.RI "\fBgetIncrementing\fP ()"
+.br
+.ti -1c
+.RI "\fBsetIncrementing\fP ($value)"
+.br
+.ti -1c
+.RI "\fBtoJson\fP ($\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBjsonSerialize\fP ()"
+.br
+.ti -1c
+.RI "\fBtoArray\fP ()"
+.br
+.ti -1c
+.RI "\fBattributesToArray\fP ()"
+.br
+.ti -1c
+.RI "\fBrelationsToArray\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAttribute\fP ($key)"
+.br
+.ti -1c
+.RI "\fBhasGetMutator\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBhasSetMutator\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetDates\fP ()"
+.br
+.ti -1c
+.RI "\fBfromDateTime\fP ($value)"
+.br
+.ti -1c
+.RI "\fBreplicate\fP (array $except=null)"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRawAttributes\fP (array $attributes, $sync=false)"
+.br
+.ti -1c
+.RI "\fBgetOriginal\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBsyncOriginal\fP ()"
+.br
+.ti -1c
+.RI "\fBsyncOriginalAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBisDirty\fP ($attributes=null)"
+.br
+.ti -1c
+.RI "\fBgetDirty\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelation\fP ($relation)"
+.br
+.ti -1c
+.RI "\fBsetRelation\fP ($relation, $value)"
+.br
+.ti -1c
+.RI "\fBsetRelations\fP (array $relations)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConnectionName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetMutatedAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fB__get\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__set\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($offset)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($offset, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($offset)"
+.br
+.ti -1c
+.RI "\fB__isset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__unset\fP ($key)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fB__wakeup\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBaddGlobalScope\fP (\fBScopeInterface\fP $scope)"
+.br
+.ti -1c
+.RI "static \fBhasGlobalScope\fP ($scope)"
+.br
+.ti -1c
+.RI "static \fBgetGlobalScope\fP ($scope)"
+.br
+.ti -1c
+.RI "static \fBobserve\fP ($class)"
+.br
+.ti -1c
+.RI "static \fBhydrate\fP (array $items, $connection=null)"
+.br
+.ti -1c
+.RI "static \fBhydrateRaw\fP ($\fBquery\fP, $bindings=array(), $connection=null)"
+.br
+.ti -1c
+.RI "static \fBcreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBforceCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBfirstOrCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBfirstOrNew\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBupdateOrCreate\fP (array $attributes, array $\fBvalues\fP=array())"
+.br
+.ti -1c
+.RI "static \fBquery\fP ()"
+.br
+.ti -1c
+.RI "static \fBon\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBonWriteConnection\fP ()"
+.br
+.ti -1c
+.RI "static \fBall\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBfind\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBfindOrNew\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBwith\fP ($relations)"
+.br
+.ti -1c
+.RI "static \fBdestroy\fP ($ids)"
+.br
+.ti -1c
+.RI "static \fBsaving\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBsaved\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBupdating\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBupdated\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBcreating\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBcreated\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBdeleting\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBdeleted\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBflushEventListeners\fP ()"
+.br
+.ti -1c
+.RI "static \fBunguard\fP ($state=true)"
+.br
+.ti -1c
+.RI "static \fBreguard\fP ()"
+.br
+.ti -1c
+.RI "static \fBisUnguarded\fP ()"
+.br
+.ti -1c
+.RI "static \fBunguarded\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBresolveConnection\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBgetConnectionResolver\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetConnectionResolver\fP (Resolver $resolver)"
+.br
+.ti -1c
+.RI "static \fBunsetConnectionResolver\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetEventDispatcher\fP (\fBDispatcher\fP $dispatcher)"
+.br
+.ti -1c
+.RI "static \fBunsetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBcacheMutatedAttributes\fP ($class)"
+.br
+.ti -1c
+.RI "static \fB__callStatic\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "static \fBaddGlobalScope\fP (\fBScopeInterface\fP $scope)"
+.br
+.ti -1c
+.RI "static \fBhasGlobalScope\fP ($scope)"
+.br
+.ti -1c
+.RI "static \fBgetGlobalScope\fP ($scope)"
+.br
+.ti -1c
+.RI "static \fBobserve\fP ($class)"
+.br
+.ti -1c
+.RI "static \fBhydrate\fP (array $items, $connection=null)"
+.br
+.ti -1c
+.RI "static \fBhydrateRaw\fP ($\fBquery\fP, $bindings=array(), $connection=null)"
+.br
+.ti -1c
+.RI "static \fBcreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBforceCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBfirstOrCreate\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBfirstOrNew\fP (array $attributes)"
+.br
+.ti -1c
+.RI "static \fBupdateOrCreate\fP (array $attributes, array $\fBvalues\fP=array())"
+.br
+.ti -1c
+.RI "static \fBquery\fP ()"
+.br
+.ti -1c
+.RI "static \fBon\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBonWriteConnection\fP ()"
+.br
+.ti -1c
+.RI "static \fBall\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBfind\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBfindOrNew\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "static \fBwith\fP ($relations)"
+.br
+.ti -1c
+.RI "static \fBdestroy\fP ($ids)"
+.br
+.ti -1c
+.RI "static \fBsaving\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBsaved\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBupdating\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBupdated\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBcreating\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBcreated\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBdeleting\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBdeleted\fP ($\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBflushEventListeners\fP ()"
+.br
+.ti -1c
+.RI "static \fBunguard\fP ($state=true)"
+.br
+.ti -1c
+.RI "static \fBreguard\fP ()"
+.br
+.ti -1c
+.RI "static \fBisUnguarded\fP ()"
+.br
+.ti -1c
+.RI "static \fBunguarded\fP (callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBresolveConnection\fP ($connection=null)"
+.br
+.ti -1c
+.RI "static \fBgetConnectionResolver\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetConnectionResolver\fP (Resolver $resolver)"
+.br
+.ti -1c
+.RI "static \fBunsetConnectionResolver\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetEventDispatcher\fP (\fBDispatcher\fP $dispatcher)"
+.br
+.ti -1c
+.RI "static \fBunsetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBcacheMutatedAttributes\fP ($class)"
+.br
+.ti -1c
+.RI "static \fB__callStatic\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$incrementing\fP = true"
+.br
+.ti -1c
+.RI "\fB$timestamps\fP = true"
+.br
+.ti -1c
+.RI "\fB$exists\fP = false"
+.br
+.ti -1c
+.RI "const \fBCREATED_AT\fP = 'created_at'"
+.br
+.ti -1c
+.RI "const \fBUPDATED_AT\fP = 'updated_at'"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$snakeAttributes\fP = true"
+.br
+.ti -1c
+.RI "static \fB$manyMethods\fP = array('\fBbelongsToMany\fP', '\fBmorphToMany\fP', '\fBmorphedByMany\fP')"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbootIfNotBooted\fP ()"
+.br
+.ti -1c
+.RI "\fBfillableFromArray\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBgetBelongsToManyCaller\fP ()"
+.br
+.ti -1c
+.RI "\fBperformDeleteOnModel\fP ()"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($column, $amount=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($column, $amount=1)"
+.br
+.ti -1c
+.RI "\fBincrementOrDecrement\fP ($column, $amount, $method)"
+.br
+.ti -1c
+.RI "\fBincrementOrDecrementAttributeValue\fP ($column, $amount, $method)"
+.br
+.ti -1c
+.RI "\fBfinishSave\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBperformUpdate\fP (\fBBuilder\fP $\fBquery\fP, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBperformInsert\fP (\fBBuilder\fP $\fBquery\fP, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBinsertAndSetId\fP (\fBBuilder\fP $\fBquery\fP, $attributes)"
+.br
+.ti -1c
+.RI "\fBfireModelEvent\fP ($\fBevent\fP, $halt=true)"
+.br
+.ti -1c
+.RI "\fBsetKeysForSaveQuery\fP (\fBBuilder\fP $\fBquery\fP)"
+.br
+.ti -1c
+.RI "\fBgetKeyForSaveQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBupdateTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBnewBaseQueryBuilder\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphs\fP ($\fBname\fP, $type, $id)"
+.br
+.ti -1c
+.RI "\fBremoveTableFromKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetArrayableAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableAppends\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableItems\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetAttributeValue\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetAttributeFromArray\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetRelationshipFromMethod\fP ($method)"
+.br
+.ti -1c
+.RI "\fBmutateAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBmutateAttributeForArray\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBhasCast\fP ($key)"
+.br
+.ti -1c
+.RI "\fBisJsonCastable\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetCastType\fP ($key)"
+.br
+.ti -1c
+.RI "\fBcastAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBasDateTime\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetDateFormat\fP ()"
+.br
+.ti -1c
+.RI "\fBoriginalIsNumericallyEquivalent\fP ($key)"
+.br
+.ti -1c
+.RI "\fBbootIfNotBooted\fP ()"
+.br
+.ti -1c
+.RI "\fBfillableFromArray\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBgetBelongsToManyCaller\fP ()"
+.br
+.ti -1c
+.RI "\fBperformDeleteOnModel\fP ()"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($column, $amount=1)"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($column, $amount=1)"
+.br
+.ti -1c
+.RI "\fBincrementOrDecrement\fP ($column, $amount, $method)"
+.br
+.ti -1c
+.RI "\fBincrementOrDecrementAttributeValue\fP ($column, $amount, $method)"
+.br
+.ti -1c
+.RI "\fBfinishSave\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBperformUpdate\fP (\fBBuilder\fP $\fBquery\fP, array $\fBoptions\fP=[])"
+.br
+.ti -1c
+.RI "\fBperformInsert\fP (\fBBuilder\fP $\fBquery\fP, array $\fBoptions\fP=[])"
+.br
+.ti -1c
+.RI "\fBinsertAndSetId\fP (\fBBuilder\fP $\fBquery\fP, $attributes)"
+.br
+.ti -1c
+.RI "\fBfireModelEvent\fP ($\fBevent\fP, $halt=true)"
+.br
+.ti -1c
+.RI "\fBsetKeysForSaveQuery\fP (\fBBuilder\fP $\fBquery\fP)"
+.br
+.ti -1c
+.RI "\fBgetKeyForSaveQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBupdateTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBnewBaseQueryBuilder\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphs\fP ($\fBname\fP, $type, $id)"
+.br
+.ti -1c
+.RI "\fBremoveTableFromKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetArrayableAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableAppends\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableRelations\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArrayableItems\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetAttributeValue\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetAttributeFromArray\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetRelationshipFromMethod\fP ($method)"
+.br
+.ti -1c
+.RI "\fBmutateAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBmutateAttributeForArray\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBhasCast\fP ($key)"
+.br
+.ti -1c
+.RI "\fBisJsonCastable\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetCastType\fP ($key)"
+.br
+.ti -1c
+.RI "\fBcastAttribute\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBasDateTime\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetDateFormat\fP ()"
+.br
+.ti -1c
+.RI "\fBoriginalIsNumericallyEquivalent\fP ($key)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBboot\fP ()"
+.br
+.ti -1c
+.RI "static \fBbootTraits\fP ()"
+.br
+.ti -1c
+.RI "static \fBfirstByAttributes\fP ($attributes)"
+.br
+.ti -1c
+.RI "static \fBregisterModelEvent\fP ($\fBevent\fP, $\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "static \fBboot\fP ()"
+.br
+.ti -1c
+.RI "static \fBbootTraits\fP ()"
+.br
+.ti -1c
+.RI "static \fBfirstByAttributes\fP ($attributes)"
+.br
+.ti -1c
+.RI "static \fBregisterModelEvent\fP ($\fBevent\fP, $\fBcallback\fP, $priority=0)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$table\fP"
+.br
+.ti -1c
+.RI "\fB$primaryKey\fP = 'id'"
+.br
+.ti -1c
+.RI "\fB$perPage\fP = 15"
+.br
+.ti -1c
+.RI "\fB$attributes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$original\fP = array()"
+.br
+.ti -1c
+.RI "\fB$relations\fP = array()"
+.br
+.ti -1c
+.RI "\fB$hidden\fP = array()"
+.br
+.ti -1c
+.RI "\fB$visible\fP = array()"
+.br
+.ti -1c
+.RI "\fB$appends\fP = array()"
+.br
+.ti -1c
+.RI "\fB$fillable\fP = array()"
+.br
+.ti -1c
+.RI "\fB$guarded\fP = array('*')"
+.br
+.ti -1c
+.RI "\fB$dates\fP = array()"
+.br
+.ti -1c
+.RI "\fB$casts\fP = array()"
+.br
+.ti -1c
+.RI "\fB$touches\fP = array()"
+.br
+.ti -1c
+.RI "\fB$observables\fP = array()"
+.br
+.ti -1c
+.RI "\fB$with\fP = array()"
+.br
+.ti -1c
+.RI "\fB$morphClass\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$resolver\fP"
+.br
+.ti -1c
+.RI "static \fB$dispatcher\fP"
+.br
+.ti -1c
+.RI "static \fB$booted\fP = array()"
+.br
+.ti -1c
+.RI "static \fB$globalScopes\fP = array()"
+.br
+.ti -1c
+.RI "static \fB$unguarded\fP = false"
+.br
+.ti -1c
+.RI "static \fB$mutatorCache\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9313 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $attributes = \fCarray()\fP)"
+
+.PP
+Definition at line 9346 of file compiled\&.php\&.
+.SS "__construct (array $attributes = \fCarray()\fP)"
+Create a new \fBEloquent\fP model instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file Model\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Handle dynamic method calls into the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3345 of file Model\&.php\&.
+.SS "__call ( $method,  $parameters)"
+
+.PP
+Definition at line 10588 of file compiled\&.php\&.
+.SS "static __callStatic ( $method,  $parameters)\fC [static]\fP"
+Handle dynamic static method calls into the method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3364 of file Model\&.php\&.
+.SS "static __callStatic ( $method,  $parameters)\fC [static]\fP"
+
+.PP
+Definition at line 10596 of file compiled\&.php\&.
+.SS "__get ( $key)"
+Dynamically retrieve attributes on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3253 of file Model\&.php\&.
+.SS "__get ( $key)"
+
+.PP
+Definition at line 10556 of file compiled\&.php\&.
+.SS "__isset ( $key)"
+Determine if an attribute exists on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3321 of file Model\&.php\&.
+.SS "__isset ( $key)"
+
+.PP
+Definition at line 10580 of file compiled\&.php\&.
+.SS "__set ( $key,  $value)"
+Dynamically set attributes on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3265 of file Model\&.php\&.
+.SS "__set ( $key,  $value)"
+
+.PP
+Definition at line 10560 of file compiled\&.php\&.
+.SS "__toString ()"
+Convert the model to its string representation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3376 of file Model\&.php\&.
+.SS "__toString ()"
+
+.PP
+Definition at line 10601 of file compiled\&.php\&.
+.SS "__unset ( $key)"
+Unset an attribute on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3333 of file Model\&.php\&.
+.SS "__unset ( $key)"
+
+.PP
+Definition at line 10584 of file compiled\&.php\&.
+.SS "__wakeup ()"
+When a model is being unserialized, check if it needs to be booted\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3386 of file Model\&.php\&.
+.SS "__wakeup ()"
+
+.PP
+Definition at line 10605 of file compiled\&.php\&.
+.SS "static addGlobalScope (\fBScopeInterface\fP $scope)\fC [static]\fP"
+Register a new global scope on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scope\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file Model\&.php\&.
+.SS "static addGlobalScope (\fBScopeInterface\fP $scope)\fC [static]\fP"
+
+.PP
+Definition at line 9374 of file compiled\&.php\&.
+.SS "addHidden ( $attributes = \fCnull\fP)"
+Add hidden attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2100 of file Model\&.php\&.
+.SS "addHidden ( $attributes = \fCnull\fP)"
+
+.PP
+Definition at line 10070 of file compiled\&.php\&.
+.SS "addObservableEvents ( $observables)"
+Add an observable event name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$observables\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1330 of file Model\&.php\&.
+.SS "addObservableEvents ( $observables)"
+
+.PP
+Definition at line 9755 of file compiled\&.php\&.
+.SS "addVisible ( $attributes = \fCnull\fP)"
+Add visible attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2134 of file Model\&.php\&.
+.SS "addVisible ( $attributes = \fCnull\fP)"
+
+.PP
+Definition at line 10083 of file compiled\&.php\&.
+.SS "static all ( $columns = \fCarray('*')\fP)\fC [static]\fP"
+Get all of the models from the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 659 of file Model\&.php\&.
+.SS "static all ( $columns = \fCarray('*')\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9511 of file compiled\&.php\&.
+.SS "applyGlobalScopes ( $builder)"
+Apply all of the global scopes to an \fBEloquent\fP builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1835 of file Model\&.php\&.
+.SS "applyGlobalScopes ( $builder)"
+
+.PP
+Definition at line 9965 of file compiled\&.php\&.
+.SS "asDateTime ( $value)\fC [protected]\fP"
+Return a timestamp as DateTime object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2864 of file Model\&.php\&.
+.SS "asDateTime ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 10394 of file compiled\&.php\&.
+.SS "attributesToArray ()"
+Convert the model's attributes to an array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2381 of file Model\&.php\&.
+.SS "attributesToArray ()"
+
+.PP
+Definition at line 10189 of file compiled\&.php\&.
+.SS "belongsTo ( $related,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $relation = \fCnull\fP)"
+Define an inverse one-to-one or many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 788 of file Model\&.php\&.
+.SS "belongsTo ( $related,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $relation = \fCnull\fP)"
+
+.PP
+Definition at line 9564 of file compiled\&.php\&.
+.SS "belongsToMany ( $related,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $relation = \fCnull\fP)"
+Define a many-to-many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$table\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 940 of file Model\&.php\&.
+.SS "belongsToMany ( $related,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $relation = \fCnull\fP)"
+
+.PP
+Definition at line 9614 of file compiled\&.php\&.
+.SS "static boot ()\fC [static]\fP, \fC [protected]\fP"
+The 'booting' method of the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 288 of file Model\&.php\&.
+.SS "static boot ()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9362 of file compiled\&.php\&.
+.SS "bootIfNotBooted ()\fC [protected]\fP"
+Check if the model needs to be booted and if so, do it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Model\&.php\&.
+.SS "bootIfNotBooted ()\fC [protected]\fP"
+
+.PP
+Definition at line 9352 of file compiled\&.php\&.
+.SS "static bootTraits ()\fC [static]\fP, \fC [protected]\fP"
+Boot all of the bootable traits on the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file Model\&.php\&.
+.SS "static bootTraits ()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9366 of file compiled\&.php\&.
+.SS "static cacheMutatedAttributes ( $class)\fC [static]\fP"
+Extract and cache all the mutated attributes of a class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3226 of file Model\&.php\&.
+.SS "static cacheMutatedAttributes ( $class)\fC [static]\fP"
+
+.PP
+Definition at line 10543 of file compiled\&.php\&.
+.SS "castAttribute ( $key,  $value)\fC [protected]\fP"
+Cast an attribute to a native \fBPHP\fP type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2725 of file Model\&.php\&.
+.SS "castAttribute ( $key,  $value)\fC [protected]\fP"
+
+.PP
+Definition at line 10330 of file compiled\&.php\&.
+.SS "static create (array $attributes)\fC [static]\fP"
+Save a new model and return the instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 523 of file Model\&.php\&.
+.SS "static create (array $attributes)\fC [static]\fP"
+
+.PP
+Definition at line 9456 of file compiled\&.php\&.
+.SS "static created ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a created model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1232 of file Model\&.php\&.
+.SS "static created ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9718 of file compiled\&.php\&.
+.SS "static creating ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a creating model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1220 of file Model\&.php\&.
+.SS "static creating ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9714 of file compiled\&.php\&.
+.SS "decrement ( $column,  $amount = \fC1\fP)\fC [protected]\fP"
+Decrement a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1369 of file Model\&.php\&.
+.SS "decrement ( $column,  $amount = \fC1\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 9769 of file compiled\&.php\&.
+.SS "delete ()"
+Delete the model from the database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 1114 of file Model\&.php\&.
+.SS "delete ()"
+
+.PP
+Definition at line 9674 of file compiled\&.php\&.
+.SS "static deleted ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a deleted model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1256 of file Model\&.php\&.
+.SS "static deleted ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9726 of file compiled\&.php\&.
+.SS "static deleting ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a deleting model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1244 of file Model\&.php\&.
+.SS "static deleting ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9722 of file compiled\&.php\&.
+.SS "static destroy ( $ids)\fC [static]\fP"
+Destroy the models for the given IDs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ids\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1084 of file Model\&.php\&.
+.SS "static destroy ( $ids)\fC [static]\fP"
+
+.PP
+Definition at line 9661 of file compiled\&.php\&.
+.SS "fill (array $attributes)"
+Fill the model with an array of attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 387 of file Model\&.php\&.
+.SS "fill (array $attributes)"
+
+.PP
+Definition at line 9402 of file compiled\&.php\&.
+.SS "fillable (array $fillable)"
+Set the fillable attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fillable\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2168 of file Model\&.php\&.
+.SS "fillable (array $fillable)"
+
+.PP
+Definition at line 10096 of file compiled\&.php\&.
+.SS "fillableFromArray (array $attributes)\fC [protected]\fP"
+Get the fillable attributes of a given array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 434 of file Model\&.php\&.
+.SS "fillableFromArray (array $attributes)\fC [protected]\fP"
+
+.PP
+Definition at line 9422 of file compiled\&.php\&.
+.SS "static find ( $id,  $columns = \fCarray('*')\fP)\fC [static]\fP"
+Find a model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static|null 
+.RE
+.PP
+
+.PP
+Definition at line 673 of file Model\&.php\&.
+.SS "static find ( $id,  $columns = \fCarray('*')\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9516 of file compiled\&.php\&.
+.SS "static findOrNew ( $id,  $columns = \fCarray('*')\fP)\fC [static]\fP"
+Find a model by its primary key or return new static\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 685 of file Model\&.php\&.
+.SS "static findOrNew ( $id,  $columns = \fCarray('*')\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9520 of file compiled\&.php\&.
+.SS "finishSave (array $options)\fC [protected]\fP"
+Finish processing on a successful save operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1498 of file Model\&.php\&.
+.SS "finishSave (array $options)\fC [protected]\fP"
+
+.PP
+Definition at line 9825 of file compiled\&.php\&.
+.SS "fireModelEvent ( $event,  $halt = \fCtrue\fP)\fC [protected]\fP"
+Fire the given event for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$halt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1649 of file Model\&.php\&.
+.SS "fireModelEvent ( $event,  $halt = \fCtrue\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 9887 of file compiled\&.php\&.
+.SS "static firstByAttributes ( $attributes)\fC [static]\fP, \fC [protected]\fP"
+Get the first model for the given attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static|null 
+.RE
+.PP
+
+.PP
+Definition at line 608 of file Model\&.php\&.
+.SS "static firstByAttributes ( $attributes)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9492 of file compiled\&.php\&.
+.SS "static firstOrCreate (array $attributes)\fC [static]\fP"
+Get the first record matching the attributes or create it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 560 of file Model\&.php\&.
+.SS "static firstOrCreate (array $attributes)\fC [static]\fP"
+
+.PP
+Definition at line 9472 of file compiled\&.php\&.
+.SS "static firstOrNew (array $attributes)\fC [static]\fP"
+Get the first record matching the attributes or instantiate it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 576 of file Model\&.php\&.
+.SS "static firstOrNew (array $attributes)\fC [static]\fP"
+
+.PP
+Definition at line 9479 of file compiled\&.php\&.
+.SS "static flushEventListeners ()\fC [static]\fP"
+Remove all of the event listeners for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1266 of file Model\&.php\&.
+.SS "static flushEventListeners ()\fC [static]\fP"
+
+.PP
+Definition at line 9730 of file compiled\&.php\&.
+.SS "static forceCreate (array $attributes)\fC [static]\fP"
+Save a new model and return the instance\&. Allow mass-assignment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 538 of file Model\&.php\&.
+.SS "static forceCreate (array $attributes)\fC [static]\fP"
+
+.PP
+Definition at line 9462 of file compiled\&.php\&.
+.SS "forceDelete ()"
+Force a hard delete on a soft deleted model\&.
+.PP
+This method protects developers from running forceDelete when trait is missing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1150 of file Model\&.php\&.
+.SS "forceDelete ()"
+
+.PP
+Definition at line 9690 of file compiled\&.php\&.
+.SS "forceFill (array $attributes)"
+Fill the model with an array of attributes\&. Force mass assignment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 417 of file Model\&.php\&.
+.SS "forceFill (array $attributes)"
+
+.PP
+Definition at line 9415 of file compiled\&.php\&.
+.SS "fresh (array $with = \fCarray()\fP)"
+Reload a fresh model instance from the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$with\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 698 of file Model\&.php\&.
+.SS "fresh (array $with = \fCarray()\fP)"
+
+.PP
+Definition at line 9527 of file compiled\&.php\&.
+.SS "freshTimestamp ()"
+Get a fresh timestamp for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1772 of file Model\&.php\&.
+.SS "freshTimestamp ()"
+
+.PP
+Definition at line 9942 of file compiled\&.php\&.
+.SS "freshTimestampString ()"
+Get a fresh timestamp for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1782 of file Model\&.php\&.
+.SS "freshTimestampString ()"
+
+.PP
+Definition at line 9946 of file compiled\&.php\&.
+.SS "fromDateTime ( $value)"
+Convert a DateTime to a storable string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2819 of file Model\&.php\&.
+.SS "fromDateTime ( $value)"
+
+.PP
+Definition at line 10381 of file compiled\&.php\&.
+.SS "getArrayableAppends ()\fC [protected]\fP"
+Get all of the appendable values that are arrayable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2448 of file Model\&.php\&.
+.SS "getArrayableAppends ()\fC [protected]\fP"
+
+.PP
+Definition at line 10220 of file compiled\&.php\&.
+.SS "getArrayableAttributes ()\fC [protected]\fP"
+Get an attribute array of all arrayable attributes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2438 of file Model\&.php\&.
+.SS "getArrayableAttributes ()\fC [protected]\fP"
+
+.PP
+Definition at line 10216 of file compiled\&.php\&.
+.SS "getArrayableItems (array $values)\fC [protected]\fP"
+Get an attribute array of all arrayable values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2524 of file Model\&.php\&.
+.SS "getArrayableItems (array $values)\fC [protected]\fP"
+
+.PP
+Definition at line 10253 of file compiled\&.php\&.
+.SS "getArrayableRelations ()\fC [protected]\fP"
+Get an attribute array of all arrayable relations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2513 of file Model\&.php\&.
+.SS "getArrayableRelations ()\fC [protected]\fP"
+
+.PP
+Definition at line 10249 of file compiled\&.php\&.
+.SS "getAttribute ( $key)"
+Get an attribute from the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2540 of file Model\&.php\&.
+.SS "getAttribute ( $key)"
+
+.PP
+Definition at line 10260 of file compiled\&.php\&.
+.SS "getAttributeFromArray ( $key)\fC [protected]\fP"
+Get an attribute from the $attributes array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2612 of file Model\&.php\&.
+.SS "getAttributeFromArray ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10288 of file compiled\&.php\&.
+.SS "getAttributes ()"
+Get all of the current attributes on the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2931 of file Model\&.php\&.
+.SS "getAttributes ()"
+
+.PP
+Definition at line 10417 of file compiled\&.php\&.
+.SS "getAttributeValue ( $key)\fC [protected]\fP"
+Get a plain attribute (not a relationship)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2575 of file Model\&.php\&.
+.SS "getAttributeValue ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10273 of file compiled\&.php\&.
+.SS "getBelongsToManyCaller ()\fC [protected]\fP"
+Get the relationship name of the belongs to many\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1039 of file Model\&.php\&.
+.SS "getBelongsToManyCaller ()\fC [protected]\fP"
+
+.PP
+Definition at line 9644 of file compiled\&.php\&.
+.SS "getCastType ( $key)\fC [protected]\fP"
+Get the type of cast for a model attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2713 of file Model\&.php\&.
+.SS "getCastType ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10326 of file compiled\&.php\&.
+.SS "getConnection ()"
+Get the database connection for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3102 of file Model\&.php\&.
+.SS "getConnection ()"
+
+.PP
+Definition at line 10494 of file compiled\&.php\&.
+.SS "getConnectionName ()"
+Get the current connection name for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 3112 of file Model\&.php\&.
+.SS "getConnectionName ()"
+
+.PP
+Definition at line 10498 of file compiled\&.php\&.
+.SS "static getConnectionResolver ()\fC [static]\fP"
+Get the connection resolver instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3146 of file Model\&.php\&.
+.SS "static getConnectionResolver ()\fC [static]\fP"
+
+.PP
+Definition at line 10511 of file compiled\&.php\&.
+.SS "getCreatedAtColumn ()"
+Get the name of the 'created at' column\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1752 of file Model\&.php\&.
+.SS "getCreatedAtColumn ()"
+
+.PP
+Definition at line 9934 of file compiled\&.php\&.
+.SS "getDateFormat ()\fC [protected]\fP"
+Get the format for database stored dates\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2900 of file Model\&.php\&.
+.SS "getDateFormat ()\fC [protected]\fP"
+
+.PP
+Definition at line 10406 of file compiled\&.php\&.
+.SS "getDates ()"
+Get the attributes that should be converted to dates\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2806 of file Model\&.php\&.
+.SS "getDates ()"
+
+.PP
+Definition at line 10376 of file compiled\&.php\&.
+.SS "getDirty ()"
+Get the attributes that have been changed since last sync\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3014 of file Model\&.php\&.
+.SS "getDirty ()"
+
+.PP
+Definition at line 10458 of file compiled\&.php\&.
+.SS "static getEventDispatcher ()\fC [static]\fP"
+Get the event dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3177 of file Model\&.php\&.
+.SS "static getEventDispatcher ()\fC [static]\fP"
+
+.PP
+Definition at line 10523 of file compiled\&.php\&.
+.SS "getFillable ()"
+Get the fillable attributes for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2157 of file Model\&.php\&.
+.SS "getFillable ()"
+
+.PP
+Definition at line 10092 of file compiled\&.php\&.
+.SS "getForeignKey ()"
+Get the default foreign key name for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2068 of file Model\&.php\&.
+.SS "getForeignKey ()"
+
+.PP
+Definition at line 10058 of file compiled\&.php\&.
+.SS "static getGlobalScope ( $scope)\fC [static]\fP"
+Get a global scope registered with the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scope\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 337 of file Model\&.php\&.
+.SS "static getGlobalScope ( $scope)\fC [static]\fP"
+
+.PP
+Definition at line 9382 of file compiled\&.php\&.
+.SS "getGlobalScopes ()"
+Get the global scopes for this class instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+[] 
+.RE
+.PP
+
+.PP
+Definition at line 350 of file Model\&.php\&.
+.SS "getGlobalScopes ()"
+
+.PP
+Definition at line 9388 of file compiled\&.php\&.
+.SS "getGuarded ()"
+Get the guarded attributes for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2180 of file Model\&.php\&.
+.SS "getGuarded ()"
+
+.PP
+Definition at line 10101 of file compiled\&.php\&.
+.SS "getHidden ()"
+Get the hidden attributes for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2078 of file Model\&.php\&.
+.SS "getHidden ()"
+
+.PP
+Definition at line 10062 of file compiled\&.php\&.
+.SS "getIncrementing ()"
+Get the value indicating whether the IDs are incrementing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2327 of file Model\&.php\&.
+.SS "getIncrementing ()"
+
+.PP
+Definition at line 10168 of file compiled\&.php\&.
+.SS "getKey ()"
+Get the value of the model's primary key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1939 of file Model\&.php\&.
+.SS "getKey ()"
+
+.PP
+Definition at line 10008 of file compiled\&.php\&.
+.SS "getKeyForSaveQuery ()\fC [protected]\fP"
+Get the primary key value for a save query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1681 of file Model\&.php\&.
+.SS "getKeyForSaveQuery ()\fC [protected]\fP"
+
+.PP
+Definition at line 9901 of file compiled\&.php\&.
+.SS "getKeyName ()"
+Get the primary key for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1959 of file Model\&.php\&.
+.SS "getKeyName ()"
+
+.PP
+Definition at line 10016 of file compiled\&.php\&.
+.SS "getMorphClass ()"
+Get the class name for polymorphic relations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2037 of file Model\&.php\&.
+.SS "getMorphClass ()"
+
+.PP
+Definition at line 10046 of file compiled\&.php\&.
+.SS "getMorphs ( $name,  $type,  $id)\fC [protected]\fP"
+Get the polymorphic relationship columns\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$type\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2023 of file Model\&.php\&.
+.SS "getMorphs ( $name,  $type,  $id)\fC [protected]\fP"
+
+.PP
+Definition at line 10040 of file compiled\&.php\&.
+.SS "getMutatedAttributes ()"
+Get the mutated attributes for a given instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3208 of file Model\&.php\&.
+.SS "getMutatedAttributes ()"
+
+.PP
+Definition at line 10535 of file compiled\&.php\&.
+.SS "getObservableEvents ()"
+Get the observable event names\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1301 of file Model\&.php\&.
+.SS "getObservableEvents ()"
+
+.PP
+Definition at line 9747 of file compiled\&.php\&.
+.SS "getOriginal ( $key = \fCnull\fP,  $default = \fCnull\fP)"
+Get the model's original attribute values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2957 of file Model\&.php\&.
+.SS "getOriginal ( $key = \fCnull\fP,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 10428 of file compiled\&.php\&.
+.SS "getPerPage ()"
+Get the number of models to return per page\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 2047 of file Model\&.php\&.
+.SS "getPerPage ()"
+
+.PP
+Definition at line 10050 of file compiled\&.php\&.
+.SS "getQualifiedKeyName ()"
+Get the table qualified key name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1980 of file Model\&.php\&.
+.SS "getQualifiedKeyName ()"
+
+.PP
+Definition at line 10024 of file compiled\&.php\&.
+.SS "getQueueableId ()"
+Get the queueable identity for the entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueueableEntity\fP\&.
+.PP
+Definition at line 1949 of file Model\&.php\&.
+.SS "getQueueableId ()"
+
+.PP
+Implements \fBQueueableEntity\fP\&.
+.PP
+Definition at line 10012 of file compiled\&.php\&.
+.SS "getRelation ( $relation)"
+Get a specified relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3065 of file Model\&.php\&.
+.SS "getRelation ( $relation)"
+
+.PP
+Definition at line 10480 of file compiled\&.php\&.
+.SS "getRelations ()"
+Get all the loaded relations for the instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 3054 of file Model\&.php\&.
+.SS "getRelations ()"
+
+.PP
+Definition at line 10476 of file compiled\&.php\&.
+.SS "getRelationshipFromMethod ( $method)\fC [protected]\fP"
+Get a relationship value from a method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 2628 of file Model\&.php\&.
+.SS "getRelationshipFromMethod ( $method)\fC [protected]\fP"
+
+.PP
+Definition at line 10294 of file compiled\&.php\&.
+.SS "getRouteKey ()"
+Get the value of the model's route key\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBUrlRoutable\fP\&.
+.PP
+Definition at line 1990 of file Model\&.php\&.
+.SS "getRouteKey ()"
+
+.PP
+Implements \fBUrlRoutable\fP\&.
+.PP
+Definition at line 10028 of file compiled\&.php\&.
+.SS "getRouteKeyName ()"
+Get the route key for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBUrlRoutable\fP\&.
+.PP
+Definition at line 2000 of file Model\&.php\&.
+.SS "getRouteKeyName ()"
+
+.PP
+Implements \fBUrlRoutable\fP\&.
+.PP
+Definition at line 10032 of file compiled\&.php\&.
+.SS "getTable ()"
+Get the table associated with the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1916 of file Model\&.php\&.
+.SS "getTable ()"
+
+.PP
+Definition at line 9997 of file compiled\&.php\&.
+.SS "getTouchedRelations ()"
+Get the relationships that are touched on save\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2306 of file Model\&.php\&.
+.SS "getTouchedRelations ()"
+
+.PP
+Definition at line 10160 of file compiled\&.php\&.
+.SS "getUpdatedAtColumn ()"
+Get the name of the 'updated at' column\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1762 of file Model\&.php\&.
+.SS "getUpdatedAtColumn ()"
+
+.PP
+Definition at line 9938 of file compiled\&.php\&.
+.SS "getVisible ()"
+Get the visible attributes for the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2112 of file Model\&.php\&.
+.SS "getVisible ()"
+
+.PP
+Definition at line 10075 of file compiled\&.php\&.
+.SS "guard (array $guarded)"
+Set the guarded attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$guarded\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2191 of file Model\&.php\&.
+.SS "guard (array $guarded)"
+
+.PP
+Definition at line 10105 of file compiled\&.php\&.
+.SS "hasCast ( $key)\fC [protected]\fP"
+Determine whether an attribute should be casted to a native type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2684 of file Model\&.php\&.
+.SS "hasCast ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10315 of file compiled\&.php\&.
+.SS "hasGetMutator ( $key)"
+Determine if a get mutator exists for an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2647 of file Model\&.php\&.
+.SS "hasGetMutator ( $key)"
+
+.PP
+Definition at line 10302 of file compiled\&.php\&.
+.SS "static hasGlobalScope ( $scope)\fC [static]\fP"
+Determine if a model has a global scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scope\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 326 of file Model\&.php\&.
+.SS "static hasGlobalScope ( $scope)\fC [static]\fP"
+
+.PP
+Definition at line 9378 of file compiled\&.php\&.
+.SS "hasMany ( $related,  $foreignKey = \fCnull\fP,  $localKey = \fCnull\fP)"
+Define a one-to-many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 873 of file Model\&.php\&.
+.SS "hasMany ( $related,  $foreignKey = \fCnull\fP,  $localKey = \fCnull\fP)"
+
+.PP
+Definition at line 9592 of file compiled\&.php\&.
+.SS "hasManyThrough ( $related,  $through,  $firstKey = \fCnull\fP,  $secondKey = \fCnull\fP)"
+Define a has-many-through relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$through\fP 
+.br
+\fI$firstKey\fP 
+.br
+\fI$secondKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 893 of file Model\&.php\&.
+.SS "hasManyThrough ( $related,  $through,  $firstKey = \fCnull\fP,  $secondKey = \fCnull\fP)"
+
+.PP
+Definition at line 9599 of file compiled\&.php\&.
+.SS "hasOne ( $related,  $foreignKey = \fCnull\fP,  $localKey = \fCnull\fP)"
+Define a one-to-one relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 745 of file Model\&.php\&.
+.SS "hasOne ( $related,  $foreignKey = \fCnull\fP,  $localKey = \fCnull\fP)"
+
+.PP
+Definition at line 9549 of file compiled\&.php\&.
+.SS "hasSetMutator ( $key)"
+Determine if a set mutator exists for an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2796 of file Model\&.php\&.
+.SS "hasSetMutator ( $key)"
+
+.PP
+Definition at line 10372 of file compiled\&.php\&.
+.SS "static hydrate (array $items,  $connection = \fCnull\fP)\fC [static]\fP"
+Create a collection of models from plain arrays\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$items\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 488 of file Model\&.php\&.
+.SS "static hydrate (array $items,  $connection = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9442 of file compiled\&.php\&.
+.SS "static hydrateRaw ( $query,  $bindings = \fCarray()\fP,  $connection = \fCnull\fP)\fC [static]\fP"
+Create a collection of models from a raw query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 508 of file Model\&.php\&.
+.SS "static hydrateRaw ( $query,  $bindings = \fCarray()\fP,  $connection = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9450 of file compiled\&.php\&.
+.SS "increment ( $column,  $amount = \fC1\fP)\fC [protected]\fP"
+Increment a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1357 of file Model\&.php\&.
+.SS "increment ( $column,  $amount = \fC1\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 9765 of file compiled\&.php\&.
+.SS "incrementOrDecrement ( $column,  $amount,  $method)\fC [protected]\fP"
+Run the increment or decrement method on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1382 of file Model\&.php\&.
+.SS "incrementOrDecrement ( $column,  $amount,  $method)\fC [protected]\fP"
+
+.PP
+Definition at line 9773 of file compiled\&.php\&.
+.SS "incrementOrDecrementAttributeValue ( $column,  $amount,  $method)\fC [protected]\fP"
+Increment the underlying attribute value and sync with original\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1404 of file Model\&.php\&.
+.SS "incrementOrDecrementAttributeValue ( $column,  $amount,  $method)\fC [protected]\fP"
+
+.PP
+Definition at line 9782 of file compiled\&.php\&.
+.SS "insertAndSetId (\fBBuilder\fP $query,  $attributes)\fC [protected]\fP"
+Insert the given attributes and set the ID on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1606 of file Model\&.php\&.
+.SS "insertAndSetId (\fBBuilder\fP $query,  $attributes)\fC [protected]\fP"
+
+.PP
+Definition at line 9869 of file compiled\&.php\&.
+.SS "isDirty ( $attributes = \fCnull\fP)"
+Determine if the model or given attribute(s) have been modified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2993 of file Model\&.php\&.
+.SS "isDirty ( $attributes = \fCnull\fP)"
+
+.PP
+Definition at line 10442 of file compiled\&.php\&.
+.SS "isFillable ( $key)"
+Determine if the given attribute may be mass assigned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2253 of file Model\&.php\&.
+.SS "isFillable ( $key)"
+
+.PP
+Definition at line 10132 of file compiled\&.php\&.
+.SS "isGuarded ( $key)"
+Determine if the given key is guarded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2273 of file Model\&.php\&.
+.SS "isGuarded ( $key)"
+
+.PP
+Definition at line 10145 of file compiled\&.php\&.
+.SS "isJsonCastable ( $key)\fC [protected]\fP"
+Determine whether a value is JSON castable for inbound manipulation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2695 of file Model\&.php\&.
+.SS "isJsonCastable ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10319 of file compiled\&.php\&.
+.SS "static isUnguarded ()\fC [static]\fP"
+Determine if current state is 'unguarded'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2223 of file Model\&.php\&.
+.SS "static isUnguarded ()\fC [static]\fP"
+
+.PP
+Definition at line 10118 of file compiled\&.php\&.
+.SS "joiningTable ( $related)"
+Get the joining table name for a many-to-many relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1059 of file Model\&.php\&.
+.SS "joiningTable ( $related)"
+
+.PP
+Definition at line 9653 of file compiled\&.php\&.
+.SS "jsonSerialize ()"
+Convert the object into something JSON serializable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2359 of file Model\&.php\&.
+.SS "jsonSerialize ()"
+
+.PP
+Definition at line 10180 of file compiled\&.php\&.
+.SS "load ( $relations)"
+Eager load relations on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 711 of file Model\&.php\&.
+.SS "load ( $relations)"
+
+.PP
+Definition at line 9532 of file compiled\&.php\&.
+.SS "morphedByMany ( $related,  $name,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP)"
+Define a polymorphic, inverse many-to-many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$name\fP 
+.br
+\fI$table\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1022 of file Model\&.php\&.
+.SS "morphedByMany ( $related,  $name,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP)"
+
+.PP
+Definition at line 9638 of file compiled\&.php\&.
+.SS "morphMany ( $related,  $name,  $type = \fCnull\fP,  $id = \fCnull\fP,  $localKey = \fCnull\fP)"
+Define a polymorphic one-to-many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$name\fP 
+.br
+\fI$type\fP 
+.br
+\fI$id\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 914 of file Model\&.php\&.
+.SS "morphMany ( $related,  $name,  $type = \fCnull\fP,  $id = \fCnull\fP,  $localKey = \fCnull\fP)"
+
+.PP
+Definition at line 9606 of file compiled\&.php\&.
+.SS "morphOne ( $related,  $name,  $type = \fCnull\fP,  $id = \fCnull\fP,  $localKey = \fCnull\fP)"
+Define a polymorphic one-to-one relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$name\fP 
+.br
+\fI$type\fP 
+.br
+\fI$id\fP 
+.br
+\fI$localKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 766 of file Model\&.php\&.
+.SS "morphOne ( $related,  $name,  $type = \fCnull\fP,  $id = \fCnull\fP,  $localKey = \fCnull\fP)"
+
+.PP
+Definition at line 9556 of file compiled\&.php\&.
+.SS "morphTo ( $name = \fCnull\fP,  $type = \fCnull\fP,  $id = \fCnull\fP)"
+Define a polymorphic, inverse one-to-one or many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$type\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 828 of file Model\&.php\&.
+.SS "morphTo ( $name = \fCnull\fP,  $type = \fCnull\fP,  $id = \fCnull\fP)"
+
+.PP
+Definition at line 9578 of file compiled\&.php\&.
+.SS "morphToMany ( $related,  $name,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $inverse = \fCfalse\fP)"
+Define a polymorphic many-to-many relationship\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$related\fP 
+.br
+\fI$name\fP 
+.br
+\fI$table\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$inverse\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 986 of file Model\&.php\&.
+.SS "morphToMany ( $related,  $name,  $table = \fCnull\fP,  $foreignKey = \fCnull\fP,  $otherKey = \fCnull\fP,  $inverse = \fCfalse\fP)"
+
+.PP
+Definition at line 9628 of file compiled\&.php\&.
+.SS "mutateAttribute ( $key,  $value)\fC [protected]\fP"
+Get the value of an attribute using its mutator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2659 of file Model\&.php\&.
+.SS "mutateAttribute ( $key,  $value)\fC [protected]\fP"
+
+.PP
+Definition at line 10306 of file compiled\&.php\&.
+.SS "mutateAttributeForArray ( $key,  $value)\fC [protected]\fP"
+Get the value of an attribute using its mutator for array conversion\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2671 of file Model\&.php\&.
+.SS "mutateAttributeForArray ( $key,  $value)\fC [protected]\fP"
+
+.PP
+Definition at line 10310 of file compiled\&.php\&.
+.SS "newBaseQueryBuilder ()\fC [protected]\fP"
+Get a new query builder instance for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1877 of file Model\&.php\&.
+.SS "newBaseQueryBuilder ()\fC [protected]\fP"
+
+.PP
+Definition at line 9983 of file compiled\&.php\&.
+.SS "newCollection (array $models = \fCarray()\fP)"
+Create a new \fBEloquent\fP \fBCollection\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1892 of file Model\&.php\&.
+.SS "newCollection (array $models = \fCarray()\fP)"
+
+.PP
+Definition at line 9989 of file compiled\&.php\&.
+.SS "newEloquentBuilder ( $query)"
+Create a new \fBEloquent\fP query builder for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1867 of file Model\&.php\&.
+.SS "newEloquentBuilder ( $query)"
+
+.PP
+Definition at line 9979 of file compiled\&.php\&.
+.SS "newFromBuilder ( $attributes = \fCarray()\fP,  $connection = \fCnull\fP)"
+Create a new model instance that is existing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 470 of file Model\&.php\&.
+.SS "newFromBuilder ( $attributes = \fCarray()\fP,  $connection = \fCnull\fP)"
+
+.PP
+Definition at line 9435 of file compiled\&.php\&.
+.SS "newInstance ( $attributes = \fCarray()\fP,  $exists = \fCfalse\fP)"
+Create a new instance of the given model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$exists\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 451 of file Model\&.php\&.
+.SS "newInstance ( $attributes = \fCarray()\fP,  $exists = \fCfalse\fP)"
+
+.PP
+Definition at line 9429 of file compiled\&.php\&.
+.SS "newPivot (\fBModel\fP $parent, array $attributes,  $table,  $exists)"
+Create a new pivot model instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parent\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$table\fP 
+.br
+\fI$exists\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1906 of file Model\&.php\&.
+.SS "newPivot (\fBModel\fP $parent, array $attributes,  $table,  $exists)"
+
+.PP
+Definition at line 9993 of file compiled\&.php\&.
+.SS "newQuery ()"
+Get a new query builder for the model's table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1792 of file Model\&.php\&.
+.SS "newQuery ()"
+
+.PP
+Definition at line 9950 of file compiled\&.php\&.
+.SS "newQueryWithoutScope ( $scope)"
+Get a new query instance without a given scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$scope\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1805 of file Model\&.php\&.
+.SS "newQueryWithoutScope ( $scope)"
+
+.PP
+Definition at line 9955 of file compiled\&.php\&.
+.SS "newQueryWithoutScopes ()"
+Get a new query builder that doesn't have any global scopes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1817 of file Model\&.php\&.
+.SS "newQueryWithoutScopes ()"
+
+.PP
+Definition at line 9960 of file compiled\&.php\&.
+.SS "static observe ( $class)\fC [static]\fP"
+Register an observer with the \fBModel\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 361 of file Model\&.php\&.
+.SS "static observe ( $class)\fC [static]\fP"
+
+.PP
+Definition at line 9392 of file compiled\&.php\&.
+.SS "offsetExists ( $offset)"
+Determine if the given attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3276 of file Model\&.php\&.
+.SS "offsetExists ( $offset)"
+
+.PP
+Definition at line 10564 of file compiled\&.php\&.
+.SS "offsetGet ( $offset)"
+Get the value for a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 3287 of file Model\&.php\&.
+.SS "offsetGet ( $offset)"
+
+.PP
+Definition at line 10568 of file compiled\&.php\&.
+.SS "offsetSet ( $offset,  $value)"
+Set the value for a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3299 of file Model\&.php\&.
+.SS "offsetSet ( $offset,  $value)"
+
+.PP
+Definition at line 10572 of file compiled\&.php\&.
+.SS "offsetUnset ( $offset)"
+Unset the value for a given offset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3310 of file Model\&.php\&.
+.SS "offsetUnset ( $offset)"
+
+.PP
+Definition at line 10576 of file compiled\&.php\&.
+.SS "static on ( $connection = \fCnull\fP)\fC [static]\fP"
+Begin querying the model on a given connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 629 of file Model\&.php\&.
+.SS "static on ( $connection = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9500 of file compiled\&.php\&.
+.SS "static onWriteConnection ()\fC [static]\fP"
+Begin querying the model on the write connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 646 of file Model\&.php\&.
+.SS "static onWriteConnection ()\fC [static]\fP"
+
+.PP
+Definition at line 9506 of file compiled\&.php\&.
+.SS "originalIsNumericallyEquivalent ( $key)\fC [protected]\fP"
+Determine if the new and old values for a given key are numerically equivalent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 3040 of file Model\&.php\&.
+.SS "originalIsNumericallyEquivalent ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10470 of file compiled\&.php\&.
+.SS "performDeleteOnModel ()\fC [protected]\fP"
+Perform the actual delete query on this model instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1160 of file Model\&.php\&.
+.SS "performDeleteOnModel ()\fC [protected]\fP"
+
+.PP
+Definition at line 9694 of file compiled\&.php\&.
+.SS "performInsert (\fBBuilder\fP $query, array $options = \fC[]\fP)\fC [protected]\fP"
+Perform a model insert operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1559 of file Model\&.php\&.
+.SS "performInsert (\fBBuilder\fP $query, array $options = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 9851 of file compiled\&.php\&.
+.SS "performUpdate (\fBBuilder\fP $query, array $options = \fC[]\fP)\fC [protected]\fP"
+Perform a model update operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null 
+.RE
+.PP
+
+.PP
+Definition at line 1514 of file Model\&.php\&.
+.SS "performUpdate (\fBBuilder\fP $query, array $options = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 9833 of file compiled\&.php\&.
+.SS "push ()"
+Save the model and all of its relationships\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1432 of file Model\&.php\&.
+.SS "push ()"
+
+.PP
+Definition at line 9794 of file compiled\&.php\&.
+.SS "static query ()\fC [static]\fP"
+Begin querying the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 618 of file Model\&.php\&.
+.SS "static query ()\fC [static]\fP"
+
+.PP
+Definition at line 9496 of file compiled\&.php\&.
+.SS "static registerModelEvent ( $event,  $callback,  $priority = \fC0\fP)\fC [static]\fP, \fC [protected]\fP"
+Register a model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1286 of file Model\&.php\&.
+.SS "static registerModelEvent ( $event,  $callback,  $priority = \fC0\fP)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9740 of file compiled\&.php\&.
+.SS "static reguard ()\fC [static]\fP"
+Enable the mass assignment restrictions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2213 of file Model\&.php\&.
+.SS "static reguard ()\fC [static]\fP"
+
+.PP
+Definition at line 10114 of file compiled\&.php\&.
+.SS "relationsToArray ()"
+Get the model's relationships in array form\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 2462 of file Model\&.php\&.
+.SS "relationsToArray ()"
+
+.PP
+Definition at line 10227 of file compiled\&.php\&.
+.SS "removeGlobalScopes ( $builder)"
+Remove all of the global scopes from an \fBEloquent\fP builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$builder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1851 of file Model\&.php\&.
+.SS "removeGlobalScopes ( $builder)"
+
+.PP
+Definition at line 9972 of file compiled\&.php\&.
+.SS "removeObservableEvents ( $observables)"
+Remove an observable event name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$observables\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1343 of file Model\&.php\&.
+.SS "removeObservableEvents ( $observables)"
+
+.PP
+Definition at line 9760 of file compiled\&.php\&.
+.SS "removeTableFromKey ( $key)\fC [protected]\fP"
+Remove the table name from a given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 2294 of file Model\&.php\&.
+.SS "removeTableFromKey ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 10153 of file compiled\&.php\&.
+.SS "replicate (array $except = \fCnull\fP)"
+Clone the model into a new, non-existing instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$except\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 2911 of file Model\&.php\&.
+.SS "replicate (array $except = \fCnull\fP)"
+
+.PP
+Definition at line 10410 of file compiled\&.php\&.
+.SS "static resolveConnection ( $connection = \fCnull\fP)\fC [static]\fP"
+Resolve a connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 3136 of file Model\&.php\&.
+.SS "static resolveConnection ( $connection = \fCnull\fP)\fC [static]\fP"
+
+.PP
+Definition at line 10507 of file compiled\&.php\&.
+.SS "save (array $options = \fCarray()\fP)"
+Save the model to the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1459 of file Model\&.php\&.
+.SS "save (array $options = \fCarray()\fP)"
+
+.PP
+Definition at line 9809 of file compiled\&.php\&.
+.SS "static saved ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a saved model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1184 of file Model\&.php\&.
+.SS "static saved ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9702 of file compiled\&.php\&.
+.SS "static saving ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register a saving model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1172 of file Model\&.php\&.
+.SS "static saving ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9698 of file compiled\&.php\&.
+.SS "setAppends (array $appends)"
+Set the accessors to append to model arrays\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$appends\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2147 of file Model\&.php\&.
+.SS "setAppends (array $appends)"
+
+.PP
+Definition at line 10088 of file compiled\&.php\&.
+.SS "setAttribute ( $key,  $value)"
+Set a given attribute on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2762 of file Model\&.php\&.
+.SS "setAttribute ( $key,  $value)"
+
+.PP
+Definition at line 10359 of file compiled\&.php\&.
+.SS "setConnection ( $name)"
+Set the connection associated with the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3123 of file Model\&.php\&.
+.SS "setConnection ( $name)"
+
+.PP
+Definition at line 10502 of file compiled\&.php\&.
+.SS "static setConnectionResolver (Resolver $resolver)\fC [static]\fP"
+Set the connection resolver instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3157 of file Model\&.php\&.
+.SS "static setConnectionResolver (Resolver $resolver)\fC [static]\fP"
+
+.PP
+Definition at line 10515 of file compiled\&.php\&.
+.SS "setCreatedAt ( $value)"
+Set the value of the 'created at' attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1731 of file Model\&.php\&.
+.SS "setCreatedAt ( $value)"
+
+.PP
+Definition at line 9926 of file compiled\&.php\&.
+.SS "static setEventDispatcher (\fBDispatcher\fP $dispatcher)\fC [static]\fP"
+Set the event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dispatcher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3188 of file Model\&.php\&.
+.SS "static setEventDispatcher (\fBDispatcher\fP $dispatcher)\fC [static]\fP"
+
+.PP
+Definition at line 10527 of file compiled\&.php\&.
+.SS "setHidden (array $hidden)"
+Set the hidden attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hidden\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2089 of file Model\&.php\&.
+.SS "setHidden (array $hidden)"
+
+.PP
+Definition at line 10066 of file compiled\&.php\&.
+.SS "setIncrementing ( $value)"
+Set whether IDs are incrementing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2338 of file Model\&.php\&.
+.SS "setIncrementing ( $value)"
+
+.PP
+Definition at line 10172 of file compiled\&.php\&.
+.SS "setKeyName ( $key)"
+Set the primary key for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1970 of file Model\&.php\&.
+.SS "setKeyName ( $key)"
+
+.PP
+Definition at line 10020 of file compiled\&.php\&.
+.SS "setKeysForSaveQuery (\fBBuilder\fP $query)\fC [protected]\fP"
+Set the keys for a save update query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1669 of file Model\&.php\&.
+.SS "setKeysForSaveQuery (\fBBuilder\fP $query)\fC [protected]\fP"
+
+.PP
+Definition at line 9896 of file compiled\&.php\&.
+.SS "setObservableEvents (array $observables)"
+Set the observable event names\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$observables\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1319 of file Model\&.php\&.
+.SS "setObservableEvents (array $observables)"
+
+.PP
+Definition at line 9751 of file compiled\&.php\&.
+.SS "setPerPage ( $perPage)"
+Set the number of models to return per page\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2058 of file Model\&.php\&.
+.SS "setPerPage ( $perPage)"
+
+.PP
+Definition at line 10054 of file compiled\&.php\&.
+.SS "setRawAttributes (array $attributes,  $sync = \fCfalse\fP)"
+Set the array of model attributes\&. No checking is done\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$sync\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2943 of file Model\&.php\&.
+.SS "setRawAttributes (array $attributes,  $sync = \fCfalse\fP)"
+
+.PP
+Definition at line 10421 of file compiled\&.php\&.
+.SS "setRelation ( $relation,  $value)"
+Set the specific relationship in the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3077 of file Model\&.php\&.
+.SS "setRelation ( $relation,  $value)"
+
+.PP
+Definition at line 10484 of file compiled\&.php\&.
+.SS "setRelations (array $relations)"
+Set the entire relations array on the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 3090 of file Model\&.php\&.
+.SS "setRelations (array $relations)"
+
+.PP
+Definition at line 10489 of file compiled\&.php\&.
+.SS "setTable ( $table)"
+Set the table associated with the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1929 of file Model\&.php\&.
+.SS "setTable ( $table)"
+
+.PP
+Definition at line 10004 of file compiled\&.php\&.
+.SS "setTouchedRelations (array $touches)"
+Set the relationships that are touched on save\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$touches\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2317 of file Model\&.php\&.
+.SS "setTouchedRelations (array $touches)"
+
+.PP
+Definition at line 10164 of file compiled\&.php\&.
+.SS "setUpdatedAt ( $value)"
+Set the value of the 'updated at' attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1742 of file Model\&.php\&.
+.SS "setUpdatedAt ( $value)"
+
+.PP
+Definition at line 9930 of file compiled\&.php\&.
+.SS "setVisible (array $visible)"
+Set the visible attributes for the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$visible\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2123 of file Model\&.php\&.
+.SS "setVisible (array $visible)"
+
+.PP
+Definition at line 10079 of file compiled\&.php\&.
+.SS "syncOriginal ()"
+Sync the original attributes with the current\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2967 of file Model\&.php\&.
+.SS "syncOriginal ()"
+
+.PP
+Definition at line 10432 of file compiled\&.php\&.
+.SS "syncOriginalAttribute ( $attribute)"
+Sync a single original attribute with its current value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 2980 of file Model\&.php\&.
+.SS "syncOriginalAttribute ( $attribute)"
+
+.PP
+Definition at line 10437 of file compiled\&.php\&.
+.SS "toArray ()"
+Convert the model instance to an array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBArrayable\fP\&.
+.PP
+Definition at line 2369 of file Model\&.php\&.
+.SS "toArray ()"
+
+.PP
+Implements \fBArrayable\fP\&.
+.PP
+Definition at line 10184 of file compiled\&.php\&.
+.SS "toJson ( $options = \fC0\fP)"
+Convert the model instance to JSON\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBJsonable\fP\&.
+.PP
+Definition at line 2349 of file Model\&.php\&.
+.SS "toJson ( $options = \fC0\fP)"
+
+.PP
+Implements \fBJsonable\fP\&.
+.PP
+Definition at line 10176 of file compiled\&.php\&.
+.SS "totallyGuarded ()"
+Determine if the model is totally guarded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2283 of file Model\&.php\&.
+.SS "totallyGuarded ()"
+
+.PP
+Definition at line 10149 of file compiled\&.php\&.
+.SS "touch ()"
+Update the model's update timestamp\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1696 of file Model\&.php\&.
+.SS "touch ()"
+
+.PP
+Definition at line 9908 of file compiled\&.php\&.
+.SS "touches ( $relation)"
+Determine if the model touches a given relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1637 of file Model\&.php\&.
+.SS "touches ( $relation)"
+
+.PP
+Definition at line 9883 of file compiled\&.php\&.
+.SS "touchOwners ()"
+Touch the owning relations of the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1618 of file Model\&.php\&.
+.SS "touchOwners ()"
+
+.PP
+Definition at line 9874 of file compiled\&.php\&.
+.SS "static unguard ( $state = \fCtrue\fP)\fC [static]\fP"
+Disable all mass assignable restrictions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 2203 of file Model\&.php\&.
+.SS "static unguard ( $state = \fCtrue\fP)\fC [static]\fP"
+
+.PP
+Definition at line 10110 of file compiled\&.php\&.
+.SS "static unguarded (callable $callback)\fC [static]\fP"
+Run the given callable while being unguarded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 2234 of file Model\&.php\&.
+.SS "static unguarded (callable $callback)\fC [static]\fP"
+
+.PP
+Definition at line 10122 of file compiled\&.php\&.
+.SS "static unsetConnectionResolver ()\fC [static]\fP"
+Unset the connection resolver for models\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3167 of file Model\&.php\&.
+.SS "static unsetConnectionResolver ()\fC [static]\fP"
+
+.PP
+Definition at line 10519 of file compiled\&.php\&.
+.SS "static unsetEventDispatcher ()\fC [static]\fP"
+Unset the event dispatcher for models\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 3198 of file Model\&.php\&.
+.SS "static unsetEventDispatcher ()\fC [static]\fP"
+
+.PP
+Definition at line 10531 of file compiled\&.php\&.
+.SS "update (array $attributes = \fCarray()\fP)"
+Update the model in the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|int 
+.RE
+.PP
+
+.PP
+Definition at line 1417 of file Model\&.php\&.
+.SS "update (array $attributes = \fCarray()\fP)"
+
+.PP
+Definition at line 9787 of file compiled\&.php\&.
+.SS "static updated ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register an updated model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1208 of file Model\&.php\&.
+.SS "static updated ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9710 of file compiled\&.php\&.
+.SS "static updateOrCreate (array $attributes, array $values = \fCarray()\fP)\fC [static]\fP"
+Create or update a record matching the attributes, and fill it with values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+static 
+.RE
+.PP
+
+.PP
+Definition at line 593 of file Model\&.php\&.
+.SS "static updateOrCreate (array $attributes, array $values = \fCarray()\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9486 of file compiled\&.php\&.
+.SS "updateTimestamps ()\fC [protected]\fP"
+Update the creation and update timestamps\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1710 of file Model\&.php\&.
+.SS "updateTimestamps ()\fC [protected]\fP"
+
+.PP
+Definition at line 9916 of file compiled\&.php\&.
+.SS "static updating ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+Register an updating model event with the dispatcher\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$priority\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1196 of file Model\&.php\&.
+.SS "static updating ( $callback,  $priority = \fC0\fP)\fC [static]\fP"
+
+.PP
+Definition at line 9706 of file compiled\&.php\&.
+.SS "usesTimestamps ()"
+Determine if the model uses timestamps\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 2010 of file Model\&.php\&.
+.SS "usesTimestamps ()"
+
+.PP
+Definition at line 10036 of file compiled\&.php\&.
+.SS "static with ( $relations)\fC [static]\fP"
+Being querying a model with eager loading\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$relations\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 728 of file Model\&.php\&.
+.SS "static with ( $relations)\fC [static]\fP"
+
+.PP
+Definition at line 9541 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$appends = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9326 of file compiled\&.php\&.
+.SS "$attributes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9321 of file compiled\&.php\&.
+.SS "static $booted = array()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9339 of file compiled\&.php\&.
+.SS "$casts = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9330 of file compiled\&.php\&.
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 9315 of file compiled\&.php\&.
+.SS "$dates = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9329 of file compiled\&.php\&.
+.SS "static $dispatcher\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9338 of file compiled\&.php\&.
+.SS "$exists = false"
+
+.PP
+Definition at line 9335 of file compiled\&.php\&.
+.SS "$\fBfillable\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9327 of file compiled\&.php\&.
+.SS "static $globalScopes = array()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9340 of file compiled\&.php\&.
+.SS "$guarded = array('*')\fC [protected]\fP"
+
+.PP
+Definition at line 9328 of file compiled\&.php\&.
+.SS "$hidden = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9324 of file compiled\&.php\&.
+.SS "$incrementing = true"
+
+.PP
+Definition at line 9319 of file compiled\&.php\&.
+.SS "static $manyMethods = array('\fBbelongsToMany\fP', '\fBmorphToMany\fP', '\fBmorphedByMany\fP')\fC [static]\fP"
+
+.PP
+Definition at line 9343 of file compiled\&.php\&.
+.SS "$morphClass\fC [protected]\fP"
+
+.PP
+Definition at line 9334 of file compiled\&.php\&.
+.SS "static $mutatorCache = array()\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9342 of file compiled\&.php\&.
+.SS "$observables = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9332 of file compiled\&.php\&.
+.SS "$original = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9322 of file compiled\&.php\&.
+.SS "$perPage = 15\fC [protected]\fP"
+
+.PP
+Definition at line 9318 of file compiled\&.php\&.
+.SS "$primaryKey = 'id'\fC [protected]\fP"
+
+.PP
+Definition at line 9317 of file compiled\&.php\&.
+.SS "$relations = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9323 of file compiled\&.php\&.
+.SS "static $resolver\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9337 of file compiled\&.php\&.
+.SS "static $snakeAttributes = true\fC [static]\fP"
+
+.PP
+Definition at line 9336 of file compiled\&.php\&.
+.SS "$table\fC [protected]\fP"
+
+.PP
+Definition at line 9316 of file compiled\&.php\&.
+.SS "$timestamps = true"
+
+.PP
+Definition at line 9320 of file compiled\&.php\&.
+.SS "$\fBtouches\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9331 of file compiled\&.php\&.
+.SS "static $\fBunguarded\fP = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 9341 of file compiled\&.php\&.
+.SS "$visible = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9325 of file compiled\&.php\&.
+.SS "$\fBwith\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 9333 of file compiled\&.php\&.
+.SS "const CREATED_AT = 'created_at'"
+
+.PP
+Definition at line 9344 of file compiled\&.php\&.
+.SS "const UPDATED_AT = 'updated_at'"
+
+.PP
+Definition at line 9345 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,143 @@
+.TH "ProcessHelper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProcessHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHelper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrun\fP (\fBOutputInterface\fP $output, $cmd, $error=null, $\fBcallback\fP=null, $verbosity=\fBOutputInterface::VERBOSITY_VERY_VERBOSE\fP)"
+.br
+.ti -1c
+.RI "\fBmustRun\fP (\fBOutputInterface\fP $output, $cmd, $error=null, $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBwrapCallback\fP (\fBOutputInterface\fP $output, \fBProcess\fP $process, $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBescapeString\fP ($str)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fBProcessHelper\fP class provides helpers to run external processes\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file ProcessHelper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "escapeString ( $str)"
+This method is public for \fBPHP\fP 5\&.3 compatibility, it should be private\&. 
+.PP
+Definition at line 130 of file ProcessHelper\&.php\&.
+.SS "getName ()"
+{Returns the canonical name of this helper\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The canonical name
+.RE
+.PP
+} 
+.PP
+Implements \fBHelperInterface\fP\&.
+.PP
+Definition at line 138 of file ProcessHelper\&.php\&.
+.SS "mustRun (\fBOutputInterface\fP $output,  $cmd,  $error = \fCnull\fP,  $callback = \fCnull\fP)"
+Runs the process\&.
+.PP
+This is identical to \fBrun()\fP except that an exception is thrown if the process exits with a non-zero exit code\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An OutputInterface instance 
+.br
+\fI$cmd\fP An instance of \fBProcess\fP or a command to run 
+.br
+\fI$error\fP An error message that must be displayed if something went wrong 
+.br
+\fI$callback\fP \fBA\fP \fBPHP\fP callback to run whenever there is some output available on STDOUT or STDERR
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP The process that ran
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIProcessFailedException\fP 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBrun()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file ProcessHelper\&.php\&.
+.SS "run (\fBOutputInterface\fP $output,  $cmd,  $error = \fCnull\fP,  $callback = \fCnull\fP,  $verbosity = \fC\fBOutputInterface::VERBOSITY_VERY_VERBOSE\fP\fP)"
+Runs an external process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An OutputInterface instance 
+.br
+\fI$cmd\fP An instance of \fBProcess\fP or an array of arguments to escape and run or a command to run 
+.br
+\fI$error\fP An error message that must be displayed if something went wrong 
+.br
+\fI$callback\fP \fBA\fP \fBPHP\fP callback to run whenever there is some output available on STDOUT or STDERR 
+.br
+\fI$verbosity\fP The threshold for verbosity
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP The process that ran 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file ProcessHelper\&.php\&.
+.SS "wrapCallback (\fBOutputInterface\fP $output, \fBProcess\fP $process,  $callback = \fCnull\fP)"
+Wraps a \fBProcess\fP callback to add debugging output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An OutputInterface interface 
+.br
+\fI$process\fP The \fBProcess\fP 
+.br
+\fI$callback\fP \fBA\fP \fBPHP\fP callable
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file ProcessHelper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

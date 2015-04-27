@@ -1,0 +1,143 @@
+.TH "NodeVisitorAbstract" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NodeVisitorAbstract \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNodeVisitor\fP\&.
+.PP
+Inherited by \fBAbstractNodeVisitor\fP, \fBNameResolver\fP, \fBCodeCleanerPass\fP, \fBClosureLocatorVisitor\fP, \fBMagicConstantVisitor\fP, and \fBThisDetectorVisitor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbeforeTraverse\fP (array $nodes)"
+.br
+.ti -1c
+.RI "\fBenterNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBleaveNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.ti -1c
+.RI "\fBafterTraverse\fP (array $nodes)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+Definition at line 8 of file NodeVisitorAbstract\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "afterTraverse (array $nodes)"
+Called once after traversal\&.
+.PP
+Return value semantics:
+.IP "\(bu" 2
+null: $nodes stays as-is
+.IP "\(bu" 2
+otherwise: $nodes is set to the return value
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Node[] Array of nodes 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 13 of file NodeVisitorAbstract\&.php\&.
+.SS "beforeTraverse (array $nodes)"
+Called once before traversal\&.
+.PP
+Return value semantics:
+.IP "\(bu" 2
+null: $nodes stays as-is
+.IP "\(bu" 2
+otherwise: $nodes is set to the return value
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fINode[]\fP $nodes Array of nodes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Node[] Array of nodes 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 10 of file NodeVisitorAbstract\&.php\&.
+.SS "enterNode (\fBNode\fP $node)"
+Called when entering a node\&.
+.PP
+Return value semantics:
+.IP "\(bu" 2
+null: $node stays as-is
+.IP "\(bu" 2
+otherwise: $node is set to the return value
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP \fBNode\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Node \fBNode\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 11 of file NodeVisitorAbstract\&.php\&.
+.SS "leaveNode (\fBNode\fP $node)"
+Called when leaving a node\&.
+.PP
+Return value semantics:
+.IP "\(bu" 2
+null: $node stays as-is
+.IP "\(bu" 2
+false: $node is removed from the parent array
+.IP "\(bu" 2
+array: The return value is merged into the parent array (at the position of the $node)
+.IP "\(bu" 2
+otherwise: $node is set to the return value
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP \fBNode\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Node|false|Node[] \fBNode\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 12 of file NodeVisitorAbstract\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

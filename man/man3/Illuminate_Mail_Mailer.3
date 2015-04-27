@@ -1,0 +1,684 @@
+.TH "Mailer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Mailer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBMailer\fP, and \fBMailQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBFactory\fP $views, \fBSwift_Mailer\fP $swift, \fBDispatcher\fP $events=null)"
+.br
+.ti -1c
+.RI "\fBalwaysFrom\fP ($address, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBraw\fP ($\fBtext\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBplain\fP ($view, array $\fBdata\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBsend\fP ($view, array $\fBdata\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBqueue\fP ($view, array $\fBdata\fP, $\fBcallback\fP, $queue=null)"
+.br
+.ti -1c
+.RI "\fBqueueOn\fP ($\fBqueue\fP, $view, array $\fBdata\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $view, array $\fBdata\fP, $\fBcallback\fP, $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBlaterOn\fP ($\fBqueue\fP, $\fBdelay\fP, $view, array $\fBdata\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBhandleQueuedMessage\fP ($job, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBpretend\fP ($value=true)"
+.br
+.ti -1c
+.RI "\fBisPretending\fP ()"
+.br
+.ti -1c
+.RI "\fBgetViewFactory\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSwiftMailer\fP ()"
+.br
+.ti -1c
+.RI "\fBfailures\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSwiftMailer\fP ($swift)"
+.br
+.ti -1c
+.RI "\fBsetLogger\fP (\fBLoggerInterface\fP $logger)"
+.br
+.ti -1c
+.RI "\fBsetQueue\fP (QueueContract $\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBsetContainer\fP (\fBContainer\fP $container)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbuildQueueCallable\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetQueuedCallable\fP (array $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBaddContent\fP ($message, $view, $\fBplain\fP, $\fBraw\fP, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBparseView\fP ($view)"
+.br
+.ti -1c
+.RI "\fBsendSwiftMessage\fP ($message)"
+.br
+.ti -1c
+.RI "\fBlogMessage\fP ($message)"
+.br
+.ti -1c
+.RI "\fBcallMessageBuilder\fP ($\fBcallback\fP, $message)"
+.br
+.ti -1c
+.RI "\fBcreateMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBgetView\fP ($view, $\fBdata\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$views\fP"
+.br
+.ti -1c
+.RI "\fB$swift\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$from\fP"
+.br
+.ti -1c
+.RI "\fB$logger\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$queue\fP"
+.br
+.ti -1c
+.RI "\fB$pretending\fP = false"
+.br
+.ti -1c
+.RI "\fB$failedRecipients\fP = array()"
+.br
+.ti -1c
+.RI "\fB$parsedViews\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 16 of file Mailer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBFactory\fP $views, \fBSwift_Mailer\fP $swift, \fBDispatcher\fP $events = \fCnull\fP)"
+Create a new \fBMailer\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$views\fP 
+.br
+\fI$swift\fP 
+.br
+\fI$events\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file Mailer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addContent ( $message,  $view,  $plain,  $raw,  $data)\fC [protected]\fP"
+Add the content to a given message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.br
+\fI$view\fP 
+.br
+\fI$plain\fP 
+.br
+\fI$raw\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file Mailer\&.php\&.
+.SS "alwaysFrom ( $address,  $name = \fCnull\fP)"
+Set the global from address and name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$address\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Mailer\&.php\&.
+.SS "buildQueueCallable ( $callback)\fC [protected]\fP"
+Build the callable for a queued e-mail job\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file Mailer\&.php\&.
+.SS "callMessageBuilder ( $callback,  $message)\fC [protected]\fP"
+Call the provided message builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 382 of file Mailer\&.php\&.
+.SS "createMessage ()\fC [protected]\fP"
+Create a new message instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 401 of file Mailer\&.php\&.
+.SS "failures ()"
+Get the array of failed recipients\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBMailer\fP\&.
+.PP
+Definition at line 474 of file Mailer\&.php\&.
+.SS "getQueuedCallable (array $data)\fC [protected]\fP"
+Get the true callable for a queued e-mail message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 264 of file Mailer\&.php\&.
+.SS "getSwiftMailer ()"
+Get the \fBSwift\fP \fBMailer\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 464 of file Mailer\&.php\&.
+.SS "getView ( $view,  $data)\fC [protected]\fP"
+Render the given view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 423 of file Mailer\&.php\&.
+.SS "getViewFactory ()"
+Get the view factory instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Mailer\&.php\&.
+.SS "handleQueuedMessage ( $job,  $data)"
+Handle a queued e-mail message job\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file Mailer\&.php\&.
+.SS "isPretending ()"
+Check if the mailer is pretending to send messages\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 444 of file Mailer\&.php\&.
+.SS "later ( $delay,  $view, array $data,  $callback,  $queue = \fCnull\fP)"
+\fBQueue\fP a new e-mail message for sending after (n) seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBMailQueue\fP\&.
+.PP
+Definition at line 209 of file Mailer\&.php\&.
+.SS "laterOn ( $queue,  $delay,  $view, array $data,  $callback)"
+\fBQueue\fP a new e-mail message for sending after (n) seconds on the given queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file Mailer\&.php\&.
+.SS "logMessage ( $message)\fC [protected]\fP"
+\fBLog\fP that a message was sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 366 of file Mailer\&.php\&.
+.SS "parseView ( $view)\fC [protected]\fP"
+Parse the given view name or array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 310 of file Mailer\&.php\&.
+.SS "plain ( $view, array $data,  $callback)"
+Send a new message when only a plain part\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file Mailer\&.php\&.
+.SS "pretend ( $value = \fCtrue\fP)"
+Tell the mailer to not really send messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 434 of file Mailer\&.php\&.
+.SS "queue ( $view, array $data,  $callback,  $queue = \fCnull\fP)"
+\fBQueue\fP a new e-mail message for sending\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBMailQueue\fP\&.
+.PP
+Definition at line 178 of file Mailer\&.php\&.
+.SS "queueOn ( $queue,  $view, array $data,  $callback)"
+\fBQueue\fP a new e-mail message for sending on the given queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Mailer\&.php\&.
+.SS "raw ( $text,  $callback)"
+Send a new message when only a raw text part\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$text\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBMailer\fP\&.
+.PP
+Definition at line 122 of file Mailer\&.php\&.
+.SS "send ( $view, array $data,  $callback)"
+Send a new message using a view\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP 
+.br
+\fI$data\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBMailer\fP\&.
+.PP
+Definition at line 148 of file Mailer\&.php\&.
+.SS "sendSwiftMessage ( $message)\fC [protected]\fP"
+Send a \fBSwift\fP \fBMessage\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file Mailer\&.php\&.
+.SS "setContainer (\fBContainer\fP $container)"
+Set the IoC container instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 522 of file Mailer\&.php\&.
+.SS "setLogger (\fBLoggerInterface\fP $logger)"
+Set the log writer instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 496 of file Mailer\&.php\&.
+.SS "setQueue (QueueContract $queue)"
+Set the queue manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 509 of file Mailer\&.php\&.
+.SS "setSwiftMailer ( $swift)"
+Set the \fBSwift\fP \fBMailer\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$swift\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 485 of file Mailer\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 58 of file Mailer\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file Mailer\&.php\&.
+.SS "$failedRecipients = array()\fC [protected]\fP"
+
+.PP
+Definition at line 79 of file Mailer\&.php\&.
+.SS "$from\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file Mailer\&.php\&.
+.SS "$logger\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file Mailer\&.php\&.
+.SS "$parsedViews = array()\fC [protected]\fP"
+
+.PP
+Definition at line 86 of file Mailer\&.php\&.
+.SS "$pretending = false\fC [protected]\fP"
+
+.PP
+Definition at line 72 of file Mailer\&.php\&.
+.SS "$\fBqueue\fP\fC [protected]\fP"
+
+.PP
+Definition at line 65 of file Mailer\&.php\&.
+.SS "$swift\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file Mailer\&.php\&.
+.SS "$views\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file Mailer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

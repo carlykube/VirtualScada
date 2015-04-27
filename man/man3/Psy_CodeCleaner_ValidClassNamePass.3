@@ -1,0 +1,370 @@
+.TH "ValidClassNamePass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ValidClassNamePass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNamespaceAwarePass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBleaveNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBCLASS_TYPE\fP = 'class'"
+.br
+.ti -1c
+.RI "const \fBINTERFACE_TYPE\fP = 'interface'"
+.br
+.ti -1c
+.RI "const \fBTRAIT_TYPE\fP = 'trait'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalidateClassStatement\fP (ClassStmt $stmt)"
+.br
+.ti -1c
+.RI "\fBvalidateInterfaceStatement\fP (InterfaceStmt $stmt)"
+.br
+.ti -1c
+.RI "\fBvalidateTraitStatement\fP (TraitStmt $stmt)"
+.br
+.ti -1c
+.RI "\fBvalidateNewExpression\fP (NewExpr $stmt)"
+.br
+.ti -1c
+.RI "\fBvalidateClassConstFetchExpression\fP (\fBClassConstFetch\fP $stmt)"
+.br
+.ti -1c
+.RI "\fBvalidateStaticCallExpression\fP (\fBStaticCall\fP $stmt)"
+.br
+.ti -1c
+.RI "\fBensureCanDefine\fP (\fBStmt\fP $stmt)"
+.br
+.ti -1c
+.RI "\fBensureClassExists\fP ($\fBname\fP, $stmt)"
+.br
+.ti -1c
+.RI "\fBensureMethodExists\fP ($class, $\fBname\fP, $stmt)"
+.br
+.ti -1c
+.RI "\fBgetScopeType\fP (\fBStmt\fP $stmt)"
+.br
+.ti -1c
+.RI "\fBclassExists\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBinterfaceExists\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBtraitExists\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBfindInScope\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcreateError\fP ($msg, $stmt)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$checkTraits\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Validate that classes exist\&.
+.PP
+This pass throws a FatalErrorException rather than letting \fBPHP\fP run headfirst into a real fatal error and die\&. 
+.PP
+Definition at line 31 of file ValidClassNamePass\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+
+.PP
+Definition at line 39 of file ValidClassNamePass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "classExists ( $name)\fC [protected]\fP"
+Check whether a class exists, or has been defined in the current code snippet\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 258 of file ValidClassNamePass\&.php\&.
+.SS "createError ( $msg,  $stmt)\fC [protected]\fP"
+\fBError\fP creation factory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$msg\fP 
+.br
+\fI$stmt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+FatalErrorException 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file ValidClassNamePass\&.php\&.
+.SS "ensureCanDefine (\fBStmt\fP $stmt)\fC [protected]\fP"
+Ensure that no class, interface or trait name collides with a new definition\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file ValidClassNamePass\&.php\&.
+.SS "ensureClassExists ( $name,  $stmt)\fC [protected]\fP"
+Ensure that a referenced class exists\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 184 of file ValidClassNamePass\&.php\&.
+.SS "ensureMethodExists ( $class,  $name,  $stmt)\fC [protected]\fP"
+Ensure that a statically called method exists\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fI$name\fP 
+.br
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file ValidClassNamePass\&.php\&.
+.SS "findInScope ( $name)\fC [protected]\fP"
+Find a symbol in the current code snippet scope\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file ValidClassNamePass\&.php\&.
+.SS "getScopeType (\fBStmt\fP $stmt)\fC [protected]\fP"
+Get a symbol type key for storing in the scope name cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file ValidClassNamePass\&.php\&.
+.SS "interfaceExists ( $name)\fC [protected]\fP"
+Check whether an interface exists, or has been defined in the current code snippet\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 270 of file ValidClassNamePass\&.php\&.
+.SS "leaveNode (\fBNode\fP $node)"
+Validate class, interface and trait statements, and \fCnew\fP expressions\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if a class, interface or trait is referenced which does not exist\&. 
+.br
+\fIFatalErrorException\fP if a class extends something that is not a class\&. 
+.br
+\fIFatalErrorException\fP if a class implements something that is not an interface\&. 
+.br
+\fIFatalErrorException\fP if an interface extends something that is not an interface\&. 
+.br
+\fIFatalErrorException\fP if a class, interface or trait redefines an existing class, interface or trait name\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 55 of file ValidClassNamePass\&.php\&.
+.SS "traitExists ( $name)\fC [protected]\fP"
+Check whether a trait exists, or has been defined in the current code snippet\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file ValidClassNamePass\&.php\&.
+.SS "validateClassConstFetchExpression (\fBClassConstFetch\fP $stmt)\fC [protected]\fP"
+Validate a class constant fetch expression's class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file ValidClassNamePass\&.php\&.
+.SS "validateClassStatement (ClassStmt $stmt)\fC [protected]\fP"
+Validate a class definition statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file ValidClassNamePass\&.php\&.
+.SS "validateInterfaceStatement (InterfaceStmt $stmt)\fC [protected]\fP"
+Validate an interface definition statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file ValidClassNamePass\&.php\&.
+.SS "validateNewExpression (NewExpr $stmt)\fC [protected]\fP"
+Validate a \fCnew\fP expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file ValidClassNamePass\&.php\&.
+.SS "validateStaticCallExpression (\fBStaticCall\fP $stmt)\fC [protected]\fP"
+Validate a class constant fetch expression's class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file ValidClassNamePass\&.php\&.
+.SS "validateTraitStatement (TraitStmt $stmt)\fC [protected]\fP"
+Validate a trait definition statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stmt\fP 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file ValidClassNamePass\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$checkTraits\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file ValidClassNamePass\&.php\&.
+.SS "const CLASS_TYPE = 'class'"
+
+.PP
+Definition at line 33 of file ValidClassNamePass\&.php\&.
+.SS "const INTERFACE_TYPE = 'interface'"
+
+.PP
+Definition at line 34 of file ValidClassNamePass\&.php\&.
+.SS "const TRAIT_TYPE = 'trait'"
+
+.PP
+Definition at line 35 of file ValidClassNamePass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

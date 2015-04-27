@@ -1,0 +1,510 @@
+.TH "Translator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Translator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBNamespacedItemResolver\fP, and \fBTranslatorInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBLoaderInterface\fP $loader, $\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($key, $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBget\fP ($key, array $replace=array(), $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBchoice\fP ($key, $number, array $replace=array(), $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBtrans\fP ($id, array $parameters=array(), $domain= 'messages', $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBtransChoice\fP ($id, $number, array $parameters=array(), $domain= 'messages', $\fBlocale\fP=null)"
+.br
+.ti -1c
+.RI "\fBload\fP ($namespace, $group, $\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBaddNamespace\fP ($namespace, $hint)"
+.br
+.ti -1c
+.RI "\fBparseKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetSelector\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSelector\fP (\fBMessageSelector\fP $selector)"
+.br
+.ti -1c
+.RI "\fBgetLoader\fP ()"
+.br
+.ti -1c
+.RI "\fBlocale\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLocale\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLocale\fP ($\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBgetFallback\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFallback\fP ($fallback)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetLine\fP ($namespace, $group, $\fBlocale\fP, $item, array $replace)"
+.br
+.ti -1c
+.RI "\fBmakeReplacements\fP ($\fBline\fP, array $replace)"
+.br
+.ti -1c
+.RI "\fBsortReplacements\fP (array $replace)"
+.br
+.ti -1c
+.RI "\fBisLoaded\fP ($namespace, $group, $\fBlocale\fP)"
+.br
+.ti -1c
+.RI "\fBparseLocale\fP ($\fBlocale\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$loader\fP"
+.br
+.ti -1c
+.RI "\fB$locale\fP"
+.br
+.ti -1c
+.RI "\fB$fallback\fP"
+.br
+.ti -1c
+.RI "\fB$loaded\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file Translator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBLoaderInterface\fP $loader,  $locale)"
+Create a new translator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loader\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file Translator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addNamespace ( $namespace,  $hint)"
+Add a new namespace to the loader\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$hint\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 241 of file Translator\&.php\&.
+.SS "choice ( $key,  $number, array $replace = \fCarray()\fP,  $locale = \fCnull\fP)"
+Get a translation according to an integer value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$number\fP 
+.br
+\fI$replace\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file Translator\&.php\&.
+.SS "get ( $key, array $replace = \fCarray()\fP,  $locale = \fCnull\fP)"
+Get the translation for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$replace\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Translator\&.php\&.
+.SS "getFallback ()"
+Get the fallback locale being used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file Translator\&.php\&.
+.SS "getLine ( $namespace,  $group,  $locale,  $item, array $replace)\fC [protected]\fP"
+Retrieve a language line out the loaded array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$group\fP 
+.br
+\fI$locale\fP 
+.br
+\fI$item\fP 
+.br
+\fI$replace\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file Translator\&.php\&.
+.SS "getLoader ()"
+Get the language line loader implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 308 of file Translator\&.php\&.
+.SS "getLocale ()"
+Get the default locale being used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 328 of file Translator\&.php\&.
+.SS "getSelector ()"
+Get the message selector instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 282 of file Translator\&.php\&.
+.SS "has ( $key,  $locale = \fCnull\fP)"
+Determine if a translation exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file Translator\&.php\&.
+.SS "isLoaded ( $namespace,  $group,  $locale)\fC [protected]\fP"
+Determine if the given group has been loaded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$group\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 229 of file Translator\&.php\&.
+.SS "load ( $namespace,  $group,  $locale)"
+Load the specified language group\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$group\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 209 of file Translator\&.php\&.
+.SS "locale ()"
+Get the default locale being used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 318 of file Translator\&.php\&.
+.SS "makeReplacements ( $line, array $replace)\fC [protected]\fP"
+Make the place-holder replacements on a line\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$line\fP 
+.br
+\fI$replace\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file Translator\&.php\&.
+.SS "parseKey ( $key)"
+Parse a key into namespace, group, and item\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file Translator\&.php\&.
+.SS "parseLocale ( $locale)\fC [protected]\fP"
+Get the array of locales to be checked\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file Translator\&.php\&.
+.SS "setFallback ( $fallback)"
+Set the fallback locale being used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fallback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 360 of file Translator\&.php\&.
+.SS "setLocale ( $locale)"
+Set the default locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 339 of file Translator\&.php\&.
+.SS "setSelector (\fBMessageSelector\fP $selector)"
+Set the message selector instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$selector\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file Translator\&.php\&.
+.SS "sortReplacements (array $replace)\fC [protected]\fP"
+Sort the replacements array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$replace\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Translator\&.php\&.
+.SS "trans ( $id, array $parameters = \fCarray()\fP,  $domain = \fC'messages'\fP,  $locale = \fCnull\fP)"
+Get the translation for a given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 181 of file Translator\&.php\&.
+.SS "transChoice ( $id,  $number, array $parameters = \fCarray()\fP,  $domain = \fC'messages'\fP,  $locale = \fCnull\fP)"
+Get a translation according to an integer value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$number\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$locale\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBTranslatorInterface\fP\&.
+.PP
+Definition at line 196 of file Translator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$fallback\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file Translator\&.php\&.
+.SS "$loaded = array()\fC [protected]\fP"
+
+.PP
+Definition at line 36 of file Translator\&.php\&.
+.SS "$loader\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file Translator\&.php\&.
+.SS "$\fBlocale\fP\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file Translator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

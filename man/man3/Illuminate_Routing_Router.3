@@ -1,0 +1,2302 @@
+.TH "Router" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Router \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRegistrar\fP, and \fBRegistrar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBDispatcher\fP $events, \fBContainer\fP $container=null)"
+.br
+.ti -1c
+.RI "\fBget\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBpost\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBput\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBpatch\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBoptions\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBany\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBmatch\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBcontrollers\fP (array $controllers)"
+.br
+.ti -1c
+.RI "\fBcontroller\fP ($uri, $controller, $names=array())"
+.br
+.ti -1c
+.RI "\fBresources\fP (array $resources)"
+.br
+.ti -1c
+.RI "\fBresource\fP ($\fBname\fP, $\fBcontroller\fP, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgroup\fP (array $attributes, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBmergeWithLastGroup\fP ($new)"
+.br
+.ti -1c
+.RI "\fBgetLastGroupPrefix\fP ()"
+.br
+.ti -1c
+.RI "\fBdispatch\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBdispatchToRoute\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgatherRouteMiddlewares\fP (\fBRoute\fP $route)"
+.br
+.ti -1c
+.RI "\fBmatched\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbefore\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMiddleware\fP ()"
+.br
+.ti -1c
+.RI "\fBmiddleware\fP ($\fBname\fP, $class)"
+.br
+.ti -1c
+.RI "\fBfilter\fP ($\fBname\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBwhen\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "\fBwhenRegex\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "\fBmodel\fP ($key, $class, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBbind\fP ($key, $binder)"
+.br
+.ti -1c
+.RI "\fBcreateClassBinding\fP ($binding)"
+.br
+.ti -1c
+.RI "\fBpattern\fP ($key, $pattern)"
+.br
+.ti -1c
+.RI "\fBpatterns\fP ($patterns)"
+.br
+.ti -1c
+.RI "\fBcallRouteBefore\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBfindPatternFilters\fP ($request)"
+.br
+.ti -1c
+.RI "\fBcallRouteAfter\fP ($route, $request, $response)"
+.br
+.ti -1c
+.RI "\fBcallRouteFilter\fP ($\fBfilter\fP, $parameters, $route, $request, $response=null)"
+.br
+.ti -1c
+.RI "\fBhasGroupStack\fP ()"
+.br
+.ti -1c
+.RI "\fBgetGroupStack\fP ()"
+.br
+.ti -1c
+.RI "\fBinput\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetCurrentRoute\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcurrentRouteName\fP ()"
+.br
+.ti -1c
+.RI "\fBis\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrentRouteNamed\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcurrentRouteAction\fP ()"
+.br
+.ti -1c
+.RI "\fBuses\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrentRouteUses\fP ($action)"
+.br
+.ti -1c
+.RI "\fBgetCurrentRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRoutes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRoutes\fP (\fBRouteCollection\fP $routes)"
+.br
+.ti -1c
+.RI "\fBgetPatterns\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP (\fBDispatcher\fP $events, \fBContainer\fP $container=null)"
+.br
+.ti -1c
+.RI "\fBget\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBpost\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBput\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBpatch\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBoptions\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBany\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "\fBmatch\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBcontrollers\fP (array $controllers)"
+.br
+.ti -1c
+.RI "\fBcontroller\fP ($uri, $controller, $names=array())"
+.br
+.ti -1c
+.RI "\fBresources\fP (array $resources)"
+.br
+.ti -1c
+.RI "\fBresource\fP ($\fBname\fP, $\fBcontroller\fP, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgroup\fP (array $attributes, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBmergeWithLastGroup\fP ($new)"
+.br
+.ti -1c
+.RI "\fBgetLastGroupPrefix\fP ()"
+.br
+.ti -1c
+.RI "\fBdispatch\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBdispatchToRoute\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgatherRouteMiddlewares\fP (\fBRoute\fP $route)"
+.br
+.ti -1c
+.RI "\fBmatched\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbefore\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBafter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetMiddleware\fP ()"
+.br
+.ti -1c
+.RI "\fBmiddleware\fP ($\fBname\fP, $class)"
+.br
+.ti -1c
+.RI "\fBfilter\fP ($\fBname\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBwhen\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "\fBwhenRegex\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "\fBmodel\fP ($key, $class, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBbind\fP ($key, $binder)"
+.br
+.ti -1c
+.RI "\fBcreateClassBinding\fP ($binding)"
+.br
+.ti -1c
+.RI "\fBpattern\fP ($key, $pattern)"
+.br
+.ti -1c
+.RI "\fBpatterns\fP ($patterns)"
+.br
+.ti -1c
+.RI "\fBcallRouteBefore\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBfindPatternFilters\fP ($request)"
+.br
+.ti -1c
+.RI "\fBcallRouteAfter\fP ($route, $request, $response)"
+.br
+.ti -1c
+.RI "\fBcallRouteFilter\fP ($\fBfilter\fP, $parameters, $route, $request, $response=null)"
+.br
+.ti -1c
+.RI "\fBhasGroupStack\fP ()"
+.br
+.ti -1c
+.RI "\fBgetGroupStack\fP ()"
+.br
+.ti -1c
+.RI "\fBinput\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetCurrentRoute\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcurrentRouteName\fP ()"
+.br
+.ti -1c
+.RI "\fBis\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrentRouteNamed\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcurrentRouteAction\fP ()"
+.br
+.ti -1c
+.RI "\fBuses\fP ()"
+.br
+.ti -1c
+.RI "\fBcurrentRouteUses\fP ($action)"
+.br
+.ti -1c
+.RI "\fBgetCurrentRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRoutes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRoutes\fP (\fBRouteCollection\fP $routes)"
+.br
+.ti -1c
+.RI "\fBgetPatterns\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBmergeGroup\fP ($new, $old)"
+.br
+.ti -1c
+.RI "static \fBmergeGroup\fP ($new, $old)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$verbs\fP = array('GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS')"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregisterInspected\fP ($route, $\fBcontroller\fP, $method, &$names)"
+.br
+.ti -1c
+.RI "\fBaddFallthroughRoute\fP ($\fBcontroller\fP, $uri)"
+.br
+.ti -1c
+.RI "\fBupdateGroupStack\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBaddRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBcreateRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBnewRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBprefix\fP ($uri)"
+.br
+.ti -1c
+.RI "\fBaddWhereClausesToRoute\fP ($route)"
+.br
+.ti -1c
+.RI "\fBmergeGroupAttributesIntoRoute\fP ($route)"
+.br
+.ti -1c
+.RI "\fBactionReferencesController\fP ($action)"
+.br
+.ti -1c
+.RI "\fBconvertToControllerAction\fP ($action)"
+.br
+.ti -1c
+.RI "\fBprependGroupUses\fP ($\fBuses\fP)"
+.br
+.ti -1c
+.RI "\fBrunRouteWithinStack\fP (\fBRoute\fP $route, \fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBfindRoute\fP ($request)"
+.br
+.ti -1c
+.RI "\fBsubstituteBindings\fP ($route)"
+.br
+.ti -1c
+.RI "\fBperformBinding\fP ($key, $value, $route)"
+.br
+.ti -1c
+.RI "\fBaddGlobalFilter\fP ($\fBfilter\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBparseFilter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcallFilter\fP ($\fBfilter\fP, $request, $response=null)"
+.br
+.ti -1c
+.RI "\fBcallPatternFilters\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBpatternsByMethod\fP ($method, $filters)"
+.br
+.ti -1c
+.RI "\fBfilterSupportsMethod\fP ($\fBfilter\fP, $method)"
+.br
+.ti -1c
+.RI "\fBcallAttachedBefores\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBcleanFilterParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBprepareResponse\fP ($request, $response)"
+.br
+.ti -1c
+.RI "\fBregisterInspected\fP ($route, $\fBcontroller\fP, $method, &$names)"
+.br
+.ti -1c
+.RI "\fBaddFallthroughRoute\fP ($\fBcontroller\fP, $uri)"
+.br
+.ti -1c
+.RI "\fBupdateGroupStack\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBaddRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBcreateRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBnewRoute\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "\fBprefix\fP ($uri)"
+.br
+.ti -1c
+.RI "\fBaddWhereClausesToRoute\fP ($route)"
+.br
+.ti -1c
+.RI "\fBmergeGroupAttributesIntoRoute\fP ($route)"
+.br
+.ti -1c
+.RI "\fBactionReferencesController\fP ($action)"
+.br
+.ti -1c
+.RI "\fBconvertToControllerAction\fP ($action)"
+.br
+.ti -1c
+.RI "\fBprependGroupUses\fP ($\fBuses\fP)"
+.br
+.ti -1c
+.RI "\fBrunRouteWithinStack\fP (\fBRoute\fP $route, \fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBfindRoute\fP ($request)"
+.br
+.ti -1c
+.RI "\fBsubstituteBindings\fP ($route)"
+.br
+.ti -1c
+.RI "\fBperformBinding\fP ($key, $value, $route)"
+.br
+.ti -1c
+.RI "\fBaddGlobalFilter\fP ($\fBfilter\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBparseFilter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcallFilter\fP ($\fBfilter\fP, $request, $response=null)"
+.br
+.ti -1c
+.RI "\fBcallPatternFilters\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBpatternsByMethod\fP ($method, $filters)"
+.br
+.ti -1c
+.RI "\fBfilterSupportsMethod\fP ($\fBfilter\fP, $method)"
+.br
+.ti -1c
+.RI "\fBcallAttachedBefores\fP ($route, $request)"
+.br
+.ti -1c
+.RI "\fBcleanFilterParameters\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBprepareResponse\fP ($request, $response)"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBformatUsesPrefix\fP ($new, $old)"
+.br
+.ti -1c
+.RI "static \fBformatGroupPrefix\fP ($new, $old)"
+.br
+.ti -1c
+.RI "static \fBformatUsesPrefix\fP ($new, $old)"
+.br
+.ti -1c
+.RI "static \fBformatGroupPrefix\fP ($new, $old)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$container\fP"
+.br
+.ti -1c
+.RI "\fB$routes\fP"
+.br
+.ti -1c
+.RI "\fB$current\fP"
+.br
+.ti -1c
+.RI "\fB$currentRequest\fP"
+.br
+.ti -1c
+.RI "\fB$middleware\fP = array()"
+.br
+.ti -1c
+.RI "\fB$patternFilters\fP = array()"
+.br
+.ti -1c
+.RI "\fB$regexFilters\fP = array()"
+.br
+.ti -1c
+.RI "\fB$binders\fP = array()"
+.br
+.ti -1c
+.RI "\fB$patterns\fP = array()"
+.br
+.ti -1c
+.RI "\fB$groupStack\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6783 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBDispatcher\fP $events, \fBContainer\fP $container = \fCnull\fP)"
+
+.PP
+Definition at line 6798 of file compiled\&.php\&.
+.SS "__construct (\fBDispatcher\fP $events, \fBContainer\fP $container = \fCnull\fP)"
+Create a new \fBRouter\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$events\fP 
+.br
+\fI$container\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Router\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "actionReferencesController ( $action)\fC [protected]\fP"
+Determine if the action is routing to a controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 556 of file Router\&.php\&.
+.SS "actionReferencesController ( $action)\fC [protected]\fP"
+
+.PP
+Definition at line 6963 of file compiled\&.php\&.
+.SS "addFallthroughRoute ( $controller,  $uri)\fC [protected]\fP"
+Add a fallthrough route for a controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$controller\fP 
+.br
+\fI$uri\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Router\&.php\&.
+.SS "addFallthroughRoute ( $controller,  $uri)\fC [protected]\fP"
+
+.PP
+Definition at line 6863 of file compiled\&.php\&.
+.SS "addGlobalFilter ( $filter,  $callback)\fC [protected]\fP"
+Register a new global filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 799 of file Router\&.php\&.
+.SS "addGlobalFilter ( $filter,  $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 7056 of file compiled\&.php\&.
+.SS "addRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+Add a route to the underlying route collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP 
+.br
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 458 of file Router\&.php\&.
+.SS "addRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+
+.PP
+Definition at line 6929 of file compiled\&.php\&.
+.SS "addWhereClausesToRoute ( $route)\fC [protected]\fP"
+Add the necessary where clauses to the route based on its initial registration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 528 of file Router\&.php\&.
+.SS "addWhereClausesToRoute ( $route)\fC [protected]\fP"
+
+.PP
+Definition at line 6953 of file compiled\&.php\&.
+.SS "after ( $callback)"
+Register a new 'after' filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 787 of file Router\&.php\&.
+.SS "after ( $callback)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 7052 of file compiled\&.php\&.
+.SS "any ( $uri,  $action)"
+Register a new route responding to all verbs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 196 of file Router\&.php\&.
+.SS "any ( $uri,  $action)"
+
+.PP
+Definition at line 6828 of file compiled\&.php\&.
+.SS "before ( $callback)"
+Register a new 'before' filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 776 of file Router\&.php\&.
+.SS "before ( $callback)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 7048 of file compiled\&.php\&.
+.SS "bind ( $key,  $binder)"
+Add a new route parameter binder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$binder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 929 of file Router\&.php\&.
+.SS "bind ( $key,  $binder)"
+
+.PP
+Definition at line 7109 of file compiled\&.php\&.
+.SS "callAttachedBefores ( $route,  $request)\fC [protected]\fP"
+Call the given route's before (non-pattern) filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1121 of file Router\&.php\&.
+.SS "callAttachedBefores ( $route,  $request)\fC [protected]\fP"
+
+.PP
+Definition at line 7187 of file compiled\&.php\&.
+.SS "callFilter ( $filter,  $request,  $response = \fCnull\fP)\fC [protected]\fP"
+Call the given filter with the request and response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 996 of file Router\&.php\&.
+.SS "callFilter ( $filter,  $request,  $response = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 7135 of file compiled\&.php\&.
+.SS "callPatternFilters ( $route,  $request)\fC [protected]\fP"
+Call the pattern based filters for the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|null 
+.RE
+.PP
+
+.PP
+Definition at line 1022 of file Router\&.php\&.
+.SS "callPatternFilters ( $route,  $request)\fC [protected]\fP"
+
+.PP
+Definition at line 7144 of file compiled\&.php\&.
+.SS "callRouteAfter ( $route,  $request,  $response)"
+Call the given route's after filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1139 of file Router\&.php\&.
+.SS "callRouteAfter ( $route,  $request,  $response)"
+
+.PP
+Definition at line 7196 of file compiled\&.php\&.
+.SS "callRouteBefore ( $route,  $request)"
+Call the given route's before filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1008 of file Router\&.php\&.
+.SS "callRouteBefore ( $route,  $request)"
+
+.PP
+Definition at line 7139 of file compiled\&.php\&.
+.SS "callRouteFilter ( $filter,  $parameters,  $route,  $request,  $response = \fCnull\fP)"
+Call the given route filter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$route\fP 
+.br
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1157 of file Router\&.php\&.
+.SS "callRouteFilter ( $filter,  $parameters,  $route,  $request,  $response = \fCnull\fP)"
+
+.PP
+Definition at line 7202 of file compiled\&.php\&.
+.SS "cleanFilterParameters (array $parameters)\fC [protected]\fP"
+Clean the parameters being passed to a filter callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1170 of file Router\&.php\&.
+.SS "cleanFilterParameters (array $parameters)\fC [protected]\fP"
+
+.PP
+Definition at line 7207 of file compiled\&.php\&.
+.SS "controller ( $uri,  $controller,  $names = \fCarray()\fP)"
+\fBRoute\fP a controller to a URI with wildcard routing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$names\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file Router\&.php\&.
+.SS "controller ( $uri,  $controller,  $names = \fCarray()\fP)"
+
+.PP
+Definition at line 6843 of file compiled\&.php\&.
+.SS "controllers (array $controllers)"
+Register an array of controllers with wildcard routing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$controllers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Router\&.php\&.
+.SS "controllers (array $controllers)"
+
+.PP
+Definition at line 6837 of file compiled\&.php\&.
+.SS "convertToControllerAction ( $action)\fC [protected]\fP"
+Add a controller based route action to the action array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 569 of file Router\&.php\&.
+.SS "convertToControllerAction ( $action)\fC [protected]\fP"
+
+.PP
+Definition at line 6970 of file compiled\&.php\&.
+.SS "createClassBinding ( $binding)"
+Create a class based binding using the IoC container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$binding\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 945 of file Router\&.php\&.
+.SS "createClassBinding ( $binding)"
+
+.PP
+Definition at line 7116 of file compiled\&.php\&.
+.SS "createRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+Create a new route instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP 
+.br
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 471 of file Router\&.php\&.
+.SS "createRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+
+.PP
+Definition at line 6933 of file compiled\&.php\&.
+.SS "current ()"
+Get the currently dispatched route instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1242 of file Router\&.php\&.
+.SS "current ()"
+
+.PP
+Definition at line 7236 of file compiled\&.php\&.
+.SS "currentRouteAction ()"
+Get the current route action\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 1303 of file Router\&.php\&.
+.SS "currentRouteAction ()"
+
+.PP
+Definition at line 7261 of file compiled\&.php\&.
+.SS "currentRouteName ()"
+Get the current route name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 1263 of file Router\&.php\&.
+.SS "currentRouteName ()"
+
+.PP
+Definition at line 7244 of file compiled\&.php\&.
+.SS "currentRouteNamed ( $name)"
+Determine if the current route matches a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1293 of file Router\&.php\&.
+.SS "currentRouteNamed ( $name)"
+
+.PP
+Definition at line 7257 of file compiled\&.php\&.
+.SS "currentRouteUses ( $action)"
+Determine if the current route action matches a given action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1337 of file Router\&.php\&.
+.SS "currentRouteUses ( $action)"
+
+.PP
+Definition at line 7278 of file compiled\&.php\&.
+.SS "delete ( $uri,  $action)"
+Register a new DELETE route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 172 of file Router\&.php\&.
+.SS "delete ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6820 of file compiled\&.php\&.
+.SS "dispatch (\fBRequest\fP $request)"
+Dispatch the request to the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 608 of file Router\&.php\&.
+.SS "dispatch (\fBRequest\fP $request)"
+
+.PP
+Definition at line 6986 of file compiled\&.php\&.
+.SS "dispatchToRoute (\fBRequest\fP $request)"
+Dispatch the request to a route and return the response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 638 of file Router\&.php\&.
+.SS "dispatchToRoute (\fBRequest\fP $request)"
+
+.PP
+Definition at line 6997 of file compiled\&.php\&.
+.SS "filter ( $name,  $callback)"
+Register a new filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 835 of file Router\&.php\&.
+.SS "filter ( $name,  $callback)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 7069 of file compiled\&.php\&.
+.SS "filterSupportsMethod ( $filter,  $method)\fC [protected]\fP"
+Determine if the given pattern filters applies to a given method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1107 of file Router\&.php\&.
+.SS "filterSupportsMethod ( $filter,  $method)\fC [protected]\fP"
+
+.PP
+Definition at line 7182 of file compiled\&.php\&.
+.SS "findPatternFilters ( $request)"
+Find the patterned filters matching a request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1038 of file Router\&.php\&.
+.SS "findPatternFilters ( $request)"
+
+.PP
+Definition at line 7153 of file compiled\&.php\&.
+.SS "findRoute ( $request)\fC [protected]\fP"
+Find the route matching a given request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 718 of file Router\&.php\&.
+.SS "findRoute ( $request)\fC [protected]\fP"
+
+.PP
+Definition at line 7025 of file compiled\&.php\&.
+.SS "static formatGroupPrefix ( $new,  $old)\fC [static]\fP, \fC [protected]\fP"
+Format the prefix for the new group attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.br
+\fI$old\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 423 of file Router\&.php\&.
+.SS "static formatGroupPrefix ( $new,  $old)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 6914 of file compiled\&.php\&.
+.SS "static formatUsesPrefix ( $new,  $old)\fC [static]\fP, \fC [protected]\fP"
+Format the uses prefix for the new group attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.br
+\fI$old\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file Router\&.php\&.
+.SS "static formatUsesPrefix ( $new,  $old)\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 6905 of file compiled\&.php\&.
+.SS "gatherRouteMiddlewares (\fBRoute\fP $route)"
+Gather the middleware for the given route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 703 of file Router\&.php\&.
+.SS "gatherRouteMiddlewares (\fBRoute\fP $route)"
+
+.PP
+Definition at line 7019 of file compiled\&.php\&.
+.SS "get ( $uri,  $action)"
+Register a new GET route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 124 of file Router\&.php\&.
+.SS "get ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6804 of file compiled\&.php\&.
+.SS "getCurrentRequest ()"
+Get the request currently being dispatched\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1347 of file Router\&.php\&.
+.SS "getCurrentRequest ()"
+
+.PP
+Definition at line 7282 of file compiled\&.php\&.
+.SS "getCurrentRoute ()"
+Get the currently dispatched route instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1232 of file Router\&.php\&.
+.SS "getCurrentRoute ()"
+
+.PP
+Definition at line 7232 of file compiled\&.php\&.
+.SS "getGroupStack ()"
+Get the current group stack for the router\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1210 of file Router\&.php\&.
+.SS "getGroupStack ()"
+
+.PP
+Definition at line 7224 of file compiled\&.php\&.
+.SS "getLastGroupPrefix ()"
+Get the prefix from the last group on the stack\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 438 of file Router\&.php\&.
+.SS "getLastGroupPrefix ()"
+
+.PP
+Definition at line 6921 of file compiled\&.php\&.
+.SS "getMiddleware ()"
+Get all of the defined middleware short-hand names\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 809 of file Router\&.php\&.
+.SS "getMiddleware ()"
+
+.PP
+Definition at line 7060 of file compiled\&.php\&.
+.SS "getPatterns ()"
+Get the global 'where' patterns\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1385 of file Router\&.php\&.
+.SS "getPatterns ()"
+
+.PP
+Definition at line 7298 of file compiled\&.php\&.
+.SS "getRoutes ()"
+Get the underlying route collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1357 of file Router\&.php\&.
+.SS "getRoutes ()"
+
+.PP
+Definition at line 7286 of file compiled\&.php\&.
+.SS "group (array $attributes, Closure $callback)"
+Create a route group with shared attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 336 of file Router\&.php\&.
+.SS "group (array $attributes, Closure $callback)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6878 of file compiled\&.php\&.
+.SS "has ( $name)"
+Check if a route with the given name exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1253 of file Router\&.php\&.
+.SS "has ( $name)"
+
+.PP
+Definition at line 7240 of file compiled\&.php\&.
+.SS "hasGroupStack ()"
+Determine if the router currently has a group stack\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1200 of file Router\&.php\&.
+.SS "hasGroupStack ()"
+
+.PP
+Definition at line 7220 of file compiled\&.php\&.
+.SS "input ( $key,  $default = \fCnull\fP)"
+Get a route parameter for the current route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1222 of file Router\&.php\&.
+.SS "input ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 7228 of file compiled\&.php\&.
+.SS "is ()"
+Alias for the 'currentRouteNamed' method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1274 of file Router\&.php\&.
+.SS "is ()"
+
+.PP
+Definition at line 7248 of file compiled\&.php\&.
+.SS "match ( $methods,  $uri,  $action)"
+Register a new route with the given verbs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP 
+.br
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 211 of file Router\&.php\&.
+.SS "match ( $methods,  $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6833 of file compiled\&.php\&.
+.SS "matched ( $callback)"
+Register a route matched event listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 765 of file Router\&.php\&.
+.SS "matched ( $callback)"
+
+.PP
+Definition at line 7044 of file compiled\&.php\&.
+.SS "static mergeGroup ( $new,  $old)\fC [static]\fP"
+Merge the given group attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.br
+\fI$old\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 382 of file Router\&.php\&.
+.SS "static mergeGroup ( $new,  $old)\fC [static]\fP"
+
+.PP
+Definition at line 6895 of file compiled\&.php\&.
+.SS "mergeGroupAttributesIntoRoute ( $route)\fC [protected]\fP"
+Merge the group stack with the controller action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 543 of file Router\&.php\&.
+.SS "mergeGroupAttributesIntoRoute ( $route)\fC [protected]\fP"
+
+.PP
+Definition at line 6958 of file compiled\&.php\&.
+.SS "mergeWithLastGroup ( $new)"
+Merge the given array with the last group stack\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 370 of file Router\&.php\&.
+.SS "mergeWithLastGroup ( $new)"
+
+.PP
+Definition at line 6891 of file compiled\&.php\&.
+.SS "middleware ( $name,  $class)"
+Register a short-hand name for a middleware\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 821 of file Router\&.php\&.
+.SS "middleware ( $name,  $class)"
+
+.PP
+Definition at line 7064 of file compiled\&.php\&.
+.SS "model ( $key,  $class, Closure $callback = \fCnull\fP)"
+Register a model binder for a wildcard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$class\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fINotFoundHttpException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 896 of file Router\&.php\&.
+.SS "model ( $key,  $class, Closure $callback = \fCnull\fP)"
+
+.PP
+Definition at line 7094 of file compiled\&.php\&.
+.SS "newRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+Create a new \fBRoute\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP 
+.br
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 506 of file Router\&.php\&.
+.SS "newRoute ( $methods,  $uri,  $action)\fC [protected]\fP"
+
+.PP
+Definition at line 6945 of file compiled\&.php\&.
+.SS "options ( $uri,  $action)"
+Register a new OPTIONS route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 184 of file Router\&.php\&.
+.SS "options ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6824 of file compiled\&.php\&.
+.SS "parseFilter ( $callback)\fC [protected]\fP"
+Parse the registered filter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 846 of file Router\&.php\&.
+.SS "parseFilter ( $callback)\fC [protected]\fP"
+
+.PP
+Definition at line 7073 of file compiled\&.php\&.
+.SS "patch ( $uri,  $action)"
+Register a new PATCH route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 160 of file Router\&.php\&.
+.SS "patch ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6816 of file compiled\&.php\&.
+.SS "pattern ( $key,  $pattern)"
+Set a global where pattern on all routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$pattern\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 969 of file Router\&.php\&.
+.SS "pattern ( $key,  $pattern)"
+
+.PP
+Definition at line 7125 of file compiled\&.php\&.
+.SS "patterns ( $patterns)"
+Set a group of global where patterns on all routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$patterns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 980 of file Router\&.php\&.
+.SS "patterns ( $patterns)"
+
+.PP
+Definition at line 7129 of file compiled\&.php\&.
+.SS "patternsByMethod ( $method,  $filters)\fC [protected]\fP"
+Filter pattern filters that don't apply to the request verb\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$filters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1080 of file Router\&.php\&.
+.SS "patternsByMethod ( $method,  $filters)\fC [protected]\fP"
+
+.PP
+Definition at line 7171 of file compiled\&.php\&.
+.SS "performBinding ( $key,  $value,  $route)\fC [protected]\fP"
+Call the binding callback for the given key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 754 of file Router\&.php\&.
+.SS "performBinding ( $key,  $value,  $route)\fC [protected]\fP"
+
+.PP
+Definition at line 7040 of file compiled\&.php\&.
+.SS "post ( $uri,  $action)"
+Register a new POST route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 136 of file Router\&.php\&.
+.SS "post ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6808 of file compiled\&.php\&.
+.SS "prefix ( $uri)\fC [protected]\fP"
+Prefix the given URI with the last prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 517 of file Router\&.php\&.
+.SS "prefix ( $uri)\fC [protected]\fP"
+
+.PP
+Definition at line 6949 of file compiled\&.php\&.
+.SS "prepareResponse ( $request,  $response)\fC [protected]\fP"
+Create a response instance from the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1185 of file Router\&.php\&.
+.SS "prepareResponse ( $request,  $response)\fC [protected]\fP"
+
+.PP
+Definition at line 7213 of file compiled\&.php\&.
+.SS "prependGroupUses ( $uses)\fC [protected]\fP"
+Prepend the last group uses onto the use clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uses\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 595 of file Router\&.php\&.
+.SS "prependGroupUses ( $uses)\fC [protected]\fP"
+
+.PP
+Definition at line 6981 of file compiled\&.php\&.
+.SS "put ( $uri,  $action)"
+Register a new PUT route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 148 of file Router\&.php\&.
+.SS "put ( $uri,  $action)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6812 of file compiled\&.php\&.
+.SS "registerInspected ( $route,  $controller,  $method, & $names)\fC [protected]\fP"
+Register an inspected controller route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$method\fP 
+.br
+\fI$names\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 276 of file Router\&.php\&.
+.SS "registerInspected ( $route,  $controller,  $method, & $names)\fC [protected]\fP"
+
+.PP
+Definition at line 6857 of file compiled\&.php\&.
+.SS "resource ( $name,  $controller, array $options = \fCarray()\fP)"
+\fBRoute\fP a resource to a controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 324 of file Router\&.php\&.
+.SS "resource ( $name,  $controller, array $options = \fCarray()\fP)"
+
+.PP
+Implements \fBRegistrar\fP\&.
+.PP
+Definition at line 6874 of file compiled\&.php\&.
+.SS "resources (array $resources)"
+Register an array of resource controllers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resources\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 308 of file Router\&.php\&.
+.SS "resources (array $resources)"
+
+.PP
+Definition at line 6868 of file compiled\&.php\&.
+.SS "runRouteWithinStack (\fBRoute\fP $route, \fBRequest\fP $request)\fC [protected]\fP"
+Run the given route within a Stack 'onion' instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 681 of file Router\&.php\&.
+.SS "runRouteWithinStack (\fBRoute\fP $route, \fBRequest\fP $request)\fC [protected]\fP"
+
+.PP
+Definition at line 7012 of file compiled\&.php\&.
+.SS "setRoutes (\fBRouteCollection\fP $routes)"
+Set the route collection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$routes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1368 of file Router\&.php\&.
+.SS "setRoutes (\fBRouteCollection\fP $routes)"
+
+.PP
+Definition at line 7290 of file compiled\&.php\&.
+.SS "substituteBindings ( $route)\fC [protected]\fP"
+Substitute the route bindings onto the route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 733 of file Router\&.php\&.
+.SS "substituteBindings ( $route)\fC [protected]\fP"
+
+.PP
+Definition at line 7031 of file compiled\&.php\&.
+.SS "updateGroupStack (array $attributes)\fC [protected]\fP"
+Update the group stack with the given attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 354 of file Router\&.php\&.
+.SS "updateGroupStack (array $attributes)\fC [protected]\fP"
+
+.PP
+Definition at line 6884 of file compiled\&.php\&.
+.SS "uses ()"
+Alias for the 'currentRouteUses' method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1318 of file Router\&.php\&.
+.SS "uses ()"
+
+.PP
+Definition at line 7269 of file compiled\&.php\&.
+.SS "when ( $pattern,  $name,  $methods = \fCnull\fP)"
+Register a pattern-based filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP 
+.br
+\fI$name\fP 
+.br
+\fI$methods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 864 of file Router\&.php\&.
+.SS "when ( $pattern,  $name,  $methods = \fCnull\fP)"
+
+.PP
+Definition at line 7080 of file compiled\&.php\&.
+.SS "whenRegex ( $pattern,  $name,  $methods = \fCnull\fP)"
+Register a regular expression based filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP 
+.br
+\fI$name\fP 
+.br
+\fI$methods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 879 of file Router\&.php\&.
+.SS "whenRegex ( $pattern,  $name,  $methods = \fCnull\fP)"
+
+.PP
+Definition at line 7087 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$binders = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6794 of file compiled\&.php\&.
+.SS "$container\fC [protected]\fP"
+
+.PP
+Definition at line 6787 of file compiled\&.php\&.
+.SS "$\fBcurrent\fP\fC [protected]\fP"
+
+.PP
+Definition at line 6789 of file compiled\&.php\&.
+.SS "$currentRequest\fC [protected]\fP"
+
+.PP
+Definition at line 6790 of file compiled\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 6786 of file compiled\&.php\&.
+.SS "$groupStack = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6796 of file compiled\&.php\&.
+.SS "$\fBmiddleware\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6791 of file compiled\&.php\&.
+.SS "$patternFilters = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6792 of file compiled\&.php\&.
+.SS "$\fBpatterns\fP = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6795 of file compiled\&.php\&.
+.SS "$regexFilters = array()\fC [protected]\fP"
+
+.PP
+Definition at line 6793 of file compiled\&.php\&.
+.SS "$routes\fC [protected]\fP"
+
+.PP
+Definition at line 6788 of file compiled\&.php\&.
+.SS "static $verbs = array('GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS')\fC [static]\fP"
+
+.PP
+Definition at line 6797 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

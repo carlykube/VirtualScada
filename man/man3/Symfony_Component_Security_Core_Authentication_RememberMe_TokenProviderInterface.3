@@ -1,0 +1,107 @@
+.TH "TokenProviderInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TokenProviderInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBInMemoryTokenProvider\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBloadTokenBySeries\fP ($series)"
+.br
+.ti -1c
+.RI "\fBdeleteTokenBySeries\fP ($series)"
+.br
+.ti -1c
+.RI "\fBupdateToken\fP ($series, $tokenValue,\\DateTime $lastUsed)"
+.br
+.ti -1c
+.RI "\fBcreateNewToken\fP (\fBPersistentTokenInterface\fP $token)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for TokenProviders\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file TokenProviderInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createNewToken (\fBPersistentTokenInterface\fP $token)"
+Creates a new token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryTokenProvider\fP\&.
+.SS "deleteTokenBySeries ( $series)"
+Deletes all tokens belonging to series\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$series\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryTokenProvider\fP\&.
+.SS "loadTokenBySeries ( $series)"
+Loads the active token for the given series\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$series\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPersistentTokenInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fITokenNotFoundException\fP if the token is not found 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryTokenProvider\fP\&.
+.SS "updateToken ( $series,  $tokenValue, \\DateTime $lastUsed)"
+Updates the token according to this data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$series\fP 
+.br
+\fI$tokenValue\fP 
+.br
+\fI$lastUsed\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fITokenNotFoundException\fP if the token is not found 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryTokenProvider\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

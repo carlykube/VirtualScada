@@ -1,0 +1,526 @@
+.TH "HtmlBuilder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HtmlBuilder \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBUrlGenerator\fP $url=null)"
+.br
+.ti -1c
+.RI "\fBentities\fP ($value)"
+.br
+.ti -1c
+.RI "\fBdecode\fP ($value)"
+.br
+.ti -1c
+.RI "\fBscript\fP ($url, $\fBattributes\fP=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBstyle\fP ($url, $\fBattributes\fP=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBimage\fP ($url, $alt=null, $\fBattributes\fP=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBlink\fP ($url, $title=null, $\fBattributes\fP=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBsecureLink\fP ($url, $title=null, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBlinkAsset\fP ($url, $title=null, $\fBattributes\fP=array(), $secure=null)"
+.br
+.ti -1c
+.RI "\fBlinkSecureAsset\fP ($url, $title=null, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBlinkRoute\fP ($\fBname\fP, $title=null, $parameters=array(), $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBlinkAction\fP ($action, $title=null, $parameters=array(), $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBmailto\fP ($\fBemail\fP, $title=null, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBemail\fP ($email)"
+.br
+.ti -1c
+.RI "\fBol\fP ($list, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBul\fP ($list, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBattributes\fP ($attributes)"
+.br
+.ti -1c
+.RI "\fBobfuscate\fP ($value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlisting\fP ($type, $list, $\fBattributes\fP=array())"
+.br
+.ti -1c
+.RI "\fBlistingElement\fP ($key, $type, $value)"
+.br
+.ti -1c
+.RI "\fBnestedListing\fP ($key, $type, $value)"
+.br
+.ti -1c
+.RI "\fBattributeElement\fP ($key, $value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$url\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file HtmlBuilder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBUrlGenerator\fP $url = \fCnull\fP)"
+Create a new \fBHTML\fP builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file HtmlBuilder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "attributeElement ( $key,  $value)\fC [protected]\fP"
+Build a single attribute element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file HtmlBuilder\&.php\&.
+.SS "attributes ( $attributes)"
+Build an \fBHTML\fP attribute string from an array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file HtmlBuilder\&.php\&.
+.SS "decode ( $value)"
+Convert entities to \fBHTML\fP characters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file HtmlBuilder\&.php\&.
+.SS "email ( $email)"
+Obfuscate an e-mail address to prevent spam-bots from sniffing it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$email\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 213 of file HtmlBuilder\&.php\&.
+.SS "entities ( $value)"
+Convert an \fBHTML\fP string to entities\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file HtmlBuilder\&.php\&.
+.SS "image ( $url,  $alt = \fCnull\fP,  $attributes = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate an \fBHTML\fP image element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$alt\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file HtmlBuilder\&.php\&.
+.SS "link ( $url,  $title = \fCnull\fP,  $attributes = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate a \fBHTML\fP link\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$title\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file HtmlBuilder\&.php\&.
+.SS "linkAction ( $action,  $title = \fCnull\fP,  $parameters = \fCarray()\fP,  $attributes = \fCarray()\fP)"
+Generate a \fBHTML\fP link to a controller action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.br
+\fI$title\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file HtmlBuilder\&.php\&.
+.SS "linkAsset ( $url,  $title = \fCnull\fP,  $attributes = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate a \fBHTML\fP link to an asset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$title\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file HtmlBuilder\&.php\&.
+.SS "linkRoute ( $name,  $title = \fCnull\fP,  $parameters = \fCarray()\fP,  $attributes = \fCarray()\fP)"
+Generate a \fBHTML\fP link to a named route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$title\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file HtmlBuilder\&.php\&.
+.SS "linkSecureAsset ( $url,  $title = \fCnull\fP,  $attributes = \fCarray()\fP)"
+Generate a HTTPS \fBHTML\fP link to an asset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$title\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file HtmlBuilder\&.php\&.
+.SS "listing ( $type,  $list,  $attributes = \fCarray()\fP)\fC [protected]\fP"
+Create a listing \fBHTML\fP element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$list\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file HtmlBuilder\&.php\&.
+.SS "listingElement ( $key,  $type,  $value)\fC [protected]\fP"
+Create the \fBHTML\fP for a listing element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$type\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 277 of file HtmlBuilder\&.php\&.
+.SS "mailto ( $email,  $title = \fCnull\fP,  $attributes = \fCarray()\fP)"
+Generate a \fBHTML\fP link to an email address\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$email\fP 
+.br
+\fI$title\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file HtmlBuilder\&.php\&.
+.SS "nestedListing ( $key,  $type,  $value)\fC [protected]\fP"
+Create the \fBHTML\fP for a nested listing attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$type\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 297 of file HtmlBuilder\&.php\&.
+.SS "obfuscate ( $value)"
+Obfuscate a string to prevent spam-bots from sniffing it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 352 of file HtmlBuilder\&.php\&.
+.SS "ol ( $list,  $attributes = \fCarray()\fP)"
+Generate an ordered list of items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$list\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file HtmlBuilder\&.php\&.
+.SS "script ( $url,  $attributes = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate a link to a JavaScript file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file HtmlBuilder\&.php\&.
+.SS "secureLink ( $url,  $title = \fCnull\fP,  $attributes = \fCarray()\fP)"
+Generate a HTTPS \fBHTML\fP link\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$title\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file HtmlBuilder\&.php\&.
+.SS "style ( $url,  $attributes = \fCarray()\fP,  $secure = \fCnull\fP)"
+Generate a link to a CSS file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$attributes\fP 
+.br
+\fI$secure\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file HtmlBuilder\&.php\&.
+.SS "ul ( $list,  $attributes = \fCarray()\fP)"
+Generate an un-ordered list of items\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$list\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file HtmlBuilder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$url\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file HtmlBuilder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

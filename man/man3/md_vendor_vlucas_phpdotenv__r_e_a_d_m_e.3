@@ -1,0 +1,121 @@
+.TH "md_vendor_vlucas_phpdotenv__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_vlucas_phpdotenv__r_e_a_d_m_e \- \fBPHP\fP dotenv 
+Loads environment variables from \fC\&.env\fP to \fCgetenv()\fP, \fC$_ENV\fP and \fC$_SERVER\fP automagically\&.
+.PP
+This is a \fBPHP\fP version of the original \fCRuby dotenv\fP\&.
+.PP
+\fC![Build Status](https://secure\&.travis-ci\&.org/vlucas/phpdotenv\&.png)\fP
+.PP
+.SS "Why \&.env? "
+.PP
+\fBYou should never store sensitive credentials in your code\fP\&. Storing \fCconfiguration in the environment\fP is one of the tenets of a \fCtwelve-factor app\fP\&. Anything that is likely to change between deployment environments – such as database credentials or credentials for 3rd party services – should be extracted from the code into environment variables\&.
+.PP
+Basically, a \fC\&.env\fP file is an easy way to load custom configuration variables that your application needs without having to modify \&.htaccess files or Apache/nginx virtual hosts\&. This means you won't have to edit any files outside the project, and all the environment variables are always set no matter how you run your project - Apache, Nginx, CLI, and even \fBPHP\fP 5\&.4's built-in webserver\&. It's WAY easier than all the other ways you know of to set environment variables, and you're going to love it\&.
+.PP
+.IP "\(bu" 2
+NO editing virtual hosts in Apache or Nginx
+.IP "\(bu" 2
+NO adding \fCphp_value\fP flags to \&.htaccess files
+.IP "\(bu" 2
+EASY portability and sharing of required ENV values
+.IP "\(bu" 2
+COMPATIBLE with \fBPHP\fP's built-in web server and CLI runner
+.PP
+.PP
+.SS "Installation with \fBComposer\fP "
+.PP
+```shell curl -s http://getcomposer.org/installer | php php composer\&.phar require vlucas/phpdotenv ```
+.PP
+.SS "Usage "
+.PP
+The \fC\&.env\fP file is generally kept out of version control since it can contain sensitive API keys and passwords\&. \fBA\fP separate \fC\&.env\&.example\fP file is created with all the required environment variables defined except for the sensitive ones, which are either user-supplied for their own development environments or are communicated elsewhere to project collaborators\&. The project collaborators then independently copy the \fC\&.env\&.example\fP file to a local \fC\&.env\fP and ensure all the settings are correct for their local environment, filling in the secret keys or providing their own values when necessary\&. In this usage, the \fC\&.env\fP file should be added to the project's \fC\&.gitignore\fP file so that it will never be committed by collaborators\&. This usage ensures that no sensitive passwords or API keys will ever be in the version control history so there is less risk of a security breach, and production values will never have to be shared with all project collaborators\&.
+.PP
+Add your application configuration to a \fC\&.env\fP file in the root of your project\&. \fBMake sure the \fC\&.env\fP file is added to your \fC\&.gitignore\fP so it is not checked-in the code\fP
+.PP
+```shell S3_BUCKET=dotenv SECRET_KEY=souper_seekret_key ```
+.PP
+Now create a file named \fC\&.env\&.example\fP and check this into the project\&. This should have the ENV variables you need to have set, but the values should either be blank or filled with dummy data\&. The idea is to let people know what variables are required, but not give them the sensitive production values\&.
+.PP
+```shell S3_BUCKET=devbucket SECRET_KEY=abc123 ```
+.PP
+You can then load \fC\&.env\fP in your application with a single line: ```php \fBDotenv::load\fP(\fBDIR\fP); ```
+.PP
+All of the defined variables are now accessible with the \fCgetenv\fP method, and are available in the \fC$_ENV\fP and \fC$_SERVER\fP super-globals\&. ```php $s3_bucket = getenv('S3_BUCKET'); $s3_bucket = $_ENV['S3_BUCKET']; $s3_bucket = $_SERVER['S3_BUCKET']; ```
+.PP
+You should also be able to access them using your framework's \fBRequest\fP class (if you are using a framework)\&. ```php $s3_bucket = $request->env('S3_BUCKET'); $s3_bucket = $request->getEnv('S3_BUCKET'); $s3_bucket = $request->server->get('S3_BUCKET'); ```
+.PP
+.SS "Nesting Variables"
+.PP
+It's possible to nest an environment variable within another, useful to cut down on repetition\&.
+.PP
+This is done by wrapping an existing environment variable in \fC{$…}\fP e\&.g\&.
+.PP
+```shell BASE_DIR=/var/webroot/project-root CACHE_DIR={$BASE_DIR}/cache TMP_DIR={$BASE_DIR}/tmp ```
+.PP
+.SS "Immutability"
+.PP
+By default, \fBDotenv\fP treats environment variables as immutable, that is… once set they cannot be changed\&.
+.PP
+You can make \fBDotenv\fP mutable using
+.PP
+```php \fBDotenv::makeMutable()\fP; ```
+.PP
+… and you can make \fBDotenv\fP immutable again using
+.PP
+```php \fBDotenv::makeImmutable()\fP; ```
+.PP
+.SS "Requiring Variables to be Set "
+.PP
+Using \fBDotenv\fP, you can require specific ENV vars to be defined, and throw an Exception if they are not\&. This is particularly useful to let people know any explicit required variables that your app will not work without\&.
+.PP
+You can use a single string: ```php \fBDotenv::required\fP('DATABASE_DSN'); ```
+.PP
+Or an array of strings: ```php \fBDotenv::required\fP(array('DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS')); ```
+.PP
+If any ENV vars are missing, \fBDotenv\fP will throw a \fCRuntimeException\fP like this: ``` Required environment variable missing or value not allowed: 'DB_USER', 'DB_PASS' ```
+.PP
+.SS "Allowed values"
+.PP
+As you may have noticed from the Exception message above, it's also possible to define a set of values that your environment variable should adhere to\&.
+.PP
+```php \fBDotenv::required\fP('SESSION_STORE', array('Filesystem', 'Memcached')); ```
+.PP
+Again, if the environment variable wasn't in this list, you'd get a similar Exception: ``` Required environment variable missing or value not allowed: 'SESSION_STORE' ```
+.PP
+.SS "Comments"
+.PP
+You can comment your \fC\&.env\fP file using the \fC#\fP character\&. E\&.g\&.
+.PP
+```shell 
+.SH "this is a comment"
+.PP
+.PP
+VAR='value' # comment VAR=value # comment ```
+.PP
+.SS "Usage Notes "
+.PP
+When a new developer clones your codebase, they will have an additional \fBone-time step\fP to manually copy the \fC\&.env\&.example\fP file to \fC\&.env\fP and fill-in their own values (or get any sensitive values from a project co-worker)\&.
+.PP
+phpdotenv is made for development environments, and generally should not be used in production\&. In production, the actual environment variables should be set so that there is no overhead of loading the \fC\&.env\fP file on each request\&. This can be achieved via an automated deployment process with tools like Vagrant, chef, or Puppet, or can be set manually with cloud hosts like Pagodabox and Heroku\&.
+.PP
+.SS "Contributing "
+.PP
+.IP "1." 4
+Fork it
+.IP "2." 4
+Create your feature branch (\fCgit checkout -b my-new-feature\fP)
+.IP "3." 4
+Make your changes
+.IP "4." 4
+Run the tests, adding new ones for your own code if necessary (\fCphpunit\fP)
+.IP "5." 4
+Commit your changes (\fCgit commit -am 'Added some feature'\fP)
+.IP "6." 4
+Push to the branch (\fCgit push origin my-new-feature\fP)
+.IP "7." 4
+Create new Pull \fBRequest\fP 
+.PP
+

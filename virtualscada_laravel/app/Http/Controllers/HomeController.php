@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+/**
+ * Project that controls the home screen of the user
+ *
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller {
 
 	/*

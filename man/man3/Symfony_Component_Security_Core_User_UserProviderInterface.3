@@ -1,0 +1,117 @@
+.TH "UserProviderInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UserProviderInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBChainUserProvider\fP, and \fBInMemoryUserProvider\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBloadUserByUsername\fP ($username)"
+.br
+.ti -1c
+.RI "\fBrefreshUser\fP (\fBUserInterface\fP $user)"
+.br
+.ti -1c
+.RI "\fBsupportsClass\fP ($class)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a class that loads \fBUserInterface\fP objects from some source for the authentication system\&.
+.PP
+In a typical authentication configuration, a username (i\&.e\&. some unique user identifier) credential enters the system (via form login, or any method)\&. The user provider that is configured with that authentication method is asked to load the \fBUserInterface\fP object for the given username (via loadUserByUsername) so that the rest of the process can continue\&.
+.PP
+Internally, a user provider can load users from any source (databases, configuration, web service)\&. This is totally independent of how the authentication information is submitted or what the \fBUserInterface\fP object looks like\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBUserInterface\fP
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file UserProviderInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "loadUserByUsername ( $username)"
+Loads the user for the given username\&.
+.PP
+This method must throw UsernameNotFoundException if the user is not found\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP The username
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBUserInterface\fP
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+UsernameNotFoundException
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUsernameNotFoundException\fP if the user is not found 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryUserProvider\fP, and \fBChainUserProvider\fP\&.
+.SS "refreshUser (\fBUserInterface\fP $user)"
+Refreshes the user for the account interface\&.
+.PP
+It is up to the implementation to decide if the user data should be totally reloaded (e\&.g\&. from the database), or if the \fBUserInterface\fP object can just be merged into some internal array of users / identity map\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBUserInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUnsupportedUserException\fP if the account is not supported 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryUserProvider\fP, and \fBChainUserProvider\fP\&.
+.SS "supportsClass ( $class)"
+Whether this provider supports the given user class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBInMemoryUserProvider\fP, and \fBChainUserProvider\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

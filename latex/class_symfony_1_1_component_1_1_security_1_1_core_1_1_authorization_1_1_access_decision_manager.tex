@@ -1,0 +1,188 @@
+\section{Access\+Decision\+Manager Class Reference}
+\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager}\index{Access\+Decision\+Manager@{Access\+Decision\+Manager}}
+Inheritance diagram for Access\+Decision\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$voters, \$strategy=self\+::\+S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E, \$allow\+If\+All\+Abstain\+Decisions=false, \$allow\+If\+Equal\+Granted\+Denied\+Decisions=true)
+\item 
+{\bf decide} ({\bf Token\+Interface} \$token, array \$attributes, \$object=null)
+\item 
+{\bf supports\+Attribute} (\${\bf attribute})
+\item 
+{\bf supports\+Class} (\$class)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E} = \textquotesingle{}affirmative\textquotesingle{}
+\item 
+const {\bf S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S} = \textquotesingle{}consensus\textquotesingle{}
+\item 
+const {\bf S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S} = \textquotesingle{}unanimous\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Access\+Decision\+Manager}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager} is the base class for all access decision managers that use decision voters.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 23 of file Access\+Decision\+Manager.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$voters, }
+\item[{}]{\$strategy = {\ttfamily self\+:\+:STRATEGY\+\_\+AFFIRMATIVE}, }
+\item[{}]{\$allow\+If\+All\+Abstain\+Decisions = {\ttfamily false}, }
+\item[{}]{\$allow\+If\+Equal\+Granted\+Denied\+Decisions = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_a96a7afd2bfa119ad50f3ebeccbdc17dc}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em Voter\+Interface\mbox{[}$\,$\mbox{]}} & \$voters An array of Voter\+Interface instances \\
+\hline
+string & {\em \$strategy} & The vote strategy \\
+\hline
+bool & {\em \$allow\+If\+All\+Abstain\+Decisions} & Whether to grant access if all voters abstained or not \\
+\hline
+bool & {\em \$allow\+If\+Equal\+Granted\+Denied\+Decisions} & Whether to grant access if result are equals\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 44 of file Access\+Decision\+Manager.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!decide@{decide}}
+\index{decide@{decide}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{decide}]{\setlength{\rightskip}{0pt plus 5cm}decide (
+\begin{DoxyParamCaption}
+\item[{{\bf Token\+Interface}}]{\$token, }
+\item[{array}]{\$attributes, }
+\item[{}]{\$object = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_af28af1026268b2bf8be6b15df0264e36}
+\{Decides whether the access is possible or not.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Token\+Interface & {\em \$token} & \doxyref{A}{p.}{class_a} Token\+Interface instance \\
+\hline
+array & {\em \$attributes} & An array of attributes associated with the method being invoked \\
+\hline
+object & {\em \$object} & The object to secure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the access is granted, false otherwise
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Access\+Decision\+Manager\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_interface_af28af1026268b2bf8be6b15df0264e36}.
+
+
+
+Definition at line 64 of file Access\+Decision\+Manager.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!supports\+Attribute@{supports\+Attribute}}
+\index{supports\+Attribute@{supports\+Attribute}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{supports\+Attribute}]{\setlength{\rightskip}{0pt plus 5cm}supports\+Attribute (
+\begin{DoxyParamCaption}
+\item[{}]{\$attribute}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_a136747bec1bb834c85784db16f7d1690}
+\{Checks if the access decision manager supports the given attribute.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$attribute} & An attribute\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if this decision manager supports the attribute, false otherwise
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Access\+Decision\+Manager\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_interface_a136747bec1bb834c85784db16f7d1690}.
+
+
+
+Definition at line 72 of file Access\+Decision\+Manager.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!supports\+Class@{supports\+Class}}
+\index{supports\+Class@{supports\+Class}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{supports\+Class}]{\setlength{\rightskip}{0pt plus 5cm}supports\+Class (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_afdff6bbfde26b09a76d382483faf698b}
+\{Checks if the access decision manager supports the given class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \doxyref{A}{p.}{class_a} class name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this decision manager can process the class
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Access\+Decision\+Manager\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_interface_afdff6bbfde26b09a76d382483faf698b}.
+
+
+
+Definition at line 86 of file Access\+Decision\+Manager.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E}}
+\index{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E}]{\setlength{\rightskip}{0pt plus 5cm}const S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+A\+F\+F\+I\+R\+M\+A\+T\+I\+V\+E = \textquotesingle{}affirmative\textquotesingle{}}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_a1db1d83246542b39adf64834d3d074ae}
+
+
+Definition at line 25 of file Access\+Decision\+Manager.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S}}
+\index{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}const S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+C\+O\+N\+S\+E\+N\+S\+U\+S = \textquotesingle{}consensus\textquotesingle{}}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_a278f136b7e9addada309f58f40cf7a19}
+
+
+Definition at line 26 of file Access\+Decision\+Manager.\+php.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}!S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S}}
+\index{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S@{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+Authorization\+::\+Access\+Decision\+Manager}}
+\subsubsection[{S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}const S\+T\+R\+A\+T\+E\+G\+Y\+\_\+\+U\+N\+A\+N\+I\+M\+O\+U\+S = \textquotesingle{}unanimous\textquotesingle{}}\label{class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_access_decision_manager_ab60962b1538a4d2e8488071044a89695}
+
+
+Definition at line 27 of file Access\+Decision\+Manager.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/security-\/core/\+Symfony/\+Component/\+Security/\+Core/\+Authorization/{\bf Access\+Decision\+Manager.\+php}\end{DoxyCompactItemize}

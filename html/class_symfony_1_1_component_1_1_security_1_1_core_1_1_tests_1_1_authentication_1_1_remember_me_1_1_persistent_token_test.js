@@ -1,0 +1,4 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_remember_me_1_1_persistent_token_test =
+[
+    [ "testConstructor", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_tests_1_1_authentication_1_1_remember_me_1_1_persistent_token_test.html#a47094dc941e72950570900d1418f89c6", null ]
+];

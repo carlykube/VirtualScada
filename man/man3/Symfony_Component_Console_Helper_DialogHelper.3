@@ -1,0 +1,270 @@
+.TH "DialogHelper" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DialogHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBInputAwareHelper\fP\&.
+.PP
+Inherited by \fBDialogHelper\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBselect\fP (\fBOutputInterface\fP $output, $question, $choices, $default=null, $attempts=false, $errorMessage= 'Value'%s'is invalid', $multiselect=false)"
+.br
+.ti -1c
+.RI "\fBask\fP (\fBOutputInterface\fP $output, $question, $default=null, array $autocomplete=null)"
+.br
+.ti -1c
+.RI "\fBaskConfirmation\fP (\fBOutputInterface\fP $output, $question, $default=true)"
+.br
+.ti -1c
+.RI "\fBaskHiddenResponse\fP (\fBOutputInterface\fP $output, $question, $fallback=true)"
+.br
+.ti -1c
+.RI "\fBaskAndValidate\fP (\fBOutputInterface\fP $output, $question, $validator, $attempts=false, $default=null, array $autocomplete=null)"
+.br
+.ti -1c
+.RI "\fBaskHiddenResponseAndValidate\fP (\fBOutputInterface\fP $output, $question, $validator, $attempts=false, $fallback=true)"
+.br
+.ti -1c
+.RI "\fBsetInputStream\fP ($\fBstream\fP)"
+.br
+.ti -1c
+.RI "\fBgetInputStream\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The Dialog class provides helpers to interact with the user\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.5, to be removed in 3\&.0\&. Use the question helper instead\&. 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file DialogHelper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "ask (\fBOutputInterface\fP $output,  $question,  $default = \fCnull\fP, array $autocomplete = \fCnull\fP)"
+Asks a question to the user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question to ask 
+.br
+\fI$default\fP The default answer if none is given by the user 
+.br
+\fI$autocomplete\fP List of values to autocomplete
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The user answer
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 102 of file DialogHelper\&.php\&.
+.SS "askAndValidate (\fBOutputInterface\fP $output,  $question,  $validator,  $attempts = \fCfalse\fP,  $default = \fCnull\fP, array $autocomplete = \fCnull\fP)"
+Asks for a value and validates the response\&.
+.PP
+The validator receives the data to validate\&. It must return the validated data when the data is valid and throw an exception otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question to ask 
+.br
+\fI$validator\fP \fBA\fP \fBPHP\fP callback 
+.br
+\fI$attempts\fP Max number of times to ask before giving up (false by default, which means infinite) 
+.br
+\fI$default\fP The default answer if none is given by the user 
+.br
+\fI$autocomplete\fP List of values to autocomplete
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 340 of file DialogHelper\&.php\&.
+.SS "askConfirmation (\fBOutputInterface\fP $output,  $question,  $default = \fCtrue\fP)"
+Asks a confirmation to the user\&.
+.PP
+The question will be asked until the user answers by nothing, yes, or no\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question to ask 
+.br
+\fI$default\fP The default answer if the user enters nothing
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user has confirmed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file DialogHelper\&.php\&.
+.SS "askHiddenResponse (\fBOutputInterface\fP $output,  $question,  $fallback = \fCtrue\fP)"
+Asks a question to the user, the response is hidden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question 
+.br
+\fI$fallback\fP In case the response can not be hidden, whether to fallback on non-hidden question or not
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The answer
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 263 of file DialogHelper\&.php\&.
+.SS "askHiddenResponseAndValidate (\fBOutputInterface\fP $output,  $question,  $validator,  $attempts = \fCfalse\fP,  $fallback = \fCtrue\fP)"
+Asks for a value, hide and validates the response\&.
+.PP
+The validator receives the data to validate\&. It must return the validated data when the data is valid and throw an exception otherwise\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question to ask 
+.br
+\fI$validator\fP \fBA\fP \fBPHP\fP callback 
+.br
+\fI$attempts\fP Max number of times to ask before giving up (false by default, which means infinite) 
+.br
+\fI$fallback\fP In case the response can not be hidden, whether to fallback on non-hidden question or not
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The response
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 369 of file DialogHelper\&.php\&.
+.SS "getInputStream ()"
+Returns the helper's input stream\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 397 of file DialogHelper\&.php\&.
+.SS "getName ()"
+{Returns the canonical name of this helper\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The canonical name
+.RE
+.PP
+} 
+.PP
+Implements \fBHelperInterface\fP\&.
+.PP
+Definition at line 405 of file DialogHelper\&.php\&.
+.SS "select (\fBOutputInterface\fP $output,  $question,  $choices,  $default = \fCnull\fP,  $attempts = \fCfalse\fP,  $errorMessage = \fC'Value '%s' is invalid'\fP,  $multiselect = \fCfalse\fP)"
+Asks the user to select a value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP An \fBOutput\fP instance 
+.br
+\fI$question\fP The question to ask 
+.br
+\fI$choices\fP List of choices to pick from 
+.br
+\fI$default\fP The default answer if the user enters nothing 
+.br
+\fI$attempts\fP Max number of times to ask before giving up (false by default, which means infinite) 
+.br
+\fI$errorMessage\fP Message which will be shown if invalid value from choice list would be picked 
+.br
+\fI$multiselect\fP Select more than one value separated by comma
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int|string|array The selected value or values (the key of the choices array)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 46 of file DialogHelper\&.php\&.
+.SS "setInputStream ( $stream)"
+Sets the input stream to read from when interacting with the user\&.
+.PP
+This is mainly useful for testing purpose\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stream\fP The input stream 
+.RE
+.PP
+
+.PP
+Definition at line 387 of file DialogHelper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

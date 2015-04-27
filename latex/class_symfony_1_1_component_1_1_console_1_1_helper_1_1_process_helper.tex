@@ -1,0 +1,173 @@
+\section{Process\+Helper Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper}\index{Process\+Helper@{Process\+Helper}}
+Inheritance diagram for Process\+Helper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf run} ({\bf Output\+Interface} \$output, \$cmd, \$error=null, \${\bf callback}=null, \$verbosity={\bf Output\+Interface\+::\+V\+E\+R\+B\+O\+S\+I\+T\+Y\+\_\+\+V\+E\+R\+Y\+\_\+\+V\+E\+R\+B\+O\+S\+E})
+\item 
+{\bf must\+Run} ({\bf Output\+Interface} \$output, \$cmd, \$error=null, \${\bf callback}=null)
+\item 
+{\bf wrap\+Callback} ({\bf Output\+Interface} \$output, {\bf Process} \$process, \${\bf callback}=null)
+\item 
+{\bf escape\+String} (\$str)
+\item 
+{\bf get\+Name} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \doxyref{Process\+Helper}{p.}{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper} class provides helpers to run external processes.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 24 of file Process\+Helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}!escape\+String@{escape\+String}}
+\index{escape\+String@{escape\+String}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}}
+\subsubsection[{escape\+String}]{\setlength{\rightskip}{0pt plus 5cm}escape\+String (
+\begin{DoxyParamCaption}
+\item[{}]{\$str}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a2d931763c47d46ab7c26ba4e69d969d7}
+This method is public for \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 compatibility, it should be private. 
+
+Definition at line 130 of file Process\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a3d0963e68bb313b163a73f2803c64600}
+\{Returns the canonical name of this helper.
+
+\begin{DoxyReturn}{Returns}
+string The canonical name
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Helper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_helper_1_1_helper_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 138 of file Process\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}!must\+Run@{must\+Run}}
+\index{must\+Run@{must\+Run}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}}
+\subsubsection[{must\+Run}]{\setlength{\rightskip}{0pt plus 5cm}must\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$cmd, }
+\item[{}]{\$error = {\ttfamily null}, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a249926f6e7d89907b9e888f5d0d43852}
+Runs the process.
+
+This is identical to \doxyref{run()}{p.}{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a90139b0c2aed9cec38111865ce55176c} except that an exception is thrown if the process exits with a non-\/zero exit code.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An Output\+Interface instance \\
+\hline
+string | \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} & {\em \$cmd} & An instance of \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} or a command to run \\
+\hline
+string | null & {\em \$error} & An error message that must be displayed if something went wrong \\
+\hline
+callable | null & {\em \$callback} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callback to run whenever there is some output available on S\+T\+D\+O\+U\+T or S\+T\+D\+E\+R\+R\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} The process that ran
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Process\+Failed\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\doxyref{run()}{p.}{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a90139b0c2aed9cec38111865ce55176c} 
+\end{DoxySeeAlso}
+
+
+Definition at line 90 of file Process\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}!run@{run}}
+\index{run@{run}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$cmd, }
+\item[{}]{\$error = {\ttfamily null}, }
+\item[{}]{\$callback = {\ttfamily null}, }
+\item[{}]{\$verbosity = {\ttfamily {\bf Output\+Interface\+::\+V\+E\+R\+B\+O\+S\+I\+T\+Y\+\_\+\+V\+E\+R\+Y\+\_\+\+V\+E\+R\+B\+O\+S\+E}}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a90139b0c2aed9cec38111865ce55176c}
+Runs an external process.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An Output\+Interface instance \\
+\hline
+string | array | \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} & {\em \$cmd} & An instance of \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} or an array of arguments to escape and run or a command to run \\
+\hline
+string | null & {\em \$error} & An error message that must be displayed if something went wrong \\
+\hline
+callable | null & {\em \$callback} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callback to run whenever there is some output available on S\+T\+D\+O\+U\+T or S\+T\+D\+E\+R\+R \\
+\hline
+int & {\em \$verbosity} & The threshold for verbosity\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} The process that ran 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file Process\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}!wrap\+Callback@{wrap\+Callback}}
+\index{wrap\+Callback@{wrap\+Callback}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Process\+Helper}}
+\subsubsection[{wrap\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}wrap\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{{\bf Process}}]{\$process, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_process_helper_a7c5b6a75618f7376c9f74c54d4ed7ef4}
+Wraps a \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} callback to add debugging output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An Output\+Interface interface \\
+\hline
+\doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} & {\em \$process} & The \doxyref{Process}{p.}{namespace_symfony_1_1_component_1_1_process} \\
+\hline
+callable | null & {\em \$callback} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Process\+Helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/\+Helper/{\bf Process\+Helper.\+php}\end{DoxyCompactItemize}

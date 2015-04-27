@@ -1,0 +1,251 @@
+.TH "BaseMemcacheProfilerStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BaseMemcacheProfilerStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProfilerStorageInterface\fP\&.
+.PP
+Inherited by \fBMemcachedProfilerStorage\fP, and \fBMemcacheProfilerStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($dsn, $username= '', $password= '', $lifetime=86400)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTOKEN_PREFIX\fP = 'sf_profiler_'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetValue\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetValue\fP ($key, $value, $expiration=0)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($key)"
+.br
+.ti -1c
+.RI "\fBappendValue\fP ($key, $value, $expiration=0)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$dsn\fP"
+.br
+.ti -1c
+.RI "\fB$lifetime\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base Memcache storage for profiling information in a Memcache\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Andrej Hudec pulzarraider@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file BaseMemcacheProfilerStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $dsn,  $username = \fC''\fP,  $password = \fC''\fP,  $lifetime = \fC86400\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dsn\fP \fBA\fP data source name 
+.br
+\fI$username\fP 
+.br
+\fI$password\fP 
+.br
+\fI$lifetime\fP The lifetime to use for the purge 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file BaseMemcacheProfilerStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "appendValue ( $key,  $value,  $expiration = \fC0\fP)\fC [abstract]\fP, \fC [protected]\fP"
+Append data to an existing item on the memcache server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$expiration\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "delete ( $key)\fC [abstract]\fP, \fC [protected]\fP"
+Delete item from the memcache server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+{Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 43 of file BaseMemcacheProfilerStorage\&.php\&.
+.SS "getValue ( $key)\fC [abstract]\fP, \fC [protected]\fP"
+Retrieve item from the memcache server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "purge ()"
+{Purges all data from the database\&.} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 105 of file BaseMemcacheProfilerStorage\&.php\&.
+.SS "read ( $token)"
+{Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 134 of file BaseMemcacheProfilerStorage\&.php\&.
+.SS "setValue ( $key,  $value,  $expiration = \fC0\fP)\fC [abstract]\fP, \fC [protected]\fP"
+Store an item on the memcache server under the specified key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.br
+\fI$expiration\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "write (\fBProfile\fP $profile)"
+{Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 152 of file BaseMemcacheProfilerStorage\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$dsn\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file BaseMemcacheProfilerStorage\&.php\&.
+.SS "$lifetime\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file BaseMemcacheProfilerStorage\&.php\&.
+.SS "const TOKEN_PREFIX = 'sf_profiler_'"
+
+.PP
+Definition at line 21 of file BaseMemcacheProfilerStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

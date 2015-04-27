@@ -1,0 +1,305 @@
+.TH "Profiler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Profiler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBProfilerStorageInterface\fP $storage, \fBLoggerInterface\fP $logger=null)"
+.br
+.ti -1c
+.RI "\fBdisable\fP ()"
+.br
+.ti -1c
+.RI "\fBenable\fP ()"
+.br
+.ti -1c
+.RI "\fBloadProfileFromResponse\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBloadProfile\fP ($token)"
+.br
+.ti -1c
+.RI "\fBsaveProfile\fP (\fBProfile\fP $profile)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.ti -1c
+.RI "\fBexport\fP (\fBProfile\fP $profile)"
+.br
+.ti -1c
+.RI "\fBimport\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start, $end)"
+.br
+.ti -1c
+.RI "\fBcollect\fP (\fBRequest\fP $request, \fBResponse\fP $response,\\Exception $exception=null)"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBset\fP (array $collectors=array())"
+.br
+.ti -1c
+.RI "\fBadd\fP (\fBDataCollectorInterface\fP $collector)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProfiler\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Profiler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBProfilerStorageInterface\fP $storage, \fBLoggerInterface\fP $logger = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$storage\fP \fBA\fP \fBProfilerStorageInterface\fP instance 
+.br
+\fI$logger\fP \fBA\fP LoggerInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file Profiler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add (\fBDataCollectorInterface\fP $collector)"
+Adds a Collector\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$collector\fP \fBA\fP DataCollectorInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 246 of file Profiler\&.php\&.
+.SS "all ()"
+Gets the Collectors associated with this profiler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of collectors 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file Profiler\&.php\&.
+.SS "collect (\fBRequest\fP $request, \fBResponse\fP $response, \\Exception $exception = \fCnull\fP)"
+Collects data for the given \fBResponse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance 
+.br
+\fI$exception\fP An exception instance if the request threw one
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Profile|null \fBA\fP \fBProfile\fP instance or null if the profiler is disabled 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Profiler\&.php\&.
+.SS "disable ()"
+Disables the profiler\&. 
+.PP
+Definition at line 62 of file Profiler\&.php\&.
+.SS "enable ()"
+Enables the profiler\&. 
+.PP
+Definition at line 70 of file Profiler\&.php\&.
+.SS "export (\fBProfile\fP $profile)"
+Exports the current profiler data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The exported data 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file Profiler\&.php\&.
+.SS "find ( $ip,  $url,  $limit,  $method,  $start,  $end)"
+Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/datetime.formats.php \fBfor\fP the supported date/time formats 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file Profiler\&.php\&.
+.SS "get ( $name)"
+Gets a Collector by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP collector name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DataCollectorInterface \fBA\fP DataCollectorInterface instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 272 of file Profiler\&.php\&.
+.SS "has ( $name)"
+Returns true if a Collector for the given name exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP \fBA\fP collector name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 258 of file Profiler\&.php\&.
+.SS "import ( $data)"
+Imports data into the profiler storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP \fBA\fP data string as exported by the \fBexport()\fP method
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP \fBA\fP \fBProfile\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file Profiler\&.php\&.
+.SS "loadProfile ( $token)"
+Loads the \fBProfile\fP for the given token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP \fBA\fP \fBProfile\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file Profiler\&.php\&.
+.SS "loadProfileFromResponse (\fBResponse\fP $response)"
+Loads the \fBProfile\fP for the given \fBResponse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP \fBA\fP \fBProfile\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file Profiler\&.php\&.
+.SS "purge ()"
+Purges all data from the storage\&. 
+.PP
+Definition at line 129 of file Profiler\&.php\&.
+.SS "saveProfile (\fBProfile\fP $profile)"
+Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Profiler\&.php\&.
+.SS "set (array $collectors = \fCarray()\fP)"
+Sets the Collectors associated with this profiler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIDataCollectorInterface[]\fP $collectors An array of collectors 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file Profiler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

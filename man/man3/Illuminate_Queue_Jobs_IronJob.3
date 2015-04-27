@@ -1,0 +1,253 @@
+.TH "IronJob" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IronJob \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJob\fP, and \fBJob\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBContainer\fP $container, \fBIronQueue\fP $iron, $job, $pushed=false)"
+.br
+.ti -1c
+.RI "\fBfire\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRawBody\fP ()"
+.br
+.ti -1c
+.RI "\fBdelete\fP ()"
+.br
+.ti -1c
+.RI "\fBrelease\fP ($\fBdelay\fP=0)"
+.br
+.ti -1c
+.RI "\fBattempts\fP ()"
+.br
+.ti -1c
+.RI "\fBgetJobId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIron\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIronJob\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrecreateJob\fP ($\fBdelay\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$iron\fP"
+.br
+.ti -1c
+.RI "\fB$job\fP"
+.br
+.ti -1c
+.RI "\fB$pushed\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file IronJob\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBContainer\fP $container, \fBIronQueue\fP $iron,  $job,  $pushed = \fCfalse\fP)"
+Create a new job instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP 
+.br
+\fI$iron\fP 
+.br
+\fI$job\fP 
+.br
+\fI$pushed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file IronJob\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "attempts ()"
+Get the number of times the job has been attempted\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBJob\fP\&.
+.PP
+Definition at line 119 of file IronJob\&.php\&.
+.SS "delete ()"
+Delete the job from the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBJob\fP\&.
+.PP
+Definition at line 75 of file IronJob\&.php\&.
+.SS "fire ()"
+Fire the job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBJob\fP\&.
+.PP
+Definition at line 55 of file IronJob\&.php\&.
+.SS "getContainer ()"
+Get the IoC container instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 139 of file IronJob\&.php\&.
+.SS "getIron ()"
+Get the underlying Iron queue instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 149 of file IronJob\&.php\&.
+.SS "getIronJob ()"
+Get the underlying IronMQ job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 159 of file IronJob\&.php\&.
+.SS "getJobId ()"
+Get the job identifier\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file IronJob\&.php\&.
+.SS "getQueue ()"
+Get the name of the queue the job belongs to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBJob\fP\&.
+.PP
+Definition at line 169 of file IronJob\&.php\&.
+.SS "getRawBody ()"
+Get the raw body string for the job\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file IronJob\&.php\&.
+.SS "recreateJob ( $delay)\fC [protected]\fP"
+Release a pushed job back onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file IronJob\&.php\&.
+.SS "release ( $delay = \fC0\fP)"
+Release the job back into the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBJob\fP\&.
+.PP
+Definition at line 90 of file IronJob\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$iron\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file IronJob\&.php\&.
+.SS "$job\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file IronJob\&.php\&.
+.SS "$pushed = false\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file IronJob\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

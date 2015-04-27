@@ -1,0 +1,4 @@
+var class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_expression_language_provider =
+[
+    [ "getFunctions", "class_symfony_1_1_component_1_1_security_1_1_core_1_1_authorization_1_1_expression_language_provider.html#a131c2522f07821f77cd1d038c216031b", null ]
+];

@@ -1,0 +1,90 @@
+.TH "sims.rtupipe.vdevs" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sims.rtupipe.vdevs \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBpidd_controller\fP (value, setpoint, gain, reset_time, rate_time, deadband, full, zero, cycle_time, manual_mode_output, motor_output_enabled, output, old_value, older_value, old_error, last_run_time, on_time)"
+.br
+.ti -1c
+.RI "def \fBslave\fP (points, args, kwds)"
+.br
+.ti -1c
+.RI "def \fBmaster_delay_time\fP ()"
+.br
+.ti -1c
+.RI "def \fBmaster_proper\fP (points, clients, args, kwds)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmaster\fP = \fBmaster_proper\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def sims\&.rtupipe\&.vdevs\&.master_delay_time ()"
+
+.PP
+.nf
+This function models the variable processing delay using a piecewise
+    probabilistic approximation.
+    @returns Amount of time to sleep before completing master logic call
+.fi
+.PP
+ 
+.PP
+Definition at line 176 of file vdevs\&.py\&.
+.SS "def sims\&.rtupipe\&.vdevs\&.master_proper ( points,  clients,  args,  kwds)"
+
+.PP
+.nf
+Function implementing the master functionality emulating the ladder logic
+    as closely as possible.
+.fi
+.PP
+ 
+.PP
+Definition at line 188 of file vdevs\&.py\&.
+.SS "def sims\&.rtupipe\&.vdevs\&.pidd_controller ( value,  setpoint,  gain,  reset_time,  rate_time,  deadband,  full,  zero,  cycle_time,  manual_mode_output,  motor_output_enabled,  output,  old_value,  older_value,  old_error,  last_run_time,  on_time)"
+
+.PP
+.nf
+Implements the digital PID controller block for a Control Microsystems
+PLC. The functionality is described on page 307 of the Telepace User Manual.
+All arguments are Point-type objects. In the Control Microsystems memory
+model, all the listed registers are floating points and are contiguous and
+consecutive in memory. The arguments are listed in the order in which they
+appear in memory, so a list of these variables in memory order can be 
+provided as the argument list.
+The parameters match directly with the descriptions in the manual. 
+@returns A tuple of booleans of form (increase, decrease), where if increase
+            is true, the process value should be increased, and if decrease
+            is true, the process value should be decreased.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 19 of file vdevs\&.py\&.
+.SS "def sims\&.rtupipe\&.vdevs\&.slave ( points,  args,  kwds)"
+
+.PP
+Definition at line 86 of file vdevs\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "master = \fBmaster_proper\fP"
+
+.PP
+Definition at line 297 of file vdevs\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

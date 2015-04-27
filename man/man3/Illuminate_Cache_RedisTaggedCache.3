@@ -1,0 +1,140 @@
+.TH "RedisTaggedCache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RedisTaggedCache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTaggedCache\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBforever\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpushForeverKeys\fP ($namespace, $key)"
+.br
+.ti -1c
+.RI "\fBdeleteForeverKeys\fP ()"
+.br
+.ti -1c
+.RI "\fBdeleteForeverValues\fP ($\fBforeverKey\fP)"
+.br
+.ti -1c
+.RI "\fBforeverKey\fP ($segment)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file RedisTaggedCache\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "deleteForeverKeys ()\fC [protected]\fP"
+Delete all of the items that were stored forever\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file RedisTaggedCache\&.php\&.
+.SS "deleteForeverValues ( $foreverKey)\fC [protected]\fP"
+Delete all of the keys that have been stored forever\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$foreverKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 69 of file RedisTaggedCache\&.php\&.
+.SS "flush ()"
+Remove all items from the cache\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 24 of file RedisTaggedCache\&.php\&.
+.SS "forever ( $key,  $value)"
+Store an item in the cache indefinitely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBStore\fP\&.
+.PP
+Definition at line 12 of file RedisTaggedCache\&.php\&.
+.SS "foreverKey ( $segment)\fC [protected]\fP"
+Get the forever reference key for the segment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$segment\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file RedisTaggedCache\&.php\&.
+.SS "pushForeverKeys ( $namespace,  $key)\fC [protected]\fP"
+Store a copy of the full key for each namespace segment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$namespace\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file RedisTaggedCache\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

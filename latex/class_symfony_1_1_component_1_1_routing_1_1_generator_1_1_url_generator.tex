@@ -1,0 +1,349 @@
+\section{Url\+Generator Class Reference}
+\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator}\index{Url\+Generator@{Url\+Generator}}
+Inheritance diagram for Url\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Route\+Collection} \$routes, {\bf Request\+Context} \$context, {\bf Logger\+Interface} \$logger=null)
+\item 
+{\bf set\+Context} ({\bf Request\+Context} \$context)
+\item 
+{\bf get\+Context} ()
+\item 
+{\bf set\+Strict\+Requirements} (\$enabled)
+\item 
+{\bf is\+Strict\+Requirements} ()
+\item 
+{\bf generate} (\${\bf name}, \$parameters=array(), \$reference\+Type=self\+::\+A\+B\+S\+O\+L\+U\+T\+E\+\_\+\+P\+A\+T\+H)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Relative\+Path} (\$base\+Path, \$target\+Path)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf do\+Generate} (\$variables, \$defaults, \$requirements, \$tokens, \$parameters, \${\bf name}, \$reference\+Type, \$host\+Tokens, array \$required\+Schemes=array())
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$routes}
+\item 
+{\bf \$context}
+\item 
+{\bf \$strict\+Requirements} = true
+\item 
+{\bf \$logger}
+\item 
+{\bf \$decoded\+Chars}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Url\+Generator}{p.}{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator} can generate a \doxyref{U\+R\+L}{p.}{class_u_r_l} or a path for any route in the \doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} based on the passed parameters.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Tobias Schultze {\tt http\+://tobion.\+de}
+\end{DoxyAuthor}
+
+
+Definition at line 30 of file Url\+Generator.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Route\+Collection}}]{\$routes, }
+\item[{{\bf Request\+Context}}]{\$context, }
+\item[{{\bf Logger\+Interface}}]{\$logger = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a6cbbc12110182d082b0b5ee47673c98f}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} & {\em \$routes} & \doxyref{A}{p.}{class_a} \doxyref{Route\+Collection}{p.}{class_symfony_1_1_component_1_1_routing_1_1_route_collection} instance \\
+\hline
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} & {\em \$context} & The context \\
+\hline
+Logger\+Interface | null & {\em \$logger} & \doxyref{A}{p.}{class_a} logger instance\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file Url\+Generator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!do\+Generate@{do\+Generate}}
+\index{do\+Generate@{do\+Generate}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{do\+Generate}]{\setlength{\rightskip}{0pt plus 5cm}do\+Generate (
+\begin{DoxyParamCaption}
+\item[{}]{\$variables, }
+\item[{}]{\$defaults, }
+\item[{}]{\$requirements, }
+\item[{}]{\$tokens, }
+\item[{}]{\$parameters, }
+\item[{}]{\$name, }
+\item[{}]{\$reference\+Type, }
+\item[{}]{\$host\+Tokens, }
+\item[{array}]{\$required\+Schemes = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_aa01740ee19d56cd8c1af7d764f1d0ed8}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Missing\+Mandatory\+Parameters\+Exception} & When some parameters are missing that are mandatory for the route \\
+\hline
+{\em Invalid\+Parameter\+Exception} & When a parameter value for a placeholder is not correct because it does not match the requirement \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 148 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!generate@{generate}}
+\index{generate@{generate}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{generate}]{\setlength{\rightskip}{0pt plus 5cm}generate (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$parameters = {\ttfamily array()}, }
+\item[{}]{\$reference\+Type = {\ttfamily self\+:\+:ABSOLUTE\+\_\+PATH}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_ae476402b4d4c4ae8d70dc9fb5c388088}
+\{Generates a \doxyref{U\+R\+L}{p.}{class_u_r_l} or path for a specific route based on the given parameters.
+
+Parameters that reference placeholders in the route pattern will substitute them in the path or host. Extra params are added as query string to the \doxyref{U\+R\+L}{p.}{class_u_r_l}.
+
+When the passed reference type cannot be generated for the route because it requires a different host or scheme than the current one, the method will return a more comprehensive reference that includes the required params. For example, when you call this method with \$reference\+Type = A\+B\+S\+O\+L\+U\+T\+E\+\_\+\+P\+A\+T\+H but the route requires the https scheme whereas the current scheme is http, it will instead return an A\+B\+S\+O\+L\+U\+T\+E\+\_\+\+U\+R\+L with the https scheme and the current host. This makes sure the generated \doxyref{U\+R\+L}{p.}{class_u_r_l} matches the route in any case.
+
+If there is no route with the given name, the generator must throw the Route\+Not\+Found\+Exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The name of the route \\
+\hline
+mixed & {\em \$parameters} & An array of parameters \\
+\hline
+bool | string & {\em \$reference\+Type} & The type of reference to be generated (one of the constants)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The generated \doxyref{U\+R\+L}{p.}{class_u_r_l}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Route\+Not\+Found\+Exception} & If the named route doesn\textquotesingle{}t exist \\
+\hline
+{\em Missing\+Mandatory\+Parameters\+Exception} & When some parameters are missing that are mandatory for the route \\
+\hline
+{\em Invalid\+Parameter\+Exception} & When a parameter value for a placeholder is not correct because it does not match the requirement\\
+\hline
+\end{DoxyExceptions}
+\} 
+
+Implements {\bf Url\+Generator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_interface_ae476402b4d4c4ae8d70dc9fb5c388088}.
+
+
+
+Definition at line 131 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!get\+Context@{get\+Context}}
+\index{get\+Context@{get\+Context}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{get\+Context}]{\setlength{\rightskip}{0pt plus 5cm}get\+Context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a51609a8c7faaf9948679e3a291ba4733}
+\{Gets the request context.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} The context
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Request\+Context\+Aware\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_request_context_aware_interface_a51609a8c7faaf9948679e3a291ba4733}.
+
+
+
+Definition at line 107 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!get\+Relative\+Path@{get\+Relative\+Path}}
+\index{get\+Relative\+Path@{get\+Relative\+Path}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{get\+Relative\+Path}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Relative\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$base\+Path, }
+\item[{}]{\$target\+Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a62b519a7e7d697edcd9e6c44f648dac1}
+Returns the target path as relative reference from the base path.
+
+Only the U\+R\+Is path component (no schema, host etc.) is relevant and must be given, starting with a slash. Both paths must be absolute and not contain relative parts. Relative U\+R\+Ls from one resource to another are useful when generating self-\/contained downloadable document archives. Furthermore, they can be used to reduce the link size in documents.
+
+Example target paths, given a base path of \char`\"{}/a/b/c/d\char`\"{}\+:
+\begin{DoxyItemize}
+\item \char`\"{}/a/b/c/d\char`\"{} -\/$>$ \char`\"{}\char`\"{}
+\item \char`\"{}/a/b/c/\char`\"{} -\/$>$ \char`\"{}./\char`\"{}
+\item \char`\"{}/a/b/\char`\"{} -\/$>$ \char`\"{}../\char`\"{}
+\item \char`\"{}/a/b/c/other\char`\"{} -\/$>$ \char`\"{}other\char`\"{}
+\item \char`\"{}/a/x/y\char`\"{} -\/$>$ \char`\"{}../../x/y\char`\"{}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$base\+Path} & The base path \\
+\hline
+string & {\em \$target\+Path} & The target path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The relative target path 
+\end{DoxyReturn}
+
+
+Definition at line 310 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!is\+Strict\+Requirements@{is\+Strict\+Requirements}}
+\index{is\+Strict\+Requirements@{is\+Strict\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{is\+Strict\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}is\+Strict\+Requirements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a5f58a17a9adf89bd6cb6ad87aaffbbfc}
+\{Returns whether to throw an exception on incorrect parameters. Null means the requirements check is deactivated completely.
+
+\begin{DoxyReturn}{Returns}
+bool$\vert$null
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Configurable\+Requirements\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface_a5f58a17a9adf89bd6cb6ad87aaffbbfc}.
+
+
+
+Definition at line 123 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!set\+Context@{set\+Context}}
+\index{set\+Context@{set\+Context}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{set\+Context}]{\setlength{\rightskip}{0pt plus 5cm}set\+Context (
+\begin{DoxyParamCaption}
+\item[{{\bf Request\+Context}}]{\$context}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a6215ebdd5d9ea5b00685ebf7251c94c0}
+\{Sets the request context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request\+Context}{p.}{class_symfony_1_1_component_1_1_routing_1_1_request_context} & {\em \$context} & The context\\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Request\+Context\+Aware\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_request_context_aware_interface_a6215ebdd5d9ea5b00685ebf7251c94c0}.
+
+
+
+Definition at line 99 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!set\+Strict\+Requirements@{set\+Strict\+Requirements}}
+\index{set\+Strict\+Requirements@{set\+Strict\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{set\+Strict\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}set\+Strict\+Requirements (
+\begin{DoxyParamCaption}
+\item[{}]{\$enabled}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a7e26aac5219251a4081779e4ce39df8d}
+\{Enables or disables the exception on incorrect parameters. Passing null will deactivate the requirements check completely.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool | null & {\em \$enabled} & \\
+\hline
+\end{DoxyParams}
+\} 
+
+Implements {\bf Configurable\+Requirements\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_routing_1_1_generator_1_1_configurable_requirements_interface_a7e26aac5219251a4081779e4ce39df8d}.
+
+
+
+Definition at line 115 of file Url\+Generator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\$context@{\$context}}
+\index{\$context@{\$context}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\$context}]{\setlength{\rightskip}{0pt plus 5cm}\$context\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_ae05dedb802ada0155efdece2044fed64}
+
+
+Definition at line 40 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\$decoded\+Chars@{\$decoded\+Chars}}
+\index{\$decoded\+Chars@{\$decoded\+Chars}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\$decoded\+Chars}]{\setlength{\rightskip}{0pt plus 5cm}\$decoded\+Chars\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_ab5d7bd3883a8b885f140fdab17d9cb48}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        
+        
+        
+        \textcolor{stringliteral}{'%2F'} => \textcolor{charliteral}{'/'},
+        
+        
+        \textcolor{stringliteral}{'%40'} => \textcolor{charliteral}{'@'},
+        \textcolor{stringliteral}{'%3A'} => \textcolor{charliteral}{':'},
+        
+        
+        \textcolor{stringliteral}{'%3B'} => \textcolor{charliteral}{';'},
+        \textcolor{stringliteral}{'%2C'} => \textcolor{charliteral}{','},
+        \textcolor{stringliteral}{'%3D'} => \textcolor{charliteral}{'='},
+        \textcolor{stringliteral}{'%2B'} => \textcolor{charliteral}{'+'},
+        \textcolor{stringliteral}{'%21'} => \textcolor{charliteral}{'!'},
+        \textcolor{stringliteral}{'%2A'} => \textcolor{charliteral}{'*'},
+        \textcolor{stringliteral}{'%7C'} => \textcolor{charliteral}{'|'},
+    )
+\end{DoxyCode}
+This array defines the characters (besides alphanumeric ones) that will not be percent-\/encoded in the path segment of the generated \doxyref{U\+R\+L}{p.}{class_u_r_l}.
+
+\doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s rawurlencode() encodes all chars except \char`\"{}a-\/z\+A-\/\+Z0-\/9-\/.\+\_\+$\sim$\char`\"{} according to R\+F\+C 3986. But we want to allow some chars to be used in their literal form (reasons below). \doxyref{Other}{p.}{namespace_other} chars inside the path must of course be encoded, e.\+g. \char`\"{}?\char`\"{} and \char`\"{}\#\char`\"{} (would be interpreted wrongly as query and fragment identifier), \char`\"{}\textquotesingle{}\char`\"{} and \char`\"{}\char`\"{}" (are used as delimiters in \doxyref{H\+T\+M\+L}{p.}{class_h_t_m_l}). 
+
+Definition at line 60 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\$logger@{\$logger}}
+\index{\$logger@{\$logger}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\$logger}]{\setlength{\rightskip}{0pt plus 5cm}\$logger\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_aebfec76216371ef236acc5910e90933d}
+
+
+Definition at line 50 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\$routes@{\$routes}}
+\index{\$routes@{\$routes}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\$routes}]{\setlength{\rightskip}{0pt plus 5cm}\$routes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a8f7eb04a54e0f0bfc0cedeb9899ce4a8}
+
+
+Definition at line 35 of file Url\+Generator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}!\$strict\+Requirements@{\$strict\+Requirements}}
+\index{\$strict\+Requirements@{\$strict\+Requirements}!Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator@{Symfony\+::\+Component\+::\+Routing\+::\+Generator\+::\+Url\+Generator}}
+\subsubsection[{\$strict\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}\$strict\+Requirements = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_routing_1_1_generator_1_1_url_generator_a943a5d5fce9cfb2ce7ebf3a5978a2ebd}
+
+
+Definition at line 45 of file Url\+Generator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/routing/\+Symfony/\+Component/\+Routing/\+Generator/{\bf Url\+Generator.\+php}\end{DoxyCompactItemize}

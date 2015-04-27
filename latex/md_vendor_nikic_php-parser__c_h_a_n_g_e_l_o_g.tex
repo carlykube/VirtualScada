@@ -1,0 +1,141 @@
+Nothing yet.
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+2.\+2 (2015-\/04-\/03) }
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily Name\+Resolver} now resolves parameter type hints when entering the function/method/closure node. As such other visitors running after it will be able to make use of the resolved names at that point already.
+\item The autoloader no longer sets the {\ttfamily unserialize\+\_\+callback\+\_\+func} ini option on registration -\/ this is not necessary and may cause issues when running Php\+Unit tests with process isolation.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+2.\+1 (2015-\/03-\/24) }
+
+
+\begin{DoxyItemize}
+\item Fixed registration of the aliases introduced in 1.\+2.\+0. Previously the old class names could not be used in {\ttfamily instanceof} checks under some circumstances.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+2.\+0 (2015-\/03-\/22) }
+
+\subsubsection*{Changed}
+
+
+\begin{DoxyItemize}
+\item To ensure compatibility with \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7, the following node classes have been renamed\+: \begin{DoxyVerb}  OLD                             => NEW
+  PhpParser\Node\Expr\Cast\Bool   => PhpParser\Node\Expr\Cast\Bool_
+  PhpParser\Node\Expr\Cast\Int    => PhpParser\Node\Expr\Cast\Int_
+  PhpParser\Node\Expr\Cast\Object => PhpParser\Node\Expr\Cast\Object_
+  PhpParser\Node\Expr\Cast\String => PhpParser\Node\Expr\Cast\String_
+  PhpParser\Node\Scalar\String    => PhpParser\Node\Scalar\String_
+\end{DoxyVerb}
+
+
+{\bfseries The previous class names are still supported as aliases.} However it is strongly encouraged to use the new names in order to make your code compatible with \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7.
+\item Subnodes are now stored using real properties instead of an array. This improves performance and memory usage of the initial parse and subsequent node tree operations. The {\ttfamily Node\+Abstract} class still supports the old way of specifying subnodes, however this is {\itshape deprecated}. In any case properties that are assigned to a node after creation will no longer be considered as subnodes.
+\item Methods and property declarations will no longer set the {\ttfamily Stmt\textbackslash{}Class\+\_\+\+::\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+P\+U\+B\+L\+I\+C} flag if no visibility is explicitly given. However the {\ttfamily is\+Public()} method will continue to return true. This allows you to distinguish whether a method/property is explicitly or implicitly public and control the pretty printer output more precisely.
+\item The {\ttfamily Stmt\textbackslash{}Class\+\_\+}, {\ttfamily Stmt\textbackslash{}Interface\+\_\+} and {\ttfamily Stmt\textbackslash{}Trait\+\_\+} nodes now inherit from {\ttfamily Stmt\textbackslash{}Class\+Like}, which provides a {\ttfamily get\+Methods()} method. Previously this method was only available on {\ttfamily Stmt\textbackslash{}Class\+\_\+}.
+\item Support including the {\ttfamily bootstrap.\+php} file multiple times.
+\item Make documentation and tests part of the release tarball again.
+\item Improve support for H\+H\+V\+M and \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7.
+\end{DoxyItemize}
+
+\subsubsection*{Added}
+
+
+\begin{DoxyItemize}
+\item Added support for \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7 return type declarations. This adds an additional {\ttfamily return\+Type} subnode to {\ttfamily Stmt\textbackslash{}Function\+\_\+}, {\ttfamily Stmt\textbackslash{}Class\+Method} and {\ttfamily Expr\textbackslash{}Closure}.
+\item Added support for the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7 null coalesce operator {\ttfamily ??}. The operator is represented by {\ttfamily Expr\textbackslash{}Binary\+Op\textbackslash{}Coalesce}.
+\item Added support for the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 7 spaceship operator {\ttfamily $<$=$>$}. The operator is represented by {\ttfamily Expr\textbackslash{}Binary\+Op\textbackslash{}Spaceship}.
+\item Added use builder.
+\item Added global namespace support to the namespace builder.
+\item Added a constructor flag to {\ttfamily Node\+Traverser}, which disables cloning of nodes.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+1.\+0 (2015-\/01-\/18) }
+
+
+\begin{DoxyItemize}
+\item Methods that do not specify an explicit visibility (e.\+g. {\ttfamily function method()}) will now have the {\ttfamily M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+P\+U\+B\+L\+I\+C} flag set. This also means that their {\ttfamily is\+Public()} method will return true.
+\item Declaring a property as abstract or final is now an error.
+\item The {\ttfamily Lexer} and {\ttfamily Lexer\textbackslash{}Emulative} classes now accept an {\ttfamily \$options} array in their constructors. Currently only the {\ttfamily used\+Attributes} option is supported, which determines which attributes will be added to A\+S\+T nodes. In particular it is now possible to add information on the token and file positions corresponding to a node. For more details see the https\+://github.com/nikic/\+P\+H\+P-\/\+Parser/blob/master/doc/component/\+Lexer.\+markdown \char`\"{}\+Lexer component\char`\"{} documentation.
+\item Node visitors can now return {\ttfamily Node\+Traverser\+::\+D\+O\+N\+T\+\_\+\+T\+R\+A\+V\+E\+R\+S\+E\+\_\+\+C\+H\+I\+L\+D\+R\+E\+N} from {\ttfamily enter\+Node()} in order to skip all children of the current node, for all visitors.
+\item Added builders for traits and namespaces.
+\item The class, interface, trait, function, method and property builders now support adding doc comments using the {\ttfamily set\+Doc\+Comment()} method.
+\item Added support for fully-\/qualified and namespace-\/relative names in builders. No longer allow use of name component arrays.
+\item Do not add documentation and tests to distribution archive files.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+0.\+2 (2014-\/11-\/04) }
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily Name\+Resolver} visitor now also resolves names in trait adaptations (aliases and precedence declarations).
+\item Remove stray whitespace when pretty-\/printing trait adaptations that only change visibility.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+0.\+1 (2014-\/10-\/14) }
+
+
+\begin{DoxyItemize}
+\item Disallow {\ttfamily new} expressions without a class name. Previously {\ttfamily new;} was accidentally considered to be valid code.
+\item Support T\+\_\+\+O\+N\+U\+M\+B\+E\+R token used by H\+H\+V\+M.
+\item Add ability to directly pass code to the {\ttfamily \doxyref{php-\/parse.\+php}{p.}{php-parse_8php}} script.
+\item Prevent truncation of {\ttfamily var\+\_\+dump()} output in the {\ttfamily \doxyref{php-\/parse.\+php}{p.}{php-parse_8php}} script if X\+Debug is used.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+0.\+0 (2014-\/09-\/12) }
+
+
+\begin{DoxyItemize}
+\item [B\+C] Removed deprecated {\ttfamily \doxyref{Template}{p.}{namespace_template}} and {\ttfamily Template\+Loader} classes.
+\item Fixed X\+M\+L unserializer to properly work with new namespaced node names.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+0.\+0-\/beta2 (2014-\/08-\/31) }
+
+
+\begin{DoxyItemize}
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Updated support for constant scalar expressions to comply with latest changes. This means that arrays and array dimension fetches are now supported as well.
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Direct array dereferencing of constants is supported now, i.\+e. both {\ttfamily F\+O\+O[0]} and {\ttfamily Foo\+::\+B\+A\+R[0]} are valid now.
+\item Fixed handling of special class names ({\ttfamily self}, {\ttfamily parent} and {\ttfamily static}) in the name resolver to be case insensitive. Additionally the name resolver now enforces that special class names are only used as unqualified names, e.\+g. {\ttfamily \textbackslash{}self} is considered invalid.
+\item The case of references to the {\ttfamily static} class name is now preserved. Previously {\ttfamily static} was always lowercased, regardless of the case used in the source code.
+\item The autoloader now only requires a file if it exists. This allows usages like `class\+\_\+exists(\textquotesingle{}\doxyref{Php\+Parser}{p.}{namespace_php_parser}\textquotesingle{})`.
+\item Added experimental {\ttfamily \doxyref{bin/php-\/parse.\+php}{p.}{php-parse_8php}} script, which is intended to help exploring and debugging the node tree.
+\item Separated the parser implemention (in {\ttfamily \doxyref{lib/\+Php\+Parser/\+Parser\+Abstract.\+php}{p.}{_parser_abstract_8php}}) and the generated data (in {\ttfamily \doxyref{lib/\+Php\+Parser/\+Parser.\+php}{p.}{nikic_2php-parser_2lib_2_php_parser_2_parser_8php}}). Furthermore the parser now uses meaningful variable names and contains comments explaining their usage.
+\end{DoxyItemize}
+
+\subsection*{\doxyref{Version}{p.}{namespace_version} 1.\+0.\+0-\/beta1 (2014-\/03-\/27) }
+
+
+\begin{DoxyItemize}
+\item [B\+C] P\+H\+P-\/\+Parser now requires \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3 or newer to run. It is however still possible to {\itshape parse} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+2 source code, while running on a newer version.
+\item [B\+C] The library has been moved to use namespaces with the {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}} vendor prefix. However, the old names using underscores are still available as aliases, as such most code should continue running on the new version without further changes.
+
+However, code performing dispatch operations on {\ttfamily Node\+::get\+Type()} may be affected by some of the name changes. For example a {\ttfamily +} node will now return type {\ttfamily Expr\+\_\+\+Binary\+Op\+\_\+\+Plus} instead of {\ttfamily Expr\+\_\+\+Plus}. In particular this may affect custom pretty printers.
+
+Due to conflicts with reserved keywords, some class names now end with an underscore, e.\+g. {\ttfamily P\+H\+P\+Parser\+\_\+\+Node\+\_\+\+Stmt\+\_\+\+Class} is now {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Node\textbackslash{}Stmt\textbackslash{}Class\+\_\+}. (But as usual, the old name is still available)
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Added support for the power operator {\ttfamily $\ast$$\ast$} (node {\ttfamily Expr\textbackslash{}Binary\+Op\textbackslash{}Pow}) and the compound power assignment operator {\ttfamily $\ast$$\ast$=} (node {\ttfamily Expr\textbackslash{}Assign\+Op\textbackslash{}Pow}).
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Added support for variadic functions\+: {\ttfamily Param} nodes now have {\ttfamily variadic} as a boolean subnode.
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Added support for argument unpacking\+: {\ttfamily Arg} nodes now have {\ttfamily unpack} as a boolean subnode.
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Added support for aliasing of functions and constants. {\ttfamily Stmt\textbackslash{}Use\+\_\+} nodes now have an integral {\ttfamily type} subnode, which is one of {\ttfamily Stmt\textbackslash{}Use\+\_\+\+::\+T\+Y\+P\+E\+\_\+\+N\+O\+R\+M\+A\+L} ({\ttfamily use}), {\ttfamily Stmt\textbackslash{}Use\+\_\+\+::\+T\+Y\+P\+E\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N} ({\ttfamily use function}) or {\ttfamily Stmt\textbackslash{}Use\+\_\+\+::\+T\+Y\+P\+E\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T} ({\ttfamily use const}).
+
+The {\ttfamily Name\+Resolver} now also supports resolution of such aliases.
+\item [\doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+6] Added support for constant scalar expressions. This means that certain expressions are now allowed as the initializer for constants, properties, parameters, static variables, etc.
+\item [B\+C] Improved pretty printing of empty statements lists, which are now printed as {\ttfamily \{\textbackslash{}n\}} instead of {\ttfamily \{\textbackslash{}n \textbackslash{}n\}}. This changes the behavior of the protected {\ttfamily Pretty\+Printer\+Abstract\+::p\+Stmts()} method, so custom pretty printing code making use it of may need to be adjusted.
+\item Changed the order of some subnodes to be consistent with their order in the sour code. For example {\ttfamily Stmt\textbackslash{}If-\/$>$cond} will now appear before {\ttfamily Stmt\textbackslash{}If-\/$>$stmts} etc.
+\item Added {\ttfamily Scalar\textbackslash{}Magic\+Constant-\/$>$get\+Name()}, which returns the name of the magic constant (e.\+g. {\ttfamily \+\_\+\+\_\+\+C\+L\+A\+S\+S\+\_\+\+\_\+}).
+\end{DoxyItemize}
+
+{\bfseries The following changes are also included in 0.\+9.\+5}\+:
+
+
+\begin{DoxyItemize}
+\item [B\+C] Deprecated {\ttfamily P\+H\+P\+Parser\+\_\+\+Template} and {\ttfamily P\+H\+P\+Parser\+\_\+\+Template\+Loader}. This functionality does not belong in the main project and -\/ as far as I know -\/ nobody is using it.
+\item Add {\ttfamily Node\+Traverser\+::remove\+Visitor()} method, which removes a visitor from the node traverser. This also modifies the corresponding {\ttfamily Node\+Traverser\+Interface}.
+\item Fix alias resolution in {\ttfamily Name\+Resolver}\+: Class names are now correctly handled as case-\/insensitive.
+\item The undefined variable error, which is used to the lexer to reset the error state, will no longer interfere with custom error handlers. 
+
+
+\end{DoxyItemize}
+
+{\bfseries This changelog only includes changes from the 1.\+0 series. For older changes see the https\+://github.com/nikic/\+P\+H\+P-\/\+Parser/blob/0.\+9/\+C\+H\+A\+N\+G\+E\+L\+O\+G.md \char`\"{}0.\+9 series changelog\char`\"{}.} 

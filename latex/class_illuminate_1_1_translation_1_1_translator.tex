@@ -1,0 +1,643 @@
+\section{Translator Class Reference}
+\label{class_illuminate_1_1_translation_1_1_translator}\index{Translator@{Translator}}
+Inheritance diagram for Translator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_translation_1_1_translator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Loader\+Interface} \$loader, \${\bf locale})
+\item 
+{\bf has} (\$key, \${\bf locale}=null)
+\item 
+{\bf get} (\$key, array \$replace=array(), \${\bf locale}=null)
+\item 
+{\bf choice} (\$key, \$number, array \$replace=array(), \${\bf locale}=null)
+\item 
+{\bf trans} (\$id, array \$parameters=array(), \$domain= \textquotesingle{}messages\textquotesingle{}, \${\bf locale}=null)
+\item 
+{\bf trans\+Choice} (\$id, \$number, array \$parameters=array(), \$domain= \textquotesingle{}messages\textquotesingle{}, \${\bf locale}=null)
+\item 
+{\bf load} (\$namespace, \$group, \${\bf locale})
+\item 
+{\bf add\+Namespace} (\$namespace, \$hint)
+\item 
+{\bf parse\+Key} (\$key)
+\item 
+{\bf get\+Selector} ()
+\item 
+{\bf set\+Selector} ({\bf Message\+Selector} \$selector)
+\item 
+{\bf get\+Loader} ()
+\item 
+{\bf locale} ()
+\item 
+{\bf get\+Locale} ()
+\item 
+{\bf set\+Locale} (\${\bf locale})
+\item 
+{\bf get\+Fallback} ()
+\item 
+{\bf set\+Fallback} (\$fallback)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Line} (\$namespace, \$group, \${\bf locale}, \$item, array \$replace)
+\item 
+{\bf make\+Replacements} (\${\bf line}, array \$replace)
+\item 
+{\bf sort\+Replacements} (array \$replace)
+\item 
+{\bf is\+Loaded} (\$namespace, \$group, \${\bf locale})
+\item 
+{\bf parse\+Locale} (\${\bf locale})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$loader}
+\item 
+{\bf \$locale}
+\item 
+{\bf \$fallback}
+\item 
+{\bf \$loaded} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Translator.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Loader\+Interface}}]{\$loader, }
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a1d9673c3ae1732d9ee0aac285aed3c60}
+Create a new translator instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Translation\textbackslash{}\+Loader\+Interface & {\em \$loader} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file Translator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!add\+Namespace@{add\+Namespace}}
+\index{add\+Namespace@{add\+Namespace}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{add\+Namespace}]{\setlength{\rightskip}{0pt plus 5cm}add\+Namespace (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$hint}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_af39b23be81dd39262a9393b2fcbcc8bf}
+Add a new namespace to the loader.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$hint} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 241 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!choice@{choice}}
+\index{choice@{choice}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{choice}]{\setlength{\rightskip}{0pt plus 5cm}choice (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$number, }
+\item[{array}]{\$replace = {\ttfamily array()}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a0102f5bd2c13a293d5edc23c9a7517ad}
+Get a translation according to an integer value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+int & {\em \$number} & \\
+\hline
+array & {\em \$replace} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{array}]{\$replace = {\ttfamily array()}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_afe2c10d51885feeb65dce7a87c80fadb}
+Get the translation for the given key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+array & {\em \$replace} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get\+Fallback@{get\+Fallback}}
+\index{get\+Fallback@{get\+Fallback}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Fallback}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fallback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a4c6dc7f28017725e51e4317a6e932bc6}
+Get the fallback locale being used.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 349 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get\+Line@{get\+Line}}
+\index{get\+Line@{get\+Line}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Line}]{\setlength{\rightskip}{0pt plus 5cm}get\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$group, }
+\item[{}]{\$locale, }
+\item[{}]{\$item, }
+\item[{array}]{\$replace}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a7c1750d4c86130e0294028e8bad731a2}
+Retrieve a language line out the loaded array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$group} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+string & {\em \$item} & \\
+\hline
+array & {\em \$replace} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get\+Loader@{get\+Loader}}
+\index{get\+Loader@{get\+Loader}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Loader}]{\setlength{\rightskip}{0pt plus 5cm}get\+Loader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a461527c1de39a5520c52951b8f03d99f}
+Get the language line loader implementation.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 308 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get\+Locale@{get\+Locale}}
+\index{get\+Locale@{get\+Locale}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}get\+Locale (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_ad532b661eb33c3e755bd3fa8ff1bd7af}
+Get the default locale being used.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_ad532b661eb33c3e755bd3fa8ff1bd7af}.
+
+
+
+Definition at line 328 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!get\+Selector@{get\+Selector}}
+\index{get\+Selector@{get\+Selector}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Selector}]{\setlength{\rightskip}{0pt plus 5cm}get\+Selector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_aafa0f77afb62699a7be6e65127a06fbd}
+Get the message selector instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 282 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a035ae26f2f3c4e62d3b2faf967dd2f7e}
+Determine if a translation exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!is\+Loaded@{is\+Loaded}}
+\index{is\+Loaded@{is\+Loaded}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{is\+Loaded}]{\setlength{\rightskip}{0pt plus 5cm}is\+Loaded (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$group, }
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a16c658d77b935e8830997b17ec547d54}
+Determine if the given group has been loaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$group} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 229 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!load@{load}}
+\index{load@{load}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}load (
+\begin{DoxyParamCaption}
+\item[{}]{\$namespace, }
+\item[{}]{\$group, }
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_aaddb397bfcf5f57009270aaccaaf0d57}
+Load the specified language group.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$group} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!locale@{locale}}
+\index{locale@{locale}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{locale}]{\setlength{\rightskip}{0pt plus 5cm}locale (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a0e6577b1f022185f2195d5990f57161c}
+Get the default locale being used.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 318 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!make\+Replacements@{make\+Replacements}}
+\index{make\+Replacements@{make\+Replacements}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{make\+Replacements}]{\setlength{\rightskip}{0pt plus 5cm}make\+Replacements (
+\begin{DoxyParamCaption}
+\item[{}]{\$line, }
+\item[{array}]{\$replace}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_abbfa06f76d71aede0af6d08c79ad7898}
+Make the place-\/holder replacements on a line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$line} & \\
+\hline
+array & {\em \$replace} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!parse\+Key@{parse\+Key}}
+\index{parse\+Key@{parse\+Key}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{parse\+Key}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Key (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_accbc7df215a647cae91f5716ac14f199}
+Parse a key into namespace, group, and item.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!parse\+Locale@{parse\+Locale}}
+\index{parse\+Locale@{parse\+Locale}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{parse\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Locale (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_ab59772e942f58a521d1646769a0e4294}
+Get the array of locales to be checked.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!set\+Fallback@{set\+Fallback}}
+\index{set\+Fallback@{set\+Fallback}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Fallback}]{\setlength{\rightskip}{0pt plus 5cm}set\+Fallback (
+\begin{DoxyParamCaption}
+\item[{}]{\$fallback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a62c4513cb6ae284444e4ae67748006e7}
+Set the fallback locale being used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$fallback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 360 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!set\+Locale@{set\+Locale}}
+\index{set\+Locale@{set\+Locale}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}set\+Locale (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a1bef7c51e9f6a97840f016a8f0a615ae}
+Set the default locale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_a1bef7c51e9f6a97840f016a8f0a615ae}.
+
+
+
+Definition at line 339 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!set\+Selector@{set\+Selector}}
+\index{set\+Selector@{set\+Selector}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Selector}]{\setlength{\rightskip}{0pt plus 5cm}set\+Selector (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Selector}}]{\$selector}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_a36f42ede701fad72a3f5b3e6bdc41058}
+Set the message selector instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Translation\textbackslash{}\+Message\+Selector & {\em \$selector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 298 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!sort\+Replacements@{sort\+Replacements}}
+\index{sort\+Replacements@{sort\+Replacements}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{sort\+Replacements}]{\setlength{\rightskip}{0pt plus 5cm}sort\+Replacements (
+\begin{DoxyParamCaption}
+\item[{array}]{\$replace}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a245c75f8ef3baba0e3387312b1d1ff9e}
+Sort the replacements array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$replace} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!trans@{trans}}
+\index{trans@{trans}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{trans}]{\setlength{\rightskip}{0pt plus 5cm}trans (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{array}]{\$parameters = {\ttfamily array()}, }
+\item[{}]{\$domain = {\ttfamily \textquotesingle{}messages\textquotesingle{}}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_afa523b01eb701b9cbb40e7edfba2a2e3}
+Get the translation for a given key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_abc3ef3f767c8c02d89f98c57d2e1c66d}.
+
+
+
+Definition at line 181 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!trans\+Choice@{trans\+Choice}}
+\index{trans\+Choice@{trans\+Choice}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{trans\+Choice}]{\setlength{\rightskip}{0pt plus 5cm}trans\+Choice (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$number, }
+\item[{array}]{\$parameters = {\ttfamily array()}, }
+\item[{}]{\$domain = {\ttfamily \textquotesingle{}messages\textquotesingle{}}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_translation_1_1_translator_ae46c6819d027756dd4493fb1f8104104}
+Get a translation according to an integer value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+int & {\em \$number} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+string & {\em \$domain} & \\
+\hline
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_a18b33f0bec8c41ab4937bfdc8c0dff91}.
+
+
+
+Definition at line 196 of file Translator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!\$fallback@{\$fallback}}
+\index{\$fallback@{\$fallback}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$fallback}]{\setlength{\rightskip}{0pt plus 5cm}\$fallback\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a0aa2d1acd291d3fedc1a3617d716e28e}
+
+
+Definition at line 29 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!\$loaded@{\$loaded}}
+\index{\$loaded@{\$loaded}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$loaded}]{\setlength{\rightskip}{0pt plus 5cm}\$loaded = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a3b5a1179b24abbc9be2a18eeda5ba297}
+
+
+Definition at line 36 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!\$loader@{\$loader}}
+\index{\$loader@{\$loader}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$loader}]{\setlength{\rightskip}{0pt plus 5cm}\$loader\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_ab832f4c463ee1c9ba2e9464265f7ea3b}
+
+
+Definition at line 15 of file Translator.\+php.
+
+\index{Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}!\$locale@{\$locale}}
+\index{\$locale@{\$locale}!Illuminate\+::\+Translation\+::\+Translator@{Illuminate\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$locale}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf locale}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_translation_1_1_translator_a3b392f5a691b803e728f1fb42b35f6e1}
+
+
+Definition at line 22 of file Translator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Translation/{\bf Translator.\+php}\end{DoxyCompactItemize}

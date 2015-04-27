@@ -1,0 +1,1400 @@
+\section{Finder Class Reference}
+\label{class_symfony_1_1_component_1_1_finder_1_1_finder}\index{Finder@{Finder}}
+Inheritance diagram for Finder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_finder_1_1_finder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf add\+Adapter} ({\bf Adapter\+Interface} \$adapter, \$priority=0)
+\item 
+{\bf use\+Best\+Adapter} ()
+\item 
+{\bf set\+Adapter} (\${\bf name})
+\item 
+{\bf remove\+Adapters} ()
+\item 
+{\bf get\+Adapters} ()
+\item 
+{\bf directories} ()
+\item 
+{\bf files} ()
+\item 
+{\bf depth} (\$level)
+\item 
+{\bf date} (\$date)
+\item 
+{\bf name} (\$pattern)
+\item 
+{\bf not\+Name} (\$pattern)
+\item 
+{\bf contains} (\$pattern)
+\item 
+{\bf not\+Contains} (\$pattern)
+\item 
+{\bf path} (\$pattern)
+\item 
+{\bf not\+Path} (\$pattern)
+\item 
+{\bf size} (\$size)
+\item 
+{\bf exclude} (\$dirs)
+\item 
+{\bf ignore\+Dot\+Files} (\$ignore\+Dot\+Files)
+\item 
+{\bf ignore\+V\+C\+S} (\$ignore\+V\+C\+S)
+\item 
+{\bf sort} (\textbackslash{}Closure \$closure)
+\item 
+{\bf sort\+By\+Name} ()
+\item 
+{\bf sort\+By\+Type} ()
+\item 
+{\bf sort\+By\+Accessed\+Time} ()
+\item 
+{\bf sort\+By\+Changed\+Time} ()
+\item 
+{\bf sort\+By\+Modified\+Time} ()
+\item 
+{\bf filter} (\textbackslash{}Closure \$closure)
+\item 
+{\bf follow\+Links} ()
+\item 
+{\bf ignore\+Unreadable\+Dirs} (\$ignore=true)
+\item 
+{\bf in} (\$dirs)
+\item 
+{\bf get\+Iterator} ()
+\item 
+{\bf append} (\$iterator)
+\item 
+{\bf count} ()
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf add\+Adapter} ({\bf Adapter\+Interface} \$adapter, \$priority=0)
+\item 
+{\bf use\+Best\+Adapter} ()
+\item 
+{\bf set\+Adapter} (\${\bf name})
+\item 
+{\bf remove\+Adapters} ()
+\item 
+{\bf get\+Adapters} ()
+\item 
+{\bf directories} ()
+\item 
+{\bf files} ()
+\item 
+{\bf depth} (\$level)
+\item 
+{\bf date} (\$date)
+\item 
+{\bf name} (\$pattern)
+\item 
+{\bf not\+Name} (\$pattern)
+\item 
+{\bf contains} (\$pattern)
+\item 
+{\bf not\+Contains} (\$pattern)
+\item 
+{\bf path} (\$pattern)
+\item 
+{\bf not\+Path} (\$pattern)
+\item 
+{\bf size} (\$size)
+\item 
+{\bf exclude} (\$dirs)
+\item 
+{\bf ignore\+Dot\+Files} (\$ignore\+Dot\+Files)
+\item 
+{\bf ignore\+V\+C\+S} (\$ignore\+V\+C\+S)
+\item 
+{\bf sort} (\textbackslash{}Closure \$closure)
+\item 
+{\bf sort\+By\+Name} ()
+\item 
+{\bf sort\+By\+Type} ()
+\item 
+{\bf sort\+By\+Accessed\+Time} ()
+\item 
+{\bf sort\+By\+Changed\+Time} ()
+\item 
+{\bf sort\+By\+Modified\+Time} ()
+\item 
+{\bf filter} (\textbackslash{}Closure \$closure)
+\item 
+{\bf follow\+Links} ()
+\item 
+{\bf ignore\+Unreadable\+Dirs} (\$ignore=true)
+\item 
+{\bf in} (\$dirs)
+\item 
+{\bf get\+Iterator} ()
+\item 
+{\bf append} (\$iterator)
+\item 
+{\bf count} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf create} ()
+\item 
+static {\bf add\+V\+C\+S\+Pattern} (\$pattern)
+\item 
+static {\bf create} ()
+\item 
+static {\bf add\+V\+C\+S\+Pattern} (\$pattern)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S} = 1
+\item 
+const {\bf I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} allows to build rules to find files and directories.
+
+It is a thin wrapper around several specialized iterator classes.
+
+All rules may be invoked several times.
+
+All methods return the current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} object to allow easy chaining\+:
+
+\$finder = \doxyref{Finder\+::create()}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder_a239b1c70258014a86569483c2d009de6}-\/$>$\doxyref{files()}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder_a26f846b09db5e10b30498e97e4ee28ed}-\/$>$name(\textquotesingle{}$\ast$.php\textquotesingle{})-\/$>$in({\bfseries D\+I\+R});
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 16055 of file compiled.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a095c5d389db211932136b53f25f39685}
+
+
+Definition at line 16079 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a095c5d389db211932136b53f25f39685}
+Constructor. 
+
+Definition at line 75 of file Finder.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!add\+Adapter@{add\+Adapter}}
+\index{add\+Adapter@{add\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{add\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}add\+Adapter (
+\begin{DoxyParamCaption}
+\item[{{\bf Adapter\+Interface}}]{\$adapter, }
+\item[{}]{\$priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aae8205b9114569db7bb858dc24432bed}
+Registers a finder engine implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Adapter\+Interface & {\em \$adapter} & An adapter instance \\
+\hline
+int & {\em \$priority} & Highest is selected first\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!add\+Adapter@{add\+Adapter}}
+\index{add\+Adapter@{add\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{add\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}add\+Adapter (
+\begin{DoxyParamCaption}
+\item[{{\bf Adapter\+Interface}}]{\$adapter, }
+\item[{}]{\$priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aae8205b9114569db7bb858dc24432bed}
+
+
+Definition at line 16088 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!add\+V\+C\+S\+Pattern@{add\+V\+C\+S\+Pattern}}
+\index{add\+V\+C\+S\+Pattern@{add\+V\+C\+S\+Pattern}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{add\+V\+C\+S\+Pattern}]{\setlength{\rightskip}{0pt plus 5cm}static add\+V\+C\+S\+Pattern (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a228a990155dddbee4e3292ddd63395cb}
+Adds V\+C\+S patterns.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{ignore\+V\+C\+S()}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder_a36bc2f9ba7f3336f2aff5fb05aca450f}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$pattern V\+C\+S patterns to ignore \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 476 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!add\+V\+C\+S\+Pattern@{add\+V\+C\+S\+Pattern}}
+\index{add\+V\+C\+S\+Pattern@{add\+V\+C\+S\+Pattern}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{add\+V\+C\+S\+Pattern}]{\setlength{\rightskip}{0pt plus 5cm}static add\+V\+C\+S\+Pattern (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a228a990155dddbee4e3292ddd63395cb}
+
+
+Definition at line 16196 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!append@{append}}
+\index{append@{append}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}append (
+\begin{DoxyParamCaption}
+\item[{}]{\$iterator}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a14aec9cf45b0a3cc09a24eb06b8e0803}
+Appends an existing set of files/directories to the finder.
+
+The set can be another \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder}, an \doxyref{Iterator}{p.}{namespace_symfony_1_1_component_1_1_finder_1_1_iterator}, an Iterator\+Aggregate, or even a plain array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The finder
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 728 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!append@{append}}
+\index{append@{append}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}append (
+\begin{DoxyParamCaption}
+\item[{}]{\$iterator}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a14aec9cf45b0a3cc09a24eb06b8e0803}
+
+
+Definition at line 16280 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!contains@{contains}}
+\index{contains@{contains}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}contains (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a46201369f5676827c64322a78762a9d3}
+Adds tests that file contents must match.
+
+Strings or P\+C\+R\+E patterns can be used\+:
+
+\$finder-\/$>$contains(\textquotesingle{}Lorem ipsum\textquotesingle{}) \$finder-\/$>$contains(\textquotesingle{}/\+Lorem ipsum/i\textquotesingle{})
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (string or regexp)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filecontent\+Filter\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 310 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!contains@{contains}}
+\index{contains@{contains}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}contains (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a46201369f5676827c64322a78762a9d3}
+
+
+Definition at line 16148 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!count@{count}}
+\index{count@{count}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac751e87b3d4c4bf2feb03bee8b092755}
+Counts all the results collected by the iterators.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 752 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!count@{count}}
+\index{count@{count}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac751e87b3d4c4bf2feb03bee8b092755}
+
+
+Definition at line 16297 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!create@{create}}
+\index{create@{create}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}static create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a239b1c70258014a86569483c2d009de6}
+Creates a new \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder}.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} \doxyref{A}{p.}{class_a} new \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+
+
+Definition at line 94 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!create@{create}}
+\index{create@{create}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}static create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a239b1c70258014a86569483c2d009de6}
+
+
+Definition at line 16084 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!date@{date}}
+\index{date@{date}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{date}]{\setlength{\rightskip}{0pt plus 5cm}date (
+\begin{DoxyParamCaption}
+\item[{}]{\$date}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac4c7bc53692e312a63a723f280b2132d}
+Adds tests for file dates (last modified).
+
+The date must be something that strtotime() is able to parse\+:
+
+\$finder-\/$>$date(\textquotesingle{}since yesterday\textquotesingle{}); \$finder-\/$>$date(\textquotesingle{}until 2 days ago\textquotesingle{}); \$finder-\/$>$date(\textquotesingle{}$>$ now -\/ 2 hours\textquotesingle{}); \$finder-\/$>$date(\textquotesingle{}$>$= 2005-\/10-\/15\textquotesingle{});
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$date} & \doxyref{A}{p.}{class_a} date range string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+strtotime 
+
+Date\+Range\+Filter\+Iterator 
+
+Date\+Comparator
+\end{DoxySeeAlso}
+
+
+Definition at line 247 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!date@{date}}
+\index{date@{date}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{date}]{\setlength{\rightskip}{0pt plus 5cm}date (
+\begin{DoxyParamCaption}
+\item[{}]{\$date}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac4c7bc53692e312a63a723f280b2132d}
+
+
+Definition at line 16133 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!depth@{depth}}
+\index{depth@{depth}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}depth (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a2b9dba59f289853beac5fb215c29891f}
+Adds tests for the directory depth.
+
+Usage\+:
+
+\$finder-\/$>$depth(\textquotesingle{}$>$ 1\textquotesingle{}) // the \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} will start matching at level 1. \$finder-\/$>$depth(\textquotesingle{}$<$ 3\textquotesingle{}) // the \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} will descend at most 3 levels of directories below the starting point.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$level} & The depth level expression\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Depth\+Range\+Filter\+Iterator 
+
+Number\+Comparator
+\end{DoxySeeAlso}
+
+
+Definition at line 220 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!depth@{depth}}
+\index{depth@{depth}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}depth (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a2b9dba59f289853beac5fb215c29891f}
+
+
+Definition at line 16128 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!directories@{directories}}
+\index{directories@{directories}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{directories}]{\setlength{\rightskip}{0pt plus 5cm}directories (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6a09508d66a3bd88fa5bde5b157bf13e}
+Restricts the matching to directories only.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!directories@{directories}}
+\index{directories@{directories}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{directories}]{\setlength{\rightskip}{0pt plus 5cm}directories (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6a09508d66a3bd88fa5bde5b157bf13e}
+
+
+Definition at line 16118 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!exclude@{exclude}}
+\index{exclude@{exclude}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{exclude}]{\setlength{\rightskip}{0pt plus 5cm}exclude (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirs}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6979d7dee96cf333473bcb4f2725d913}
+Excludes directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$dirs} & \doxyref{A}{p.}{class_a} directory path or an array of directories\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Exclude\+Directory\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 418 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!exclude@{exclude}}
+\index{exclude@{exclude}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{exclude}]{\setlength{\rightskip}{0pt plus 5cm}exclude (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirs}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6979d7dee96cf333473bcb4f2725d913}
+
+
+Definition at line 16173 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!files@{files}}
+\index{files@{files}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{files}]{\setlength{\rightskip}{0pt plus 5cm}files (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a26f846b09db5e10b30498e97e4ee28ed}
+Restricts the matching to files only.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+
+
+Definition at line 196 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!files@{files}}
+\index{files@{files}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{files}]{\setlength{\rightskip}{0pt plus 5cm}files (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a26f846b09db5e10b30498e97e4ee28ed}
+
+
+Definition at line 16123 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!filter@{filter}}
+\index{filter@{filter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}filter (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a0c9031cd76f67b105dabce66eb1bb639}
+Filters the iterator with an anonymous function.
+
+The anonymous function receives a  and must return false to remove files.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$closure} & An anonymous function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Custom\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 619 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!filter@{filter}}
+\index{filter@{filter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}filter (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a0c9031cd76f67b105dabce66eb1bb639}
+
+
+Definition at line 16233 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!follow\+Links@{follow\+Links}}
+\index{follow\+Links@{follow\+Links}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{follow\+Links}]{\setlength{\rightskip}{0pt plus 5cm}follow\+Links (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aa486fd79f1309327b379b630530d5798}
+Forces the following of symlinks.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+
+
+Definition at line 633 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!follow\+Links@{follow\+Links}}
+\index{follow\+Links@{follow\+Links}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{follow\+Links}]{\setlength{\rightskip}{0pt plus 5cm}follow\+Links (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aa486fd79f1309327b379b630530d5798}
+
+
+Definition at line 16238 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!get\+Adapters@{get\+Adapters}}
+\index{get\+Adapters@{get\+Adapters}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{get\+Adapters}]{\setlength{\rightskip}{0pt plus 5cm}get\+Adapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a808b0b20e94d0a9e46a187d35fe86379}
+Returns registered adapters ordered by priority without extra information.
+
+\begin{DoxyReturn}{Returns}
+Adapter\+Interface[] 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!get\+Adapters@{get\+Adapters}}
+\index{get\+Adapters@{get\+Adapters}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{get\+Adapters}]{\setlength{\rightskip}{0pt plus 5cm}get\+Adapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a808b0b20e94d0a9e46a187d35fe86379}
+
+
+Definition at line 16112 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!get\+Iterator@{get\+Iterator}}
+\index{get\+Iterator@{get\+Iterator}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{get\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}get\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a7a9f937c2958e6f4dd7b030f86fb70b7}
+Returns an \doxyref{Iterator}{p.}{namespace_symfony_1_1_component_1_1_finder_1_1_iterator} for the current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} configuration.
+
+This method implements the Iterator\+Aggregate interface.
+
+\begin{DoxyReturn}{Returns}
+An iterator
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 695 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!get\+Iterator@{get\+Iterator}}
+\index{get\+Iterator@{get\+Iterator}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{get\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}get\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a7a9f937c2958e6f4dd7b030f86fb70b7}
+
+
+Definition at line 16263 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+Dot\+Files@{ignore\+Dot\+Files}}
+\index{ignore\+Dot\+Files@{ignore\+Dot\+Files}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+Dot\+Files}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+Dot\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore\+Dot\+Files}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a9d04efd22d7a608aae481c62521d482b}
+Excludes \char`\"{}hidden\char`\"{} directories and files (starting with a dot).
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$ignore\+Dot\+Files} & Whether to exclude \char`\"{}hidden\char`\"{} files or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Exclude\+Directory\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 436 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+Dot\+Files@{ignore\+Dot\+Files}}
+\index{ignore\+Dot\+Files@{ignore\+Dot\+Files}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+Dot\+Files}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+Dot\+Files (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore\+Dot\+Files}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a9d04efd22d7a608aae481c62521d482b}
+
+
+Definition at line 16178 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+Unreadable\+Dirs@{ignore\+Unreadable\+Dirs}}
+\index{ignore\+Unreadable\+Dirs@{ignore\+Unreadable\+Dirs}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+Unreadable\+Dirs}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+Unreadable\+Dirs (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a86c309cf4fa5d1f0a908a46525f40515}
+Tells finder to ignore unreadable directories.
+
+By default, scanning unreadable directories content throws an Access\+Denied\+Exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$ignore} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance 
+\end{DoxyReturn}
+
+
+Definition at line 649 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+Unreadable\+Dirs@{ignore\+Unreadable\+Dirs}}
+\index{ignore\+Unreadable\+Dirs@{ignore\+Unreadable\+Dirs}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+Unreadable\+Dirs}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+Unreadable\+Dirs (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a86c309cf4fa5d1f0a908a46525f40515}
+
+
+Definition at line 16243 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+V\+C\+S@{ignore\+V\+C\+S}}
+\index{ignore\+V\+C\+S@{ignore\+V\+C\+S}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+V\+C\+S}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+V\+C\+S (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore\+V\+C\+S}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a36bc2f9ba7f3336f2aff5fb05aca450f}
+Forces the finder to ignore version control directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$ignore\+V\+C\+S} & Whether to exclude V\+C\+S files or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Exclude\+Directory\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 458 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!ignore\+V\+C\+S@{ignore\+V\+C\+S}}
+\index{ignore\+V\+C\+S@{ignore\+V\+C\+S}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{ignore\+V\+C\+S}]{\setlength{\rightskip}{0pt plus 5cm}ignore\+V\+C\+S (
+\begin{DoxyParamCaption}
+\item[{}]{\$ignore\+V\+C\+S}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a36bc2f9ba7f3336f2aff5fb05aca450f}
+
+
+Definition at line 16187 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!in@{in}}
+\index{in@{in}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{in}]{\setlength{\rightskip}{0pt plus 5cm}in (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirs}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a90ab8f78c21b94b643687aa46fce782c}
+Searches files and directories which match defined rules.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$dirs} & \doxyref{A}{p.}{class_a} directory path or an array of directories\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 667 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!in@{in}}
+\index{in@{in}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{in}]{\setlength{\rightskip}{0pt plus 5cm}in (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirs}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a90ab8f78c21b94b643687aa46fce782c}
+
+
+Definition at line 16248 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!name@{name}}
+\index{name@{name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}name (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_acda30b7a5ea4c9c4f3d5e0d39b077979}
+Adds rules that files must match.
+
+You can use patterns (delimited with / sign), globs or simple strings.
+
+\$finder-\/$>$name(\textquotesingle{}$\ast$.php\textquotesingle{}) \$finder-\/$>$name(\textquotesingle{}/.php\$/\textquotesingle{}) // same as above \$finder-\/$>$name(\textquotesingle{}test.\+php\textquotesingle{})
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (a regexp, a glob, or a string)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filename\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 271 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!name@{name}}
+\index{name@{name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}name (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_acda30b7a5ea4c9c4f3d5e0d39b077979}
+
+
+Definition at line 16138 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Contains@{not\+Contains}}
+\index{not\+Contains@{not\+Contains}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Contains}]{\setlength{\rightskip}{0pt plus 5cm}not\+Contains (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ab141d12aa927d06a3816d37fb0ae8cca}
+Adds tests that file contents must not match.
+
+Strings or P\+C\+R\+E patterns can be used\+:
+
+\$finder-\/$>$not\+Contains(\textquotesingle{}Lorem ipsum\textquotesingle{}) \$finder-\/$>$not\+Contains(\textquotesingle{}/\+Lorem ipsum/i\textquotesingle{})
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (string or regexp)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filecontent\+Filter\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 331 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Contains@{not\+Contains}}
+\index{not\+Contains@{not\+Contains}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Contains}]{\setlength{\rightskip}{0pt plus 5cm}not\+Contains (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ab141d12aa927d06a3816d37fb0ae8cca}
+
+
+Definition at line 16153 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Name@{not\+Name}}
+\index{not\+Name@{not\+Name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Name}]{\setlength{\rightskip}{0pt plus 5cm}not\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a1a98532d8bae5b268bdd342063a35708}
+Adds rules that files must not match.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (a regexp, a glob, or a string)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filename\+Filter\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 289 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Name@{not\+Name}}
+\index{not\+Name@{not\+Name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Name}]{\setlength{\rightskip}{0pt plus 5cm}not\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a1a98532d8bae5b268bdd342063a35708}
+
+
+Definition at line 16143 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Path@{not\+Path}}
+\index{not\+Path@{not\+Path}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Path}]{\setlength{\rightskip}{0pt plus 5cm}not\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ad9767497c195c603541a2265fcc28a53}
+Adds rules that filenames must not match.
+
+You can use patterns (delimited with / sign) or simple strings.
+
+\$finder-\/$>$not\+Path(\textquotesingle{}some/special/dir\textquotesingle{}) \$finder-\/$>$not\+Path(\textquotesingle{}/some\textbackslash{}/special\textbackslash{}/dir/\textquotesingle{}) // same as above
+
+Use only / as dirname separator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (a regexp or a string)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filename\+Filter\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 377 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!not\+Path@{not\+Path}}
+\index{not\+Path@{not\+Path}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{not\+Path}]{\setlength{\rightskip}{0pt plus 5cm}not\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ad9767497c195c603541a2265fcc28a53}
+
+
+Definition at line 16163 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!path@{path}}
+\index{path@{path}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}path (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6636af30fddf78354bb341bd356c6c16}
+Adds rules that filenames must match.
+
+You can use patterns (delimited with / sign) or simple strings.
+
+\$finder-\/$>$path(\textquotesingle{}some/special/dir\textquotesingle{}) \$finder-\/$>$path(\textquotesingle{}/some\textbackslash{}/special\textbackslash{}/dir/\textquotesingle{}) // same as above
+
+Use only / as dirname separator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \doxyref{A}{p.}{class_a} pattern (a regexp or a string)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Filename\+Filter\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 354 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!path@{path}}
+\index{path@{path}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}path (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6636af30fddf78354bb341bd356c6c16}
+
+
+Definition at line 16158 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!remove\+Adapters@{remove\+Adapters}}
+\index{remove\+Adapters@{remove\+Adapters}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{remove\+Adapters}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Adapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac41aacb5b0737067dbf5ae13b9660cfb}
+Removes all adapters registered in the finder.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!remove\+Adapters@{remove\+Adapters}}
+\index{remove\+Adapters@{remove\+Adapters}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{remove\+Adapters}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Adapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ac41aacb5b0737067dbf5ae13b9660cfb}
+
+
+Definition at line 16107 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!set\+Adapter@{set\+Adapter}}
+\index{set\+Adapter@{set\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{set\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Adapter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a79c75cc51625938eefa84e042e12691f}
+Selects the adapter to use.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 139 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!set\+Adapter@{set\+Adapter}}
+\index{set\+Adapter@{set\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{set\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Adapter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a79c75cc51625938eefa84e042e12691f}
+
+
+Definition at line 16098 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!size@{size}}
+\index{size@{size}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size (
+\begin{DoxyParamCaption}
+\item[{}]{\$size}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_af4f70018d6b4006715881088cdb3b7f3}
+Adds tests for file sizes.
+
+\$finder-\/$>$size(\textquotesingle{}$>$ 10\+K\textquotesingle{}); \$finder-\/$>$size(\textquotesingle{}$<$= 1\+Ki\textquotesingle{}); \$finder-\/$>$size(4);
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$size} & \doxyref{A}{p.}{class_a} size range string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Size\+Range\+Filter\+Iterator 
+
+Number\+Comparator
+\end{DoxySeeAlso}
+
+
+Definition at line 400 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!size@{size}}
+\index{size@{size}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size (
+\begin{DoxyParamCaption}
+\item[{}]{\$size}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_af4f70018d6b4006715881088cdb3b7f3}
+
+
+Definition at line 16168 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort@{sort}}
+\index{sort@{sort}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}sort (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6055fdc3f297d7867591c80b1d5e26c2}
+Sorts files and directories by an anonymous function.
+
+The anonymous function receives two  instances to compare.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$closure} & An anonymous function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 500 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort@{sort}}
+\index{sort@{sort}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}sort (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Closure}]{\$closure}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a6055fdc3f297d7867591c80b1d5e26c2}
+
+
+Definition at line 16203 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Accessed\+Time@{sort\+By\+Accessed\+Time}}
+\index{sort\+By\+Accessed\+Time@{sort\+By\+Accessed\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Accessed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Accessed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a055381f42f2e0567fb23d334187cfb0d}
+Sorts files and directories by the last accessed time.
+
+This is the time that the file was last accessed, read or written to.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 556 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Accessed\+Time@{sort\+By\+Accessed\+Time}}
+\index{sort\+By\+Accessed\+Time@{sort\+By\+Accessed\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Accessed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Accessed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a055381f42f2e0567fb23d334187cfb0d}
+
+
+Definition at line 16218 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Changed\+Time@{sort\+By\+Changed\+Time}}
+\index{sort\+By\+Changed\+Time@{sort\+By\+Changed\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Changed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Changed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a416cfdf43845cce368847701df023201}
+Sorts files and directories by the last inode changed time.
+
+This is the time that the inode information was last modified (permissions, owner, group or other metadata).
+
+On Windows, since inode is not available, changed time is actually the file creation time.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 578 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Changed\+Time@{sort\+By\+Changed\+Time}}
+\index{sort\+By\+Changed\+Time@{sort\+By\+Changed\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Changed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Changed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a416cfdf43845cce368847701df023201}
+
+
+Definition at line 16223 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Modified\+Time@{sort\+By\+Modified\+Time}}
+\index{sort\+By\+Modified\+Time@{sort\+By\+Modified\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Modified\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Modified\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a971f6ebe3b9ae8290abd561a2a59ef98}
+Sorts files and directories by the last modified time.
+
+This is the last time the actual contents of the file were last modified.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 598 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Modified\+Time@{sort\+By\+Modified\+Time}}
+\index{sort\+By\+Modified\+Time@{sort\+By\+Modified\+Time}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Modified\+Time}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Modified\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a971f6ebe3b9ae8290abd561a2a59ef98}
+
+
+Definition at line 16228 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Name@{sort\+By\+Name}}
+\index{sort\+By\+Name@{sort\+By\+Name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Name}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ae31edd7ba889a732190350c316c84bfe}
+Sorts files and directories by name.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 518 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Name@{sort\+By\+Name}}
+\index{sort\+By\+Name@{sort\+By\+Name}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Name}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_ae31edd7ba889a732190350c316c84bfe}
+
+
+Definition at line 16208 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Type@{sort\+By\+Type}}
+\index{sort\+By\+Type@{sort\+By\+Type}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Type}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a23f18bb82509228ffebbe5f83ea38ccb}
+Sorts files and directories by type (directories before files), then by name.
+
+This can be slow as all the matching files and directories must be retrieved for comparison.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Sortable\+Iterator
+\end{DoxySeeAlso}
+
+
+Definition at line 536 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!sort\+By\+Type@{sort\+By\+Type}}
+\index{sort\+By\+Type@{sort\+By\+Type}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{sort\+By\+Type}]{\setlength{\rightskip}{0pt plus 5cm}sort\+By\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_a23f18bb82509228ffebbe5f83ea38ccb}
+
+
+Definition at line 16213 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!use\+Best\+Adapter@{use\+Best\+Adapter}}
+\index{use\+Best\+Adapter@{use\+Best\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{use\+Best\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}use\+Best\+Adapter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aa8461617aa60282da39d9839b56a16b8}
+Sets the selected adapter to the best one according to the current platform the code is run on.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} The current \doxyref{Finder}{p.}{class_symfony_1_1_component_1_1_finder_1_1_finder} instance 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Finder.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!use\+Best\+Adapter@{use\+Best\+Adapter}}
+\index{use\+Best\+Adapter@{use\+Best\+Adapter}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{use\+Best\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}use\+Best\+Adapter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aa8461617aa60282da39d9839b56a16b8}
+
+
+Definition at line 16093 of file compiled.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S@{I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S}}
+\index{I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S@{I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}const I\+G\+N\+O\+R\+E\+\_\+\+D\+O\+T\+\_\+\+F\+I\+L\+E\+S = 2}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_abf6252c1e9394d502a0c8fe941d243af}
+
+
+Definition at line 16058 of file compiled.\+php.
+
+\index{Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}!I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S@{I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S}}
+\index{I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S@{I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S}!Symfony\+::\+Component\+::\+Finder\+::\+Finder@{Symfony\+::\+Component\+::\+Finder\+::\+Finder}}
+\subsubsection[{I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}const I\+G\+N\+O\+R\+E\+\_\+\+V\+C\+S\+\_\+\+F\+I\+L\+E\+S = 1}\label{class_symfony_1_1_component_1_1_finder_1_1_finder_aad4cb142ac1fd83882753aa1cd56c9a4}
+
+
+Definition at line 16057 of file compiled.\+php.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vendor/{\bf compiled.\+php}\item 
+vendor/symfony/finder/\+Symfony/\+Component/\+Finder/{\bf Finder.\+php}\end{DoxyCompactItemize}

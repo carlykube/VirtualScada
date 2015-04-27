@@ -1,0 +1,259 @@
+.TH "AdapterInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AdapterInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBReadInterface\fP\&.
+.PP
+Inherited by \fBAbstractAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBwriteStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($\fBpath\fP, $contents, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBupdateStream\fP ($\fBpath\fP, $resource, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($\fBpath\fP, $newpath)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBdeleteDir\fP ($dirname)"
+.br
+.ti -1c
+.RI "\fBcreateDir\fP ($dirname, \fBConfig\fP $config)"
+.br
+.ti -1c
+.RI "\fBsetVisibility\fP ($\fBpath\fP, $visibility)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVISIBILITY_PUBLIC\fP = 'public'"
+.br
+.ti -1c
+.RI "const \fBVISIBILITY_PRIVATE\fP = 'private'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file AdapterInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "copy ( $path,  $newpath)"
+Copy a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBLocal\fP\&.
+.SS "createDir ( $dirname, \fBConfig\fP $config)"
+Create a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP directory name 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false 
+.RE
+.PP
+
+.PP
+Implemented in \fBLocal\fP, \fBFtp\fP, and \fBNullAdapter\fP\&.
+.SS "delete ( $path)"
+Delete a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, \fBLocal\fP, and \fBNullAdapter\fP\&.
+.SS "deleteDir ( $dirname)"
+Delete a directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dirname\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBLocal\fP, \fBFtp\fP, and \fBNullAdapter\fP\&.
+.SS "rename ( $path,  $newpath)"
+Rename a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$newpath\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, \fBLocal\fP, and \fBNullAdapter\fP\&.
+.SS "setVisibility ( $path,  $visibility)"
+Set the visibility for a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$visibility\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false file meta data 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, \fBLocal\fP, and \fBNullAdapter\fP\&.
+.SS "update ( $path,  $contents, \fBConfig\fP $config)"
+Update a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, \fBLocal\fP, and \fBNullAdapter\fP\&.
+.SS "updateStream ( $path,  $resource, \fBConfig\fP $config)"
+Update a file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, and \fBLocal\fP\&.
+.SS "write ( $path,  $contents, \fBConfig\fP $config)"
+Write a new file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$contents\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, \fBLocal\fP, and \fBNullAdapter\fP\&.
+.SS "writeStream ( $path,  $resource, \fBConfig\fP $config)"
+Write a new file using a stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$resource\fP 
+.br
+\fI$config\fP \fBConfig\fP object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|false false on failure file meta data on success 
+.RE
+.PP
+
+.PP
+Implemented in \fBFtp\fP, and \fBLocal\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const VISIBILITY_PRIVATE = 'private'"
+VISIBILITY_PRIVATE private visibility 
+.PP
+Definition at line 15 of file AdapterInterface\&.php\&.
+.SS "const VISIBILITY_PUBLIC = 'public'"
+VISIBILITY_PUBLIC public visibility 
+.PP
+Definition at line 10 of file AdapterInterface\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

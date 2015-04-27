@@ -1,0 +1,1230 @@
+.TH "Blueprint" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Blueprint \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($table, Closure $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "\fBbuild\fP (\fBConnection\fP $connection, \fBGrammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBtoSql\fP (\fBConnection\fP $connection, \fBGrammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBcreate\fP ()"
+.br
+.ti -1c
+.RI "\fBdrop\fP ()"
+.br
+.ti -1c
+.RI "\fBdropIfExists\fP ()"
+.br
+.ti -1c
+.RI "\fBdropColumn\fP ($columns)"
+.br
+.ti -1c
+.RI "\fBrenameColumn\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBdropPrimary\fP ($\fBindex\fP=null)"
+.br
+.ti -1c
+.RI "\fBdropUnique\fP ($\fBindex\fP)"
+.br
+.ti -1c
+.RI "\fBdropIndex\fP ($\fBindex\fP)"
+.br
+.ti -1c
+.RI "\fBdropForeign\fP ($\fBindex\fP)"
+.br
+.ti -1c
+.RI "\fBdropTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBdropSoftDeletes\fP ()"
+.br
+.ti -1c
+.RI "\fBrename\fP ($\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBprimary\fP ($columns, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBunique\fP ($columns, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBindex\fP ($columns, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBforeign\fP ($columns, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBincrements\fP ($column)"
+.br
+.ti -1c
+.RI "\fBbigIncrements\fP ($column)"
+.br
+.ti -1c
+.RI "\fBchar\fP ($column, $length=255)"
+.br
+.ti -1c
+.RI "\fBstring\fP ($column, $length=255)"
+.br
+.ti -1c
+.RI "\fBtext\fP ($column)"
+.br
+.ti -1c
+.RI "\fBmediumText\fP ($column)"
+.br
+.ti -1c
+.RI "\fBlongText\fP ($column)"
+.br
+.ti -1c
+.RI "\fBinteger\fP ($column, $autoIncrement=false, $unsigned=false)"
+.br
+.ti -1c
+.RI "\fBbigInteger\fP ($column, $autoIncrement=false, $unsigned=false)"
+.br
+.ti -1c
+.RI "\fBmediumInteger\fP ($column, $autoIncrement=false, $unsigned=false)"
+.br
+.ti -1c
+.RI "\fBtinyInteger\fP ($column, $autoIncrement=false, $unsigned=false)"
+.br
+.ti -1c
+.RI "\fBsmallInteger\fP ($column, $autoIncrement=false, $unsigned=false)"
+.br
+.ti -1c
+.RI "\fBunsignedInteger\fP ($column, $autoIncrement=false)"
+.br
+.ti -1c
+.RI "\fBunsignedBigInteger\fP ($column, $autoIncrement=false)"
+.br
+.ti -1c
+.RI "\fBfloat\fP ($column, $total=8, $places=2)"
+.br
+.ti -1c
+.RI "\fBdouble\fP ($column, $total=null, $places=null)"
+.br
+.ti -1c
+.RI "\fBdecimal\fP ($column, $total=8, $places=2)"
+.br
+.ti -1c
+.RI "\fBboolean\fP ($column)"
+.br
+.ti -1c
+.RI "\fBenum\fP ($column, array $allowed)"
+.br
+.ti -1c
+.RI "\fBjson\fP ($column)"
+.br
+.ti -1c
+.RI "\fBdate\fP ($column)"
+.br
+.ti -1c
+.RI "\fBdateTime\fP ($column)"
+.br
+.ti -1c
+.RI "\fBtime\fP ($column)"
+.br
+.ti -1c
+.RI "\fBtimestamp\fP ($column)"
+.br
+.ti -1c
+.RI "\fBnullableTimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBtimestamps\fP ()"
+.br
+.ti -1c
+.RI "\fBsoftDeletes\fP ()"
+.br
+.ti -1c
+.RI "\fBbinary\fP ($column)"
+.br
+.ti -1c
+.RI "\fBmorphs\fP ($\fBname\fP, $indexName=null)"
+.br
+.ti -1c
+.RI "\fBrememberToken\fP ()"
+.br
+.ti -1c
+.RI "\fBremoveColumn\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetTable\fP ()"
+.br
+.ti -1c
+.RI "\fBgetColumns\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCommands\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAddedColumns\fP ()"
+.br
+.ti -1c
+.RI "\fBgetChangedColumns\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$engine\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddImpliedCommands\fP ()"
+.br
+.ti -1c
+.RI "\fBaddFluentIndexes\fP ()"
+.br
+.ti -1c
+.RI "\fBcreating\fP ()"
+.br
+.ti -1c
+.RI "\fBdropIndexCommand\fP ($command, $type, $\fBindex\fP)"
+.br
+.ti -1c
+.RI "\fBindexCommand\fP ($type, $columns, $\fBindex\fP)"
+.br
+.ti -1c
+.RI "\fBcreateIndexName\fP ($type, array $columns)"
+.br
+.ti -1c
+.RI "\fBaddColumn\fP ($type, $\fBname\fP, array $parameters=array())"
+.br
+.ti -1c
+.RI "\fBaddCommand\fP ($\fBname\fP, array $parameters=array())"
+.br
+.ti -1c
+.RI "\fBcreateCommand\fP ($\fBname\fP, array $parameters=array())"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$table\fP"
+.br
+.ti -1c
+.RI "\fB$columns\fP = array()"
+.br
+.ti -1c
+.RI "\fB$commands\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file Blueprint\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $table, Closure $callback = \fCnull\fP)"
+Create a new schema blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file Blueprint\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addColumn ( $type,  $name, array $parameters = \fCarray()\fP)\fC [protected]\fP"
+Add a new column to the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$name\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 772 of file Blueprint\&.php\&.
+.SS "addCommand ( $name, array $parameters = \fCarray()\fP)\fC [protected]\fP"
+Add a new command to the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 804 of file Blueprint\&.php\&.
+.SS "addFluentIndexes ()\fC [protected]\fP"
+Add the index commands fluently specified on columns\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file Blueprint\&.php\&.
+.SS "addImpliedCommands ()\fC [protected]\fP"
+Add the commands that are implied by the blueprint\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file Blueprint\&.php\&.
+.SS "bigIncrements ( $column)"
+Create a new auto-incrementing big integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 363 of file Blueprint\&.php\&.
+.SS "bigInteger ( $column,  $autoIncrement = \fCfalse\fP,  $unsigned = \fCfalse\fP)"
+Create a new big integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.br
+\fI$unsigned\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 446 of file Blueprint\&.php\&.
+.SS "binary ( $column)"
+Create a new binary column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 671 of file Blueprint\&.php\&.
+.SS "boolean ( $column)"
+Create a new boolean column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 559 of file Blueprint\&.php\&.
+.SS "build (\fBConnection\fP $connection, \fBGrammar\fP $grammar)"
+Execute the blueprint against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$grammar\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file Blueprint\&.php\&.
+.SS "char ( $column,  $length = \fC255\fP)"
+Create a new char column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 375 of file Blueprint\&.php\&.
+.SS "create ()"
+Indicate that the table needs to be created\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 173 of file Blueprint\&.php\&.
+.SS "createCommand ( $name, array $parameters = \fCarray()\fP)\fC [protected]\fP"
+Create a new Fluent command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 818 of file Blueprint\&.php\&.
+.SS "createIndexName ( $type, array $columns)\fC [protected]\fP"
+Create a default index name for the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 757 of file Blueprint\&.php\&.
+.SS "creating ()\fC [protected]\fP"
+Determine if the blueprint has a create command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file Blueprint\&.php\&.
+.SS "date ( $column)"
+Create a new date column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 593 of file Blueprint\&.php\&.
+.SS "dateTime ( $column)"
+Create a new date-time column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 604 of file Blueprint\&.php\&.
+.SS "decimal ( $column,  $total = \fC8\fP,  $places = \fC2\fP)"
+Create a new decimal column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$total\fP 
+.br
+\fI$places\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 548 of file Blueprint\&.php\&.
+.SS "double ( $column,  $total = \fCnull\fP,  $places = \fCnull\fP)"
+Create a new double column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$total\fP 
+.br
+\fI$places\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 535 of file Blueprint\&.php\&.
+.SS "drop ()"
+Indicate that the table should be dropped\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 183 of file Blueprint\&.php\&.
+.SS "dropColumn ( $columns)"
+Indicate that the given columns should be dropped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 204 of file Blueprint\&.php\&.
+.SS "dropForeign ( $index)"
+Indicate that the given foreign key should be dropped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 262 of file Blueprint\&.php\&.
+.SS "dropIfExists ()"
+Indicate that the table should be dropped if it exists\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 193 of file Blueprint\&.php\&.
+.SS "dropIndex ( $index)"
+Indicate that the given index should be dropped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 251 of file Blueprint\&.php\&.
+.SS "dropIndexCommand ( $command,  $type,  $index)\fC [protected]\fP"
+Create a new drop index command on the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$type\fP 
+.br
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 710 of file Blueprint\&.php\&.
+.SS "dropPrimary ( $index = \fCnull\fP)"
+Indicate that the given primary key should be dropped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 229 of file Blueprint\&.php\&.
+.SS "dropSoftDeletes ()"
+Indicate that the soft delete column should be dropped\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file Blueprint\&.php\&.
+.SS "dropTimestamps ()"
+Indicate that the timestamp columns should be dropped\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 272 of file Blueprint\&.php\&.
+.SS "dropUnique ( $index)"
+Indicate that the given unique key should be dropped\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 240 of file Blueprint\&.php\&.
+.SS "enum ( $column, array $allowed)"
+Create a new enum column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$allowed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 571 of file Blueprint\&.php\&.
+.SS "float ( $column,  $total = \fC8\fP,  $places = \fC2\fP)"
+Create a new float column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$total\fP 
+.br
+\fI$places\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 522 of file Blueprint\&.php\&.
+.SS "foreign ( $columns,  $name = \fCnull\fP)"
+Specify a foreign key for the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 341 of file Blueprint\&.php\&.
+.SS "getAddedColumns ()"
+Get the columns on the blueprint that should be added\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 858 of file Blueprint\&.php\&.
+.SS "getChangedColumns ()"
+Get the columns on the blueprint that should be changed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 871 of file Blueprint\&.php\&.
+.SS "getColumns ()"
+Get the columns on the blueprint\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 838 of file Blueprint\&.php\&.
+.SS "getCommands ()"
+Get the commands on the blueprint\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 848 of file Blueprint\&.php\&.
+.SS "getTable ()"
+Get the table the blueprint describes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 828 of file Blueprint\&.php\&.
+.SS "increments ( $column)"
+Create a new auto-incrementing integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 352 of file Blueprint\&.php\&.
+.SS "index ( $columns,  $name = \fCnull\fP)"
+Specify an index for the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 329 of file Blueprint\&.php\&.
+.SS "indexCommand ( $type,  $columns,  $index)\fC [protected]\fP"
+Add a new index command to the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$columns\fP 
+.br
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 735 of file Blueprint\&.php\&.
+.SS "integer ( $column,  $autoIncrement = \fCfalse\fP,  $unsigned = \fCfalse\fP)"
+Create a new integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.br
+\fI$unsigned\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 433 of file Blueprint\&.php\&.
+.SS "json ( $column)"
+Create a new json column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 582 of file Blueprint\&.php\&.
+.SS "longText ( $column)"
+Create a new long text column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 420 of file Blueprint\&.php\&.
+.SS "mediumInteger ( $column,  $autoIncrement = \fCfalse\fP,  $unsigned = \fCfalse\fP)"
+Create a new medium integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.br
+\fI$unsigned\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 459 of file Blueprint\&.php\&.
+.SS "mediumText ( $column)"
+Create a new medium text column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 409 of file Blueprint\&.php\&.
+.SS "morphs ( $name,  $indexName = \fCnull\fP)"
+Add the proper columns for a polymorphic table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$indexName\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 683 of file Blueprint\&.php\&.
+.SS "nullableTimestamps ()"
+Add nullable creation and update timestamps to the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 636 of file Blueprint\&.php\&.
+.SS "primary ( $columns,  $name = \fCnull\fP)"
+Specify the primary key(s) for the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 305 of file Blueprint\&.php\&.
+.SS "rememberToken ()"
+Adds the \fCremember_token\fP column to the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 697 of file Blueprint\&.php\&.
+.SS "removeColumn ( $name)"
+Remove a column from the schema blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 787 of file Blueprint\&.php\&.
+.SS "rename ( $to)"
+Rename the table to a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 293 of file Blueprint\&.php\&.
+.SS "renameColumn ( $from,  $to)"
+Indicate that the given columns should be renamed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 218 of file Blueprint\&.php\&.
+.SS "smallInteger ( $column,  $autoIncrement = \fCfalse\fP,  $unsigned = \fCfalse\fP)"
+Create a new small integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.br
+\fI$unsigned\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 485 of file Blueprint\&.php\&.
+.SS "softDeletes ()"
+Add a 'deleted at' timestamp for the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 660 of file Blueprint\&.php\&.
+.SS "string ( $column,  $length = \fC255\fP)"
+Create a new string column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+The table the blueprint describes\&.
+.PP
+The storage engine that should be used for the table\&. 
+.PP
+Definition at line 387 of file Blueprint\&.php\&.
+.SS "text ( $column)"
+Create a new text column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 398 of file Blueprint\&.php\&.
+.SS "time ( $column)"
+Create a new time column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 615 of file Blueprint\&.php\&.
+.SS "timestamp ( $column)"
+Create a new timestamp column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 626 of file Blueprint\&.php\&.
+.SS "timestamps ()"
+Add creation and update timestamps to the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 648 of file Blueprint\&.php\&.
+.SS "tinyInteger ( $column,  $autoIncrement = \fCfalse\fP,  $unsigned = \fCfalse\fP)"
+Create a new tiny integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.br
+\fI$unsigned\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 472 of file Blueprint\&.php\&.
+.SS "toSql (\fBConnection\fP $connection, \fBGrammar\fP $grammar)"
+Get the raw SQL statements for the blueprint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$grammar\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Blueprint\&.php\&.
+.SS "unique ( $columns,  $name = \fCnull\fP)"
+Specify a unique index for the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.br
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 317 of file Blueprint\&.php\&.
+.SS "unsignedBigInteger ( $column,  $autoIncrement = \fCfalse\fP)"
+Create a new unsigned big integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 509 of file Blueprint\&.php\&.
+.SS "unsignedInteger ( $column,  $autoIncrement = \fCfalse\fP)"
+Create a new unsigned integer column on the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$autoIncrement\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 497 of file Blueprint\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$columns = array()\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file Blueprint\&.php\&.
+.SS "$commands = array()\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file Blueprint\&.php\&.
+.SS "$engine"
+
+.PP
+Definition at line 36 of file Blueprint\&.php\&.
+.SS "$table\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file Blueprint\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

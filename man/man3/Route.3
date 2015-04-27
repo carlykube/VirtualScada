@@ -1,0 +1,1032 @@
+.TH "Route" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Route \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRoute\fP\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBget\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBpost\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBput\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBpatch\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBdelete\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBoptions\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBany\fP ($uri, $action)"
+.br
+.ti -1c
+.RI "static \fBmatch\fP ($methods, $uri, $action)"
+.br
+.ti -1c
+.RI "static \fBcontrollers\fP ($controllers)"
+.br
+.ti -1c
+.RI "static \fBcontroller\fP ($uri, $controller, $names=array())"
+.br
+.ti -1c
+.RI "static \fBresource\fP ($\fBname\fP, $\fBcontroller\fP, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "static \fBgetResourceUri\fP ($\fBresource\fP)"
+.br
+.ti -1c
+.RI "static \fBgetResourceWildcard\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBgroup\fP ($attributes, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBmergeWithLastGroup\fP ($new)"
+.br
+.ti -1c
+.RI "static \fBmergeGroup\fP ($new, $old)"
+.br
+.ti -1c
+.RI "static \fBdispatch\fP ($request)"
+.br
+.ti -1c
+.RI "static \fBdispatchToRoute\fP ($request)"
+.br
+.ti -1c
+.RI "static \fBmatched\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBbefore\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBafter\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBfilter\fP ($\fBname\fP, $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBwhen\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "static \fBwhenRegex\fP ($\fBpattern\fP, $\fBname\fP, $methods=null)"
+.br
+.ti -1c
+.RI "static \fBmodel\fP ($key, $class, $\fBcallback\fP=null)"
+.br
+.ti -1c
+.RI "static \fBbind\fP ($key, $binder)"
+.br
+.ti -1c
+.RI "static \fBcreateClassBinding\fP ($binding)"
+.br
+.ti -1c
+.RI "static \fBpattern\fP ($key, $pattern)"
+.br
+.ti -1c
+.RI "static \fBpatterns\fP ($patterns)"
+.br
+.ti -1c
+.RI "static \fBcallRouteBefore\fP ($route, $request)"
+.br
+.ti -1c
+.RI "static \fBfindPatternFilters\fP ($request)"
+.br
+.ti -1c
+.RI "static \fBcallRouteAfter\fP ($route, $request, $response)"
+.br
+.ti -1c
+.RI "static \fBcallRouteFilter\fP ($\fBfilter\fP, $parameters, $route, $request, $response=null)"
+.br
+.ti -1c
+.RI "static \fBwithoutFilters\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "static \fBenableFilters\fP ()"
+.br
+.ti -1c
+.RI "static \fBdisableFilters\fP ()"
+.br
+.ti -1c
+.RI "static \fBinput\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "static \fBgetCurrentRoute\fP ()"
+.br
+.ti -1c
+.RI "static \fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "static \fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBcurrentRouteName\fP ()"
+.br
+.ti -1c
+.RI "static \fBis\fP ()"
+.br
+.ti -1c
+.RI "static \fBcurrentRouteNamed\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBcurrentRouteAction\fP ()"
+.br
+.ti -1c
+.RI "static \fBuses\fP ()"
+.br
+.ti -1c
+.RI "static \fBcurrentRouteUses\fP ($action)"
+.br
+.ti -1c
+.RI "static \fBgetCurrentRequest\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetRoutes\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetControllerDispatcher\fP ()"
+.br
+.ti -1c
+.RI "static \fBsetControllerDispatcher\fP ($dispatcher)"
+.br
+.ti -1c
+.RI "static \fBgetInspector\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetPatterns\fP ()"
+.br
+.ti -1c
+.RI "static \fBhandle\fP ($request, $type=1, $catch=true)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 10098 of file _ide_helper\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static after ( $callback)\fC [static]\fP"
+Register a new 'after' filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10342 of file _ide_helper\&.php\&.
+.SS "static any ( $uri,  $action)\fC [static]\fP"
+Register a new route responding to all verbs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10180 of file _ide_helper\&.php\&.
+.SS "static before ( $callback)\fC [static]\fP"
+Register a new 'before' filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10331 of file _ide_helper\&.php\&.
+.SS "static bind ( $key,  $binder)\fC [static]\fP"
+Add a new route parameter binder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$binder\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10406 of file _ide_helper\&.php\&.
+.SS "static callRouteAfter ( $route,  $request,  $response)\fC [static]\fP"
+Call the given route's before filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 10476 of file _ide_helper\&.php\&.
+.SS "static callRouteBefore ( $route,  $request)\fC [static]\fP"
+Call the given route's before filters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$route\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 10452 of file _ide_helper\&.php\&.
+.SS "static callRouteFilter ( $filter,  $parameters,  $route,  $request,  $response = \fCnull\fP)\fC [static]\fP"
+Call the given route filter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filter\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$route\fP 
+.br
+\fI$request\fP 
+.br
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 10491 of file _ide_helper\&.php\&.
+.SS "static controller ( $uri,  $controller,  $names = \fCarray()\fP)\fC [static]\fP"
+\fBRoute\fP a controller to a URI with wildcard routing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$names\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10217 of file _ide_helper\&.php\&.
+.SS "static controllers ( $controllers)\fC [static]\fP"
+Register an array of controllers with wildcard routing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$controllers\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10204 of file _ide_helper\&.php\&.
+.SS "static createClassBinding ( $binding)\fC [static]\fP"
+Create a class based binding using the IoC container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$binding\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10417 of file _ide_helper\&.php\&.
+.SS "static current ()\fC [static]\fP"
+Get the currently dispatched route instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10554 of file _ide_helper\&.php\&.
+.SS "static currentRouteAction ()\fC [static]\fP"
+Get the current route action\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 10607 of file _ide_helper\&.php\&.
+.SS "static currentRouteName ()\fC [static]\fP"
+Get the current route name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 10575 of file _ide_helper\&.php\&.
+.SS "static currentRouteNamed ( $name)\fC [static]\fP"
+Determine if the current route matches a given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 10597 of file _ide_helper\&.php\&.
+.SS "static currentRouteUses ( $action)\fC [static]\fP"
+Determine if the current route action matches a given action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 10629 of file _ide_helper\&.php\&.
+.SS "static delete ( $uri,  $action)\fC [static]\fP"
+Register a new DELETE route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10156 of file _ide_helper\&.php\&.
+.SS "static disableFilters ()\fC [static]\fP"
+Disable route filtering on the router\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10522 of file _ide_helper\&.php\&.
+.SS "static dispatch ( $request)\fC [static]\fP"
+Dispatch the request to the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10298 of file _ide_helper\&.php\&.
+.SS "static dispatchToRoute ( $request)\fC [static]\fP"
+Dispatch the request to a route and return the response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 10309 of file _ide_helper\&.php\&.
+.SS "static enableFilters ()\fC [static]\fP"
+Enable route filtering on the router\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10512 of file _ide_helper\&.php\&.
+.SS "static filter ( $name,  $callback)\fC [static]\fP"
+Register a new filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10354 of file _ide_helper\&.php\&.
+.SS "static findPatternFilters ( $request)\fC [static]\fP"
+Find the patterned filters matching a request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 10463 of file _ide_helper\&.php\&.
+.SS "static get ( $uri,  $action)\fC [static]\fP"
+Register a new GET route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10108 of file _ide_helper\&.php\&.
+.SS "static getControllerDispatcher ()\fC [static]\fP"
+Get the controller dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10659 of file _ide_helper\&.php\&.
+.SS "static getCurrentRequest ()\fC [static]\fP"
+Get the request currently being dispatched\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10639 of file _ide_helper\&.php\&.
+.SS "static getCurrentRoute ()\fC [static]\fP"
+Get the currently dispatched route instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10544 of file _ide_helper\&.php\&.
+.SS "static getInspector ()\fC [static]\fP"
+Get a controller inspector instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10680 of file _ide_helper\&.php\&.
+.SS "static getPatterns ()\fC [static]\fP"
+Get the global 'where' patterns\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 10690 of file _ide_helper\&.php\&.
+.SS "static getResourceUri ( $resource)\fC [static]\fP"
+Get the base resource URI for a given resource\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 10241 of file _ide_helper\&.php\&.
+.SS "static getResourceWildcard ( $value)\fC [static]\fP"
+Format a resource wildcard for usage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 10252 of file _ide_helper\&.php\&.
+.SS "static getRoutes ()\fC [static]\fP"
+Get the underlying route collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10649 of file _ide_helper\&.php\&.
+.SS "static group ( $attributes,  $callback)\fC [static]\fP"
+Create a route group with shared attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10264 of file _ide_helper\&.php\&.
+.SS "static handle ( $request,  $type = \fC1\fP,  $catch = \fCtrue\fP)\fC [static]\fP"
+Get the response for a given request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.br
+\fI$type\fP 
+.br
+\fI$catch\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10703 of file _ide_helper\&.php\&.
+.SS "static has ( $name)\fC [static]\fP"
+Check if a route with the given name exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 10565 of file _ide_helper\&.php\&.
+.SS "static input ( $key,  $default = \fCnull\fP)\fC [static]\fP"
+Get a route parameter for the current route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 10534 of file _ide_helper\&.php\&.
+.SS "static is ()\fC [static]\fP"
+Alias for the 'currentRouteNamed' method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 10586 of file _ide_helper\&.php\&.
+.SS "static match ( $methods,  $uri,  $action)\fC [static]\fP"
+Register a new route with the given verbs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP 
+.br
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10193 of file _ide_helper\&.php\&.
+.SS "static matched ( $callback)\fC [static]\fP"
+Register a route matched event listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10320 of file _ide_helper\&.php\&.
+.SS "static mergeGroup ( $new,  $old)\fC [static]\fP"
+Merge the given group attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.br
+\fI$old\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 10287 of file _ide_helper\&.php\&.
+.SS "static mergeWithLastGroup ( $new)\fC [static]\fP"
+Merge the given array with the last group stack\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$new\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 10275 of file _ide_helper\&.php\&.
+.SS "static model ( $key,  $class,  $callback = \fCnull\fP)\fC [static]\fP"
+Register a model binder for a wildcard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$class\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fINotFoundHttpException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 10394 of file _ide_helper\&.php\&.
+.SS "static options ( $uri,  $action)\fC [static]\fP"
+Register a new OPTIONS route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10168 of file _ide_helper\&.php\&.
+.SS "static patch ( $uri,  $action)\fC [static]\fP"
+Register a new PATCH route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10144 of file _ide_helper\&.php\&.
+.SS "static pattern ( $key,  $pattern)\fC [static]\fP"
+Set a global where pattern on all routes
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$pattern\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10429 of file _ide_helper\&.php\&.
+.SS "static patterns ( $patterns)\fC [static]\fP"
+Set a group of global where patterns on all routes
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$patterns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10440 of file _ide_helper\&.php\&.
+.SS "static post ( $uri,  $action)\fC [static]\fP"
+Register a new POST route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10120 of file _ide_helper\&.php\&.
+.SS "static put ( $uri,  $action)\fC [static]\fP"
+Register a new PUT route with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP 
+.br
+\fI$action\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 10132 of file _ide_helper\&.php\&.
+.SS "static resource ( $name,  $controller,  $options = \fCarray()\fP)\fC [static]\fP"
+\fBRoute\fP a resource to a controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$controller\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10230 of file _ide_helper\&.php\&.
+.SS "static setControllerDispatcher ( $dispatcher)\fC [static]\fP"
+Set the controller dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dispatcher\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10670 of file _ide_helper\&.php\&.
+.SS "static uses ()\fC [static]\fP"
+Alias for the 'currentRouteUses' method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImixed\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 10618 of file _ide_helper\&.php\&.
+.SS "static when ( $pattern,  $name,  $methods = \fCnull\fP)\fC [static]\fP"
+Register a pattern-based filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP 
+.br
+\fI$name\fP 
+.br
+\fI$methods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10367 of file _ide_helper\&.php\&.
+.SS "static whenRegex ( $pattern,  $name,  $methods = \fCnull\fP)\fC [static]\fP"
+Register a regular expression based filter with the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP 
+.br
+\fI$name\fP 
+.br
+\fI$methods\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10380 of file _ide_helper\&.php\&.
+.SS "static withoutFilters ( $callback)\fC [static]\fP"
+Run a callback with filters disable on the router\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 10502 of file _ide_helper\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

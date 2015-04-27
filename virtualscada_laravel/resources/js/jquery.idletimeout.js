@@ -143,7 +143,7 @@
 	// options
 	$.idleTimeout.options = {
 		// number of seconds after user is idle to show the warning
-		warningLength: 3000,
+		warningLength: 15,
 		
 		// url to call to keep the session alive while the user is active
 		keepAliveURL: "",
@@ -151,8 +151,8 @@
 		// the response from keepAliveURL must equal this text:
 		serverResponseEquals: "OK",
 		
-		// user is considered idle after this many seconds.  10 minutes default
-		idleAfter: 3300,
+		// user is considered idle after this many seconds.  Set to 55 minutes
+		idleAfter: 330000,
 		
 		// a polling request will be sent to the server every X seconds
 		pollingInterval: 60,

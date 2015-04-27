@@ -1,0 +1,55 @@
+.TH "md_vendor_nesbot_carbon_readme" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_nesbot_carbon_readme \- \fBCarbon\fP 
+\fC![Latest Stable Version](https://poser\&.pugx\&.org/nesbot/carbon/v/stable\&.png)\fP \fC![Total Downloads](https://poser\&.pugx\&.org/nesbot/carbon/downloads\&.png)\fP \fC![Build Status](https://secure\&.travis-ci\&.org/briannesbitt/Carbon\&.png)\fP
+.PP
+\fBA\fP simple \fBPHP\fP API extension for DateTime\&. \fChttp://carbon\&.nesbot\&.com\fP
+.PP
+```php printf('Right now is %s', Carbon::now()->toDateTimeString()); printf('Right now in Vancouver is %s', Carbon::now('America/Vancouver')); //implicit __toString() $tomorrow = Carbon::now()->addDay(); $lastWeek = Carbon::now()->subWeek(); $nextSummerOlympics = Carbon::createFromDate(2012)->addYears(4);
+.PP
+$officialDate = Carbon::now()->toRfc2822String();
+.PP
+$howOldAmI = Carbon::createFromDate(1975, 5, 21)->age;
+.PP
+$noonTodayLondonTime = Carbon::createFromTime(12, 0, 0, 'Europe/London');
+.PP
+$worldWillEnd = Carbon::createFromDate(2012, 12, 21, 'GMT');
+.PP
+// Don't really want to die so mock now Carbon::setTestNow(Carbon::createFromDate(2000, 1, 1));
+.PP
+// comparisons are always done in UTC if (Carbon::now()->gte($worldWillEnd)) { die(); }
+.PP
+// Phew! Return to normal behaviour Carbon::setTestNow();
+.PP
+if (Carbon::now()->isWeekend()) { echo 'Party!'; } echo Carbon::now()->subMinutes(2)->diffForHumans(); // '2 minutes ago'
+.PP
+// \&.\&.\&. but also does 'from now', 'after' and 'before' // rolling up to seconds, minutes, hours, days, months, years
+.PP
+$daysSinceEpoch = Carbon::createFromTimeStamp(0)->diffInDays(); ```
+.PP
+.SS "Installation"
+.PP
+.SS "With \fBComposer\fP"
+.PP
+``` $ composer require nesbot/carbon ```
+.PP
+```json { 'require': { 'nesbot/carbon': '~1\&.14' } } ```
+.PP
+```php <?php require '\fBvendor/autoload\&.php\fP';
+.PP
+use \fBCarbon\fP;
+.PP
+printf('Now: %s', Carbon::now()); ```
+.PP
+ 
+.SS "Without \fBComposer\fP"
+.PP
+Why are you not using \fCcomposer\fP? Download \fCCarbon\&.php\fP from the repo and save the file into your project path somewhere\&.
+.PP
+```php <?php require 'path/to/Carbon\&.php';
+.PP
+use \fBCarbon\fP;
+.PP
+printf('Now: %s', Carbon::now()); ``` 

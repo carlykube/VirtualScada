@@ -1,0 +1,4 @@
+var class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_native_file_session_handler =
+[
+    [ "__construct", "class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_native_file_session_handler.html#ab6f6a9bad3006238983f157835e08efa", null ]
+];

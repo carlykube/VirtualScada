@@ -32,6 +32,7 @@ route::get('/', 'WelcomeController@index');
 Route::get('home', 'ProjectController@index');
 
 Route::get('projects/open/{projects}', 'ProjectController@open');
+Route::post('scheduleDownTime', 'SystemController@scheduleDownTime');
 
 Route::resource('projects', 'ProjectController');
 

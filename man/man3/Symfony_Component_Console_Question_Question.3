@@ -1,0 +1,296 @@
+.TH "Question" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Question \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBChoiceQuestion\fP, and \fBConfirmationQuestion\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($question, $default=null)"
+.br
+.ti -1c
+.RI "\fBgetQuestion\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBisHidden\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHidden\fP ($hidden)"
+.br
+.ti -1c
+.RI "\fBisHiddenFallback\fP ()"
+.br
+.ti -1c
+.RI "\fBsetHiddenFallback\fP ($fallback)"
+.br
+.ti -1c
+.RI "\fBgetAutocompleterValues\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAutocompleterValues\fP ($\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBsetValidator\fP ($validator)"
+.br
+.ti -1c
+.RI "\fBgetValidator\fP ()"
+.br
+.ti -1c
+.RI "\fBsetMaxAttempts\fP ($attempts)"
+.br
+.ti -1c
+.RI "\fBgetMaxAttempts\fP ()"
+.br
+.ti -1c
+.RI "\fBsetNormalizer\fP ($normalizer)"
+.br
+.ti -1c
+.RI "\fBgetNormalizer\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a \fBQuestion\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file Question\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $question,  $default = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP The question to ask to the user 
+.br
+\fI$default\fP The default answer to return if the user enters nothing 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file Question\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getAutocompleterValues ()"
+Gets values for the autocompleter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|array| 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file Question\&.php\&.
+.SS "getDefault ()"
+Returns the default answer\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file Question\&.php\&.
+.SS "getMaxAttempts ()"
+Gets the maximum number of attempts\&.
+.PP
+Null means an unlimited number of attempts\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|int 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file Question\&.php\&.
+.SS "getNormalizer ()"
+Gets the normalizer for the response\&.
+.PP
+The normalizer can ba a callable (a string), a closure or a class implementing __invoke\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string| 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file Question\&.php\&.
+.SS "getQuestion ()"
+Returns the question\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file Question\&.php\&.
+.SS "getValidator ()"
+Gets the validator for the question\&.
+.PP
+\fBReturns:\fP
+.RS 4
+null|callable 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file Question\&.php\&.
+.SS "isHidden ()"
+Returns whether the user response must be hidden\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file Question\&.php\&.
+.SS "isHiddenFallback ()"
+In case the response can not be hidden, whether to fallback on non-hidden question or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file Question\&.php\&.
+.SS "setAutocompleterValues ( $values)"
+Sets values for the autocompleter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 136 of file Question\&.php\&.
+.SS "setHidden ( $hidden)"
+Sets whether the user response must be hidden or not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hidden\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 81 of file Question\&.php\&.
+.SS "setHiddenFallback ( $fallback)"
+Sets whether to fallback on non-hidden question if the response can not be hidden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fallback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file Question\&.php\&.
+.SS "setMaxAttempts ( $attempts)"
+Sets the maximum number of attempts\&.
+.PP
+Null means an unlimited number of attempts\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attempts\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 188 of file Question\&.php\&.
+.SS "setNormalizer ( $normalizer)"
+Sets a normalizer for the response\&.
+.PP
+The normalizer can be a callable (a string), a closure or a class implementing __invoke\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$normalizer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file Question\&.php\&.
+.SS "setValidator ( $validator)"
+Sets a validator for the question\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$validator\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQuestion\fP The current instance 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file Question\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

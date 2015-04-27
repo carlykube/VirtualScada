@@ -1,0 +1,106 @@
+.TH "ExtensionGuesser" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExtensionGuesser \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBExtensionGuesserInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregister\fP (\fBExtensionGuesserInterface\fP $guesser)"
+.br
+.ti -1c
+.RI "\fBguess\fP ($mimeType)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$guessers\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP singleton mime type to file extension guesser\&.
+.PP
+\fBA\fP default guesser is provided\&. You can register custom guessers by calling the \fBregister()\fP method on the singleton instance: 
+.PP
+.nf
+$guesser = ExtensionGuesser::getInstance();
+$guesser->register(new MyCustomExtensionGuesser());
+
+.fi
+.PP
+.PP
+The last registered guesser is preferred over previously registered ones\&. 
+.PP
+Definition at line 26 of file ExtensionGuesser\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static getInstance ()\fC [static]\fP"
+Returns the singleton instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBExtensionGuesser\fP 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file ExtensionGuesser\&.php\&.
+.SS "guess ( $mimeType)"
+Tries to guess the extension\&.
+.PP
+The mime type is passed to each registered mime type guesser in reverse order of their registration (last registered is queried first)\&. Once a guesser returns a value that is not NULL, this method terminates and returns the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mimeType\fP The mime type
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The guessed extension or NULL, if none could be guessed 
+.RE
+.PP
+
+.PP
+Implements \fBExtensionGuesserInterface\fP\&.
+.PP
+Definition at line 88 of file ExtensionGuesser\&.php\&.
+.SS "register (\fBExtensionGuesserInterface\fP $guesser)"
+Registers a new extension guesser\&.
+.PP
+When guessing, this guesser is preferred over previously registered ones\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$guesser\fP 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file ExtensionGuesser\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$guessers = array()\fC [protected]\fP"
+
+.PP
+Definition at line 40 of file ExtensionGuesser\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

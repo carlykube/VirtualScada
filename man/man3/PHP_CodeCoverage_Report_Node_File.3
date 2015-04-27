@@ -1,0 +1,487 @@
+.TH "PHP_CodeCoverage_Report_Node_File" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHP_CodeCoverage_Report_Node_File \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHP_CodeCoverage_Report_Node\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, \fBPHP_CodeCoverage_Report_Node\fP $parent, array $coverageData, array $testData, $cacheTokens)"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCoverageData\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTestData\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClasses\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTraits\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFunctions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLinesOfCode\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumExecutableLines\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumExecutedLines\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumClasses\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumTestedClasses\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumTraits\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumTestedTraits\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumMethods\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumTestedMethods\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumFunctions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumTestedFunctions\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcalculateStatistics\fP ()"
+.br
+.ti -1c
+.RI "\fBprocessClasses\fP (\fBPHP_Token_Stream\fP $tokens)"
+.br
+.ti -1c
+.RI "\fBprocessTraits\fP (\fBPHP_Token_Stream\fP $tokens)"
+.br
+.ti -1c
+.RI "\fBprocessFunctions\fP (\fBPHP_Token_Stream\fP $tokens)"
+.br
+.ti -1c
+.RI "\fBcrap\fP ($ccn, $coverage)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$coverageData\fP"
+.br
+.ti -1c
+.RI "\fB$testData\fP"
+.br
+.ti -1c
+.RI "\fB$numExecutableLines\fP = 0"
+.br
+.ti -1c
+.RI "\fB$numExecutedLines\fP = 0"
+.br
+.ti -1c
+.RI "\fB$classes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$traits\fP = array()"
+.br
+.ti -1c
+.RI "\fB$functions\fP = array()"
+.br
+.ti -1c
+.RI "\fB$linesOfCode\fP = array()"
+.br
+.ti -1c
+.RI "\fB$numTestedTraits\fP = 0"
+.br
+.ti -1c
+.RI "\fB$numTestedClasses\fP = 0"
+.br
+.ti -1c
+.RI "\fB$numMethods\fP = null"
+.br
+.ti -1c
+.RI "\fB$numTestedMethods\fP = null"
+.br
+.ti -1c
+.RI "\fB$numTestedFunctions\fP = null"
+.br
+.ti -1c
+.RI "\fB$startLines\fP = array()"
+.br
+.ti -1c
+.RI "\fB$endLines\fP = array()"
+.br
+.ti -1c
+.RI "\fB$cacheTokens\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file File\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name, \fBPHP_CodeCoverage_Report_Node\fP $parent, array $coverageData, array $testData,  $cacheTokens)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$coverageData\fP 
+.br
+\fI$testData\fP 
+.br
+\fI$cacheTokens\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHP_CodeCoverage_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file File\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "calculateStatistics ()\fC [protected]\fP"
+Calculates coverage statistics for the file\&. 
+.PP
+Definition at line 358 of file File\&.php\&.
+.SS "count ()"
+Returns the number of files in/under this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file File\&.php\&.
+.SS "crap ( $ccn,  $coverage)\fC [protected]\fP"
+Calculates the Change Risk Anti-Patterns (CRAP) index for a unit of code based on its cyclomatic complexity and percentage of code coverage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ccn\fP 
+.br
+\fI$coverage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 1\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 647 of file File\&.php\&.
+.SS "getClasses ()"
+Returns the classes of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file File\&.php\&.
+.SS "getCoverageData ()"
+Returns the code coverage data of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 147 of file File\&.php\&.
+.SS "getFunctions ()"
+Returns the functions of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file File\&.php\&.
+.SS "getLinesOfCode ()"
+Returns the LOC/CLOC/NCLOC of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file File\&.php\&.
+.SS "getNumClasses ()"
+Returns the number of classes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file File\&.php\&.
+.SS "getNumExecutableLines ()"
+Returns the number of executable lines\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file File\&.php\&.
+.SS "getNumExecutedLines ()"
+Returns the number of executed lines\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file File\&.php\&.
+.SS "getNumFunctions ()"
+Returns the number of functions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 329 of file File\&.php\&.
+.SS "getNumMethods ()"
+Returns the number of methods\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file File\&.php\&.
+.SS "getNumTestedClasses ()"
+Returns the number of tested classes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file File\&.php\&.
+.SS "getNumTestedFunctions ()"
+Returns the number of tested functions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file File\&.php\&.
+.SS "getNumTestedMethods ()"
+Returns the number of tested methods\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 297 of file File\&.php\&.
+.SS "getNumTestedTraits ()"
+Returns the number of tested traits\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 257 of file File\&.php\&.
+.SS "getNumTraits ()"
+Returns the number of traits\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer 
+.RE
+.PP
+
+.PP
+Definition at line 247 of file File\&.php\&.
+.SS "getTestData ()"
+Returns the test data of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file File\&.php\&.
+.SS "getTraits ()"
+Returns the traits of this node\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file File\&.php\&.
+.SS "processClasses (\fBPHP_Token_Stream\fP $tokens)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file File\&.php\&.
+.SS "processFunctions (\fBPHP_Token_Stream\fP $tokens)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP 
+.RE
+.PP
+
+.PP
+Definition at line 613 of file File\&.php\&.
+.SS "processTraits (\fBPHP_Token_Stream\fP $tokens)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokens\fP 
+.RE
+.PP
+
+.PP
+Definition at line 566 of file File\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$cacheTokens\fC [protected]\fP"
+
+.PP
+Definition at line 102 of file File\&.php\&.
+.SS "$classes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 47 of file File\&.php\&.
+.SS "$coverageData\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file File\&.php\&.
+.SS "$endLines = array()\fC [protected]\fP"
+
+.PP
+Definition at line 97 of file File\&.php\&.
+.SS "$functions = array()\fC [protected]\fP"
+
+.PP
+Definition at line 57 of file File\&.php\&.
+.SS "$linesOfCode = array()\fC [protected]\fP"
+
+.PP
+Definition at line 62 of file File\&.php\&.
+.SS "$numExecutableLines = 0\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file File\&.php\&.
+.SS "$numExecutedLines = 0\fC [protected]\fP"
+
+.PP
+Definition at line 42 of file File\&.php\&.
+.SS "$numMethods = null\fC [protected]\fP"
+
+.PP
+Definition at line 77 of file File\&.php\&.
+.SS "$numTestedClasses = 0\fC [protected]\fP"
+
+.PP
+Definition at line 72 of file File\&.php\&.
+.SS "$numTestedFunctions = null\fC [protected]\fP"
+
+.PP
+Definition at line 87 of file File\&.php\&.
+.SS "$numTestedMethods = null\fC [protected]\fP"
+
+.PP
+Definition at line 82 of file File\&.php\&.
+.SS "$numTestedTraits = 0\fC [protected]\fP"
+
+.PP
+Definition at line 67 of file File\&.php\&.
+.SS "$startLines = array()\fC [protected]\fP"
+
+.PP
+Definition at line 92 of file File\&.php\&.
+.SS "$testData\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file File\&.php\&.
+.SS "$traits = array()\fC [protected]\fP"
+
+.PP
+Definition at line 52 of file File\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

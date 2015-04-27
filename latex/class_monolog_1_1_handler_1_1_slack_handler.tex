@@ -1,0 +1,172 @@
+\section{Slack\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_slack_handler}\index{Slack\+Handler@{Slack\+Handler}}
+Inheritance diagram for Slack\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_monolog_1_1_handler_1_1_slack_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$token, \$channel, \$username= \textquotesingle{}Monolog\textquotesingle{}, \$use\+Attachment=true, \$icon\+Emoji=null, \$level={\bf Logger\+::\+C\+R\+I\+T\+I\+C\+A\+L}, \$bubble=true, \$use\+Short\+Attachment=false, \$include\+Context\+And\+Extra=false)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf generate\+Data\+Stream} (\$record)
+\item 
+{\bf write} (array \$record)
+\item 
+{\bf get\+Attachment\+Color} (\$level)
+\item 
+{\bf stringify} (\$fields)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Sends notifications through Slack A\+P\+I
+
+\begin{DoxyAuthor}{Author}
+Greg Kedzierski {\tt greg@gregkedzierski.\+com} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+{\tt https\+://api.\+slack.\+com/} 
+\end{DoxySeeAlso}
+
+
+Definition at line 23 of file Slack\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$channel, }
+\item[{}]{\$username = {\ttfamily \textquotesingle{}Monolog\textquotesingle{}}, }
+\item[{}]{\$use\+Attachment = {\ttfamily true}, }
+\item[{}]{\$icon\+Emoji = {\ttfamily null}, }
+\item[{}]{\$level = {\ttfamily {\bf Logger\+::\+C\+R\+I\+T\+I\+C\+A\+L}}, }
+\item[{}]{\$bubble = {\ttfamily true}, }
+\item[{}]{\$use\+Short\+Attachment = {\ttfamily false}, }
+\item[{}]{\$include\+Context\+And\+Extra = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_slack_handler_aa0d684b767cfa0bf8b509f72202a18da}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & Slack A\+P\+I token \\
+\hline
+string & {\em \$channel} & Slack channel (encoded I\+D or name) \\
+\hline
+string & {\em \$username} & Name of a bot \\
+\hline
+bool & {\em \$use\+Attachment} & Whether the message should be added to Slack as attachment (plain text otherwise) \\
+\hline
+string | null & {\em \$icon\+Emoji} & The emoji name to use (or null) \\
+\hline
+int & {\em \$level} & The minimum logging level at which this handler will be triggered \\
+\hline
+bool & {\em \$bubble} & Whether the messages that are handled can bubble up the stack or not \\
+\hline
+bool & {\em \$use\+Short\+Attachment} & Whether the the context/extra messages added to Slack as attachments are in a short style \\
+\hline
+bool & {\em \$include\+Context\+And\+Extra} & Whether the attachment should include context and extra data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file Slack\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}!generate\+Data\+Stream@{generate\+Data\+Stream}}
+\index{generate\+Data\+Stream@{generate\+Data\+Stream}!Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}}
+\subsubsection[{generate\+Data\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Data\+Stream (
+\begin{DoxyParamCaption}
+\item[{}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_slack_handler_a76ccdd721af6d391ee8e26d66656ab9d}
+\{\}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Slack\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}!get\+Attachment\+Color@{get\+Attachment\+Color}}
+\index{get\+Attachment\+Color@{get\+Attachment\+Color}!Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}}
+\subsubsection[{get\+Attachment\+Color}]{\setlength{\rightskip}{0pt plus 5cm}get\+Attachment\+Color (
+\begin{DoxyParamCaption}
+\item[{}]{\$level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_slack_handler_a295f05a8b4786f9df768f86b2e43e665}
+Returned a Slack message attachment color associated with provided level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 248 of file Slack\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}!stringify@{stringify}}
+\index{stringify@{stringify}!Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}}
+\subsubsection[{stringify}]{\setlength{\rightskip}{0pt plus 5cm}stringify (
+\begin{DoxyParamCaption}
+\item[{}]{\$fields}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_slack_handler_a857705a771e9a31f99916fc518ed6dea}
+Stringifies an array of key/value pairs to be used in attachment fields
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$fields} & protected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 269 of file Slack\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}!write@{write}}
+\index{write@{write}!Monolog\+::\+Handler\+::\+Slack\+Handler@{Monolog\+::\+Handler\+::\+Slack\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_slack_handler_afa17604fd899fffdc1ee326afe177cb5}
+\{\}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 235 of file Slack\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Slack\+Handler.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+var namespacespec_1_1_php_spec_1_1_exception_1_1_fracture =
+[
+    [ "ClassNotFoundExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_class_not_found_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_class_not_found_exception_spec" ],
+    [ "InterfaceNotImplementedExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_interface_not_implemented_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_interface_not_implemented_exception_spec" ],
+    [ "MethodNotFoundExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_method_not_found_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_method_not_found_exception_spec" ],
+    [ "MethodNotVisibleExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_method_not_visible_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_method_not_visible_exception_spec" ],
+    [ "NamedConstructorNotFoundExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_named_constructor_not_found_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_named_constructor_not_found_exception_spec" ],
+    [ "PropertyNotFoundExceptionSpec", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_property_not_found_exception_spec.html", "classspec_1_1_php_spec_1_1_exception_1_1_fracture_1_1_property_not_found_exception_spec" ]
+];

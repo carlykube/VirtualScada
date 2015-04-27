@@ -1,0 +1,416 @@
+.TH "Swift_Signers_SMimeSigner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Signers_SMimeSigner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Signers_BodySigner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($signCertificate=null, $signPrivateKey=null, $encryptCertificate=null)"
+.br
+.ti -1c
+.RI "\fBsetSignCertificate\fP ($certificate, $privateKey=null, $signOptions=PKCS7_DETACHED, $extraCerts=null)"
+.br
+.ti -1c
+.RI "\fBsetEncryptCertificate\fP ($recipientCerts, $cipher=null)"
+.br
+.ti -1c
+.RI "\fBgetSignCertificate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSignPrivateKey\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSignThenEncrypt\fP ($signThenEncrypt=true)"
+.br
+.ti -1c
+.RI "\fBisSignThenEncrypt\fP ()"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBsignMessage\fP (\fBSwift_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBgetAlteredHeaders\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnewInstance\fP ($certificate=null, $privateKey=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtoSMimeByteStream\fP (\fBSwift_InputByteStream\fP $inputStream, \fBSwift_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBcreateMessage\fP (\fBSwift_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBmessageStreamToSignedByteStream\fP (\fBSwift_FileStream\fP $outputStream, \fBSwift_InputByteStream\fP $inputStream)"
+.br
+.ti -1c
+.RI "\fBmessageStreamToEncryptedByteStream\fP (\fBSwift_FileStream\fP $outputStream, \fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBcopyFromOpenSSLOutput\fP (\fBSwift_OutputByteStream\fP $fromStream, \fBSwift_InputByteStream\fP $toStream)"
+.br
+.ti -1c
+.RI "\fBstreamToMime\fP (\fBSwift_OutputByteStream\fP $fromStream, \fBSwift_Message\fP $message)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$signCertificate\fP"
+.br
+.ti -1c
+.RI "\fB$signPrivateKey\fP"
+.br
+.ti -1c
+.RI "\fB$encryptCert\fP"
+.br
+.ti -1c
+.RI "\fB$signThenEncrypt\fP = true"
+.br
+.ti -1c
+.RI "\fB$signLevel\fP"
+.br
+.ti -1c
+.RI "\fB$encryptLevel\fP"
+.br
+.ti -1c
+.RI "\fB$signOptions\fP"
+.br
+.ti -1c
+.RI "\fB$encryptOptions\fP"
+.br
+.ti -1c
+.RI "\fB$encryptCipher\fP"
+.br
+.ti -1c
+.RI "\fB$extraCerts\fP = null"
+.br
+.ti -1c
+.RI "\fB$replacementFactory\fP"
+.br
+.ti -1c
+.RI "\fB$headerFactory\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+MIME Message Signer used to apply S/MIME Signature/Encryption to a message\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Romain-Geissler 
+.PP
+Sebastiaan Stok s.stok@rollerscapes.net 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file SMimeSigner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $signCertificate = \fCnull\fP,  $signPrivateKey = \fCnull\fP,  $encryptCertificate = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$certificate\fP 
+.br
+\fI$privateKey\fP 
+.br
+\fI$encryptCertificate\fP 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file SMimeSigner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "copyFromOpenSSLOutput (\fBSwift_OutputByteStream\fP $fromStream, \fBSwift_InputByteStream\fP $toStream)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fromStream\fP 
+.br
+\fI$toStream\fP 
+.RE
+.PP
+
+.PP
+Definition at line 328 of file SMimeSigner\&.php\&.
+.SS "createMessage (\fBSwift_Message\fP $message)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file SMimeSigner\&.php\&.
+.SS "getAlteredHeaders ()"
+Return the list of header a signer might tamper\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_BodySigner\fP\&.
+.PP
+Definition at line 230 of file SMimeSigner\&.php\&.
+.SS "getSignCertificate ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file SMimeSigner\&.php\&.
+.SS "getSignPrivateKey ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file SMimeSigner\&.php\&.
+.SS "isSignThenEncrypt ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 184 of file SMimeSigner\&.php\&.
+.SS "messageStreamToEncryptedByteStream (\fBSwift_FileStream\fP $outputStream, \fBSwift_InputByteStream\fP $is)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$outputStream\fP 
+.br
+\fI$is\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 313 of file SMimeSigner\&.php\&.
+.SS "messageStreamToSignedByteStream (\fBSwift_FileStream\fP $outputStream, \fBSwift_InputByteStream\fP $inputStream)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$outputStream\fP 
+.br
+\fI$inputStream\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 291 of file SMimeSigner\&.php\&.
+.SS "static newInstance ( $certificate = \fCnull\fP,  $privateKey = \fCnull\fP)\fC [static]\fP"
+Returns an new \fBSwift_Signers_SMimeSigner\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$certificate\fP 
+.br
+\fI$privateKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_SMimeSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file SMimeSigner\&.php\&.
+.SS "reset ()"
+Resets internal states\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_SMimeSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signer\fP\&.
+.PP
+Definition at line 194 of file SMimeSigner\&.php\&.
+.SS "setEncryptCertificate ( $recipientCerts,  $cipher = \fCnull\fP)"
+Set the certificate location to use for encryption\&.
+.PP
+\fBhttp://nl3.php.net/manual/en/openssl.ciphers.php  string|array $recipientCerts Either an single X\&.509 certificate, or an assoc array of X\&.509 certificates\&.  int $cipher  Swift_Signers_SMimeSigner \fP
+.PP
+Definition at line 128 of file SMimeSigner\&.php\&.
+.SS "setSignCertificate ( $certificate,  $privateKey = \fCnull\fP,  $signOptions = \fCPKCS7_DETACHED\fP,  $extraCerts = \fCnull\fP)"
+Set the certificate location to use for signing\&.
+.PP
+\fBstring $certificate  string|array $privateKey If the key needs an passphrase use array('file-location', 'passphrase') instead  int $signOptions Bitwise operator options for openssl_pkcs7_sign()  string $extraCerts A file containing intermediate certificates needed by the signing certificate  Swift_Signers_SMimeSigner \fP
+.PP
+Definition at line 96 of file SMimeSigner\&.php\&.
+.SS "setSignThenEncrypt ( $signThenEncrypt = \fCtrue\fP)"
+Set perform signing before encryption\&.
+.PP
+The default is to first sign the message and then encrypt\&. But some older mail clients, namely Microsoft Outlook 2000 will work when the message first encrypted\&. As this goes against the official specs, its recommended to only use 'encryption -> signing' when specifically targeting these 'broken' clients\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signThenEncrypt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_SMimeSigner\fP 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file SMimeSigner\&.php\&.
+.SS "signMessage (\fBSwift_Message\fP $message)"
+Change the \fBSwift_Message\fP to apply the signing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Signers_SMimeSigner\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Signers_BodySigner\fP\&.
+.PP
+Definition at line 206 of file SMimeSigner\&.php\&.
+.SS "streamToMime (\fBSwift_OutputByteStream\fP $fromStream, \fBSwift_Message\fP $message)\fC [protected]\fP"
+Merges an OutputByteStream to \fBSwift_Message\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fromStream\fP 
+.br
+\fI$message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 354 of file SMimeSigner\&.php\&.
+.SS "toSMimeByteStream (\fBSwift_InputByteStream\fP $inputStream, \fBSwift_Message\fP $message)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$inputStream\fP 
+.br
+\fI$mimeEntity\fP 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file SMimeSigner\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$encryptCert\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file SMimeSigner\&.php\&.
+.SS "$encryptCipher\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file SMimeSigner\&.php\&.
+.SS "$encryptLevel\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file SMimeSigner\&.php\&.
+.SS "$encryptOptions\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file SMimeSigner\&.php\&.
+.SS "$extraCerts = null\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file SMimeSigner\&.php\&.
+.SS "$headerFactory\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file SMimeSigner\&.php\&.
+.SS "$replacementFactory\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file SMimeSigner\&.php\&.
+.SS "$signCertificate\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file SMimeSigner\&.php\&.
+.SS "$signLevel\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file SMimeSigner\&.php\&.
+.SS "$signOptions\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file SMimeSigner\&.php\&.
+.SS "$signPrivateKey\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file SMimeSigner\&.php\&.
+.SS "$signThenEncrypt = true\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file SMimeSigner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

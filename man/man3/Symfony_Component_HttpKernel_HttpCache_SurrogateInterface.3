@@ -1,0 +1,194 @@
+.TH "SurrogateInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SurrogateInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBEsi\fP, and \fBSsi\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateCacheStrategy\fP ()"
+.br
+.ti -1c
+.RI "\fBhasSurrogateCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddSurrogateCapability\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBaddSurrogateControl\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBneedsParsing\fP (\fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBrenderIncludeTag\fP ($uri, $alt=null, $ignoreErrors=true, $comment= '')"
+.br
+.ti -1c
+.RI "\fBprocess\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (\fBHttpCache\fP $cache, $uri, $alt, $ignoreErrors)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 17 of file SurrogateInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addSurrogateCapability (\fBRequest\fP $request)"
+Adds Surrogate-capability to the given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "addSurrogateControl (\fBResponse\fP $response)"
+Adds HTTP headers to specify that the \fBResponse\fP needs to be parsed for Surrogate\&.
+.PP
+This method only adds an Surrogate HTTP header if the \fBResponse\fP has some Surrogate tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "createCacheStrategy ()"
+Returns a new cache strategy instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponseCacheStrategyInterface\fP \fBA\fP \fBResponseCacheStrategyInterface\fP instance 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "getName ()"
+Returns surrogate name
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "handle (\fBHttpCache\fP $cache,  $uri,  $alt,  $ignoreErrors)"
+Handles a Surrogate from the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cache\fP An \fBHttpCache\fP instance 
+.br
+\fI$uri\fP The main URI 
+.br
+\fI$alt\fP An alternative URI 
+.br
+\fI$ignoreErrors\fP Whether to ignore errors or not
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "hasSurrogateCapability (\fBRequest\fP $request)"
+Checks that at least one surrogate has Surrogate capability\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if one surrogate has Surrogate capability, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "needsParsing (\fBResponse\fP $response)"
+Checks that the \fBResponse\fP needs to be parsed for Surrogate tags\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBResponse\fP needs to be parsed, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "process (\fBRequest\fP $request, \fBResponse\fP $response)"
+Replaces a \fBResponse\fP Surrogate tags with the included resource content\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+.SS "renderIncludeTag ( $uri,  $alt = \fCnull\fP,  $ignoreErrors = \fCtrue\fP,  $comment = \fC''\fP)"
+Renders a Surrogate tag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP URI 
+.br
+\fI$alt\fP An alternate URI 
+.br
+\fI$ignoreErrors\fP Whether to ignore errors or not 
+.br
+\fI$comment\fP \fBA\fP comment to add as an esi:include tag
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBEsi\fP, and \fBSsi\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

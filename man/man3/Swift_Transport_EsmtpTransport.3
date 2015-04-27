@@ -1,0 +1,319 @@
+.TH "Swift_Transport_EsmtpTransport" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_EsmtpTransport \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport_AbstractSmtpTransport\fP, and \fBSwift_Transport_SmtpAgent\fP\&.
+.PP
+Inherited by \fBEsmtpTransportFixture\fP, and \fBSwift_SmtpTransport\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Transport_IoBuffer\fP $buf, array $extensionHandlers, \fBSwift_Events_EventDispatcher\fP $dispatcher)"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($host)"
+.br
+.ti -1c
+.RI "\fBgetHost\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPort\fP ($port)"
+.br
+.ti -1c
+.RI "\fBgetPort\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBgetTimeout\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEncryption\fP ($encryption)"
+.br
+.ti -1c
+.RI "\fBgetEncryption\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSourceIp\fP ($source)"
+.br
+.ti -1c
+.RI "\fBgetSourceIp\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExtensionHandlers\fP (array $handlers)"
+.br
+.ti -1c
+.RI "\fBgetExtensionHandlers\fP ()"
+.br
+.ti -1c
+.RI "\fBexecuteCommand\fP ($command, $codes=array(), &$failures=null)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $args)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_getBufferParams\fP ()"
+.br
+.ti -1c
+.RI "\fB_doHeloCommand\fP ()"
+.br
+.ti -1c
+.RI "\fB_doMailFromCommand\fP ($address)"
+.br
+.ti -1c
+.RI "\fB_doRcptToCommand\fP ($address)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Sends Messages over SMTP with ESMTP support\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file EsmtpTransport\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Transport_IoBuffer\fP $buf, array $extensionHandlers, \fBSwift_Events_EventDispatcher\fP $dispatcher)"
+Creates a new EsmtpTransport using the given I/O buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$buf\fP 
+.br
+\fISwift_Transport_EsmtpHandler[]\fP $extensionHandlers 
+.br
+\fI$dispatcher\fP 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file EsmtpTransport\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $args)"
+Mixin handling method for ESMTP handlers 
+.PP
+Definition at line 249 of file EsmtpTransport\&.php\&.
+.SS "_doHeloCommand ()\fC [protected]\fP"
+Overridden to perform EHLO instead 
+.PP
+Definition at line 274 of file EsmtpTransport\&.php\&.
+.SS "_doMailFromCommand ( $address)\fC [protected]\fP"
+Overridden to add Extension support 
+.PP
+Definition at line 312 of file EsmtpTransport\&.php\&.
+.SS "_doRcptToCommand ( $address)\fC [protected]\fP"
+Overridden to add Extension support 
+.PP
+Definition at line 326 of file EsmtpTransport\&.php\&.
+.SS "_getBufferParams ()\fC [protected]\fP"
+Get the params to initialize the buffer 
+.PP
+Definition at line 268 of file EsmtpTransport\&.php\&.
+.SS "executeCommand ( $command,  $codes = \fCarray()\fP, & $failures = \fCnull\fP)"
+Run a command against the buffer, expecting the given response codes\&.
+.PP
+If no response codes are given, the response will not be validated\&. If codes are given, an exception will be thrown on an invalid response\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fIint[]\fP $codes 
+.br
+\fIstring[]\fP $failures An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_SmtpAgent\fP\&.
+.PP
+Definition at line 229 of file EsmtpTransport\&.php\&.
+.SS "getEncryption ()"
+Get the encryption type\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file EsmtpTransport\&.php\&.
+.SS "getExtensionHandlers ()"
+Get ESMTP extension handlers\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpHandler\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file EsmtpTransport\&.php\&.
+.SS "getHost ()"
+Get the host to connect to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file EsmtpTransport\&.php\&.
+.SS "getPort ()"
+Get the port to connect to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 103 of file EsmtpTransport\&.php\&.
+.SS "getSourceIp ()"
+Returns the IP used to connect to the destination\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file EsmtpTransport\&.php\&.
+.SS "getTimeout ()"
+Get the connection timeout\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file EsmtpTransport\&.php\&.
+.SS "setEncryption ( $encryption)"
+Set the encryption type (tls or ssl)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$encryption\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file EsmtpTransport\&.php\&.
+.SS "setExtensionHandlers (array $handlers)"
+Set ESMTP extension handlers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fISwift_Transport_EsmtpHandler[]\fP $handlers
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file EsmtpTransport\&.php\&.
+.SS "setHost ( $host)"
+Set the host to connect to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file EsmtpTransport\&.php\&.
+.SS "setPort ( $port)"
+Set the port to connect to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$port\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file EsmtpTransport\&.php\&.
+.SS "setSourceIp ( $source)"
+Sets the source IP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$source\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file EsmtpTransport\&.php\&.
+.SS "setTimeout ( $timeout)"
+Set the connection timeout\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP seconds
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Transport_EsmtpTransport\fP 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file EsmtpTransport\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

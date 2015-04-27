@@ -1,0 +1,88 @@
+.TH "SerializerInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SerializerInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSerializer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBserialize\fP (\\Closure $closure)"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($serialized)"
+.br
+.ti -1c
+.RI "\fBgetData\fP (\\Closure $closure, $forSerialization=false)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for a serializer that is used to serialize Closure objects\&. 
+.PP
+Definition at line 8 of file SerializerInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getData (\\Closure $closure,  $forSerialization = \fCfalse\fP)"
+Retrieves data about a closure including its code, context, and binding\&.
+.PP
+The data returned is dependant on the \fCClosureAnalyzer\fP implementation used and whether the \fC$forSerialization\fP parameter is set to true\&. If \fC$forSerialization\fP is true, then only data relevant to serializing the closure is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$closure\fP Closure to analyze\&. 
+.br
+\fI$forSerialization\fP Include only serialization data\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implemented in \fBSerializer\fP\&.
+.SS "serialize (\\Closure $closure)"
+Takes a Closure object, decorates it with a \fBSerializableClosure\fP object, then performs the serialization\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$closure\fP Closure to serialize\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Serialized closure\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBSerializer\fP\&.
+.SS "unserialize ( $serialized)"
+Takes a serialized closure, performs the unserialization, and then extracts and returns a the Closure object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$serialized\fP Serialized closure\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIClosureUnserializationException\fP if unserialization fails\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Unserialized closure\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

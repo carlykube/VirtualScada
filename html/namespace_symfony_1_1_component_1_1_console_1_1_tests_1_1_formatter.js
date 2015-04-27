@@ -1,0 +1,6 @@
+var namespace_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter =
+[
+    [ "OutputFormatterStyleStackTest", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_style_stack_test.html", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_style_stack_test" ],
+    [ "OutputFormatterStyleTest", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_style_test.html", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_style_test" ],
+    [ "OutputFormatterTest", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_test.html", "class_symfony_1_1_component_1_1_console_1_1_tests_1_1_formatter_1_1_output_formatter_test" ]
+];

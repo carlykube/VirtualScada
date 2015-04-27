@@ -1,0 +1,357 @@
+\section{Socket\+Handler Class Reference}
+\label{class_monolog_1_1_handler_1_1_socket_handler}\index{Socket\+Handler@{Socket\+Handler}}
+Inheritance diagram for Socket\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.666667cm]{class_monolog_1_1_handler_1_1_socket_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$connection\+String, \$level={\bf Logger\+::\+D\+E\+B\+U\+G}, \$bubble=true)
+\item 
+{\bf close} ()
+\item 
+{\bf close\+Socket} ()
+\item 
+{\bf set\+Persistent} (\$boolean)
+\item 
+{\bf set\+Connection\+Timeout} (\${\bf seconds})
+\item 
+{\bf set\+Timeout} (\${\bf seconds})
+\item 
+{\bf get\+Connection\+String} ()
+\item 
+{\bf is\+Persistent} ()
+\item 
+{\bf get\+Connection\+Timeout} ()
+\item 
+{\bf get\+Timeout} ()
+\item 
+{\bf is\+Connected} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf write} (array \$record)
+\item 
+{\bf pfsockopen} ()
+\item 
+{\bf fsockopen} ()
+\item 
+{\bf stream\+Set\+Timeout} ()
+\item 
+{\bf fwrite} (\${\bf data})
+\item 
+{\bf stream\+Get\+Metadata} ()
+\item 
+{\bf generate\+Data\+Stream} (\$record)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Stores to any socket -\/ uses \doxyref{fsockopen()}{p.}{class_monolog_1_1_handler_1_1_socket_handler_a4412f90a431cf197ffcfa65222435b24} or \doxyref{pfsockopen()}{p.}{class_monolog_1_1_handler_1_1_socket_handler_a182602fa0f1e2b34f70560889e2d0e15}.
+
+\begin{DoxyAuthor}{Author}
+Pablo de Leon Belloc {\tt pablolb@gmail.\+com} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/manual/en/function.\+fsockopen.\+php} 
+\end{DoxySeeAlso}
+
+
+Definition at line 22 of file Socket\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection\+String, }
+\item[{}]{\$level = {\ttfamily {\bf Logger\+::\+D\+E\+B\+U\+G}}, }
+\item[{}]{\$bubble = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_a51727f5bf8163dcc3ef3e83b8f9dc69a}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection\+String} & Socket connection string \\
+\hline
+integer & {\em \$level} & The minimum logging level at which this handler will be triggered \\
+\hline
+Boolean & {\em \$bubble} & Whether the messages that are handled can bubble up the stack or not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file Socket\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!close@{close}}
+\index{close@{close}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}
+We will not close a Persistent\+Socket instance so it can be reused in other requests. 
+
+Definition at line 62 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!close\+Socket@{close\+Socket}}
+\index{close\+Socket@{close\+Socket}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{close\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}close\+Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_a643ebddba786a3abc5c87a86aa810dfe}
+Close socket, if open 
+
+Definition at line 72 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!fsockopen@{fsockopen}}
+\index{fsockopen@{fsockopen}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{fsockopen}]{\setlength{\rightskip}{0pt plus 5cm}fsockopen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_a4412f90a431cf197ffcfa65222435b24}
+Wrapper to allow mocking 
+
+Definition at line 180 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!fwrite@{fwrite}}
+\index{fwrite@{fwrite}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{fwrite}]{\setlength{\rightskip}{0pt plus 5cm}fwrite (
+\begin{DoxyParamCaption}
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_abbaf00f60e54f4415244d9755130f680}
+Wrapper to allow mocking 
+
+Definition at line 201 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!generate\+Data\+Stream@{generate\+Data\+Stream}}
+\index{generate\+Data\+Stream@{generate\+Data\+Stream}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{generate\+Data\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Data\+Stream (
+\begin{DoxyParamCaption}
+\item[{}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_a76ccdd721af6d391ee8e26d66656ab9d}
+
+
+Definition at line 230 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!get\+Connection\+String@{get\+Connection\+String}}
+\index{get\+Connection\+String@{get\+Connection\+String}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{get\+Connection\+String}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_af56ef2800042aa1b74489f4653a5a2e7}
+Get current connection string
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!get\+Connection\+Timeout@{get\+Connection\+Timeout}}
+\index{get\+Connection\+Timeout@{get\+Connection\+Timeout}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{get\+Connection\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_a5115029b76d31675aca1d57ad64fb97d}
+Get current connection timeout setting
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!get\+Timeout@{get\+Timeout}}
+\index{get\+Timeout@{get\+Timeout}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{get\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_abac5019c5daf3a27d739aa3a249fdb31}
+Get current in-\/transfer timeout
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!is\+Connected@{is\+Connected}}
+\index{is\+Connected@{is\+Connected}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{is\+Connected}]{\setlength{\rightskip}{0pt plus 5cm}is\+Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_af160f7fbbf281d018ae3162521b8267d}
+Check to see if the socket is currently available.
+
+U\+D\+P might appear to be connected but might fail when writing. See {\tt http\+://php.\+net/fsockopen} for details.
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!is\+Persistent@{is\+Persistent}}
+\index{is\+Persistent@{is\+Persistent}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{is\+Persistent}]{\setlength{\rightskip}{0pt plus 5cm}is\+Persistent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_a4dd0c77d3fdc85d2a22154a73132c281}
+Get persistent setting
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!pfsockopen@{pfsockopen}}
+\index{pfsockopen@{pfsockopen}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{pfsockopen}]{\setlength{\rightskip}{0pt plus 5cm}pfsockopen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_a182602fa0f1e2b34f70560889e2d0e15}
+Wrapper to allow mocking 
+
+Definition at line 172 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!set\+Connection\+Timeout@{set\+Connection\+Timeout}}
+\index{set\+Connection\+Timeout@{set\+Connection\+Timeout}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{set\+Connection\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}set\+Connection\+Timeout (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_ad749ff93d9c65c90aee4d89f1898aae7}
+Set connection timeout. Only has effect before we connect.
+
+
+\begin{DoxyParams}[1]{Parameters}
+float & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/manual/en/function.\+fsockopen.\+php} 
+\end{DoxySeeAlso}
+
+
+Definition at line 97 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!set\+Persistent@{set\+Persistent}}
+\index{set\+Persistent@{set\+Persistent}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{set\+Persistent}]{\setlength{\rightskip}{0pt plus 5cm}set\+Persistent (
+\begin{DoxyParamCaption}
+\item[{}]{\$boolean}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_ae072686efbab6f5763b04ffe1d4c630a}
+Set socket connection to nbe persistent. It only has effect before the connection is initiated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+type & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!set\+Timeout@{set\+Timeout}}
+\index{set\+Timeout@{set\+Timeout}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{set\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}set\+Timeout (
+\begin{DoxyParamCaption}
+\item[{}]{\$seconds}
+\end{DoxyParamCaption}
+)}\label{class_monolog_1_1_handler_1_1_socket_handler_ad5c3315d293ca64fa60d69af54fc5de8}
+Set write timeout. Only has effect before we connect.
+
+
+\begin{DoxyParams}[1]{Parameters}
+float & {\em \$seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/manual/en/function.\+stream-\/set-\/timeout.\+php} 
+\end{DoxySeeAlso}
+
+
+Definition at line 110 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!stream\+Get\+Metadata@{stream\+Get\+Metadata}}
+\index{stream\+Get\+Metadata@{stream\+Get\+Metadata}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{stream\+Get\+Metadata}]{\setlength{\rightskip}{0pt plus 5cm}stream\+Get\+Metadata (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_a35558df5380ae64115534888170c9338}
+Wrapper to allow mocking 
+
+Definition at line 209 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!stream\+Set\+Timeout@{stream\+Set\+Timeout}}
+\index{stream\+Set\+Timeout@{stream\+Set\+Timeout}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{stream\+Set\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}stream\+Set\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_a98b86f0a536c1d29154b1ca39a3c1a3d}
+Wrapper to allow mocking
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/manual/en/function.\+stream-\/set-\/timeout.\+php} 
+\end{DoxySeeAlso}
+
+
+Definition at line 190 of file Socket\+Handler.\+php.
+
+\index{Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}!write@{write}}
+\index{write@{write}!Monolog\+::\+Handler\+::\+Socket\+Handler@{Monolog\+::\+Handler\+::\+Socket\+Handler}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{array}]{\$record}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_monolog_1_1_handler_1_1_socket_handler_afa17604fd899fffdc1ee326afe177cb5}
+Connect (if necessary) and write to the socket
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$record} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 52 of file Socket\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/\+Handler/{\bf Socket\+Handler.\+php}\end{DoxyCompactItemize}

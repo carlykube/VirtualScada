@@ -1,0 +1,87 @@
+\subsection*{Installation }
+
+\doxyref{Monolog}{p.}{namespace_monolog} is available on Packagist ({\tt monolog/monolog}) and as such installable via {\tt Composer}.
+
+```bash php composer.\+phar require monolog/monolog ```
+
+If you do not use \doxyref{Composer}{p.}{namespace_composer}, you can grab the code from Git\+Hub, and use any P\+S\+R-\/0 compatible autoloader (e.\+g. the {\tt Symfony2 Class\+Loader component}) to load \doxyref{Monolog}{p.}{namespace_monolog} classes.
+
+\subsection*{Configuring a logger }
+
+Here is a basic setup to log to a file and to firephp on the D\+E\+B\+U\+G level\+:
+
+```php $<$?php
+
+use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog};
+
+// Create the logger \$logger = new Logger(\textquotesingle{}my\+\_\+logger\textquotesingle{}); // Now add some handlers \$logger-\/$>$push\+Handler(new Stream\+Handler({\bfseries D\+I\+R}.\textquotesingle{}/my\+\_\+app.log\textquotesingle{}, Logger\+::\+D\+E\+B\+U\+G)); \$logger-\/$>$push\+Handler(new Fire\+P\+H\+P\+Handler());
+
+// You can now use your logger \$logger-\/$>$add\+Info(\textquotesingle{}\doxyref{My}{p.}{namespace_my} logger is now ready\textquotesingle{}); ```
+
+Let\textquotesingle{}s explain it. The first step is to create the logger instance which will be used in your code. The argument is a channel name, which is useful when you use several loggers (see below for more details about it).
+
+The logger itself does not know how to handle a record. It delegates it to some handlers. The code above registers two handlers in the stack to allow handling records in two different ways.
+
+Note that the Fire\+P\+H\+P\+Handler is called first as it is added on top of the stack. This allows you to temporarily add a logger with bubbling disabled if you want to override other configured loggers.
+
+\subsection*{Adding extra data in the records }
+
+\doxyref{Monolog}{p.}{namespace_monolog} provides two different ways to add extra informations along the simple textual message.
+
+\subsubsection*{Using the logging context}
+
+The first way is the context, allowing to pass an array of data along the record\+:
+
+```php $<$?php
+
+\$logger-\/$>$add\+Info(\textquotesingle{}Adding a new user\textquotesingle{}, array(\textquotesingle{}username\textquotesingle{} =$>$ \textquotesingle{}Seldaek\textquotesingle{})); ```
+
+Simple handlers (like the Stream\+Handler for instance) will simply format the array to a string but richer handlers can take advantage of the context (Fire\+P\+H\+P is able to display arrays in pretty way for instance).
+
+\subsubsection*{Using processors}
+
+The second way is to add extra data for all records by using a processor. Processors can be any callable. They will get the record as parameter and must return it after having eventually changed the {\ttfamily extra} part of it. Let\textquotesingle{}s write a processor adding some dummy data in the record\+:
+
+```php $<$?php
+
+\$logger-\/$>$push\+Processor(function (\$record) \{ \$record[\textquotesingle{}extra\textquotesingle{}][\textquotesingle{}dummy\textquotesingle{}] = \textquotesingle{}Hello world!\textquotesingle{};
+
+return \$record; \}); ```
+
+\doxyref{Monolog}{p.}{namespace_monolog} provides some built-\/in processors that can be used in your project. Look at the {\tt R\+E\+A\+D\+M\+E file} for the list.
+
+\begin{quote}
+Tip\+: processors can also be registered on a specific handler instead of \end{quote}
+the logger to apply only for this handler.
+
+\subsection*{Leveraging channels }
+
+Channels are a great way to identify to which part of the application a record is related. This is useful in big applications (and is leveraged by Monolog\+Bundle in Symfony2).
+
+Picture two loggers sharing a handler that writes to a single log file. Channels would allow you to identify the logger that issued every record. You can easily grep through the log files filtering this or that channel.
+
+```php $<$?php
+
+use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog};
+
+// Create some handlers \$stream = new Stream\+Handler({\bfseries D\+I\+R}.\textquotesingle{}/my\+\_\+app.log\textquotesingle{}, Logger\+::\+D\+E\+B\+U\+G); \$firephp = new Fire\+P\+H\+P\+Handler();
+
+// Create the main logger of the app \$logger = new Logger(\textquotesingle{}my\+\_\+logger\textquotesingle{}); \$logger-\/$>$push\+Handler(\$stream); \$logger-\/$>$push\+Handler(\$firephp);
+
+// Create a logger for the security-\/related stuff with a different channel \$security\+Logger = new Logger(\textquotesingle{}security\textquotesingle{}); \$security\+Logger-\/$>$push\+Handler(\$stream); \$security\+Logger-\/$>$push\+Handler(\$firephp); ```
+
+\subsection*{Customizing log format }
+
+In \doxyref{Monolog}{p.}{namespace_monolog} it\textquotesingle{}s easy to customize the format of the logs written into files, sockets, mails, databases and other handlers. Most of the handlers use the
+
+```php \$record[\textquotesingle{}formatted\textquotesingle{}] ```
+
+value to be automatically put into the log device. This value depends on the formatter settings. You can choose between predefined formatter classes or write your own (e.\+g. a multiline text file for human-\/readable output).
+
+To configure a predefined formatter class, just set it as the handler\textquotesingle{}s field\+:
+
+```php // the default date format is \char`\"{}\+Y-\/m-\/d H\+:i\+:s\char`\"{} \$date\+Format = \char`\"{}\+Y n j, g\+:i a\char`\"{}; // the default output format is \char`\"{}[\%datetime\%] \%channel\%.\%level\+\_\+name\%\+: \%message\% \%context\% \%extra\%\textbackslash{}n\char`\"{} \$output = \char`\"{}\%datetime\% $>$ \%level\+\_\+name\% $>$ \%message\% \%context\% \%extra\%\textbackslash{}n\char`\"{}; // finally, create a formatter \$formatter = new Line\+Formatter(\$output, \$date\+Format);
+
+// Create a handler \$stream = new Stream\+Handler({\bfseries D\+I\+R}.\textquotesingle{}/my\+\_\+app.log\textquotesingle{}, Logger\+::\+D\+E\+B\+U\+G); \$stream-\/$>$set\+Formatter(\$formatter); // bind it to a logger object \$security\+Logger = new Logger(\textquotesingle{}security\textquotesingle{}); \$security\+Logger-\/$>$push\+Handler(\$stream); ```
+
+You may also reuse the same formatter between multiple handlers and share those handlers between multiple loggers. 

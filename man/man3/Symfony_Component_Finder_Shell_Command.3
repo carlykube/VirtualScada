@@ -1,0 +1,361 @@
+.TH "Command" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Command \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBCommand\fP $parent=null)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBadd\fP ($bit)"
+.br
+.ti -1c
+.RI "\fBtop\fP ($bit)"
+.br
+.ti -1c
+.RI "\fBarg\fP ($arg)"
+.br
+.ti -1c
+.RI "\fBcmd\fP ($esc)"
+.br
+.ti -1c
+.RI "\fBins\fP ($label)"
+.br
+.ti -1c
+.RI "\fBget\fP ($label)"
+.br
+.ti -1c
+.RI "\fBend\fP ()"
+.br
+.ti -1c
+.RI "\fBlength\fP ()"
+.br
+.ti -1c
+.RI "\fBsetErrorHandler\fP (\\Closure $errorHandler)"
+.br
+.ti -1c
+.RI "\fBgetErrorHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBexecute\fP ()"
+.br
+.ti -1c
+.RI "\fBjoin\fP ()"
+.br
+.ti -1c
+.RI "\fBaddAtIndex\fP ($bit, $index)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP (\fBCommand\fP $parent=null)"
+.br
+.ti -1c
+.RI "static \fBescape\fP ($input)"
+.br
+.ti -1c
+.RI "static \fBquote\fP ($input)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Jean-François Simon contact@jfsimon.fr 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file Command\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBCommand\fP $parent = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parent\fP Parent command 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file Command\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns command as string\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file Command\&.php\&.
+.SS "add ( $bit)"
+Appends a string or a \fBCommand\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file Command\&.php\&.
+.SS "addAtIndex ( $bit,  $index)"
+Insert a string or a \fBCommand\fP instance before the bit at given position $index (index starts from 0)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bit\fP 
+.br
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 288 of file Command\&.php\&.
+.SS "arg ( $arg)"
+Appends an argument, will be quoted\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$arg\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file Command\&.php\&.
+.SS "cmd ( $esc)"
+Appends escaped special command chars\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$esc\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Command\&.php\&.
+.SS "static create (\fBCommand\fP $parent = \fCnull\fP)\fC [static]\fP"
+Creates a new \fBCommand\fP instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$parent\fP Parent command
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP New \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file Command\&.php\&.
+.SS "end ()"
+Returns parent command (if any)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP Parent command
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 201 of file Command\&.php\&.
+.SS "static escape ( $input)\fC [static]\fP"
+Escapes special chars from input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP \fBA\fP string to escape
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The escaped string 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file Command\&.php\&.
+.SS "execute ()"
+Executes current command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The command result
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 247 of file Command\&.php\&.
+.SS "get ( $label)"
+Retrieves a previously labeled command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$label\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The labeled command
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 185 of file Command\&.php\&.
+.SS "getErrorHandler ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 235 of file Command\&.php\&.
+.SS "ins ( $label)"
+Inserts a labeled command to feed later\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$label\fP The unique label
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 164 of file Command\&.php\&.
+.SS "join ()"
+Joins bits\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 270 of file Command\&.php\&.
+.SS "length ()"
+Counts bits stored in command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The bits count 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Command\&.php\&.
+.SS "static quote ( $input)\fC [static]\fP"
+Quotes input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP An argument string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The quoted string 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file Command\&.php\&.
+.SS "setErrorHandler (\\Closure $errorHandler)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$errorHandler\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file Command\&.php\&.
+.SS "top ( $bit)"
+Prepends a string or a command instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCommand\fP The current \fBCommand\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file Command\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,89 @@
+.TH "Parser" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Parser \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($offset=0)"
+.br
+.ti -1c
+.RI "\fBparse\fP ($value, $exceptionOnInvalidType=false, $objectSupport=false, $objectForMap=false)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBFOLDED_SCALAR_PATTERN\fP = '(?P<separator>\\||>)(?P<modifiers>\\+|\\-|\\\fBd\fP+|\\+\\\fBd\fP+|\\-\\\fBd\fP+|\\\fBd\fP+\\+|\\\fBd\fP+\\-)?(?P<comments> +#\&.*)?'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBParser\fP parses YAML strings to convert them to \fBPHP\fP arrays\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file Parser\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $offset = \fC0\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$offset\fP The offset of YAML document (used for line numbers in error messages) 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file Parser\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "parse ( $value,  $exceptionOnInvalidType = \fCfalse\fP,  $objectSupport = \fCfalse\fP,  $objectForMap = \fCfalse\fP)"
+Parses a YAML string to a \fBPHP\fP value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP \fBA\fP YAML string 
+.br
+\fI$exceptionOnInvalidType\fP true if an exception must be thrown on invalid types (a \fBPHP\fP resource or object), false otherwise 
+.br
+\fI$objectSupport\fP true if object support is enabled, false otherwise 
+.br
+\fI$objectForMap\fP true if maps should return a stdClass instead of array()
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed \fBA\fP \fBPHP\fP value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIParseException\fP If the YAML is not valid 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file Parser\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const FOLDED_SCALAR_PATTERN = '(?P<separator>\\||>)(?P<modifiers>\\+|\\-|\\\fBd\fP+|\\+\\\fBd\fP+|\\-\\\fBd\fP+|\\\fBd\fP+\\+|\\\fBd\fP+\\-)?(?P<comments> +#\&.*)?'"
+
+.PP
+Definition at line 23 of file Parser\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

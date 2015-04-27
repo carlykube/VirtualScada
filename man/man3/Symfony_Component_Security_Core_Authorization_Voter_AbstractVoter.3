@@ -1,0 +1,151 @@
+.TH "AbstractVoter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractVoter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBVoterInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsupportsAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBsupportsClass\fP ($class)"
+.br
+.ti -1c
+.RI "\fBvote\fP (\fBTokenInterface\fP $token, $object, array $attributes)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetSupportedClasses\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSupportedAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBisGranted\fP ($\fBattribute\fP, $object, $user=null)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Abstract \fBVoter\fP implementation that reduces boilerplate code required to create a custom \fBVoter\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Roman Marintšenko inoryy@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file AbstractVoter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getSupportedAttributes ()\fC [abstract]\fP, \fC [protected]\fP"
+Return an array of supported attributes\&. This will be called by supportsAttribute
+.PP
+\fBReturns:\fP
+.RS 4
+array an array of supported attributes, i\&.e\&. array('CREATE', 'READ') 
+.RE
+.PP
+
+.SS "getSupportedClasses ()\fC [abstract]\fP, \fC [protected]\fP"
+Return an array of supported classes\&. This will be called by supportsClass
+.PP
+\fBReturns:\fP
+.RS 4
+array an array of supported classes, i\&.e\&. array('\fBAcme\fP') 
+.RE
+.PP
+
+.SS "isGranted ( $attribute,  $object,  $user = \fCnull\fP)\fC [abstract]\fP, \fC [protected]\fP"
+Perform a single access check operation on a given attribute, object and (optionally) user It is safe to assume that $attribute and $object's class pass supportsAttribute/supportsClass $user can be one of the following: a UserInterface object (fully authenticated user) a string (anonymously authenticated user)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP 
+.br
+\fI$object\fP 
+.br
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "supportsAttribute ( $attribute)"
+{Checks if the voter supports the given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP An attribute
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if this \fBVoter\fP supports the attribute, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 27 of file AbstractVoter\&.php\&.
+.SS "supportsClass ( $class)"
+{Checks if the voter supports the given class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP \fBA\fP class name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if this \fBVoter\fP can process the class
+.RE
+.PP
+} 
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 35 of file AbstractVoter\&.php\&.
+.SS "vote (\fBTokenInterface\fP $token,  $object, array $attributes)"
+Iteratively check all given attributes by calling isGranted
+.PP
+This method terminates as soon as it is able to return ACCESS_GRANTED If at least one attribute is supported, but access not granted, then ACCESS_DENIED is returned Otherwise it will return ACCESS_ABSTAIN
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP TokenInterface instance 
+.br
+\fI$object\fP The object to secure 
+.br
+\fI$attributes\fP An array of attributes associated with the method being invoked
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int either ACCESS_GRANTED, ACCESS_ABSTAIN, or ACCESS_DENIED 
+.RE
+.PP
+
+.PP
+Implements \fBVoterInterface\fP\&.
+.PP
+Definition at line 59 of file AbstractVoter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,1577 @@
+\section{Blueprint Class Reference}
+\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint}\index{Blueprint@{Blueprint}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$table, Closure \${\bf callback}=null)
+\item 
+{\bf build} ({\bf Connection} \$connection, {\bf Grammar} \$grammar)
+\item 
+{\bf to\+Sql} ({\bf Connection} \$connection, {\bf Grammar} \$grammar)
+\item 
+{\bf create} ()
+\item 
+{\bf drop} ()
+\item 
+{\bf drop\+If\+Exists} ()
+\item 
+{\bf drop\+Column} (\$columns)
+\item 
+{\bf rename\+Column} (\$from, \${\bf to})
+\item 
+{\bf drop\+Primary} (\${\bf index}=null)
+\item 
+{\bf drop\+Unique} (\${\bf index})
+\item 
+{\bf drop\+Index} (\${\bf index})
+\item 
+{\bf drop\+Foreign} (\${\bf index})
+\item 
+{\bf drop\+Timestamps} ()
+\item 
+{\bf drop\+Soft\+Deletes} ()
+\item 
+{\bf rename} (\${\bf to})
+\item 
+{\bf primary} (\$columns, \${\bf name}=null)
+\item 
+{\bf unique} (\$columns, \${\bf name}=null)
+\item 
+{\bf index} (\$columns, \${\bf name}=null)
+\item 
+{\bf foreign} (\$columns, \${\bf name}=null)
+\item 
+{\bf increments} (\$column)
+\item 
+{\bf big\+Increments} (\$column)
+\item 
+{\bf char} (\$column, \$length=255)
+\item 
+{\bf string} (\$column, \$length=255)
+\item 
+{\bf text} (\$column)
+\item 
+{\bf medium\+Text} (\$column)
+\item 
+{\bf long\+Text} (\$column)
+\item 
+{\bf integer} (\$column, \$auto\+Increment=false, \$unsigned=false)
+\item 
+{\bf big\+Integer} (\$column, \$auto\+Increment=false, \$unsigned=false)
+\item 
+{\bf medium\+Integer} (\$column, \$auto\+Increment=false, \$unsigned=false)
+\item 
+{\bf tiny\+Integer} (\$column, \$auto\+Increment=false, \$unsigned=false)
+\item 
+{\bf small\+Integer} (\$column, \$auto\+Increment=false, \$unsigned=false)
+\item 
+{\bf unsigned\+Integer} (\$column, \$auto\+Increment=false)
+\item 
+{\bf unsigned\+Big\+Integer} (\$column, \$auto\+Increment=false)
+\item 
+{\bf float} (\$column, \$total=8, \$places=2)
+\item 
+{\bf double} (\$column, \$total=null, \$places=null)
+\item 
+{\bf decimal} (\$column, \$total=8, \$places=2)
+\item 
+{\bf boolean} (\$column)
+\item 
+{\bf enum} (\$column, array \$allowed)
+\item 
+{\bf json} (\$column)
+\item 
+{\bf date} (\$column)
+\item 
+{\bf date\+Time} (\$column)
+\item 
+{\bf time} (\$column)
+\item 
+{\bf timestamp} (\$column)
+\item 
+{\bf nullable\+Timestamps} ()
+\item 
+{\bf timestamps} ()
+\item 
+{\bf soft\+Deletes} ()
+\item 
+{\bf binary} (\$column)
+\item 
+{\bf morphs} (\${\bf name}, \$index\+Name=null)
+\item 
+{\bf remember\+Token} ()
+\item 
+{\bf remove\+Column} (\${\bf name})
+\item 
+{\bf get\+Table} ()
+\item 
+{\bf get\+Columns} ()
+\item 
+{\bf get\+Commands} ()
+\item 
+{\bf get\+Added\+Columns} ()
+\item 
+{\bf get\+Changed\+Columns} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$engine}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf add\+Implied\+Commands} ()
+\item 
+{\bf add\+Fluent\+Indexes} ()
+\item 
+{\bf creating} ()
+\item 
+{\bf drop\+Index\+Command} (\$command, \$type, \${\bf index})
+\item 
+{\bf index\+Command} (\$type, \$columns, \${\bf index})
+\item 
+{\bf create\+Index\+Name} (\$type, array \$columns)
+\item 
+{\bf add\+Column} (\$type, \${\bf name}, array \$parameters=array())
+\item 
+{\bf add\+Command} (\${\bf name}, array \$parameters=array())
+\item 
+{\bf create\+Command} (\${\bf name}, array \$parameters=array())
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$table}
+\item 
+{\bf \$columns} = array()
+\item 
+{\bf \$commands} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Blueprint.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_afa7be82cf7fde3ad62f9bdba240b9514}
+Create a new schema blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file Blueprint.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!add\+Column@{add\+Column}}
+\index{add\+Column@{add\+Column}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{add\+Column}]{\setlength{\rightskip}{0pt plus 5cm}add\+Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$name, }
+\item[{array}]{\$parameters = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ad028006013932e887e4c05413a0a2b14}
+Add a new column to the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 772 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!add\+Command@{add\+Command}}
+\index{add\+Command@{add\+Command}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{add\+Command}]{\setlength{\rightskip}{0pt plus 5cm}add\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{array}]{\$parameters = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a37c151359fae371b15c6eaa2621e8aa8}
+Add a new command to the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 804 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!add\+Fluent\+Indexes@{add\+Fluent\+Indexes}}
+\index{add\+Fluent\+Indexes@{add\+Fluent\+Indexes}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{add\+Fluent\+Indexes}]{\setlength{\rightskip}{0pt plus 5cm}add\+Fluent\+Indexes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a85f1675e26f11d970b8bbbe7239fcd17}
+Add the index commands fluently specified on columns.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!add\+Implied\+Commands@{add\+Implied\+Commands}}
+\index{add\+Implied\+Commands@{add\+Implied\+Commands}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{add\+Implied\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}add\+Implied\+Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ad8a9b3e9e8a1313c1d92b711cf39a9a5}
+Add the commands that are implied by the blueprint.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!big\+Increments@{big\+Increments}}
+\index{big\+Increments@{big\+Increments}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{big\+Increments}]{\setlength{\rightskip}{0pt plus 5cm}big\+Increments (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a37e5c6eebd9f12ea3acb832f499b2d59}
+Create a new auto-\/incrementing big integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 363 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!big\+Integer@{big\+Integer}}
+\index{big\+Integer@{big\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{big\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}big\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}, }
+\item[{}]{\$unsigned = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ab29e0dc4a93d71d647b830cab588a709}
+Create a new big integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+bool & {\em \$unsigned} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 446 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!binary@{binary}}
+\index{binary@{binary}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{binary}]{\setlength{\rightskip}{0pt plus 5cm}binary (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a891661bce39e47cd170541bf9d8713ee}
+Create a new binary column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 671 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!boolean@{boolean}}
+\index{boolean@{boolean}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{boolean}]{\setlength{\rightskip}{0pt plus 5cm}boolean (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ac53942b70c415d075fbd404c3171ae02}
+Create a new boolean column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 559 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!build@{build}}
+\index{build@{build}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}build (
+\begin{DoxyParamCaption}
+\item[{{\bf Connection}}]{\$connection, }
+\item[{{\bf Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a348f1e472883c1fe3aaf60b7179442a1}
+Execute the blueprint against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Grammars\textbackslash{}\+Grammar & {\em \$grammar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!char@{char}}
+\index{char@{char}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{char}]{\setlength{\rightskip}{0pt plus 5cm}char (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$length = {\ttfamily 255}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a101aa10d8af9cab56f82ec7a9fdbd635}
+Create a new char column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 375 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!create@{create}}
+\index{create@{create}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a435e7d7525d4bcd0ed5e34a469f3adf6}
+Indicate that the table needs to be created.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 173 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!create\+Command@{create\+Command}}
+\index{create\+Command@{create\+Command}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{create\+Command}]{\setlength{\rightskip}{0pt plus 5cm}create\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{array}]{\$parameters = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a4d8513ca62f847dd66579bfd40ba1845}
+Create a new Fluent command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 818 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!create\+Index\+Name@{create\+Index\+Name}}
+\index{create\+Index\+Name@{create\+Index\+Name}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{create\+Index\+Name}]{\setlength{\rightskip}{0pt plus 5cm}create\+Index\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{array}]{\$columns}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a7493bf6f2fb9a00347d264e00d9894a1}
+Create a default index name for the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 757 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!creating@{creating}}
+\index{creating@{creating}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{creating}]{\setlength{\rightskip}{0pt plus 5cm}creating (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a3b07466072e9149acf76859fed2dc0fb}
+Determine if the blueprint has a create command.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!date@{date}}
+\index{date@{date}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{date}]{\setlength{\rightskip}{0pt plus 5cm}date (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a6456b057aa56d0c0f3d698c9c54fe853}
+Create a new date column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 593 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!date\+Time@{date\+Time}}
+\index{date\+Time@{date\+Time}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{date\+Time}]{\setlength{\rightskip}{0pt plus 5cm}date\+Time (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a8670d55e77a8e55900c33271ebe7ec52}
+Create a new date-\/time column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 604 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!decimal@{decimal}}
+\index{decimal@{decimal}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{decimal}]{\setlength{\rightskip}{0pt plus 5cm}decimal (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$total = {\ttfamily 8}, }
+\item[{}]{\$places = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ac302163de5840761210e03f1ab4cc102}
+Create a new decimal column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$total} & \\
+\hline
+int & {\em \$places} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 548 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!double@{double}}
+\index{double@{double}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{double}]{\setlength{\rightskip}{0pt plus 5cm}double (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$total = {\ttfamily null}, }
+\item[{}]{\$places = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a1a6043e1f7c718747d046663304e767c}
+Create a new double column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int | null & {\em \$total} & \\
+\hline
+int | null & {\em \$places} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 535 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop@{drop}}
+\index{drop@{drop}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_aeb639e5b2b713ed87ab8f2033af98ae8}
+Indicate that the table should be dropped.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Column@{drop\+Column}}
+\index{drop\+Column@{drop\+Column}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Column}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ae34216318f8a10a242290e57fc29816a}
+Indicate that the given columns should be dropped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 204 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Foreign@{drop\+Foreign}}
+\index{drop\+Foreign@{drop\+Foreign}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Foreign}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Foreign (
+\begin{DoxyParamCaption}
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a1cfc0b66d0c499052b913ee474941189}
+Indicate that the given foreign key should be dropped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 262 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+If\+Exists@{drop\+If\+Exists}}
+\index{drop\+If\+Exists@{drop\+If\+Exists}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+If\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}drop\+If\+Exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a69c4145b0e184ce708a8d1c15fa13775}
+Indicate that the table should be dropped if it exists.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 193 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Index@{drop\+Index}}
+\index{drop\+Index@{drop\+Index}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Index}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Index (
+\begin{DoxyParamCaption}
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_aa6814906c90faade909731c5e451fdd9}
+Indicate that the given index should be dropped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 251 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Index\+Command@{drop\+Index\+Command}}
+\index{drop\+Index\+Command@{drop\+Index\+Command}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Index\+Command}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Index\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$command, }
+\item[{}]{\$type, }
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a17ee340b644e9d64e047734b20949e66}
+Create a new drop index command on the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$command} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+string | array & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 710 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Primary@{drop\+Primary}}
+\index{drop\+Primary@{drop\+Primary}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Primary}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Primary (
+\begin{DoxyParamCaption}
+\item[{}]{\$index = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a6e6dc94e2e93d12f2dde5ccda485a884}
+Indicate that the given primary key should be dropped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 229 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Soft\+Deletes@{drop\+Soft\+Deletes}}
+\index{drop\+Soft\+Deletes@{drop\+Soft\+Deletes}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Soft\+Deletes}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Soft\+Deletes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a69becf77def529ea8c5b6d41d4afb2fa}
+Indicate that the soft delete column should be dropped.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 282 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Timestamps@{drop\+Timestamps}}
+\index{drop\+Timestamps@{drop\+Timestamps}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Timestamps}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Timestamps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_adbcc971adbdc128bdcc218ef40fdaa6d}
+Indicate that the timestamp columns should be dropped.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!drop\+Unique@{drop\+Unique}}
+\index{drop\+Unique@{drop\+Unique}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{drop\+Unique}]{\setlength{\rightskip}{0pt plus 5cm}drop\+Unique (
+\begin{DoxyParamCaption}
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a9d80f77aabb3f53bd01f08862d406b90}
+Indicate that the given unique key should be dropped.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 240 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!enum@{enum}}
+\index{enum@{enum}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{enum}]{\setlength{\rightskip}{0pt plus 5cm}enum (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{array}]{\$allowed}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a6d464a3820cd6708aaef691966ea44c0}
+Create a new enum column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$allowed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 571 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!float@{float}}
+\index{float@{float}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{float}]{\setlength{\rightskip}{0pt plus 5cm}float (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$total = {\ttfamily 8}, }
+\item[{}]{\$places = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_af9706358eb67f04c5ea7bb9fb95d6532}
+Create a new float column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$total} & \\
+\hline
+int & {\em \$places} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 522 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!foreign@{foreign}}
+\index{foreign@{foreign}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{foreign}]{\setlength{\rightskip}{0pt plus 5cm}foreign (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a0ab388ee1039e7569dccfeb15680e61a}
+Specify a foreign key for the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$columns} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 341 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!get\+Added\+Columns@{get\+Added\+Columns}}
+\index{get\+Added\+Columns@{get\+Added\+Columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{get\+Added\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Added\+Columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a551ed38a46419762059f01956684fd2d}
+Get the columns on the blueprint that should be added.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 858 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!get\+Changed\+Columns@{get\+Changed\+Columns}}
+\index{get\+Changed\+Columns@{get\+Changed\+Columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{get\+Changed\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Changed\+Columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a2a1816b423720a0937cdf39f4c831675}
+Get the columns on the blueprint that should be changed.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 871 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!get\+Columns@{get\+Columns}}
+\index{get\+Columns@{get\+Columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{get\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a6287262cb9628d7a89d8fc16dcb51177}
+Get the columns on the blueprint.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 838 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!get\+Commands@{get\+Commands}}
+\index{get\+Commands@{get\+Commands}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{get\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}get\+Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a82f3474cee57fff1095b279dc4da9fc1}
+Get the commands on the blueprint.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 848 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!get\+Table@{get\+Table}}
+\index{get\+Table@{get\+Table}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{get\+Table}]{\setlength{\rightskip}{0pt plus 5cm}get\+Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_aa0dd4bf57d57bc2a3697e40c9f6bddce}
+Get the table the blueprint describes.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 828 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!increments@{increments}}
+\index{increments@{increments}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{increments}]{\setlength{\rightskip}{0pt plus 5cm}increments (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a14c11ea781af98b900cf98f189931861}
+Create a new auto-\/incrementing integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 352 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!index@{index}}
+\index{index@{index}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}index (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a54277f93c2a58577bf12fdedee7eb3c6}
+Specify an index for the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$columns} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 329 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!index\+Command@{index\+Command}}
+\index{index\+Command@{index\+Command}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{index\+Command}]{\setlength{\rightskip}{0pt plus 5cm}index\+Command (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$columns, }
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_aee8a267a8ef7b9c60a74ad19cfffc4b2}
+Add a new index command to the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+string | array & {\em \$columns} & \\
+\hline
+string & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 735 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!integer@{integer}}
+\index{integer@{integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{integer}]{\setlength{\rightskip}{0pt plus 5cm}integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}, }
+\item[{}]{\$unsigned = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a1c6488c9dff3d2b82c449670b688aaaf}
+Create a new integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+bool & {\em \$unsigned} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 433 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!json@{json}}
+\index{json@{json}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{json}]{\setlength{\rightskip}{0pt plus 5cm}json (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a83c154a24e5c367e41eb90117263b36e}
+Create a new json column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 582 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!long\+Text@{long\+Text}}
+\index{long\+Text@{long\+Text}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{long\+Text}]{\setlength{\rightskip}{0pt plus 5cm}long\+Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a0c68a370343ee15ac43a336e5d98f997}
+Create a new long text column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 420 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!medium\+Integer@{medium\+Integer}}
+\index{medium\+Integer@{medium\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{medium\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}medium\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}, }
+\item[{}]{\$unsigned = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ae5d7a85a306aeef1057803c29fcf93d8}
+Create a new medium integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+bool & {\em \$unsigned} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 459 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!medium\+Text@{medium\+Text}}
+\index{medium\+Text@{medium\+Text}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{medium\+Text}]{\setlength{\rightskip}{0pt plus 5cm}medium\+Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_af6335024efde5713aa402579376b6890}
+Create a new medium text column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 409 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!morphs@{morphs}}
+\index{morphs@{morphs}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{morphs}]{\setlength{\rightskip}{0pt plus 5cm}morphs (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$index\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ab445588975c91ea900e7fd50b5614b27}
+Add the proper columns for a polymorphic table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string | null & {\em \$index\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 683 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!nullable\+Timestamps@{nullable\+Timestamps}}
+\index{nullable\+Timestamps@{nullable\+Timestamps}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{nullable\+Timestamps}]{\setlength{\rightskip}{0pt plus 5cm}nullable\+Timestamps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a536a14508f96c460391b6b236fd271fa}
+Add nullable creation and update timestamps to the table.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 636 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!primary@{primary}}
+\index{primary@{primary}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{primary}]{\setlength{\rightskip}{0pt plus 5cm}primary (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ae9aea61bac2e40a9b6994676ed45771a}
+Specify the primary key(s) for the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$columns} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 305 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!remember\+Token@{remember\+Token}}
+\index{remember\+Token@{remember\+Token}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{remember\+Token}]{\setlength{\rightskip}{0pt plus 5cm}remember\+Token (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_acfffc323738b5cd25c43efa0c4c923e0}
+Adds the {\ttfamily remember\+\_\+token} column to the table.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 697 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!remove\+Column@{remove\+Column}}
+\index{remove\+Column@{remove\+Column}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{remove\+Column}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a9b9d5c303403ad0a4ee54b2a08e2779b}
+Remove a column from the schema blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 787 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!rename@{rename}}
+\index{rename@{rename}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{rename}]{\setlength{\rightskip}{0pt plus 5cm}rename (
+\begin{DoxyParamCaption}
+\item[{}]{\$to}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a9a18595b014544f70343c99a63ff8520}
+Rename the table to a given name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$to} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 293 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!rename\+Column@{rename\+Column}}
+\index{rename\+Column@{rename\+Column}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{rename\+Column}]{\setlength{\rightskip}{0pt plus 5cm}rename\+Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$from, }
+\item[{}]{\$to}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a340335a9235fe901c748730b204a6b59}
+Indicate that the given columns should be renamed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$from} & \\
+\hline
+string & {\em \$to} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 218 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!small\+Integer@{small\+Integer}}
+\index{small\+Integer@{small\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{small\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}small\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}, }
+\item[{}]{\$unsigned = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a1540efa10489e2c06050305acfcedef8}
+Create a new small integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+bool & {\em \$unsigned} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 485 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!soft\+Deletes@{soft\+Deletes}}
+\index{soft\+Deletes@{soft\+Deletes}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{soft\+Deletes}]{\setlength{\rightskip}{0pt plus 5cm}soft\+Deletes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_abbc19f872e79570313b78467391a345b}
+Add a \char`\"{}deleted at\char`\"{} timestamp for the table.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 660 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!string@{string}}
+\index{string@{string}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{string}]{\setlength{\rightskip}{0pt plus 5cm}string (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$length = {\ttfamily 255}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a58daae9fa92d6619321eb43e1ddb4e0f}
+Create a new string column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+The table the blueprint describes.
+
+The storage engine that should be used for the table. 
+
+Definition at line 387 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!text@{text}}
+\index{text@{text}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{text}]{\setlength{\rightskip}{0pt plus 5cm}text (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_aeaf5d09eb992d006f7d9c43e04dc421f}
+Create a new text column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 398 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!time@{time}}
+\index{time@{time}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{time}]{\setlength{\rightskip}{0pt plus 5cm}time (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a0002a746a51a4924172f8db583ac3c34}
+Create a new time column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 615 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{timestamp}]{\setlength{\rightskip}{0pt plus 5cm}timestamp (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a2555681b5a0d551341125ca7f5eae3b0}
+Create a new timestamp column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 626 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!timestamps@{timestamps}}
+\index{timestamps@{timestamps}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{timestamps}]{\setlength{\rightskip}{0pt plus 5cm}timestamps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ae676e366dba60a1d044ac8dbba4efdbb}
+Add creation and update timestamps to the table.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 648 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!tiny\+Integer@{tiny\+Integer}}
+\index{tiny\+Integer@{tiny\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{tiny\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}tiny\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}, }
+\item[{}]{\$unsigned = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a9dd0bd48dfe8e82d17591272a0e90e26}
+Create a new tiny integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+bool & {\em \$unsigned} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 472 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!to\+Sql@{to\+Sql}}
+\index{to\+Sql@{to\+Sql}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{to\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}to\+Sql (
+\begin{DoxyParamCaption}
+\item[{{\bf Connection}}]{\$connection, }
+\item[{{\bf Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_af6550c3b508be59bd047bbf501a3e8e1}
+Get the raw S\+Q\+L statements for the blueprint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Schema\textbackslash{}\+Grammars\textbackslash{}\+Grammar & {\em \$grammar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!unique@{unique}}
+\index{unique@{unique}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{unique}]{\setlength{\rightskip}{0pt plus 5cm}unique (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a7759f21038bf5d2c627310a470ec28e0}
+Specify a unique index for the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$columns} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 317 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!unsigned\+Big\+Integer@{unsigned\+Big\+Integer}}
+\index{unsigned\+Big\+Integer@{unsigned\+Big\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{unsigned\+Big\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}unsigned\+Big\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a5b500a4690a7fd6634925f6b6d0d7f33}
+Create a new unsigned big integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 509 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!unsigned\+Integer@{unsigned\+Integer}}
+\index{unsigned\+Integer@{unsigned\+Integer}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{unsigned\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}unsigned\+Integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$auto\+Increment = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a17becb2b1f59d6aa87017cb84d4392aa}
+Create a new unsigned integer column on the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+bool & {\em \$auto\+Increment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 497 of file Blueprint.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!\$columns@{\$columns}}
+\index{\$columns@{\$columns}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{\$columns}]{\setlength{\rightskip}{0pt plus 5cm}\$columns = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a19d2a3d21fe02053311fde465e6ae2e9}
+
+
+Definition at line 22 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!\$commands@{\$commands}}
+\index{\$commands@{\$commands}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{\$commands}]{\setlength{\rightskip}{0pt plus 5cm}\$commands = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ab63cd62b3b65fd223b6f3d57b6ca754d}
+
+
+Definition at line 29 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!\$engine@{\$engine}}
+\index{\$engine@{\$engine}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{\$engine}]{\setlength{\rightskip}{0pt plus 5cm}\$engine}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_a8a3b012ad4844366d9207d8f0e174a00}
+
+
+Definition at line 36 of file Blueprint.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}!\$table@{\$table}}
+\index{\$table@{\$table}!Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint@{Illuminate\+::\+Database\+::\+Schema\+::\+Blueprint}}
+\subsubsection[{\$table}]{\setlength{\rightskip}{0pt plus 5cm}\$table\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_schema_1_1_blueprint_ae8876a14058f368335baccf35af4a22b}
+
+
+Definition at line 15 of file Blueprint.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Schema/{\bf Blueprint.\+php}\end{DoxyCompactItemize}

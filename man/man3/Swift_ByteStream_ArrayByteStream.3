@@ -1,0 +1,164 @@
+.TH "Swift_ByteStream_ArrayByteStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_ByteStream_ArrayByteStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_InputByteStream\fP, and \fBSwift_OutputByteStream\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBstack\fP=null)"
+.br
+.ti -1c
+.RI "\fBread\fP ($length)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($bytes)"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBunbind\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBsetReadPointer\fP ($byteOffset)"
+.br
+.ti -1c
+.RI "\fBflushBuffers\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Allows reading and writing of bytes to and from an array\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file ArrayByteStream\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $stack = \fCnull\fP)"
+Create a new ArrayByteStream\&.
+.PP
+If $stack is given the stream will be populated with the bytes it contains\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stack\fP of bytes in string or array form, optional 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file ArrayByteStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bind (\fBSwift_InputByteStream\fP $is)"
+Attach $is to this stream\&.
+.PP
+The stream acts as an observer, receiving all data that is written\&. All \fBwrite()\fP and \fBflushBuffers()\fP operations will be mirrored\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 129 of file ArrayByteStream\&.php\&.
+.SS "commit ()"
+Not used\&. 
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 117 of file ArrayByteStream\&.php\&.
+.SS "flushBuffers ()"
+Flush the contents of the stream (empty it) and set the internal pointer to the beginning\&. 
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 174 of file ArrayByteStream\&.php\&.
+.SS "read ( $length)"
+Reads $length bytes from the stream into a string and moves the pointer through the stream by $length\&.
+.PP
+If less bytes exist than are requested the remaining bytes are given instead\&. If no bytes are remaining at all, boolean false is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 77 of file ArrayByteStream\&.php\&.
+.SS "setReadPointer ( $byteOffset)"
+Move the internal read pointer to $byteOffset in the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$byteOffset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_OutputByteStream\fP\&.
+.PP
+Definition at line 159 of file ArrayByteStream\&.php\&.
+.SS "unbind (\fBSwift_InputByteStream\fP $is)"
+Remove an already bound stream\&.
+.PP
+If $is is not bound, no errors will be raised\&. If the stream currently has any buffered data it will be written to $is before unbinding occurs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 143 of file ArrayByteStream\&.php\&.
+.SS "write ( $bytes)"
+Writes $bytes to the end of the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bytes\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_InputByteStream\fP\&.
+.PP
+Definition at line 101 of file ArrayByteStream\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

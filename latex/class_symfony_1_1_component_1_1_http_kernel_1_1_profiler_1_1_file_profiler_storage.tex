@@ -1,0 +1,260 @@
+\section{File\+Profiler\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage}\index{File\+Profiler\+Storage@{File\+Profiler\+Storage}}
+Inheritance diagram for File\+Profiler\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$dsn)
+\item 
+{\bf find} (\$ip, \$url, \$limit, \$method, \$start=null, \$end=null)
+\item 
+{\bf purge} ()
+\item 
+{\bf read} (\$token)
+\item 
+{\bf write} ({\bf Profile} \$profile)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Filename} (\$token)
+\item 
+{\bf get\+Index\+Filename} ()
+\item 
+{\bf read\+Line\+From\+File} (\$file)
+\item 
+{\bf create\+Profile\+From\+Data} (\$token, \${\bf data}, \$parent=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Storage for profiler using files.
+
+\begin{DoxyAuthor}{Author}
+Alexandre Salomé {\tt alexandre.\+salome@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file File\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$dsn}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ad6a53172d07a9baa80738957ecd468b1}
+Constructs the file storage using a \char`\"{}dsn-\/like\char`\"{} path.
+
+Example \+: \char`\"{}file\+:/path/to/the/storage/folder\char`\"{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$dsn} & The D\+S\+N\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 37 of file File\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!create\+Profile\+From\+Data@{create\+Profile\+From\+Data}}
+\index{create\+Profile\+From\+Data@{create\+Profile\+From\+Data}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{create\+Profile\+From\+Data}]{\setlength{\rightskip}{0pt plus 5cm}create\+Profile\+From\+Data (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$data, }
+\item[{}]{\$parent = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ab918d46e3ef18bd8ed083e1fc0af6ae4}
+
+
+Definition at line 251 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$limit, }
+\item[{}]{\$method, }
+\item[{}]{\$start = {\ttfamily null}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}
+\{Finds profiler tokens for the given criteria.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method \\
+\hline
+int | null & {\em \$start} & The start date to search from \\
+\hline
+int | null & {\em \$end} & The end date to search to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of tokens
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a78e1a362bc3a4a8b1290f3af9541d8b0}.
+
+
+
+Definition at line 52 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!get\+Filename@{get\+Filename}}
+\index{get\+Filename@{get\+Filename}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{get\+Filename}]{\setlength{\rightskip}{0pt plus 5cm}get\+Filename (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ab55de55bb1c853e23075523acc7d9f68}
+Gets filename to store data, associated to the token.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The profile filename 
+\end{DoxyReturn}
+
+
+Definition at line 185 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!get\+Index\+Filename@{get\+Index\+Filename}}
+\index{get\+Index\+Filename@{get\+Index\+Filename}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{get\+Index\+Filename}]{\setlength{\rightskip}{0pt plus 5cm}get\+Index\+Filename (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_a08c38a08eb2e7d097bdef7f8edfb5506}
+Gets the index filename.
+
+\begin{DoxyReturn}{Returns}
+string The index filename 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ac400be513972a68ea08ef845d5b16824}
+\{Purges all data from the database.\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_ac400be513972a68ea08ef845d5b16824}.
+
+
+
+Definition at line 99 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}
+\{Reads data associated with the given token.
+
+The method returns false if the token does not exist in the storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \doxyref{A}{p.}{class_a} token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} The profile associated with token
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a2080f7cded6528ace4ee2172e48e5f3c}.
+
+
+
+Definition at line 117 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!read\+Line\+From\+File@{read\+Line\+From\+File}}
+\index{read\+Line\+From\+File@{read\+Line\+From\+File}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{read\+Line\+From\+File}]{\setlength{\rightskip}{0pt plus 5cm}read\+Line\+From\+File (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_ac163a7c66ca51837ff890065b4355af5}
+Reads a line in the file, backward.
+
+This function automatically skips the empty lines and do not include the line return in result value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+resource & {\em \$file} & The file resource, with the pointer placed at the end of the line to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed \doxyref{A}{p.}{class_a} string representing the line or null if beginning of file is reached 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file File\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+File\+Profiler\+Storage}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Profile}}]{\$profile}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_file_profiler_storage_aea7881699586bacb79b542561f655a05}
+\{Saves a \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} & {\em \$profile} & \doxyref{A}{p.}{class_a} \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Write operation successful
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_aea7881699586bacb79b542561f655a05}.
+
+
+
+Definition at line 129 of file File\+Profiler\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Profiler/{\bf File\+Profiler\+Storage.\+php}\end{DoxyCompactItemize}

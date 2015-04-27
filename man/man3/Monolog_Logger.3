@@ -1,0 +1,1077 @@
+.TH "Logger" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Logger \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits LoggerInterface, and LoggerInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, array $handlers=array(), array $processors=array())"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBpushHandler\fP (\fBHandlerInterface\fP $handler)"
+.br
+.ti -1c
+.RI "\fBpopHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHandlers\fP ()"
+.br
+.ti -1c
+.RI "\fBpushProcessor\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBpopProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProcessors\fP ()"
+.br
+.ti -1c
+.RI "\fBaddRecord\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddDebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddInfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddNotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddWarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddError\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddCritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddAlert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddEmergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBisHandling\fP ($level)"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarn\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerr\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcrit\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBemerg\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, array $handlers=array(), array $processors=array())"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBpushHandler\fP (HandlerInterface $handler)"
+.br
+.ti -1c
+.RI "\fBpopHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHandlers\fP ()"
+.br
+.ti -1c
+.RI "\fBpushProcessor\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBpopProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProcessors\fP ()"
+.br
+.ti -1c
+.RI "\fBaddRecord\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddDebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddInfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddNotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddWarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddError\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddCritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddAlert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBaddEmergency\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBisHandling\fP ($level)"
+.br
+.ti -1c
+.RI "\fBlog\fP ($level, $message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBnotice\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarn\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBwarning\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerr\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBerror\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcrit\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBcritical\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBalert\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBemerg\fP ($message, array $context=array())"
+.br
+.ti -1c
+.RI "\fBemergency\fP ($message, array $context=array())"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetLevels\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetLevelName\fP ($level)"
+.br
+.ti -1c
+.RI "static \fBtoMonologLevel\fP ($level)"
+.br
+.ti -1c
+.RI "static \fBgetLevels\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetLevelName\fP ($level)"
+.br
+.ti -1c
+.RI "static \fBtoMonologLevel\fP ($level)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBDEBUG\fP = 100"
+.br
+.ti -1c
+.RI "const \fBINFO\fP = 200"
+.br
+.ti -1c
+.RI "const \fBNOTICE\fP = 250"
+.br
+.ti -1c
+.RI "const \fBWARNING\fP = 300"
+.br
+.ti -1c
+.RI "const \fBERROR\fP = 400"
+.br
+.ti -1c
+.RI "const \fBCRITICAL\fP = 500"
+.br
+.ti -1c
+.RI "const \fBALERT\fP = 550"
+.br
+.ti -1c
+.RI "const \fBEMERGENCY\fP = 600"
+.br
+.ti -1c
+.RI "const \fBAPI\fP = 1"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$handlers\fP"
+.br
+.ti -1c
+.RI "\fB$processors\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$levels\fP = array(100 => '\fBDEBUG\fP', 200 => '\fBINFO\fP', 250 => '\fBNOTICE\fP', 300 => '\fBWARNING\fP', 400 => '\fBERROR\fP', 500 => '\fBCRITICAL\fP', 550 => '\fBALERT\fP', 600 => '\fBEMERGENCY\fP')"
+.br
+.ti -1c
+.RI "static \fB$timezone\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMonolog\fP log channel
+.PP
+It contains a stack of Handlers and a stack of Processors, and uses them to store records that are added to it\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 12180 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name, array $handlers = \fCarray()\fP, array $processors = \fCarray()\fP)"
+
+.PP
+Definition at line 12196 of file compiled\&.php\&.
+.SS "__construct ( $name, array $handlers = \fCarray()\fP, array $processors = \fCarray()\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The logging channel 
+.br
+\fIHandlerInterface[]\fP $handlers Optional stack of handlers, the first one in the array is called first, etc\&. 
+.br
+\fIcallable[]\fP $processors Optional array of processors 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file Logger\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addAlert ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the ALERT level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file Logger\&.php\&.
+.SS "addAlert ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12291 of file compiled\&.php\&.
+.SS "addCritical ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the CRITICAL level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file Logger\&.php\&.
+.SS "addCritical ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12287 of file compiled\&.php\&.
+.SS "addDebug ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the DEBUG level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 279 of file Logger\&.php\&.
+.SS "addDebug ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12267 of file compiled\&.php\&.
+.SS "addEmergency ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the EMERGENCY level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 363 of file Logger\&.php\&.
+.SS "addEmergency ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12295 of file compiled\&.php\&.
+.SS "addError ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the ERROR level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 327 of file Logger\&.php\&.
+.SS "addError ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12283 of file compiled\&.php\&.
+.SS "addInfo ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the INFO level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 291 of file Logger\&.php\&.
+.SS "addInfo ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12271 of file compiled\&.php\&.
+.SS "addNotice ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the NOTICE level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 303 of file Logger\&.php\&.
+.SS "addNotice ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12275 of file compiled\&.php\&.
+.SS "addRecord ( $level,  $message, array $context = \fCarray()\fP)"
+Adds a log record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP The logging level 
+.br
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file Logger\&.php\&.
+.SS "addRecord ( $level,  $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12239 of file compiled\&.php\&.
+.SS "addWarning ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the WARNING level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file Logger\&.php\&.
+.SS "addWarning ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12279 of file compiled\&.php\&.
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the ALERT level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 583 of file Logger\&.php\&.
+.SS "alert ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12370 of file compiled\&.php\&.
+.SS "crit ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the CRITICAL level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 555 of file Logger\&.php\&.
+.SS "crit ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12362 of file compiled\&.php\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the CRITICAL level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 569 of file Logger\&.php\&.
+.SS "critical ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12366 of file compiled\&.php\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the DEBUG level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 457 of file Logger\&.php\&.
+.SS "debug ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12334 of file compiled\&.php\&.
+.SS "emerg ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the EMERGENCY level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 597 of file Logger\&.php\&.
+.SS "emerg ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12374 of file compiled\&.php\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the EMERGENCY level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 611 of file Logger\&.php\&.
+.SS "emergency ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12378 of file compiled\&.php\&.
+.SS "err ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the ERROR level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 527 of file Logger\&.php\&.
+.SS "err ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12354 of file compiled\&.php\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the ERROR level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 541 of file Logger\&.php\&.
+.SS "error ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12358 of file compiled\&.php\&.
+.SS "getHandlers ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+HandlerInterface[] 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file Logger\&.php\&.
+.SS "getHandlers ()"
+
+.PP
+Definition at line 12217 of file compiled\&.php\&.
+.SS "static getLevelName ( $level)\fC [static]\fP"
+Gets the name of the logging level\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 384 of file Logger\&.php\&.
+.SS "static getLevelName ( $level)\fC [static]\fP"
+
+.PP
+Definition at line 12303 of file compiled\&.php\&.
+.SS "static getLevels ()\fC [static]\fP"
+Gets all supported logging levels\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array Assoc array with human-readable level names => level codes\&. 
+.RE
+.PP
+
+.PP
+Definition at line 373 of file Logger\&.php\&.
+.SS "static getLevels ()\fC [static]\fP"
+
+.PP
+Definition at line 12299 of file compiled\&.php\&.
+.SS "getName ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Logger\&.php\&.
+.SS "getName ()"
+
+.PP
+Definition at line 12202 of file compiled\&.php\&.
+.SS "getProcessors ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+callable[] 
+.RE
+.PP
+
+.PP
+Definition at line 213 of file Logger\&.php\&.
+.SS "getProcessors ()"
+
+.PP
+Definition at line 12235 of file compiled\&.php\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the INFO level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 471 of file Logger\&.php\&.
+.SS "info ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12338 of file compiled\&.php\&.
+.SS "isHandling ( $level)"
+Checks whether the \fBLogger\fP has a handler that listens on the given level
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file Logger\&.php\&.
+.SS "isHandling ( $level)"
+
+.PP
+Definition at line 12317 of file compiled\&.php\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+Adds a log record at an arbitrary level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP The log level 
+.br
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 439 of file Logger\&.php\&.
+.SS "log ( $level,  $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12327 of file compiled\&.php\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the NOTICE level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 485 of file Logger\&.php\&.
+.SS "notice ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12342 of file compiled\&.php\&.
+.SS "popHandler ()"
+Pops a handler from the stack
+.PP
+\fBReturns:\fP
+.RS 4
+HandlerInterface 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file Logger\&.php\&.
+.SS "popHandler ()"
+
+.PP
+Definition at line 12210 of file compiled\&.php\&.
+.SS "popProcessor ()"
+Removes the processor on top of the stack and returns it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+callable 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file Logger\&.php\&.
+.SS "popProcessor ()"
+
+.PP
+Definition at line 12228 of file compiled\&.php\&.
+.SS "pushHandler (HandlerInterface $handler)"
+Pushes a handler on to the stack\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file Logger\&.php\&.
+.SS "pushHandler (\fBHandlerInterface\fP $handler)"
+
+.PP
+Definition at line 12206 of file compiled\&.php\&.
+.SS "pushProcessor ( $callback)"
+Adds a processor on to the stack\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file Logger\&.php\&.
+.SS "pushProcessor ( $callback)"
+
+.PP
+Definition at line 12221 of file compiled\&.php\&.
+.SS "static toMonologLevel ( $level)\fC [static]\fP"
+Converts PSR-3 levels to \fBMonolog\fP ones if necessary
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring|int\fP Level number (monolog) or name (PSR-3) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 399 of file Logger\&.php\&.
+.SS "static toMonologLevel ( $level)\fC [static]\fP"
+
+.PP
+Definition at line 12310 of file compiled\&.php\&.
+.SS "warn ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the WARNING level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 499 of file Logger\&.php\&.
+.SS "warn ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12346 of file compiled\&.php\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+Adds a log record at the WARNING level\&.
+.PP
+This method allows for compatibility with common interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The log message 
+.br
+\fI$context\fP The log context 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean Whether the record has been processed 
+.RE
+.PP
+
+.PP
+Definition at line 513 of file Logger\&.php\&.
+.SS "warning ( $message, array $context = \fCarray()\fP)"
+
+.PP
+Definition at line 12350 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$handlers\fC [protected]\fP"
+
+.PP
+Definition at line 12194 of file compiled\&.php\&.
+.SS "static $levels = array(100 => '\fBDEBUG\fP', 200 => '\fBINFO\fP', 250 => '\fBNOTICE\fP', 300 => '\fBWARNING\fP', 400 => '\fBERROR\fP', 500 => '\fBCRITICAL\fP', 550 => '\fBALERT\fP', 600 => '\fBEMERGENCY\fP')\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 12191 of file compiled\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 12193 of file compiled\&.php\&.
+.SS "$processors\fC [protected]\fP"
+
+.PP
+Definition at line 12195 of file compiled\&.php\&.
+.SS "static $timezone\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 12192 of file compiled\&.php\&.
+.SS "const ALERT = 550"
+Action must be taken immediately
+.PP
+Example: Entire website down, database unavailable, etc\&. This should trigger the SMS alerts and wake you up\&. 
+.PP
+Definition at line 12188 of file compiled\&.php\&.
+.SS "const API = 1"
+
+.PP
+Definition at line 12190 of file compiled\&.php\&.
+.SS "const CRITICAL = 500"
+Critical conditions
+.PP
+Example: Application component unavailable, unexpected exception\&. 
+.PP
+Definition at line 12187 of file compiled\&.php\&.
+.SS "const DEBUG = 100"
+Detailed debug information 
+.PP
+Definition at line 12182 of file compiled\&.php\&.
+.SS "const EMERGENCY = 600"
+Urgent alert\&. 
+.PP
+Definition at line 12189 of file compiled\&.php\&.
+.SS "const ERROR = 400"
+Runtime errors 
+.PP
+Definition at line 12186 of file compiled\&.php\&.
+.SS "const INFO = 200"
+Interesting events
+.PP
+Examples: User logs in, SQL logs\&. 
+.PP
+Definition at line 12183 of file compiled\&.php\&.
+.SS "const NOTICE = 250"
+Uncommon events 
+.PP
+Definition at line 12184 of file compiled\&.php\&.
+.SS "const WARNING = 300"
+Exceptional occurrences that are not errors
+.PP
+Examples: Use of deprecated APIs, poor use of an API, undesirable things that are not necessarily wrong\&. 
+.PP
+Definition at line 12185 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,238 @@
+.TH "md_vendor_phpspec_prophecy__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_phpspec_prophecy__r_e_a_d_m_e \- \fBProphecy\fP 
+\fC![Build Status](https://travis-ci\&.org/phpspec/prophecy\&.svg?branch=master)\fP
+.PP
+\fBProphecy\fP is a highly opinionated yet very powerful and flexible \fBPHP\fP object mocking framework\&. Though initially it was created to fulfil phpspec2 needs, it is flexible enough to be used inside any testing framework out there with minimal effort\&.
+.PP
+.SS "\fBA\fP simple example"
+.PP
+```php <?php
+.PP
+class UserTest extends \fBPHPUnit_Framework_TestCase\fP { private $prophet;
+.PP
+public function testPasswordHashing() { $hasher = $this->prophet->prophesize('\fBApp\fP'); $user = new \fBApp\fP($hasher->reveal());
+.PP
+$hasher->generateHash($user, 'qwerty')->willReturn('hashed_pass');
+.PP
+$user->setPassword('qwerty');
+.PP
+$this->assertEquals('hashed_pass', $user->getPassword()); }
+.PP
+protected function \fBsetup()\fP { $this->prophet = new ; }
+.PP
+protected function tearDown() { $this->prophet->checkPredictions(); } } ```
+.PP
+.SS "Installation"
+.PP
+.SS "Prerequisites"
+.PP
+\fBProphecy\fP requires \fBPHP\fP 5\&.3\&.3 or greater\&.
+.PP
+.SS "Setup through composer"
+.PP
+First, add \fBProphecy\fP to the list of dependencies inside your \fCcomposer\&.json\fP:
+.PP
+```json { 'require-dev': { 'phpspec/prophecy': '~1\&.0' } } ```
+.PP
+Then simply install it with composer:
+.PP
+```bash $> composer install --prefer-dist ```
+.PP
+You can read more about \fBComposer\fP on its \fCofficial webpage\fP\&.
+.PP
+.SS "How to use it"
+.PP
+First of all, in \fBProphecy\fP every word has a logical meaning, even the name of the library itself (\fBProphecy\fP)\&. When you start feeling that, you'll become very fluid with this tool\&.
+.PP
+For example, \fBProphecy\fP has been named that way because it concentrates on describing the future behavior of objects with very limited knowledge about them\&. But as with any other prophecy, those object prophecies can't create themselves - there should be a Prophet:
+.PP
+```php $prophet = new \fBProphecy\fP; ```
+.PP
+The Prophet creates prophecies by \fIprophesizing\fP them:
+.PP
+```php $prophecy = $prophet->prophesize(); ```
+.PP
+The result of the \fCprophesize()\fP method call is a new object of class \fCObjectProphecy\fP\&. Yes, that's your specific object prophecy, which describes how your object would behave in the near future\&. But first, you need to specify which object you're talking about, right?
+.PP
+```php $prophecy->willExtend('stdClass'); $prophecy->willImplement('\fBSessionHandlerInterface\fP'); ```
+.PP
+There are 2 interesting calls - \fCwillExtend\fP and \fCwillImplement\fP\&. The first one tells object prophecy that our object should extend specific class, the second one says that it should implement some interface\&. Obviously, objects in \fBPHP\fP can implement multiple interfaces, but extend only one parent class\&.
+.PP
+.SS "Dummies"
+.PP
+Ok, now we have our object prophecy\&. What can we do with it? First of all, we can get our object \fIdummy\fP by revealing its prophecy:
+.PP
+```php $dummy = $prophecy->reveal(); ```
+.PP
+The \fC$dummy\fP variable now holds a special dummy object\&. Dummy objects are objects that extend and/or implement preset classes/interfaces by overriding all their public methods\&. The key point about dummies is that they do not hold any logic - they just do nothing\&. Any method of the dummy will always return \fCnull\fP and the dummy will never throw any exceptions\&. Dummy is your friend if you don't care about the actual behavior of this double and just need a token object to satisfy a method typehint\&.
+.PP
+You need to understand one thing - a dummy is not a prophecy\&. Your object prophecy is still assigned to \fC$prophecy\fP variable and in order to manipulate with your expectations, you should work with it\&. \fC$dummy\fP is a dummy - a simple php object that tries to fulfil your prophecy\&.
+.PP
+.SS "Stubs"
+.PP
+Ok, now we know how to create basic prophecies and reveal dummies from them\&. That's awesome if we don't care about our \fIdoubles\fP (objects that reflect originals) interactions\&. If we do, we need to use \fIstubs\fP or \fImocks\fP\&.
+.PP
+\fBA\fP stub is an object double, which doesn't have any expectations about the object behavior, but when put in specific environment, behaves in specific way\&. Ok, I know, it's cryptic, but bear with me for a minute\&. Simply put, a stub is a dummy, which depending on the called method signature does different things (has logic)\&. To create stubs in \fBProphecy\fP:
+.PP
+```php $prophecy->read('123')->willReturn('value'); ```
+.PP
+Oh wow\&. We've just made an arbitrary call on the object prophecy? Yes, we did\&. And this call returned us a new object instance of class \fCMethodProphecy\fP\&. Yep, that's a specific method with arguments prophecy\&. Method prophecies give you the ability to create method promises or predictions\&. We'll talk about method predictions later in the \fIMocks\fP section\&.
+.PP
+.SS "Promises"
+.PP
+Promises are logical blocks, that represent your fictional methods in prophecy terms and they are handled by the \fCMethodProphecy::will(PromiseInterface $promise)\fP method\&. As a matter of fact, the call that we made earlier (`willReturn('value')`) is a simple shortcut to:
+.PP
+```php $prophecy->read('123')->will(new \fBProphecy\fP(array('value'))); ```
+.PP
+This promise will cause any call to our double's \fCread()\fP method with exactly one argument - \fC'123'\fP to always return \fC'value'\fP\&. But that's only for this promise, there's plenty others you can use:
+.PP
+.IP "\(bu" 2
+\fCReturnPromise\fP or \fC->willReturn(1)\fP - returns a value from a method call
+.IP "\(bu" 2
+\fCReturnArgumentPromise\fP or \fC->willReturnArgument($index)\fP - returns the nth method argument from call
+.IP "\(bu" 2
+\fCThrowPromise\fP or \fC->willThrow\fP - causes the method to throw specific exception
+.IP "\(bu" 2
+\fCCallbackPromise\fP or \fC->will($callback)\fP - gives you a quick way to define your own custom logic
+.PP
+.PP
+Keep in mind, that you can always add even more promises by implementing \fC\fBProphecy\fP\\Promise\\PromiseInterface\fP\&.
+.PP
+.SS "Method prophecies idempotency"
+.PP
+\fBProphecy\fP enforces same method prophecies and, as a consequence, same promises and predictions for the same method calls with the same arguments\&. This means:
+.PP
+```php $methodProphecy1 = $prophecy->read('123'); $methodProphecy2 = $prophecy->read('123'); $methodProphecy3 = $prophecy->read('321');
+.PP
+$methodProphecy1 === $methodProphecy2; $methodProphecy1 !== $methodProphecy3; ```
+.PP
+That's interesting, right? Now you might ask me how would you define more complex behaviors where some method call changes behavior of others\&. In \fBPHPUnit\fP or Mockery you do that by predicting how many times your method will be called\&. In \fBProphecy\fP, you'll use promises for that:
+.PP
+```php $user->getName()->willReturn(null);
+.PP
+// For \fBPHP\fP 5\&.4 $user->setName('everzet')->will(function () { $this->getName()->willReturn('everzet'); });
+.PP
+// For \fBPHP\fP 5\&.3 $user->setName('everzet')->will(function ($args, $user) { $user->getName()->willReturn('everzet'); });
+.PP
+// Or $user->setName('everzet')->will(function ($args) use ($user) { $user->getName()->willReturn('everzet'); }); ```
+.PP
+And now it doesn't matter how many times or in which order your methods are called\&. What matters is their behaviors and how well you faked it\&.
+.PP
+.SS "Arguments wildcarding"
+.PP
+The previous example is awesome (at least I hope it is for you), but that's not optimal enough\&. We hardcoded \fC'everzet'\fP in our expectation\&. Isn't there a better way? In fact there is, but it involves understanding what this \fC'everzet'\fP actually is\&.
+.PP
+You see, even if method arguments used during method prophecy creation look like simple method arguments, in reality they are not\&. They are argument token wildcards\&. As a matter of fact, `->setName('everzet')` looks like a simple call just because \fBProphecy\fP automatically transforms it under the hood into:
+.PP
+```php $user->setName(new \fBProphecy\fP('everzet')); ```
+.PP
+Those argument tokens are simple \fBPHP\fP classes, that implement \fC\fBProphecy\fP\\Argument\\Token\\TokenInterface\fP and tell \fBProphecy\fP how to compare real arguments with your expectations\&. And yes, those classnames are damn big\&. That's why there's a shortcut class \fC\fBProphecy\fP\\Argument\fP, which you can use to create tokens like that:
+.PP
+```php use \fBProphecy\fP;
+.PP
+$user->setName(Argument::exact('everzet')); ```
+.PP
+\fCExactValueToken\fP is not very useful in our case as it forced us to hardcode the username\&. That's why \fBProphecy\fP comes bundled with a bunch of other tokens:
+.PP
+.IP "\(bu" 2
+\fCIdenticalValueToken\fP or \fCArgument::is($value)\fP - checks that the argument is identical to a specific value
+.IP "\(bu" 2
+\fCExactValueToken\fP or \fCArgument::exact($value)\fP - checks that the argument matches a specific value
+.IP "\(bu" 2
+\fCTypeToken\fP or \fCArgument::type($typeOrClass)\fP - checks that the argument matches a specific type or classname
+.IP "\(bu" 2
+\fCObjectStateToken\fP or \fCArgument::which($method, $value)\fP - checks that the argument method returns a specific value
+.IP "\(bu" 2
+\fCCallbackToken\fP or \fCArgument::that(callback)\fP - checks that the argument matches a custom callback
+.IP "\(bu" 2
+\fCAnyValueToken\fP or \fCArgument::any()\fP - matches any argument
+.IP "\(bu" 2
+\fCAnyValuesToken\fP or \fCArgument::cetera()\fP - matches any arguments to the rest of the signature
+.PP
+.PP
+And you can add even more by implementing \fCTokenInterface\fP with your own custom classes\&.
+.PP
+So, let's refactor our initial \fC{set,get}Name()\fP logic with argument tokens:
+.PP
+```php use \fBProphecy\fP;
+.PP
+$user->getName()->willReturn(null);
+.PP
+// For \fBPHP\fP 5\&.4 $user->setName(Argument::type('string'))->will(function ($args) { $this->getName()->willReturn($args[0]); });
+.PP
+// For \fBPHP\fP 5\&.3 $user->setName(Argument::type('string'))->will(function ($args, $user) { $user->getName()->willReturn($args[0]); });
+.PP
+// Or $user->setName(Argument::type('string'))->will(function ($args) use ($user) { $user->getName()->willReturn($args[0]); }); ```
+.PP
+That's it\&. Now our \fC{set,get}Name()\fP prophecy will work with any string argument provided to it\&. We've just described how our stub object should behave, even though the original object could have no behavior whatsoever\&.
+.PP
+\fBOne\fP last bit about arguments now\&. You might ask, what happens in case of:
+.PP
+```php use \fBProphecy\fP;
+.PP
+$user->getName()->willReturn(null);
+.PP
+// For \fBPHP\fP 5\&.4 $user->setName(Argument::type('string'))->will(function ($args) { $this->getName()->willReturn($args[0]); });
+.PP
+// For \fBPHP\fP 5\&.3 $user->setName(Argument::type('string'))->will(function ($args, $user) { $user->getName()->willReturn($args[0]); });
+.PP
+// Or $user->setName(Argument::type('string'))->will(function ($args) use ($user) { $user->getName()->willReturn($args[0]); });
+.PP
+$user->setName(Argument::any())->will(function () { }); ```
+.PP
+Nothing\&. Your stub will continue behaving the way it did before\&. That's because of how arguments wildcarding works\&. Every argument token type has a different score level, which wildcard then uses to calculate the final arguments match score and use the method prophecy promise that has the highest score\&. In this case, \fCArgument::type()\fP in case of success scores \fC5\fP and \fCArgument::any()\fP scores \fC3\fP\&. So the type token wins, as does the first \fCsetName()\fP method prophecy and its promise\&. The simple rule of thumb - more precise token always wins\&.
+.PP
+.SS "Getting stub objects"
+.PP
+Ok, now we know how to define our prophecy method promises, let's get our stub from it:
+.PP
+```php $stub = $prophecy->reveal(); ```
+.PP
+As you might see, the only difference between how we get dummies and stubs is that with stubs we describe every object conversation instead of just agreeing with \fCnull\fP returns (object being \fIdummy\fP)\&. As a matter of fact, after you define your first promise (method call), \fBProphecy\fP will force you to define all the communications - it throws the \fCUnexpectedCallException\fP for any call you didn't describe with object prophecy before calling it on a stub\&.
+.PP
+.SS "Mocks"
+.PP
+Now we know how to define doubles without behavior (dummies) and doubles with behavior, but no expectations (stubs)\&. What's left is doubles for which we have some expectations\&. These are called mocks and in \fBProphecy\fP they look almost exactly the same as stubs, except that they define \fIpredictions\fP instead of \fIpromises\fP on method prophecies:
+.PP
+```php $entityManager->\fBflush()\fP->shouldBeCalled(); ```
+.PP
+.SS "Predictions"
+.PP
+The \fCshouldBeCalled()\fP method here assigns \fCCallPrediction\fP to our method prophecy\&. Predictions are a delayed behavior check for your prophecies\&. You see, during the entire lifetime of your doubles, \fBProphecy\fP records every single call you're making against it inside your code\&. After that, \fBProphecy\fP can use this collected information to check if it matches defined predictions\&. You can assign predictions to method prophecies using the \fCMethodProphecy::should(PredictionInterface $prediction)\fP method\&. As a matter of fact, the \fCshouldBeCalled()\fP method we used earlier is just a shortcut to:
+.PP
+```php $entityManager->\fBflush()\fP->should(new \fBProphecy\fP()); ```
+.PP
+It checks if your method of interest (that matches both the method name and the arguments wildcard) was called 1 or more times\&. If the prediction failed then it throws an exception\&. When does this check happen? Whenever you call \fCcheckPredictions()\fP on the main Prophet object:
+.PP
+```php $prophet->checkPredictions(); ```
+.PP
+In \fBPHPUnit\fP, you would want to put this call into the \fCtearDown()\fP method\&. If no predictions are defined, it would do nothing\&. So it won't harm to call it after every test\&.
+.PP
+There are plenty more predictions you can play with:
+.PP
+.IP "\(bu" 2
+\fCCallPrediction\fP or \fCshouldBeCalled()\fP - checks that the method has been called 1 or more times
+.IP "\(bu" 2
+\fCNoCallsPrediction\fP or \fCshouldNotBeCalled()\fP - checks that the method has not been called
+.IP "\(bu" 2
+\fCCallTimesPrediction\fP or \fCshouldBeCalledTimes($count)\fP - checks that the method has been called \fC$count\fP times
+.IP "\(bu" 2
+\fCCallbackPrediction\fP or \fCshould($callback)\fP - checks the method against your own custom callback
+.PP
+.PP
+Of course, you can always create your own custom prediction any time by implementing \fCPredictionInterface\fP\&.
+.PP
+.SS "Spies"
+.PP
+The last bit of awesomeness in \fBProphecy\fP is out-of-the-box spies support\&. As I said in the previous section, \fBProphecy\fP records every call made during the double's entire lifetime\&. This means you don't need to record predictions in order to check them\&. You can also do it manually by using the \fCMethodProphecy::shouldHave(PredictionInterface $prediction)\fP method:
+.PP
+```php $em = $prophet->prophesize('\fBDoctrine\fP');
+.PP
+$controller->createUser($em->reveal());
+.PP
+$em->\fBflush()\fP->shouldHaveBeenCalled(); ```
+.PP
+Such manipulation with doubles is called spying\&. And with \fBProphecy\fP it just works\&. 

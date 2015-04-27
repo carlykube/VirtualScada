@@ -1,0 +1,71 @@
+.TH "ConfigurableRequirementsInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ConfigurableRequirementsInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBUrlGenerator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetStrictRequirements\fP ($enabled)"
+.br
+.ti -1c
+.RI "\fBisStrictRequirements\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBConfigurableRequirementsInterface\fP must be implemented by \fBURL\fP generators that can be configured whether an exception should be generated when the parameters do not match the requirements\&. It is also possible to disable the requirements check for \fBURL\fP generation completely\&.
+.PP
+The possible configurations and use-cases:
+.IP "\(bu" 2
+setStrictRequirements(true): Throw an exception for mismatching requirements\&. This is mostly useful in development environment\&.
+.IP "\(bu" 2
+setStrictRequirements(false): Don't throw an exception but return null as \fBURL\fP for mismatching requirements and log the problem\&. Useful when you cannot control all params because they come from third party libs but don't want to have a 404 in production environment\&. It should log the mismatch so one can review it\&.
+.IP "\(bu" 2
+setStrictRequirements(null): Return the \fBURL\fP with the given parameters without checking the requirements at all\&. When generating a \fBURL\fP you should either trust your params or you validated them beforehand because otherwise it would break your link anyway\&. So in production environment you should know that params always pass the requirements\&. Thus this option allows to disable the check on \fBURL\fP generation for performance reasons (saving a preg_match for each requirement every time a \fBURL\fP is generated)\&.
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file ConfigurableRequirementsInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "isStrictRequirements ()"
+Returns whether to throw an exception on incorrect parameters\&. Null means the requirements check is deactivated completely\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null 
+.RE
+.PP
+
+.PP
+Implemented in \fBUrlGenerator\fP\&.
+.SS "setStrictRequirements ( $enabled)"
+Enables or disables the exception on incorrect parameters\&. Passing null will deactivate the requirements check completely\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$enabled\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBUrlGenerator\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

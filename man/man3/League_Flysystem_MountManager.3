@@ -1,0 +1,269 @@
+.TH "MountManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MountManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $filesystems=[])"
+.br
+.ti -1c
+.RI "\fBmountFilesystems\fP (array $filesystems)"
+.br
+.ti -1c
+.RI "\fBmountFilesystem\fP ($prefix, \fBFilesystemInterface\fP $filesystem)"
+.br
+.ti -1c
+.RI "\fBgetFilesystem\fP ($prefix)"
+.br
+.ti -1c
+.RI "\fBfilterPrefix\fP (array $arguments)"
+.br
+.ti -1c
+.RI "\fBlistContents\fP ($directory= '', $recursive=false)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $arguments)"
+.br
+.ti -1c
+.RI "\fBcopy\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBlistWith\fP (array $\fBkeys\fP=[], $directory= '', $recursive=false)"
+.br
+.ti -1c
+.RI "\fBmove\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBinvokePluginOnFilesystem\fP ($method, $arguments, $prefix)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$filesystems\fP = []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class \fBMountManager\fP\&.
+.PP
+Proxies methods to \fBFilesystem\fP (
+.PP
+\fBSee also:\fP
+.RS 4
+\fB__call\fP):
+.RE
+.PP
+\fBAdapterInterface\fP getAdapter($prefix)  \fBConfig\fP getConfig($prefix)  bool has($path)  bool write($path, $contents, array $config = [])  bool writeStream($path, $resource, array $config = [])  bool put($path, $contents, $config = [])  bool putStream($path, $contents, $config = [])  string readAndDelete($path)  bool update($path, $contents, $config = [])  bool updateStream($path, $resource, $config = [])  string|false read($path)  resource|false readStream($path)  bool rename($path, $newpath)  bool delete($path)  bool deleteDir($dirname)  bool createDir($dirname, $config = [])  array listFiles($directory = '', $recursive = false)  array listPaths($directory = '', $recursive = false)  array getWithMetadata($path, array $metadata)  string|false getMimetype($path)  string|false getTimestamp($path)  string|false getVisibility($path)  int|false getSize($path);  bool setVisibility($path, $visibility)  array|false getMetadata($path)  \fBHandler\fP get($path, \fBHandler\fP $handler = null)  \fBFilesystem\fP flushCache()  assertPresent($path)  assertAbsent($path)  \fBFilesystem\fP addPlugin(\fBPluginInterface\fP $plugin) 
+.PP
+Definition at line 46 of file MountManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $filesystems = \fC[]\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filesystems\fP 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file MountManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $arguments)"
+Call forwarder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file MountManager\&.php\&.
+.SS "copy ( $from,  $to)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file MountManager\&.php\&.
+.SS "filterPrefix (array $arguments)"
+Retrieve the prefix form an arguments array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array [:prefix, :arguments] 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file MountManager\&.php\&.
+.SS "getFilesystem ( $prefix)"
+Get the filesystem with the corresponding prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFilesystemInterface\fP 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file MountManager\&.php\&.
+.SS "invokePluginOnFilesystem ( $method,  $arguments,  $prefix)"
+Invoke a plugin on a filesystem mounted on a given prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$arguments\fP 
+.br
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file MountManager\&.php\&.
+.SS "listContents ( $directory = \fC''\fP,  $recursive = \fCfalse\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file MountManager\&.php\&.
+.SS "listWith (array $keys = \fC[]\fP,  $directory = \fC''\fP,  $recursive = \fCfalse\fP)"
+List with plugin adapter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.br
+\fI$directory\fP 
+.br
+\fI$recursive\fP 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file MountManager\&.php\&.
+.SS "mountFilesystem ( $prefix, \fBFilesystemInterface\fP $filesystem)"
+Mount filesystems\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.br
+\fI$filesystem\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file MountManager\&.php\&.
+.SS "mountFilesystems (array $filesystems)"
+Mount filesystems\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filesystems\fP [:prefix => \fBFilesystem\fP,]
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file MountManager\&.php\&.
+.SS "move ( $from,  $to)"
+Move a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file MountManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$filesystems = []\fC [protected]\fP"
+
+.PP
+Definition at line 53 of file MountManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

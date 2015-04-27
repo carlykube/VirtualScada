@@ -1,0 +1,84 @@
+\subsection*{2.\+5.\+0 }
+
+
+\begin{DoxyItemize}
+\item [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] The {\ttfamily Apache\+Matcher\+Dumper} and {\ttfamily Apache\+Url\+Matcher} were deprecated and will be removed in \doxyref{Symfony}{p.}{namespace_symfony} 3.\+0, since the performance gains were minimal and it\textquotesingle{}s hard to replicate the behaviour of \doxyref{P\+H\+P}{p.}{namespace_p_h_p} implementation.
+\end{DoxyItemize}
+
+\subsection*{2.\+3.\+0 }
+
+
+\begin{DoxyItemize}
+\item added Request\+Context\+::get\+Query\+String()
+\end{DoxyItemize}
+
+\subsection*{2.\+2.\+0 }
+
+
+\begin{DoxyItemize}
+\item [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] Several route settings have been renamed (the old ones will be removed in 3.\+0)\+:
+\begin{DoxyItemize}
+\item The {\ttfamily pattern} setting for a route has been deprecated in favor of {\ttfamily path}
+\item The {\ttfamily \+\_\+scheme} and {\ttfamily \+\_\+method} requirements have been moved to the {\ttfamily schemes} and {\ttfamily methods} settings
+\end{DoxyItemize}
+
+Before\+:
+
+```yaml article\+\_\+edit\+: pattern\+: /article/\{id\} requirements\+: \{ \textquotesingle{}\+\_\+method\textquotesingle{}\+: \textquotesingle{}P\+O\+S\+T$\vert$\+P\+U\+T\textquotesingle{}, \textquotesingle{}\+\_\+scheme\textquotesingle{}\+: \textquotesingle{}https\textquotesingle{}, \textquotesingle{}id\textquotesingle{}\+: \textquotesingle{}+\textquotesingle{} \} ```
+
+```xml $<$route id=\char`\"{}article\+\_\+edit\char`\"{} pattern=\char`\"{}/article/\{id\}\char`\"{}$>$ $<$requirement key=\char`\"{}\+\_\+method\char`\"{}$>$P\+O\+S\+T$\vert$\+P\+U\+T$<$/requirement$>$ $<$requirement key=\char`\"{}\+\_\+scheme\char`\"{}$>$https$<$/requirement$>$ $<$requirement key=\char`\"{}id\char`\"{}$>$+$<$/requirement$>$ $<$/route$>$ ```
+
+```php \$route = new \doxyref{Route()}{p.}{class_route}; \$route-\/$>$set\+Pattern(\textquotesingle{}/article/\{id\}\textquotesingle{}); \$route-\/$>$set\+Requirement(\textquotesingle{}\+\_\+method\textquotesingle{}, \textquotesingle{}P\+O\+S\+T$\vert$\+P\+U\+T\textquotesingle{}); \$route-\/$>$set\+Requirement(\textquotesingle{}\+\_\+scheme\textquotesingle{}, \textquotesingle{}https\textquotesingle{}); ```
+
+After\+:
+
+```yaml article\+\_\+edit\+: path\+: /article/\{id\} methods\+: [P\+O\+S\+T, P\+U\+T] schemes\+: https requirements\+: \{ \textquotesingle{}id\textquotesingle{}\+: \textquotesingle{}+\textquotesingle{} \} ```
+
+```xml $<$route id=\char`\"{}article\+\_\+edit\char`\"{} pattern=\char`\"{}/article/\{id\}\char`\"{} methods=\char`\"{}\+P\+O\+S\+T P\+U\+T\char`\"{} schemes=\char`\"{}https\char`\"{}$>$ $<$requirement key=\char`\"{}id\char`\"{}$>$+$<$/requirement$>$ $<$/route$>$ ```
+
+```php \$route = new \doxyref{Route()}{p.}{class_route}; \$route-\/$>$set\+Path(\textquotesingle{}/article/\{id\}\textquotesingle{}); \$route-\/$>$set\+Methods(array(\textquotesingle{}P\+O\+S\+T\textquotesingle{}, \textquotesingle{}P\+U\+T\textquotesingle{})); \$route-\/$>$set\+Schemes(\textquotesingle{}https\textquotesingle{}); ```
+\item [B\+C B\+R\+E\+A\+K] Route\+Collection does not behave like a tree structure anymore but as a flat array of Routes. So when using \doxyref{P\+H\+P}{p.}{namespace_p_h_p} to build the Route\+Collection, you must make sure to add routes to the sub-\/collection before adding it to the parent collection (this is not relevant when using Y\+A\+M\+L or X\+M\+L for \doxyref{Route}{p.}{class_route} definitions).
+
+Before\+:
+
+```php \$root\+Collection = new Route\+Collection(); \$sub\+Collection = new Route\+Collection(); \$root\+Collection-\/$>$add\+Collection(\$sub\+Collection); \$sub\+Collection-\/$>$add(\textquotesingle{}foo\textquotesingle{}, new \doxyref{Route}{p.}{class_route}(\textquotesingle{}/foo\textquotesingle{})); ```
+
+After\+:
+
+```php \$root\+Collection = new Route\+Collection(); \$sub\+Collection = new Route\+Collection(); \$sub\+Collection-\/$>$add(\textquotesingle{}foo\textquotesingle{}, new \doxyref{Route}{p.}{class_route}(\textquotesingle{}/foo\textquotesingle{})); \$root\+Collection-\/$>$add\+Collection(\$sub\+Collection); ```
+
+Also one must call {\ttfamily add\+Collection} from the bottom to the top hierarchy. So the correct sequence is the following (and not the reverse)\+:
+
+```php \$child\+Collection-\/$>$add\+Collection(\$grandchild\+Collection); \$root\+Collection-\/$>$add\+Collection(\$child\+Collection); ```
+\item [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] The methods {\ttfamily Route\+Collection\+::get\+Parent()} and {\ttfamily Route\+Collection\+::get\+Root()} have been deprecated and will be removed in \doxyref{Symfony}{p.}{namespace_symfony} 2.\+3.
+\item [B\+C B\+R\+E\+A\+K] Misusing the {\ttfamily Route\+Collection\+::add\+Prefix} method to add defaults, requirements or options without adding a prefix is not supported anymore. So if you called {\ttfamily add\+Prefix} with an empty prefix or {\ttfamily /} only (both have no relevance), like `add\+Prefix(\textquotesingle{}\textquotesingle{}, \$defaults\+Array, \$requirements\+Array, \$options\+Array){\ttfamily  you need to use the new dedicated methods}add\+Defaults(\$defaults\+Array){\ttfamily , }add\+Requirements(\$requirements\+Array){\ttfamily or}add\+Options(\$options\+Array){\ttfamily instead.}
+\item {\ttfamily [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] The}\$options{\ttfamily parameter to}Route\+Collection\+::add\+Prefix()` has been deprecated because adding options has nothing to do with adding a path prefix. If you want to add options to all child routes of a Route\+Collection, you can use {\ttfamily add\+Options()}.
+\item [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] The method {\ttfamily Route\+Collection\+::get\+Prefix()} has been deprecated because it suggested that all routes in the collection would have this prefix, which is not necessarily true. On top of that, since there is no tree structure anymore, this method is also useless. Don\textquotesingle{}t worry about performance, prefix optimization for matching is still done in the dumper, which was also improved in 2.\+2.\+0 to find even more grouping possibilities.
+\item [D\+E\+P\+R\+E\+C\+A\+T\+I\+O\+N] {\ttfamily Route\+Collection\+::add\+Collection(Route\+Collection \$collection)} should now only be used with a single parameter. The other params {\ttfamily \$prefix}, {\ttfamily \$default}, {\ttfamily \$requirements} and {\ttfamily \$options} will still work, but have been deprecated. The {\ttfamily add\+Prefix} method should be used for this use-\/case instead. Before\+: `\$parent\+Collection-\/$>$add\+Collection(\$collection, \textquotesingle{}/prefix\textquotesingle{}, array(...), array(...))` After\+: ```php \$collection-\/$>$add\+Prefix(\textquotesingle{}/prefix\textquotesingle{}, array(...), array(...)); \$parent\+Collection-\/$>$add\+Collection(\$collection); ```
+\item added support for the method default argument values when defining a 
+\item Adjacent placeholders without separator work now, e.\+g. {\ttfamily /\{x\}\{y\}\{z\}.\{\+\_\+format\}}.
+\item Characters that function as separator between placeholders are now whitelisted to fix routes with normal text around a variable, e.\+g. {\ttfamily /prefix\{var\}suffix}.
+\item [B\+C B\+R\+E\+A\+K] The default requirement of a variable has been changed slightly. Previously it disallowed the previous and the next char around a variable. Now it disallows the slash ({\ttfamily /}) and the next char. Using the previous char added no value and was problematic because the route {\ttfamily /index.\{\+\_\+format\}} would be matched by {\ttfamily /index.ht/ml}.
+\item The default requirement now uses possessive quantifiers when possible which improves matching performance by up to 20\% because it prevents backtracking when it\textquotesingle{}s not needed.
+\item The Configurable\+Requirements\+Interface can now also be used to disable the requirements check on \doxyref{U\+R\+L}{p.}{class_u_r_l} generation completely by calling {\ttfamily set\+Strict\+Requirements(null)}. It improves performance in production environment as you should know that params always pass the requirements (otherwise it would break your link anyway).
+\item There is no restriction on the route name anymore. So non-\/alphanumeric characters are now also allowed.
+\item [B\+C B\+R\+E\+A\+K] {\ttfamily Route\+Compiler\+Interface\+::compile(\doxyref{Route}{p.}{class_route} \$route)} was made static (only relevant if you implemented your own Route\+Compiler).
+\item Added possibility to generate relative paths and network paths in the Url\+Generator, e.\+g. \char`\"{}../parent-\/file\char`\"{} and \char`\"{}//example.\+com/dir/file\char`\"{}. The third parameter in {\ttfamily Url\+Generator\+Interface\+::generate(\$name, \$parameters = array(), \$reference\+Type = self\+::\+A\+B\+S\+O\+L\+U\+T\+E\+\_\+\+P\+A\+T\+H)} now accepts more values and you should use the constants defined in {\ttfamily Url\+Generator\+Interface} for claritiy. The old method calls with a Boolean parameter will continue to work because they equal the signature using the constants.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0 }
+
+
+\begin{DoxyItemize}
+\item added Request\+Matcher\+Interface
+\item added Request\+Context\+::from\+Request()
+\item the Url\+Matcher does not throw a  anymore when the required scheme is not the current one
+\item added Traceable\+Url\+Matcher
+\item added the possibility to define options, default values and requirements for placeholders in prefix, including imported routes
+\item added Router\+Interface\+::get\+Route\+Collection
+\item [B\+C B\+R\+E\+A\+K] the Url\+Matcher urldecodes the route parameters only once, they were decoded twice before. Note that the {\ttfamily urldecode()} calls have been changed for a single {\ttfamily rawurldecode()} in order to support {\ttfamily +} for input paths.
+\item added Route\+Collection\+::get\+Root method to retrieve the root of a Route\+Collection tree
+\item [B\+C B\+R\+E\+A\+K] made Route\+Collection\+::set\+Parent private which could not have been used anyway without creating inconsistencies
+\item [B\+C B\+R\+E\+A\+K] Route\+Collection\+::remove also removes a route from parent collections (not only from its children)
+\item added Configurable\+Requirements\+Interface that allows to disable exceptions (and generate empty U\+R\+Ls instead) when generating a route with an invalid parameter value 
+\end{DoxyItemize}

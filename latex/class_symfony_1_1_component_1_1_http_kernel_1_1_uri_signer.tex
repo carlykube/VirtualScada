@@ -1,0 +1,98 @@
+\section{Uri\+Signer Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_uri_signer}\index{Uri\+Signer@{Uri\+Signer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$secret)
+\item 
+{\bf sign} (\$uri)
+\item 
+{\bf check} (\$uri)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Signs U\+R\+Is.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Uri\+Signer.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$secret}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_uri_signer_af5ee2debd97c9bd8bb56e8ccef3c2287}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$secret} & \doxyref{A}{p.}{class_a} secret \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Uri\+Signer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}!check@{check}}
+\index{check@{check}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}check (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_uri_signer_a37dbb60bc48c7402edf61022da26ef1e}
+Checks that a U\+R\+I contains the correct hash.
+
+The \+\_\+hash query string parameter must be the last one (as it is generated that way by the \doxyref{sign()}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_uri_signer_a6d01eede3ec8b95574c5e8405b31a7bb} method, it should never be a problem).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \doxyref{A}{p.}{class_a} signed U\+R\+I\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the U\+R\+I is signed correctly, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Uri\+Signer.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}!sign@{sign}}
+\index{sign@{sign}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Uri\+Signer}}
+\subsubsection[{sign}]{\setlength{\rightskip}{0pt plus 5cm}sign (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_uri_signer_a6d01eede3ec8b95574c5e8405b31a7bb}
+Signs a U\+R\+I.
+
+The given U\+R\+I is signed by adding a \+\_\+hash query string parameter which value depends on the U\+R\+I and the secret.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \doxyref{A}{p.}{class_a} U\+R\+I to sign\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The signed U\+R\+I 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file Uri\+Signer.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/{\bf Uri\+Signer.\+php}\end{DoxyCompactItemize}

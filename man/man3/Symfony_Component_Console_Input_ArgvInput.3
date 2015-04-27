@@ -1,0 +1,178 @@
+.TH "ArgvInput" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ArgvInput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBInput\fP\&.
+.PP
+Inherited by \fBStringInput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $argv=null, \fBInputDefinition\fP $definition=null)"
+.br
+.ti -1c
+.RI "\fBgetFirstArgument\fP ()"
+.br
+.ti -1c
+.RI "\fBhasParameterOption\fP ($\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBgetParameterOption\fP ($\fBvalues\fP, $default=false)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetTokens\fP (array $tokens)"
+.br
+.ti -1c
+.RI "\fBparse\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBArgvInput\fP represents an input coming from the CLI arguments\&.
+.PP
+Usage: 
+.PP
+.nf
+$input = new ArgvInput();
+
+.fi
+.PP
+.PP
+By default, the `$_SERVER['argv']` array is used for the input values\&.
+.PP
+This can be overridden by explicitly passing the input values in the constructor: 
+.PP
+.nf
+$input = new ArgvInput($_SERVER['argv']);
+
+.fi
+.PP
+.PP
+If you pass it yourself, don't forget that the first element of the array is the name of the running application\&.
+.PP
+When passing an argument to the constructor, be sure that it respects the same rules as the argv one\&. It's almost always better to use the \fC\fBStringInput\fP\fP when you want to provide your own input\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html 
+.PP
+http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html#tag_12_02
+.RE
+.PP
+
+.PP
+Definition at line 41 of file ArgvInput\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $argv = \fCnull\fP, \fBInputDefinition\fP $definition = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$argv\fP An array of parameters from the CLI (in the argv format) 
+.br
+\fI$definition\fP \fBA\fP \fBInputDefinition\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 54 of file ArgvInput\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Returns a stringified representation of the args passed to the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file ArgvInput\&.php\&.
+.SS "getFirstArgument ()"
+Returns the first argument from the raw parameters (not parsed)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The value of the first argument or null otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 262 of file ArgvInput\&.php\&.
+.SS "getParameterOption ( $values,  $default = \fCfalse\fP)"
+Returns the value of a raw option (not parsed)\&.
+.PP
+This method is to be used to introspect the input parameters before they have been validated\&. It must be used carefully\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP The value(s) to look for in the raw parameters (can be an array) 
+.br
+\fI$default\fP The default value to return if no result is found
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The option value 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 309 of file ArgvInput\&.php\&.
+.SS "hasParameterOption ( $values)"
+Returns true if the raw parameters (not parsed) contain a value\&.
+.PP
+This method is to be used to introspect the input parameters before they have been validated\&. It must be used carefully\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP The value(s) to look for in the raw parameters (can be an array)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the value is contained in the raw parameters 
+.RE
+.PP
+
+.PP
+Implements \fBInputInterface\fP\&.
+.PP
+Definition at line 283 of file ArgvInput\&.php\&.
+.SS "parse ()\fC [protected]\fP"
+Processes command line arguments\&. 
+.PP
+Definition at line 76 of file ArgvInput\&.php\&.
+.SS "setTokens (array $tokens)\fC [protected]\fP"
+
+.PP
+Definition at line 68 of file ArgvInput\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

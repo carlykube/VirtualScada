@@ -1,0 +1,106 @@
+.TH "ICSClient" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ICSClient \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits object\&.
+.PP
+Inherited by \fBModbusClient\fP\&.
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBICSClientException\fP"
+.br
+.ti -1c
+.RI "class \fBNoSuchPointError\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP"
+.br
+.ti -1c
+.RI "def \fBreadPoints\fP (self, points)"
+.br
+.ti -1c
+.RI "def \fBwritePoints\fP (self, pointsvalues)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+Abstract base class for ICS protocol clients.
+Because there may be confusion between similarly named servers and
+clients, the client defines a class member _CLIENT, which
+can be checked at runtime.
+.fi
+.PP
+ 
+.PP
+Definition at line 39 of file ics_clients\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self,  to_config,  slave_points,  from_config = \fCNone\fP)"
+
+.PP
+.nf
+Initializes the ICS client from configuration information
+.fi
+.PP
+ 
+.PP
+Definition at line 45 of file ics_clients\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def readPoints ( self,  points)"
+
+.PP
+.nf
+Method to return points from a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to request 
+    each point, whether it be individually or in groups. This is
+    necessary to provide a neutral interface to different ICS protocols.
+    Each protocol has different semantics towards polling values of
+    points.
+@param device Name of the device to be polled
+@param points Iterable of names of points to be polled
+
+@returns A tuple of values of the points polled in the order that they
+    were requested.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 49 of file ics_clients\&.py\&.
+.SS "def writePoints ( self,  pointsvalues)"
+
+.PP
+.nf
+Method to set points on a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to write each
+    point, whether it be individually or in groups. Base clients 
+@param device Name of the device to be polled
+@param pointsvalues List of tuples of (names of point to be written,
+                value)
+
+.fi
+.PP
+ 
+.PP
+Definition at line 65 of file ics_clients\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

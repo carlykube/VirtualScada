@@ -1,0 +1,152 @@
+.TH "AccessDecisionManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AccessDecisionManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAccessDecisionManagerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $voters, $strategy=self::STRATEGY_AFFIRMATIVE, $allowIfAllAbstainDecisions=false, $allowIfEqualGrantedDeniedDecisions=true)"
+.br
+.ti -1c
+.RI "\fBdecide\fP (\fBTokenInterface\fP $token, array $attributes, $object=null)"
+.br
+.ti -1c
+.RI "\fBsupportsAttribute\fP ($\fBattribute\fP)"
+.br
+.ti -1c
+.RI "\fBsupportsClass\fP ($class)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBSTRATEGY_AFFIRMATIVE\fP = 'affirmative'"
+.br
+.ti -1c
+.RI "const \fBSTRATEGY_CONSENSUS\fP = 'consensus'"
+.br
+.ti -1c
+.RI "const \fBSTRATEGY_UNANIMOUS\fP = 'unanimous'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBAccessDecisionManager\fP is the base class for all access decision managers that use decision voters\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file AccessDecisionManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $voters,  $strategy = \fCself::STRATEGY_AFFIRMATIVE\fP,  $allowIfAllAbstainDecisions = \fCfalse\fP,  $allowIfEqualGrantedDeniedDecisions = \fCtrue\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVoterInterface[]\fP $voters An array of VoterInterface instances 
+.br
+\fI$strategy\fP The vote strategy 
+.br
+\fI$allowIfAllAbstainDecisions\fP Whether to grant access if all voters abstained or not 
+.br
+\fI$allowIfEqualGrantedDeniedDecisions\fP Whether to grant access if result are equals
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 44 of file AccessDecisionManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "decide (\fBTokenInterface\fP $token, array $attributes,  $object = \fCnull\fP)"
+{Decides whether the access is possible or not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP TokenInterface instance 
+.br
+\fI$attributes\fP An array of attributes associated with the method being invoked 
+.br
+\fI$object\fP The object to secure
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the access is granted, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBAccessDecisionManagerInterface\fP\&.
+.PP
+Definition at line 64 of file AccessDecisionManager\&.php\&.
+.SS "supportsAttribute ( $attribute)"
+{Checks if the access decision manager supports the given attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attribute\fP An attribute
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if this decision manager supports the attribute, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBAccessDecisionManagerInterface\fP\&.
+.PP
+Definition at line 72 of file AccessDecisionManager\&.php\&.
+.SS "supportsClass ( $class)"
+{Checks if the access decision manager supports the given class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP \fBA\fP class name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if this decision manager can process the class
+.RE
+.PP
+} 
+.PP
+Implements \fBAccessDecisionManagerInterface\fP\&.
+.PP
+Definition at line 86 of file AccessDecisionManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const STRATEGY_AFFIRMATIVE = 'affirmative'"
+
+.PP
+Definition at line 25 of file AccessDecisionManager\&.php\&.
+.SS "const STRATEGY_CONSENSUS = 'consensus'"
+
+.PP
+Definition at line 26 of file AccessDecisionManager\&.php\&.
+.SS "const STRATEGY_UNANIMOUS = 'unanimous'"
+
+.PP
+Definition at line 27 of file AccessDecisionManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

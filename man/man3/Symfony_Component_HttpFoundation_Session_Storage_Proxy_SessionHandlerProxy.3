@@ -1,0 +1,218 @@
+.TH "SessionHandlerProxy" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SessionHandlerProxy \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractProxy\fP, and \fBSessionHandlerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\\\fBSessionHandlerInterface\fP $handler)"
+.br
+.ti -1c
+.RI "\fBopen\fP ($savePath, $sessionName)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($sessionId, $\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBdestroy\fP ($sessionId)"
+.br
+.ti -1c
+.RI "\fBgc\fP ($maxlifetime)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+SessionHandler proxy\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Drak drak@zikula.org 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file SessionHandlerProxy\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\\\fBSessionHandlerInterface\fP $handler)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file SessionHandlerProxy\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{Closes the current session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.close
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 57 of file SessionHandlerProxy\&.php\&.
+.SS "destroy ( $sessionId)"
+{Destroys a session\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.destroy
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 83 of file SessionHandlerProxy\&.php\&.
+.SS "gc ( $maxlifetime)"
+{Cleans up expired sessions (garbage collection)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.gc
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$maxlifetime\fP Sessions that have not updated for the last maxlifetime seconds will be removed
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 91 of file SessionHandlerProxy\&.php\&.
+.SS "open ( $savePath,  $sessionName)"
+{Re-initializes existing session, or creates a new one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.open
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Save path 
+.br
+\fI$sessionName\fP \fBSession\fP name, see http://php.net/function.session-name.php
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 43 of file SessionHandlerProxy\&.php\&.
+.SS "read ( $sessionId)"
+{Reads the session data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.read
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID, see http://php.net/function.session-id
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Same session data as passed in \fBwrite()\fP or empty string when non-existent or on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 67 of file SessionHandlerProxy\&.php\&.
+.SS "write ( $sessionId,  $data)"
+{Writes the session data to the storage\&.
+.PP
+Care, the session ID passed to \fBwrite()\fP can be different from the one previously received in \fBread()\fP when the session ID changed due to session_regenerate_id()\&.
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/sessionhandlerinterface.write
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sessionId\fP \fBSession\fP ID , see http://php.net/function.session-id 
+.br
+\fI$data\fP Serialized session data to save
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true on success, false on failure
+.RE
+.PP
+} 
+.PP
+Implements \fBSessionHandlerInterface\fP\&.
+.PP
+Definition at line 75 of file SessionHandlerProxy\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$handler\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file SessionHandlerProxy\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

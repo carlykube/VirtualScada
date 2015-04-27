@@ -1,0 +1,246 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport Class Reference}
+\label{class_swift___transport___load_balanced_transport}\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_swift___transport___load_balanced_transport}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf set\+Transports} (array \$transports)
+\item 
+{\bf get\+Transports} ()
+\item 
+{\bf is\+Started} ()
+\item 
+{\bf start} ()
+\item 
+{\bf stop} ()
+\item 
+{\bf send} ({\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message, \&\$failed\+Recipients=null)
+\item 
+{\bf register\+Plugin} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener} \$plugin)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+get\+Next\+Transport} ()
+\item 
+{\bf \+\_\+kill\+Current\+Transport} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$\+\_\+transports} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Redundantly and rotationally uses several Transports when sending.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Load\+Balanced\+Transport.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_a095c5d389db211932136b53f25f39685}
+Creates a new Load\+Balanced\+Transport. 
+
+Definition at line 35 of file Load\+Balanced\+Transport.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!\+\_\+get\+Next\+Transport@{\+\_\+get\+Next\+Transport}}
+\index{\+\_\+get\+Next\+Transport@{\+\_\+get\+Next\+Transport}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{\+\_\+get\+Next\+Transport}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Next\+Transport (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___load_balanced_transport_a0af73d499e378bd87a72c3c500f67c35}
+Rotates the transport list around and returns the first instance.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!\+\_\+kill\+Current\+Transport@{\+\_\+kill\+Current\+Transport}}
+\index{\+\_\+kill\+Current\+Transport@{\+\_\+kill\+Current\+Transport}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{\+\_\+kill\+Current\+Transport}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+kill\+Current\+Transport (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___load_balanced_transport_a9e32c0876b16a7f8d2dba1bbe0095fce}
+Tag the currently used (top of stack) transport as dead/useless. 
+
+Definition at line 156 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!get\+Transports@{get\+Transports}}
+\index{get\+Transports@{get\+Transports}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{get\+Transports}]{\setlength{\rightskip}{0pt plus 5cm}get\+Transports (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_aad454089f500b9773ac793474a9c02ef}
+Get \$transports to delegate to.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport}[] 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!is\+Started@{is\+Started}}
+\index{is\+Started@{is\+Started}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{is\+Started}]{\setlength{\rightskip}{0pt plus 5cm}is\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_a1ffe0e26cd53b764f58c5bbed489c278}
+Test if this Transport mechanism has started.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a1ffe0e26cd53b764f58c5bbed489c278}.
+
+
+
+Definition at line 65 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!register\+Plugin@{register\+Plugin}}
+\index{register\+Plugin@{register\+Plugin}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{register\+Plugin}]{\setlength{\rightskip}{0pt plus 5cm}register\+Plugin (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener}}]{\$plugin}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_ab89f0e56e80b5a21c0f09004a418ae92}
+Register a plugin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Listener}{p.}{interface_swift___events___event_listener} & {\em \$plugin} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_ab89f0e56e80b5a21c0f09004a418ae92}.
+
+
+
+Definition at line 132 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!send@{send}}
+\index{send@{send}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}send (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_a7e179b57bf0cbb197139cf583e7c427e}
+Send the given Message.
+
+Recipient/sender data will be retrieved from the Message A\+P\+I. The return value is the number of recipients who were accepted for delivery.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message} & {\em \$message} & \\
+\hline
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$failed\+Recipients An array of failures by-\/reference\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a7e179b57bf0cbb197139cf583e7c427e}.
+
+
+
+Definition at line 99 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!set\+Transports@{set\+Transports}}
+\index{set\+Transports@{set\+Transports}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{set\+Transports}]{\setlength{\rightskip}{0pt plus 5cm}set\+Transports (
+\begin{DoxyParamCaption}
+\item[{array}]{\$transports}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_a3a792aa18c6c9cd906b7a214eaf0a7d5}
+Set \$transports to delegate to.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Swift\+\_\+\+Transport\mbox{[}$\,$\mbox{]}} & \$transports \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!start@{start}}
+\index{start@{start}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_af8fa59992209e36dccb3eefb0f75531f}
+Start this Transport mechanism. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_af8fa59992209e36dccb3eefb0f75531f}.
+
+
+
+Definition at line 73 of file Load\+Balanced\+Transport.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!stop@{stop}}
+\index{stop@{stop}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___load_balanced_transport_a8b6fc76a620d7557d06e9a11a9ffb509}
+Stop this Transport mechanism. 
+
+Implements {\bf Swift\+\_\+\+Transport} \doxyref{}{p.}{interface_swift___transport_a8b6fc76a620d7557d06e9a11a9ffb509}.
+
+
+
+Definition at line 81 of file Load\+Balanced\+Transport.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}!\$\+\_\+transports@{\$\+\_\+transports}}
+\index{\$\+\_\+transports@{\$\+\_\+transports}!Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport@{Swift\+\_\+\+Transport\+\_\+\+Load\+Balanced\+Transport}}
+\subsubsection[{\$\+\_\+transports}]{\setlength{\rightskip}{0pt plus 5cm}\$\+\_\+transports = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___load_balanced_transport_a6d6fc38948551a967846db0449097904}
+
+
+Definition at line 30 of file Load\+Balanced\+Transport.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/{\bf Load\+Balanced\+Transport.\+php}\end{DoxyCompactItemize}

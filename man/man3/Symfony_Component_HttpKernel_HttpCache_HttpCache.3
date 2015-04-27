@@ -1,0 +1,404 @@
+.TH "HttpCache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HttpCache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHttpKernelInterface\fP, and \fBTerminableInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBHttpKernelInterface\fP $kernel, \fBStoreInterface\fP $\fBstore\fP, \fBSurrogateInterface\fP $surrogate=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgetStore\fP ()"
+.br
+.ti -1c
+.RI "\fBgetTraces\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLog\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetKernel\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSurrogate\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEsi\fP ()"
+.br
+.ti -1c
+.RI "\fBhandle\fP (\fBRequest\fP $request, $type=\fBHttpKernelInterface::MASTER_REQUEST\fP, $catch=true)"
+.br
+.ti -1c
+.RI "\fBterminate\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpass\fP (\fBRequest\fP $request, $catch=false)"
+.br
+.ti -1c
+.RI "\fBinvalidate\fP (\fBRequest\fP $request, $catch=false)"
+.br
+.ti -1c
+.RI "\fBlookup\fP (\fBRequest\fP $request, $catch=false)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP (\fBRequest\fP $request, \fBResponse\fP $entry, $catch=false)"
+.br
+.ti -1c
+.RI "\fBfetch\fP (\fBRequest\fP $request, $catch=false)"
+.br
+.ti -1c
+.RI "\fBforward\fP (\fBRequest\fP $request, $catch=false, \fBResponse\fP $entry=null)"
+.br
+.ti -1c
+.RI "\fBisFreshEnough\fP (\fBRequest\fP $request, \fBResponse\fP $entry)"
+.br
+.ti -1c
+.RI "\fBlock\fP (\fBRequest\fP $request, \fBResponse\fP $entry)"
+.br
+.ti -1c
+.RI "\fBstore\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBprocessResponseBody\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBCache\fP provides HTTP caching\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 30 of file HttpCache\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBHttpKernelInterface\fP $kernel, \fBStoreInterface\fP $store, \fBSurrogateInterface\fP $surrogate = \fCnull\fP, array $options = \fCarray()\fP)"
+Constructor\&.
+.PP
+The available options are:
+.PP
+.IP "\(bu" 2
+debug: If true, the traces are added as a HTTP header to ease debugging
+.IP "\(bu" 2
+default_ttl The number of seconds that a cache entry should be considered fresh when no explicit freshness information is provided in a response\&. Explicit Cache-Control or Expires headers override this value\&. (default: 0)
+.IP "\(bu" 2
+private_headers Set of request headers that trigger 'private' cache-control behavior on responses that don't explicitly state whether the response is public or private via a Cache-Control directive\&. (default: Authorization and \fBCookie\fP)
+.IP "\(bu" 2
+allow_reload Specifies whether the client can force a cache reload by including a Cache-Control 'no-cache' directive in the request\&. Set it to \fCtrue\fP for compliance with RFC 2616\&. (default: false)
+.IP "\(bu" 2
+allow_revalidate Specifies whether the client can force a cache revalidate by including a Cache-Control 'max-age=0' directive in the request\&. Set it to \fCtrue\fP for compliance with RFC 2616\&. (default: false)
+.IP "\(bu" 2
+stale_while_revalidate Specifies the default number of seconds (the granularity is the second as the \fBResponse\fP TTL precision is a second) during which the cache can immediately return a stale response while it revalidates it in the background (default: 2)\&. This setting is overridden by the stale-while-revalidate HTTP Cache-Control extension (see RFC 5861)\&.
+.IP "\(bu" 2
+stale_if_error Specifies the default number of seconds (the granularity is the second) during which the cache can serve a stale response when an error is encountered (default: 60)\&. This setting is overridden by the stale-if-error HTTP Cache-Control extension (see RFC 5861)\&.
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$kernel\fP An \fBHttpKernelInterface\fP instance 
+.br
+\fI$store\fP \fBA\fP \fBStore\fP instance 
+.br
+\fI$surrogate\fP \fBA\fP \fBSurrogateInterface\fP instance 
+.br
+\fI$options\fP An array of options 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file HttpCache\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "fetch (\fBRequest\fP $request,  $catch = \fCfalse\fP)\fC [protected]\fP"
+Forwards the \fBRequest\fP to the backend and determines whether the response should be stored\&.
+.PP
+This methods is triggered when the cache missed or a reload is required\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$catch\fP whether to process exceptions
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 436 of file HttpCache\&.php\&.
+.SS "forward (\fBRequest\fP $request,  $catch = \fCfalse\fP, \fBResponse\fP $entry = \fCnull\fP)\fC [protected]\fP"
+Forwards the \fBRequest\fP to the backend and returns the \fBResponse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$catch\fP Whether to catch exceptions or not 
+.br
+\fI$entry\fP \fBA\fP \fBResponse\fP instance (the stale entry if present, null otherwise)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 465 of file HttpCache\&.php\&.
+.SS "getEsi ()"
+Gets the \fBEsi\fP instance\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 175 of file HttpCache\&.php\&.
+.SS "getKernel ()"
+Gets the \fBKernel\fP instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBHttpKernelInterface\fP An \fBHttpKernelInterface\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file HttpCache\&.php\&.
+.SS "getLog ()"
+Returns a log message for the events of the last request processing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string \fBA\fP log message 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file HttpCache\&.php\&.
+.SS "getRequest ()"
+Gets the \fBRequest\fP instance associated with the master request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequest\fP \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file HttpCache\&.php\&.
+.SS "getStore ()"
+Gets the current store\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBStoreInterface\fP $store \fBA\fP \fBStoreInterface\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file HttpCache\&.php\&.
+.SS "getSurrogate ()"
+Gets the Surrogate instance\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 161 of file HttpCache\&.php\&.
+.SS "getTraces ()"
+Returns an array of events that took place during processing of the last request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of events 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file HttpCache\&.php\&.
+.SS "handle (\fBRequest\fP $request,  $type = \fC\fBHttpKernelInterface::MASTER_REQUEST\fP\fP,  $catch = \fCtrue\fP)"
+{}
+.PP
+Implements \fBHttpKernelInterface\fP\&.
+.PP
+Definition at line 189 of file HttpCache\&.php\&.
+.SS "invalidate (\fBRequest\fP $request,  $catch = \fCfalse\fP)\fC [protected]\fP"
+Invalidates non-safe methods (like POST, PUT, and DELETE)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$catch\fP Whether to process exceptions
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 276 of file HttpCache\&.php\&.
+.SS "isFreshEnough (\fBRequest\fP $request, \fBResponse\fP $entry)\fC [protected]\fP"
+Checks whether the cache entry is 'fresh enough' to satisfy the \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$entry\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the cache entry if fresh enough, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 525 of file HttpCache\&.php\&.
+.SS "lock (\fBRequest\fP $request, \fBResponse\fP $entry)\fC [protected]\fP"
+Locks a \fBRequest\fP during the call to the backend\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$entry\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the cache entry can be returned even if it is staled, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 546 of file HttpCache\&.php\&.
+.SS "lookup (\fBRequest\fP $request,  $catch = \fCfalse\fP)\fC [protected]\fP"
+Lookups a \fBResponse\fP from the cache for the given \fBRequest\fP\&.
+.PP
+When a matching cache entry is found and is fresh, it uses it as the response without forwarding any request to the backend\&. When a matching cache entry is found but is stale, it attempts to 'validate' the entry with the backend using conditional GET\&. When no matching cache entry is found, it triggers 'miss' processing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$catch\fP whether to process exceptions
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 323 of file HttpCache\&.php\&.
+.SS "pass (\fBRequest\fP $request,  $catch = \fCfalse\fP)\fC [protected]\fP"
+Forwards the \fBRequest\fP to the backend without storing the \fBResponse\fP in the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$catch\fP Whether to process exceptions
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 257 of file HttpCache\&.php\&.
+.SS "processResponseBody (\fBRequest\fP $request, \fBResponse\fP $response)\fC [protected]\fP"
+
+.PP
+Definition at line 663 of file HttpCache\&.php\&.
+.SS "store (\fBRequest\fP $request, \fBResponse\fP $response)\fC [protected]\fP"
+Writes the \fBResponse\fP to the cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 604 of file HttpCache\&.php\&.
+.SS "terminate (\fBRequest\fP $request, \fBResponse\fP $response)"
+{}
+.PP
+Implements \fBTerminableInterface\fP\&.
+.PP
+Definition at line 242 of file HttpCache\&.php\&.
+.SS "validate (\fBRequest\fP $request, \fBResponse\fP $entry,  $catch = \fCfalse\fP)\fC [protected]\fP"
+Validates that a cache entry is fresh\&.
+.PP
+The original request is used as a template for a conditional GET request with the backend\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$entry\fP \fBA\fP \fBResponse\fP instance to validate 
+.br
+\fI$catch\fP Whether to process exceptions
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 375 of file HttpCache\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

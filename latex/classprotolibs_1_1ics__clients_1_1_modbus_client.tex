@@ -1,0 +1,204 @@
+\section{Modbus\+Client Class Reference}
+\label{classprotolibs_1_1ics__clients_1_1_modbus_client}\index{Modbus\+Client@{Modbus\+Client}}
+Inheritance diagram for Modbus\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classprotolibs_1_1ics__clients_1_1_modbus_client}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def {\bf read\+Points} (self, points)
+\item 
+def {\bf execute}
+\item 
+def {\bf write\+Points} (self, pointsvalues)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf to\+\_\+config}
+\item 
+{\bf from\+\_\+config}
+\item 
+{\bf slave\+\_\+points}
+\item 
+{\bf master}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E} = 5
+\item 
+dictionary {\bf F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Parent class for the TCP and RTU varieties of ModbusClients. This class
+    implements most of the logic for creating Modbus requests. Child classes
+    need only implement the _createMaster method for the proper request type\end{DoxyVerb}
+ 
+
+Definition at line 88 of file ics\+\_\+clients.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{to\+\_\+config, }
+\item[{}]{slave\+\_\+points, }
+\item[{}]{from\+\_\+config = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_ac775ee34451fdfa742b318538164070e}
+\begin{DoxyVerb}Initializes the client from configuration information.
+@param to_config The configuration for the interface on the slave to
+            poll. 
+@param from_config The configuration for the interface on the master 
+            to poll from. This is ignored for TCP but required
+            for RTU.
+@param slave_points The points list from the slave configutation
+\end{DoxyVerb}
+ 
+
+Definition at line 112 of file ics\+\_\+clients.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!execute@{execute}}
+\index{execute@{execute}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}def execute (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{function\+\_\+name, }
+\item[{}]{start\+\_\+address, }
+\item[{}]{count, }
+\item[{}]{output\+\_\+value = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_ad4a3a293739ba23e084f19c685303590}
+\begin{DoxyVerb}This method provides direct access to the ModbusMaster execute
+method. This should be used when the readPoints() and writePoints()
+methods do not perform properly.
+@param function_name Modbus request type as defined in modbus_tk/defines.py
+@param start_address Address of first address to read/write
+@param count Count of addresses to read/write
+@param output_value list of elements to be written; required for writes.
+\end{DoxyVerb}
+ 
+
+Definition at line 281 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!read\+Points@{read\+Points}}
+\index{read\+Points@{read\+Points}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{read\+Points}]{\setlength{\rightskip}{0pt plus 5cm}def read\+Points (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{points}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_afa4592568238b017d9492bb1fa4f4c39}
+\begin{DoxyVerb}Method to return points from a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to request each
+    point, whether it be individually or in groups.
+@param device Name of the device to be polled
+@param points Iterable of names of points to be polled
+
+@returns A tuple of values of the points polled in the order that they
+    were requested.
+\end{DoxyVerb}
+ 
+
+Definition at line 267 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!write\+Points@{write\+Points}}
+\index{write\+Points@{write\+Points}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{write\+Points}]{\setlength{\rightskip}{0pt plus 5cm}def write\+Points (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{pointsvalues}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_aab66dbd5d4359ee24e733d1746d7ac1c}
+\begin{DoxyVerb}Method to set points on a given device. A single call to this
+    method will generate one or more protocol requests of the server of
+    objects. Inheriting clients will interpret the best way to write each
+    point, whether it be individually or in groups. Base clients 
+@param pointsvalues List of tuples of (names of point to be written,
+                value) or a dictionary of {pointnames:values}
+\end{DoxyVerb}
+ 
+
+Definition at line 298 of file ics\+\_\+clients.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!from\+\_\+config@{from\+\_\+config}}
+\index{from\+\_\+config@{from\+\_\+config}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{from\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}from\+\_\+config}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_a0836af62ebe86a37c473ce7c7c75624c}
+
+
+Definition at line 123 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P@{F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P}}
+\index{F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P@{F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P}]{\setlength{\rightskip}{0pt plus 5cm}dictionary F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+M\+A\+P\hspace{0.3cm}{\ttfamily [static]}}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_a8c97173af426b6c1d7c0336732413a3c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{ cst.COILS: (cst.READ\_COILS,cst.WRITE\_SINGLE\_COIL, 
+2                                                 cst.WRITE\_MULTIPLE\_COILS),
+3                       cst.DISCRETE\_INPUTS : (cst.READ\_DISCRETE\_INPUTS, 
+4                                                 \textcolor{stringliteral}{"DiscreteInputsCan'tBeWritten"},
+5                                                 \textcolor{stringliteral}{"DiscreteInputsCan'tBeWritten"}),
+6                       cst.HOLDING\_REGISTERS : (cst.READ\_HOLDING\_REGISTERS, 
+7                                                 cst.WRITE\_SINGLE\_REGISTER, 
+8                                                cst.WRITE\_MULTIPLE\_REGISTERS),
+9                       cst.ANALOG\_INPUTS : (cst.READ\_INPUT\_REGISTERS, 
+10                                                 \textcolor{stringliteral}{"InputRegistersCan'tBeWritten"},
+11                                                 \textcolor{stringliteral}{"InputRegistersCan'tBeWritten"}) 
+12                    \}
+\end{DoxyCode}
+
+
+Definition at line 100 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!master@{master}}
+\index{master@{master}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{master}]{\setlength{\rightskip}{0pt plus 5cm}master}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_aa5d71c21f7128fa10d49d5842963e583}
+
+
+Definition at line 125 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E@{M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E}}
+\index{M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E@{M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}int M\+A\+X\+D\+I\+S\+T\+A\+N\+C\+E = 5\hspace{0.3cm}{\ttfamily [static]}}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_a4c93d694c48f4e402dc8f827c9cacb5c}
+
+
+Definition at line 92 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!slave\+\_\+points@{slave\+\_\+points}}
+\index{slave\+\_\+points@{slave\+\_\+points}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{slave\+\_\+points}]{\setlength{\rightskip}{0pt plus 5cm}slave\+\_\+points}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_abae460e6a2b3e59574a4e2a40c02884e}
+
+
+Definition at line 124 of file ics\+\_\+clients.\+py.
+
+\index{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}!to\+\_\+config@{to\+\_\+config}}
+\index{to\+\_\+config@{to\+\_\+config}!protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client@{protolibs\+::ics\+\_\+clients\+::\+Modbus\+Client}}
+\subsubsection[{to\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}to\+\_\+config}\label{classprotolibs_1_1ics__clients_1_1_modbus_client_abdc59098430de2e716528978c382dc1c}
+
+
+Definition at line 122 of file ics\+\_\+clients.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/protolibs/{\bf ics\+\_\+clients.\+py}\end{DoxyCompactItemize}

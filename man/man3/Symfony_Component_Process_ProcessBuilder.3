@@ -1,0 +1,330 @@
+.TH "ProcessBuilder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProcessBuilder \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $arguments=array())"
+.br
+.ti -1c
+.RI "\fBadd\fP ($argument)"
+.br
+.ti -1c
+.RI "\fBsetPrefix\fP ($prefix)"
+.br
+.ti -1c
+.RI "\fBsetArguments\fP (array $arguments)"
+.br
+.ti -1c
+.RI "\fBsetWorkingDirectory\fP ($cwd)"
+.br
+.ti -1c
+.RI "\fBinheritEnvironmentVariables\fP ($inheritEnv=true)"
+.br
+.ti -1c
+.RI "\fBsetEnv\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBaddEnvironmentVariables\fP (array $variables)"
+.br
+.ti -1c
+.RI "\fBsetInput\fP ($input)"
+.br
+.ti -1c
+.RI "\fBsetTimeout\fP ($timeout)"
+.br
+.ti -1c
+.RI "\fBsetOption\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBdisableOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBenableOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProcess\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcreate\fP (array $arguments=array())"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProcess\fP builder\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Kris Wallsmith kris@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file ProcessBuilder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $arguments = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $arguments An array of arguments 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file ProcessBuilder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $argument)"
+Adds an unescaped argument to the command string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$argument\fP \fBA\fP command argument
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file ProcessBuilder\&.php\&.
+.SS "addEnvironmentVariables (array $variables)"
+Adds a set of environment variables\&.
+.PP
+Already existing environment variables with the same name will be overridden by the new values passed to this method\&. Pass \fCnull\fP to unset a variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$variables\fP The variables
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file ProcessBuilder\&.php\&.
+.SS "static create (array $arguments = \fCarray()\fP)\fC [static]\fP"
+Creates a process builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $arguments An array of arguments
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file ProcessBuilder\&.php\&.
+.SS "disableOutput ()"
+Disables fetching output and error output from the underlying process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file ProcessBuilder\&.php\&.
+.SS "enableOutput ()"
+Enables fetching output and error output from the underlying process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file ProcessBuilder\&.php\&.
+.SS "getProcess ()"
+Creates a \fBProcess\fP instance and returns it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcess\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fILogicException\fP In case no arguments have been provided 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file ProcessBuilder\&.php\&.
+.SS "inheritEnvironmentVariables ( $inheritEnv = \fCtrue\fP)"
+Sets whether environment variables will be inherited or not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$inheritEnv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file ProcessBuilder\&.php\&.
+.SS "setArguments (array $arguments)"
+Sets the arguments of the process\&.
+.PP
+Arguments must not be escaped\&. Previous arguments are removed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $arguments
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file ProcessBuilder\&.php\&.
+.SS "setEnv ( $name,  $value)"
+Sets an environment variable\&.
+.PP
+Setting a variable overrides its previous value\&. Use \fCnull\fP to unset a defined environment variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The variable name 
+.br
+\fI$value\fP The variable value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file ProcessBuilder\&.php\&.
+.SS "setInput ( $input)"
+Sets the input of the process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP The input as a string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP In case the argument is invalid 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file ProcessBuilder\&.php\&.
+.SS "setOption ( $name,  $value)"
+Adds a proc_open option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The option name 
+.br
+\fI$value\fP The option value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file ProcessBuilder\&.php\&.
+.SS "setPrefix ( $prefix)"
+Adds a prefix to the command string\&.
+.PP
+The prefix is preserved when resetting arguments\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP \fBA\fP command prefix or an array of command prefixes
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file ProcessBuilder\&.php\&.
+.SS "setTimeout ( $timeout)"
+Sets the process timeout\&.
+.PP
+To disable the timeout, set this value to null\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIInvalidArgumentException\fP 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file ProcessBuilder\&.php\&.
+.SS "setWorkingDirectory ( $cwd)"
+Sets the working directory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cwd\fP The working directory
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProcessBuilder\fP 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file ProcessBuilder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

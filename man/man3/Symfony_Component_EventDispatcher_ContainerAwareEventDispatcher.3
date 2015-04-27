@@ -1,0 +1,165 @@
+.TH "ContainerAwareEventDispatcher" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ContainerAwareEventDispatcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventDispatcher\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (ContainerInterface $container)"
+.br
+.ti -1c
+.RI "\fBaddListenerService\fP ($eventName, $\fBcallback\fP, $priority=0)"
+.br
+.ti -1c
+.RI "\fBremoveListener\fP ($eventName, $listener)"
+.br
+.ti -1c
+.RI "\fBhasListeners\fP ($eventName=null)"
+.br
+.ti -1c
+.RI "\fBgetListeners\fP ($eventName=null)"
+.br
+.ti -1c
+.RI "\fBaddSubscriberService\fP ($serviceId, $class)"
+.br
+.ti -1c
+.RI "\fBdispatch\fP ($eventName, \fBEvent\fP $\fBevent\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetContainer\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlazyLoad\fP ($eventName)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Lazily loads listeners and subscribers from the dependency injection container\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Bernhard Schussek bschussek@gmail.com 
+.PP
+Jordan Alliot jordan.alliot@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file ContainerAwareEventDispatcher\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (ContainerInterface $container)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$container\fP \fBA\fP ContainerInterface instance 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file ContainerAwareEventDispatcher\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addListenerService ( $eventName,  $callback,  $priority = \fC0\fP)"
+Adds a service as event listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP \fBEvent\fP for which the listener is added 
+.br
+\fI$callback\fP The service ID of the listener service & the method name that has to be called 
+.br
+\fI$priority\fP The higher this value, the earlier an event listener will be triggered in the chain\&. Defaults to 0\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 69 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "addSubscriberService ( $serviceId,  $class)"
+Adds a service as event subscriber\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$serviceId\fP The service ID of the subscriber service 
+.br
+\fI$class\fP The service's class name (which must implement EventSubscriberInterface) 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "dispatch ( $eventName, \fBEvent\fP $event = \fCnull\fP)"
+{}
+.PP
+Lazily loads listeners for this event from the dependency injection container\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 163 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "getContainer ()"
+
+.PP
+Definition at line 170 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "getListeners ( $eventName = \fCnull\fP)"
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBEventDispatcherInterface::getListeners()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "hasListeners ( $eventName = \fCnull\fP)"
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBEventDispatcherInterface::hasListeners()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "lazyLoad ( $eventName)\fC [protected]\fP"
+Lazily loads listeners for this event from the dependency injection container\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$eventName\fP The name of the event to dispatch\&. The name of the event is the name of the method that is invoked on listeners\&. 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file ContainerAwareEventDispatcher\&.php\&.
+.SS "removeListener ( $eventName,  $listener)"
+
+.PP
+Definition at line 78 of file ContainerAwareEventDispatcher\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

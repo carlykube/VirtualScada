@@ -1,0 +1,83 @@
+.TH "md_vendor_symfony_http-kernel__symfony__component__http_kernel__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_http-kernel__symfony__component__http_kernel__r_e_a_d_m_e \- HttpKernel Component 
+HttpKernel provides the building blocks to create flexible and fast HTTP-based frameworks\&.
+.PP
+\fCHttpKernelInterface\fP is the core interface of the \fBSymfony\fP full-stack framework:
+.PP
+```php interface HttpKernelInterface { /**
+.IP "\(bu" 2
+Handles a \fBRequest\fP to convert it to a \fBResponse\fP\&.
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP \fBA\fP \fBResponse\fP instance */ function handle(\fBRequest\fP $request, $type = self::MASTER_REQUEST, $catch = true); } ```
+.RE
+.PP
+It takes a \fC\fBRequest\fP\fP as an input and should return a \fC\fBResponse\fP\fP as an output\&. Using this interface makes your code compatible with all frameworks using the \fBSymfony\fP components\&. And this will give you many cool features for free\&.
+.PP
+.PP
+Creating a framework based on the \fBSymfony\fP components is really easy\&. Here is a very simple, but fully-featured framework based on the \fBSymfony\fP components:
+.PP
+```php $routes = new RouteCollection(); $routes->add('hello', new \fBRoute\fP('/hello', array('_controller' => function (\fBRequest\fP $request) { return new \fBResponse\fP(sprintf('Hello %s', $request->get('name'))); } )));
+.PP
+$request = \fBRequest::createFromGlobals()\fP;
+.PP
+$context = new RequestContext(); $context->fromRequest($request);
+.PP
+$matcher = new UrlMatcher($routes, $context);
+.PP
+$dispatcher = new EventDispatcher(); $dispatcher->addSubscriber(new RouterListener($matcher));
+.PP
+$resolver = new ControllerResolver();
+.PP
+$kernel = new HttpKernel($dispatcher, $resolver);
+.PP
+$kernel->handle($request)->send(); ```
+.PP
+This is all you need to create a flexible framework with the \fBSymfony\fP components\&.
+.PP
+Want to add an HTTP reverse proxy and benefit from HTTP caching and Edge Side Includes?
+.PP
+```php $kernel = new HttpKernel($dispatcher, $resolver);
+.PP
+$kernel = new HttpCache($kernel, new Store(\fBDIR\fP\&.'/cache')); ```
+.PP
+Want to functional test this small framework?
+.PP
+```php $client = new Client($kernel); $crawler = $client->request('GET', '/hello/Fabien');
+.PP
+$this->assertEquals('Fabien', $crawler->filter('p > span')->\fBtext()\fP); ```
+.PP
+Want nice error pages instead of ugly \fBPHP\fP exceptions?
+.PP
+```php $dispatcher->addSubscriber(new ExceptionListener(function (\fBRequest\fP $request) { $msg = 'Something went wrong! ('\&.$request->get('exception')->getMessage()\&.')';
+.PP
+return new \fBResponse\fP($msg, 500); })); ```
+.PP
+And that's why the simple looking \fCHttpKernelInterface\fP is so powerful\&. It gives you access to a lot of cool features, ready to be used out of the box, with no efforts\&.
+.PP
+.SS "Resources "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/HttpKernel/
+$ composer install
+$ phpunit
+.fi
+.PP
+ 

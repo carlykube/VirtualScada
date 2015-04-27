@@ -1,0 +1,117 @@
+.TH "SecurityContext" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SecurityContext \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSecurityContextInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($tokenStorage, $authorizationChecker, $alwaysAuthenticate=false)"
+.br
+.ti -1c
+.RI "\fBgetToken\fP ()"
+.br
+.ti -1c
+.RI "\fBsetToken\fP (\fBTokenInterface\fP $token=null)"
+.br
+.ti -1c
+.RI "\fBisGranted\fP ($attributes, $object=null)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBSecurityContext\fP is the main entry point of the \fBSecurity\fP component\&.
+.PP
+It gives access to the token representing the current user authentication\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.6, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file SecurityContext\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $tokenStorage,  $authorizationChecker,  $alwaysAuthenticate = \fCfalse\fP)"
+For backwards compatibility, the signature of sf <2\&.6 still works
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$tokenStorage\fP 
+.br
+\fI$authorizationChecker\fP 
+.br
+\fI$alwaysAuthenticate\fP only applicable with old signature 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file SecurityContext\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getToken ()"
+{Returns the current security token\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TokenInterface|null \fBA\fP \fBTokenInterface\fP instance or null if no authentication information is available
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenStorageInterface\fP\&.
+.PP
+Definition at line 75 of file SecurityContext\&.php\&.
+.SS "isGranted ( $attributes,  $object = \fCnull\fP)"
+{Checks if the attributes are granted against the current authentication token and optionally supplied object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$object\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+} 
+.PP
+Implements \fBAuthorizationCheckerInterface\fP\&.
+.PP
+Definition at line 91 of file SecurityContext\&.php\&.
+.SS "setToken (\fBTokenInterface\fP $token = \fCnull\fP)"
+{Sets the authentication token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP \fBTokenInterface\fP token, or null if no further authentication information should be stored
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenStorageInterface\fP\&.
+.PP
+Definition at line 83 of file SecurityContext\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

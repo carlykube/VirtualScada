@@ -1,0 +1,1298 @@
+\section{Route Class Reference}
+\label{class_route}\index{Route@{Route}}
+Inheritance diagram for Route\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_route}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get} (\$uri, \$action)
+\item 
+static {\bf post} (\$uri, \$action)
+\item 
+static {\bf put} (\$uri, \$action)
+\item 
+static {\bf patch} (\$uri, \$action)
+\item 
+static {\bf delete} (\$uri, \$action)
+\item 
+static {\bf options} (\$uri, \$action)
+\item 
+static {\bf any} (\$uri, \$action)
+\item 
+static {\bf match} (\$methods, \$uri, \$action)
+\item 
+static {\bf controllers} (\$controllers)
+\item 
+static {\bf controller} (\$uri, \$controller, \$names=array())
+\item 
+static {\bf resource} (\${\bf name}, \${\bf controller}, \${\bf options}=array())
+\item 
+static {\bf get\+Resource\+Uri} (\${\bf resource})
+\item 
+static {\bf get\+Resource\+Wildcard} (\$value)
+\item 
+static {\bf group} (\$attributes, \${\bf callback})
+\item 
+static {\bf merge\+With\+Last\+Group} (\$new)
+\item 
+static {\bf merge\+Group} (\$new, \$old)
+\item 
+static {\bf dispatch} (\$request)
+\item 
+static {\bf dispatch\+To\+Route} (\$request)
+\item 
+static {\bf matched} (\${\bf callback})
+\item 
+static {\bf before} (\${\bf callback})
+\item 
+static {\bf after} (\${\bf callback})
+\item 
+static {\bf filter} (\${\bf name}, \${\bf callback})
+\item 
+static {\bf when} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+static {\bf when\+Regex} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+static {\bf model} (\$key, \$class, \${\bf callback}=null)
+\item 
+static {\bf bind} (\$key, \$binder)
+\item 
+static {\bf create\+Class\+Binding} (\$binding)
+\item 
+static {\bf pattern} (\$key, \$pattern)
+\item 
+static {\bf patterns} (\$patterns)
+\item 
+static {\bf call\+Route\+Before} (\$route, \$request)
+\item 
+static {\bf find\+Pattern\+Filters} (\$request)
+\item 
+static {\bf call\+Route\+After} (\$route, \$request, \$response)
+\item 
+static {\bf call\+Route\+Filter} (\${\bf filter}, \$parameters, \$route, \$request, \$response=null)
+\item 
+static {\bf without\+Filters} (\${\bf callback})
+\item 
+static {\bf enable\+Filters} ()
+\item 
+static {\bf disable\+Filters} ()
+\item 
+static {\bf input} (\$key, \$default=null)
+\item 
+static {\bf get\+Current\+Route} ()
+\item 
+static {\bf current} ()
+\item 
+static {\bf has} (\${\bf name})
+\item 
+static {\bf current\+Route\+Name} ()
+\item 
+static {\bf is} ()
+\item 
+static {\bf current\+Route\+Named} (\${\bf name})
+\item 
+static {\bf current\+Route\+Action} ()
+\item 
+static {\bf uses} ()
+\item 
+static {\bf current\+Route\+Uses} (\$action)
+\item 
+static {\bf get\+Current\+Request} ()
+\item 
+static {\bf get\+Routes} ()
+\item 
+static {\bf get\+Controller\+Dispatcher} ()
+\item 
+static {\bf set\+Controller\+Dispatcher} (\$dispatcher)
+\item 
+static {\bf get\+Inspector} ()
+\item 
+static {\bf get\+Patterns} ()
+\item 
+static {\bf handle} (\$request, \$type=1, \$catch=true)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10098 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Route@{Route}!after@{after}}
+\index{after@{after}!Route@{Route}}
+\subsubsection[{after}]{\setlength{\rightskip}{0pt plus 5cm}static after (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ad6774bf726f0fa7e5b2bbf5929683be6}
+Register a new \char`\"{}after\char`\"{} filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10342 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!any@{any}}
+\index{any@{any}!Route@{Route}}
+\subsubsection[{any}]{\setlength{\rightskip}{0pt plus 5cm}static any (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_af0b0392a666a8c32b6ccf1184dbbd4b2}
+Register a new route responding to all verbs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10180 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!before@{before}}
+\index{before@{before}!Route@{Route}}
+\subsubsection[{before}]{\setlength{\rightskip}{0pt plus 5cm}static before (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_af90d0a5e6fd0fd88299797952b2b8ea1}
+Register a new \char`\"{}before\char`\"{} filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10331 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!bind@{bind}}
+\index{bind@{bind}!Route@{Route}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}static bind (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$binder}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_aa6315f6b76d0453f65e020078b395777}
+Add a new route parameter binder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string | callable & {\em \$binder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10406 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!call\+Route\+After@{call\+Route\+After}}
+\index{call\+Route\+After@{call\+Route\+After}!Route@{Route}}
+\subsubsection[{call\+Route\+After}]{\setlength{\rightskip}{0pt plus 5cm}static call\+Route\+After (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a82a18b1e3cf02b68bf1cc91d1a1a7012}
+Call the given route\textquotesingle{}s before filters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 10476 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!call\+Route\+Before@{call\+Route\+Before}}
+\index{call\+Route\+Before@{call\+Route\+Before}!Route@{Route}}
+\subsubsection[{call\+Route\+Before}]{\setlength{\rightskip}{0pt plus 5cm}static call\+Route\+Before (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a8b9cb71d4f0ab1bf85ea7b8858f027b9}
+Call the given route\textquotesingle{}s before filters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 10452 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!call\+Route\+Filter@{call\+Route\+Filter}}
+\index{call\+Route\+Filter@{call\+Route\+Filter}!Route@{Route}}
+\subsubsection[{call\+Route\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}static call\+Route\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$parameters, }
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a12f9012651a66fc279aeea0d6f41cb19}
+Call the given route filter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filter} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response | null & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 10491 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!controller@{controller}}
+\index{controller@{controller}!Route@{Route}}
+\subsubsection[{controller}]{\setlength{\rightskip}{0pt plus 5cm}static controller (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$controller, }
+\item[{}]{\$names = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ab1fefca02ddf34f53dedc393792cbbc2}
+\doxyref{Route}{p.}{class_route} a controller to a U\+R\+I with wildcard routing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+string & {\em \$controller} & \\
+\hline
+array & {\em \$names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10217 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!controllers@{controllers}}
+\index{controllers@{controllers}!Route@{Route}}
+\subsubsection[{controllers}]{\setlength{\rightskip}{0pt plus 5cm}static controllers (
+\begin{DoxyParamCaption}
+\item[{}]{\$controllers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a2e3b68cbf5da76fadbacaf25c6af38ad}
+Register an array of controllers with wildcard routing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$controllers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10204 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!create\+Class\+Binding@{create\+Class\+Binding}}
+\index{create\+Class\+Binding@{create\+Class\+Binding}!Route@{Route}}
+\subsubsection[{create\+Class\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}static create\+Class\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$binding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a5e162ce42b71d304b79801e852b3833d}
+Create a class based binding using the Io\+C container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$binding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10417 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!current@{current}}
+\index{current@{current}!Route@{Route}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}static current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a46ca3f56d9f433f84f80f13e3c2c6b2c}
+Get the currently dispatched route instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10554 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!current\+Route\+Action@{current\+Route\+Action}}
+\index{current\+Route\+Action@{current\+Route\+Action}!Route@{Route}}
+\subsubsection[{current\+Route\+Action}]{\setlength{\rightskip}{0pt plus 5cm}static current\+Route\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ae31f87da8a845b6f43db78b9f7cc2ea1}
+Get the current route action.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 10607 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!current\+Route\+Name@{current\+Route\+Name}}
+\index{current\+Route\+Name@{current\+Route\+Name}!Route@{Route}}
+\subsubsection[{current\+Route\+Name}]{\setlength{\rightskip}{0pt plus 5cm}static current\+Route\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_af2dbd04d14402bcf01cb04d1c97fd8a4}
+Get the current route name.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 10575 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!current\+Route\+Named@{current\+Route\+Named}}
+\index{current\+Route\+Named@{current\+Route\+Named}!Route@{Route}}
+\subsubsection[{current\+Route\+Named}]{\setlength{\rightskip}{0pt plus 5cm}static current\+Route\+Named (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ab41488606b5f17c72cbfcdded3cf6146}
+Determine if the current route matches a given name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 10597 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!current\+Route\+Uses@{current\+Route\+Uses}}
+\index{current\+Route\+Uses@{current\+Route\+Uses}!Route@{Route}}
+\subsubsection[{current\+Route\+Uses}]{\setlength{\rightskip}{0pt plus 5cm}static current\+Route\+Uses (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_af6707bad77d3d6b8713b19fe985da3f2}
+Determine if the current route action matches a given action.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 10629 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!delete@{delete}}
+\index{delete@{delete}!Route@{Route}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}static delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_acfb8a6c58a37fb0e6a85bb35a1c00ac3}
+Register a new D\+E\+L\+E\+T\+E route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10156 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!disable\+Filters@{disable\+Filters}}
+\index{disable\+Filters@{disable\+Filters}!Route@{Route}}
+\subsubsection[{disable\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}static disable\+Filters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ae96e44ad371b682913d969d5bf904df6}
+Disable route filtering on the router.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10522 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!Route@{Route}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}static dispatch (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a27d01396ad270d48d8510385a84be91c}
+Dispatch the request to the application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10298 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!dispatch\+To\+Route@{dispatch\+To\+Route}}
+\index{dispatch\+To\+Route@{dispatch\+To\+Route}!Route@{Route}}
+\subsubsection[{dispatch\+To\+Route}]{\setlength{\rightskip}{0pt plus 5cm}static dispatch\+To\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a0d053153ce1884b7e4a4764a4cfbea2f}
+Dispatch the request to a route and return the response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 10309 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!enable\+Filters@{enable\+Filters}}
+\index{enable\+Filters@{enable\+Filters}!Route@{Route}}
+\subsubsection[{enable\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}static enable\+Filters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a114507ac1e541318f52fcd6379aca41e}
+Enable route filtering on the router.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10512 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!filter@{filter}}
+\index{filter@{filter}!Route@{Route}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}static filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a56f1c986fd9ecc0d4a0946f2a85bbfc4}
+Register a new filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10354 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!find\+Pattern\+Filters@{find\+Pattern\+Filters}}
+\index{find\+Pattern\+Filters@{find\+Pattern\+Filters}!Route@{Route}}
+\subsubsection[{find\+Pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}static find\+Pattern\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a212e4fd8d879e81a56a52f8847fc897a}
+Find the patterned filters matching a request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 10463 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get@{get}}
+\index{get@{get}!Route@{Route}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}static get (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a0675015f3abd0a88dd5e7ebc790e1020}
+Register a new G\+E\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10108 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Controller\+Dispatcher@{get\+Controller\+Dispatcher}}
+\index{get\+Controller\+Dispatcher@{get\+Controller\+Dispatcher}!Route@{Route}}
+\subsubsection[{get\+Controller\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Controller\+Dispatcher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a66e6bcdd0abf326a031c73a6aa9faf8f}
+Get the controller dispatcher instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10659 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Current\+Request@{get\+Current\+Request}}
+\index{get\+Current\+Request@{get\+Current\+Request}!Route@{Route}}
+\subsubsection[{get\+Current\+Request}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Current\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a56fe25b6401d0eb8f459787ee9c3a71d}
+Get the request currently being dispatched.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10639 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Current\+Route@{get\+Current\+Route}}
+\index{get\+Current\+Route@{get\+Current\+Route}!Route@{Route}}
+\subsubsection[{get\+Current\+Route}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Current\+Route (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a6e820039bb3493b477c675a316a1b3ca}
+Get the currently dispatched route instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10544 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Inspector@{get\+Inspector}}
+\index{get\+Inspector@{get\+Inspector}!Route@{Route}}
+\subsubsection[{get\+Inspector}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Inspector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_af1d464240dc054ef33326524139923f0}
+Get a controller inspector instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10680 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Patterns@{get\+Patterns}}
+\index{get\+Patterns@{get\+Patterns}!Route@{Route}}
+\subsubsection[{get\+Patterns}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Patterns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a72b415c90efe2c6717a21c53489a0ab8}
+Get the global \char`\"{}where\char`\"{} patterns.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 10690 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Resource\+Uri@{get\+Resource\+Uri}}
+\index{get\+Resource\+Uri@{get\+Resource\+Uri}!Route@{Route}}
+\subsubsection[{get\+Resource\+Uri}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Resource\+Uri (
+\begin{DoxyParamCaption}
+\item[{}]{\$resource}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a880a8519104ced70ffac036812792b64}
+Get the base resource U\+R\+I for a given resource.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$resource} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 10241 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Resource\+Wildcard@{get\+Resource\+Wildcard}}
+\index{get\+Resource\+Wildcard@{get\+Resource\+Wildcard}!Route@{Route}}
+\subsubsection[{get\+Resource\+Wildcard}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Resource\+Wildcard (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ad31f1e020faa05ce5e40c9c195a2e118}
+Format a resource wildcard for usage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 10252 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!get\+Routes@{get\+Routes}}
+\index{get\+Routes@{get\+Routes}!Route@{Route}}
+\subsubsection[{get\+Routes}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Routes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a5ee75c365fa519c6bf61c9ae28672a7d}
+Get the underlying route collection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10649 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!group@{group}}
+\index{group@{group}!Route@{Route}}
+\subsubsection[{group}]{\setlength{\rightskip}{0pt plus 5cm}static group (
+\begin{DoxyParamCaption}
+\item[{}]{\$attributes, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a1a590c75a786a84a64d96c7e2f27d634}
+Create a route group with shared attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$attributes} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10264 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!handle@{handle}}
+\index{handle@{handle}!Route@{Route}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}static handle (
+\begin{DoxyParamCaption}
+\item[{}]{\$request, }
+\item[{}]{\$type = {\ttfamily 1}, }
+\item[{}]{\$catch = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a04e74d533fdd761c937bc8dbcbfcbbce}
+Get the response for a given request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Http\+Foundation\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+int & {\em \$type} & \\
+\hline
+bool & {\em \$catch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10703 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!has@{has}}
+\index{has@{has}!Route@{Route}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}static has (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a252c0b6c5dff52ed18978e95ea9ef892}
+Check if a route with the given name exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 10565 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!input@{input}}
+\index{input@{input}!Route@{Route}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}static input (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a0abef125d86ed89ed73a717d8912235e}
+Get a route parameter for the current route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 10534 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!is@{is}}
+\index{is@{is}!Route@{Route}}
+\subsubsection[{is}]{\setlength{\rightskip}{0pt plus 5cm}static is (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a7d586c9c0f70b6a843865e64f9d42de3}
+Alias for the \char`\"{}current\+Route\+Named\char`\"{} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mixed} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 10586 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!match@{match}}
+\index{match@{match}!Route@{Route}}
+\subsubsection[{match}]{\setlength{\rightskip}{0pt plus 5cm}static match (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a69ff36c3462f9869996a68e69cfa5b02}
+Register a new route with the given verbs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$methods} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10193 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!matched@{matched}}
+\index{matched@{matched}!Route@{Route}}
+\subsubsection[{matched}]{\setlength{\rightskip}{0pt plus 5cm}static matched (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a12e96b02b88e023793fa9c8e6908ee48}
+Register a route matched event listener.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10320 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!merge\+Group@{merge\+Group}}
+\index{merge\+Group@{merge\+Group}!Route@{Route}}
+\subsubsection[{merge\+Group}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a77ff114b4824c76618641f9abd24d4d2}
+Merge the given group attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+array & {\em \$old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 10287 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!merge\+With\+Last\+Group@{merge\+With\+Last\+Group}}
+\index{merge\+With\+Last\+Group@{merge\+With\+Last\+Group}!Route@{Route}}
+\subsubsection[{merge\+With\+Last\+Group}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+With\+Last\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a8de61b78ad0afbf5c85b1aad16141d71}
+Merge the given array with the last group stack.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 10275 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!model@{model}}
+\index{model@{model}!Route@{Route}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}static model (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$class, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a97bf19b7c8667ad9d62e2eb0ac86adf8}
+Register a model binder for a wildcard.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$class} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Found\+Http\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 10394 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!options@{options}}
+\index{options@{options}!Route@{Route}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}static options (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a5120611969c6c112a8b8e684712f2a54}
+Register a new O\+P\+T\+I\+O\+N\+S route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10168 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!patch@{patch}}
+\index{patch@{patch}!Route@{Route}}
+\subsubsection[{patch}]{\setlength{\rightskip}{0pt plus 5cm}static patch (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a15d41345a50f0b8f51ca8b1759ace2f1}
+Register a new P\+A\+T\+C\+H route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10144 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!pattern@{pattern}}
+\index{pattern@{pattern}!Route@{Route}}
+\subsubsection[{pattern}]{\setlength{\rightskip}{0pt plus 5cm}static pattern (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a5aa5c0884bb22b91a24dffc27f42bfe5}
+Set a global where pattern on all routes
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$pattern} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10429 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!patterns@{patterns}}
+\index{patterns@{patterns}!Route@{Route}}
+\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}static patterns (
+\begin{DoxyParamCaption}
+\item[{}]{\$patterns}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a68114e37e6e2489973a4bb772bd05337}
+Set a group of global where patterns on all routes
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$patterns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10440 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!post@{post}}
+\index{post@{post}!Route@{Route}}
+\subsubsection[{post}]{\setlength{\rightskip}{0pt plus 5cm}static post (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a11765835b784952834fb5543fb38bb7b}
+Register a new P\+O\+S\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10120 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!put@{put}}
+\index{put@{put}!Route@{Route}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}static put (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a01df403ae7bb34b0ddac4bf74419c1d2}
+Register a new P\+U\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 10132 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!resource@{resource}}
+\index{resource@{resource}!Route@{Route}}
+\subsubsection[{resource}]{\setlength{\rightskip}{0pt plus 5cm}static resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$controller, }
+\item[{}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ae91a4eb419e4fa5a0c9eff11aec9cb52}
+\doxyref{Route}{p.}{class_route} a resource to a controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$controller} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10230 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!set\+Controller\+Dispatcher@{set\+Controller\+Dispatcher}}
+\index{set\+Controller\+Dispatcher@{set\+Controller\+Dispatcher}!Route@{Route}}
+\subsubsection[{set\+Controller\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Controller\+Dispatcher (
+\begin{DoxyParamCaption}
+\item[{}]{\$dispatcher}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ac0cba54ad2ed607e603ad116f187964c}
+Set the controller dispatcher instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Controller\+Dispatcher & {\em \$dispatcher} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10670 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!uses@{uses}}
+\index{uses@{uses}!Route@{Route}}
+\subsubsection[{uses}]{\setlength{\rightskip}{0pt plus 5cm}static uses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_a19feb5943f34571bf2a9f2f08ee7e961}
+Alias for the \char`\"{}current\+Route\+Uses\char`\"{} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mixed} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 10618 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!when@{when}}
+\index{when@{when}!Route@{Route}}
+\subsubsection[{when}]{\setlength{\rightskip}{0pt plus 5cm}static when (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ae02ba45fbeb0533cae4b10500f70b782}
+Register a pattern-\/based filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+array | null & {\em \$methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10367 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!when\+Regex@{when\+Regex}}
+\index{when\+Regex@{when\+Regex}!Route@{Route}}
+\subsubsection[{when\+Regex}]{\setlength{\rightskip}{0pt plus 5cm}static when\+Regex (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_aaac5b7d2213140837edc8011129cd1e3}
+Register a regular expression based filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+array | null & {\em \$methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10380 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Route@{Route}!without\+Filters@{without\+Filters}}
+\index{without\+Filters@{without\+Filters}!Route@{Route}}
+\subsubsection[{without\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}static without\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_route_ad7d02116d5f8aef0ed742c573dfd68b0}
+Run a callback with filters disable on the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 10502 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+ide\+\_\+helper.\+php}\end{DoxyCompactItemize}

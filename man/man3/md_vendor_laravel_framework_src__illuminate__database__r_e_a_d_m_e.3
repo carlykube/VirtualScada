@@ -1,0 +1,45 @@
+.TH "md_vendor_laravel_framework_src__illuminate__database__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_laravel_framework_src__illuminate__database__r_e_a_d_m_e \- \fBIlluminate\fP Database 
+The \fBIlluminate\fP Database component is a full database toolkit for \fBPHP\fP, providing an expressive query builder, ActiveRecord style ORM, and schema builder\&. It currently supports MySQL, Postgres, SQL Server, and SQLite\&. It also serves as the database layer of the \fBLaravel\fP \fBPHP\fP framework\&.
+.PP
+.SS "Usage Instructions"
+.PP
+First, create a new 'Capsule' manager instance\&. Capsule aims to make configuring the library for usage outside of the \fBLaravel\fP framework as easy as possible\&.
+.PP
+```PHP use \fBIlluminate\fP as Capsule;
+.PP
+$capsule = new Capsule;
+.PP
+$capsule->addConnection([ 'driver' => 'mysql', 'host' => 'localhost', 'database' => 'database', 'username' => 'root', 'password' => 'password', 'charset' => 'utf8', 'collation' => 'utf8_unicode_ci', 'prefix' => '', ]);
+.PP
+// Set the event dispatcher used by \fBEloquent\fP models\&.\&.\&. (optional) use \fBIlluminate\fP; use \fBIlluminate\fP; $capsule->setEventDispatcher(new Dispatcher(new Container));
+.PP
+// Make this Capsule instance available globally via static methods\&.\&.\&. (optional) $capsule->\fBsetAsGlobal()\fP;
+.PP
+// Setup the \fBEloquent\fP ORM\&.\&.\&. (optional; unless you've used setEventDispatcher()) $capsule->bootEloquent(); ```
+.PP
+.RS 4
+\fCcomposer require 'illuminate/events=5\&.0\&.*'\fP required when you need to use observers with \fBEloquent\fP\&. 
+.RE
+.PP
+.PP
+Once the Capsule instance has been registered\&. You may use it like so:
+.PP
+\fBUsing The Query Builder\fP
+.PP
+```PHP $users = Capsule::table('users')->where('votes', '>', 100)->get(); ``` \fBOther\fP core methods may be accessed directly from the Capsule in the same manner as from the \fBDB\fP facade: ```PHP $results = Capsule::select('select * from users where id = ?', array(1)); ```
+.PP
+\fBUsing The \fBSchema\fP Builder\fP
+.PP
+```PHP Capsule::schema()->create('users', function($table) { $table->increments('id'); $table->string('email')->unique(); $table->timestamps(); }); ```
+.PP
+\fBUsing The \fBEloquent\fP ORM\fP
+.PP
+```PHP class User extends \fBIlluminate\fP {}
+.PP
+$users = User::where('votes', '>', 1)->get(); ```
+.PP
+For further documentation on using the various database facilities this library provides, consult the \fCLaravel framework documentation\fP\&. 

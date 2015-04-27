@@ -1,0 +1,315 @@
+\section{Uploaded\+File Class Reference}
+\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file}\index{Uploaded\+File@{Uploaded\+File}}
+Inheritance diagram for Uploaded\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf path}, \$original\+Name, \$mime\+Type=null, \${\bf size}=null, \$error=null, \$test=false)
+\item 
+{\bf get\+Client\+Original\+Name} ()
+\item 
+{\bf get\+Client\+Original\+Extension} ()
+\item 
+{\bf get\+Client\+Mime\+Type} ()
+\item 
+{\bf guess\+Client\+Extension} ()
+\item 
+{\bf get\+Client\+Size} ()
+\item 
+{\bf get\+Error} ()
+\item 
+{\bf is\+Valid} ()
+\item 
+{\bf move} (\$directory, \${\bf name}=null)
+\item 
+{\bf get\+Error\+Message} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf get\+Max\+Filesize} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{A}{p.}{class_a} file uploaded through a form.
+
+\begin{DoxyAuthor}{Author}
+Bernhard Schussek {\tt bschussek@gmail.\+com} 
+
+Florian Eckerstorfer {\tt florian@eckerstorfer.\+org} 
+
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 27 of file Uploaded\+File.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$original\+Name, }
+\item[{}]{\$mime\+Type = {\ttfamily null}, }
+\item[{}]{\$size = {\ttfamily null}, }
+\item[{}]{\$error = {\ttfamily null}, }
+\item[{}]{\$test = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_aaf78db4365363f4a280ffdc9e9f6ab7c}
+Accepts the information of the uploaded file as provided by the \doxyref{P\+H\+P}{p.}{namespace_p_h_p} global \$\+\_\+\+F\+I\+L\+E\+S.
+
+The file object is only created when the uploaded file is valid (i.\+e. when the \doxyref{is\+Valid()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a7b37efab7473a1effc29f8be2421f6e3} method returns true). Otherwise the only methods that could be called on an \doxyref{Uploaded\+File}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file} instance are\+:
+
+
+\begin{DoxyItemize}
+\item get\+Client\+Original\+Name,
+\item get\+Client\+Mime\+Type,
+\item is\+Valid,
+\item get\+Error.
+\end{DoxyItemize}
+
+Calling any other method on an non-\/valid instance will cause an unpredictable result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & The full temporary path to the file \\
+\hline
+string & {\em \$original\+Name} & The original file name \\
+\hline
+string & {\em \$mime\+Type} & The type of the file as provided by \doxyref{P\+H\+P}{p.}{namespace_p_h_p} \\
+\hline
+int & {\em \$size} & The file size \\
+\hline
+int & {\em \$error} & The error constant of the upload (one of \doxyref{P\+H\+P}{p.}{namespace_p_h_p}\textquotesingle{}s U\+P\+L\+O\+A\+D\+\_\+\+E\+R\+R\+\_\+\+X\+X\+X constants) \\
+\hline
+bool & {\em \$test} & Whether the test mode is active\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Exception} & If file\+\_\+uploads is disabled \\
+\hline
+{\em File\+Not\+Found\+Exception} & If the file does not exist\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 92 of file Uploaded\+File.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Client\+Mime\+Type@{get\+Client\+Mime\+Type}}
+\index{get\+Client\+Mime\+Type@{get\+Client\+Mime\+Type}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Client\+Mime\+Type}]{\setlength{\rightskip}{0pt plus 5cm}get\+Client\+Mime\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_adc19d4946dc909113ca1684bf438489f}
+Returns the file mime type.
+
+The client mime type is extracted from the request from which the file was uploaded, so it should not be considered as a safe value.
+
+For a trusted mime type, use \doxyref{get\+Mime\+Type()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file_ac06e9f7b10fca30eb41e41d4dc108b1c} instead (which guesses the mime type based on the file content).
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null The mime type
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Mime\+Type()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file_ac06e9f7b10fca30eb41e41d4dc108b1c}
+\end{DoxySeeAlso}
+
+
+Definition at line 146 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Client\+Original\+Extension@{get\+Client\+Original\+Extension}}
+\index{get\+Client\+Original\+Extension@{get\+Client\+Original\+Extension}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Client\+Original\+Extension}]{\setlength{\rightskip}{0pt plus 5cm}get\+Client\+Original\+Extension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a45109944bbf485c56491bd5bab6352af}
+Returns the original file extension.
+
+It is extracted from the original file name that was uploaded. Then it should not be considered as a safe value.
+
+\begin{DoxyReturn}{Returns}
+string The extension 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Client\+Original\+Name@{get\+Client\+Original\+Name}}
+\index{get\+Client\+Original\+Name@{get\+Client\+Original\+Name}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Client\+Original\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Client\+Original\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a6d12f18af6764704d369e7a5f9b01d1e}
+Returns the original file name.
+
+It is extracted from the request from which the file has been uploaded. Then it should not be considered as a safe value.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null The original name
+\end{DoxyReturn}
+
+
+Definition at line 113 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Client\+Size@{get\+Client\+Size}}
+\index{get\+Client\+Size@{get\+Client\+Size}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Client\+Size}]{\setlength{\rightskip}{0pt plus 5cm}get\+Client\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a4f0f400c7c6b461f8dd79b60bed5a57a}
+Returns the file size.
+
+It is extracted from the request from which the file has been uploaded. Then it should not be considered as a safe value.
+
+\begin{DoxyReturn}{Returns}
+int$\vert$null The file size
+\end{DoxyReturn}
+
+
+Definition at line 186 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Error@{get\+Error}}
+\index{get\+Error@{get\+Error}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Error}]{\setlength{\rightskip}{0pt plus 5cm}get\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a24ada5decce3d1b79cd82f5a90ccf404}
+Returns the upload error.
+
+If the upload was successful, the constant U\+P\+L\+O\+A\+D\+\_\+\+E\+R\+R\+\_\+\+O\+K is returned. Otherwise one of the other U\+P\+L\+O\+A\+D\+\_\+\+E\+R\+R\+\_\+\+X\+X\+X constants is returned.
+
+\begin{DoxyReturn}{Returns}
+int The upload error
+\end{DoxyReturn}
+
+
+Definition at line 201 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Error\+Message@{get\+Error\+Message}}
+\index{get\+Error\+Message@{get\+Error\+Message}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Error\+Message}]{\setlength{\rightskip}{0pt plus 5cm}get\+Error\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a3d24ed0e93b212b4d5e382fa795bf4ef}
+Returns an informative upload error message.
+
+\begin{DoxyReturn}{Returns}
+string The error message regarding the specified error code 
+\end{DoxyReturn}
+
+
+Definition at line 291 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!get\+Max\+Filesize@{get\+Max\+Filesize}}
+\index{get\+Max\+Filesize@{get\+Max\+Filesize}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{get\+Max\+Filesize}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Max\+Filesize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a0512d7a493e019426ff90ea0a22fff3b}
+Returns the maximum size of an uploaded file as configured in php.\+ini.
+
+\begin{DoxyReturn}{Returns}
+int The maximum size of an uploaded file in bytes 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!guess\+Client\+Extension@{guess\+Client\+Extension}}
+\index{guess\+Client\+Extension@{guess\+Client\+Extension}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{guess\+Client\+Extension}]{\setlength{\rightskip}{0pt plus 5cm}guess\+Client\+Extension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a510945037b6de6600edaa664aaf64a08}
+Returns the extension based on the client mime type.
+
+If the mime type is unknown, returns null.
+
+This method uses the mime type as guessed by \doxyref{get\+Client\+Mime\+Type()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_adc19d4946dc909113ca1684bf438489f} to guess the file extension. As such, the extension returned by this method cannot be trusted.
+
+For a trusted extension, use \doxyref{guess\+Extension()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file_a29719c9c64efd17a9b84c463e041693d} instead (which guesses the extension based on the guessed mime type for the file).
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null The guessed extension or null if it cannot be guessed
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{guess\+Extension()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file_a29719c9c64efd17a9b84c463e041693d} 
+
+\doxyref{get\+Client\+Mime\+Type()}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_adc19d4946dc909113ca1684bf438489f} 
+\end{DoxySeeAlso}
+
+
+Definition at line 168 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!is\+Valid@{is\+Valid}}
+\index{is\+Valid@{is\+Valid}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{is\+Valid}]{\setlength{\rightskip}{0pt plus 5cm}is\+Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a7b37efab7473a1effc29f8be2421f6e3}
+Returns whether the file was uploaded successfully.
+
+\begin{DoxyReturn}{Returns}
+bool True if the file has been uploaded with H\+T\+T\+P and no error occurred.
+\end{DoxyReturn}
+
+
+Definition at line 213 of file Uploaded\+File.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}!move@{move}}
+\index{move@{move}!Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File@{Symfony\+::\+Component\+::\+Http\+Foundation\+::\+File\+::\+Uploaded\+File}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}move (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_uploaded_file_a9048a8a024a63880636f808523588e7d}
+Moves the file to a new location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$directory} & The destination folder \\
+\hline
+string & {\em \$name} & The new file name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{File}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file} \doxyref{A}{p.}{class_a} \doxyref{File}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_file_1_1_file} object representing the new file
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Exception} & if, for any reason, the file could not have been moved\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Uploaded\+File.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+File/{\bf Uploaded\+File.\+php}\end{DoxyCompactItemize}

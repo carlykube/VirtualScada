@@ -1,0 +1,5 @@
+var namespace_illuminate_1_1_foundation_1_1_support_1_1_providers =
+[
+    [ "EventServiceProvider", "class_illuminate_1_1_foundation_1_1_support_1_1_providers_1_1_event_service_provider.html", "class_illuminate_1_1_foundation_1_1_support_1_1_providers_1_1_event_service_provider" ],
+    [ "RouteServiceProvider", "class_illuminate_1_1_foundation_1_1_support_1_1_providers_1_1_route_service_provider.html", "class_illuminate_1_1_foundation_1_1_support_1_1_providers_1_1_route_service_provider" ]
+];

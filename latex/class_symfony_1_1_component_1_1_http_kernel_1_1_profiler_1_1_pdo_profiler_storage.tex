@@ -1,0 +1,418 @@
+\section{Pdo\+Profiler\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage}\index{Pdo\+Profiler\+Storage@{Pdo\+Profiler\+Storage}}
+Inheritance diagram for Pdo\+Profiler\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$dsn, \$username= \textquotesingle{}\textquotesingle{}, \$password= \textquotesingle{}\textquotesingle{}, \$lifetime=86400)
+\item 
+{\bf find} (\$ip, \$url, \$limit, \$method, \$start=null, \$end=null)
+\item 
+{\bf read} (\$token)
+\item 
+{\bf write} ({\bf Profile} \$profile)
+\item 
+{\bf purge} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf build\+Criteria} (\$ip, \$url, \$start, \$end, \$limit, \$method)
+\item 
+{\bf init\+Db} ()
+\item 
+{\bf cleanup} ()
+\item 
+{\bf exec} (\$db, \$query, array \$args=array())
+\item 
+{\bf prepare\+Statement} (\$db, \$query)
+\item 
+{\bf fetch} (\$db, \$query, array \$args=array())
+\item 
+{\bf close} (\$db)
+\item 
+{\bf create\+Profile\+From\+Data} (\$token, \${\bf data}, \$parent=null)
+\item 
+{\bf read\+Children} (\$token, \$parent)
+\item 
+{\bf has} (\$token)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$dsn}
+\item 
+{\bf \$username}
+\item 
+{\bf \$password}
+\item 
+{\bf \$lifetime}
+\item 
+{\bf \$db}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base P\+D\+O storage for profiling information in a P\+D\+O database.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Jan Schumann {\tt js@schumann-\/it.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 20 of file Pdo\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$dsn, }
+\item[{}]{\$username = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$password = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$lifetime = {\ttfamily 86400}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a8fee35c4f249b479da1a38214d1f2dc6}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$dsn} & \doxyref{A}{p.}{class_a} data source name \\
+\hline
+string & {\em \$username} & The username for the database \\
+\hline
+string & {\em \$password} & The password for the database \\
+\hline
+int & {\em \$lifetime} & The lifetime to use for the purge \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file Pdo\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!build\+Criteria@{build\+Criteria}}
+\index{build\+Criteria@{build\+Criteria}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{build\+Criteria}]{\setlength{\rightskip}{0pt plus 5cm}build\+Criteria (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$start, }
+\item[{}]{\$end, }
+\item[{}]{\$limit, }
+\item[{}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_afb9a5a688b378e7aa5fd1112f7eca72f}
+Build S\+Q\+L criteria to fetch records by ip and url.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$start} & The start period to search from \\
+\hline
+string & {\em \$end} & The end period to search to \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array with (criteria, args) 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{cleanup}]{\setlength{\rightskip}{0pt plus 5cm}cleanup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_aff07c1d29d6d6a540c726948254a1764}
+
+
+Definition at line 147 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!close@{close}}
+\index{close@{close}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+\item[{}]{\$db}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a522fa0f74dc7a812df6950250c423a45}
+
+
+Definition at line 195 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!create\+Profile\+From\+Data@{create\+Profile\+From\+Data}}
+\index{create\+Profile\+From\+Data@{create\+Profile\+From\+Data}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{create\+Profile\+From\+Data}]{\setlength{\rightskip}{0pt plus 5cm}create\+Profile\+From\+Data (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$data, }
+\item[{}]{\$parent = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_ab918d46e3ef18bd8ed083e1fc0af6ae4}
+
+
+Definition at line 199 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!exec@{exec}}
+\index{exec@{exec}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{exec}]{\setlength{\rightskip}{0pt plus 5cm}exec (
+\begin{DoxyParamCaption}
+\item[{}]{\$db, }
+\item[{}]{\$query, }
+\item[{array}]{\$args = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a9fed5b417d82ebaa2d3066413ed216b9}
+
+
+Definition at line 154 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!fetch@{fetch}}
+\index{fetch@{fetch}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{fetch}]{\setlength{\rightskip}{0pt plus 5cm}fetch (
+\begin{DoxyParamCaption}
+\item[{}]{\$db, }
+\item[{}]{\$query, }
+\item[{array}]{\$args = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a97d25d1659d100e26dbfe7b6782711d4}
+
+
+Definition at line 182 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$limit, }
+\item[{}]{\$method, }
+\item[{}]{\$start = {\ttfamily null}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}
+\{Finds profiler tokens for the given criteria.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method \\
+\hline
+int | null & {\em \$start} & The start date to search from \\
+\hline
+int | null & {\em \$end} & The end date to search to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of tokens
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a78e1a362bc3a4a8b1290f3af9541d8b0}.
+
+
+
+Definition at line 47 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!has@{has}}
+\index{has@{has}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_aefd7806da318fa4f37f19f30fb2b9620}
+Returns whether data for the given token already exists in storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & The profile token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!init\+Db@{init\+Db}}
+\index{init\+Db@{init\+Db}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{init\+Db}]{\setlength{\rightskip}{0pt plus 5cm}init\+Db (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_ae6499369a24dfc0ec37d8b4dca2c5964}
+Initializes the database.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!prepare\+Statement@{prepare\+Statement}}
+\index{prepare\+Statement@{prepare\+Statement}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{prepare\+Statement}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Statement (
+\begin{DoxyParamCaption}
+\item[{}]{\$db, }
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a341c2e4c40f82ebb7c4590c6e57c16e4}
+
+
+Definition at line 167 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_ac400be513972a68ea08ef845d5b16824}
+\{Purges all data from the database.\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_ac400be513972a68ea08ef845d5b16824}.
+
+
+
+Definition at line 119 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}
+\{Reads data associated with the given token.
+
+The method returns false if the token does not exist in the storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \doxyref{A}{p.}{class_a} token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} The profile associated with token
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a2080f7cded6528ace4ee2172e48e5f3c}.
+
+
+
+Definition at line 71 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!read\+Children@{read\+Children}}
+\index{read\+Children@{read\+Children}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{read\+Children}]{\setlength{\rightskip}{0pt plus 5cm}read\+Children (
+\begin{DoxyParamCaption}
+\item[{}]{\$token, }
+\item[{}]{\$parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_ab82d242e7680276c541f50993afa355d}
+Reads the child profiles for the given token.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & The parent token \\
+\hline
+string & {\em \$parent} & The parent instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}[] An array of \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance 
+\end{DoxyReturn}
+
+
+Definition at line 229 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Profile}}]{\$profile}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_aea7881699586bacb79b542561f655a05}
+\{Saves a \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} & {\em \$profile} & \doxyref{A}{p.}{class_a} \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Write operation successful
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_aea7881699586bacb79b542561f655a05}.
+
+
+
+Definition at line 85 of file Pdo\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\$db@{\$db}}
+\index{\$db@{\$db}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}\$db\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a1fa3127fc82f96b1436d871ef02be319}
+
+
+Definition at line 26 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\$dsn@{\$dsn}}
+\index{\$dsn@{\$dsn}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\$dsn}]{\setlength{\rightskip}{0pt plus 5cm}\$dsn\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a6441cca8c9fa11e16d2017e8cb733c10}
+
+
+Definition at line 22 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\$lifetime@{\$lifetime}}
+\index{\$lifetime@{\$lifetime}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\$lifetime}]{\setlength{\rightskip}{0pt plus 5cm}\$lifetime\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a2900bc497d166ddabb5dd0141a5a7e73}
+
+
+Definition at line 25 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\$password@{\$password}}
+\index{\$password@{\$password}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\$password}]{\setlength{\rightskip}{0pt plus 5cm}\$password\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a607686ef9f99ea7c42f4f3dd3dbb2b0d}
+
+
+Definition at line 24 of file Pdo\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}!\$username@{\$username}}
+\index{\$username@{\$username}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Pdo\+Profiler\+Storage}}
+\subsubsection[{\$username}]{\setlength{\rightskip}{0pt plus 5cm}\$username\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_pdo_profiler_storage_a0eb82aa5f81cf845de4b36cd653c42cf}
+
+
+Definition at line 23 of file Pdo\+Profiler\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Profiler/{\bf Pdo\+Profiler\+Storage.\+php}\end{DoxyCompactItemize}

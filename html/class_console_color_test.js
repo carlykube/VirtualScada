@@ -1,0 +1,25 @@
+var class_console_color_test =
+[
+    [ "setUp", "class_console_color_test.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "test256ColorBackground", "class_console_color_test.html#a08ae73ae698805fd93e7f140c0f5b2fd", null ],
+    [ "test256ColorForeground", "class_console_color_test.html#a2cda020366ec0d8a131bbe6e501a2161", null ],
+    [ "test256ColorForegroundAndBackground", "class_console_color_test.html#af8aa243a4e38a910060345c53e741ffd", null ],
+    [ "test256ColorWithoutSupport", "class_console_color_test.html#a3712353d2c6d88ad1d1ed2d7f96af7fd", null ],
+    [ "testAddOwnTheme", "class_console_color_test.html#a2e4d38028386a966505c434d930e40c9", null ],
+    [ "testAddOwnThemeArray", "class_console_color_test.html#a244b698fae6417794bf5851532bf8caa", null ],
+    [ "testApplyInvalid256Color", "class_console_color_test.html#a068b1a6474d9277e911c7f82dd323271", null ],
+    [ "testApplyInvalidArgument", "class_console_color_test.html#a319501341dbd2446b2793190098fcd48", null ],
+    [ "testApplyInvalidStyleName", "class_console_color_test.html#a412f5cd44fbdd61f28c1655de118f795", null ],
+    [ "testBold", "class_console_color_test.html#aa83f35e1a7f52efbe58791908c871e5e", null ],
+    [ "testBoldAndDark", "class_console_color_test.html#a3c6eed2224415d2a895c04e9f719b9d5", null ],
+    [ "testBoldColorsAreNotSupported", "class_console_color_test.html#a84040ed407edceeec98f9b0ef600c868", null ],
+    [ "testBoldColorsAreNotSupportedButAreForced", "class_console_color_test.html#a17c8d103eafea3208923cf6a0895f3d6", null ],
+    [ "testDark", "class_console_color_test.html#a337a3d0d7686c3a72b09964e33686cf1", null ],
+    [ "testForceStyle", "class_console_color_test.html#a96fa1398c25111a77e7207cfc1217c5c", null ],
+    [ "testGetPossibleStyles", "class_console_color_test.html#ada9884a7f259a07c239c7a40875a534f", null ],
+    [ "testHasAndRemoveTheme", "class_console_color_test.html#ae461a11abeec9a8759bfafb49e14a5d4", null ],
+    [ "testNone", "class_console_color_test.html#a373ae8cd8e68af1a6471aa396e08d5f9", null ],
+    [ "testOwnWithStyle", "class_console_color_test.html#aea625331db6b156ff1b59fa37bc4e0a3", null ],
+    [ "testSetOwnTheme", "class_console_color_test.html#af20b8eb48eccb94223d345e329b8be63", null ],
+    [ "testThemeInvalidStyle", "class_console_color_test.html#a1d58540bb1f26a2905917531e1192856", null ]
+];

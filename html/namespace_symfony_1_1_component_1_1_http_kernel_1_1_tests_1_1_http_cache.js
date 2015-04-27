@@ -1,0 +1,10 @@
+var namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache =
+[
+    [ "EsiTest", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_esi_test.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_esi_test" ],
+    [ "HttpCacheTest", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_http_cache_test.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_http_cache_test" ],
+    [ "HttpCacheTestCase", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_http_cache_test_case.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_http_cache_test_case" ],
+    [ "SsiTest", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_ssi_test.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_ssi_test" ],
+    [ "StoreTest", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_store_test.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_store_test" ],
+    [ "TestHttpKernel", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_http_kernel.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_http_kernel" ],
+    [ "TestMultipleHttpKernel", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_multiple_http_kernel.html", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_http_cache_1_1_test_multiple_http_kernel" ]
+];

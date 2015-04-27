@@ -1,0 +1,307 @@
+.TH "PdoProfilerStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PdoProfilerStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProfilerStorageInterface\fP\&.
+.PP
+Inherited by \fBMysqlProfilerStorage\fP, and \fBSqliteProfilerStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($dsn, $username= '', $password= '', $lifetime=86400)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbuildCriteria\fP ($ip, $url, $start, $end, $limit, $method)"
+.br
+.ti -1c
+.RI "\fBinitDb\fP ()"
+.br
+.ti -1c
+.RI "\fBcleanup\fP ()"
+.br
+.ti -1c
+.RI "\fBexec\fP ($db, $query, array $args=array())"
+.br
+.ti -1c
+.RI "\fBprepareStatement\fP ($db, $query)"
+.br
+.ti -1c
+.RI "\fBfetch\fP ($db, $query, array $args=array())"
+.br
+.ti -1c
+.RI "\fBclose\fP ($db)"
+.br
+.ti -1c
+.RI "\fBcreateProfileFromData\fP ($token, $\fBdata\fP, $parent=null)"
+.br
+.ti -1c
+.RI "\fBreadChildren\fP ($token, $parent)"
+.br
+.ti -1c
+.RI "\fBhas\fP ($token)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$dsn\fP"
+.br
+.ti -1c
+.RI "\fB$username\fP"
+.br
+.ti -1c
+.RI "\fB$password\fP"
+.br
+.ti -1c
+.RI "\fB$lifetime\fP"
+.br
+.ti -1c
+.RI "\fB$db\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base PDO storage for profiling information in a PDO database\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Jan Schumann js@schumann-it.com 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file PdoProfilerStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $dsn,  $username = \fC''\fP,  $password = \fC''\fP,  $lifetime = \fC86400\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dsn\fP \fBA\fP data source name 
+.br
+\fI$username\fP The username for the database 
+.br
+\fI$password\fP The password for the database 
+.br
+\fI$lifetime\fP The lifetime to use for the purge 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file PdoProfilerStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "buildCriteria ( $ip,  $url,  $start,  $end,  $limit,  $method)\fC [abstract]\fP, \fC [protected]\fP"
+Build SQL criteria to fetch records by ip and url\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$start\fP The start period to search from 
+.br
+\fI$end\fP The end period to search to 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array with (criteria, args) 
+.RE
+.PP
+
+.SS "cleanup ()\fC [protected]\fP"
+
+.PP
+Definition at line 147 of file PdoProfilerStorage\&.php\&.
+.SS "close ( $db)\fC [protected]\fP"
+
+.PP
+Definition at line 195 of file PdoProfilerStorage\&.php\&.
+.SS "createProfileFromData ( $token,  $data,  $parent = \fCnull\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 199 of file PdoProfilerStorage\&.php\&.
+.SS "exec ( $db,  $query, array $args = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 154 of file PdoProfilerStorage\&.php\&.
+.SS "fetch ( $db,  $query, array $args = \fCarray()\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 182 of file PdoProfilerStorage\&.php\&.
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+{Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 47 of file PdoProfilerStorage\&.php\&.
+.SS "has ( $token)\fC [protected]\fP"
+Returns whether data for the given token already exists in storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP The profile token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file PdoProfilerStorage\&.php\&.
+.SS "initDb ()\fC [abstract]\fP, \fC [protected]\fP"
+Initializes the database\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.SS "prepareStatement ( $db,  $query)\fC [protected]\fP"
+
+.PP
+Definition at line 167 of file PdoProfilerStorage\&.php\&.
+.SS "purge ()"
+{Purges all data from the database\&.} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 119 of file PdoProfilerStorage\&.php\&.
+.SS "read ( $token)"
+{Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 71 of file PdoProfilerStorage\&.php\&.
+.SS "readChildren ( $token,  $parent)\fC [protected]\fP"
+Reads the child profiles for the given token\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP The parent token 
+.br
+\fI$parent\fP The parent instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP[] An array of \fBProfile\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 229 of file PdoProfilerStorage\&.php\&.
+.SS "write (\fBProfile\fP $profile)"
+{Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 85 of file PdoProfilerStorage\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$db\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file PdoProfilerStorage\&.php\&.
+.SS "$dsn\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file PdoProfilerStorage\&.php\&.
+.SS "$lifetime\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file PdoProfilerStorage\&.php\&.
+.SS "$password\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file PdoProfilerStorage\&.php\&.
+.SS "$username\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file PdoProfilerStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

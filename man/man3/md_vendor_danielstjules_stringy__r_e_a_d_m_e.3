@@ -1,0 +1,846 @@
+.TH "md_vendor_danielstjules_stringy__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_danielstjules_stringy__r_e_a_d_m_e \- README 
+
+.PP
+\fBA\fP \fBPHP\fP string manipulation library with multibyte support\&. Offers both OO method chaining and a procedural-style static wrapper\&. Tested and compatible with \fBPHP\fP 5\&.3+ and HHVM\&. Inspired by underscore\&.string\&.js\&.
+.PP
+\fC![Build Status](https://api\&.travis-ci\&.org/danielstjules/Stringy\&.svg?branch=master)\fP
+.PP
+.IP "\(bu" 2
+\fCRequiring/Loading\fP
+.IP "\(bu" 2
+\fCOO and Procedural\fP
+.IP "\(bu" 2
+\fCImplemented Interfaces\fP
+.IP "\(bu" 2
+\fCPHP 5\&.6 Creation\fP
+.IP "\(bu" 2
+\fCMethods\fP
+.IP "  \(bu" 4
+\fCat\fP
+.IP "  \(bu" 4
+\fCcamelize\fP
+.IP "  \(bu" 4
+\fCchars\fP
+.IP "  \(bu" 4
+\fCcollapseWhitespace\fP
+.IP "  \(bu" 4
+\fCcontains\fP
+.IP "  \(bu" 4
+\fCcontainsAll\fP
+.IP "  \(bu" 4
+\fCcontainsAny\fP
+.IP "  \(bu" 4
+\fCcountSubstr\fP
+.IP "  \(bu" 4
+\fCcreate\fP
+.IP "  \(bu" 4
+\fCdasherize\fP
+.IP "  \(bu" 4
+\fCendsWith\fP
+.IP "  \(bu" 4
+\fCensureLeft\fP
+.IP "  \(bu" 4
+\fCensureRight\fP
+.IP "  \(bu" 4
+\fCfirst\fP
+.IP "  \(bu" 4
+\fCgetEncoding\fP
+.IP "  \(bu" 4
+\fChasLowerCase\fP
+.IP "  \(bu" 4
+\fChasUpperCase\fP
+.IP "  \(bu" 4
+\fChumanize\fP
+.IP "  \(bu" 4
+\fCinsert\fP
+.IP "  \(bu" 4
+\fCisAlpha\fP
+.IP "  \(bu" 4
+\fCisAlphanumeric\fP
+.IP "  \(bu" 4
+\fCisBlank\fP
+.IP "  \(bu" 4
+\fCisHexadecimal\fP
+.IP "  \(bu" 4
+\fCisJson\fP
+.IP "  \(bu" 4
+\fCisLowerCase\fP
+.IP "  \(bu" 4
+\fCisSerialized\fP
+.IP "  \(bu" 4
+\fCisUpperCase\fP
+.IP "  \(bu" 4
+\fClast\fP
+.IP "  \(bu" 4
+\fClength\fP
+.IP "  \(bu" 4
+\fClongestCommonPrefix\fP
+.IP "  \(bu" 4
+\fClongestCommonSuffix\fP
+.IP "  \(bu" 4
+\fClongestCommonSubstring\fP
+.IP "  \(bu" 4
+\fClowerCaseFirst\fP
+.IP "  \(bu" 4
+\fCpad\fP
+.IP "  \(bu" 4
+\fCpadBoth\fP
+.IP "  \(bu" 4
+\fCpadLeft\fP
+.IP "  \(bu" 4
+\fCpadRight\fP
+.IP "  \(bu" 4
+\fCregexReplace\fP
+.IP "  \(bu" 4
+\fCremoveLeft\fP
+.IP "  \(bu" 4
+\fCremoveRight\fP
+.IP "  \(bu" 4
+\fCreplace\fP
+.IP "  \(bu" 4
+\fCreverse\fP
+.IP "  \(bu" 4
+\fCsafeTruncate\fP
+.IP "  \(bu" 4
+\fCshuffle\fP
+.IP "  \(bu" 4
+\fCslugify\fP
+.IP "  \(bu" 4
+\fCstartsWith\fP
+.IP "  \(bu" 4
+\fCsubstr\fP
+.IP "  \(bu" 4
+\fCsurround\fP
+.IP "  \(bu" 4
+\fCswapCase\fP
+.IP "  \(bu" 4
+\fCtidy\fP
+.IP "  \(bu" 4
+\fCtitleize\fP
+.IP "  \(bu" 4
+\fCtoAscii\fP
+.IP "  \(bu" 4
+\fCtoLowerCase\fP
+.IP "  \(bu" 4
+\fCtoSpaces\fP
+.IP "  \(bu" 4
+\fCtoTabs\fP
+.IP "  \(bu" 4
+\fCtoTitleCase\fP
+.IP "  \(bu" 4
+\fCtoUpperCase\fP
+.IP "  \(bu" 4
+\fCtrim\fP
+.IP "  \(bu" 4
+\fCtruncate\fP
+.IP "  \(bu" 4
+\fCunderscored\fP
+.IP "  \(bu" 4
+\fCupperCamelize\fP
+.IP "  \(bu" 4
+\fCupperCaseFirst\fP
+.PP
+
+.IP "\(bu" 2
+\fCLinks\fP
+.IP "\(bu" 2
+\fCTests\fP
+.IP "\(bu" 2
+\fCLicense\fP
+.PP
+.PP
+.SS "Requiring/Loading"
+.PP
+If you're using \fBComposer\fP to manage dependencies, you can include the following in your composer\&.json file:
+.PP
+```json { 'require': { 'danielstjules/stringy': '~1\&.9' } } ```
+.PP
+Then, after running \fCcomposer update\fP or \fCphp composer\&.phar update\fP, you can load the class using \fBComposer\fP's autoloading:
+.PP
+```php require '\fBvendor/autoload\&.php\fP'; ```
+.PP
+Otherwise, you can simply require the file directly:
+.PP
+```php require_once 'path/to/Stringy/src/Stringy\&.php'; // or require_once 'path/to/Stringy/src/StaticStringy\&.php'; ```
+.PP
+And in either case, I'd suggest using an alias\&.
+.PP
+```php use \fBStringy\fP as S; // or use \fBStringy\fP as S; ```
+.PP
+.SS "OO and Procedural"
+.PP
+The library offers both OO method chaining with \fC\fBStringy\fP\\\fBStringy\fP\fP, as well as procedural-style static method calls with \fC\fBStringy\fP\\StaticStringy\fP\&. An example of the former is the following:
+.PP
+```php use \fBStringy\fP as S; echo S::create('Fòô Bàř', 'UTF-8')->collapseWhitespace()->swapCase(); // 'fÒÔ bÀŘ' ```
+.PP
+\fC\fBStringy\fP\\\fBStringy\fP\fP has a __toString() method, which returns the current string when the object is used in a string context, ie: `(string) S::create('foo') // 'foo'`
+.PP
+Using the static wrapper, an alternative is the following:
+.PP
+```php use \fBStringy\fP as S; $string = S::collapseWhitespace('Fòô Bàř', 'UTF-8'); echo S::swapCase($string, 'UTF-8'); // 'fÒÔ bÀŘ' ```
+.PP
+.SS "Implemented Interfaces"
+.PP
+\fC\fBStringy\fP\\\fBStringy\fP\fP implements the \fCIteratorAggregate\fP interface, meaning that \fCforeach\fP can be used with an instance of the class:
+.PP
+``` php $stringy = S::create('Fòô Bàř', 'UTF-8'); foreach ($stringy as $char) { echo $char; } // 'Fòô Bàř' ```
+.PP
+It implements the \fCCountable\fP interface, enabling the use of \fCcount()\fP to retrieve the number of characters in the string:
+.PP
+``` php $stringy = S::create('Fòô', 'UTF-8'); count($stringy); // 3 ```
+.PP
+Furthermore, the \fCArrayAccess\fP interface has been implemented\&. As a result, \fCisset()\fP can be used to check if a character at a specific index exists\&. And since \fC\fBStringy\fP\\\fBStringy\fP\fP is immutable, any call to \fCoffsetSet\fP or \fCoffsetUnset\fP will throw an exception\&. \fCoffsetGet\fP has been implemented, however, and accepts both positive and negative indexes\&. Invalid indexes result in an \fCOutOfBoundsException\fP\&.
+.PP
+``` php $stringy = S::create('Bàř', 'UTF-8'); echo $stringy[2]; // 'ř' echo $stringy[-2]; // 'à' isset($stringy[-4]); // false
+.PP
+$stringy[3]; // OutOfBoundsException $stringy[2] = 'a'; // Exception ```
+.PP
+.SS "\fBPHP\fP 5\&.6 Creation"
+.PP
+As of \fBPHP\fP 5\&.6, \fC`use function`\fP is available for importing functions\&. \fBStringy\fP exposes a namespaced function, \fC\fBStringy\fP\\create\fP, which emits the same behaviour as \fC\fBStringy\fP\\Stringy::create()\fP\&. If running \fBPHP\fP 5\&.6, or another runtime that supports the \fCuse function\fP syntax, you can take advantage of an even simpler API as seen below:
+.PP
+``` php use function \fBStringy\fP as s;
+.PP
+// Instead of: S::create('Fòô Bàř', 'UTF-8') s('Fòô Bàř', 'UTF-8')->collapseWhitespace()->swapCase(); ```
+.PP
+.SS "Methods"
+.PP
+In the list below, any static method other than S::create refers to a method in \fC\fBStringy\fP\\StaticStringy\fP\&. For all others, they're found in \fC\fBStringy\fP\\\fBStringy\fP\fP\&. Furthermore, all methods that return a \fBStringy\fP object or string do not modify the original\&. \fBStringy\fP objects are immutable\&.
+.PP
+\fINote: If \fC$encoding\fP is not given, it defaults to \fCmb_internal_encoding()\fP\&.\fP
+.PP
+.SS "at"
+.PP
+$stringy->at(int $index)
+.PP
+S::at(int $index [, string $encoding ])
+.PP
+Returns the character at $index, with indexes starting at 0\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->at(6); S::at('fòô bàř', 6, 'UTF-8'); // 'ř' ```
+.PP
+.SS "camelize"
+.PP
+$stringy->camelize();
+.PP
+S::camelize(string $str [, string $encoding ])
+.PP
+Returns a camelCase version of the string\&. Trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, as well as underscores\&.
+.PP
+```php S::create('Camel-Case')->camelize(); S::camelize('Camel-Case'); // 'camelCase' ```
+.PP
+.SS "chars"
+.PP
+$stringy->chars();
+.PP
+S::chars(string $str [, string $encoding ])
+.PP
+Returns an array consisting of the characters in the string\&.
+.PP
+```php S::create('Fòô Bàř', 'UTF-8')->chars(); S::chars('Fòô Bàř', 'UTF-8'); // array(F', 'ò', 'ô', ' ', 'B', 'à', 'ř') ```
+.PP
+.SS "collapseWhitespace"
+.PP
+$stringy->collapseWhitespace()
+.PP
+S::collapseWhitespace(string $str [, string $encoding ])
+.PP
+Trims the string and replaces consecutive whitespace characters with a single space\&. This includes tabs and newline characters, as well as multibyte whitespace such as the thin space and ideographic space\&.
+.PP
+```php S::create(' Ο συγγραφέας ')->collapseWhitespace(); S::collapseWhitespace(' Ο συγγραφέας '); // 'Ο συγγραφέας' ```
+.PP
+.SS "contains"
+.PP
+$stringy->contains(string $needle [, boolean $caseSensitive = true ])
+.PP
+S::contains(string $haystack, string $needle [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns true if the string contains $needle, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('Ο συγγραφέας είπε', 'UTF-8')->contains('συγγραφέας'); S::contains('Ο συγγραφέας είπε', 'συγγραφέας', 'UTF-8'); // true ```
+.PP
+.SS "containsAll"
+.PP
+$stringy->containsAll(array $needles [, boolean $caseSensitive = true ])
+.PP
+S::containsAll(string $haystack, array $needles [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns true if the string contains all $needles, false otherwise\&. By default the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('\fBStr\fP contains foo and bar')->containsAll(array('foo', 'bar')); S::containsAll('\fBStr\fP contains foo and bar', array('foo', 'bar')); // true ```
+.PP
+.SS "containsAny"
+.PP
+$stringy->containsAny(array $needles [, boolean $caseSensitive = true ])
+.PP
+S::containsAny(string $haystack, array $needles [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns true if the string contains any $needles, false otherwise\&. By default the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('\fBStr\fP contains foo')->containsAny(array('foo', 'bar')); S::containsAny('\fBStr\fP contains foo', array('foo', 'bar')); // true ```
+.PP
+.SS "countSubstr"
+.PP
+$stringy->countSubstr(string $substring [, boolean $caseSensitive = true ])
+.PP
+S::countSubstr(string $str, string $substring [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns the number of occurrences of $substring in the given string\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('Ο συγγραφέας είπε', 'UTF-8')->countSubstr('α'); S::countSubstr('Ο συγγραφέας είπε', 'α', 'UTF-8'); // 2 ```
+.PP
+.SS "create"
+.PP
+S::create(mixed $str [, $encoding ])
+.PP
+Creates a \fBStringy\fP object and assigns both str and encoding properties the supplied values\&. $str is cast to a string prior to assignment, and if $encoding is not specified, it defaults to mb_internal_encoding()\&. It then returns the initialized object\&. Throws an InvalidArgumentException if the first argument is an array or object without a __toString method\&.
+.PP
+```php $stringy = S::create('fòô bàř', 'UTF-8'); // 'fòô bàř' ```
+.PP
+.SS "dasherize"
+.PP
+$stringy->dasherize();
+.PP
+S::dasherize(string $str [, string $encoding ])
+.PP
+Returns a lowercase and trimmed string separated by dashes\&. Dashes are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as underscores\&.
+.PP
+```php S::create('TestDCase')->dasherize(); S::dasherize('TestDCase'); // 'test-d-case' ```
+.PP
+.SS "endsWith"
+.PP
+$stringy->endsWith(string $substring [, boolean $caseSensitive = true ])
+.PP
+S::endsWith(string $str, string $substring [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns true if the string ends with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('FÒÔ bàřs', 'UTF-8')->endsWith('àřs', true); S::endsWith('FÒÔ bàřs', 'àřs', true, 'UTF-8'); // true ```
+.PP
+.SS "ensureLeft"
+.PP
+$stringy->ensureLeft(string $substring)
+.PP
+S::ensureLeft(string $substring [, string $encoding ])
+.PP
+Ensures that the string begins with $substring\&. If it doesn't, it's prepended\&.
+.PP
+```php S::create('foobar')->ensureLeft('http://'); S::ensureLeft('foobar', 'http://'); // 'http://foobar' ```
+.PP
+.SS "ensureRight"
+.PP
+$stringy->ensureRight(string $substring)
+.PP
+S::ensureRight(string $substring [, string $encoding ])
+.PP
+Ensures that the string begins with $substring\&. If it doesn't, it's appended\&.
+.PP
+```php S::create('foobar')->ensureRight('\&.com'); S::ensureRight('foobar', '\&.com'); // 'foobar\&.com' ```
+.PP
+.SS "first"
+.PP
+$stringy->first(int $n)
+.PP
+S::first(int $n [, string $encoding ])
+.PP
+Returns the first $n characters of the string\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->first(3); S::first('fòô bàř', 3, 'UTF-8'); // 'fòô' ```
+.PP
+.SS "getEncoding"
+.PP
+$stringy->getEncoding()
+.PP
+Returns the encoding used by the \fBStringy\fP object\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->getEncoding(); // 'UTF-8' ```
+.PP
+.SS "hasLowerCase"
+.PP
+$stringy->hasLowerCase()
+.PP
+S::hasLowerCase(string $str [, string $encoding ])
+.PP
+Returns true if the string contains a lower case char, false otherwise\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->hasLowerCase(); S::hasLowerCase('fòô bàř', 'UTF-8'); // true ```
+.PP
+.SS "hasUpperCase"
+.PP
+$stringy->hasUpperCase()
+.PP
+S::hasUpperCase(string $str [, string $encoding ])
+.PP
+Returns true if the string contains an upper case char, false otherwise\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->hasUpperCase(); S::hasUpperCase('fòô bàř', 'UTF-8'); // false ```
+.PP
+.SS "humanize"
+.PP
+$stringy->humanize()
+.PP
+S::humanize(string $str [, string $encoding ])
+.PP
+Capitalizes the first word of the string, replaces underscores with spaces, and strips '_id'\&.
+.PP
+```php S::create('author_id')->humanize(); S::humanize('author_id'); // '\fBAuthor\fP' ```
+.PP
+.SS "insert"
+.PP
+$stringy->insert(int $index, string $substring)
+.PP
+S::insert(string $str, int $index, string $substring [, string $encoding ])
+.PP
+Inserts $substring into the string at the $index provided\&.
+.PP
+```php S::create('fòô bà', 'UTF-8')->insert('ř', 6); S::insert('fòô bà', 'ř', 6, 'UTF-8'); // 'fòô bàř' ```
+.PP
+.SS "isAlpha"
+.PP
+$stringy->isAlpha()
+.PP
+S::isAlpha(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only alphabetic chars, false otherwise\&.
+.PP
+```php S::create('丹尼爾', 'UTF-8')->isAlpha(); S::isAlpha('丹尼爾', 'UTF-8'); // true ```
+.PP
+.SS "isAlphanumeric"
+.PP
+$stringy->isAlphanumeric()
+.PP
+S::isAlphanumeric(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only alphabetic and numeric chars, false otherwise\&.
+.PP
+```php S::create('دانيال1', 'UTF-8')->isAlphanumeric(); S::isAlphanumeric('دانيال1', 'UTF-8'); // true ```
+.PP
+.SS "isBlank"
+.PP
+$stringy->isBlank()
+.PP
+S::isBlank(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only whitespace chars, false otherwise\&.
+.PP
+```php S::create('\\n\\t  \\v\\f')->isBlank(); S::isBlank('\\n\\t  \\v\\f'); // true ```
+.PP
+.SS "isHexadecimal"
+.PP
+$stringy->isHexadecimal()
+.PP
+S::isHexadecimal(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only hexadecimal chars, false otherwise\&.
+.PP
+```php S::create('A102F')->isHexadecimal(); S::isHexadecimal('A102F'); // true ```
+.PP
+.SS "isJson"
+.PP
+$stringy->\fBisJson()\fP
+.PP
+S::isJson(string $str [, string $encoding ])
+.PP
+Returns true if the string is JSON, false otherwise\&.
+.PP
+```php S::create('{'foo':'bar'}')->\fBisJson()\fP; S::isJson('{'foo':'bar'}'); // true ```
+.PP
+.SS "isLowerCase"
+.PP
+$stringy->isLowerCase()
+.PP
+S::isLowerCase(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only lower case chars, false otherwise\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->isLowerCase(); S::isLowerCase('fòô bàř', 'UTF-8'); // true ```
+.PP
+.SS "isSerialized"
+.PP
+$stringy->isSerialized()
+.PP
+S::isSerialized(string $str [, string $encoding ])
+.PP
+Returns true if the string is serialized, false otherwise\&.
+.PP
+```php S::create('a:1:{s:3:'foo';s:3:'bar';}', 'UTF-8')->isSerialized(); S::isSerialized('a:1:{s:3:'foo';s:3:'bar';}', 'UTF-8'); // true ```
+.PP
+.SS "isUpperCase"
+.PP
+$stringy->isUpperCase()
+.PP
+S::isUpperCase(string $str [, string $encoding ])
+.PP
+Returns true if the string contains only upper case chars, false otherwise\&.
+.PP
+```php S::create('FÒÔBÀŘ', 'UTF-8')->isUpperCase(); S::isUpperCase('FÒÔBÀŘ', 'UTF-8'); // true ```
+.PP
+.SS "last"
+.PP
+$stringy->last(int $n)
+.PP
+S::last(int $n [, string $encoding ])
+.PP
+Returns the last $n characters of the string\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->last(3); S::last('fòô bàř', 3, 'UTF-8'); // 'bàř' ```
+.PP
+.SS "length"
+.PP
+$stringy->length()
+.PP
+S::length(string $str [, string $encoding ])
+.PP
+Returns the length of the string\&. An alias for \fBPHP\fP's mb_strlen() function\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->length(); S::length('fòô bàř', 'UTF-8'); // 7 ```
+.PP
+.SS "longestCommonPrefix"
+.PP
+$stringy->longestCommonPrefix(string $otherStr)
+.PP
+S::longestCommonPrefix(string $str, string $otherStr [, $encoding ])
+.PP
+Returns the longest common prefix between the string and $otherStr\&.
+.PP
+```php S::create('fòô bar', 'UTF-8')->longestCommonPrefix('fòr bar'); S::longestCommonPrefix('fòô bar', 'fòr bar', 'UTF-8'); // 'fò' ```
+.PP
+.SS "longestCommonSuffix"
+.PP
+$stringy->longestCommonSuffix(string $otherStr)
+.PP
+S::longestCommonSuffix(string $str, string $otherStr [, $encoding ])
+.PP
+Returns the longest common suffix between the string and $otherStr\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->longestCommonSuffix('fòr bàř'); S::longestCommonSuffix('fòô bàř', 'fòr bàř', 'UTF-8'); // ' bàř' ```
+.PP
+.SS "longestCommonSubstring"
+.PP
+$stringy->longestCommonSubstring(string $otherStr)
+.PP
+S::longestCommonSubstring(string $str, string $otherStr [, $encoding ])
+.PP
+Returns the longest common substring between the string and $otherStr\&. In the case of ties, it returns that which occurs first\&.
+.PP
+```php S::create('foo bar')->longestCommonSubstring('boo far'); S::longestCommonSubstring('foo bar', 'boo far'); // 'oo ' ```
+.PP
+.SS "lowerCaseFirst"
+.PP
+$stringy->lowerCaseFirst();
+.PP
+S::lowerCaseFirst(string $str [, string $encoding ])
+.PP
+Converts the first character of the supplied string to lower case\&.
+.PP
+```php S::create('Σ test', 'UTF-8')->lowerCaseFirst(); S::lowerCaseFirst('Σ test', 'UTF-8'); // 'σ test' ```
+.PP
+.SS "pad"
+.PP
+$stringy->pad(int $length [, string $padStr = ' ' [, string $padType = 'right' ]])
+.PP
+S::pad(string $str , int $length [, string $padStr = ' ' [, string $padType = 'right' [, string $encoding ]]])
+.PP
+Pads the string to a given length with $padStr\&. If length is less than or equal to the length of the string, no padding takes places\&. The default string used for padding is a space, and the default type (one of 'left', 'right', 'both') is 'right'\&. Throws an InvalidArgumentException if $padType isn't one of those 3 values\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->pad( 10, '¬ø', 'left'); S::pad('fòô bàř', 10, '¬ø', 'left', 'UTF-8'); // '¬ø¬fòô bàř' ```
+.PP
+.SS "padBoth"
+.PP
+$stringy->padBoth(int $length [, string $padStr = ' ' ])
+.PP
+S::padBoth(string $str , int $length [, string $padStr = ' ' [, string $encoding ]])
+.PP
+Returns a new string of a given length such that both sides of the string string are padded\&. Alias for pad() with a $padType of 'both'\&.
+.PP
+```php S::create('foo bar')->padBoth(9, ' '); S::padBoth('foo bar', 9, ' '); // ' foo bar ' ```
+.PP
+.SS "padLeft"
+.PP
+$stringy->padLeft(int $length [, string $padStr = ' ' ])
+.PP
+S::padLeft(string $str , int $length [, string $padStr = ' ' [, string $encoding ]])
+.PP
+Returns a new string of a given length such that the beginning of the string is padded\&. Alias for pad() with a $padType of 'left'\&.
+.PP
+```php S::create($str, $encoding)->padLeft($length, $padStr); S::padLeft('foo bar', 9, ' '); // ' foo bar' ```
+.PP
+.SS "padRight"
+.PP
+$stringy->padRight(int $length [, string $padStr = ' ' ])
+.PP
+S::padRight(string $str , int $length [, string $padStr = ' ' [, string $encoding ]])
+.PP
+Returns a new string of a given length such that the end of the string is padded\&. Alias for pad() with a $padType of 'right'\&.
+.PP
+```php S::create('foo bar')->padRight(10, '_*'); S::padRight('foo bar', 10, '_*'); // 'foo bar_*_' ```
+.PP
+.SS "regexReplace"
+.PP
+$stringy->regexReplace(string $pattern, string $replacement [, string $options = 'msr'])
+.PP
+S::regexReplace(string $str, string $pattern, string $replacement [, string $options = 'msr' [, string $encoding ]])
+.PP
+Replaces all occurrences of $pattern in $str by $replacement\&. An alias for mb_ereg_replace()\&. Note that the 'i' option with multibyte patterns in mb_ereg_replace() requires \fBPHP\fP 5\&.4+\&. This is due to a lack of support in the bundled version of Oniguruma in \fBPHP\fP 5\&.3\&.
+.PP
+```php S::create('fòô ', 'UTF-8')->regexReplace('f[òô]+', 'bàř', 'msr'); S::regexReplace('fòô ', 'f[òô]+', 'bàř', 'msr', 'UTF-8'); // 'bàř' ```
+.PP
+.SS "removeLeft"
+.PP
+$stringy->removeLeft(string $substring)
+.PP
+S::removeLeft(string $str, string $substring [, string $encoding ])
+.PP
+Returns a new string with the prefix $substring removed, if present\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->removeLeft('fòô '); S::removeLeft('fòô bàř', 'fòô ', 'UTF-8'); // 'bàř' ```
+.PP
+.SS "removeRight"
+.PP
+$stringy->removeRight(string $substring)
+.PP
+S::removeRight(string $str, string $substring [, string $encoding ])
+.PP
+Returns a new string with the suffix $substring removed, if present\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->removeRight(' bàř'); S::removeRight('fòô bàř', ' bàř', 'UTF-8'); // 'fòô' ```
+.PP
+.SS "replace"
+.PP
+$stringy->replace(string $search, string $replacement)
+.PP
+S::replace(string $str, string $search, string $replacement [, string $encoding ])
+.PP
+Replaces all occurrences of $search in $str by $replacement\&.
+.PP
+```php S::create('fòô bàř fòô bàř', 'UTF-8')->replace('fòô ', ''); S::replace('fòô bàř fòô bàř', 'fòô ', '', 'UTF-8'); // 'bàř bàř' ```
+.PP
+.SS "reverse"
+.PP
+$stringy->\fBreverse()\fP
+.PP
+S::reverse(string $str [, string $encoding ])
+.PP
+Returns a reversed string\&. \fBA\fP multibyte version of strrev()\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->\fBreverse()\fP; S::reverse('fòô bàř', 'UTF-8'); // 'řàb ôòf' ```
+.PP
+.SS "safeTruncate"
+.PP
+$stringy->safeTruncate(int $length [, string $substring = '' ])
+.PP
+S::safeTruncate(string $str, int $length [, string $substring = '' [, string $encoding ]])
+.PP
+Truncates the string to a given length, while ensuring that it does not split words\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+```php S::create('What are your plans today?')->safeTruncate(22, '\&.\&.\&.'); S::safeTruncate('What are your plans today?', 22, '\&.\&.\&.'); // 'What are your plans\&.\&.\&.' ```
+.PP
+.SS "shuffle"
+.PP
+$stringy->\fBshuffle()\fP
+.PP
+S::shuffle(string $str [, string $encoding ])
+.PP
+\fBA\fP multibyte str_shuffle() function\&. It returns a string with its characters in random order\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->\fBshuffle()\fP; S::shuffle('fòô bàř', 'UTF-8'); // 'àôřb òf' ```
+.PP
+.SS "slugify"
+.PP
+$stringy->slugify([ string $replacement = '-' ])
+.PP
+S::slugify(string $str [, string $replacement = '-' ])
+.PP
+Converts the string into an \fBURL\fP slug\&. This includes replacing non-ASCII characters with their closest ASCII equivalents, removing remaining non-ASCII and non-alphanumeric characters, and replacing whitespace with $replacement\&. The replacement defaults to a single dash, and the string is also converted to lowercase\&.
+.PP
+```php S::create('Using strings like fòô bàř')->slugify(); S::slugify('Using strings like fòô bàř'); // 'using-strings-like-foo-bar' ```
+.PP
+.SS "startsWith"
+.PP
+$stringy->startsWith(string $substring [, boolean $caseSensitive = true ])
+.PP
+S::startsWith(string $str, string $substring [, boolean $caseSensitive = true [, string $encoding ]])
+.PP
+Returns true if the string begins with $substring, false otherwise\&. By default, the comparison is case-sensitive, but can be made insensitive by setting $caseSensitive to false\&.
+.PP
+```php S::create('FÒÔ bàřs', 'UTF-8')->startsWith('fòô bàř', false); S::startsWith('FÒÔ bàřs', 'fòô bàř', false, 'UTF-8'); // true ```
+.PP
+.SS "substr"
+.PP
+$stringy->substr(int $start [, int $length ])
+.PP
+S::substr(string $str, int $start [, int $length [, string $encoding ]])
+.PP
+Returns the substring beginning at $start with the specified $length\&. It differs from the mb_substr() function in that providing a $length of null will return the rest of the string, rather than an empty string\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->substr(2, 3); S::substr('fòô bàř', 2, 3, 'UTF-8'); // 'ô b' ```
+.PP
+.SS "surround"
+.PP
+$stringy->surround(string $substring)
+.PP
+S::surround(string $str, string $substring)
+.PP
+Surrounds a string with the given substring\&.
+.PP
+```php S::create(' ͜ ')->surround('ʘ'); S::surround(' ͜ ', 'ʘ'); // 'ʘ ͜ ʘ' ```
+.PP
+.SS "swapCase"
+.PP
+$stringy->swapCase();
+.PP
+S::swapCase(string $str [, string $encoding ])
+.PP
+Returns a case swapped version of the string\&.
+.PP
+```php S::create('Ντανιλ', 'UTF-8')->swapCase(); S::swapCase('Ντανιλ', 'UTF-8'); // 'νΤΑΝΙΛ' ```
+.PP
+.SS "tidy"
+.PP
+$stringy->tidy()
+.PP
+S::tidy(string $str)
+.PP
+Returns a string with smart quotes, ellipsis characters, and dashes from Windows-1252 (commonly used in Word documents) replaced by their ASCII equivalents\&.
+.PP
+```php S::create('“I see…”')->tidy(); S::tidy('“I see…”'); // ''I see\&.\&.\&.'' ```
+.PP
+.SS "titleize"
+.PP
+$stringy->titleize([ string $encoding ])
+.PP
+S::titleize(string $str [, array $ignore [, string $encoding ]])
+.PP
+Returns a trimmed string with the first letter of each word capitalized\&. Ignores the case of other letters, preserving any acronyms\&. Also accepts an array, $ignore, allowing you to list words not to be capitalized\&.
+.PP
+```php $ignore = array('at', 'by', 'for', 'in', 'of', 'on', 'out', 'to', 'the'); S::create('i like to watch DVDs at home', 'UTF-8')->titleize($ignore); S::titleize('i like to watch DVDs at home', $ignore, 'UTF-8'); // 'I Like to Watch DVDs at Home' ```
+.PP
+.SS "toAscii"
+.PP
+$stringy->toAscii()
+.PP
+S::toAscii(string $str [, boolean $removeUnsupported = true])
+.PP
+Returns an ASCII version of the string\&. \fBA\fP set of non-ASCII characters are replaced with their closest ASCII counterparts, and the rest are removed unless instructed otherwise\&.
+.PP
+```php S::create('fòô bàř')->toAscii(); S::toAscii('fòô bàř'); // 'foo bar' ```
+.PP
+.SS "toLowerCase"
+.PP
+$stringy->toLowerCase()
+.PP
+S::toLowerCase(string $str [, string $encoding ])
+.PP
+Converts all characters in the string to lowercase\&. An alias for \fBPHP\fP's mb_strtolower()\&.
+.PP
+```php S::create('FÒÔ BÀŘ', 'UTF-8')->toLowerCase(); S::toLowerCase('FÒÔ BÀŘ', 'UTF-8'); // 'fòô bàř' ```
+.PP
+.SS "toSpaces"
+.PP
+$stringy->toSpaces([ tabLength = 4 ])
+.PP
+S::toSpaces(string $str [, int $tabLength = 4 ])
+.PP
+Converts each tab in the string to some number of spaces, as defined by $tabLength\&. By default, each tab is converted to 4 consecutive spaces\&.
+.PP
+```php S::create(' String speech = 'Hi'')->toSpaces(); S::toSpaces(' String speech = 'Hi''); // ' String speech = 'Hi'' ```
+.PP
+.SS "toTabs"
+.PP
+$stringy->toTabs([ tabLength = 4 ])
+.PP
+S::toTabs(string $str [, int $tabLength = 4 ])
+.PP
+Converts each occurrence of some consecutive number of spaces, as defined by $tabLength, to a tab\&. By default, each 4 consecutive spaces are converted to a tab\&.
+.PP
+```php S::create(' fòô bàř')->toTabs(); S::toTabs(' fòô bàř'); // ' fòô bàř' ```
+.PP
+.SS "toTitleCase"
+.PP
+$stringy->toTitleCase()
+.PP
+S::toTitleCase(string $str [, string $encoding ])
+.PP
+Converts the first character of each word in the string to uppercase\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->toTitleCase(); S::toTitleCase('fòô bàř', 'UTF-8'); // 'Fòô Bàř' ```
+.PP
+.SS "toUpperCase"
+.PP
+$stringy->toUpperCase()
+.PP
+S::toUpperCase(string $str [, string $encoding ])
+.PP
+Converts all characters in the string to uppercase\&. An alias for \fBPHP\fP's mb_strtoupper()\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->toUpperCase(); S::toUpperCase('fòô bàř', 'UTF-8'); // 'FÒÔ BÀŘ' ```
+.PP
+.SS "trim"
+.PP
+$stringy->trim()
+.PP
+S::trim(string $str)
+.PP
+Returns the trimmed string\&. An alias for \fBPHP\fP's trim() function\&.
+.PP
+```php S::create('fòô bàř', 'UTF-8')->trim(); S::trim(' fòô bàř '); // 'fòô bàř' ```
+.PP
+.SS "truncate"
+.PP
+$stringy->truncate(int $length [, string $substring = '' ])
+.PP
+S::truncate(string $str, int $length [, string $substring = '' [, string $encoding ]])
+.PP
+Truncates the string to a given length\&. If $substring is provided, and truncating occurs, the string is further truncated so that the substring may be appended without exceeding the desired length\&.
+.PP
+```php S::create('What are your plans today?')->truncate(19, '\&.\&.\&.'); S::truncate('What are your plans today?', 19, '\&.\&.\&.'); // 'What are your pl\&.\&.\&.' ```
+.PP
+.SS "underscored"
+.PP
+$stringy->underscored();
+.PP
+S::underscored(string $str [, string $encoding ])
+.PP
+Returns a lowercase and trimmed string separated by underscores\&. Underscores are inserted before uppercase characters (with the exception of the first character of the string), and in place of spaces as well as dashes\&.
+.PP
+```php S::create('TestUCase')->underscored(); S::underscored('TestUCase'); // 'test_u_case' ```
+.PP
+.SS "upperCamelize"
+.PP
+$stringy->upperCamelize();
+.PP
+S::upperCamelize(string $str [, string $encoding ])
+.PP
+Returns an UpperCamelCase version of the supplied string\&. It trims surrounding spaces, capitalizes letters following digits, spaces, dashes and underscores, and removes spaces, dashes, underscores\&.
+.PP
+```php S::create('Upper Camel-Case')->upperCamelize(); S::upperCamelize('Upper Camel-Case'); // 'UpperCamelCase' ```
+.PP
+.SS "upperCaseFirst"
+.PP
+$stringy->upperCaseFirst();
+.PP
+S::upperCaseFirst(string $str [, string $encoding ])
+.PP
+Converts the first character of the supplied string to upper case\&.
+.PP
+```php S::create('σ test', 'UTF-8')->upperCaseFirst(); S::upperCaseFirst('σ test', 'UTF-8'); // 'Σ test' ```
+.PP
+.SS "Links"
+.PP
+The following is a list of libraries that extend \fBStringy\fP:
+.PP
+.IP "\(bu" 2
+\fCSliceableStringy\fP: Python-like string slices in \fBPHP\fP
+.PP
+.PP
+.SS "Tests"
+.PP
+From the project directory, tests can be ran using \fCphpunit\fP
+.PP
+.SS "License"
+.PP
+Released under the MIT License - see \fCLICENSE\&.txt\fP for details\&. 

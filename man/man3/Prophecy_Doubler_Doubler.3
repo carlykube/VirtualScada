@@ -1,0 +1,132 @@
+.TH "Doubler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Doubler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBCachedDoubler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBClassMirror\fP $mirror=null, \fBClassCreator\fP $creator=null, \fBNameGenerator\fP $namer=null)"
+.br
+.ti -1c
+.RI "\fBgetClassPatches\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterClassPatch\fP (\fBClassPatchInterface\fP $patch)"
+.br
+.ti -1c
+.RI "\fBdouble\fP (ReflectionClass $class=null, array $interfaces, array $args=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreateDoubleClass\fP (ReflectionClass $class=null, array $interfaces)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Cached class doubler\&. Prevents mirroring/creation of the same structure twice\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Konstantin Kudryashov ever.zet@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file Doubler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBClassMirror\fP $mirror = \fCnull\fP, \fBClassCreator\fP $creator = \fCnull\fP, \fBNameGenerator\fP $namer = \fCnull\fP)"
+Initializes doubler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$mirror\fP 
+.br
+\fI$creator\fP 
+.br
+\fI$namer\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file Doubler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createDoubleClass (ReflectionClass $class = \fCnull\fP, array $interfaces)\fC [protected]\fP"
+Creates double class and returns its FQN\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fIReflectionClass[]\fP $interfaces
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file Doubler\&.php\&.
+.SS "double (ReflectionClass $class = \fCnull\fP, array $interfaces, array $args = \fCnull\fP)"
+Creates double from specific class or/and list of interfaces\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP 
+.br
+\fIReflectionClass[]\fP $interfaces Array of ReflectionClass instances 
+.br
+\fI$args\fP Constructor arguments
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBDoubleInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 93 of file Doubler\&.php\&.
+.SS "getClassPatches ()"
+Returns list of registered class patches\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ClassPatchInterface[] 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file Doubler\&.php\&.
+.SS "registerClassPatch (\fBClassPatchInterface\fP $patch)"
+Registers new class patch\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$patch\fP 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file Doubler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,227 @@
+.TH "BeanstalkdQueue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BeanstalkdQueue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP, and \fBQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (Pheanstalk $pheanstalk, $default, $timeToRun)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBdeleteMessage\fP ($\fBqueue\fP, $id)"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetPheanstalk\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$pheanstalk\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP"
+.br
+.ti -1c
+.RI "\fB$timeToRun\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file BeanstalkdQueue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (Pheanstalk $pheanstalk,  $default,  $timeToRun)"
+Create a new Beanstalkd queue instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pheanstalk\fP 
+.br
+\fI$default\fP 
+.br
+\fI$timeToRun\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file BeanstalkdQueue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "deleteMessage ( $queue,  $id)"
+Delete a message from the Beanstalk queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file BeanstalkdQueue\&.php\&.
+.SS "getPheanstalk ()"
+Get the underlying Pheanstalk instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 138 of file BeanstalkdQueue\&.php\&.
+.SS "getQueue ( $queue)"
+Get the queue or return the default\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file BeanstalkdQueue\&.php\&.
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 83 of file BeanstalkdQueue\&.php\&.
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 98 of file BeanstalkdQueue\&.php\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 54 of file BeanstalkdQueue\&.php\&.
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 67 of file BeanstalkdQueue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$default\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file BeanstalkdQueue\&.php\&.
+.SS "$pheanstalk\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file BeanstalkdQueue\&.php\&.
+.SS "$timeToRun\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file BeanstalkdQueue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

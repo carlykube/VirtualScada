@@ -1,0 +1,228 @@
+.TH "Dotenv" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Dotenv \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBload\fP ($\fBpath\fP, $file= '\&.env')"
+.br
+.ti -1c
+.RI "static \fBsetEnvironmentVariable\fP ($\fBname\fP, $value=null)"
+.br
+.ti -1c
+.RI "static \fBrequired\fP ($environmentVariables, array $allowedValues=array())"
+.br
+.ti -1c
+.RI "static \fBfindEnvironmentVariable\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBmakeImmutable\fP ()"
+.br
+.ti -1c
+.RI "static \fBmakeMutable\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBnormaliseEnvironmentVariable\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "static \fBsplitCompoundStringIntoParts\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "static \fBsanitiseVariableValue\fP ($value)"
+.br
+.ti -1c
+.RI "static \fBsanitiseVariableName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fBresolveNestedVariables\fP ($value)"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$immutable\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDotenv\fP
+.PP
+Loads a \fC\&.env\fP file in the given directory and sets the environment vars 
+.PP
+Definition at line 7 of file Dotenv\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static findEnvironmentVariable ( $name)\fC [static]\fP"
+Search the different places for environment variables and return first value found\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file Dotenv\&.php\&.
+.SS "static load ( $path,  $file = \fC'\&.env'\fP)\fC [static]\fP"
+Load \fC\&.env\fP file in given directory 
+.PP
+Definition at line 18 of file Dotenv\&.php\&.
+.SS "static makeImmutable ()\fC [static]\fP"
+Make \fBDotenv\fP immutable\&. This means that once set, an environment variable cannot be overridden\&. 
+.PP
+Definition at line 249 of file Dotenv\&.php\&.
+.SS "static makeMutable ()\fC [static]\fP"
+Make \fBDotenv\fP mutable\&. \fBEnvironment\fP variables will act as, well, variables\&. 
+.PP
+Definition at line 257 of file Dotenv\&.php\&.
+.SS "static normaliseEnvironmentVariable ( $name,  $value)\fC [static]\fP, \fC [protected]\fP"
+Takes value as passed in by developer and:
+.IP "\(bu" 2
+ensures we're dealing with a separate name and value, breaking apart the name string if needed
+.IP "\(bu" 2
+cleaning the value of quotes
+.IP "\(bu" 2
+cleaning the name of quotes
+.IP "\(bu" 2
+resolving nested variables
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file Dotenv\&.php\&.
+.SS "static required ( $environmentVariables, array $allowedValues = \fCarray()\fP)\fC [static]\fP"
+Require specified ENV vars to be present, or throw Exception\&. You can also pass through an set of allowed values for the environment variable\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 89 of file Dotenv\&.php\&.
+.SS "static resolveNestedVariables ( $value)\fC [static]\fP, \fC [protected]\fP"
+Look for {$varname} patterns in the variable value and replace with an existing environment variable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file Dotenv\&.php\&.
+.SS "static sanitiseVariableName ( $name)\fC [static]\fP, \fC [protected]\fP"
+Strips quotes and the optional leading 'export ' from the environment variable name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file Dotenv\&.php\&.
+.SS "static sanitiseVariableValue ( $value)\fC [static]\fP, \fC [protected]\fP"
+Strips quotes from the environment variable value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file Dotenv\&.php\&.
+.SS "static setEnvironmentVariable ( $name,  $value = \fCnull\fP)\fC [static]\fP"
+Set a variable using:
+.IP "\(bu" 2
+putenv
+.IP "\(bu" 2
+$_ENV
+.IP "\(bu" 2
+$_SERVER
+.PP
+.PP
+The environment variable value is stripped of single and double quotes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Dotenv\&.php\&.
+.SS "static splitCompoundStringIntoParts ( $name,  $value)\fC [static]\fP, \fC [protected]\fP"
+If the $name contains an = sign, then we split it into 2 parts, a name & value
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Dotenv\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$immutable = true\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Dotenv\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,141 @@
+.TH "Swift_CharacterReader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_CharacterReader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_CharacterReader_GenericFixedWidthReader\fP, \fBSwift_CharacterReader_UsAsciiReader\fP, and \fBSwift_CharacterReader_Utf8Reader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetCharPositions\fP ($string, $startOffset, &$currentMap, &$ignoredChars)"
+.br
+.ti -1c
+.RI "\fBgetMapType\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidateByteSequence\fP ($bytes, $\fBsize\fP)"
+.br
+.ti -1c
+.RI "\fBgetInitialByteSize\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBMAP_TYPE_INVALID\fP = 0x01"
+.br
+.ti -1c
+.RI "const \fBMAP_TYPE_FIXED_LEN\fP = 0x02"
+.br
+.ti -1c
+.RI "const \fBMAP_TYPE_POSITIONS\fP = 0x03"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Analyzes characters for a specific character set\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.PP
+Xavier De Cock xdecock@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file CharacterReader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getCharPositions ( $string,  $startOffset, & $currentMap, & $ignoredChars)"
+Returns the complete character map
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.br
+\fI$startOffset\fP 
+.br
+\fI$currentMap\fP 
+.br
+\fI$ignoredChars\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterReader_Utf8Reader\fP, \fBSwift_CharacterReader_GenericFixedWidthReader\fP, and \fBSwift_CharacterReader_UsAsciiReader\fP\&.
+.SS "getInitialByteSize ()"
+Returns the number of bytes which should be read to start each character\&.
+.PP
+For fixed width character sets this should be the number of octets-per-character\&. For multibyte character sets this will probably be 1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterReader_Utf8Reader\fP, \fBSwift_CharacterReader_GenericFixedWidthReader\fP, and \fBSwift_CharacterReader_UsAsciiReader\fP\&.
+.SS "getMapType ()"
+Returns the mapType, see constants\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterReader_Utf8Reader\fP, \fBSwift_CharacterReader_GenericFixedWidthReader\fP, and \fBSwift_CharacterReader_UsAsciiReader\fP\&.
+.SS "validateByteSequence ( $bytes,  $size)"
+Returns an integer which specifies how many more bytes to read\&.
+.PP
+\fBA\fP positive integer indicates the number of more bytes to fetch before invoking this method again\&.
+.PP
+\fBA\fP value of zero means this is already a valid character\&. \fBA\fP value of -1 means this cannot possibly be a valid character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinteger[]\fP $bytes 
+.br
+\fI$size\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterReader_Utf8Reader\fP, \fBSwift_CharacterReader_GenericFixedWidthReader\fP, and \fBSwift_CharacterReader_UsAsciiReader\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const MAP_TYPE_FIXED_LEN = 0x02"
+
+.PP
+Definition at line 20 of file CharacterReader\&.php\&.
+.SS "const MAP_TYPE_INVALID = 0x01"
+
+.PP
+Definition at line 19 of file CharacterReader\&.php\&.
+.SS "const MAP_TYPE_POSITIONS = 0x03"
+
+.PP
+Definition at line 21 of file CharacterReader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

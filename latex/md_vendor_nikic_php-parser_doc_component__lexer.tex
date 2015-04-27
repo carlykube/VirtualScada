@@ -1,0 +1,73 @@
+The lexer is responsible for providing tokens to the parser. The project comes with two lexers\+: {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Lexer} and {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Lexer\textbackslash{}Emulative}. The latter is an extension of the former, which adds the ability to emulate tokens of newer \doxyref{P\+H\+P}{p.}{namespace_p_h_p} versions and thus allows parsing of new code on older versions.
+
+This documentation discusses options available for the default lexers and explains how lexers can be extended.
+
+\subsection*{Lexer options }
+
+The two default lexers accept an {\ttfamily \$options} array in the constructor. Currently only the {\ttfamily \textquotesingle{}used\+Attributes\textquotesingle{}} option is supported, which allows you to specify which attributes will be added to the A\+S\+T nodes. The attributes can then be accessed using {\ttfamily \$node-\/$>$get\+Attribute()}, {\ttfamily \$node-\/$>$set\+Attribute()}, {\ttfamily \$node-\/$>$has\+Attribute()} and {\ttfamily \$node-\/$>$get\+Attributes()} methods. \doxyref{A}{p.}{class_a} sample options array\+:
+
+```php \$lexer = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(array( \textquotesingle{}used\+Attributes\textquotesingle{} =$>$ array( \textquotesingle{}comments\textquotesingle{}, \textquotesingle{}start\+Line\textquotesingle{}, \textquotesingle{}end\+Line\textquotesingle{} ) )); ```
+
+The attributes used in this example match the default behavior of the lexer. The following attributes are supported\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily comments}\+: Array of {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Comment} or {\ttfamily \doxyref{Php\+Parser}{p.}{namespace_php_parser}\textbackslash{}Comment\textbackslash{}Doc} instances, representing all comments that occurred between the previous non-\/discarded token and the current one. Use of this attribute is required for the {\ttfamily \$node-\/$>$get\+Doc\+Comment()} method to work. The attribute is also needed if you wish the pretty printer to retain comments present in the original code.
+\item {\ttfamily start\+Line}\+: Line in which the node starts. This attribute is required for the {\ttfamily \$node-\/$>$get\+Line()} to work. It is also required if syntax errors should contain line number information.
+\item {\ttfamily end\+Line}\+: Line in which the node ends.
+\item {\ttfamily start\+Token\+Pos}\+: Offset into the token array of the first token in the node.
+\item {\ttfamily end\+Token\+Pos}\+: Offset into the token array of the last token in the node.
+\item {\ttfamily start\+File\+Pos}\+: Offset into the code string of the first character that is part of the node.
+\item {\ttfamily end\+File\+Pos}\+: Offset into the code string of the last character that is part of the node.
+\end{DoxyItemize}
+
+\subsubsection*{Using token positions}
+
+The token offset information is useful if you wish to examine the exact formatting used for a node. For example the A\+S\+T does not distinguish whether a property was declared using {\ttfamily public} or using {\ttfamily var}, but you can retrieve this information based on the token position\+:
+
+```php function is\+Declared\+Using\+Var(array \$tokens, \doxyref{Php\+Parser}{p.}{namespace_php_parser} \$prop) \{ \$i = \$prop-\/$>$get\+Attribute(\textquotesingle{}start\+Token\+Pos\textquotesingle{}); return \$tokens[\$i][0] === T\+\_\+\+V\+A\+R; \} ```
+
+In order to make use of this function, you will have to provide the tokens from the lexer to your node visitor using code similar to the following\+:
+
+```php class My\+Node\+Visitor extends \doxyref{Php\+Parser}{p.}{namespace_php_parser} \{ private \$tokens; public function set\+Tokens(array \$tokens) \{ \$this-\/$>$tokens = \$tokens; \}
+
+public function leave\+Node(\doxyref{Php\+Parser}{p.}{namespace_php_parser} \$node) \{ if (\$node instanceof \doxyref{Php\+Parser}{p.}{namespace_php_parser}) \{ var\+\_\+dump(is\+Declared\+Using\+Var(\$this-\/$>$tokens, \$node)); \} \} \}
+
+\$lexer = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(array( \textquotesingle{}used\+Attributes\textquotesingle{} =$>$ array( \textquotesingle{}comments\textquotesingle{}, \textquotesingle{}start\+Line\textquotesingle{}, \textquotesingle{}end\+Line\textquotesingle{}, \textquotesingle{}start\+Token\+Pos\textquotesingle{}, \textquotesingle{}end\+Token\+Pos\textquotesingle{} ) )); \$parser = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(\$lexer);
+
+\$visitor = new My\+Node\+Visitor(); \$traverser = new \doxyref{Php\+Parser}{p.}{namespace_php_parser}(); \$traverser-\/$>$add\+Visitor(\$visitor);
+
+try \{ \$stmts = \$parser-\/$>$parse(\$code); \$visitor-\/$>$set\+Tokens(\$lexer-\/$>$get\+Tokens()); \$stmts = \$traverser-\/$>$traverse(\$stmts); \} catch (\doxyref{Php\+Parser}{p.}{namespace_php_parser} \$e) \{ echo \textquotesingle{}Parse \doxyref{Error}{p.}{class_error}\+: \textquotesingle{}, \$e-\/$>$get\+Message(); \} ```
+
+The same approach can also be used to perform specific modifications in the code, without changing the formatting in other places (which is the case when using the pretty printer).
+
+\subsection*{Lexer extension }
+
+\doxyref{A}{p.}{class_a} lexer has to define the following public interface\+: \begin{DoxyVerb}void startLexing(string $code);
+array getTokens();
+string handleHaltCompiler();
+int getNextToken(string &$value = null, array &$startAttributes = null, array &$endAttributes = null);
+\end{DoxyVerb}
+
+
+The {\ttfamily start\+Lexing()} method is invoked with the source code that is to be lexed (including the opening tag) whenever the {\ttfamily \doxyref{parse()}{p.}{d3_8min_8js_ae83605c3912b7dd2017d8889154727ad}} method of the parser is called. It can be used to reset state or preprocess the source code or tokens.
+
+The {\ttfamily get\+Tokens()} method returns the current token array, in the usual {\ttfamily token\+\_\+get\+\_\+all()} format. This method is not used by the parser (which uses {\ttfamily get\+Next\+Token()}), but is useful in combination with the token position attributes.
+
+The {\ttfamily handle\+Halt\+Compiler()} method is called whenever a {\ttfamily T\+\_\+\+H\+A\+L\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+R} token is encountered. It has to return the remaining string after the construct (not including {\ttfamily ();}).
+
+The {\ttfamily get\+Next\+Token()} method returns the I\+D of the next token (as defined by the {\ttfamily Parser\+::\+T\+\_\+$\ast$} constants). If no more tokens are available it must return {\ttfamily 0}, which is the I\+D of the {\ttfamily E\+O\+F} token. Furthermore the string content of the token should be written into the by-\/reference {\ttfamily \$value} parameter (which will then be available as {\ttfamily \$n} in the parser).
+
+\subsubsection*{Attribute handling}
+
+The other two by-\/ref variables {\ttfamily \$start\+Attributes} and {\ttfamily \$end\+Attributes} define which attributes will eventually be assigned to the generated nodes\+: The parser will take the {\ttfamily \$start\+Attributes} from the first token which is part of the node and the {\ttfamily \$end\+Attributes} from the last token that is part of the node.
+
+E.\+g. if the tokens `\+T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N T\+\_\+\+S\+T\+R\+I\+N\+G ... \textquotesingle{}\{\textquotesingle{} ... \textquotesingle{}\}\textquotesingle{}{\ttfamily constitute a node, then the}\$start\+Attributes{\ttfamily from the }T\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N{\ttfamily token will be taken and the}\$end\+Attributes{\ttfamily from the}\textquotesingle{}\}\textquotesingle{}` token.
+
+An application of custom attributes is storing the original formatting of literals\+: The parser does not retain information about the formatting of integers (like decimal vs. hexadecimal) or strings (like used quote type or used escape sequences). This can be remedied by storing the original value in an attribute\+:
+
+```php class Keep\+Original\+Value\+Lexer extends P\+H\+P\+Parser // or P\+H\+P\+Parser \{ public function get\+Next\+Token(\&\$value = null, \&\$start\+Attributes = null, \&\$end\+Attributes = null) \{ \$token\+Id = parent\+::get\+Next\+Token(\$value, \$start\+Attributes, \$end\+Attributes);
+
+if (\$token\+Id == P\+H\+P\+Parser\+::\+T\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+E\+N\+C\+A\+P\+S\+E\+D\+\_\+\+S\+T\+R\+I\+N\+G // non-\/interpolated string $\vert$$\vert$ \$token\+Id == P\+H\+P\+Parser\+::\+T\+\_\+\+L\+N\+U\+M\+B\+E\+R // integer $\vert$$\vert$ \$token\+Id == P\+H\+P\+Parser\+::\+T\+\_\+\+D\+N\+U\+M\+B\+E\+R // floating point number ) \{ // could also use \$start\+Attributes, doesn\textquotesingle{}t really matter here \$end\+Attributes[\textquotesingle{}original\+Value\textquotesingle{}] = \$value; \}
+
+return \$token\+Id; \} \} ``` 

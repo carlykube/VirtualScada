@@ -1,0 +1,6 @@
+var interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_trust_resolver_interface =
+[
+    [ "isAnonymous", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_trust_resolver_interface.html#ac4a4ae16c542fe4fa9689507296f6db2", null ],
+    [ "isFullFledged", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_trust_resolver_interface.html#a607ad33ee944710a9256eb965820c83e", null ],
+    [ "isRememberMe", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_trust_resolver_interface.html#ababef3d31cb7a5075a20f210bf3b2ad1", null ]
+];

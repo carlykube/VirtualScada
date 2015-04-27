@@ -1,0 +1,876 @@
+\section{Abstract\+Ftp\+Adapter Class Reference}
+\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter}\index{Abstract\+Ftp\+Adapter@{Abstract\+Ftp\+Adapter}}
+Inheritance diagram for Abstract\+Ftp\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$config)
+\item 
+{\bf set\+Config} (array \$config)
+\item 
+{\bf get\+Host} ()
+\item 
+{\bf set\+Host} (\$host)
+\item 
+{\bf set\+Perm\+Public} (\$perm\+Public)
+\item 
+{\bf set\+Perm\+Private} (\$perm\+Private)
+\item 
+{\bf get\+Port} ()
+\item 
+{\bf get\+Root} ()
+\item 
+{\bf set\+Port} (\$port)
+\item 
+{\bf set\+Root} (\$root)
+\item 
+{\bf get\+Username} ()
+\item 
+{\bf set\+Username} (\$username)
+\item 
+{\bf get\+Password} ()
+\item 
+{\bf set\+Password} (\$password)
+\item 
+{\bf get\+Timeout} ()
+\item 
+{\bf set\+Timeout} (\$timeout)
+\item 
+{\bf list\+Contents} (\$directory= \textquotesingle{}\textquotesingle{}, \$recursive=false)
+\item 
+{\bf remove\+Dot\+Directories} (array \$list)
+\item 
+{\bf has} (\${\bf path})
+\item 
+{\bf get\+Size} (\${\bf path})
+\item 
+{\bf get\+Timestamp} (\${\bf path})
+\item 
+{\bf get\+Visibility} (\${\bf path})
+\item 
+{\bf ensure\+Directory} (\$dirname)
+\item 
+{\bf get\+Connection} ()
+\item 
+{\bf get\+Perm\+Public} ()
+\item 
+{\bf get\+Perm\+Private} ()
+\item 
+{\bf \+\_\+\+\_\+destruct} ()
+\item 
+{\bf connect} ()
+\item 
+{\bf disconnect} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf normalize\+Listing} (array \$listing, \$prefix= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf sort\+Listing} (array \$result)
+\item 
+{\bf normalize\+Object} (\$item, \$base)
+\item 
+{\bf detect\+Type} (\$permissions)
+\item 
+{\bf normalize\+Permissions} (\$permissions)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$connection}
+\item 
+{\bf \$host}
+\item 
+{\bf \$port} = 21
+\item 
+{\bf \$username}
+\item 
+{\bf \$password}
+\item 
+{\bf \$ssl} = false
+\item 
+{\bf \$timeout} = 90
+\item 
+{\bf \$passive} = true
+\item 
+{\bf \$separator} = \textquotesingle{}/\textquotesingle{}
+\item 
+{\bf \$root}
+\item 
+{\bf \$perm\+Public} = 0744
+\item 
+{\bf \$perm\+Private} = 0700
+\item 
+{\bf \$configurable} = [$\,$]
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Abstract\+Ftp\+Adapter.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a1538e33cc82d38ead75aba61979dbcf9}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
+\index{\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\+\_\+\+\_\+destruct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+destruct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a421831a265621325e1fdd19aace0c758}
+Disconnect on destruction. 
+
+Definition at line 445 of file Abstract\+Ftp\+Adapter.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!connect@{connect}}
+\index{connect@{connect}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a78572828d11dcdf2a498497d9001d557}
+Establish a connection. \index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!detect\+Type@{detect\+Type}}
+\index{detect\+Type@{detect\+Type}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{detect\+Type}]{\setlength{\rightskip}{0pt plus 5cm}detect\+Type (
+\begin{DoxyParamCaption}
+\item[{}]{\$permissions}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a8b10f1f7c6d1de36003df4380395ac76}
+Get the file type from the permissions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$permissions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string file type 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_abe175fcf658475bc56e9d6fa02bc88ec}
+Close the connection. \index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!ensure\+Directory@{ensure\+Directory}}
+\index{ensure\+Directory@{ensure\+Directory}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{ensure\+Directory}]{\setlength{\rightskip}{0pt plus 5cm}ensure\+Directory (
+\begin{DoxyParamCaption}
+\item[{}]{\$dirname}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a7f1e8fd0b173683604cae06533e54c36}
+Ensure a directory exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$dirname} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 403 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Connection@{get\+Connection}}
+\index{get\+Connection@{get\+Connection}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ab7a0a080d0e721c656eef11cd641638b}
+\begin{DoxyReturn}{Returns}
+resource$\vert$\+Net\+\_\+\+S\+F\+T\+P 
+\end{DoxyReturn}
+
+
+Definition at line 413 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Host@{get\+Host}}
+\index{get\+Host@{get\+Host}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Host}]{\setlength{\rightskip}{0pt plus 5cm}get\+Host (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a39895a44b52bdced039e698588aaf18e}
+Returns the host.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Password@{get\+Password}}
+\index{get\+Password@{get\+Password}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Password}]{\setlength{\rightskip}{0pt plus 5cm}get\+Password (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a04e0957baeb7acde9c0c86556da2d43f}
+Returns the password.
+
+\begin{DoxyReturn}{Returns}
+string password 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Perm\+Private@{get\+Perm\+Private}}
+\index{get\+Perm\+Private@{get\+Perm\+Private}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Perm\+Private}]{\setlength{\rightskip}{0pt plus 5cm}get\+Perm\+Private (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ad85e800c83be86ca45843d9a2c435031}
+Get the private permission value.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 437 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Perm\+Public@{get\+Perm\+Public}}
+\index{get\+Perm\+Public@{get\+Perm\+Public}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Perm\+Public}]{\setlength{\rightskip}{0pt plus 5cm}get\+Perm\+Public (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a1b597b26a90172eb7c78e1edda7e64f5}
+Get the public permission value.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 427 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Port@{get\+Port}}
+\index{get\+Port@{get\+Port}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Port}]{\setlength{\rightskip}{0pt plus 5cm}get\+Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_afd4db46d3c12f47f0bee19cd2101be64}
+Returns the ftp port.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Root@{get\+Root}}
+\index{get\+Root@{get\+Root}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Root}]{\setlength{\rightskip}{0pt plus 5cm}get\+Root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aad5f81bb01a9f12cfb3fc38ca462a90d}
+Returns the root folder to work from.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}get\+Size (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aeab3a9efcab1372af35dcd45e1fc558d}
+\{Get all the meta data of a file or directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$false
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Read\+Interface} \doxyref{}{p.}{interface_league_1_1_flysystem_1_1_read_interface_aeab3a9efcab1372af35dcd45e1fc558d}.
+
+
+
+Definition at line 375 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Timeout@{get\+Timeout}}
+\index{get\+Timeout@{get\+Timeout}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_abac5019c5daf3a27d739aa3a249fdb31}
+Returns the amount of seconds before the connection will timeout.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Timestamp@{get\+Timestamp}}
+\index{get\+Timestamp@{get\+Timestamp}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}get\+Timestamp (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a5bf73f64148a0fc69c1cafe36e4869ea}
+\{Get the timestamp of a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$false
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Read\+Interface} \doxyref{}{p.}{interface_league_1_1_flysystem_1_1_read_interface_a5bf73f64148a0fc69c1cafe36e4869ea}.
+
+
+
+Definition at line 383 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Username@{get\+Username}}
+\index{get\+Username@{get\+Username}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Username}]{\setlength{\rightskip}{0pt plus 5cm}get\+Username (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a81b37a3c9d639574e394f80c1138c75e}
+Returns the ftp username.
+
+\begin{DoxyReturn}{Returns}
+string username 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!get\+Visibility@{get\+Visibility}}
+\index{get\+Visibility@{get\+Visibility}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{get\+Visibility}]{\setlength{\rightskip}{0pt plus 5cm}get\+Visibility (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a3ff714bb742f49058547f9907768608e}
+\{Get the visibility of a file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$false
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Read\+Interface} \doxyref{}{p.}{interface_league_1_1_flysystem_1_1_read_interface_a3ff714bb742f49058547f9907768608e}.
+
+
+
+Definition at line 393 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!has@{has}}
+\index{has@{has}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aa7522338fd22db7bb3ec6ab3a030b97d}
+\{Check whether a file exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$bool$\vert$null
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Read\+Interface} \doxyref{}{p.}{interface_league_1_1_flysystem_1_1_read_interface_aa7522338fd22db7bb3ec6ab3a030b97d}.
+
+
+
+Definition at line 367 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!list\+Contents@{list\+Contents}}
+\index{list\+Contents@{list\+Contents}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{list\+Contents}]{\setlength{\rightskip}{0pt plus 5cm}list\+Contents (
+\begin{DoxyParamCaption}
+\item[{}]{\$directory = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$recursive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a72a499612a46cab118257ab5c36c7db6}
+\{List contents of a directory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$directory} & \\
+\hline
+bool & {\em \$recursive} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Read\+Interface} \doxyref{}{p.}{interface_league_1_1_flysystem_1_1_read_interface_a72a499612a46cab118257ab5c36c7db6}.
+
+
+
+Definition at line 229 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!normalize\+Listing@{normalize\+Listing}}
+\index{normalize\+Listing@{normalize\+Listing}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{normalize\+Listing}]{\setlength{\rightskip}{0pt plus 5cm}normalize\+Listing (
+\begin{DoxyParamCaption}
+\item[{array}]{\$listing, }
+\item[{}]{\$prefix = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ad16c8331ea295621f1c16e4104faa990}
+Normalize a directory listing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$listing} & \\
+\hline
+string & {\em \$prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array directory listing 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!normalize\+Object@{normalize\+Object}}
+\index{normalize\+Object@{normalize\+Object}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{normalize\+Object}]{\setlength{\rightskip}{0pt plus 5cm}normalize\+Object (
+\begin{DoxyParamCaption}
+\item[{}]{\$item, }
+\item[{}]{\$base}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a0accc0f420ccaade5822d0f9c5fc3059}
+Normalize a file entry.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$item} & \\
+\hline
+string & {\em \$base} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array normalized file array 
+\end{DoxyReturn}
+
+
+Definition at line 286 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!normalize\+Permissions@{normalize\+Permissions}}
+\index{normalize\+Permissions@{normalize\+Permissions}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{normalize\+Permissions}]{\setlength{\rightskip}{0pt plus 5cm}normalize\+Permissions (
+\begin{DoxyParamCaption}
+\item[{}]{\$permissions}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aa1d51b3f98aab6b688d96b6d3b39f21c}
+Normalize a permissions string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$permissions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 323 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!remove\+Dot\+Directories@{remove\+Dot\+Directories}}
+\index{remove\+Dot\+Directories@{remove\+Dot\+Directories}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{remove\+Dot\+Directories}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Dot\+Directories (
+\begin{DoxyParamCaption}
+\item[{array}]{\$list}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aebff25b9a5b09b64f73e3ebb7329117a}
+Filter out dot-\/directories.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 351 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Config@{set\+Config}}
+\index{set\+Config@{set\+Config}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Config}]{\setlength{\rightskip}{0pt plus 5cm}set\+Config (
+\begin{DoxyParamCaption}
+\item[{array}]{\$config}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a160dc5d48bec15954b0276c1e4813264}
+Set the config.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Host@{set\+Host}}
+\index{set\+Host@{set\+Host}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Host}]{\setlength{\rightskip}{0pt plus 5cm}set\+Host (
+\begin{DoxyParamCaption}
+\item[{}]{\$host}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a3796cc8d08abefbb14f15fde02b883a9}
+Set the host.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$host} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Password@{set\+Password}}
+\index{set\+Password@{set\+Password}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Password}]{\setlength{\rightskip}{0pt plus 5cm}set\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a3e35c8d3dbb2c513c618a664389e0926}
+Set the ftp password.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Perm\+Private@{set\+Perm\+Private}}
+\index{set\+Perm\+Private@{set\+Perm\+Private}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Perm\+Private}]{\setlength{\rightskip}{0pt plus 5cm}set\+Perm\+Private (
+\begin{DoxyParamCaption}
+\item[{}]{\$perm\+Private}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ac54fb7b5aacd4635dd0f20ebcb769fa0}
+Set the private permission value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$perm\+Private} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Perm\+Public@{set\+Perm\+Public}}
+\index{set\+Perm\+Public@{set\+Perm\+Public}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Perm\+Public}]{\setlength{\rightskip}{0pt plus 5cm}set\+Perm\+Public (
+\begin{DoxyParamCaption}
+\item[{}]{\$perm\+Public}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a4fc29967629754df18f4fbb6e92b41bf}
+Set the public permission value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$perm\+Public} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Port@{set\+Port}}
+\index{set\+Port@{set\+Port}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Port}]{\setlength{\rightskip}{0pt plus 5cm}set\+Port (
+\begin{DoxyParamCaption}
+\item[{}]{\$port}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a000ce1ff20433f6ac9297e01c31d0678}
+Set the ftp port.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int | string & {\em \$port} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 133 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Root@{set\+Root}}
+\index{set\+Root@{set\+Root}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Root}]{\setlength{\rightskip}{0pt plus 5cm}set\+Root (
+\begin{DoxyParamCaption}
+\item[{}]{\$root}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_add62296b4282102a718559b183c025bc}
+Set the root folder to work from.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$root} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 147 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Timeout@{set\+Timeout}}
+\index{set\+Timeout@{set\+Timeout}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Timeout}]{\setlength{\rightskip}{0pt plus 5cm}set\+Timeout (
+\begin{DoxyParamCaption}
+\item[{}]{\$timeout}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a3d80d4d51ec21d8237d6ed6808d70b8e}
+Set the amount of seconds before the connection should timeout.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$timeout} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!set\+Username@{set\+Username}}
+\index{set\+Username@{set\+Username}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{set\+Username}]{\setlength{\rightskip}{0pt plus 5cm}set\+Username (
+\begin{DoxyParamCaption}
+\item[{}]{\$username}
+\end{DoxyParamCaption}
+)}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ac359b701a2ccaff746dd480f03314244}
+Set ftp username.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!sort\+Listing@{sort\+Listing}}
+\index{sort\+Listing@{sort\+Listing}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{sort\+Listing}]{\setlength{\rightskip}{0pt plus 5cm}sort\+Listing (
+\begin{DoxyParamCaption}
+\item[{array}]{\$result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ad39b4ec7292099afddb2132528f088f6}
+Sort a directory listing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$result} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array sorted listing 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Abstract\+Ftp\+Adapter.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$configurable@{\$configurable}}
+\index{\$configurable@{\$configurable}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$configurable}]{\setlength{\rightskip}{0pt plus 5cm}\$configurable = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a614da9a84413e7be339589f99c2bb6ce}
+
+
+Definition at line 23 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$connection@{\$connection}}
+\index{\$connection@{\$connection}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$connection}]{\setlength{\rightskip}{0pt plus 5cm}\$connection\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+
+Definition at line 11 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$host@{\$host}}
+\index{\$host@{\$host}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$host}]{\setlength{\rightskip}{0pt plus 5cm}\$host\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a711797613cb863ca0756df789c396bf2}
+
+
+Definition at line 12 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$passive@{\$passive}}
+\index{\$passive@{\$passive}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$passive}]{\setlength{\rightskip}{0pt plus 5cm}\$passive = true\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a9fb61732ea9189fa2be5574ad3576d9c}
+
+
+Definition at line 18 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$password@{\$password}}
+\index{\$password@{\$password}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$password}]{\setlength{\rightskip}{0pt plus 5cm}\$password\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a607686ef9f99ea7c42f4f3dd3dbb2b0d}
+
+
+Definition at line 15 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$perm\+Private@{\$perm\+Private}}
+\index{\$perm\+Private@{\$perm\+Private}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$perm\+Private}]{\setlength{\rightskip}{0pt plus 5cm}\$perm\+Private = 0700\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ad0b1c9b023adab2cd16a83149fb0b53b}
+
+
+Definition at line 22 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$perm\+Public@{\$perm\+Public}}
+\index{\$perm\+Public@{\$perm\+Public}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$perm\+Public}]{\setlength{\rightskip}{0pt plus 5cm}\$perm\+Public = 0744\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a5f381f7a4297b5f929c8bf0d926bab51}
+
+
+Definition at line 21 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$port@{\$port}}
+\index{\$port@{\$port}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$port}]{\setlength{\rightskip}{0pt plus 5cm}\$port = 21\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_aa0787efab4b22e8a212882f3409d4c77}
+
+
+Definition at line 13 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$root@{\$root}}
+\index{\$root@{\$root}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$root}]{\setlength{\rightskip}{0pt plus 5cm}\$root\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_ab37f7c32f41c3c61ed940887453767f4}
+
+
+Definition at line 20 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$separator@{\$separator}}
+\index{\$separator@{\$separator}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$separator}]{\setlength{\rightskip}{0pt plus 5cm}\$separator = \textquotesingle{}/\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_acb4e8e50eaf0132d1e70b8776b4ad5cc}
+
+
+Definition at line 19 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$ssl@{\$ssl}}
+\index{\$ssl@{\$ssl}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$ssl}]{\setlength{\rightskip}{0pt plus 5cm}\$ssl = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a10c5b56c377e4f3a08f69704e49c87e6}
+
+
+Definition at line 16 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$timeout@{\$timeout}}
+\index{\$timeout@{\$timeout}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$timeout}]{\setlength{\rightskip}{0pt plus 5cm}\$timeout = 90\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a84320a9bf3e591d7ae20dfcb0dfe6a0d}
+
+
+Definition at line 17 of file Abstract\+Ftp\+Adapter.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}!\$username@{\$username}}
+\index{\$username@{\$username}!League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter@{League\+::\+Flysystem\+::\+Adapter\+::\+Abstract\+Ftp\+Adapter}}
+\subsubsection[{\$username}]{\setlength{\rightskip}{0pt plus 5cm}\$username\hspace{0.3cm}{\ttfamily [protected]}}\label{class_league_1_1_flysystem_1_1_adapter_1_1_abstract_ftp_adapter_a0eb82aa5f81cf845de4b36cd653c42cf}
+
+
+Definition at line 14 of file Abstract\+Ftp\+Adapter.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/league/flysystem/src/\+Adapter/{\bf Abstract\+Ftp\+Adapter.\+php}\end{DoxyCompactItemize}

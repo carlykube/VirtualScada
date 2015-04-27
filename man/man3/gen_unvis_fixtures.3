@@ -1,0 +1,160 @@
+.TH "gen_unvis_fixtures" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gen_unvis_fixtures \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "tuple \fB__dir__\fP = dirname(abspath(__file__))"
+.br
+.ti -1c
+.RI "tuple \fBOUTPUT_FILE\fP = join(\fB__dir__\fP, '\&.\&.', '\fBfixtures\fP', '\fBunvis_fixtures\&.json\fP')"
+.br
+.ti -1c
+.RI "list \fBCUSTOM_FIXTURES\fP"
+.br
+.ti -1c
+.RI "dictionary \fBRANGES\fP"
+.br
+.ti -1c
+.RI "tuple \fBargp\fP"
+.br
+.ti -1c
+.RI "string \fBhelp\fP = 'Indent JSON output \fBto\fP \fBease\fP debugging'"
+.br
+.ti -1c
+.RI "tuple \fBchoices\fP = list(\fBRANGES\&.keys\fP())"
+.br
+.ti -1c
+.RI "string \fBdefault\fP = 'small'"
+.br
+.ti -1c
+.RI "tuple \fBargs\fP = argp\&.parse_args()"
+.br
+.ti -1c
+.RI "list \fBcp_range\fP = \fBRANGES\fP['bmp']"
+.br
+.ti -1c
+.RI "int \fBindent\fP = 2"
+.br
+.ti -1c
+.RI "list \fBfixtures\fP = []"
+.br
+.ti -1c
+.RI "tuple \fBchar\fP = chr(codepoint)"
+.br
+.ti -1c
+.RI "tuple \fBencoded\fP = vis(\fBchar\fP, VIS_WHITE)"
+.br
+.ti -1c
+.RI "tuple \fBdecoded\fP = unvis(\fBencoded\fP)"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "tuple __dir__ = dirname(abspath(__file__))"
+
+.PP
+Definition at line 11 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple argp"
+\fBInitial value:\fP
+.PP
+.nf
+1 = argparse\&.ArgumentParser(
+2         description='Generates test data for Psy\\Test\\Util\\StringTest')
+.fi
+.PP
+Definition at line 48 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple args = argp\&.parse_args()"
+
+.PP
+Definition at line 65 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple char = chr(codepoint)"
+
+.PP
+Definition at line 77 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple choices = list(\fBRANGES\&.keys\fP())"
+
+.PP
+Definition at line 60 of file gen_unvis_fixtures\&.py\&.
+.SS "list cp_range = \fBRANGES\fP['bmp']"
+
+.PP
+Definition at line 67 of file gen_unvis_fixtures\&.py\&.
+.SS "list CUSTOM_FIXTURES"
+\fBInitial value:\fP
+.PP
+.nf
+1 = [
+2     # test long multibyte string
+3     ''\&.join(chr(cp) for cp in range(1024)),
+4     'foo bar',
+5     'foo\nbar',
+6     "$bar = 'baz';",
+7     r'$foo = "\x20\\x20\\\x20\\\\x20"',
+8     '$foo = function($bar) use($baz) {\n\treturn $baz->getFoo()\n};'
+9 ]
+.fi
+.PP
+Definition at line 16 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple decoded = unvis(\fBencoded\fP)"
+
+.PP
+Definition at line 79 of file gen_unvis_fixtures\&.py\&.
+.SS "string default = 'small'"
+
+.PP
+Definition at line 61 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple encoded = vis(\fBchar\fP, VIS_WHITE)"
+
+.PP
+Definition at line 78 of file gen_unvis_fixtures\&.py\&.
+.SS "list fixtures = []"
+
+.PP
+Definition at line 72 of file gen_unvis_fixtures\&.py\&.
+.SS "string help = 'Indent JSON output \fBto\fP \fBease\fP debugging'"
+
+.PP
+Definition at line 51 of file gen_unvis_fixtures\&.py\&.
+.SS "int indent = 2"
+
+.PP
+Definition at line 68 of file gen_unvis_fixtures\&.py\&.
+.SS "tuple OUTPUT_FILE = join(\fB__dir__\fP, '\&.\&.', '\fBfixtures\fP', '\fBunvis_fixtures\&.json\fP')"
+
+.PP
+Definition at line 13 of file gen_unvis_fixtures\&.py\&.
+.SS "dictionary RANGES"
+\fBInitial value:\fP
+.PP
+.nf
+1 = {
+2     # All valid codepoints in the BMP
+3     'bmp': chain(range(0x0000, 0xD800), range(0xE000, 0xFFFF)),
+4     # Smaller set of pertinent? codepoints inside BMP
+5     # see: http://en\&.wikipedia\&.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane
+6     'small': chain(
+7         # latin blocks
+8         range(0x0000, 0x0250),
+9         # Greek, Cyrillic
+10         range(0x0370, 0x0530),
+11         # Hebrew, Arabic
+12         range(0x590, 0x0700),
+13         # CJK radicals
+14         range(0x2E80, 0x2F00),
+15         # Hiragana, Katakana
+16         range(0x3040, 0x3100)
+17     )
+18 }
+.fi
+.PP
+Definition at line 26 of file gen_unvis_fixtures\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

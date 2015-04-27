@@ -1,0 +1,5 @@
+var class_symfony_1_1_component_1_1_debug_1_1_tests_1_1_fatal_error_handler_1_1_undefined_function_fatal_error_handler_test =
+[
+    [ "provideUndefinedFunctionData", "class_symfony_1_1_component_1_1_debug_1_1_tests_1_1_fatal_error_handler_1_1_undefined_function_fatal_error_handler_test.html#aaccd4452e709a30775b4f8009c094223", null ],
+    [ "testUndefinedFunction", "class_symfony_1_1_component_1_1_debug_1_1_tests_1_1_fatal_error_handler_1_1_undefined_function_fatal_error_handler_test.html#a0168bed72d808f7b20136c8c9f235526", null ]
+];

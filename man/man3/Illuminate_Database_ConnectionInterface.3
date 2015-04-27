@@ -1,0 +1,340 @@
+.TH "ConnectionInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ConnectionInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBConnection\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtable\fP ($table)"
+.br
+.ti -1c
+.RI "\fBraw\fP ($value)"
+.br
+.ti -1c
+.RI "\fBselectOne\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBselect\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBinsert\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBstatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBaffectingStatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBunprepared\fP ($query)"
+.br
+.ti -1c
+.RI "\fBprepareBindings\fP (array $bindings)"
+.br
+.ti -1c
+.RI "\fBtransaction\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbeginTransaction\fP ()"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBrollBack\fP ()"
+.br
+.ti -1c
+.RI "\fBtransactionLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBpretend\fP (Closure $\fBcallback\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file ConnectionInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "affectingStatement ( $query,  $bindings = \fCarray()\fP)"
+Run an SQL statement and get the number of rows affected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "beginTransaction ()"
+Start a new database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "commit ()"
+Commit the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "delete ( $query,  $bindings = \fCarray()\fP)"
+Run a delete statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "insert ( $query,  $bindings = \fCarray()\fP)"
+Run an insert statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "prepareBindings (array $bindings)"
+Prepare the query bindings for execution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "pretend (Closure $callback)"
+Execute the given callback in 'dry run' mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "raw ( $value)"
+Get a new raw query expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "rollBack ()"
+Rollback the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "select ( $query,  $bindings = \fCarray()\fP)"
+Run a select statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "selectOne ( $query,  $bindings = \fCarray()\fP)"
+Run a select statement and return a single result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "statement ( $query,  $bindings = \fCarray()\fP)"
+Execute an SQL statement and return the boolean result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "table ( $table)"
+Begin a fluent query against a database table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "transaction (Closure $callback)"
+Execute a Closure within a transaction\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP, and \fBSqlServerConnection\fP\&.
+.SS "transactionLevel ()"
+Get the number of active transactions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "unprepared ( $query)"
+Run a raw, unprepared query against the PDO connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+.SS "update ( $query,  $bindings = \fCarray()\fP)"
+Run an update statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBConnection\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

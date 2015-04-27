@@ -1,0 +1,15 @@
+var class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test =
+[
+    [ "setUp", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "testCloseMethodAlwaysReturnTrue", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a0f9ce73d4348735fbf4674d68a4c0ab6", null ],
+    [ "testConstructorShouldThrowExceptionForInvalidMongo", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a5a14c876fa9d07378d8bfddc4fe59d0a", null ],
+    [ "testConstructorShouldThrowExceptionForMissingOptions", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#afba4d0b9de2ed21620c128d951a48a60", null ],
+    [ "testDestroy", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a307010c15ba5977805260eb512feabec", null ],
+    [ "testGc", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a4026d9656cff4072fc075110b0bfd5ae", null ],
+    [ "testOpenMethodAlwaysReturnTrue", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a8e2664840f9b4f75830c03eecf8886a3", null ],
+    [ "testRead", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a8c969dbd866764a5d7db3b2013514384", null ],
+    [ "testReplaceSessionData", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#ae82e220a7f0143fff617016363c11d58", null ],
+    [ "testWrite", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a8e40254a5a08199e3b4fde257ceebd31", null ],
+    [ "testWriteWhenUsingExpiresField", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a91c6e853f4ce43d37c1d54a77470aca5", null ],
+    [ "$options", "class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_test.html#a011800c63ece4cbbfa77136a20607023", null ]
+];

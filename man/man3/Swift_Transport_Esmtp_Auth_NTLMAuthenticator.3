@@ -1,0 +1,636 @@
+.TH "Swift_Transport_Esmtp_Auth_NTLMAuthenticator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_Esmtp_Auth_NTLMAuthenticator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetAuthKeyword\fP ()"
+.br
+.ti -1c
+.RI "\fBauthenticate\fP (\fBSwift_Transport_SmtpAgent\fP $agent, $username, $password)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBNTLMSIG\fP = 'NTLMSSP\\x00'"
+.br
+.ti -1c
+.RI "const \fBDESCONST\fP = 'KGS!@#$%'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsi2bin\fP ($\fBsi\fP, $bits=32)"
+.br
+.ti -1c
+.RI "\fBsendMessage1\fP (\fBSwift_Transport_SmtpAgent\fP $agent)"
+.br
+.ti -1c
+.RI "\fBparseMessage2\fP ($response)"
+.br
+.ti -1c
+.RI "\fBreadSubBlock\fP ($block)"
+.br
+.ti -1c
+.RI "\fBsendMessage3\fP ($response, $username, $password, $timestamp, $client, \fBSwift_Transport_SmtpAgent\fP $agent, $v2=true)"
+.br
+.ti -1c
+.RI "\fBcreateMessage1\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateMessage3\fP ($domain, $username, $workstation, $lmResponse, $ntlmResponse)"
+.br
+.ti -1c
+.RI "\fBcreateBlob\fP ($timestamp, $client, $targetInfo)"
+.br
+.ti -1c
+.RI "\fBgetDomainAndUsername\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBcreateLMPassword\fP ($password, $challenge)"
+.br
+.ti -1c
+.RI "\fBcreateNTLMPassword\fP ($password, $challenge)"
+.br
+.ti -1c
+.RI "\fBgetCorrectTimestamp\fP ($time)"
+.br
+.ti -1c
+.RI "\fBcreateLMv2Password\fP ($password, $username, $domain, $challenge, $client)"
+.br
+.ti -1c
+.RI "\fBcreateNTLMv2Hash\fP ($password, $username, $domain, $challenge, $targetInfo, $timestamp, $client)"
+.br
+.ti -1c
+.RI "\fBcreateDesKey\fP ($key)"
+.br
+.ti -1c
+.RI "\fBcreateSecurityBuffer\fP ($value, $offset, $is16=false)"
+.br
+.ti -1c
+.RI "\fBreadSecurityBuffer\fP ($value)"
+.br
+.ti -1c
+.RI "\fBcastToByte\fP ($v)"
+.br
+.ti -1c
+.RI "\fBuRShift\fP ($\fBa\fP, $\fBb\fP)"
+.br
+.ti -1c
+.RI "\fBcreateByte\fP ($input, $bytes=4, $isHex=true)"
+.br
+.ti -1c
+.RI "\fBgetRandomBytes\fP ($length)"
+.br
+.ti -1c
+.RI "\fBdesEncrypt\fP ($value, $key)"
+.br
+.ti -1c
+.RI "\fBmd5Encrypt\fP ($key, $msg)"
+.br
+.ti -1c
+.RI "\fBmd4Encrypt\fP ($input)"
+.br
+.ti -1c
+.RI "\fBconvertTo16bit\fP ($input)"
+.br
+.ti -1c
+.RI "\fBhex2bin\fP ($hex)"
+.br
+.ti -1c
+.RI "\fBdebug\fP ($message)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles NTLM authentication\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Ward Peeters ward@coding-tech.com 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file NTLMAuthenticator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "authenticate (\fBSwift_Transport_SmtpAgent\fP $agent,  $username,  $password)"
+Try to authenticate the user with $username and $password\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$agent\fP 
+.br
+\fI$username\fP 
+.br
+\fI$password\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.PP
+Definition at line 42 of file NTLMAuthenticator\&.php\&.
+.SS "castToByte ( $v)\fC [protected]\fP"
+Cast to byte java equivalent to (byte)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$v\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 490 of file NTLMAuthenticator\&.php\&.
+.SS "convertTo16bit ( $input)\fC [protected]\fP"
+Convert UTF-8 to UTF-16
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 605 of file NTLMAuthenticator\&.php\&.
+.SS "createBlob ( $timestamp,  $client,  $targetInfo)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timestamp\fP Epoch timestamp in microseconds 
+.br
+\fI$client\fP Random bytes 
+.br
+\fI$targetInfo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 271 of file NTLMAuthenticator\&.php\&.
+.SS "createByte ( $input,  $bytes = \fC4\fP,  $isHex = \fCtrue\fP)\fC [protected]\fP"
+Right padding with 0 to certain length
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$bytes\fP Length of bytes 
+.br
+\fI$isHex\fP Did we provided hex value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 520 of file NTLMAuthenticator\&.php\&.
+.SS "createDesKey ( $key)\fC [protected]\fP"
+
+.PP
+Definition at line 423 of file NTLMAuthenticator\&.php\&.
+.SS "createLMPassword ( $password,  $challenge)\fC [protected]\fP"
+Create LMv1 response
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.br
+\fI$challenge\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 308 of file NTLMAuthenticator\&.php\&.
+.SS "createLMv2Password ( $password,  $username,  $domain,  $challenge,  $client)\fC [protected]\fP"
+Create LMv2 response
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.br
+\fI$username\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$challenge\fP NTLM Challenge 
+.br
+\fI$client\fP Random string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file NTLMAuthenticator\&.php\&.
+.SS "createMessage1 ()\fC [protected]\fP"
+Create our message 1
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 219 of file NTLMAuthenticator\&.php\&.
+.SS "createMessage3 ( $domain,  $username,  $workstation,  $lmResponse,  $ntlmResponse)\fC [protected]\fP"
+Create our message 3
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$domain\fP 
+.br
+\fI$username\fP 
+.br
+\fI$workstation\fP 
+.br
+\fI$lmResponse\fP 
+.br
+\fI$ntlmResponse\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file NTLMAuthenticator\&.php\&.
+.SS "createNTLMPassword ( $password,  $challenge)\fC [protected]\fP"
+Create NTLMv1 response
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.br
+\fI$challenge\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 336 of file NTLMAuthenticator\&.php\&.
+.SS "createNTLMv2Hash ( $password,  $username,  $domain,  $challenge,  $targetInfo,  $timestamp,  $client)\fC [protected]\fP"
+Create NTLMv2 response
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$password\fP 
+.br
+\fI$username\fP 
+.br
+\fI$domain\fP 
+.br
+\fI$challenge\fP Hex values 
+.br
+\fI$targetInfo\fP Hex values 
+.br
+\fI$timestamp\fP 
+.br
+\fI$client\fP Random bytes 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://davenport.sourceforge.net/ntlm.html#theNtlmResponse 
+.RE
+.PP
+
+.PP
+Definition at line 410 of file NTLMAuthenticator\&.php\&.
+.SS "createSecurityBuffer ( $value,  $offset,  $is16 = \fCfalse\fP)\fC [protected]\fP"
+HELPER FUNCTIONS Create our security buffer depending on length and offset
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP Value we want to put in 
+.br
+\fI$offset\fP start of value 
+.br
+\fI$is16\fP Do we 16bit string or not? 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 461 of file NTLMAuthenticator\&.php\&.
+.SS "debug ( $message)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 627 of file NTLMAuthenticator\&.php\&.
+.SS "desEncrypt ( $value,  $key)\fC [protected]\fP"
+ENCRYPTION ALGORITHMS DES Encryption
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 556 of file NTLMAuthenticator\&.php\&.
+.SS "getAuthKeyword ()"
+Get the name of the AUTH mechanism this Authenticator handles\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Transport_Esmtp_Authenticator\fP\&.
+.PP
+Definition at line 28 of file NTLMAuthenticator\&.php\&.
+.SS "getCorrectTimestamp ( $time)\fC [protected]\fP"
+Convert a normal timestamp to a tenth of a microtime epoch time
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 355 of file NTLMAuthenticator\&.php\&.
+.SS "getDomainAndUsername ( $name)\fC [protected]\fP"
+
+.PP
+Definition at line 290 of file NTLMAuthenticator\&.php\&.
+.SS "getRandomBytes ( $length)\fC [protected]\fP"
+Create random bytes
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 537 of file NTLMAuthenticator\&.php\&.
+.SS "hex2bin ( $hex)\fC [protected]\fP"
+Hex2bin replacement for < \fBPHP\fP 5\&.4 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$hex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Binary 
+.RE
+.PP
+
+.PP
+Definition at line 615 of file NTLMAuthenticator\&.php\&.
+.SS "md4Encrypt ( $input)\fC [protected]\fP"
+MD4 Encryption
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://php.net/manual/en/ref.hash.php 
+.RE
+.PP
+
+.PP
+Definition at line 592 of file NTLMAuthenticator\&.php\&.
+.SS "md5Encrypt ( $key,  $msg)\fC [protected]\fP"
+MD5 Encryption
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Encryption key 
+.br
+\fI$msg\fP Message to encrypt 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 571 of file NTLMAuthenticator\&.php\&.
+.SS "parseMessage2 ( $response)\fC [protected]\fP"
+Fetch all details of our response (message 2)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array our response parsed 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file NTLMAuthenticator\&.php\&.
+.SS "readSecurityBuffer ( $value)\fC [protected]\fP"
+Read our security buffer to fetch length and offset of our value
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP Securitybuffer in hex 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array array with length and offset 
+.RE
+.PP
+
+.PP
+Definition at line 476 of file NTLMAuthenticator\&.php\&.
+.SS "readSubBlock ( $block)\fC [protected]\fP"
+Read the blob information in from message2
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$block\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file NTLMAuthenticator\&.php\&.
+.SS "sendMessage1 (\fBSwift_Transport_SmtpAgent\fP $agent)\fC [protected]\fP"
+Send our auth message and returns the response
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$agent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string SMTP \fBResponse\fP 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file NTLMAuthenticator\&.php\&.
+.SS "sendMessage3 ( $response,  $username,  $password,  $timestamp,  $client, \fBSwift_Transport_SmtpAgent\fP $agent,  $v2 = \fCtrue\fP)\fC [protected]\fP"
+Send our final message with all our data
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP Message 1 response (message 2) 
+.br
+\fI$username\fP 
+.br
+\fI$password\fP 
+.br
+\fI$timestamp\fP 
+.br
+\fI$client\fP 
+.br
+\fI$agent\fP 
+.br
+\fI$v2\fP Use version2 of the protocol 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file NTLMAuthenticator\&.php\&.
+.SS "si2bin ( $si,  $bits = \fC32\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 76 of file NTLMAuthenticator\&.php\&.
+.SS "uRShift ( $a,  $b)\fC [protected]\fP"
+Java unsigned right bitwise $a >>> $b
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$a\fP 
+.br
+\fI$b\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 503 of file NTLMAuthenticator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const DESCONST = 'KGS!@#$%'"
+
+.PP
+Definition at line 21 of file NTLMAuthenticator\&.php\&.
+.SS "const NTLMSIG = 'NTLMSSP\\x00'"
+
+.PP
+Definition at line 20 of file NTLMAuthenticator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

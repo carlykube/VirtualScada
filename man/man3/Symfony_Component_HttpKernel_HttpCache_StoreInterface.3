@@ -1,0 +1,171 @@
+.TH "StoreInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StoreInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlookup\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBRequest\fP $request, \fBResponse\fP $response)"
+.br
+.ti -1c
+.RI "\fBinvalidate\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBlock\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBunlock\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBisLocked\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ($url)"
+.br
+.ti -1c
+.RI "\fBcleanup\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface implemented by HTTP cache stores\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file StoreInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "cleanup ()"
+Cleanups storage\&. 
+.PP
+Implemented in \fBStore\fP\&.
+.SS "invalidate (\fBRequest\fP $request)"
+Invalidates all cache entries that match the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "isLocked (\fBRequest\fP $request)"
+Returns whether or not a lock exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if lock exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "lock (\fBRequest\fP $request)"
+Locks the cache for a given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|string true if the lock is acquired, the path to the current lock otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "lookup (\fBRequest\fP $request)"
+Locates a cached \fBResponse\fP for the \fBRequest\fP provided\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Response|null \fBA\fP \fBResponse\fP instance, or null if no cache entry was found 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "purge ( $url)"
+Purges data for the given \fBURL\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP \fBA\fP \fBURL\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the \fBURL\fP exists and has been purged, false otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "unlock (\fBRequest\fP $request)"
+Releases the lock for the given \fBRequest\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool False if the lock file does not exist or cannot be unlocked, true otherwise 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+.SS "write (\fBRequest\fP $request, \fBResponse\fP $response)"
+Writes a cache entry to the store for the given \fBRequest\fP and \fBResponse\fP\&.
+.PP
+Existing entries are read and any that match the response are removed\&. This method calls write with the new list of cache entries\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The key under which the response is stored 
+.RE
+.PP
+
+.PP
+Implemented in \fBStore\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

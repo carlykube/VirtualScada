@@ -1,0 +1,124 @@
+\section{User\+Provider\+Interface Interface Reference}
+\label{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_provider_interface}\index{User\+Provider\+Interface@{User\+Provider\+Interface}}
+Inheritance diagram for User\+Provider\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_provider_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf load\+User\+By\+Username} (\$username)
+\item 
+{\bf refresh\+User} ({\bf User\+Interface} \$user)
+\item 
+{\bf supports\+Class} (\$class)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a class that loads \doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface} objects from some source for the authentication system.
+
+In a typical authentication configuration, a username (i.\+e. some unique user identifier) credential enters the system (via form login, or any method). The user provider that is configured with that authentication method is asked to load the \doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface} object for the given username (via load\+User\+By\+Username) so that the rest of the process can continue.
+
+Internally, a user provider can load users from any source (databases, configuration, web service). This is totally independent of how the authentication information is submitted or what the \doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface} object looks like.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 34 of file User\+Provider\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}!load\+User\+By\+Username@{load\+User\+By\+Username}}
+\index{load\+User\+By\+Username@{load\+User\+By\+Username}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}}
+\subsubsection[{load\+User\+By\+Username}]{\setlength{\rightskip}{0pt plus 5cm}load\+User\+By\+Username (
+\begin{DoxyParamCaption}
+\item[{}]{\$username}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_provider_interface_a09423ffc9f178a746b6eefbf6a36697e}
+Loads the user for the given username.
+
+This method must throw Username\+Not\+Found\+Exception if the user is not found.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & The username\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Username\+Not\+Found\+Exception
+\end{DoxySeeAlso}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Username\+Not\+Found\+Exception} & if the user is not found \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf In\+Memory\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_in_memory_user_provider_a09423ffc9f178a746b6eefbf6a36697e}, and {\bf Chain\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_chain_user_provider_a09423ffc9f178a746b6eefbf6a36697e}.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}!refresh\+User@{refresh\+User}}
+\index{refresh\+User@{refresh\+User}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}}
+\subsubsection[{refresh\+User}]{\setlength{\rightskip}{0pt plus 5cm}refresh\+User (
+\begin{DoxyParamCaption}
+\item[{{\bf User\+Interface}}]{\$user}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_provider_interface_aaa9b45a480336cc76cccd7211c5897a2}
+Refreshes the user for the account interface.
+
+It is up to the implementation to decide if the user data should be totally reloaded (e.\+g. from the database), or if the \doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface} object can just be merged into some internal array of users / identity map.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface} & {\em \$user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{User\+Interface}{p.}{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_interface}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unsupported\+User\+Exception} & if the account is not supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in {\bf In\+Memory\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_in_memory_user_provider_aaa9b45a480336cc76cccd7211c5897a2}, and {\bf Chain\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_chain_user_provider_aaa9b45a480336cc76cccd7211c5897a2}.
+
+\index{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}!supports\+Class@{supports\+Class}}
+\index{supports\+Class@{supports\+Class}!Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface@{Symfony\+::\+Component\+::\+Security\+::\+Core\+::\+User\+::\+User\+Provider\+Interface}}
+\subsubsection[{supports\+Class}]{\setlength{\rightskip}{0pt plus 5cm}supports\+Class (
+\begin{DoxyParamCaption}
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{interface_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_user_provider_interface_afdff6bbfde26b09a76d382483faf698b}
+Whether this provider supports the given user class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implemented in {\bf In\+Memory\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_in_memory_user_provider_afdff6bbfde26b09a76d382483faf698b}, and {\bf Chain\+User\+Provider} \doxyref{}{p.}{class_symfony_1_1_component_1_1_security_1_1_core_1_1_user_1_1_chain_user_provider_afdff6bbfde26b09a76d382483faf698b}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/security-\/core/\+Symfony/\+Component/\+Security/\+Core/\+User/{\bf User\+Provider\+Interface.\+php}\end{DoxyCompactItemize}

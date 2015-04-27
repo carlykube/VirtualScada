@@ -1,0 +1,499 @@
+\section{Translator Class Reference}
+\label{class_symfony_1_1_component_1_1_translation_1_1_translator}\index{Translator@{Translator}}
+Inheritance diagram for Translator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_translation_1_1_translator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\${\bf locale}, {\bf Message\+Selector} \$selector=null, \$cache\+Dir=null, \$debug=false)
+\item 
+{\bf add\+Loader} (\${\bf format}, {\bf Loader\+Interface} \$loader)
+\item 
+{\bf add\+Resource} (\${\bf format}, \$resource, \${\bf locale}, \$domain=null)
+\item 
+{\bf set\+Locale} (\${\bf locale})
+\item 
+{\bf get\+Locale} ()
+\item 
+{\bf set\+Fallback\+Locale} (\$locales)
+\item 
+{\bf set\+Fallback\+Locales} (array \$locales)
+\item 
+{\bf get\+Fallback\+Locales} ()
+\item 
+{\bf trans} (\$id, array \$parameters=array(), \$domain=null, \${\bf locale}=null)
+\item 
+{\bf trans\+Choice} (\$id, \$number, array \$parameters=array(), \$domain=null, \${\bf locale}=null)
+\item 
+{\bf get\+Catalogue} (\${\bf locale}=null)
+\item 
+{\bf get\+Messages} (\${\bf locale}=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Loaders} ()
+\item 
+{\bf load\+Catalogue} (\${\bf locale})
+\item 
+{\bf initialize\+Catalogue} (\${\bf locale})
+\item 
+{\bf compute\+Fallback\+Locales} (\${\bf locale})
+\item 
+{\bf assert\+Valid\+Locale} (\${\bf locale})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$catalogues} = array()
+\item 
+{\bf \$locale}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Translator}{p.}{class_symfony_1_1_component_1_1_translation_1_1_translator}.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Translator.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale, }
+\item[{{\bf Message\+Selector}}]{\$selector = {\ttfamily null}, }
+\item[{}]{\$cache\+Dir = {\ttfamily null}, }
+\item[{}]{\$debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a9aa43b0352f78d89b39904a9d0870c7b}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & The locale \\
+\hline
+\doxyref{Message\+Selector}{p.}{class_symfony_1_1_component_1_1_translation_1_1_message_selector} | null & {\em \$selector} & The message selector for pluralization \\
+\hline
+string | null & {\em \$cache\+Dir} & The directory to use for the cache \\
+\hline
+bool & {\em \$debug} & Use cache in debug mode ?\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 79 of file Translator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!add\+Loader@{add\+Loader}}
+\index{add\+Loader@{add\+Loader}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{add\+Loader}]{\setlength{\rightskip}{0pt plus 5cm}add\+Loader (
+\begin{DoxyParamCaption}
+\item[{}]{\$format, }
+\item[{{\bf Loader\+Interface}}]{\$loader}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_aca65b200de66f6c60cc54334c8b9ffb1}
+Adds a \doxyref{Loader}{p.}{namespace_symfony_1_1_component_1_1_translation_1_1_loader}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$format} & The name of the loader (\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Resource()}{p.}{class_symfony_1_1_component_1_1_translation_1_1_translator_abc4711e0642b0ca6b18dee918fe50b67}) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+Loader\+Interface & {\em \$loader} & \doxyref{A}{p.}{class_a} Loader\+Interface instance\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!add\+Resource@{add\+Resource}}
+\index{add\+Resource@{add\+Resource}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{add\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}add\+Resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$format, }
+\item[{}]{\$resource, }
+\item[{}]{\$locale, }
+\item[{}]{\$domain = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_abc4711e0642b0ca6b18dee918fe50b67}
+Adds a Resource.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$format} & The name of the loader (\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Loader()}{p.}{class_symfony_1_1_component_1_1_translation_1_1_translator_aca65b200de66f6c60cc54334c8b9ffb1}) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$resource} & The resource name \\
+\hline
+string & {\em \$locale} & The locale \\
+\hline
+string & {\em \$domain} & The domain\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 112 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!assert\+Valid\+Locale@{assert\+Valid\+Locale}}
+\index{assert\+Valid\+Locale@{assert\+Valid\+Locale}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{assert\+Valid\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}assert\+Valid\+Locale (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a7c2097062ec02319be7dbb009575a6f8}
+Asserts that the locale is valid, throws an \doxyref{Exception}{p.}{namespace_symfony_1_1_component_1_1_translation_1_1_exception} if not.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & Locale to tests\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 460 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!compute\+Fallback\+Locales@{compute\+Fallback\+Locales}}
+\index{compute\+Fallback\+Locales@{compute\+Fallback\+Locales}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{compute\+Fallback\+Locales}]{\setlength{\rightskip}{0pt plus 5cm}compute\+Fallback\+Locales (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a7f12b3baa1ee937ff1beb5295dd47551}
+
+
+Definition at line 435 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!get\+Catalogue@{get\+Catalogue}}
+\index{get\+Catalogue@{get\+Catalogue}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Catalogue}]{\setlength{\rightskip}{0pt plus 5cm}get\+Catalogue (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_ac6f7f76956fc954efbb5eac75e5c44fd}
+\{Gets the catalogue by locale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$locale} & The locale or null to use the default\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Message\+Catalogue\+Interface}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_message_catalogue_interface}
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Translator\+Bag\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_bag_interface_ac6f7f76956fc954efbb5eac75e5c44fd}.
+
+
+
+Definition at line 262 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!get\+Fallback\+Locales@{get\+Fallback\+Locales}}
+\index{get\+Fallback\+Locales@{get\+Fallback\+Locales}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Fallback\+Locales}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fallback\+Locales (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a1ba0e6d754495a9c3dd5110a95cdeb11}
+Gets the fallback locales.
+
+\begin{DoxyReturn}{Returns}
+array \$locales The fallback locales
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!get\+Loaders@{get\+Loaders}}
+\index{get\+Loaders@{get\+Loaders}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Loaders}]{\setlength{\rightskip}{0pt plus 5cm}get\+Loaders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a79dac4a40aa2f03009e4e625d2543f3e}
+Gets the loaders.
+
+\begin{DoxyReturn}{Returns}
+array Loader\+Interface[] 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!get\+Locale@{get\+Locale}}
+\index{get\+Locale@{get\+Locale}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}get\+Locale (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_ad532b661eb33c3e755bd3fa8ff1bd7af}
+\{Returns the current locale.
+
+\begin{DoxyReturn}{Returns}
+string The locale
+\end{DoxyReturn}
+\}
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_ad532b661eb33c3e755bd3fa8ff1bd7af}.
+
+
+
+Definition at line 145 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!get\+Messages@{get\+Messages}}
+\index{get\+Messages@{get\+Messages}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{get\+Messages}]{\setlength{\rightskip}{0pt plus 5cm}get\+Messages (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a575caab2a27222ae5b94002ec0d3f91c}
+Collects all messages for the given locale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$locale} & Locale of translations, by default is current locale\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array[array] indexed by catalog 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!initialize\+Catalogue@{initialize\+Catalogue}}
+\index{initialize\+Catalogue@{initialize\+Catalogue}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{initialize\+Catalogue}]{\setlength{\rightskip}{0pt plus 5cm}initialize\+Catalogue (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a1b71914c93ebcbf0a0e855e11efc57c4}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 331 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!load\+Catalogue@{load\+Catalogue}}
+\index{load\+Catalogue@{load\+Catalogue}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{load\+Catalogue}]{\setlength{\rightskip}{0pt plus 5cm}load\+Catalogue (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_afc9987fdf286119c4f7f3cde574991b8}
+
+
+Definition at line 319 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!set\+Fallback\+Locale@{set\+Fallback\+Locale}}
+\index{set\+Fallback\+Locale@{set\+Fallback\+Locale}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Fallback\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}set\+Fallback\+Locale (
+\begin{DoxyParamCaption}
+\item[{}]{\$locales}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_affb2d19e085df5beca54dc489b719749}
+Sets the fallback locale(s).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$locales} & The fallback locale(s)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 161 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!set\+Fallback\+Locales@{set\+Fallback\+Locales}}
+\index{set\+Fallback\+Locales@{set\+Fallback\+Locales}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Fallback\+Locales}]{\setlength{\rightskip}{0pt plus 5cm}set\+Fallback\+Locales (
+\begin{DoxyParamCaption}
+\item[{array}]{\$locales}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_aa5a31d23135c9b57ae2bc2b1b7174d90}
+Sets the fallback locales.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$locales} & The fallback locales\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 175 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!set\+Locale@{set\+Locale}}
+\index{set\+Locale@{set\+Locale}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{set\+Locale}]{\setlength{\rightskip}{0pt plus 5cm}set\+Locale (
+\begin{DoxyParamCaption}
+\item[{}]{\$locale}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a1bef7c51e9f6a97840f016a8f0a615ae}
+\{Sets the current locale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & The locale\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\}
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_a1bef7c51e9f6a97840f016a8f0a615ae}.
+
+
+
+Definition at line 134 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!trans@{trans}}
+\index{trans@{trans}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{trans}]{\setlength{\rightskip}{0pt plus 5cm}trans (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{array}]{\$parameters = {\ttfamily array()}, }
+\item[{}]{\$domain = {\ttfamily null}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_abc3ef3f767c8c02d89f98c57d2e1c66d}
+\{Translates the given message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & The message id (may also be an object that can be cast to string) \\
+\hline
+array & {\em \$parameters} & An array of parameters for the message \\
+\hline
+string | null & {\em \$domain} & The domain for the message or null to use the default \\
+\hline
+string | null & {\em \$locale} & The locale or null to use the default\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\}
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_abc3ef3f767c8c02d89f98c57d2e1c66d}.
+
+
+
+Definition at line 204 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!trans\+Choice@{trans\+Choice}}
+\index{trans\+Choice@{trans\+Choice}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{trans\+Choice}]{\setlength{\rightskip}{0pt plus 5cm}trans\+Choice (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$number, }
+\item[{array}]{\$parameters = {\ttfamily array()}, }
+\item[{}]{\$domain = {\ttfamily null}, }
+\item[{}]{\$locale = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a18b33f0bec8c41ab4937bfdc8c0dff91}
+\{Translates the given choice message by choosing a translation according to a number.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & The message id (may also be an object that can be cast to string) \\
+\hline
+int & {\em \$number} & The number to use to find the indice of the message \\
+\hline
+array & {\em \$parameters} & An array of parameters for the message \\
+\hline
+string | null & {\em \$domain} & The domain for the message or null to use the default \\
+\hline
+string | null & {\em \$locale} & The locale or null to use the default\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\}
+
+Implements {\bf Translator\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_translation_1_1_translator_interface_a18b33f0bec8c41ab4937bfdc8c0dff91}.
+
+
+
+Definition at line 228 of file Translator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!\$catalogues@{\$catalogues}}
+\index{\$catalogues@{\$catalogues}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$catalogues}]{\setlength{\rightskip}{0pt plus 5cm}\$catalogues = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a730dc5e66425976ae2d5a0b8f56045c1}
+
+
+Definition at line 30 of file Translator.\+php.
+
+\index{Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}!\$locale@{\$locale}}
+\index{\$locale@{\$locale}!Symfony\+::\+Component\+::\+Translation\+::\+Translator@{Symfony\+::\+Component\+::\+Translation\+::\+Translator}}
+\subsubsection[{\$locale}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf locale}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_translation_1_1_translator_a3b392f5a691b803e728f1fb42b35f6e1}
+
+
+Definition at line 35 of file Translator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/translation/\+Symfony/\+Component/\+Translation/{\bf Translator.\+php}\end{DoxyCompactItemize}

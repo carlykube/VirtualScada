@@ -8,6 +8,12 @@ use App\Module;
 use App\Project;
 use Response;
 
+/**
+ * Controller for the Module class
+ *
+ * Class ModuleController
+ * @package App\Http\Controllers
+ */
 class ModuleController extends Controller {
 
 	/**
@@ -41,7 +47,8 @@ class ModuleController extends Controller {
         $type = $input['module'];
 
         $moduleData = ['file_loc' => 'path\to\python\script',
-            'screen_loc' => 'position1'];
+                       'screen_loc' => 'position1',
+                        'type' => $type];
 
         if ($type == 'rtu')
         {

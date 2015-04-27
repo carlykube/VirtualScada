@@ -1,0 +1,67 @@
+.TH "MessageSelector" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MessageSelector \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBchoose\fP ($message, $number, $\fBlocale\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMessageSelector\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Bernhard Schussek bschussek@gmail.com
+.RE
+.PP
+
+.PP
+Definition at line 22 of file MessageSelector\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "choose ( $message,  $number,  $locale)"
+Given a message with different plural translations separated by a pipe (|), this method returns the correct portion of the message based on the given number, locale and the pluralization rules in the message itself\&.
+.PP
+The message supports two different types of pluralization rules:
+.PP
+interval: {0} There are no apples|{1} There is one apple|]1,Inf] There are count% apples indexed: There is one apple|There are count% apples
+.PP
+The indexed solution can also contain labels (e\&.g\&. one: There is one apple)\&. This is purely for making the translations more clear - it does not affect the functionality\&.
+.PP
+The two methods can also be mixed: {0} There are no apples|one: There is one apple|more: There are count% apples
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The message being translated 
+.br
+\fI$number\fP The number of items represented for the message 
+.br
+\fI$locale\fP The locale to use for choosing
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 52 of file MessageSelector\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

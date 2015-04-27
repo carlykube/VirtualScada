@@ -1,0 +1,435 @@
+.TH "Worker" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Worker \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBQueueManager\fP $manager, \fBFailedJobProviderInterface\fP $failer=null, \fBDispatcher\fP $events=null)"
+.br
+.ti -1c
+.RI "\fBdaemon\fP ($connectionName, $\fBqueue\fP=null, $\fBdelay\fP=0, $memory=128, $\fBsleep\fP=3, $maxTries=0)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($connectionName, $\fBqueue\fP=null, $\fBdelay\fP=0, $\fBsleep\fP=3, $maxTries=0)"
+.br
+.ti -1c
+.RI "\fBprocess\fP ($connection, \fBJob\fP $job, $maxTries=0, $\fBdelay\fP=0)"
+.br
+.ti -1c
+.RI "\fBmemoryExceeded\fP ($memoryLimit)"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsleep\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBsetDaemonExceptionHandler\fP (\fBExceptionHandler\fP $handler)"
+.br
+.ti -1c
+.RI "\fBsetCache\fP (CacheContract $cache)"
+.br
+.ti -1c
+.RI "\fBgetManager\fP ()"
+.br
+.ti -1c
+.RI "\fBsetManager\fP (\fBQueueManager\fP $manager)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrunNextJobForDaemon\fP ($connectionName, $\fBqueue\fP, $\fBdelay\fP, $\fBsleep\fP, $maxTries)"
+.br
+.ti -1c
+.RI "\fBdaemonShouldRun\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNextJob\fP ($connection, $\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBlogFailedJob\fP ($connection, \fBJob\fP $job)"
+.br
+.ti -1c
+.RI "\fBraiseFailedJobEvent\fP ($connection, \fBJob\fP $job)"
+.br
+.ti -1c
+.RI "\fBgetTimestampOfLastQueueRestart\fP ()"
+.br
+.ti -1c
+.RI "\fBqueueShouldRestart\fP ($lastRestart)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$manager\fP"
+.br
+.ti -1c
+.RI "\fB$failer\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$cache\fP"
+.br
+.ti -1c
+.RI "\fB$exceptions\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file Worker\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBQueueManager\fP $manager, \fBFailedJobProviderInterface\fP $failer = \fCnull\fP, \fBDispatcher\fP $events = \fCnull\fP)"
+Create a new queue worker\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$manager\fP 
+.br
+\fI$failer\fP 
+.br
+\fI$events\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file Worker\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "daemon ( $connectionName,  $queue = \fCnull\fP,  $delay = \fC0\fP,  $memory = \fC128\fP,  $sleep = \fC3\fP,  $maxTries = \fC0\fP)"
+Listen to the given queue in a loop\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connectionName\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$memory\fP 
+.br
+\fI$sleep\fP 
+.br
+\fI$maxTries\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Worker\&.php\&.
+.SS "daemonShouldRun ()\fC [protected]\fP"
+Determine if the daemon should process on this iteration\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file Worker\&.php\&.
+.SS "getManager ()"
+Get the queue manager instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 348 of file Worker\&.php\&.
+.SS "getNextJob ( $connection,  $queue)\fC [protected]\fP"
+Get the next job from the queue connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file Worker\&.php\&.
+.SS "getTimestampOfLastQueueRestart ()\fC [protected]\fP"
+Get the last queue restart timestamp, or null\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null 
+.RE
+.PP
+
+.PP
+Definition at line 302 of file Worker\&.php\&.
+.SS "logFailedJob ( $connection, \fBJob\fP $job)\fC [protected]\fP"
+\fBLog\fP a failed job into storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$job\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file Worker\&.php\&.
+.SS "memoryExceeded ( $memoryLimit)"
+Determine if the memory limit has been exceeded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$memoryLimit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file Worker\&.php\&.
+.SS "pop ( $connectionName,  $queue = \fCnull\fP,  $delay = \fC0\fP,  $sleep = \fC3\fP,  $maxTries = \fC0\fP)"
+Listen to the given queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connectionName\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$sleep\fP 
+.br
+\fI$maxTries\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Worker\&.php\&.
+.SS "process ( $connection, \fBJob\fP $job,  $maxTries = \fC0\fP,  $delay = \fC0\fP)"
+Process a given job from the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$job\fP 
+.br
+\fI$maxTries\fP 
+.br
+\fI$delay\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 195 of file Worker\&.php\&.
+.SS "queueShouldRestart ( $lastRestart)\fC [protected]\fP"
+Determine if the queue worker should restart\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$lastRestart\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 316 of file Worker\&.php\&.
+.SS "raiseFailedJobEvent ( $connection, \fBJob\fP $job)\fC [protected]\fP"
+Raise the failed queue job event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$job\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file Worker\&.php\&.
+.SS "runNextJobForDaemon ( $connectionName,  $queue,  $delay,  $sleep,  $maxTries)\fC [protected]\fP"
+Run the next job for the daemon worker\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connectionName\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$delay\fP 
+.br
+\fI$sleep\fP 
+.br
+\fI$maxTries\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file Worker\&.php\&.
+.SS "setCache (CacheContract $cache)"
+Set the cache repository implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cache\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 338 of file Worker\&.php\&.
+.SS "setDaemonExceptionHandler (\fBExceptionHandler\fP $handler)"
+Set the exception handler to use in Daemon mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 327 of file Worker\&.php\&.
+.SS "setManager (\fBQueueManager\fP $manager)"
+Set the queue manager instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$manager\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 359 of file Worker\&.php\&.
+.SS "sleep ( $seconds)"
+Sleep the script for a given number of seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file Worker\&.php\&.
+.SS "stop ()"
+Stop listening and bail out of the script\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 279 of file Worker\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$cache\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file Worker\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file Worker\&.php\&.
+.SS "$exceptions\fC [protected]\fP"
+
+.PP
+Definition at line 45 of file Worker\&.php\&.
+.SS "$failer\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file Worker\&.php\&.
+.SS "$manager\fC [protected]\fP"
+
+.PP
+Definition at line 17 of file Worker\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

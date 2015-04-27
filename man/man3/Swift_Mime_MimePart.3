@@ -1,0 +1,270 @@
+.TH "Swift_Mime_MimePart" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Mime_MimePart \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_SimpleMimeEntity\fP\&.
+.PP
+Inherited by \fBSwift_Mime_SimpleMessage\fP, and \fBSwift_MimePart\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_Mime_HeaderSet\fP $headers, \fBSwift_Mime_ContentEncoder\fP $encoder, \fBSwift_KeyCache\fP $cache, \fBSwift_Mime_Grammar\fP $grammar, $charset=null)"
+.br
+.ti -1c
+.RI "\fBsetBody\fP ($body, $contentType=null, $charset=null)"
+.br
+.ti -1c
+.RI "\fBgetCharset\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCharset\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBgetFormat\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFormat\fP ($\fBformat\fP)"
+.br
+.ti -1c
+.RI "\fBgetDelSp\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDelSp\fP ($delsp=true)"
+.br
+.ti -1c
+.RI "\fBgetNestingLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBcharsetChanged\fP ($charset)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_fixHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fB_setNestingLevel\fP ($level)"
+.br
+.ti -1c
+.RI "\fB_convertString\fP ($string)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$_userFormat\fP"
+.br
+.ti -1c
+.RI "\fB$_userCharset\fP"
+.br
+.ti -1c
+.RI "\fB$_userDelSp\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP MIME part, in a multipart message\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file MimePart\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_Mime_HeaderSet\fP $headers, \fBSwift_Mime_ContentEncoder\fP $encoder, \fBSwift_KeyCache\fP $cache, \fBSwift_Mime_Grammar\fP $grammar,  $charset = \fCnull\fP)"
+Create a new MimePart with $headers, $encoder and $cache\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.br
+\fI$encoder\fP 
+.br
+\fI$cache\fP 
+.br
+\fI$grammar\fP 
+.br
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file MimePart\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "_convertString ( $string)\fC [protected]\fP"
+Encode charset when charset is not utf-8 
+.PP
+Definition at line 196 of file MimePart\&.php\&.
+.SS "_fixHeaders ()\fC [protected]\fP"
+Fix the content-type and encoding of this entity 
+.PP
+Definition at line 175 of file MimePart\&.php\&.
+.SS "_setNestingLevel ( $level)\fC [protected]\fP"
+Set the nesting level of this entity 
+.PP
+Definition at line 190 of file MimePart\&.php\&.
+.SS "charsetChanged ( $charset)"
+Receive notification that the charset has changed on this document, or a parent document\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_CharsetObserver\fP\&.
+.PP
+Definition at line 169 of file MimePart\&.php\&.
+.SS "getCharset ()"
+Get the character set of this entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file MimePart\&.php\&.
+.SS "getDelSp ()"
+Test if delsp is being used for this entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file MimePart\&.php\&.
+.SS "getFormat ()"
+Get the format of this entity (i\&.e\&. flowed or fixed)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file MimePart\&.php\&.
+.SS "getNestingLevel ()"
+Get the nesting level of this entity\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBLEVEL_TOP\fP, \fBLEVEL_ALTERNATIVE\fP, \fBLEVEL_MIXED\fP, \fBLEVEL_RELATED\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 158 of file MimePart\&.php\&.
+.SS "setBody ( $body,  $contentType = \fCnull\fP,  $charset = \fCnull\fP)"
+Set the body of this entity, either as a string, or as an instance of \fBSwift_OutputByteStream\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$body\fP 
+.br
+\fI$contentType\fP optional 
+.br
+\fI$charset\fP optional
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimePart\fP 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file MimePart\&.php\&.
+.SS "setCharset ( $charset)"
+Set the character set of this entity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimePart\fP 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file MimePart\&.php\&.
+.SS "setDelSp ( $delsp = \fCtrue\fP)"
+Turn delsp on or off for this entity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delsp\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimePart\fP 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file MimePart\&.php\&.
+.SS "setFormat ( $format)"
+Set the format of this entity (flowed or fixed)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$format\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimePart\fP 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file MimePart\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$_userCharset\fC [protected]\fP"
+The charset last specified by the user 
+.PP
+Definition at line 22 of file MimePart\&.php\&.
+.SS "$_userDelSp\fC [protected]\fP"
+The delsp parameter last specified by the user 
+.PP
+Definition at line 25 of file MimePart\&.php\&.
+.SS "$_userFormat\fC [protected]\fP"
+The format parameter last specified by the user 
+.PP
+Definition at line 19 of file MimePart\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

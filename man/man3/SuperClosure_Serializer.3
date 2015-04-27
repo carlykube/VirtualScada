@@ -1,0 +1,98 @@
+.TH "Serializer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Serializer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSerializerInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBClosureAnalyzer\fP $analyzer=null, $signingKey=null)"
+.br
+.ti -1c
+.RI "\fBserialize\fP (\\Closure $closure)"
+.br
+.ti -1c
+.RI "\fBgetData\fP (\\Closure $closure, $forSerialization=false)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBwrapClosures\fP (&$\fBdata\fP, \fBSerializerInterface\fP $serializer)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBRECURSION\fP = '{{RECURSION}}'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the serializer class used for serializing Closure objects\&.
+.PP
+We're abstracting away all the details, impossibilities, and scary things that happen within\&. 
+.PP
+Definition at line 13 of file Serializer\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBClosureAnalyzer\fP $analyzer = \fCnull\fP,  $signingKey = \fCnull\fP)"
+Create a new serializer instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$analyzer\fP Closure analyzer instance\&. 
+.br
+\fI$signingKey\fP HMAC key to sign closure data\&. 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file Serializer\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getData (\\Closure $closure,  $forSerialization = \fCfalse\fP)"
+
+.PP
+Implements \fBSerializerInterface\fP\&.
+.PP
+Definition at line 104 of file Serializer\&.php\&.
+.SS "serialize (\\Closure $closure)"
+
+.PP
+Implements \fBSerializerInterface\fP\&.
+.PP
+Definition at line 66 of file Serializer\&.php\&.
+.SS "static wrapClosures (& $data, \fBSerializerInterface\fP $serializer)\fC [static]\fP"
+Recursively traverses and wraps all Closure objects within the value\&.
+.PP
+NOTE: THIS MAY NOT WORK IN ALL USE CASES, SO USE AT YOUR OWN RISK\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP Any variable that contains closures\&. 
+.br
+\fI$serializer\fP The serializer to use\&. 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file Serializer\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const RECURSION = '{{RECURSION}}'"
+
+.PP
+Definition at line 20 of file Serializer\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

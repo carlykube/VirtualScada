@@ -1,0 +1,25 @@
+Finder finds files and directories via an intuitive fluent interface.
+
+```php use \doxyref{Symfony}{p.}{namespace_symfony};
+
+\$finder = new Finder();
+
+\$iterator = \$finder -\/$>$files() -\/$>$name(\textquotesingle{}$\ast$.php\textquotesingle{}) -\/$>$depth(0) -\/$>$size(\textquotesingle{}$>$= 1\+K\textquotesingle{}) -\/$>$in({\bfseries D\+I\+R});
+
+foreach (\$iterator as \$file) \{ print \$file-\/$>$get\+Realpath().\char`\"{}\textbackslash{}n\char`\"{}; \} ```
+
+The iterator returns instances of {\tt Symfony}. Besides the build-\/in methods inherited from {\tt } ({\ttfamily get\+Perms()}, {\ttfamily get\+Size()}, ...), you can also use {\ttfamily get\+Relative\+Path()} and {\ttfamily get\+Relative\+Pathname()}. Read the {\tt official documentation} for more information.
+
+But you can also use it to find files stored remotely like in this example where we are looking for files on Amazon S3\+:
+
+```php \$s3 = new (\$key, \$secret); \$s3-\/$>$register\+Stream\+Wrapper(\char`\"{}s3\char`\"{});
+
+\$finder = new Finder(); \$finder-\/$>$name(\textquotesingle{}photos$\ast$\textquotesingle{})-\/$>$size(\textquotesingle{}$<$ 100\+K\textquotesingle{})-\/$>$date(\textquotesingle{}since 1 hour ago\textquotesingle{}); foreach (\$finder-\/$>$in(\textquotesingle{}s3\+://bucket-\/name\textquotesingle{}) as \$file) \{ print \$file-\/$>$get\+Filename().\char`\"{}\textbackslash{}n\char`\"{}; \} ```
+
+\subsection*{Resources }
+
+You can run the unit tests with the following command\+: \begin{DoxyVerb}$ cd path/to/Symfony/Component/Finder/
+$ composer install
+$ phpunit
+\end{DoxyVerb}
+ 

@@ -1,0 +1,108 @@
+.TH "ProfilerStorageInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProfilerStorageInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBBaseMemcacheProfilerStorage\fP, \fBFileProfilerStorage\fP, \fBMongoDbProfilerStorage\fP, \fBPdoProfilerStorage\fP, and \fBRedisProfilerStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProfilerStorageInterface\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file ProfilerStorageInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens 
+.RE
+.PP
+
+.PP
+Implemented in \fBRedisProfilerStorage\fP, \fBFileProfilerStorage\fP, \fBPdoProfilerStorage\fP, \fBBaseMemcacheProfilerStorage\fP, and \fBMongoDbProfilerStorage\fP\&.
+.SS "purge ()"
+Purges all data from the database\&. 
+.PP
+Implemented in \fBPdoProfilerStorage\fP, \fBRedisProfilerStorage\fP, \fBBaseMemcacheProfilerStorage\fP, \fBFileProfilerStorage\fP, and \fBMongoDbProfilerStorage\fP\&.
+.SS "read ( $token)"
+Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token 
+.RE
+.PP
+
+.PP
+Implemented in \fBRedisProfilerStorage\fP, \fBBaseMemcacheProfilerStorage\fP, \fBFileProfilerStorage\fP, \fBPdoProfilerStorage\fP, and \fBMongoDbProfilerStorage\fP\&.
+.SS "write (\fBProfile\fP $profile)"
+Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful 
+.RE
+.PP
+
+.PP
+Implemented in \fBRedisProfilerStorage\fP, \fBBaseMemcacheProfilerStorage\fP, \fBFileProfilerStorage\fP, \fBPdoProfilerStorage\fP, and \fBMongoDbProfilerStorage\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

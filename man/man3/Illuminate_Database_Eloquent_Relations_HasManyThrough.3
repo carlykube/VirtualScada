@@ -1,0 +1,350 @@
+.TH "HasManyThrough" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HasManyThrough \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRelation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $farParent, \fBModel\fP $parent, $firstKey, $secondKey)"
+.br
+.ti -1c
+.RI "\fBaddConstraints\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQuery\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBinitRelation\fP (array $\fBmodels\fP, $relation)"
+.br
+.ti -1c
+.RI "\fBmatch\fP (array $\fBmodels\fP, \fBCollection\fP $results, $relation)"
+.br
+.ti -1c
+.RI "\fBgetResults\fP ()"
+.br
+.ti -1c
+.RI "\fBfirst\fP ($columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfind\fP ($id, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBfindMany\fP ($ids, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBget\fP ($columns=['*'])"
+.br
+.ti -1c
+.RI "\fBpaginate\fP ($perPage=null, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBgetHasCompareKey\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetJoin\fP (\fBBuilder\fP $query=null)"
+.br
+.ti -1c
+.RI "\fBbuildDictionary\fP (\fBCollection\fP $results)"
+.br
+.ti -1c
+.RI "\fBgetSelectColumns\fP (array $columns=['*'])"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$farParent\fP"
+.br
+.ti -1c
+.RI "\fB$firstKey\fP"
+.br
+.ti -1c
+.RI "\fB$secondKey\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file HasManyThrough\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $farParent, \fBModel\fP $parent,  $firstKey,  $secondKey)"
+Create a new has many through relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$farParent\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$firstKey\fP 
+.br
+\fI$secondKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file HasManyThrough\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addConstraints ()"
+Set the base constraints on the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file HasManyThrough\&.php\&.
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file HasManyThrough\&.php\&.
+.SS "buildDictionary (\fBCollection\fP $results)\fC [protected]\fP"
+Build model dictionary keyed by the relation's foreign key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$results\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file HasManyThrough\&.php\&.
+.SS "find ( $id,  $columns = \fC['*']\fP)"
+Find a related model by its primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+||null 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file HasManyThrough\&.php\&.
+.SS "findMany ( $ids,  $columns = \fC['*']\fP)"
+Find multiple related models by their primary keys\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 234 of file HasManyThrough\&.php\&.
+.SS "first ( $columns = \fC['*']\fP)"
+Execute the query and get the first related model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file HasManyThrough\&.php\&.
+.SS "get ( $columns = \fC['*']\fP)"
+Execute the query as a 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 249 of file HasManyThrough\&.php\&.
+.SS "getHasCompareKey ()"
+Get the key for comparing against the parent key in 'has' query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 306 of file HasManyThrough\&.php\&.
+.SS "getRelationCountQuery (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Add the constraints for a relationship count query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 74 of file HasManyThrough\&.php\&.
+.SS "getResults ()"
+Get the results of the relationship\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 190 of file HasManyThrough\&.php\&.
+.SS "getSelectColumns (array $columns = \fC['*']\fP)\fC [protected]\fP"
+Set the select clause for the relation query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 277 of file HasManyThrough\&.php\&.
+.SS "initRelation (array $models,  $relation)"
+Initialize the relation on a set of models\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file HasManyThrough\&.php\&.
+.SS "match (array $models, \fBCollection\fP $results,  $relation)"
+Match the eagerly loaded results to their parents\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.br
+\fI$results\fP 
+.br
+\fI$relation\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file HasManyThrough\&.php\&.
+.SS "paginate ( $perPage = \fCnull\fP,  $columns = \fC['*']\fP)"
+
+.PP
+Definition at line 294 of file HasManyThrough\&.php\&.
+.SS "setJoin (\fBBuilder\fP $query = \fCnull\fP)\fC [protected]\fP"
+Set the join clause on the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file HasManyThrough\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$farParent\fC [protected]\fP"
+
+.PP
+Definition at line 15 of file HasManyThrough\&.php\&.
+.SS "$firstKey\fC [protected]\fP"
+
+.PP
+Definition at line 22 of file HasManyThrough\&.php\&.
+.SS "$secondKey\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file HasManyThrough\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

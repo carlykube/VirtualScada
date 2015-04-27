@@ -1,0 +1,9 @@
+var namespacespec_1_1_prophecy_1_1_exception_1_1_doubler =
+[
+    [ "ClassCreatorExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_creator_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_creator_exception_spec" ],
+    [ "ClassMirrorExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_mirror_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_mirror_exception_spec" ],
+    [ "ClassNotFoundExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_not_found_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_class_not_found_exception_spec" ],
+    [ "DoubleExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_double_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_double_exception_spec" ],
+    [ "InterfaceNotFoundExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_interface_not_found_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_interface_not_found_exception_spec" ],
+    [ "MethodNotFoundExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_method_not_found_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_doubler_1_1_method_not_found_exception_spec" ]
+];

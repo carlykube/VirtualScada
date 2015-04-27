@@ -1,0 +1,324 @@
+\section{Port\+Logger Class Reference}
+\label{classprotolibs_1_1portlogger_1_1_port_logger}\index{Port\+Logger@{Port\+Logger}}
+Inheritance diagram for Port\+Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classprotolibs_1_1portlogger_1_1_port_logger}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf \+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def {\bf make\+\_\+symlinks}
+\item 
+def {\bf start\+\_\+log} (self)
+\item 
+def {\bf log\+\_\+packet}
+\item 
+def {\bf run} (self)
+\item 
+def {\bf stop} (self)
+\item 
+def {\bf port\+\_\+names} (self)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf baud}
+\begin{DoxyCompactList}\small\item\em Set up baud rate delay for ptys. \end{DoxyCompactList}\item 
+{\bf emulate}
+\item 
+{\bf byte\+\_\+delay}
+\item 
+{\bf masters}
+\begin{DoxyCompactList}\small\item\em Create Pseudoterminals. \end{DoxyCompactList}\item 
+{\bf slaves}
+\item 
+{\bf serials}
+\begin{DoxyCompactList}\small\item\em Create symlinks to the slave ports before adding serial objects. \end{DoxyCompactList}\item 
+{\bf serial\+\_\+fds}
+\item 
+{\bf masters\+\_\+to\+\_\+slaves}
+\item 
+{\bf leader}
+\item 
+{\bf followers}
+\item 
+{\bf rs485\+\_\+mode}
+\item 
+{\bf done}
+\item 
+{\bf log}
+\begin{DoxyCompactList}\small\item\em Start logging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf B\+U\+F\+\_\+\+L\+E\+N} = 1024
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Port logger objects create two or more connected pseudoterminal devices 
+    that are connected together; each write to any of the devices is logged.\end{DoxyVerb}
+ 
+
+Definition at line 32 of file portlogger.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def \+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{number\+\_\+of\+\_\+ports = {\ttfamily 2}, }
+\item[{}]{logfile = {\ttfamily None}, }
+\item[{}]{symlinks = {\ttfamily None}, }
+\item[{}]{ports = {\ttfamily None}, }
+\item[{}]{baud = {\ttfamily 9600}, }
+\item[{}]{force\+\_\+symlinks = {\ttfamily False}, }
+\item[{}]{emulate = {\ttfamily False}, }
+\item[{}]{rs485 = {\ttfamily False}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_ac775ee34451fdfa742b318538164070e}
+\begin{DoxyVerb}Creates the portLogger object. 
+self. masters and self.slaves hold file descriptors of corresponding
+master and slave sides of the pseudoterminals.
+@param numberOfPorts Number of pseudoterminals to create. Default is 2.
+@param logfile Name of the logfile. 
+@param symlinks Iterable of filenames to symlink the slaves to
+@param ports List of filenames of physical serial ports to connect&log 
+@param baud Baud rate for the links. If pty is used, a wait is used to
+    simulate transmission times.
+@param emulate Emulate a baud rate delay for communicating between
+@param rs485 RS-485 emulation. If true, the first pty is selected to 
+        broadcast to other
+        ports, and other ports only send responses to the first
+        pty. 
+pseudoterminal devices. Serial ports are unaffected.
+@param force_symlinks If true, if a file name given to
+            be created as a symlink is already a link, a new 
+            link will be forced in its place. If it exists and 
+            is not a link, the program will halt.\end{DoxyVerb}
+ 
+
+Definition at line 39 of file portlogger.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!log\+\_\+packet@{log\+\_\+packet}}
+\index{log\+\_\+packet@{log\+\_\+packet}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{log\+\_\+packet}]{\setlength{\rightskip}{0pt plus 5cm}def log\+\_\+packet (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{port\+\_\+fd, }
+\item[{}]{packet, }
+\item[{}]{timestamp = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_a8cfb4e1f403037d6ad13d4258aaa2ef0}
+\begin{DoxyVerb}Writes a packet entry to the log\end{DoxyVerb}
+ 
+
+Definition at line 135 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!make\+\_\+symlinks@{make\+\_\+symlinks}}
+\index{make\+\_\+symlinks@{make\+\_\+symlinks}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{make\+\_\+symlinks}]{\setlength{\rightskip}{0pt plus 5cm}def make\+\_\+symlinks (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{symlinks, }
+\item[{}]{force\+\_\+symlinks = {\ttfamily False}}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_ab053164d8b9e5af235dbd19b521de605}
+\begin{DoxyVerb}Creates symlinks from the names of the slave ptys to the targets
+    in the iterable symlinks. This is useful to have constant names 
+    for the ports created with the port logger. There is no guarantee
+    that a given pty will be linked to a specific symlink.
+    @param symlinks Iterable of filenames to symlink the slaves to.
+    @param force_symlinks If true, if a file name given to
+            be created as a symlink is already a link, a new 
+            link will be forced in its place. If it exists and 
+            is not a link, the program will halt.\end{DoxyVerb}
+ 
+
+Definition at line 106 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!port\+\_\+names@{port\+\_\+names}}
+\index{port\+\_\+names@{port\+\_\+names}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{port\+\_\+names}]{\setlength{\rightskip}{0pt plus 5cm}def port\+\_\+names (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_a0381d3234b031f82ec8ee46d4e0e4321}
+\begin{DoxyVerb}Returns a list of filenames of ports made available by this 
+    object.
+    @returns a list of filenames\end{DoxyVerb}
+ 
+
+Definition at line 185 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!run@{run}}
+\index{run@{run}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}def run (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_ad22709b2e67308af35f55680d5a026e0}
+\begin{DoxyVerb}Function that executes when this thread is started.
+    run() listens to on all pty objects and echoes incoming data
+    to all other ports.\end{DoxyVerb}
+ 
+
+Definition at line 144 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!start\+\_\+log@{start\+\_\+log}}
+\index{start\+\_\+log@{start\+\_\+log}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{start\+\_\+log}]{\setlength{\rightskip}{0pt plus 5cm}def start\+\_\+log (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_a6cfb0b6e2a825fdbde5d1968c027d682}
+\begin{DoxyVerb}Writes a header to the log file\end{DoxyVerb}
+ 
+
+Definition at line 128 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!stop@{stop}}
+\index{stop@{stop}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}def stop (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classprotolibs_1_1portlogger_1_1_port_logger_a26ca7c1c7fcdd35378e7be97727047a6}
+\begin{DoxyVerb}Stops execution of the logger. The logger is closed and the 
+    thread exits\end{DoxyVerb}
+ 
+
+Definition at line 177 of file portlogger.\+py.
+
+
+
+\subsection{Field Documentation}
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!baud@{baud}}
+\index{baud@{baud}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{baud}]{\setlength{\rightskip}{0pt plus 5cm}baud}\label{classprotolibs_1_1portlogger_1_1_port_logger_a76432121357072730f76c1bf26df93ec}
+
+
+Set up baud rate delay for ptys. 
+
+
+
+Definition at line 60 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!B\+U\+F\+\_\+\+L\+E\+N@{B\+U\+F\+\_\+\+L\+E\+N}}
+\index{B\+U\+F\+\_\+\+L\+E\+N@{B\+U\+F\+\_\+\+L\+E\+N}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{B\+U\+F\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}int B\+U\+F\+\_\+\+L\+E\+N = 1024\hspace{0.3cm}{\ttfamily [static]}}\label{classprotolibs_1_1portlogger_1_1_port_logger_a4e6625a47c68d23be7bb8dec5ad5f778}
+
+
+Definition at line 36 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!byte\+\_\+delay@{byte\+\_\+delay}}
+\index{byte\+\_\+delay@{byte\+\_\+delay}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{byte\+\_\+delay}]{\setlength{\rightskip}{0pt plus 5cm}byte\+\_\+delay}\label{classprotolibs_1_1portlogger_1_1_port_logger_a03632386e68f5d0c9f5f0c0700496ea3}
+
+
+Definition at line 62 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!done@{done}}
+\index{done@{done}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{done}]{\setlength{\rightskip}{0pt plus 5cm}done}\label{classprotolibs_1_1portlogger_1_1_port_logger_ad604cff3eb5d475cdc9f8eb5ab570fee}
+
+
+Definition at line 96 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!emulate@{emulate}}
+\index{emulate@{emulate}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{emulate}]{\setlength{\rightskip}{0pt plus 5cm}emulate}\label{classprotolibs_1_1portlogger_1_1_port_logger_ae2164969667f57256c8b7c1dc5b5b94e}
+
+
+Definition at line 61 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!followers@{followers}}
+\index{followers@{followers}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{followers}]{\setlength{\rightskip}{0pt plus 5cm}followers}\label{classprotolibs_1_1portlogger_1_1_port_logger_a1f4a829d2da6d9a7e43119f7f166e416}
+
+
+Definition at line 92 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!leader@{leader}}
+\index{leader@{leader}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{leader}]{\setlength{\rightskip}{0pt plus 5cm}leader}\label{classprotolibs_1_1portlogger_1_1_port_logger_a65a376218b0e773c13e64489af462c2c}
+
+
+Definition at line 91 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!log@{log}}
+\index{log@{log}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}log}\label{classprotolibs_1_1portlogger_1_1_port_logger_ab09a63eb35b270b5cdbead1983ebdccb}
+
+
+Start logging. 
+
+
+
+Definition at line 101 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!masters@{masters}}
+\index{masters@{masters}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{masters}]{\setlength{\rightskip}{0pt plus 5cm}masters}\label{classprotolibs_1_1portlogger_1_1_port_logger_a8c89384b74a5a472d70c710c9fe8ea4b}
+
+
+Create Pseudoterminals. 
+
+
+
+Definition at line 66 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!masters\+\_\+to\+\_\+slaves@{masters\+\_\+to\+\_\+slaves}}
+\index{masters\+\_\+to\+\_\+slaves@{masters\+\_\+to\+\_\+slaves}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{masters\+\_\+to\+\_\+slaves}]{\setlength{\rightskip}{0pt plus 5cm}masters\+\_\+to\+\_\+slaves}\label{classprotolibs_1_1portlogger_1_1_port_logger_ac874ebe1dff259eef5cf12bd22b2cabc}
+
+
+Definition at line 86 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!rs485\+\_\+mode@{rs485\+\_\+mode}}
+\index{rs485\+\_\+mode@{rs485\+\_\+mode}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{rs485\+\_\+mode}]{\setlength{\rightskip}{0pt plus 5cm}rs485\+\_\+mode}\label{classprotolibs_1_1portlogger_1_1_port_logger_a58e98664214ef8977e835bbb0b362163}
+
+
+Definition at line 93 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!serial\+\_\+fds@{serial\+\_\+fds}}
+\index{serial\+\_\+fds@{serial\+\_\+fds}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{serial\+\_\+fds}]{\setlength{\rightskip}{0pt plus 5cm}serial\+\_\+fds}\label{classprotolibs_1_1portlogger_1_1_port_logger_a3211d8c4cc00edcaa976ffe3d2b8109b}
+
+
+Definition at line 81 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!serials@{serials}}
+\index{serials@{serials}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{serials}]{\setlength{\rightskip}{0pt plus 5cm}serials}\label{classprotolibs_1_1portlogger_1_1_port_logger_adc8dcf7657b529e1a22f77ff4aecf1e1}
+
+
+Create symlinks to the slave ports before adding serial objects. 
+
+Create serial objects 
+
+Definition at line 78 of file portlogger.\+py.
+
+\index{protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}!slaves@{slaves}}
+\index{slaves@{slaves}!protolibs\+::portlogger\+::\+Port\+Logger@{protolibs\+::portlogger\+::\+Port\+Logger}}
+\subsubsection[{slaves}]{\setlength{\rightskip}{0pt plus 5cm}slaves}\label{classprotolibs_1_1portlogger_1_1_port_logger_a174036b7e2519cf244f2fd065b54b082}
+
+
+Definition at line 67 of file portlogger.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+module\+Scripts/\+R\+T\+Uscripts/protolibs/{\bf portlogger.\+py}\end{DoxyCompactItemize}

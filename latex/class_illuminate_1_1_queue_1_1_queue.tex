@@ -1,0 +1,397 @@
+\section{Queue Class Reference}
+\label{class_illuminate_1_1_queue_1_1_queue}\index{Queue@{Queue}}
+Inheritance diagram for Queue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.344538cm]{class_illuminate_1_1_queue_1_1_queue}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf push\+On} (\${\bf queue}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf later\+On} (\${\bf queue}, \${\bf delay}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{})
+\item 
+{\bf marshal} ()
+\item 
+{\bf bulk} (\$jobs, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf set\+Container} ({\bf Container} \$container)
+\item 
+{\bf set\+Encrypter} (Encrypter\+Contract \$crypt)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf create\+Payload} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+{\bf create\+Plain\+Payload} (\$job, \${\bf data})
+\item 
+{\bf prepare\+Queueable\+Entities} (\${\bf data})
+\item 
+{\bf prepare\+Queueable\+Entity} (\$value)
+\item 
+{\bf create\+Closure\+Payload} (\$job, \${\bf data})
+\item 
+{\bf set\+Meta} (\$payload, \$key, \$value)
+\item 
+{\bf get\+Seconds} (\${\bf delay})
+\item 
+{\bf get\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$container}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Queue.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!bulk@{bulk}}
+\index{bulk@{bulk}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{bulk}]{\setlength{\rightskip}{0pt plus 5cm}bulk (
+\begin{DoxyParamCaption}
+\item[{}]{\$jobs, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_a6b04667108d3e53da4f3c54681b37dfa}
+Push an array of jobs onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$jobs} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!create\+Closure\+Payload@{create\+Closure\+Payload}}
+\index{create\+Closure\+Payload@{create\+Closure\+Payload}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{create\+Closure\+Payload}]{\setlength{\rightskip}{0pt plus 5cm}create\+Closure\+Payload (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_a46267fea6df1a03637c35f11f1733b59}
+Create a payload string for the given Closure job.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!create\+Payload@{create\+Payload}}
+\index{create\+Payload@{create\+Payload}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{create\+Payload}]{\setlength{\rightskip}{0pt plus 5cm}create\+Payload (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_a49975f908da3683544fa55870dfe90d0}
+Create a payload string from the given job and data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!create\+Plain\+Payload@{create\+Plain\+Payload}}
+\index{create\+Plain\+Payload@{create\+Plain\+Payload}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{create\+Plain\+Payload}]{\setlength{\rightskip}{0pt plus 5cm}create\+Plain\+Payload (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_ab6e0b0ed4854953b87674411c185d241}
+Create a typical, \char`\"{}plain\char`\"{} queue payload array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!get\+Seconds@{get\+Seconds}}
+\index{get\+Seconds@{get\+Seconds}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{get\+Seconds}]{\setlength{\rightskip}{0pt plus 5cm}get\+Seconds (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_ac4038df3714fca7c770fc06f9fff1af3}
+Calculate the number of seconds with the given delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{get\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_a57c78d9f0aa316ee2fdd6995e2a06ce3}
+Get the current U\+N\+I\+X timestamp.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!later\+On@{later\+On}}
+\index{later\+On@{later\+On}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{later\+On}]{\setlength{\rightskip}{0pt plus 5cm}later\+On (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$delay, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_a0d6ac49962fb245e4ee405e1bb7c0188}
+Push a new job onto the queue after a delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!marshal@{marshal}}
+\index{marshal@{marshal}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{marshal}]{\setlength{\rightskip}{0pt plus 5cm}marshal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_ae7fee5a8a0f09b8149487eac47d701cc}
+Marshal a push queue request and fire the job.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 52 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!prepare\+Queueable\+Entities@{prepare\+Queueable\+Entities}}
+\index{prepare\+Queueable\+Entities@{prepare\+Queueable\+Entities}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{prepare\+Queueable\+Entities}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Queueable\+Entities (
+\begin{DoxyParamCaption}
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_ac58e540872c5195499b51824050d0db5}
+Prepare any queueable entities for storage in the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!prepare\+Queueable\+Entity@{prepare\+Queueable\+Entity}}
+\index{prepare\+Queueable\+Entity@{prepare\+Queueable\+Entity}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{prepare\+Queueable\+Entity}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Queueable\+Entity (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_a58dc7f4a8376cd14c102aa111b7959e8}
+Prepare a single queueable entity for storage on the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!push\+On@{push\+On}}
+\index{push\+On@{push\+On}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{push\+On}]{\setlength{\rightskip}{0pt plus 5cm}push\+On (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_aeffce1876810c0c3420c12097359666e}
+Push a new job onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!set\+Container@{set\+Container}}
+\index{set\+Container@{set\+Container}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{set\+Container}]{\setlength{\rightskip}{0pt plus 5cm}set\+Container (
+\begin{DoxyParamCaption}
+\item[{{\bf Container}}]{\$container}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_a1ae42afbd11583595c4b7828cb602b08}
+Set the Io\+C container instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!set\+Encrypter@{set\+Encrypter}}
+\index{set\+Encrypter@{set\+Encrypter}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{set\+Encrypter}]{\setlength{\rightskip}{0pt plus 5cm}set\+Encrypter (
+\begin{DoxyParamCaption}
+\item[{Encrypter\+Contract}]{\$crypt}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_queue_1_1_queue_a902d91994915f58971a8cfe7fe842e70}
+Set the encrypter instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Encryption\textbackslash{}\+Encrypter & {\em \$crypt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file Queue.\+php.
+
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!set\+Meta@{set\+Meta}}
+\index{set\+Meta@{set\+Meta}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{set\+Meta}]{\setlength{\rightskip}{0pt plus 5cm}set\+Meta (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_a18496328967a076eb0ae277ebb8669c1}
+Set additional meta on a payload string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file Queue.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}!\$container@{\$container}}
+\index{\$container@{\$container}!Illuminate\+::\+Queue\+::\+Queue@{Illuminate\+::\+Queue\+::\+Queue}}
+\subsubsection[{\$container}]{\setlength{\rightskip}{0pt plus 5cm}\$container\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_queue_1_1_queue_ab97dd40df90f4ce6f0fce9091e7c7872}
+
+
+Definition at line 18 of file Queue.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Queue/{\bf Queue.\+php}\end{DoxyCompactItemize}

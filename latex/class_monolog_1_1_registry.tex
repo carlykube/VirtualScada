@@ -1,0 +1,176 @@
+\section{Registry Class Reference}
+\label{class_monolog_1_1_registry}\index{Registry@{Registry}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf add\+Logger} ({\bf Logger} \$logger, \${\bf name}=null, \$overwrite=false)
+\item 
+static {\bf has\+Logger} (\$logger)
+\item 
+static {\bf remove\+Logger} (\$logger)
+\item 
+static {\bf clear} ()
+\item 
+static {\bf get\+Instance} (\${\bf name})
+\item 
+static {\bf \+\_\+\+\_\+call\+Static} (\${\bf name}, \$arguments)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Monolog}{p.}{namespace_monolog} log registry
+
+Allows to get {\ttfamily \doxyref{Logger}{p.}{class_monolog_1_1_logger}} instances in the global scope via static method calls on this class.
+
+{\ttfamily  \$application = new \doxyref{Monolog}{p.}{namespace_monolog}(\textquotesingle{}application\textquotesingle{}); \$api = new \doxyref{Monolog}{p.}{namespace_monolog}(\textquotesingle{}api\textquotesingle{});}
+
+{\ttfamily \doxyref{Monolog}{p.}{namespace_monolog}\+::add\+Logger(\$application); \doxyref{Monolog}{p.}{namespace_monolog}\+::add\+Logger(\$api);}
+
+{\ttfamily function test\+Logger() \{ \doxyref{Monolog}{p.}{namespace_monolog}\+::api()-\/$>$add\+Error(\textquotesingle{}Sent to \$api \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance\textquotesingle{}); \doxyref{Monolog}{p.}{namespace_monolog}\+::application()-\/$>$add\+Error(\textquotesingle{}Sent to \$application \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance\textquotesingle{}); \} }
+
+\begin{DoxyAuthor}{Author}
+Tomas Tatarko {\tt tomas@tatarko.\+sk} 
+\end{DoxyAuthor}
+
+
+Definition at line 38 of file Registry.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!\+\_\+\+\_\+call\+Static@{\+\_\+\+\_\+call\+Static}}
+\index{\+\_\+\+\_\+call\+Static@{\+\_\+\+\_\+call\+Static}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{\+\_\+\+\_\+call\+Static}]{\setlength{\rightskip}{0pt plus 5cm}static \+\_\+\+\_\+call\+Static (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$arguments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_a61a19cb43fb2530a2f880c0d0672c471}
+Gets \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance from the registry via static method call
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Name of the requested \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance \\
+\hline
+array & {\em \$arguments} & Arguments passed to static method call \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Logger}{p.}{class_monolog_1_1_logger} Requested instance of \doxyref{Logger}{p.}{class_monolog_1_1_logger} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 130 of file Registry.\+php.
+
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!add\+Logger@{add\+Logger}}
+\index{add\+Logger@{add\+Logger}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{add\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger}}]{\$logger, }
+\item[{}]{\$name = {\ttfamily null}, }
+\item[{}]{\$overwrite = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_acd2995953bf589225cf935f414a2edd1}
+Adds new logging channel to the registry
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Logger}{p.}{class_monolog_1_1_logger} & {\em \$logger} & Instance of the logging channel \\
+\hline
+string | null & {\em \$name} & Name of the logging channel (\$logger-\/$>$get\+Name() by default) \\
+\hline
+boolean & {\em \$overwrite} & Overwrite instance in the registry if the given name already exists? \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 55 of file Registry.\+php.
+
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!clear@{clear}}
+\index{clear@{clear}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}static clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_a342b1676bf9651477ec79ed93f606244}
+Clears the registry 
+
+Definition at line 101 of file Registry.\+php.
+
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Instance (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_a0ebda2d4f8517d892a36a5c08e879415}
+Gets \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance from the registry
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Name of the requested \doxyref{Logger}{p.}{class_monolog_1_1_logger} instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Logger}{p.}{class_monolog_1_1_logger} Requested instance of \doxyref{Logger}{p.}{class_monolog_1_1_logger} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 113 of file Registry.\+php.
+
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!has\+Logger@{has\+Logger}}
+\index{has\+Logger@{has\+Logger}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{has\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}static has\+Logger (
+\begin{DoxyParamCaption}
+\item[{}]{\$logger}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_a1c2174fb7c3d9f299a6992a05ab23a40}
+Checks if such logging channel exists by name or instance
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \doxyref{Logger}{p.}{class_monolog_1_1_logger} & {\em \$logger} & Name or logger instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Registry.\+php.
+
+\index{Monolog\+::\+Registry@{Monolog\+::\+Registry}!remove\+Logger@{remove\+Logger}}
+\index{remove\+Logger@{remove\+Logger}!Monolog\+::\+Registry@{Monolog\+::\+Registry}}
+\subsubsection[{remove\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}static remove\+Logger (
+\begin{DoxyParamCaption}
+\item[{}]{\$logger}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_monolog_1_1_registry_a47d149835d7e7c187131192a6a2a39ae}
+Removes instance from registry by name or instance
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | \doxyref{Logger}{p.}{class_monolog_1_1_logger} & {\em \$logger} & Name or logger instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file Registry.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/monolog/monolog/src/\+Monolog/{\bf Registry.\+php}\end{DoxyCompactItemize}

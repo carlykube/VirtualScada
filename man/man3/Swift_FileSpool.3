@@ -1,0 +1,191 @@
+.TH "Swift_FileSpool" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_FileSpool \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_ConfigurableSpool\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRetryLimit\fP ($limit)"
+.br
+.ti -1c
+.RI "\fBqueueMessage\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBrecover\fP ($timeout=900)"
+.br
+.ti -1c
+.RI "\fBflushQueue\fP (\fBSwift_Transport\fP $transport, &$failedRecipients=null)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRandomString\fP ($count)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Stores Messages on the filesystem\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier 
+.PP
+Xavier De Cock xdecock@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file FileSpool\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path)"
+Create a new FileSpool\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file FileSpool\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "flushQueue (\fBSwift_Transport\fP $transport, & $failedRecipients = \fCnull\fP)"
+Sends messages using the given transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transport\fP \fBA\fP transport instance 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of sent e-mail's 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 141 of file FileSpool\&.php\&.
+.SS "getRandomString ( $count)\fC [protected]\fP"
+Returns a random string needed to generate a fileName for the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file FileSpool\&.php\&.
+.SS "isStarted ()"
+Tests if this Spool mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 52 of file FileSpool\&.php\&.
+.SS "queueMessage (\fBSwift_Mime_Message\fP $message)"
+Queues a message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The message to store
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 92 of file FileSpool\&.php\&.
+.SS "recover ( $timeout = \fC900\fP)"
+Execute a recovery if for any reason a process is sending for too long\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$timeout\fP in second Defaults is for very slow smtp responses 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file FileSpool\&.php\&.
+.SS "setRetryLimit ( $limit)"
+Allow to manage the enqueuing retry limit\&.
+.PP
+Default, is ten and allows over 64^20 different fileNames
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$limit\fP 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file FileSpool\&.php\&.
+.SS "start ()"
+Starts this Spool mechanism\&. 
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 60 of file FileSpool\&.php\&.
+.SS "stop ()"
+Stops this Spool mechanism\&. 
+.PP
+Implements \fBSwift_Spool\fP\&.
+.PP
+Definition at line 67 of file FileSpool\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

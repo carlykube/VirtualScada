@@ -1,0 +1,251 @@
+\section{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher Class Reference}
+\label{class_swift___events___simple_event_dispatcher}\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+Inheritance diagram for Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_swift___events___simple_event_dispatcher}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ()
+\item 
+{\bf create\+Send\+Event} ({\bf Swift\+\_\+\+Transport} \$source, {\bf Swift\+\_\+\+Mime\+\_\+\+Message} \$message)
+\item 
+{\bf create\+Command\+Event} ({\bf Swift\+\_\+\+Transport} \$source, \$command, \$success\+Codes=array())
+\item 
+{\bf create\+Response\+Event} ({\bf Swift\+\_\+\+Transport} \$source, \$response, \$valid)
+\item 
+{\bf create\+Transport\+Change\+Event} ({\bf Swift\+\_\+\+Transport} \$source)
+\item 
+{\bf create\+Transport\+Exception\+Event} ({\bf Swift\+\_\+\+Transport} \$source, {\bf Swift\+\_\+\+Transport\+Exception} \$ex)
+\item 
+{\bf bind\+Event\+Listener} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener} \$listener)
+\item 
+{\bf dispatch\+Event} ({\bf Swift\+\_\+\+Events\+\_\+\+Event\+Object} \$evt, \$target)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Event\+Dispatcher which handles the event dispatching layer.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Simple\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_a095c5d389db211932136b53f25f39685}
+Create a new Event\+Dispatcher. 
+
+Definition at line 30 of file Simple\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!bind\+Event\+Listener@{bind\+Event\+Listener}}
+\index{bind\+Event\+Listener@{bind\+Event\+Listener}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{bind\+Event\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}bind\+Event\+Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Listener}}]{\$listener}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_a6cd28becdf201fe7747385d4fcc11911}
+Bind an event listener to this dispatcher.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Listener}{p.}{interface_swift___events___event_listener} & {\em \$listener} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_a6cd28becdf201fe7747385d4fcc11911}.
+
+
+
+Definition at line 112 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!create\+Command\+Event@{create\+Command\+Event}}
+\index{create\+Command\+Event@{create\+Command\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{create\+Command\+Event}]{\setlength{\rightskip}{0pt plus 5cm}create\+Command\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$source, }
+\item[{}]{\$command, }
+\item[{}]{\$success\+Codes = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_a42af17c7f3f667796cde1b49f22b3c15}
+Create a new Command\+Event for \$source and \$command.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$source} & \\
+\hline
+string & {\em \$command} & That will be executed \\
+\hline
+array & {\em \$success\+Codes} & That are needed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Command\+Event}{p.}{class_swift___events___command_event} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_a42af17c7f3f667796cde1b49f22b3c15}.
+
+
+
+Definition at line 63 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!create\+Response\+Event@{create\+Response\+Event}}
+\index{create\+Response\+Event@{create\+Response\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{create\+Response\+Event}]{\setlength{\rightskip}{0pt plus 5cm}create\+Response\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$source, }
+\item[{}]{\$response, }
+\item[{}]{\$valid}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_aff62179d028287210a9830291e36d259}
+Create a new Response\+Event for \$source and \$response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$source} & \\
+\hline
+string & {\em \$response} & \\
+\hline
+bool & {\em \$valid} & If the response is valid\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Response\+Event}{p.}{class_swift___events___response_event} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_aff62179d028287210a9830291e36d259}.
+
+
+
+Definition at line 77 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!create\+Send\+Event@{create\+Send\+Event}}
+\index{create\+Send\+Event@{create\+Send\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{create\+Send\+Event}]{\setlength{\rightskip}{0pt plus 5cm}create\+Send\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$source, }
+\item[{{\bf Swift\+\_\+\+Mime\+\_\+\+Message}}]{\$message}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_ae3c3c31999421965d851ae854dd44feb}
+Create a new Send\+Event for \$source and \$message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$source} & \\
+\hline
+ & {\em \doxyref{Swift\+\_\+\+Mime\+\_\+\+Message}{p.}{interface_swift___mime___message}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_ae3c3c31999421965d851ae854dd44feb}.
+
+
+
+Definition at line 49 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!create\+Transport\+Change\+Event@{create\+Transport\+Change\+Event}}
+\index{create\+Transport\+Change\+Event@{create\+Transport\+Change\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{create\+Transport\+Change\+Event}]{\setlength{\rightskip}{0pt plus 5cm}create\+Transport\+Change\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$source}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_a7937d9190af92b3dae9cf11764108869}
+Create a new Transport\+Change\+Event for \$source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$source} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Transport\+Change\+Event}{p.}{class_swift___events___transport_change_event} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_a7937d9190af92b3dae9cf11764108869}.
+
+
+
+Definition at line 89 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!create\+Transport\+Exception\+Event@{create\+Transport\+Exception\+Event}}
+\index{create\+Transport\+Exception\+Event@{create\+Transport\+Exception\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{create\+Transport\+Exception\+Event}]{\setlength{\rightskip}{0pt plus 5cm}create\+Transport\+Exception\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport}}]{\$source, }
+\item[{{\bf Swift\+\_\+\+Transport\+Exception}}]{\$ex}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_adf4b5fdd64235c4efffc0365ca21b47b}
+Create a new Transport\+Exception\+Event for \$source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport}{p.}{interface_swift___transport} & {\em \$source} & \\
+\hline
+\doxyref{Swift\+\_\+\+Transport\+Exception}{p.}{class_swift___transport_exception} & {\em \$ex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Transport\+Exception\+Event}{p.}{class_swift___events___transport_exception_event} 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_adf4b5fdd64235c4efffc0365ca21b47b}.
+
+
+
+Definition at line 102 of file Simple\+Event\+Dispatcher.\+php.
+
+\index{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}!dispatch\+Event@{dispatch\+Event}}
+\index{dispatch\+Event@{dispatch\+Event}!Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher@{Swift\+\_\+\+Events\+\_\+\+Simple\+Event\+Dispatcher}}
+\subsubsection[{dispatch\+Event}]{\setlength{\rightskip}{0pt plus 5cm}dispatch\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Event\+Object}}]{\$evt, }
+\item[{}]{\$target}
+\end{DoxyParamCaption}
+)}\label{class_swift___events___simple_event_dispatcher_a2a404e4331b1f911e1df34c8afab3f02}
+Dispatch the given \doxyref{Event}{p.}{class_event} to all suitable listeners.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Event\+Object}{p.}{class_swift___events___event_object} & {\em \$evt} & \\
+\hline
+string & {\em \$target} & method \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Event\+Dispatcher} \doxyref{}{p.}{interface_swift___events___event_dispatcher_a2a404e4331b1f911e1df34c8afab3f02}.
+
+
+
+Definition at line 129 of file Simple\+Event\+Dispatcher.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Events/{\bf Simple\+Event\+Dispatcher.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,294 @@
+.TH "ClassLoader" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ClassLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPrefixes\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPrefixesPsr4\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFallbackDirs\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFallbackDirsPsr4\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClassMap\fP ()"
+.br
+.ti -1c
+.RI "\fBaddClassMap\fP (array $classMap)"
+.br
+.ti -1c
+.RI "\fBadd\fP ($prefix, $paths, $prepend=false)"
+.br
+.ti -1c
+.RI "\fBaddPsr4\fP ($prefix, $paths, $prepend=false)"
+.br
+.ti -1c
+.RI "\fBset\fP ($prefix, $paths)"
+.br
+.ti -1c
+.RI "\fBsetPsr4\fP ($prefix, $paths)"
+.br
+.ti -1c
+.RI "\fBsetUseIncludePath\fP ($useIncludePath)"
+.br
+.ti -1c
+.RI "\fBgetUseIncludePath\fP ()"
+.br
+.ti -1c
+.RI "\fBsetClassMapAuthoritative\fP ($classMapAuthoritative)"
+.br
+.ti -1c
+.RI "\fBisClassMapAuthoritative\fP ()"
+.br
+.ti -1c
+.RI "\fBregister\fP ($prepend=false)"
+.br
+.ti -1c
+.RI "\fBunregister\fP ()"
+.br
+.ti -1c
+.RI "\fBloadClass\fP ($class)"
+.br
+.ti -1c
+.RI "\fBfindFile\fP ($class)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBClassLoader\fP implements a PSR-0 class loader
+.PP
+See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
+.PP
+.nf
+$loader = new \Composer\Autoload\ClassLoader();
+
+// register classes with namespaces
+$loader->add('Symfony\Component', __DIR__.'/component');
+$loader->add('Symfony',           __DIR__.'/framework');
+
+// activate the autoloader
+$loader->register();
+
+// to enable searching the include path (eg. for PEAR packages)
+$loader->setUseIncludePath(true);
+
+.fi
+.PP
+.PP
+In this example, if you try to use a class in the \fBSymfony\fP namespace or one of its children (\fBSymfony\fP for instance), the autoloader will first look for the class under the component/ directory, and it will then fallback to the framework/ directory if not found before giving up\&.
+.PP
+This class is loosely based on the \fBSymfony\fP UniversalClassLoader\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Jordi Boggiano j.boggiano@seld.be 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file ClassLoader\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add ( $prefix,  $paths,  $prepend = \fCfalse\fP)"
+Registers a set of PSR-0 directories for a given prefix, either appending or prepending to the ones previously set for this prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP The prefix 
+.br
+\fI$paths\fP The PSR-0 root directories 
+.br
+\fI$prepend\fP Whether to prepend the directories 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file ClassLoader\&.php\&.
+.SS "addClassMap (array $classMap)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$classMap\fP Class to filename map 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file ClassLoader\&.php\&.
+.SS "addPsr4 ( $prefix,  $paths,  $prepend = \fCfalse\fP)"
+Registers a set of PSR-4 directories for a given namespace, either appending or prepending to the ones previously set for this namespace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP The prefix/namespace, with trailing '\\' 
+.br
+\fI$paths\fP The PSR-0 base directories 
+.br
+\fI$prepend\fP Whether to prepend the directories
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 155 of file ClassLoader\&.php\&.
+.SS "findFile ( $class)"
+Finds the path to the file where the class is defined\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP The name of the class
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|false The path if found, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 314 of file ClassLoader\&.php\&.
+.SS "getClassMap ()"
+
+.PP
+Definition at line 83 of file ClassLoader\&.php\&.
+.SS "getFallbackDirs ()"
+
+.PP
+Definition at line 73 of file ClassLoader\&.php\&.
+.SS "getFallbackDirsPsr4 ()"
+
+.PP
+Definition at line 78 of file ClassLoader\&.php\&.
+.SS "getPrefixes ()"
+
+.PP
+Definition at line 59 of file ClassLoader\&.php\&.
+.SS "getPrefixesPsr4 ()"
+
+.PP
+Definition at line 68 of file ClassLoader\&.php\&.
+.SS "getUseIncludePath ()"
+Can be used to check if the autoloader uses the include path to check for classes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file ClassLoader\&.php\&.
+.SS "isClassMapAuthoritative ()"
+Should class lookup fail if not found in the current class map?
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file ClassLoader\&.php\&.
+.SS "loadClass ( $class)"
+Loads the given class or interface\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$class\fP The name of the class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool|null True if loaded, null otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file ClassLoader\&.php\&.
+.SS "register ( $prepend = \fCfalse\fP)"
+Registers this instance as an autoloader\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prepend\fP Whether to prepend the autoloader or not 
+.RE
+.PP
+
+.PP
+Definition at line 279 of file ClassLoader\&.php\&.
+.SS "set ( $prefix,  $paths)"
+Registers a set of PSR-0 directories for a given prefix, replacing any others previously set for this prefix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP The prefix 
+.br
+\fI$paths\fP The PSR-0 base directories 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file ClassLoader\&.php\&.
+.SS "setClassMapAuthoritative ( $classMapAuthoritative)"
+Turns off searching the prefix and fallback directories for classes that have not been registered with the class map\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$classMapAuthoritative\fP 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file ClassLoader\&.php\&.
+.SS "setPsr4 ( $prefix,  $paths)"
+Registers a set of PSR-4 directories for a given namespace, replacing any others previously set for this namespace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP The prefix/namespace, with trailing '\\' 
+.br
+\fI$paths\fP The PSR-4 base directories
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 218 of file ClassLoader\&.php\&.
+.SS "setUseIncludePath ( $useIncludePath)"
+Turns on searching the include path for class files\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$useIncludePath\fP 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file ClassLoader\&.php\&.
+.SS "unregister ()"
+Unregisters this instance as an autoloader\&. 
+.PP
+Definition at line 287 of file ClassLoader\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

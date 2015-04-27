@@ -1,0 +1,95 @@
+.TH "md_vendor_monolog_monolog_doc_usage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_monolog_monolog_doc_usage \- Using \fBMonolog\fP 
+
+.SS "Installation "
+.PP
+\fBMonolog\fP is available on Packagist (\fCmonolog/monolog\fP) and as such installable via \fCComposer\fP\&.
+.PP
+```bash php composer\&.phar require monolog/monolog ```
+.PP
+If you do not use \fBComposer\fP, you can grab the code from GitHub, and use any PSR-0 compatible autoloader (e\&.g\&. the \fCSymfony2 ClassLoader component\fP) to load \fBMonolog\fP classes\&.
+.PP
+.SS "Configuring a logger "
+.PP
+Here is a basic setup to log to a file and to firephp on the DEBUG level:
+.PP
+```php <?php
+.PP
+use \fBMonolog\fP; use \fBMonolog\fP; use \fBMonolog\fP;
+.PP
+// Create the logger $logger = new Logger('my_logger'); // Now add some handlers $logger->pushHandler(new StreamHandler(\fBDIR\fP\&.'/my_app\&.log', Logger::DEBUG)); $logger->pushHandler(new FirePHPHandler());
+.PP
+// You can now use your logger $logger->addInfo('\fBMy\fP logger is now ready'); ```
+.PP
+Let's explain it\&. The first step is to create the logger instance which will be used in your code\&. The argument is a channel name, which is useful when you use several loggers (see below for more details about it)\&.
+.PP
+The logger itself does not know how to handle a record\&. It delegates it to some handlers\&. The code above registers two handlers in the stack to allow handling records in two different ways\&.
+.PP
+Note that the FirePHPHandler is called first as it is added on top of the stack\&. This allows you to temporarily add a logger with bubbling disabled if you want to override other configured loggers\&.
+.PP
+.SS "Adding extra data in the records "
+.PP
+\fBMonolog\fP provides two different ways to add extra informations along the simple textual message\&.
+.PP
+.SS "Using the logging context"
+.PP
+The first way is the context, allowing to pass an array of data along the record:
+.PP
+```php <?php
+.PP
+$logger->addInfo('Adding a new user', array('username' => 'Seldaek')); ```
+.PP
+Simple handlers (like the StreamHandler for instance) will simply format the array to a string but richer handlers can take advantage of the context (FirePHP is able to display arrays in pretty way for instance)\&.
+.PP
+.SS "Using processors"
+.PP
+The second way is to add extra data for all records by using a processor\&. Processors can be any callable\&. They will get the record as parameter and must return it after having eventually changed the \fCextra\fP part of it\&. Let's write a processor adding some dummy data in the record:
+.PP
+```php <?php
+.PP
+$logger->pushProcessor(function ($record) { $record['extra']['dummy'] = 'Hello world!';
+.PP
+return $record; }); ```
+.PP
+\fBMonolog\fP provides some built-in processors that can be used in your project\&. Look at the \fCREADME file\fP for the list\&.
+.PP
+.RS 4
+Tip: processors can also be registered on a specific handler instead of 
+.RE
+.PP
+the logger to apply only for this handler\&.
+.PP
+.SS "Leveraging channels "
+.PP
+Channels are a great way to identify to which part of the application a record is related\&. This is useful in big applications (and is leveraged by MonologBundle in Symfony2)\&.
+.PP
+Picture two loggers sharing a handler that writes to a single log file\&. Channels would allow you to identify the logger that issued every record\&. You can easily grep through the log files filtering this or that channel\&.
+.PP
+```php <?php
+.PP
+use \fBMonolog\fP; use \fBMonolog\fP; use \fBMonolog\fP;
+.PP
+// Create some handlers $stream = new StreamHandler(\fBDIR\fP\&.'/my_app\&.log', Logger::DEBUG); $firephp = new FirePHPHandler();
+.PP
+// Create the main logger of the app $logger = new Logger('my_logger'); $logger->pushHandler($stream); $logger->pushHandler($firephp);
+.PP
+// Create a logger for the security-related stuff with a different channel $securityLogger = new Logger('security'); $securityLogger->pushHandler($stream); $securityLogger->pushHandler($firephp); ```
+.PP
+.SS "Customizing log format "
+.PP
+In \fBMonolog\fP it's easy to customize the format of the logs written into files, sockets, mails, databases and other handlers\&. Most of the handlers use the
+.PP
+```php $record['formatted'] ```
+.PP
+value to be automatically put into the log device\&. This value depends on the formatter settings\&. You can choose between predefined formatter classes or write your own (e\&.g\&. a multiline text file for human-readable output)\&.
+.PP
+To configure a predefined formatter class, just set it as the handler's field:
+.PP
+```php // the default date format is 'Y-m-d H:i:s' $dateFormat = 'Y n j, g:i a'; // the default output format is '[%datetime%] %channel%\&.%level_name%: %message% %context% %extra%\\n' $output = '%datetime% > %level_name% > %message% %context% %extra%\\n'; // finally, create a formatter $formatter = new LineFormatter($output, $dateFormat);
+.PP
+// Create a handler $stream = new StreamHandler(\fBDIR\fP\&.'/my_app\&.log', Logger::DEBUG); $stream->setFormatter($formatter); // bind it to a logger object $securityLogger = new Logger('security'); $securityLogger->pushHandler($stream); ```
+.PP
+You may also reuse the same formatter between multiple handlers and share those handlers between multiple loggers\&. 

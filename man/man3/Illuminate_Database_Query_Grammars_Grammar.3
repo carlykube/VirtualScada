@@ -1,0 +1,930 @@
+.TH "Grammar" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Grammar \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGrammar\fP\&.
+.PP
+Inherited by \fBMySqlGrammar\fP, \fBPostgresGrammar\fP, \fBSQLiteGrammar\fP, and \fBSqlServerGrammar\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileSelect\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBcompileInsert\fP (\fBBuilder\fP $query, array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBcompileInsertGetId\fP (\fBBuilder\fP $query, $\fBvalues\fP, $sequence)"
+.br
+.ti -1c
+.RI "\fBcompileUpdate\fP (\fBBuilder\fP $query, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBcompileDelete\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBcompileTruncate\fP (\fBBuilder\fP $query)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcompileComponents\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBcompileAggregate\fP (\fBBuilder\fP $query, $aggregate)"
+.br
+.ti -1c
+.RI "\fBcompileColumns\fP (\fBBuilder\fP $query, $columns)"
+.br
+.ti -1c
+.RI "\fBcompileFrom\fP (\fBBuilder\fP $query, $table)"
+.br
+.ti -1c
+.RI "\fBcompileJoins\fP (\fBBuilder\fP $query, $joins)"
+.br
+.ti -1c
+.RI "\fBcompileJoinConstraint\fP (array $clause)"
+.br
+.ti -1c
+.RI "\fBcompileWheres\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBwhereNested\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereSub\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereBasic\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereBetween\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereExists\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereNotExists\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereIn\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereNotIn\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereInSub\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereNotInSub\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereNull\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereNotNull\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereDate\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereDay\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereMonth\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereYear\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBdateBasedWhere\fP ($type, \fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBwhereRaw\fP (\fBBuilder\fP $query, $where)"
+.br
+.ti -1c
+.RI "\fBcompileGroups\fP (\fBBuilder\fP $query, $groups)"
+.br
+.ti -1c
+.RI "\fBcompileHavings\fP (\fBBuilder\fP $query, $havings)"
+.br
+.ti -1c
+.RI "\fBcompileHaving\fP (array $having)"
+.br
+.ti -1c
+.RI "\fBcompileBasicHaving\fP ($having)"
+.br
+.ti -1c
+.RI "\fBcompileOrders\fP (\fBBuilder\fP $query, $orders)"
+.br
+.ti -1c
+.RI "\fBcompileLimit\fP (\fBBuilder\fP $query, $limit)"
+.br
+.ti -1c
+.RI "\fBcompileOffset\fP (\fBBuilder\fP $query, $offset)"
+.br
+.ti -1c
+.RI "\fBcompileUnions\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBcompileUnion\fP (array $union)"
+.br
+.ti -1c
+.RI "\fBcompileLock\fP (\fBBuilder\fP $query, $value)"
+.br
+.ti -1c
+.RI "\fBconcatenate\fP ($segments)"
+.br
+.ti -1c
+.RI "\fBremoveLeadingBoolean\fP ($value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$selectComponents\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Grammar\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "compileAggregate (\fBBuilder\fP $query,  $aggregate)\fC [protected]\fP"
+Compile an aggregated select clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$aggregate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file Grammar\&.php\&.
+.SS "compileBasicHaving ( $having)\fC [protected]\fP"
+Compile a basic having clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$having\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file Grammar\&.php\&.
+.SS "compileColumns (\fBBuilder\fP $query,  $columns)\fC [protected]\fP"
+Compile the 'select *' portion of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file Grammar\&.php\&.
+.SS "compileComponents (\fBBuilder\fP $query)\fC [protected]\fP"
+Compile the components necessary for a select clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 47 of file Grammar\&.php\&.
+.SS "compileDelete (\fBBuilder\fP $query)"
+Compile a delete statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 701 of file Grammar\&.php\&.
+.SS "compileFrom (\fBBuilder\fP $query,  $table)\fC [protected]\fP"
+Compile the 'from' portion of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file Grammar\&.php\&.
+.SS "compileGroups (\fBBuilder\fP $query,  $groups)\fC [protected]\fP"
+Compile the 'group by' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$groups\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 466 of file Grammar\&.php\&.
+.SS "compileHaving (array $having)\fC [protected]\fP"
+Compile a single having clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$having\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 491 of file Grammar\&.php\&.
+.SS "compileHavings (\fBBuilder\fP $query,  $havings)\fC [protected]\fP"
+Compile the 'having' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$havings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 478 of file Grammar\&.php\&.
+.SS "compileInsert (\fBBuilder\fP $query, array $values)"
+Compile an insert statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 613 of file Grammar\&.php\&.
+.SS "compileInsertGetId (\fBBuilder\fP $query,  $values,  $sequence)"
+Compile an insert and get ID statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$values\fP 
+.br
+\fI$sequence\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 647 of file Grammar\&.php\&.
+.SS "compileJoinConstraint (array $clause)\fC [protected]\fP"
+Create a join clause constraint segment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$clause\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file Grammar\&.php\&.
+.SS "compileJoins (\fBBuilder\fP $query,  $joins)\fC [protected]\fP"
+Compile the 'join' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$joins\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 127 of file Grammar\&.php\&.
+.SS "compileLimit (\fBBuilder\fP $query,  $limit)\fC [protected]\fP"
+Compile the 'limit' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$limit\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 543 of file Grammar\&.php\&.
+.SS "compileLock (\fBBuilder\fP $query,  $value)\fC [protected]\fP"
+Compile the lock into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 728 of file Grammar\&.php\&.
+.SS "compileOffset (\fBBuilder\fP $query,  $offset)\fC [protected]\fP"
+Compile the 'offset' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$offset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 555 of file Grammar\&.php\&.
+.SS "compileOrders (\fBBuilder\fP $query,  $orders)\fC [protected]\fP"
+Compile the 'order by' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$orders\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 526 of file Grammar\&.php\&.
+.SS "compileSelect (\fBBuilder\fP $query)"
+Compile a select query into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 34 of file Grammar\&.php\&.
+.SS "compileTruncate (\fBBuilder\fP $query)"
+Compile a truncate table statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 716 of file Grammar\&.php\&.
+.SS "compileUnion (array $union)\fC [protected]\fP"
+Compile a single union statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$union\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 599 of file Grammar\&.php\&.
+.SS "compileUnions (\fBBuilder\fP $query)\fC [protected]\fP"
+Compile the 'union' queries attached to the main query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 566 of file Grammar\&.php\&.
+.SS "compileUpdate (\fBBuilder\fP $query,  $values)"
+Compile an update statement into SQL\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 659 of file Grammar\&.php\&.
+.SS "compileWheres (\fBBuilder\fP $query)\fC [protected]\fP"
+Compile the 'where' portions of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file Grammar\&.php\&.
+.SS "concatenate ( $segments)\fC [protected]\fP"
+Concatenate an array of segments, removing empties\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$segments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 739 of file Grammar\&.php\&.
+.SS "dateBasedWhere ( $type, \fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a date based where clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 440 of file Grammar\&.php\&.
+.SS "removeLeadingBoolean ( $value)\fC [protected]\fP"
+Remove the leading boolean from a statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 753 of file Grammar\&.php\&.
+.SS "whereBasic (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a basic where clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file Grammar\&.php\&.
+.SS "whereBetween (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'between' where clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file Grammar\&.php\&.
+.SS "whereDate (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where date' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 391 of file Grammar\&.php\&.
+.SS "whereDay (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where day' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 403 of file Grammar\&.php\&.
+.SS "whereExists (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a where exists clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 283 of file Grammar\&.php\&.
+.SS "whereIn (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where in' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 307 of file Grammar\&.php\&.
+.SS "whereInSub (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a where in sub-select clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file Grammar\&.php\&.
+.SS "whereMonth (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where month' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file Grammar\&.php\&.
+.SS "whereNested (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a nested where clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file Grammar\&.php\&.
+.SS "whereNotExists (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a where exists clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Grammar\&.php\&.
+.SS "whereNotIn (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where not in' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file Grammar\&.php\&.
+.SS "whereNotInSub (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a where not in sub-select clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 353 of file Grammar\&.php\&.
+.SS "whereNotNull (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where not null' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 379 of file Grammar\&.php\&.
+.SS "whereNull (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where null' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file Grammar\&.php\&.
+.SS "whereRaw (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a raw where clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Grammar\&.php\&.
+.SS "whereSub (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a where condition with a sub-select\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 241 of file Grammar\&.php\&.
+.SS "whereYear (\fBBuilder\fP $query,  $where)\fC [protected]\fP"
+Compile a 'where year' clause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 427 of file Grammar\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$selectComponents\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'aggregate',
+        'columns',
+        'from',
+        'joins',
+        'wheres',
+        'groups',
+        'havings',
+        'orders',
+        'limit',
+        'offset',
+        'unions',
+        'lock',
+    )
+.fi
+.PP
+Definition at line 13 of file Grammar\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

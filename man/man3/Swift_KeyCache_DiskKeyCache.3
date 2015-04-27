@@ -1,0 +1,280 @@
+.TH "Swift_KeyCache_DiskKeyCache" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_KeyCache_DiskKeyCache \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_KeyCache\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBSwift_KeyCache_KeyCacheInputStream\fP $\fBstream\fP, $\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBsetString\fP ($nsKey, $itemKey, $string, $mode)"
+.br
+.ti -1c
+.RI "\fBimportFromByteStream\fP ($nsKey, $itemKey, \fBSwift_OutputByteStream\fP $os, $mode)"
+.br
+.ti -1c
+.RI "\fBgetInputByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $writeThrough=null)"
+.br
+.ti -1c
+.RI "\fBgetString\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBexportToByteStream\fP ($nsKey, $itemKey, \fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBhasKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearKey\fP ($nsKey, $itemKey)"
+.br
+.ti -1c
+.RI "\fBclearAll\fP ($nsKey)"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBPOSITION_START\fP = 0"
+.br
+.ti -1c
+.RI "const \fBPOSITION_END\fP = 1"
+.br
+.ti -1c
+.RI "const \fBPOSITION_CURRENT\fP = 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP KeyCache which streams to and from disk\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file DiskKeyCache\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBSwift_KeyCache_KeyCacheInputStream\fP $stream,  $path)"
+Create a new DiskKeyCache with the given $stream for cloning to make InputByteStreams, and the given $path to save to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$stream\fP 
+.br
+\fI$path\fP to save to 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file DiskKeyCache\&.php\&.
+.SS "__destruct ()"
+Destructor\&. 
+.PP
+Definition at line 318 of file DiskKeyCache\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clearAll ( $nsKey)"
+Clear all data in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 251 of file DiskKeyCache\&.php\&.
+.SS "clearKey ( $nsKey,  $itemKey)"
+Clear data for $itemKey in the namespace $nsKey if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 238 of file DiskKeyCache\&.php\&.
+.SS "exportToByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $is)"
+Get data back out of the cache as a ByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$is\fP to write the data to 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 202 of file DiskKeyCache\&.php\&.
+.SS "getInputByteStream ( $nsKey,  $itemKey, \fBSwift_InputByteStream\fP $writeThrough = \fCnull\fP)"
+Provides a ByteStream which when written to, writes data to $itemKey\&.
+.PP
+NOTE: The stream will always write in append mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$writeThrough\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_InputByteStream\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 151 of file DiskKeyCache\&.php\&.
+.SS "getString ( $nsKey,  $itemKey)"
+Get data back out of the cache as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 174 of file DiskKeyCache\&.php\&.
+.SS "hasKey ( $nsKey,  $itemKey)"
+Check if the given $itemKey exists in the namespace $nsKey\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 227 of file DiskKeyCache\&.php\&.
+.SS "importFromByteStream ( $nsKey,  $itemKey, \fBSwift_OutputByteStream\fP $os,  $mode)"
+Set a ByteStream into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$os\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 117 of file DiskKeyCache\&.php\&.
+.SS "setString ( $nsKey,  $itemKey,  $string,  $mode)"
+Set a string into the cache under $itemKey for the namespace $nsKey\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMODE_WRITE\fP, \fBMODE_APPEND\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nsKey\fP 
+.br
+\fI$itemKey\fP 
+.br
+\fI$string\fP 
+.br
+\fI$mode\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBSwift_IoException\fP\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_KeyCache\fP\&.
+.PP
+Definition at line 84 of file DiskKeyCache\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const POSITION_CURRENT = 2"
+Signal to leave pointer in whatever position it currently is 
+.PP
+Definition at line 25 of file DiskKeyCache\&.php\&.
+.SS "const POSITION_END = 1"
+Signal to place pointer at end of file 
+.PP
+Definition at line 22 of file DiskKeyCache\&.php\&.
+.SS "const POSITION_START = 0"
+Signal to place pointer at start of file 
+.PP
+Definition at line 19 of file DiskKeyCache\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

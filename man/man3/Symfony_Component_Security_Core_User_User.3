@@ -1,0 +1,218 @@
+.TH "User" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+User \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAdvancedUserInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($username, $password, array $roles=array(), $enabled=true, $userNonExpired=true, $credentialsNonExpired=true, $userNonLocked=true)"
+.br
+.ti -1c
+.RI "\fBgetRoles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPassword\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSalt\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUsername\fP ()"
+.br
+.ti -1c
+.RI "\fBisAccountNonExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBisAccountNonLocked\fP ()"
+.br
+.ti -1c
+.RI "\fBisCredentialsNonExpired\fP ()"
+.br
+.ti -1c
+.RI "\fBisEnabled\fP ()"
+.br
+.ti -1c
+.RI "\fBeraseCredentials\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUser\fP is the user implementation used by the in-memory user provider\&.
+.PP
+This should not be used for anything else\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file User\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $username,  $password, array $roles = \fCarray()\fP,  $enabled = \fCtrue\fP,  $userNonExpired = \fCtrue\fP,  $credentialsNonExpired = \fCtrue\fP,  $userNonLocked = \fCtrue\fP)"
+
+.PP
+Definition at line 31 of file User\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "eraseCredentials ()"
+{Removes sensitive data from the user\&.
+.PP
+This is important if, at any given point, sensitive information like the plain-text password is stored on this object\&.} 
+.PP
+Implements \fBUserInterface\fP\&.
+.PP
+Definition at line 112 of file User\&.php\&.
+.SS "getPassword ()"
+{Returns the password used to authenticate the user\&.
+.PP
+This should be the encoded password\&. On authentication, a plain-text password will be salted, encoded, and then compared to this value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The password
+.RE
+.PP
+} 
+.PP
+Implements \fBUserInterface\fP\&.
+.PP
+Definition at line 57 of file User\&.php\&.
+.SS "getRoles ()"
+{Returns the roles granted to the user\&.
+.PP
+\fC public function \fBgetRoles()\fP { return array('ROLE_USER'); } \fP
+.PP
+Alternatively, the roles might be stored on a \fCroles\fP property, and populated in any number of different ways when the user object is created\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRole\fP[] The user roles
+.RE
+.PP
+} 
+.PP
+Implements \fBUserInterface\fP\&.
+.PP
+Definition at line 49 of file User\&.php\&.
+.SS "getSalt ()"
+{Returns the salt that was originally used to encode the password\&.
+.PP
+This can return null if the password was not encoded using a salt\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The salt
+.RE
+.PP
+} 
+.PP
+Implements \fBUserInterface\fP\&.
+.PP
+Definition at line 65 of file User\&.php\&.
+.SS "getUsername ()"
+{Returns the username used to authenticate the user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The username
+.RE
+.PP
+} 
+.PP
+Implements \fBUserInterface\fP\&.
+.PP
+Definition at line 72 of file User\&.php\&.
+.SS "isAccountNonExpired ()"
+{Checks whether the user's account has expired\&.
+.PP
+Internally, if this method returns false, the authentication system will throw an AccountExpiredException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user's account is non expired, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+AccountExpiredException
+.RE
+.PP
+} 
+.PP
+Implements \fBAdvancedUserInterface\fP\&.
+.PP
+Definition at line 80 of file User\&.php\&.
+.SS "isAccountNonLocked ()"
+{Checks whether the user is locked\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a LockedException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user is not locked, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+LockedException
+.RE
+.PP
+} 
+.PP
+Implements \fBAdvancedUserInterface\fP\&.
+.PP
+Definition at line 88 of file User\&.php\&.
+.SS "isCredentialsNonExpired ()"
+{Checks whether the user's credentials (password) has expired\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a CredentialsExpiredException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user's credentials are non expired, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+CredentialsExpiredException
+.RE
+.PP
+} 
+.PP
+Implements \fBAdvancedUserInterface\fP\&.
+.PP
+Definition at line 96 of file User\&.php\&.
+.SS "isEnabled ()"
+{Checks whether the user is enabled\&.
+.PP
+Internally, if this method returns false, the authentication system will throw a DisabledException and prevent login\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the user is enabled, false otherwise
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+DisabledException
+.RE
+.PP
+} 
+.PP
+Implements \fBAdvancedUserInterface\fP\&.
+.PP
+Definition at line 104 of file User\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

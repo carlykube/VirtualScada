@@ -1,0 +1,407 @@
+.TH "Migrator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Migrator \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBMigrationRepositoryInterface\fP $repository, Resolver $resolver, \fBFilesystem\fP $files)"
+.br
+.ti -1c
+.RI "\fBrun\fP ($\fBpath\fP, $pretend=false)"
+.br
+.ti -1c
+.RI "\fBrunMigrationList\fP ($migrations, $pretend=false)"
+.br
+.ti -1c
+.RI "\fBrollback\fP ($pretend=false)"
+.br
+.ti -1c
+.RI "\fBgetMigrationFiles\fP ($\fBpath\fP)"
+.br
+.ti -1c
+.RI "\fBrequireFiles\fP ($\fBpath\fP, array $files)"
+.br
+.ti -1c
+.RI "\fBresolve\fP ($file)"
+.br
+.ti -1c
+.RI "\fBgetNotes\fP ()"
+.br
+.ti -1c
+.RI "\fBresolveConnection\fP ($connection)"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetRepository\fP ()"
+.br
+.ti -1c
+.RI "\fBrepositoryExists\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFilesystem\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrunUp\fP ($file, $batch, $pretend)"
+.br
+.ti -1c
+.RI "\fBrunDown\fP ($migration, $pretend)"
+.br
+.ti -1c
+.RI "\fBpretendToRun\fP ($migration, $method)"
+.br
+.ti -1c
+.RI "\fBgetQueries\fP ($migration, $method)"
+.br
+.ti -1c
+.RI "\fBnote\fP ($message)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$repository\fP"
+.br
+.ti -1c
+.RI "\fB$files\fP"
+.br
+.ti -1c
+.RI "\fB$resolver\fP"
+.br
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$notes\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Migrator\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBMigrationRepositoryInterface\fP $repository, Resolver $resolver, \fBFilesystem\fP $files)"
+Create a new migrator instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$repository\fP 
+.br
+\fI$resolver\fP 
+.br
+\fI$files\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Migrator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFilesystem ()"
+Get the file system instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 379 of file Migrator\&.php\&.
+.SS "getMigrationFiles ( $path)"
+Get all of the migration files in a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Migrator\&.php\&.
+.SS "getNotes ()"
+Get the notes for the last operation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file Migrator\&.php\&.
+.SS "getQueries ( $migration,  $method)\fC [protected]\fP"
+Get all of the queries that would be run for a migration\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$migration\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file Migrator\&.php\&.
+.SS "getRepository ()"
+Get the migration repository instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 359 of file Migrator\&.php\&.
+.SS "note ( $message)\fC [protected]\fP"
+Raise a note event for the migrator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file Migrator\&.php\&.
+.SS "pretendToRun ( $migration,  $method)\fC [protected]\fP"
+Pretend to run the migrations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$migration\fP 
+.br
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 257 of file Migrator\&.php\&.
+.SS "repositoryExists ()"
+Determine if the migration repository exists\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 369 of file Migrator\&.php\&.
+.SS "requireFiles ( $path, array $files)"
+Require in all the migration files in a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$files\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Migrator\&.php\&.
+.SS "resolve ( $file)"
+Resolve a migration instance from a file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+object 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Migrator\&.php\&.
+.SS "resolveConnection ( $connection)"
+Resolve the database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 331 of file Migrator\&.php\&.
+.SS "rollback ( $pretend = \fCfalse\fP)"
+Rollback the last migration operation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pretend\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file Migrator\&.php\&.
+.SS "run ( $path,  $pretend = \fCfalse\fP)"
+Run the outstanding migrations at a given path\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP 
+.br
+\fI$pretend\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file Migrator\&.php\&.
+.SS "runDown ( $migration,  $pretend)\fC [protected]\fP"
+Run 'down' a migration instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$migration\fP 
+.br
+\fI$pretend\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 185 of file Migrator\&.php\&.
+.SS "runMigrationList ( $migrations,  $pretend = \fCfalse\fP)"
+Run an array of migrations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$migrations\fP 
+.br
+\fI$pretend\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file Migrator\&.php\&.
+.SS "runUp ( $file,  $batch,  $pretend)\fC [protected]\fP"
+Run 'up' a migration instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$file\fP 
+.br
+\fI$batch\fP 
+.br
+\fI$pretend\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file Migrator\&.php\&.
+.SS "setConnection ( $name)"
+Set the default connection name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 342 of file Migrator\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file Migrator\&.php\&.
+.SS "$files\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Migrator\&.php\&.
+.SS "$notes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 41 of file Migrator\&.php\&.
+.SS "$repository\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Migrator\&.php\&.
+.SS "$resolver\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Migrator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

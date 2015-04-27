@@ -1,0 +1,211 @@
+\section{Session\+Handler\+Interface Interface Reference}
+\label{interface_session_handler_interface}\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+Inheritance diagram for Session\+Handler\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{interface_session_handler_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf open} (\$save\+Path, \$session\+Name)
+\item 
+{\bf close} ()
+\item 
+{\bf read} (\$session\+Id)
+\item 
+{\bf write} (\$session\+Id, \${\bf data})
+\item 
+{\bf destroy} (\$session\+Id)
+\item 
+{\bf gc} (\$maxlifetime)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Session\+Handler\+Interface}{p.}{interface_session_handler_interface} for \doxyref{P\+H\+P}{p.}{namespace_p_h_p} $<$ 5.\+4.
+
+The order in which these methods are invoked by \doxyref{P\+H\+P}{p.}{namespace_p_h_p} are\+:
+\begin{DoxyEnumerate}
+\item open [session\+\_\+start]
+\item read
+\item gc [optional depending on probability settings\+: gc\+\_\+probability / gc\+\_\+divisor]
+\item destroy [optional when session\+\_\+regenerate\+\_\+id(true) is used]
+\item write [session\+\_\+write\+\_\+close] or destroy [session\+\_\+destroy]
+\item close
+\end{DoxyEnumerate}
+
+Extensive documentation can be found at php.\+net, see links\+:
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface} 
+
+{\tt http\+://php.\+net/session.\+customhandler} 
+
+{\tt http\+://php.\+net/session-\/set-\/save-\/handler}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Drak {\tt drak@zikula.\+org} 
+
+Tobias Schultze {\tt http\+://tobion.\+de} 
+\end{DoxyAuthor}
+
+
+Definition at line 32 of file Session\+Handler\+Interface.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!close@{close}}
+\index{close@{close}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e}
+Closes the current session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+close}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_aa69c8bf1f1dcf4e72552efff1fe3e87e}.
+
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!destroy@{destroy}}
+\index{destroy@{destroy}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}destroy (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_a7976894a2e2239ff937a9203c383c9c1}
+Destroys a session.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+destroy}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_a7976894a2e2239ff937a9203c383c9c1}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_a7976894a2e2239ff937a9203c383c9c1}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_a7976894a2e2239ff937a9203c383c9c1}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_a726fa8a4b4b187b9ca32ba427aac8137}.
+
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!gc@{gc}}
+\index{gc@{gc}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{gc}]{\setlength{\rightskip}{0pt plus 5cm}gc (
+\begin{DoxyParamCaption}
+\item[{}]{\$maxlifetime}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_a57aff7ee0656d8aa75d545fb8b3ae35d}
+Cleans up expired sessions (garbage collection).
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+gc}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string | int & {\em \$maxlifetime} & Sessions that have not updated for the last maxlifetime seconds will be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a0059b95460555c1bbd57e0e3108e4118}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_a6a4cf90dfad69cacbbd81a005cfb8006}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_a6a4cf90dfad69cacbbd81a005cfb8006}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_a6a4cf90dfad69cacbbd81a005cfb8006}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_a6a4cf90dfad69cacbbd81a005cfb8006}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_a57aff7ee0656d8aa75d545fb8b3ae35d}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_a57aff7ee0656d8aa75d545fb8b3ae35d}.
+
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!open@{open}}
+\index{open@{open}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}open (
+\begin{DoxyParamCaption}
+\item[{}]{\$save\+Path, }
+\item[{}]{\$session\+Name}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_ac70d1623e67e5b6d1859856dcef15d82}
+Re-\/initializes existing session, or creates a new one.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+open}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$save\+Path} & Save path \\
+\hline
+string & {\em \$session\+Name} & \doxyref{Session}{p.}{class_session} name, see {\tt http\+://php.\+net/function.\+session-\/name.\+php}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_ac70d1623e67e5b6d1859856dcef15d82}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_ac70d1623e67e5b6d1859856dcef15d82}.
+
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!read@{read}}
+\index{read@{read}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048}
+Reads the session data.
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+read}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D, see {\tt http\+://php.\+net/function.\+session-\/id}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Same session data as passed in \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} or empty string when non-\/existent or on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_a379d9c87c852c5901ff1976be29a5048}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_a379d9c87c852c5901ff1976be29a5048}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_a379d9c87c852c5901ff1976be29a5048}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_afa59bebedda70c37b94c2efc35da83f3}.
+
+\index{Session\+Handler\+Interface@{Session\+Handler\+Interface}!write@{write}}
+\index{write@{write}!Session\+Handler\+Interface@{Session\+Handler\+Interface}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{}]{\$session\+Id, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed}
+Writes the session data to the storage.
+
+Care, the session I\+D passed to \doxyref{write()}{p.}{interface_session_handler_interface_ad7b615bb92609350d2d9d0c07f6f58ed} can be different from the one previously received in \doxyref{read()}{p.}{interface_session_handler_interface_a379d9c87c852c5901ff1976be29a5048} when the session I\+D changed due to session\+\_\+regenerate\+\_\+id().
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://php.\+net/sessionhandlerinterface.\+write}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$session\+Id} & \doxyref{Session}{p.}{class_session} I\+D , see {\tt http\+://php.\+net/function.\+session-\/id} \\
+\hline
+string & {\em \$data} & Serialized session data to save\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in {\bf Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_pdo_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Legacy\+Pdo\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_legacy_pdo_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Mongo\+Db\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_mongo_db_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Memcached\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcached_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Memcache\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_memcache_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Write\+Check\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_write_check_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Database\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_database_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Session\+Handler\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_proxy_1_1_session_handler_proxy_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf File\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_file_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Cookie\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cookie_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Cache\+Based\+Session\+Handler} \doxyref{}{p.}{class_illuminate_1_1_session_1_1_cache_based_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, {\bf Null\+Session\+Handler} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_session_1_1_storage_1_1_handler_1_1_null_session_handler_ad7b615bb92609350d2d9d0c07f6f58ed}, and {\bf Concrete\+Session\+Handler\+Interface\+Proxy} \doxyref{}{p.}{class_symfony_1_1_component_1_1_http_foundation_1_1_tests_1_1_session_1_1_storage_1_1_proxy_1_1_d1277b6d4e4783b9bef06a41033151c5_a5f277b5f0e4e2154cddc9a3a0d2bf57d}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/foundation/\+Symfony/\+Component/\+Http\+Foundation/\+Resources/stubs/{\bf Session\+Handler\+Interface.\+php}\end{DoxyCompactItemize}

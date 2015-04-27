@@ -1,0 +1,145 @@
+.TH "Swift_Plugins_ThrottlerPlugin" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Plugins_ThrottlerPlugin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Plugins_BandwidthMonitorPlugin\fP, \fBSwift_Plugins_Sleeper\fP, and \fBSwift_Plugins_Timer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($rate, $mode=self::BYTES_PER_MINUTE, \fBSwift_Plugins_Sleeper\fP $sleeper=null, \fBSwift_Plugins_Timer\fP $\fBtimer\fP=null)"
+.br
+.ti -1c
+.RI "\fBbeforeSendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBsendPerformed\fP (\fBSwift_Events_SendEvent\fP $evt)"
+.br
+.ti -1c
+.RI "\fBsleep\fP ($\fBseconds\fP)"
+.br
+.ti -1c
+.RI "\fBgetTimestamp\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBBYTES_PER_MINUTE\fP = 0x01"
+.br
+.ti -1c
+.RI "const \fBMESSAGES_PER_SECOND\fP = 0x11"
+.br
+.ti -1c
+.RI "const \fBMESSAGES_PER_MINUTE\fP = 0x10"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Throttles the rate at which emails are sent\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file ThrottlerPlugin\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $rate,  $mode = \fCself::BYTES_PER_MINUTE\fP, \fBSwift_Plugins_Sleeper\fP $sleeper = \fCnull\fP, \fBSwift_Plugins_Timer\fP $timer = \fCnull\fP)"
+Create a new ThrottlerPlugin\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rate\fP 
+.br
+\fI$mode,defaults\fP to \fBBYTES_PER_MINUTE\fP 
+.br
+\fI$sleeper\fP (only needed in testing) 
+.br
+\fI$timer\fP (only needed in testing) 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file ThrottlerPlugin\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "beforeSendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Invoked immediately before the Message is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 92 of file ThrottlerPlugin\&.php\&.
+.SS "getTimestamp ()"
+Get the current UNIX timestamp\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Timer\fP\&.
+.PP
+Definition at line 150 of file ThrottlerPlugin\&.php\&.
+.SS "sendPerformed (\fBSwift_Events_SendEvent\fP $evt)"
+Invoked when a Message is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$evt\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Events_SendListener\fP\&.
+.PP
+Definition at line 125 of file ThrottlerPlugin\&.php\&.
+.SS "sleep ( $seconds)"
+Sleep for $seconds\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$seconds\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Plugins_Sleeper\fP\&.
+.PP
+Definition at line 136 of file ThrottlerPlugin\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const BYTES_PER_MINUTE = 0x01"
+Flag for throttling in bytes per minute 
+.PP
+Definition at line 19 of file ThrottlerPlugin\&.php\&.
+.SS "const MESSAGES_PER_MINUTE = 0x10"
+Flag for throttling in emails per minute 
+.PP
+Definition at line 25 of file ThrottlerPlugin\&.php\&.
+.SS "const MESSAGES_PER_SECOND = 0x11"
+Flag for throttling in emails per second (Amazon SES) 
+.PP
+Definition at line 22 of file ThrottlerPlugin\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

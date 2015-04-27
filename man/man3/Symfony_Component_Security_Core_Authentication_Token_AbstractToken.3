@@ -1,0 +1,300 @@
+.TH "AbstractToken" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractToken \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTokenInterface\fP\&.
+.PP
+Inherited by \fBAnonymousToken\fP, \fBPreAuthenticatedToken\fP, \fBRememberMeToken\fP, \fBUsernamePasswordToken\fP, and \fBConcreteToken\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $roles=array())"
+.br
+.ti -1c
+.RI "\fBgetRoles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUsername\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUser\fP ($user)"
+.br
+.ti -1c
+.RI "\fBisAuthenticated\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAuthenticated\fP ($authenticated)"
+.br
+.ti -1c
+.RI "\fBeraseCredentials\fP ()"
+.br
+.ti -1c
+.RI "\fBserialize\fP ()"
+.br
+.ti -1c
+.RI "\fBunserialize\fP ($serialized)"
+.br
+.ti -1c
+.RI "\fBgetAttributes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAttributes\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBhasAttribute\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetAttribute\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBsetAttribute\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for \fBToken\fP instances\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Johannes M\&. Schmitt schmittjoh@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file AbstractToken\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $roles = \fCarray()\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIRoleInterface[]\fP $roles An array of roles
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 40 of file AbstractToken\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+{Returns a string representation of the \fBToken\fP\&.
+.PP
+This is only to be used for debugging purposes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 231 of file AbstractToken\&.php\&.
+.SS "eraseCredentials ()"
+{Removes sensitive information from the token\&.} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 137 of file AbstractToken\&.php\&.
+.SS "getAttribute ( $name)"
+Returns an attribute value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The attribute value
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 208 of file AbstractToken\&.php\&.
+.SS "getAttributes ()"
+Returns the token attributes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The token attributes 
+.RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 172 of file AbstractToken\&.php\&.
+.SS "getRoles ()"
+{Returns the user roles\&.
+.PP
+\fBReturns:\fP
+.RS 4
+RoleInterface[] An array of RoleInterface instances\&.
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 56 of file AbstractToken\&.php\&.
+.SS "getUser ()"
+{Returns a user representation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed Can be a UserInterface instance, an object implementing a __toString method, or the username as a regular string
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBAbstractToken::setUser()\fP
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 76 of file AbstractToken\&.php\&.
+.SS "getUsername ()"
+{Returns the username\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 64 of file AbstractToken\&.php\&.
+.SS "hasAttribute ( $name)"
+Returns true if the attribute exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the attribute exists, false otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 194 of file AbstractToken\&.php\&.
+.SS "isAuthenticated ()"
+{Returns whether the user is authenticated or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the token has been authenticated, false otherwise
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 121 of file AbstractToken\&.php\&.
+.SS "serialize ()"
+{} 
+.PP
+Definition at line 147 of file AbstractToken\&.php\&.
+.SS "setAttribute ( $name,  $value)"
+Sets an attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The attribute name 
+.br
+\fI$value\fP The attribute value 
+.RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 223 of file AbstractToken\&.php\&.
+.SS "setAttributes (array $attributes)"
+Sets the token attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP The token attributes 
+.RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 182 of file AbstractToken\&.php\&.
+.SS "setAuthenticated ( $authenticated)"
+{Sets the authenticated flag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$isAuthenticated\fP The authenticated flag
+.RE
+.PP
+} 
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 129 of file AbstractToken\&.php\&.
+.SS "setUser ( $user)"
+Sets the user in the token\&.
+.PP
+The user can be a UserInterface instance, or an object implementing a __toString method or the username as a regular string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP The user
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBTokenInterface\fP\&.
+.PP
+Definition at line 91 of file AbstractToken\&.php\&.
+.SS "unserialize ( $serialized)"
+{} 
+.PP
+Definition at line 162 of file AbstractToken\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

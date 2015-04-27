@@ -1,0 +1,33 @@
+\doxyref{Monolog}{p.}{namespace_monolog} is fully extensible, allowing you to adapt your logger to your needs.
+
+\subsection*{Writing your own handler }
+
+\doxyref{Monolog}{p.}{namespace_monolog} provides many built-\/in handlers. But if the one you need does not exist, you can write it and use it in your logger. The only requirement is to implement {\ttfamily \doxyref{Monolog}{p.}{namespace_monolog}\textbackslash{}Handler\textbackslash{}Handler\+Interface}.
+
+Let\textquotesingle{}s write a P\+D\+O\+Handler to log records to a database. We will extend the abstract class provided by \doxyref{Monolog}{p.}{namespace_monolog} to keep things D\+R\+Y.
+
+```php $<$?php
+
+use \doxyref{Monolog}{p.}{namespace_monolog}; use \doxyref{Monolog}{p.}{namespace_monolog};
+
+class P\+D\+O\+Handler extends Abstract\+Processing\+Handler \{ private \$initialized = false; private \$pdo; private \$statement;
+
+public function \+\_\+\+\_\+construct(P\+D\+O \$pdo, \$level = Logger\+::\+D\+E\+B\+U\+G, \$bubble = true) \{ \$this-\/$>$pdo = \$pdo; parent\+::\+\_\+\+\_\+construct(\$level, \$bubble); \}
+
+protected function write(array \$record) \{ if (!\$this-\/$>$initialized) \{ \$this-\/$>$initialize(); \}
+
+\$this-\/$>$statement-\/$>$execute(array( \textquotesingle{}channel\textquotesingle{} =$>$ \$record[\textquotesingle{}channel\textquotesingle{}], \textquotesingle{}level\textquotesingle{} =$>$ \$record[\textquotesingle{}level\textquotesingle{}], \textquotesingle{}message\textquotesingle{} =$>$ \$record[\textquotesingle{}formatted\textquotesingle{}], \textquotesingle{}time\textquotesingle{} =$>$ \$record[\textquotesingle{}datetime\textquotesingle{}]-\/$>$format(\textquotesingle{}U\textquotesingle{}), )); \}
+
+private function initialize() \{ \$this-\/$>$pdo-\/$>$exec( \textquotesingle{}C\+R\+E\+A\+T\+E T\+A\+B\+L\+E I\+F N\+O\+T E\+X\+I\+S\+T\+S monolog \textquotesingle{} .\textquotesingle{}(channel V\+A\+R\+C\+H\+A\+R(255), level I\+N\+T\+E\+G\+E\+R, message L\+O\+N\+G\+T\+E\+X\+T, time I\+N\+T\+E\+G\+E\+R U\+N\+S\+I\+G\+N\+E\+D)\textquotesingle{} ); \$this-\/$>$statement = \$this-\/$>$pdo-\/$>$prepare( \textquotesingle{}I\+N\+S\+E\+R\+T I\+N\+T\+O monolog (channel, level, message, time) V\+A\+L\+U\+E\+S (\+:channel, \+:level, \+:message, \+:time)\textquotesingle{} );
+
+\$this-\/$>$initialized = true; \} \} ```
+
+You can now use this handler in your logger\+:
+
+```php $<$?php
+
+\$logger-\/$>$push\+Handler(new P\+D\+O\+Handler(new P\+D\+O(\textquotesingle{}sqlite\+:logs.\+sqlite\textquotesingle{})));
+
+// You can now use your logger \$logger-\/$>$add\+Info(\textquotesingle{}\doxyref{My}{p.}{namespace_my} logger is now ready\textquotesingle{}); ```
+
+The {\ttfamily \doxyref{Monolog}{p.}{namespace_monolog}\textbackslash{}Handler\textbackslash{}Abstract\+Processing\+Handler} class provides most of the logic needed for the handler, including the use of processors and the formatting of the record (which is why we use {\ttfamily \$record[\textquotesingle{}formatted\textquotesingle{}]} instead of {\ttfamily \$record[\textquotesingle{}message\textquotesingle{}]}). 

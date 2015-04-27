@@ -1,0 +1,100 @@
+.TH "Swift_Spool" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Spool \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_ConfigurableSpool\fP, and \fBSwift_MemorySpool\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBstop\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBqueueMessage\fP (\fBSwift_Mime_Message\fP $message)"
+.br
+.ti -1c
+.RI "\fBflushQueue\fP (\fBSwift_Transport\fP $transport, &$failedRecipients=null)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for spools\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Spool\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "flushQueue (\fBSwift_Transport\fP $transport, & $failedRecipients = \fCnull\fP)"
+Sends messages using the given transport instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$transport\fP \fBA\fP transport instance 
+.br
+\fIstring[]\fP $failedRecipients An array of failures by-reference
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of sent emails 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_FileSpool\fP, and \fBSwift_MemorySpool\fP\&.
+.SS "isStarted ()"
+Tests if this Spool mechanism has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_FileSpool\fP, and \fBSwift_MemorySpool\fP\&.
+.SS "queueMessage (\fBSwift_Mime_Message\fP $message)"
+Queues a message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP The message to store
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Whether the operation has succeeded 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_FileSpool\fP, and \fBSwift_MemorySpool\fP\&.
+.SS "start ()"
+Starts this Spool mechanism\&. 
+.PP
+Implemented in \fBSwift_FileSpool\fP, and \fBSwift_MemorySpool\fP\&.
+.SS "stop ()"
+Stops this Spool mechanism\&. 
+.PP
+Implemented in \fBSwift_FileSpool\fP, and \fBSwift_MemorySpool\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

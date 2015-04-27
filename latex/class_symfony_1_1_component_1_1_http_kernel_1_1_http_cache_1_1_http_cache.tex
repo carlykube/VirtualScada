@@ -1,0 +1,519 @@
+\section{Http\+Cache Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache}\index{Http\+Cache@{Http\+Cache}}
+Inheritance diagram for Http\+Cache\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Http\+Kernel\+Interface} \$kernel, {\bf Store\+Interface} \${\bf store}, {\bf Surrogate\+Interface} \$surrogate=null, array \${\bf options}=array())
+\item 
+{\bf get\+Store} ()
+\item 
+{\bf get\+Traces} ()
+\item 
+{\bf get\+Log} ()
+\item 
+{\bf get\+Request} ()
+\item 
+{\bf get\+Kernel} ()
+\item 
+{\bf get\+Surrogate} ()
+\item 
+{\bf get\+Esi} ()
+\item 
+{\bf handle} ({\bf Request} \$request, \$type={\bf Http\+Kernel\+Interface\+::\+M\+A\+S\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T}, \$catch=true)
+\item 
+{\bf terminate} ({\bf Request} \$request, {\bf Response} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf pass} ({\bf Request} \$request, \$catch=false)
+\item 
+{\bf invalidate} ({\bf Request} \$request, \$catch=false)
+\item 
+{\bf lookup} ({\bf Request} \$request, \$catch=false)
+\item 
+{\bf validate} ({\bf Request} \$request, {\bf Response} \$entry, \$catch=false)
+\item 
+{\bf fetch} ({\bf Request} \$request, \$catch=false)
+\item 
+{\bf forward} ({\bf Request} \$request, \$catch=false, {\bf Response} \$entry=null)
+\item 
+{\bf is\+Fresh\+Enough} ({\bf Request} \$request, {\bf Response} \$entry)
+\item 
+{\bf lock} ({\bf Request} \$request, {\bf Response} \$entry)
+\item 
+{\bf store} ({\bf Request} \$request, {\bf Response} \$response)
+\item 
+{\bf process\+Response\+Body} ({\bf Request} \$request, {\bf Response} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Cache}{p.}{class_cache} provides H\+T\+T\+P caching.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+
+
+Definition at line 30 of file Http\+Cache.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Http\+Kernel\+Interface}}]{\$kernel, }
+\item[{{\bf Store\+Interface}}]{\$store, }
+\item[{{\bf Surrogate\+Interface}}]{\$surrogate = {\ttfamily null}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a6e67a448d697c6188455c813aba5163f}
+Constructor.
+
+The available options are\+:
+
+
+\begin{DoxyItemize}
+\item debug\+: If true, the traces are added as a H\+T\+T\+P header to ease debugging
+\item default\+\_\+ttl The number of seconds that a cache entry should be considered fresh when no explicit freshness information is provided in a response. Explicit Cache-\/\+Control or Expires headers override this value. (default\+: 0)
+\item private\+\_\+headers Set of request headers that trigger \char`\"{}private\char`\"{} cache-\/control behavior on responses that don\textquotesingle{}t explicitly state whether the response is public or private via a Cache-\/\+Control directive. (default\+: Authorization and \doxyref{Cookie}{p.}{class_cookie})
+\item allow\+\_\+reload Specifies whether the client can force a cache reload by including a Cache-\/\+Control \char`\"{}no-\/cache\char`\"{} directive in the request. Set it to {\ttfamily true} for compliance with R\+F\+C 2616. (default\+: false)
+\item allow\+\_\+revalidate Specifies whether the client can force a cache revalidate by including a Cache-\/\+Control \char`\"{}max-\/age=0\char`\"{} directive in the request. Set it to {\ttfamily true} for compliance with R\+F\+C 2616. (default\+: false)
+\item stale\+\_\+while\+\_\+revalidate Specifies the default number of seconds (the granularity is the second as the \doxyref{Response}{p.}{class_response} T\+T\+L precision is a second) during which the cache can immediately return a stale response while it revalidates it in the background (default\+: 2). This setting is overridden by the stale-\/while-\/revalidate H\+T\+T\+P Cache-\/\+Control extension (see R\+F\+C 5861).
+\item stale\+\_\+if\+\_\+error Specifies the default number of seconds (the granularity is the second) during which the cache can serve a stale response when an error is encountered (default\+: 60). This setting is overridden by the stale-\/if-\/error H\+T\+T\+P Cache-\/\+Control extension (see R\+F\+C 5861).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Http\+Kernel\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface} & {\em \$kernel} & An \doxyref{Http\+Kernel\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface} instance \\
+\hline
+\doxyref{Store\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface} & {\em \$store} & \doxyref{A}{p.}{class_a} \doxyref{Store}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store} instance \\
+\hline
+\doxyref{Surrogate\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface} & {\em \$surrogate} & \doxyref{A}{p.}{class_a} \doxyref{Surrogate\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_surrogate_interface} instance \\
+\hline
+array & {\em \$options} & An array of options \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file Http\+Cache.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!fetch@{fetch}}
+\index{fetch@{fetch}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{fetch}]{\setlength{\rightskip}{0pt plus 5cm}fetch (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$catch = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a34034cc0e070aebdacd35faa42c0d4d9}
+Forwards the \doxyref{Request}{p.}{class_request} to the backend and determines whether the response should be stored.
+
+This methods is triggered when the cache missed or a reload is required.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+bool & {\em \$catch} & whether to process exceptions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance 
+\end{DoxyReturn}
+
+
+Definition at line 436 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!forward@{forward}}
+\index{forward@{forward}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{forward}]{\setlength{\rightskip}{0pt plus 5cm}forward (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$catch = {\ttfamily false}, }
+\item[{{\bf Response}}]{\$entry = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a99856c92ff3a1a9f552c2395d2b6a8da}
+Forwards the \doxyref{Request}{p.}{class_request} to the backend and returns the \doxyref{Response}{p.}{class_response}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+bool & {\em \$catch} & Whether to catch exceptions or not \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$entry} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance (the stale entry if present, null otherwise)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance 
+\end{DoxyReturn}
+
+
+Definition at line 465 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Esi@{get\+Esi}}
+\index{get\+Esi@{get\+Esi}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Esi}]{\setlength{\rightskip}{0pt plus 5cm}get\+Esi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_adb5d959f3e9a4213834a274619c1ec47}
+Gets the \doxyref{Esi}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_esi} instance.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 175 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Kernel@{get\+Kernel}}
+\index{get\+Kernel@{get\+Kernel}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Kernel}]{\setlength{\rightskip}{0pt plus 5cm}get\+Kernel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a1e70244b0ff5c8fee7978b0206fefa27}
+Gets the \doxyref{Kernel}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_kernel} instance.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Http\+Kernel\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface} An \doxyref{Http\+Kernel\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface} instance 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Log@{get\+Log}}
+\index{get\+Log@{get\+Log}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Log}]{\setlength{\rightskip}{0pt plus 5cm}get\+Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_af8283af3e7c972d9c276dc634eec0bdc}
+Returns a log message for the events of the last request processing.
+
+\begin{DoxyReturn}{Returns}
+string \doxyref{A}{p.}{class_a} log message 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Request@{get\+Request}}
+\index{get\+Request@{get\+Request}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_adf1a35ad20e475c59cc0967d5764aa22}
+Gets the \doxyref{Request}{p.}{class_request} instance associated with the master request.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Request}{p.}{class_request} \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Store@{get\+Store}}
+\index{get\+Store@{get\+Store}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Store}]{\setlength{\rightskip}{0pt plus 5cm}get\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a523d1f40bae28997db97fd9ac767fdf6}
+Gets the current store.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Store\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface} \$store \doxyref{A}{p.}{class_a} \doxyref{Store\+Interface}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_store_interface} instance 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Surrogate@{get\+Surrogate}}
+\index{get\+Surrogate@{get\+Surrogate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Surrogate}]{\setlength{\rightskip}{0pt plus 5cm}get\+Surrogate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a2fad1ef0acce1219026e65463ce228c9}
+Gets the Surrogate instance.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 161 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!get\+Traces@{get\+Traces}}
+\index{get\+Traces@{get\+Traces}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{get\+Traces}]{\setlength{\rightskip}{0pt plus 5cm}get\+Traces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_af13a680753aa1aea6abc7a1512f94c6d}
+Returns an array of events that took place during processing of the last request.
+
+\begin{DoxyReturn}{Returns}
+array An array of events 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!handle@{handle}}
+\index{handle@{handle}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}handle (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$type = {\ttfamily {\bf Http\+Kernel\+Interface\+::\+M\+A\+S\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T}}, }
+\item[{}]{\$catch = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a14b95e0aa8ad7f65c587a876736ab5c5}
+\{\}
+
+Implements {\bf Http\+Kernel\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_http_kernel_interface_a96b79e4f11a391bdfc0344889a9ef059}.
+
+
+
+Definition at line 189 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!invalidate@{invalidate}}
+\index{invalidate@{invalidate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{invalidate}]{\setlength{\rightskip}{0pt plus 5cm}invalidate (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$catch = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_afd425f6cc2d67e94779c960e47f1b2de}
+Invalidates non-\/safe methods (like P\+O\+S\+T, P\+U\+T, and D\+E\+L\+E\+T\+E).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+bool & {\em \$catch} & Whether to process exceptions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 276 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!is\+Fresh\+Enough@{is\+Fresh\+Enough}}
+\index{is\+Fresh\+Enough@{is\+Fresh\+Enough}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{is\+Fresh\+Enough}]{\setlength{\rightskip}{0pt plus 5cm}is\+Fresh\+Enough (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a154e69aecf5eff24ff9584edc863f394}
+Checks whether the cache entry is \char`\"{}fresh enough\char`\"{} to satisfy the \doxyref{Request}{p.}{class_request}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$entry} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the cache entry if fresh enough, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 525 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!lock@{lock}}
+\index{lock@{lock}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}lock (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a41a3a0cbe5ed2e8e3c4650d7e9298749}
+Locks a \doxyref{Request}{p.}{class_request} during the call to the backend.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$entry} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the cache entry can be returned even if it is staled, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 546 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!lookup@{lookup}}
+\index{lookup@{lookup}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$catch = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a0d59bc4a1848dfbf6377cb01b0fa138c}
+Lookups a \doxyref{Response}{p.}{class_response} from the cache for the given \doxyref{Request}{p.}{class_request}.
+
+When a matching cache entry is found and is fresh, it uses it as the response without forwarding any request to the backend. When a matching cache entry is found but is stale, it attempts to \char`\"{}validate\char`\"{} the entry with the backend using conditional G\+E\+T. When no matching cache entry is found, it triggers \char`\"{}miss\char`\"{} processing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+bool & {\em \$catch} & whether to process exceptions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 323 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!pass@{pass}}
+\index{pass@{pass}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{pass}]{\setlength{\rightskip}{0pt plus 5cm}pass (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{}]{\$catch = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_aeef7cc580e382a695459316824c4f6fa}
+Forwards the \doxyref{Request}{p.}{class_request} to the backend without storing the \doxyref{Response}{p.}{class_response} in the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+bool & {\em \$catch} & Whether to process exceptions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!process\+Response\+Body@{process\+Response\+Body}}
+\index{process\+Response\+Body@{process\+Response\+Body}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{process\+Response\+Body}]{\setlength{\rightskip}{0pt plus 5cm}process\+Response\+Body (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a91666c5d7316330c2470144dc278bbe3}
+
+
+Definition at line 663 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!store@{store}}
+\index{store@{store}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}store (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a53ca8fbcb4419eff63e9dde1658e01d1}
+Writes the \doxyref{Response}{p.}{class_response} to the cache.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$response} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 604 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!terminate@{terminate}}
+\index{terminate@{terminate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}terminate (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_a3200a2698a7cd1cf7a94b0ebfd668af3}
+\{\}
+
+Implements {\bf Terminable\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_terminable_interface_a3200a2698a7cd1cf7a94b0ebfd668af3}.
+
+
+
+Definition at line 242 of file Http\+Cache.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}!validate@{validate}}
+\index{validate@{validate}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Http\+Cache\+::\+Http\+Cache}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}validate (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request, }
+\item[{{\bf Response}}]{\$entry, }
+\item[{}]{\$catch = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_http_cache_1_1_http_cache_ada1ffcca4b6f4c79bc3ad24df58a4458}
+Validates that a cache entry is fresh.
+
+The original request is used as a template for a conditional G\+E\+T request with the backend.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Request}{p.}{class_request} & {\em \$request} & \doxyref{A}{p.}{class_a} \doxyref{Request}{p.}{class_request} instance \\
+\hline
+\doxyref{Response}{p.}{class_response} & {\em \$entry} & \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance to validate \\
+\hline
+bool & {\em \$catch} & Whether to process exceptions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} \doxyref{A}{p.}{class_a} \doxyref{Response}{p.}{class_response} instance 
+\end{DoxyReturn}
+
+
+Definition at line 375 of file Http\+Cache.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Http\+Cache/{\bf Http\+Cache.\+php}\end{DoxyCompactItemize}

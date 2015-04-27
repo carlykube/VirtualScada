@@ -1,0 +1,111 @@
+.TH "Simulation" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Simulation \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBreadConfig\fP (self)"
+.br
+.ti -1c
+.RI "def \fB__init__\fP (self)"
+.br
+.ti -1c
+.RI "def \fBstep\fP"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBconfig\fP"
+.br
+.RI "\fIOpen ConfigFile\&. \fP"
+.ti -1c
+.RI "\fBinterface\fP"
+.br
+.ti -1c
+.RI "\fBsimState\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+This class obtains simulation information from a configuration file,
+    sets up a simulation state, provides a method to step the simulation
+    forward in time.
+.fi
+.PP
+ 
+.PP
+Definition at line 37 of file simulation\&.py\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def __init__ ( self)"
+
+.PP
+.nf
+Constructor for the simulation class. Calls readConfig() and 
+creates an initial simulation state.
+.fi
+.PP
+ 
+.PP
+Definition at line 66 of file simulation\&.py\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "def readConfig ( self)"
+
+.PP
+.nf
+Opens and parses the configuration file in the local directory. The
+    results are available in self.config .
+.fi
+.PP
+ 
+.PP
+Definition at line 42 of file simulation\&.py\&.
+.SS "def step ( self,  upto = \fCNone\fP)"
+
+.PP
+.nf
+Function that modifies the simulation state from the curent
+simulation state to the time given in parameter upto.
+
+@param upto Time to simulate from simState['simtime'] to upto.
+    upto should be a float in the format of the time.time()
+    call -- i.e. unix time. If upto is None, the current time 
+    will be used.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 81 of file simulation\&.py\&.
+.SH "Field Documentation"
+.PP 
+.SS "config"
+
+.PP
+Open ConfigFile\&. 
+.PP
+Definition at line 46 of file simulation\&.py\&.
+.SS "interface"
+
+.PP
+Definition at line 73 of file simulation\&.py\&.
+.SS "simState"
+
+.PP
+Definition at line 78 of file simulation\&.py\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

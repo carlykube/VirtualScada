@@ -1,0 +1,14 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test =
+[
+    [ "testESIHeaderIsKeptInSubrequest", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a27ef63a7188608e5bb6f83385fdd93b9", null ],
+    [ "testESIHeaderIsKeptInSubrequestWithTrustedHeaderDisabled", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a8f0ad9e80849e16e7176322bacae42d7", null ],
+    [ "testExceptionInSubRequestsDoesNotMangleOutputBuffers", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a136a78a4bdf976b6de049d02829aab60", null ],
+    [ "testRender", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#ad34ccc015487e2ccffe0276688401008", null ],
+    [ "testRenderExceptionIgnoreErrors", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a7e576daae9fb2272be93a9c1b69f0d07", null ],
+    [ "testRenderExceptionIgnoreErrorsWithAlt", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a53b3d972c0922d0672de0b8d412fef36", null ],
+    [ "testRenderExceptionNoIgnoreErrors", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a8c7934ffb152ed977f9e27bbac763723", null ],
+    [ "testRenderWithControllerReference", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a30607ccf566d9c139b8524a2b4796042", null ],
+    [ "testRenderWithObjectsAsAttributes", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a62c5a6b2309315b16f4a83b1e2b0e8c1", null ],
+    [ "testRenderWithObjectsAsAttributesPassedAsObjectsInTheController", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#aa2095553e2f84bd4eb3bdcfe1316a3a8", null ],
+    [ "testRenderWithTrustedHeaderDisabled", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fragment_1_1_inline_fragment_renderer_test.html#a38c107bfffc3b10fc65d12183524fea2", null ]
+];

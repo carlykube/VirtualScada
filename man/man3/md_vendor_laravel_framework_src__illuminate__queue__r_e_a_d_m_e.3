@@ -1,0 +1,26 @@
+.TH "md_vendor_laravel_framework_src__illuminate__queue__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_laravel_framework_src__illuminate__queue__r_e_a_d_m_e \- \fBIlluminate\fP \fBQueue\fP 
+The \fBLaravel\fP \fBQueue\fP component provides a unified API across a variety of different queue services\&. Queues allow you to defer the processing of a time consuming task, such as sending an e-mail, until a later time, thus drastically speeding up the web requests to your application\&.
+.PP
+.SS "Usage Instructions"
+.PP
+First, create a new \fBQueue\fP \fCCapsule\fP manager instance\&. Similar to the 'Capsule' provided for the \fBEloquent\fP ORM, the queue Capsule aims to make configuring the library for usage outside of the \fBLaravel\fP framework as easy as possible\&.
+.PP
+```PHP use \fBIlluminate\fP as \fBQueue\fP;
+.PP
+$queue = new \fBQueue\fP;
+.PP
+$queue->addConnection([ 'driver' => 'beanstalkd', 'host' => 'localhost', 'queue' => 'default', ]);
+.PP
+// Make this Capsule instance available globally via static methods\&.\&.\&. (optional) $queue->\fBsetAsGlobal()\fP; ```
+.PP
+Once the Capsule instance has been registered\&. You may use it like so:
+.PP
+```PHP // As an instance\&.\&.\&. $queue->push('SendEmail', array('message' => $message));
+.PP
+// If setAsGlobal has been called\&.\&.\&. \fBQueue::push\fP('SendEmail', array('message' => $message)); ```
+.PP
+For further documentation on using the queue, consult the \fCLaravel framework documentation\fP\&. 

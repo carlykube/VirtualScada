@@ -1,0 +1,81 @@
+.TH "FunctionReturnInWriteContextPass" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FunctionReturnInWriteContextPass \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCodeCleanerPass\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBenterNode\fP (\fBNode\fP $\fBnode\fP)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBEXCEPTION_MESSAGE\fP = 'Can't use function \fBreturn\fP value in write context'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Validate that the functions are used correctly\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Martin Hasoň martin.hason@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file FunctionReturnInWriteContextPass\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+
+.PP
+Definition at line 35 of file FunctionReturnInWriteContextPass\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "enterNode (\fBNode\fP $node)"
+Validate that the functions are used correctly\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFatalErrorException\fP if a function is passed as an argument reference 
+.br
+\fIFatalErrorException\fP if a function is used as an argument in the isset 
+.br
+\fIFatalErrorException\fP if a function is used as an argument in the empty, only for \fBPHP\fP < 5\&.5 
+.br
+\fIFatalErrorException\fP if a value is assigned to a function
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$node\fP 
+.RE
+.PP
+
+.PP
+Implements \fBNodeVisitor\fP\&.
+.PP
+Definition at line 50 of file FunctionReturnInWriteContextPass\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "const EXCEPTION_MESSAGE = 'Can't use function \fBreturn\fP value in write context'"
+
+.PP
+Definition at line 31 of file FunctionReturnInWriteContextPass\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

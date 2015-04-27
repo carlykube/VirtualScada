@@ -1,0 +1,221 @@
+.TH "SessionStorageInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SessionStorageInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBMockArraySessionStorage\fP, and \fBNativeSessionStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBsetId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBregenerate\fP ($destroy=false, $lifetime=null)"
+.br
+.ti -1c
+.RI "\fBsave\fP ()"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBag\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBregisterBag\fP (\fBSessionBagInterface\fP $bag)"
+.br
+.ti -1c
+.RI "\fBgetMetadataBag\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+StorageInterface\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Drak drak@zikula.org
+.RE
+.PP
+
+.PP
+Definition at line 24 of file SessionStorageInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clear ()"
+Clear all session data in memory\&. 
+.PP
+Implemented in \fBNativeSessionStorage\fP, \fBMockArraySessionStorage\fP, and \fBPhpBridgeSessionStorage\fP\&.
+.SS "getBag ( $name)"
+Gets a \fBSessionBagInterface\fP by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSessionBagInterface\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "getId ()"
+Returns the session ID\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The session ID or empty\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "getMetadataBag ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMetadataBag\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "getName ()"
+Returns the session name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The session name\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "isStarted ()"
+Checks if the session is started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if started, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "regenerate ( $destroy = \fCfalse\fP,  $lifetime = \fCnull\fP)"
+Regenerates id that represents this storage\&.
+.PP
+This method must invoke session_regenerate_id($destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \fBPHP\fP session would interfere with testing\&.
+.PP
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage\&.
+.PP
+Care: When regenerating the session ID no locking is involved in PHPs session design\&. See https://bugs.php.net/bug.php?id=61470 for a discussion\&. So you must make sure the regenerated session is saved BEFORE sending the headers with the new ID\&. Symfonys \fBHttpKernel\fP offers a listener for this\&. See \fBSymfony\fP\&. Otherwise session data could get lost again for concurrent requests with the new ID\&. \fBOne\fP result could be that you get logged out after just logging in\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$destroy\fP Destroy session when regenerating? 
+.br
+\fI$lifetime\fP Sets the cookie lifetime for the session cookie\&. \fBA\fP null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session\&. Time is in seconds, and is not a Unix timestamp\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if session regenerated, false if error
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, \fBMockArraySessionStorage\fP, and \fBMockFileSessionStorage\fP\&.
+.SS "registerBag (\fBSessionBagInterface\fP $bag)"
+Registers a \fBSessionBagInterface\fP for use\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bag\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "save ()"
+Force the session to be saved and closed\&.
+.PP
+This method must invoke session_write_close() unless this interface is used for a storage object design for unit or functional testing where a real \fBPHP\fP session would interfere with testing, in which case it it should actually persist the session data if required\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, \fBMockArraySessionStorage\fP, and \fBMockFileSessionStorage\fP\&.
+.SS "setId ( $id)"
+Sets the session ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "setName ( $name)"
+Sets the session name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, and \fBMockArraySessionStorage\fP\&.
+.SS "start ()"
+Starts the session\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBNativeSessionStorage\fP, \fBMockArraySessionStorage\fP, \fBMockFileSessionStorage\fP, and \fBPhpBridgeSessionStorage\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

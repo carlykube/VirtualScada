@@ -1,0 +1,1279 @@
+.TH "Store" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Store \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSessionInterface\fP, and \fBSessionInterface\fP\&.
+.PP
+Inherited by \fBEncryptedStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, \fBSessionHandlerInterface\fP $handler, $id=null)"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBsetId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBisValidId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBinvalidate\fP ($lifetime=null)"
+.br
+.ti -1c
+.RI "\fBmigrate\fP ($destroy=false, $lifetime=null)"
+.br
+.ti -1c
+.RI "\fBregenerate\fP ($destroy=false)"
+.br
+.ti -1c
+.RI "\fBsave\fP ()"
+.br
+.ti -1c
+.RI "\fBageFlashData\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP, $default=null)"
+.br
+.ti -1c
+.RI "\fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBhasOldInput\fP ($key=null)"
+.br
+.ti -1c
+.RI "\fBgetOldInput\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBflash\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBflashInput\fP (array $value)"
+.br
+.ti -1c
+.RI "\fBreflash\fP ()"
+.br
+.ti -1c
+.RI "\fBkeep\fP ($\fBkeys\fP=null)"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBreplace\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBremove\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterBag\fP (\fBSessionBagInterface\fP $bag)"
+.br
+.ti -1c
+.RI "\fBgetBag\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetMetadataBag\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBagData\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBtoken\fP ()"
+.br
+.ti -1c
+.RI "\fBgetToken\fP ()"
+.br
+.ti -1c
+.RI "\fBregenerateToken\fP ()"
+.br
+.ti -1c
+.RI "\fBpreviousUrl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPreviousUrl\fP ($url)"
+.br
+.ti -1c
+.RI "\fBsetExists\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBhandlerNeedsRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequestOnHandler\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($\fBname\fP, \fBSessionHandlerInterface\fP $handler, $id=null)"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBsetId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBisValidId\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetName\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBinvalidate\fP ($lifetime=null)"
+.br
+.ti -1c
+.RI "\fBmigrate\fP ($destroy=false, $lifetime=null)"
+.br
+.ti -1c
+.RI "\fBregenerate\fP ($destroy=false)"
+.br
+.ti -1c
+.RI "\fBsave\fP ()"
+.br
+.ti -1c
+.RI "\fBageFlashData\fP ()"
+.br
+.ti -1c
+.RI "\fBhas\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP, $default=null)"
+.br
+.ti -1c
+.RI "\fBpull\fP ($key, $default=null)"
+.br
+.ti -1c
+.RI "\fBhasOldInput\fP ($key=null)"
+.br
+.ti -1c
+.RI "\fBgetOldInput\fP ($key=null, $default=null)"
+.br
+.ti -1c
+.RI "\fBset\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBput\fP ($key, $value=null)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBflash\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBflashInput\fP (array $value)"
+.br
+.ti -1c
+.RI "\fBreflash\fP ()"
+.br
+.ti -1c
+.RI "\fBkeep\fP ($\fBkeys\fP=null)"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBreplace\fP (array $attributes)"
+.br
+.ti -1c
+.RI "\fBremove\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBforget\fP ($key)"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fBisStarted\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterBag\fP (\fBSessionBagInterface\fP $bag)"
+.br
+.ti -1c
+.RI "\fBgetBag\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetMetadataBag\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBagData\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBtoken\fP ()"
+.br
+.ti -1c
+.RI "\fBgetToken\fP ()"
+.br
+.ti -1c
+.RI "\fBregenerateToken\fP ()"
+.br
+.ti -1c
+.RI "\fBpreviousUrl\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPreviousUrl\fP ($url)"
+.br
+.ti -1c
+.RI "\fBsetExists\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBhandlerNeedsRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequestOnHandler\fP (\fBRequest\fP $request)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBloadSession\fP ()"
+.br
+.ti -1c
+.RI "\fBreadFromHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBprepareForUnserialize\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBinitializeLocalBag\fP ($bag)"
+.br
+.ti -1c
+.RI "\fBgenerateSessionId\fP ()"
+.br
+.ti -1c
+.RI "\fBprepareForStorage\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBaddBagDataToSession\fP ()"
+.br
+.ti -1c
+.RI "\fBmergeNewFlashes\fP (array $\fBkeys\fP)"
+.br
+.ti -1c
+.RI "\fBremoveFromOldFlashData\fP (array $\fBkeys\fP)"
+.br
+.ti -1c
+.RI "\fBloadSession\fP ()"
+.br
+.ti -1c
+.RI "\fBreadFromHandler\fP ()"
+.br
+.ti -1c
+.RI "\fBprepareForUnserialize\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBinitializeLocalBag\fP ($bag)"
+.br
+.ti -1c
+.RI "\fBgenerateSessionId\fP ()"
+.br
+.ti -1c
+.RI "\fBprepareForStorage\fP ($\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBaddBagDataToSession\fP ()"
+.br
+.ti -1c
+.RI "\fBmergeNewFlashes\fP (array $\fBkeys\fP)"
+.br
+.ti -1c
+.RI "\fBremoveFromOldFlashData\fP (array $\fBkeys\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$id\fP"
+.br
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$attributes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$bags\fP = array()"
+.br
+.ti -1c
+.RI "\fB$metaBag\fP"
+.br
+.ti -1c
+.RI "\fB$bagData\fP = array()"
+.br
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.ti -1c
+.RI "\fB$started\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10958 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $name, \fBSessionHandlerInterface\fP $handler,  $id = \fCnull\fP)"
+
+.PP
+Definition at line 10968 of file compiled\&.php\&.
+.SS "__construct ( $name, \fBSessionHandlerInterface\fP $handler,  $id = \fCnull\fP)"
+Create a new session instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$handler\fP 
+.br
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Store\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addBagDataToSession ()\fC [protected]\fP"
+Merge all of the bag data into the session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 276 of file Store\&.php\&.
+.SS "addBagDataToSession ()\fC [protected]\fP"
+
+.PP
+Definition at line 11066 of file compiled\&.php\&.
+.SS "ageFlashData ()"
+Age the flash data for the session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 289 of file Store\&.php\&.
+.SS "ageFlashData ()"
+
+.PP
+Definition at line 11072 of file compiled\&.php\&.
+.SS "all ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 478 of file Store\&.php\&.
+.SS "all ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11151 of file compiled\&.php\&.
+.SS "clear ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 513 of file Store\&.php\&.
+.SS "clear ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11167 of file compiled\&.php\&.
+.SS "flash ( $key,  $value)"
+Flash a key / value pair to the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 404 of file Store\&.php\&.
+.SS "flash ( $key,  $value)"
+
+.PP
+Definition at line 11121 of file compiled\&.php\&.
+.SS "flashInput (array $value)"
+Flash an input array to the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 419 of file Store\&.php\&.
+.SS "flashInput (array $value)"
+
+.PP
+Definition at line 11127 of file compiled\&.php\&.
+.SS "flush ()"
+Remove all of the items from the session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 528 of file Store\&.php\&.
+.SS "flush ()"
+
+.PP
+Definition at line 11174 of file compiled\&.php\&.
+.SS "forget ( $key)"
+Remove an item from the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 505 of file Store\&.php\&.
+.SS "forget ( $key)"
+
+.PP
+Definition at line 11163 of file compiled\&.php\&.
+.SS "generateSessionId ()\fC [protected]\fP"
+Get a new, random session ID\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 190 of file Store\&.php\&.
+.SS "generateSessionId ()\fC [protected]\fP"
+
+.PP
+Definition at line 11025 of file compiled\&.php\&.
+.SS "get ( $name,  $default = \fCnull\fP)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 309 of file Store\&.php\&.
+.SS "get ( $name,  $default = \fCnull\fP)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11084 of file compiled\&.php\&.
+.SS "getBag ( $name)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 552 of file Store\&.php\&.
+.SS "getBag ( $name)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11186 of file compiled\&.php\&.
+.SS "getBagData ( $name)"
+Get the raw bag data array for a given bag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 574 of file Store\&.php\&.
+.SS "getBagData ( $name)"
+
+.PP
+Definition at line 11196 of file compiled\&.php\&.
+.SS "getHandler ()"
+Get the underlying session handler implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 649 of file Store\&.php\&.
+.SS "getHandler ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11226 of file compiled\&.php\&.
+.SS "getId ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 156 of file Store\&.php\&.
+.SS "getId ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11010 of file compiled\&.php\&.
+.SS "getMetadataBag ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 563 of file Store\&.php\&.
+.SS "getMetadataBag ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11192 of file compiled\&.php\&.
+.SS "getName ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 198 of file Store\&.php\&.
+.SS "getName ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11029 of file compiled\&.php\&.
+.SS "getOldInput ( $key = \fCnull\fP,  $default = \fCnull\fP)"
+Get the requested item from the flashed input array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 346 of file Store\&.php\&.
+.SS "getOldInput ( $key = \fCnull\fP,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11097 of file compiled\&.php\&.
+.SS "getToken ()"
+Get the CSRF token value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 594 of file Store\&.php\&.
+.SS "getToken ()"
+
+.PP
+Definition at line 11204 of file compiled\&.php\&.
+.SS "handlerNeedsRequest ()"
+Determine if the session handler needs a request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 659 of file Store\&.php\&.
+.SS "handlerNeedsRequest ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11230 of file compiled\&.php\&.
+.SS "has ( $name)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 301 of file Store\&.php\&.
+.SS "has ( $name)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11080 of file compiled\&.php\&.
+.SS "hasOldInput ( $key = \fCnull\fP)"
+Determine if the session contains old input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 332 of file Store\&.php\&.
+.SS "hasOldInput ( $key = \fCnull\fP)"
+
+.PP
+Definition at line 11092 of file compiled\&.php\&.
+.SS "initializeLocalBag ( $bag)\fC [protected]\fP"
+Initialize a bag in storage if it doesn't exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bag\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Store\&.php\&.
+.SS "initializeLocalBag ( $bag)\fC [protected]\fP"
+
+.PP
+Definition at line 11006 of file compiled\&.php\&.
+.SS "invalidate ( $lifetime = \fCnull\fP)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 214 of file Store\&.php\&.
+.SS "invalidate ( $lifetime = \fCnull\fP)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11037 of file compiled\&.php\&.
+.SS "isStarted ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 536 of file Store\&.php\&.
+.SS "isStarted ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11178 of file compiled\&.php\&.
+.SS "isValidId ( $id)"
+Determine if this is a valid session ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file Store\&.php\&.
+.SS "isValidId ( $id)"
+
+.PP
+Definition at line 11021 of file compiled\&.php\&.
+.SS "keep ( $keys = \fCnull\fP)"
+Reflash a subset of the current flash data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 442 of file Store\&.php\&.
+.SS "keep ( $keys = \fCnull\fP)"
+
+.PP
+Definition at line 11136 of file compiled\&.php\&.
+.SS "loadSession ()\fC [protected]\fP"
+Load the session data from the handler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file Store\&.php\&.
+.SS "loadSession ()\fC [protected]\fP"
+
+.PP
+Definition at line 10983 of file compiled\&.php\&.
+.SS "mergeNewFlashes (array $keys)\fC [protected]\fP"
+Merge new flash keys into the new flash array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 457 of file Store\&.php\&.
+.SS "mergeNewFlashes (array $keys)\fC [protected]\fP"
+
+.PP
+Definition at line 11142 of file compiled\&.php\&.
+.SS "migrate ( $destroy = \fCfalse\fP,  $lifetime = \fCnull\fP)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 224 of file Store\&.php\&.
+.SS "migrate ( $destroy = \fCfalse\fP,  $lifetime = \fCnull\fP)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11042 of file compiled\&.php\&.
+.SS "prepareForStorage ( $data)\fC [protected]\fP"
+Prepare the serialized session data for storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 266 of file Store\&.php\&.
+.SS "prepareForStorage ( $data)\fC [protected]\fP"
+
+.PP
+Definition at line 11062 of file compiled\&.php\&.
+.SS "prepareForUnserialize ( $data)\fC [protected]\fP"
+Prepare the raw string data from the session for unserialization\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file Store\&.php\&.
+.SS "prepareForUnserialize ( $data)\fC [protected]\fP"
+
+.PP
+Definition at line 11002 of file compiled\&.php\&.
+.SS "previousUrl ()"
+Get the previous \fBURL\fP from the session\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 614 of file Store\&.php\&.
+.SS "previousUrl ()"
+
+.PP
+Definition at line 11212 of file compiled\&.php\&.
+.SS "pull ( $key,  $default = \fCnull\fP)"
+Get the value of a given key and then forget it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file Store\&.php\&.
+.SS "pull ( $key,  $default = \fCnull\fP)"
+
+.PP
+Definition at line 11088 of file compiled\&.php\&.
+.SS "push ( $key,  $value)"
+Push a value onto a session array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 388 of file Store\&.php\&.
+.SS "push ( $key,  $value)"
+
+.PP
+Definition at line 11115 of file compiled\&.php\&.
+.SS "put ( $key,  $value = \fCnull\fP)"
+Put a key / value pair or array of key / value pairs in the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Store\&.php\&.
+.SS "put ( $key,  $value = \fCnull\fP)"
+
+.PP
+Definition at line 11106 of file compiled\&.php\&.
+.SS "readFromHandler ()\fC [protected]\fP"
+Read the session data from the handler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file Store\&.php\&.
+.SS "readFromHandler ()\fC [protected]\fP"
+
+.PP
+Definition at line 10991 of file compiled\&.php\&.
+.SS "reflash ()"
+Reflash all of the session flash data\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 429 of file Store\&.php\&.
+.SS "reflash ()"
+
+.PP
+Definition at line 11131 of file compiled\&.php\&.
+.SS "regenerate ( $destroy = \fCfalse\fP)"
+Generate a new session identifier\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$destroy\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 241 of file Store\&.php\&.
+.SS "regenerate ( $destroy = \fCfalse\fP)"
+
+.PP
+Definition at line 11051 of file compiled\&.php\&.
+.SS "regenerateToken ()"
+Regenerate the CSRF token value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 604 of file Store\&.php\&.
+.SS "regenerateToken ()"
+
+.PP
+Definition at line 11208 of file compiled\&.php\&.
+.SS "registerBag (\fBSessionBagInterface\fP $bag)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 544 of file Store\&.php\&.
+.SS "registerBag (\fBSessionBagInterface\fP $bag)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11182 of file compiled\&.php\&.
+.SS "remove ( $name)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 494 of file Store\&.php\&.
+.SS "remove ( $name)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11159 of file compiled\&.php\&.
+.SS "removeFromOldFlashData (array $keys)\fC [protected]\fP"
+Remove the given keys from the old flash data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$keys\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 470 of file Store\&.php\&.
+.SS "removeFromOldFlashData (array $keys)\fC [protected]\fP"
+
+.PP
+Definition at line 11147 of file compiled\&.php\&.
+.SS "replace (array $attributes)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 486 of file Store\&.php\&.
+.SS "replace (array $attributes)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11155 of file compiled\&.php\&.
+.SS "save ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 249 of file Store\&.php\&.
+.SS "save ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11055 of file compiled\&.php\&.
+.SS "set ( $name,  $value)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 359 of file Store\&.php\&.
+.SS "set ( $name,  $value)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11102 of file compiled\&.php\&.
+.SS "setExists ( $value)"
+Set the existence of the session on the handler if applicable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 636 of file Store\&.php\&.
+.SS "setExists ( $value)"
+
+.PP
+Definition at line 11220 of file compiled\&.php\&.
+.SS "setId ( $id)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 164 of file Store\&.php\&.
+.SS "setId ( $id)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11014 of file compiled\&.php\&.
+.SS "setName ( $name)"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 206 of file Store\&.php\&.
+.SS "setName ( $name)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11033 of file compiled\&.php\&.
+.SS "setPreviousUrl ( $url)"
+Set the 'previous' \fBURL\fP in the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 625 of file Store\&.php\&.
+.SS "setPreviousUrl ( $url)"
+
+.PP
+Definition at line 11216 of file compiled\&.php\&.
+.SS "setRequestOnHandler (\fBRequest\fP $request)"
+Set the request on the handler instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 670 of file Store\&.php\&.
+.SS "setRequestOnHandler (\fBRequest\fP $request)"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 11234 of file compiled\&.php\&.
+.SS "start ()"
+{} 
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 86 of file Store\&.php\&.
+.SS "start ()"
+
+.PP
+Implements \fBSessionInterface\fP\&.
+.PP
+Definition at line 10975 of file compiled\&.php\&.
+.SS "token ()"
+Get the CSRF token value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 584 of file Store\&.php\&.
+.SS "token ()"
+
+.PP
+Definition at line 11200 of file compiled\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$attributes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 10962 of file compiled\&.php\&.
+.SS "$bagData = array()\fC [protected]\fP"
+
+.PP
+Definition at line 10965 of file compiled\&.php\&.
+.SS "$bags = array()\fC [protected]\fP"
+
+.PP
+Definition at line 10963 of file compiled\&.php\&.
+.SS "$handler\fC [protected]\fP"
+
+.PP
+Definition at line 10966 of file compiled\&.php\&.
+.SS "$id\fC [protected]\fP"
+
+.PP
+Definition at line 10960 of file compiled\&.php\&.
+.SS "$metaBag\fC [protected]\fP"
+
+.PP
+Definition at line 10964 of file compiled\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 10961 of file compiled\&.php\&.
+.SS "$started = false\fC [protected]\fP"
+
+.PP
+Definition at line 10967 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

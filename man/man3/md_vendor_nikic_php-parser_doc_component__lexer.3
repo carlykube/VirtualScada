@@ -1,0 +1,87 @@
+.TH "md_vendor_nikic_php-parser_doc_component__lexer" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_nikic_php-parser_doc_component__lexer \- Lexer component documentation 
+The lexer is responsible for providing tokens to the parser\&. The project comes with two lexers: \fC\fBPhpParser\fP\\Lexer\fP and \fC\fBPhpParser\fP\\Lexer\\Emulative\fP\&. The latter is an extension of the former, which adds the ability to emulate tokens of newer \fBPHP\fP versions and thus allows parsing of new code on older versions\&.
+.PP
+This documentation discusses options available for the default lexers and explains how lexers can be extended\&.
+.PP
+.SS "Lexer options "
+.PP
+The two default lexers accept an \fC$options\fP array in the constructor\&. Currently only the \fC'usedAttributes'\fP option is supported, which allows you to specify which attributes will be added to the AST nodes\&. The attributes can then be accessed using \fC$node->getAttribute()\fP, \fC$node->setAttribute()\fP, \fC$node->hasAttribute()\fP and \fC$node->getAttributes()\fP methods\&. \fBA\fP sample options array:
+.PP
+```php $lexer = new \fBPhpParser\fP(array( 'usedAttributes' => array( 'comments', 'startLine', 'endLine' ) )); ```
+.PP
+The attributes used in this example match the default behavior of the lexer\&. The following attributes are supported:
+.PP
+.IP "\(bu" 2
+\fCcomments\fP: Array of \fC\fBPhpParser\fP\\Comment\fP or \fC\fBPhpParser\fP\\Comment\\Doc\fP instances, representing all comments that occurred between the previous non-discarded token and the current one\&. Use of this attribute is required for the \fC$node->getDocComment()\fP method to work\&. The attribute is also needed if you wish the pretty printer to retain comments present in the original code\&.
+.IP "\(bu" 2
+\fCstartLine\fP: Line in which the node starts\&. This attribute is required for the \fC$node->getLine()\fP to work\&. It is also required if syntax errors should contain line number information\&.
+.IP "\(bu" 2
+\fCendLine\fP: Line in which the node ends\&.
+.IP "\(bu" 2
+\fCstartTokenPos\fP: Offset into the token array of the first token in the node\&.
+.IP "\(bu" 2
+\fCendTokenPos\fP: Offset into the token array of the last token in the node\&.
+.IP "\(bu" 2
+\fCstartFilePos\fP: Offset into the code string of the first character that is part of the node\&.
+.IP "\(bu" 2
+\fCendFilePos\fP: Offset into the code string of the last character that is part of the node\&.
+.PP
+.PP
+.SS "Using token positions"
+.PP
+The token offset information is useful if you wish to examine the exact formatting used for a node\&. For example the AST does not distinguish whether a property was declared using \fCpublic\fP or using \fCvar\fP, but you can retrieve this information based on the token position:
+.PP
+```php function isDeclaredUsingVar(array $tokens, \fBPhpParser\fP $prop) { $i = $prop->getAttribute('startTokenPos'); return $tokens[$i][0] === T_VAR; } ```
+.PP
+In order to make use of this function, you will have to provide the tokens from the lexer to your node visitor using code similar to the following:
+.PP
+```php class MyNodeVisitor extends \fBPhpParser\fP { private $tokens; public function setTokens(array $tokens) { $this->tokens = $tokens; }
+.PP
+public function leaveNode(\fBPhpParser\fP $node) { if ($node instanceof \fBPhpParser\fP) { var_dump(isDeclaredUsingVar($this->tokens, $node)); } } }
+.PP
+$lexer = new \fBPhpParser\fP(array( 'usedAttributes' => array( 'comments', 'startLine', 'endLine', 'startTokenPos', 'endTokenPos' ) )); $parser = new \fBPhpParser\fP($lexer);
+.PP
+$visitor = new MyNodeVisitor(); $traverser = new \fBPhpParser\fP(); $traverser->addVisitor($visitor);
+.PP
+try { $stmts = $parser->parse($code); $visitor->setTokens($lexer->getTokens()); $stmts = $traverser->traverse($stmts); } catch (\fBPhpParser\fP $e) { echo 'Parse \fBError\fP: ', $e->getMessage(); } ```
+.PP
+The same approach can also be used to perform specific modifications in the code, without changing the formatting in other places (which is the case when using the pretty printer)\&.
+.PP
+.SS "Lexer extension "
+.PP
+\fBA\fP lexer has to define the following public interface: 
+.PP
+.nf
+void startLexing(string $code);
+array getTokens();
+string handleHaltCompiler();
+int getNextToken(string &$value = null, array &$startAttributes = null, array &$endAttributes = null);
+
+.fi
+.PP
+.PP
+The \fCstartLexing()\fP method is invoked with the source code that is to be lexed (including the opening tag) whenever the \fC\fBparse()\fP\fP method of the parser is called\&. It can be used to reset state or preprocess the source code or tokens\&.
+.PP
+The \fCgetTokens()\fP method returns the current token array, in the usual \fCtoken_get_all()\fP format\&. This method is not used by the parser (which uses \fCgetNextToken()\fP), but is useful in combination with the token position attributes\&.
+.PP
+The \fChandleHaltCompiler()\fP method is called whenever a \fCT_HALT_COMPILER\fP token is encountered\&. It has to return the remaining string after the construct (not including \fC();\fP)\&.
+.PP
+The \fCgetNextToken()\fP method returns the ID of the next token (as defined by the \fCParser::T_*\fP constants)\&. If no more tokens are available it must return \fC0\fP, which is the ID of the \fCEOF\fP token\&. Furthermore the string content of the token should be written into the by-reference \fC$value\fP parameter (which will then be available as \fC$n\fP in the parser)\&.
+.PP
+.SS "Attribute handling"
+.PP
+The other two by-ref variables \fC$startAttributes\fP and \fC$endAttributes\fP define which attributes will eventually be assigned to the generated nodes: The parser will take the \fC$startAttributes\fP from the first token which is part of the node and the \fC$endAttributes\fP from the last token that is part of the node\&.
+.PP
+E\&.g\&. if the tokens `T_FUNCTION T_STRING \&.\&.\&. '{' \&.\&.\&. '}'\fCconstitute a node, then the\fP$startAttributes\fCfrom the \fPT_FUNCTION\fCtoken will be taken and the\fP$endAttributes\fCfrom the\fP'}'` token\&.
+.PP
+An application of custom attributes is storing the original formatting of literals: The parser does not retain information about the formatting of integers (like decimal vs\&. hexadecimal) or strings (like used quote type or used escape sequences)\&. This can be remedied by storing the original value in an attribute:
+.PP
+```php class KeepOriginalValueLexer extends PHPParser // or PHPParser { public function getNextToken(&$value = null, &$startAttributes = null, &$endAttributes = null) { $tokenId = parent::getNextToken($value, $startAttributes, $endAttributes);
+.PP
+if ($tokenId == PHPParser::T_CONSTANT_ENCAPSED_STRING // non-interpolated string || $tokenId == PHPParser::T_LNUMBER // integer || $tokenId == PHPParser::T_DNUMBER // floating point number ) { // could also use $startAttributes, doesn't really matter here $endAttributes['originalValue'] = $value; }
+.PP
+return $tokenId; } } ``` 

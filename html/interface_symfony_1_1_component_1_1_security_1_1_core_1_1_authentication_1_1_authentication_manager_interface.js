@@ -1,0 +1,4 @@
+var interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_manager_interface =
+[
+    [ "authenticate", "interface_symfony_1_1_component_1_1_security_1_1_core_1_1_authentication_1_1_authentication_manager_interface.html#a100b8248a886c4c0aa712eb8ad8970bb", null ]
+];

@@ -1,0 +1,6 @@
+var namespace_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue =
+[
+    [ "AbstractOperationTest", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_abstract_operation_test.html", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_abstract_operation_test" ],
+    [ "DiffOperationTest", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_diff_operation_test.html", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_diff_operation_test" ],
+    [ "MergeOperationTest", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_merge_operation_test.html", "class_symfony_1_1_component_1_1_translation_1_1_tests_1_1_catalogue_1_1_merge_operation_test" ]
+];

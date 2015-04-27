@@ -1,0 +1,64 @@
+.TH "md_vendor_phpdocumentor_reflection-docblock__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_phpdocumentor_reflection-docblock__r_e_a_d_m_e \- The ReflectionDocBlock Component [![Build Status](https://secure.travis-ci.org/phpDocumentor/ReflectionDocBlock.png)](https://travis-ci.org/phpDocumentor/ReflectionDocBlock) 
+
+.SS "Introduction "
+.PP
+The ReflectionDocBlock component of \fBphpDocumentor\fP provides a DocBlock parser that is 100% compatible with the \fCPHPDoc standard\fP\&.
+.PP
+With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock\&.
+.PP
+.RS 4
+\fBNote\fP: \fIthis is a core component of \fBphpDocumentor\fP and is constantly being optimized for performance\&.\fP 
+.RE
+.PP
+.PP
+.SS "Installation "
+.PP
+You can install the component in the following ways:
+.PP
+.IP "\(bu" 2
+Use the official Github repository (https://github.com/phpDocumentor/ReflectionDocBlock)
+.IP "\(bu" 2
+Via \fBComposer\fP (http://packagist.org/packages/phpdocumentor/reflection-docblock)
+.PP
+.PP
+.SS "Usage "
+.PP
+The ReflectionDocBlock component is designed to work in an identical fashion to \fBPHP\fP's own Reflection extension (http://php.net/manual/en/book.reflection.php)\&.
+.PP
+Parsing can be initiated by instantiating the \fC\\\fBphpDocumentor\fP\\Reflection\\DocBlock()\fP class and passing it a string containing a DocBlock (including asterisks) or by passing an object supporting the \fCgetDocComment()\fP method\&.
+.PP
+.RS 4
+\fIExamples of objects having the \fCgetDocComment()\fP method are the \fCReflectionClass\fP and the \fCReflectionMethod\fP classes of the \fBPHP\fP Reflection extension\fP 
+.RE
+.PP
+.PP
+Example: 
+.PP
+.nf
+$class = new ReflectionClass('MyClass');
+$phpdoc = new \phpDocumentor\Reflection\DocBlock($class);
+
+.fi
+.PP
+.PP
+or 
+.PP
+.nf
+$docblock = <<<DOCBLOCK
+/**
+ * This is a short description.
+ *
+ * This is a *long* description.
+ *
+ * @return void
+ */
+DOCBLOCK;
+
+$phpdoc = new \phpDocumentor\Reflection\DocBlock($docblock);
+.fi
+.PP
+ 

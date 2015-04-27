@@ -1,0 +1,425 @@
+\section{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler Class Reference}
+\label{class_swift___transport___esmtp___auth_handler}\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+Inheritance diagram for Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_swift___transport___esmtp___auth_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (array \$authenticators)
+\item 
+{\bf set\+Authenticators} (array \$authenticators)
+\item 
+{\bf get\+Authenticators} ()
+\item 
+{\bf set\+Username} (\$username)
+\item 
+{\bf get\+Username} ()
+\item 
+{\bf set\+Password} (\$password)
+\item 
+{\bf get\+Password} ()
+\item 
+{\bf set\+Auth\+Mode} (\$mode)
+\item 
+{\bf get\+Auth\+Mode} ()
+\item 
+{\bf get\+Handled\+Keyword} ()
+\item 
+{\bf set\+Keyword\+Params} (array \$parameters)
+\item 
+{\bf after\+Ehlo} ({\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \$agent)
+\item 
+{\bf get\+Mail\+Params} ()
+\item 
+{\bf get\+Rcpt\+Params} ()
+\item 
+{\bf on\+Command} ({\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent} \$agent, \$command, \$codes=array(), \&\$failed\+Recipients=null, \&\$stop=false)
+\item 
+{\bf get\+Priority\+Over} (\$esmtp\+Keyword)
+\item 
+{\bf expose\+Mixin\+Methods} ()
+\item 
+{\bf reset\+State} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+get\+Authenticators\+For\+Agent} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An E\+S\+M\+T\+P handler for A\+U\+T\+H support.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Auth\+Handler.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{array}]{\$authenticators}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a36392bf1fffdd14726b71edc9cd3ee4c}
+Create a new Auth\+Handler with \$authenticators for support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Authenticator\mbox{[}$\,$\mbox{]}} & \$authenticators \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Auth\+Handler.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!\+\_\+get\+Authenticators\+For\+Agent@{\+\_\+get\+Authenticators\+For\+Agent}}
+\index{\+\_\+get\+Authenticators\+For\+Agent@{\+\_\+get\+Authenticators\+For\+Agent}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{\+\_\+get\+Authenticators\+For\+Agent}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+get\+Authenticators\+For\+Agent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_swift___transport___esmtp___auth_handler_aa0349a4754edf2369b532c0777a94fd8}
+Returns the authenticator list for the given agent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}{p.}{interface_swift___transport___smtp_agent} & {\em \$agent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!after\+Ehlo@{after\+Ehlo}}
+\index{after\+Ehlo@{after\+Ehlo}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{after\+Ehlo}]{\setlength{\rightskip}{0pt plus 5cm}after\+Ehlo (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}}]{\$agent}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a29fc05674cf80c3613a04730d9995db8}
+Runs immediately after a E\+H\+L\+O has been issued.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}{p.}{interface_swift___transport___smtp_agent} & {\em \$agent} & to read/write \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a29fc05674cf80c3613a04730d9995db8}.
+
+
+
+Definition at line 168 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!expose\+Mixin\+Methods@{expose\+Mixin\+Methods}}
+\index{expose\+Mixin\+Methods@{expose\+Mixin\+Methods}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{expose\+Mixin\+Methods}]{\setlength{\rightskip}{0pt plus 5cm}expose\+Mixin\+Methods (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a3573dbdf89256a1af760fbf34425b859}
+Returns an array of method names which are exposed to the Esmtp class.
+
+\begin{DoxyReturn}{Returns}
+string[] 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a3573dbdf89256a1af760fbf34425b859}.
+
+
+
+Definition at line 230 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Authenticators@{get\+Authenticators}}
+\index{get\+Authenticators@{get\+Authenticators}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Authenticators}]{\setlength{\rightskip}{0pt plus 5cm}get\+Authenticators (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_abd9e38cf02a76af0fe0a7194ed3d2c2f}
+Get the Authenticators which can process a login request.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Authenticator}{p.}{interface_swift___transport___esmtp___authenticator}[] 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Auth\+Mode@{get\+Auth\+Mode}}
+\index{get\+Auth\+Mode@{get\+Auth\+Mode}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Auth\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}get\+Auth\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a1fa652b2f50f7d12b1b353570dcf9c8b}
+Get the auth mode to use to authenticate.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 138 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Handled\+Keyword@{get\+Handled\+Keyword}}
+\index{get\+Handled\+Keyword@{get\+Handled\+Keyword}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Handled\+Keyword}]{\setlength{\rightskip}{0pt plus 5cm}get\+Handled\+Keyword (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a6ef50b03ee0b54faffc753b56e1fb197}
+Get the name of the E\+S\+M\+T\+P extension this handles.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a6ef50b03ee0b54faffc753b56e1fb197}.
+
+
+
+Definition at line 148 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Mail\+Params@{get\+Mail\+Params}}
+\index{get\+Mail\+Params@{get\+Mail\+Params}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Mail\+Params}]{\setlength{\rightskip}{0pt plus 5cm}get\+Mail\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_ab31e6e32a4fedc142a23a985844fb957}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_ab31e6e32a4fedc142a23a985844fb957}.
+
+
+
+Definition at line 191 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Password@{get\+Password}}
+\index{get\+Password@{get\+Password}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Password}]{\setlength{\rightskip}{0pt plus 5cm}get\+Password (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a04e0957baeb7acde9c0c86556da2d43f}
+Get the password to authenticate with.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Priority\+Over@{get\+Priority\+Over}}
+\index{get\+Priority\+Over@{get\+Priority\+Over}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Priority\+Over}]{\setlength{\rightskip}{0pt plus 5cm}get\+Priority\+Over (
+\begin{DoxyParamCaption}
+\item[{}]{\$esmtp\+Keyword}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a795e8d2ce9b5aa6ebd8fbfa9b3c1abaf}
+Returns +1, -\/1 or 0 according to the rules for usort().
+
+This method is called to ensure extensions can be execute in an appropriate order.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$esmtp\+Keyword} & to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a795e8d2ce9b5aa6ebd8fbfa9b3c1abaf}.
+
+
+
+Definition at line 220 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Rcpt\+Params@{get\+Rcpt\+Params}}
+\index{get\+Rcpt\+Params@{get\+Rcpt\+Params}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Rcpt\+Params}]{\setlength{\rightskip}{0pt plus 5cm}get\+Rcpt\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_acc49f0d474bc9b5802c74cf61165f7fb}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_acc49f0d474bc9b5802c74cf61165f7fb}.
+
+
+
+Definition at line 199 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!get\+Username@{get\+Username}}
+\index{get\+Username@{get\+Username}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{get\+Username}]{\setlength{\rightskip}{0pt plus 5cm}get\+Username (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a81b37a3c9d639574e394f80c1138c75e}
+Get the username to authenticate with.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!on\+Command@{on\+Command}}
+\index{on\+Command@{on\+Command}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{on\+Command}]{\setlength{\rightskip}{0pt plus 5cm}on\+Command (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Transport\+\_\+\+Smtp\+Agent}}]{\$agent, }
+\item[{}]{\$command, }
+\item[{}]{\$codes = {\ttfamily array()}, }
+\item[{\&}]{\$failed\+Recipients = {\ttfamily null}, }
+\item[{\&}]{\$stop = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a3430f9e3361e50c638e3b87556e5014d}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a3430f9e3361e50c638e3b87556e5014d}.
+
+
+
+Definition at line 207 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!reset\+State@{reset\+State}}
+\index{reset\+State@{reset\+State}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{reset\+State}]{\setlength{\rightskip}{0pt plus 5cm}reset\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_af3e0425e4fe6c418a0a4b65fe611a0de}
+Not used. 
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_af3e0425e4fe6c418a0a4b65fe611a0de}.
+
+
+
+Definition at line 238 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!set\+Authenticators@{set\+Authenticators}}
+\index{set\+Authenticators@{set\+Authenticators}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{set\+Authenticators}]{\setlength{\rightskip}{0pt plus 5cm}set\+Authenticators (
+\begin{DoxyParamCaption}
+\item[{array}]{\$authenticators}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_afcafc6dfe9b9389e188b1bacae910891}
+Set the Authenticators which can process a login request.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Authenticator\mbox{[}$\,$\mbox{]}} & \$authenticators \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!set\+Auth\+Mode@{set\+Auth\+Mode}}
+\index{set\+Auth\+Mode@{set\+Auth\+Mode}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{set\+Auth\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}set\+Auth\+Mode (
+\begin{DoxyParamCaption}
+\item[{}]{\$mode}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a0ee8ffd0bd2df4f6e83f5d151faea39e}
+Set the auth mode to use to authenticate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$mode} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!set\+Keyword\+Params@{set\+Keyword\+Params}}
+\index{set\+Keyword\+Params@{set\+Keyword\+Params}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{set\+Keyword\+Params}]{\setlength{\rightskip}{0pt plus 5cm}set\+Keyword\+Params (
+\begin{DoxyParamCaption}
+\item[{array}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a3b1b0311ea93ce143ac24a17d5de287f}
+Set the parameters which the E\+H\+L\+O greeting indicated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\mbox{[}$\,$\mbox{]}} & \$parameters \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Transport\+\_\+\+Esmtp\+Handler} \doxyref{}{p.}{interface_swift___transport___esmtp_handler_a3b1b0311ea93ce143ac24a17d5de287f}.
+
+
+
+Definition at line 158 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!set\+Password@{set\+Password}}
+\index{set\+Password@{set\+Password}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{set\+Password}]{\setlength{\rightskip}{0pt plus 5cm}set\+Password (
+\begin{DoxyParamCaption}
+\item[{}]{\$password}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_a3e35c8d3dbb2c513c618a664389e0926}
+Set the password to authenticate with.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file Auth\+Handler.\+php.
+
+\index{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}!set\+Username@{set\+Username}}
+\index{set\+Username@{set\+Username}!Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler@{Swift\+\_\+\+Transport\+\_\+\+Esmtp\+\_\+\+Auth\+Handler}}
+\subsubsection[{set\+Username}]{\setlength{\rightskip}{0pt plus 5cm}set\+Username (
+\begin{DoxyParamCaption}
+\item[{}]{\$username}
+\end{DoxyParamCaption}
+)}\label{class_swift___transport___esmtp___auth_handler_ac359b701a2ccaff746dd480f03314244}
+Set the username to authenticate with.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file Auth\+Handler.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Transport/\+Esmtp/{\bf Auth\+Handler.\+php}\end{DoxyCompactItemize}

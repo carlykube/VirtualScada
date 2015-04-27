@@ -1,0 +1,88 @@
+.TH "UriSigner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UriSigner \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($secret)"
+.br
+.ti -1c
+.RI "\fBsign\fP ($uri)"
+.br
+.ti -1c
+.RI "\fBcheck\fP ($uri)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Signs URIs\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file UriSigner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $secret)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$secret\fP \fBA\fP secret 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file UriSigner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "check ( $uri)"
+Checks that a URI contains the correct hash\&.
+.PP
+The _hash query string parameter must be the last one (as it is generated that way by the \fBsign()\fP method, it should never be a problem)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP signed URI
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the URI is signed correctly, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file UriSigner\&.php\&.
+.SS "sign ( $uri)"
+Signs a URI\&.
+.PP
+The given URI is signed by adding a _hash query string parameter which value depends on the URI and the secret\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP URI to sign
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The signed URI 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file UriSigner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,160 @@
+\section{League\textbackslash{}Flysystem\textbackslash{}Adapter\textbackslash{}Polyfill Namespace Reference}
+\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill}\index{League\textbackslash{}\+Flysystem\textbackslash{}\+Adapter\textbackslash{}\+Polyfill@{League\textbackslash{}\+Flysystem\textbackslash{}\+Adapter\textbackslash{}\+Polyfill}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf write\+Stream} (\${\bf path}, \$resource, {\bf Config} \$config)
+\item 
+{\bf update} (\$pash, \$contents, {\bf Config} \$config)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+trait {\bf Streamed\+Copy\+Trait}
+\item 
+trait {\bf Streamed\+Reading\+Trait}
+\item 
+trait {\bf Streamed\+Trait}
+\item 
+trait {\bf Streamed\+Writing\+Trait}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!update@{update}}
+\index{update@{update}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}League\textbackslash{}\+Flysystem\textbackslash{}\+Adapter\textbackslash{}\+Polyfill\textbackslash{}update (
+\begin{DoxyParamCaption}
+\item[{}]{\$pash, }
+\item[{}]{\$contents, }
+\item[{{\bf Config}}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_ab0b2ab881d88936f78ee21e90b824855}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!write\+Stream@{write\+Stream}}
+\index{write\+Stream@{write\+Stream}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{write\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}League\textbackslash{}\+Flysystem\textbackslash{}\+Adapter\textbackslash{}\+Polyfill\textbackslash{}write\+Stream (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$resource, }
+\item[{{\bf Config}}]{\$config}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_a12afa08cf479db01f26f871e24a857d1}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!Streamed\+Copy\+Trait@{Streamed\+Copy\+Trait}}
+\index{Streamed\+Copy\+Trait@{Streamed\+Copy\+Trait}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{Streamed\+Copy\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}trait Streamed\+Copy\+Trait}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_adf1cdf3c1cc690735d5de9cc9d2d60de}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    
+    \textcolor{keyword}{public} \textcolor{keyword}{function} copy($path, $newpath)
+    \{
+        $response = $this->readStream($path);
+
+        \textcolor{keywordflow}{if} ($response === \textcolor{keyword}{false} || ! is\_resource($response[\textcolor{stringliteral}{'stream'}])) \{
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+
+        $result = $this->writeStream($newpath, $response[\textcolor{stringliteral}{'stream'}], \textcolor{keyword}{new} Config());
+
+        \textcolor{keywordflow}{if} ($result !== \textcolor{keyword}{false} && is\_resource($response[\textcolor{stringliteral}{'stream'}])) \{
+            fclose($response[\textcolor{stringliteral}{'stream'}]);
+        \}
+
+        \textcolor{keywordflow}{return} $result !== \textcolor{keyword}{false};
+    \}
+
+    
+
+    
+    \textcolor{keyword}{abstract} \textcolor{keyword}{public} \textcolor{keyword}{function} readStream($path)
+\end{DoxyCode}
+
+
+Definition at line 8 of file Streamed\+Copy\+Trait.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!Streamed\+Reading\+Trait@{Streamed\+Reading\+Trait}}
+\index{Streamed\+Reading\+Trait@{Streamed\+Reading\+Trait}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{Streamed\+Reading\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}trait Streamed\+Reading\+Trait}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_a2c750f8be90e3b7697ca9ae0ec4c0f84}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    
+    \textcolor{keyword}{public} \textcolor{keyword}{function} readStream($path)
+    \{
+        \textcolor{keywordflow}{if} (! $data = $this->read($path)) \{
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+
+        $stream = tmpfile();
+        fwrite($stream, $data[\textcolor{stringliteral}{'contents'}]);
+        rewind($stream);
+        $data[\textcolor{stringliteral}{'stream'}] = $stream;
+        unset($data[\textcolor{stringliteral}{'contents'}]);
+
+        \textcolor{keywordflow}{return} $data;
+    \}
+
+    
+
+    
+    \textcolor{keyword}{abstract} \textcolor{keyword}{public} \textcolor{keyword}{function} read($path)
+\end{DoxyCode}
+
+
+Definition at line 6 of file Streamed\+Reading\+Trait.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!Streamed\+Trait@{Streamed\+Trait}}
+\index{Streamed\+Trait@{Streamed\+Trait}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{Streamed\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}trait Streamed\+Trait}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_a6331ec9ba54b61e1d1b273ca023d2c6c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    use StreamedReadingTrait
+\end{DoxyCode}
+
+
+Definition at line 6 of file Streamed\+Trait.\+php.
+
+\index{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}!Streamed\+Writing\+Trait@{Streamed\+Writing\+Trait}}
+\index{Streamed\+Writing\+Trait@{Streamed\+Writing\+Trait}!League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill@{League\+::\+Flysystem\+::\+Adapter\+::\+Polyfill}}
+\subsubsection[{Streamed\+Writing\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}trait Streamed\+Writing\+Trait}\label{namespace_league_1_1_flysystem_1_1_adapter_1_1_polyfill_a78b889c787690c28f96d65cec5618146}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    
+    \textcolor{keyword}{protected} \textcolor{keyword}{function} stream($path, $resource, Config $config, $fallback)
+    \{
+        Util::rewindStream($resource);
+        $contents = stream\_get\_contents($resource);
+        $fallbackCall = [$this, $fallback];
+
+        \textcolor{keywordflow}{return} call\_user\_func($fallbackCall, $path, $contents, $config);
+    \}
+
+    
+    \textcolor{keyword}{public} \textcolor{keyword}{function} writeStream($path, $resource, Config $config)
+    \{
+        \textcolor{keywordflow}{return} $this->stream($path, $resource, $config, \textcolor{stringliteral}{'write'});
+    \}
+
+    
+    \textcolor{keyword}{public} \textcolor{keyword}{function} updateStream($path, $resource, Config $config)
+    \{
+        \textcolor{keywordflow}{return} $this->stream($path, $resource, $config, \textcolor{stringliteral}{'update'});
+    \}
+
+    
+    \textcolor{keyword}{abstract} \textcolor{keyword}{public} \textcolor{keyword}{function} write($pash, $contents, Config $config)
+\end{DoxyCode}
+
+
+Definition at line 9 of file Streamed\+Writing\+Trait.\+php.
+

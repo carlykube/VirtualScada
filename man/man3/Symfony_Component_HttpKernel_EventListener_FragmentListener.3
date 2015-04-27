@@ -1,0 +1,115 @@
+.TH "FragmentListener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FragmentListener \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventSubscriberInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBUriSigner\fP $signer, $fragmentPath= '/_fragment')"
+.br
+.ti -1c
+.RI "\fBonKernelRequest\fP (\fBGetResponseEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetSubscribedEvents\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalidateRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetLocalIpAddresses\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles content fragments represented by special URIs\&.
+.PP
+All \fBURL\fP paths starting with /_fragment are handled as content fragments by this listener\&.
+.PP
+If throws an AccessDeniedHttpException exception if the request is not signed or if it is not an internal sub-request\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file FragmentListener\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBUriSigner\fP $signer,  $fragmentPath = \fC'/_fragment'\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signer\fP \fBA\fP \fBUriSigner\fP instance 
+.br
+\fI$fragmentPath\fP The path that triggers this listener 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file FragmentListener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getLocalIpAddresses ()\fC [protected]\fP"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since 2\&.3\&.19, to be removed in 3\&.0\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file FragmentListener\&.php\&.
+.SS "static getSubscribedEvents ()\fC [static]\fP"
+
+.PP
+Definition at line 100 of file FragmentListener\&.php\&.
+.SS "onKernelRequest (\fBGetResponseEvent\fP $event)"
+Fixes request attributes when the path is '/_fragment'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP \fBA\fP GetResponseEvent instance
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIAccessDeniedHttpException\fP if the request does not come from a trusted IP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file FragmentListener\&.php\&.
+.SS "validateRequest (\fBRequest\fP $request)\fC [protected]\fP"
+
+.PP
+Definition at line 74 of file FragmentListener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

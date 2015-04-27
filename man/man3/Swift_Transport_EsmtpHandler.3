@@ -1,0 +1,166 @@
+.TH "Swift_Transport_EsmtpHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_Transport_EsmtpHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_Transport_Esmtp_AuthHandler\fP, and \fBSwift_Transport_EsmtpHandlerMixin\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetHandledKeyword\fP ()"
+.br
+.ti -1c
+.RI "\fBsetKeywordParams\fP (array $parameters)"
+.br
+.ti -1c
+.RI "\fBafterEhlo\fP (\fBSwift_Transport_SmtpAgent\fP $agent)"
+.br
+.ti -1c
+.RI "\fBgetMailParams\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRcptParams\fP ()"
+.br
+.ti -1c
+.RI "\fBonCommand\fP (\fBSwift_Transport_SmtpAgent\fP $agent, $command, $codes=array(), &$failedRecipients=null, &$stop=false)"
+.br
+.ti -1c
+.RI "\fBgetPriorityOver\fP ($esmtpKeyword)"
+.br
+.ti -1c
+.RI "\fBexposeMixinMethods\fP ()"
+.br
+.ti -1c
+.RI "\fBresetState\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An ESMTP handler\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file EsmtpHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "afterEhlo (\fBSwift_Transport_SmtpAgent\fP $agent)"
+Runs immediately after a EHLO has been issued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$agent\fP to read/write 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "exposeMixinMethods ()"
+Returns an array of method names which are exposed to the Esmtp class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "getHandledKeyword ()"
+Get the name of the ESMTP extension this handles\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "getMailParams ()"
+Get params which are appended to MAIL FROM:<>\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "getPriorityOver ( $esmtpKeyword)"
+Returns +1, -1 or 0 according to the rules for usort()\&.
+.PP
+This method is called to ensure extensions can be execute in an appropriate order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$esmtpKeyword\fP to compare with
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "getRcptParams ()"
+Get params which are appended to RCPT TO:<>\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "onCommand (\fBSwift_Transport_SmtpAgent\fP $agent,  $command,  $codes = \fCarray()\fP, & $failedRecipients = \fCnull\fP, & $stop = \fCfalse\fP)"
+Runs when a command is due to be sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$agent\fP to read/write 
+.br
+\fI$command\fP to send 
+.br
+\fIint[]\fP $codes expected in response 
+.br
+\fIstring[]\fP $failedRecipients to collect failures 
+.br
+\fI$stop\fP to be set true by-reference if the command is now sent 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "resetState ()"
+Tells this handler to clear any buffers and reset its state\&. 
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+.SS "setKeywordParams (array $parameters)"
+Set the parameters which the EHLO greeting indicated\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring[]\fP $parameters 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_Transport_Esmtp_AuthHandler\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

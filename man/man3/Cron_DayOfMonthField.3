@@ -1,0 +1,104 @@
+.TH "DayOfMonthField" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DayOfMonthField \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractField\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBisSatisfiedBy\fP (\\DateTime $date, $value)"
+.br
+.ti -1c
+.RI "\fBincrement\fP (\\DateTime $date, $invert=false)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ($value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Day of month field\&. Allows: * , / - ? L W
+.PP
+'L' stands for 'last' and specifies the last day of the month\&.
+.PP
+The 'W' character is used to specify the weekday (Monday-Friday) nearest the given day\&. As an example, if you were to specify '15W' as the value for the day-of-month field, the meaning is: 'the nearest weekday to the 15th of the
+month'\&. So if the 15th is a Saturday, the trigger will fire on Friday the 14th\&. If the 15th is a Sunday, the trigger will fire on Monday the 16th\&. If the 15th is a Tuesday, then it will fire on Tuesday the 15th\&. However if you specify '1W' as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days\&. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Michael Dowling mtdowling@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file DayOfMonthField\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "increment (\\DateTime $date,  $invert = \fCfalse\fP)"
+When a CRON expression is not satisfied, this method is used to increment or decrement a DateTime object by the unit of the cron field
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP DateTime object to change 
+.br
+\fI$invert\fP (optional) Set to TRUE to decrement
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFieldInterface\fP 
+.RE
+.PP
+
+.PP
+Implements \fBFieldInterface\fP\&.
+.PP
+Definition at line 86 of file DayOfMonthField\&.php\&.
+.SS "isSatisfiedBy (\\DateTime $date,  $value)"
+Check if the respective value of a DateTime field satisfies a CRON exp
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$date\fP DateTime object to check 
+.br
+\fI$value\fP CRON expression to test against
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns TRUE if satisfied, FALSE otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBFieldInterface\fP\&.
+.PP
+Definition at line 57 of file DayOfMonthField\&.php\&.
+.SS "validate ( $value)"
+Validates a CRON expression for a given field
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP CRON expression value to validate
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Returns TRUE if valid, FALSE otherwise 
+.RE
+.PP
+
+.PP
+Implements \fBFieldInterface\fP\&.
+.PP
+Definition at line 99 of file DayOfMonthField\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

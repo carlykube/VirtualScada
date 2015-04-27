@@ -1,0 +1,42 @@
+.TH "md_vendor_symfony_http-foundation__symfony__component__http_foundation__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_http-foundation__symfony__component__http_foundation__r_e_a_d_m_e \- HttpFoundation Component 
+HttpFoundation defines an object-oriented layer for the HTTP specification\&.
+.PP
+It provides an abstraction for requests, responses, uploaded files, cookies, sessions, \&.\&.\&.
+.PP
+In this example, we get a \fBRequest\fP object from the current \fBPHP\fP global variables:
+.PP
+```php use \fBSymfony\fP; use \fBSymfony\fP;
+.PP
+$request = \fBRequest::createFromGlobals()\fP; echo $request->getPathInfo(); ```
+.PP
+You can also create a \fBRequest\fP directly -- that's interesting for unit testing:
+.PP
+```php $request = \fBRequest::create\fP('/?foo=bar', 'GET'); echo $request->getPathInfo(); ```
+.PP
+And here is how to create and send a \fBResponse\fP:
+.PP
+```php $response = new \fBResponse\fP('Not Found', 404, array('Content-Type' => 'text/plain')); $response->send(); ```
+.PP
+The \fBRequest\fP and the \fBResponse\fP classes have many other methods that implement the HTTP specification\&.
+.PP
+.SS "Loading "
+.PP
+If you are not using \fBComposer\fP but are using \fBPHP\fP 5\&.3\&.x, you must add the following to your autoloader:
+.PP
+```php // \fBSessionHandlerInterface\fP if (!interface_exists('\fBSessionHandlerInterface\fP')) { $loader->registerPrefixFallback(\fBDIR\fP\&.'/\&.\&./vendor/symfony/src/Symfony/Component/HttpFoundation/Resources/stubs'); } ```
+.PP
+.SS "Resources "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/HttpFoundation/
+$ composer install
+$ phpunit
+.fi
+.PP
+ 

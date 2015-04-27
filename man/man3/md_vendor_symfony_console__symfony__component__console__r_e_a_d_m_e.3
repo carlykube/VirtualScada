@@ -1,0 +1,48 @@
+.TH "md_vendor_symfony_console__symfony__component__console__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_symfony_console__symfony__component__console__r_e_a_d_m_e \- Console Component 
+Console eases the creation of beautiful and testable command line interfaces\&.
+.PP
+The Application object manages the CLI application:
+.PP
+```php use \fBSymfony\fP;
+.PP
+$console = new Application(); $console->run(); ```
+.PP
+The \fCrun()\fP method parses the arguments and options passed on the command line and executes the right command\&.
+.PP
+Registering a new command can easily be done via the \fC\fBregister()\fP\fP method, which returns a \fCCommand\fP instance:
+.PP
+```php use \fBSymfony\fP; use \fBSymfony\fP; use \fBSymfony\fP; use \fBSymfony\fP;
+.PP
+$console ->register('ls') ->setDefinition(array( new InputArgument('dir', InputArgument::REQUIRED, 'Directory name'), )) ->setDescription('Displays the files in the given directory') ->setCode(function (InputInterface $input, OutputInterface $output) { $dir = $input->getArgument('dir');
+.PP
+$output->writeln(sprintf('Dir listing for <info>s</info>', $dir)); }) ; ```
+.PP
+You can also register new commands via classes\&.
+.PP
+The component provides a lot of features like output coloring, input and output abstractions (so that you can easily unit-test your commands), validation, automatic help messages, \&.\&.\&.
+.PP
+.SS "Tests "
+.PP
+You can run the unit tests with the following command: 
+.PP
+.nf
+$ cd path/to/Symfony/Component/Console/
+$ composer install
+$ phpunit
+
+.fi
+.PP
+.PP
+.SS "Third Party "
+.PP
+\fCResources/bin/hiddeninput\&.exe\fP is a third party binary provided within this component\&. Find sources and license at https://github.com/Seldaek/hidden-input\&.
+.PP
+.SS "Resources "
+.PP
+\fCThe Console Component\fP
+.PP
+\fCHow to create a Console Command\fP 

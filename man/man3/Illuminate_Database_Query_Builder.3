@@ -1,0 +1,2419 @@
+.TH "Builder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Builder \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBConnectionInterface\fP $connection, \fBGrammar\fP $grammar, \fBProcessor\fP $processor)"
+.br
+.ti -1c
+.RI "\fBselect\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBselectRaw\fP ($expression, array $bindings=array())"
+.br
+.ti -1c
+.RI "\fBselectSub\fP ($query, $as)"
+.br
+.ti -1c
+.RI "\fBaddSelect\fP ($column)"
+.br
+.ti -1c
+.RI "\fBdistinct\fP ()"
+.br
+.ti -1c
+.RI "\fBfrom\fP ($table)"
+.br
+.ti -1c
+.RI "\fBjoin\fP ($table, $one, $operator=null, $two=null, $type= 'inner', $\fBwhere\fP=false)"
+.br
+.ti -1c
+.RI "\fBjoinWhere\fP ($table, $one, $operator, $two, $type= 'inner')"
+.br
+.ti -1c
+.RI "\fBleftJoin\fP ($table, $\fBfirst\fP, $operator=null, $\fBsecond\fP=null)"
+.br
+.ti -1c
+.RI "\fBleftJoinWhere\fP ($table, $one, $operator, $two)"
+.br
+.ti -1c
+.RI "\fBrightJoin\fP ($table, $\fBfirst\fP, $operator=null, $\fBsecond\fP=null)"
+.br
+.ti -1c
+.RI "\fBrightJoinWhere\fP ($table, $one, $operator, $two)"
+.br
+.ti -1c
+.RI "\fBwhere\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhere\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "\fBwhereRaw\fP ($sql, array $bindings=array(), $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhereRaw\fP ($sql, array $bindings=array())"
+.br
+.ti -1c
+.RI "\fBwhereBetween\fP ($column, array $\fBvalues\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "\fBorWhereBetween\fP ($column, array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBwhereNotBetween\fP ($column, array $\fBvalues\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhereNotBetween\fP ($column, array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBwhereNested\fP (Closure $\fBcallback\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBaddNestedWhereQuery\fP ($query, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBwhereExists\fP (Closure $\fBcallback\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "\fBorWhereExists\fP (Closure $\fBcallback\fP, $not=false)"
+.br
+.ti -1c
+.RI "\fBwhereNotExists\fP (Closure $\fBcallback\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhereNotExists\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBwhereIn\fP ($column, $\fBvalues\fP, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "\fBorWhereIn\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBwhereNotIn\fP ($column, $\fBvalues\fP, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhereNotIn\fP ($column, $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBwhereNull\fP ($column, $boolean= 'and', $not=false)"
+.br
+.ti -1c
+.RI "\fBorWhereNull\fP ($column)"
+.br
+.ti -1c
+.RI "\fBwhereNotNull\fP ($column, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorWhereNotNull\fP ($column)"
+.br
+.ti -1c
+.RI "\fBwhereDate\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBwhereDay\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBwhereMonth\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBwhereYear\fP ($column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBdynamicWhere\fP ($method, $parameters)"
+.br
+.ti -1c
+.RI "\fBgroupBy\fP ()"
+.br
+.ti -1c
+.RI "\fBhaving\fP ($column, $operator=null, $value=null, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorHaving\fP ($column, $operator=null, $value=null)"
+.br
+.ti -1c
+.RI "\fBhavingRaw\fP ($sql, array $bindings=array(), $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBorHavingRaw\fP ($sql, array $bindings=array())"
+.br
+.ti -1c
+.RI "\fBorderBy\fP ($column, $direction= 'asc')"
+.br
+.ti -1c
+.RI "\fBlatest\fP ($column= 'created_at')"
+.br
+.ti -1c
+.RI "\fBoldest\fP ($column= 'created_at')"
+.br
+.ti -1c
+.RI "\fBorderByRaw\fP ($sql, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBoffset\fP ($value)"
+.br
+.ti -1c
+.RI "\fBskip\fP ($value)"
+.br
+.ti -1c
+.RI "\fBlimit\fP ($value)"
+.br
+.ti -1c
+.RI "\fBtake\fP ($value)"
+.br
+.ti -1c
+.RI "\fBforPage\fP ($page, $perPage=15)"
+.br
+.ti -1c
+.RI "\fBunion\fP ($query, $all=false)"
+.br
+.ti -1c
+.RI "\fBunionAll\fP ($query)"
+.br
+.ti -1c
+.RI "\fBlock\fP ($value=true)"
+.br
+.ti -1c
+.RI "\fBlockForUpdate\fP ()"
+.br
+.ti -1c
+.RI "\fBsharedLock\fP ()"
+.br
+.ti -1c
+.RI "\fBtoSql\fP ()"
+.br
+.ti -1c
+.RI "\fBfind\fP ($id, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBpluck\fP ($column)"
+.br
+.ti -1c
+.RI "\fBfirst\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBget\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBgetFresh\fP ($columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBpaginate\fP ($perPage=15, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBsimplePaginate\fP ($perPage=15, $columns=['*'])"
+.br
+.ti -1c
+.RI "\fBgetCountForPagination\fP ()"
+.br
+.ti -1c
+.RI "\fBchunk\fP ($\fBcount\fP, callable $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBlists\fP ($column, $key=null)"
+.br
+.ti -1c
+.RI "\fBimplode\fP ($column, $glue=null)"
+.br
+.ti -1c
+.RI "\fBexists\fP ()"
+.br
+.ti -1c
+.RI "\fBcount\fP ($columns= '*')"
+.br
+.ti -1c
+.RI "\fBmin\fP ($column)"
+.br
+.ti -1c
+.RI "\fBmax\fP ($column)"
+.br
+.ti -1c
+.RI "\fBsum\fP ($column)"
+.br
+.ti -1c
+.RI "\fBavg\fP ($column)"
+.br
+.ti -1c
+.RI "\fBaggregate\fP ($function, $columns=array('*'))"
+.br
+.ti -1c
+.RI "\fBinsert\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBinsertGetId\fP (array $\fBvalues\fP, $sequence=null)"
+.br
+.ti -1c
+.RI "\fBupdate\fP (array $\fBvalues\fP)"
+.br
+.ti -1c
+.RI "\fBincrement\fP ($column, $amount=1, array $extra=array())"
+.br
+.ti -1c
+.RI "\fBdecrement\fP ($column, $amount=1, array $extra=array())"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($id=null)"
+.br
+.ti -1c
+.RI "\fBtruncate\fP ()"
+.br
+.ti -1c
+.RI "\fBnewQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBmergeWheres\fP ($wheres, $bindings)"
+.br
+.ti -1c
+.RI "\fBraw\fP ($value)"
+.br
+.ti -1c
+.RI "\fBgetBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRawBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBindings\fP (array $bindings, $type= '\fBwhere\fP')"
+.br
+.ti -1c
+.RI "\fBaddBinding\fP ($value, $type= '\fBwhere\fP')"
+.br
+.ti -1c
+.RI "\fBmergeBindings\fP (\fBBuilder\fP $query)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBgetGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBuseWritePdo\fP ()"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$aggregate\fP"
+.br
+.ti -1c
+.RI "\fB$columns\fP"
+.br
+.ti -1c
+.RI "\fB$distinct\fP = false"
+.br
+.ti -1c
+.RI "\fB$from\fP"
+.br
+.ti -1c
+.RI "\fB$joins\fP"
+.br
+.ti -1c
+.RI "\fB$wheres\fP"
+.br
+.ti -1c
+.RI "\fB$groups\fP"
+.br
+.ti -1c
+.RI "\fB$havings\fP"
+.br
+.ti -1c
+.RI "\fB$orders\fP"
+.br
+.ti -1c
+.RI "\fB$limit\fP"
+.br
+.ti -1c
+.RI "\fB$offset\fP"
+.br
+.ti -1c
+.RI "\fB$unions\fP"
+.br
+.ti -1c
+.RI "\fB$unionLimit\fP"
+.br
+.ti -1c
+.RI "\fB$unionOffset\fP"
+.br
+.ti -1c
+.RI "\fB$unionOrders\fP"
+.br
+.ti -1c
+.RI "\fB$lock\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinvalidOperatorAndValue\fP ($operator, $value)"
+.br
+.ti -1c
+.RI "\fBwhereSub\fP ($column, $operator, Closure $\fBcallback\fP, $boolean)"
+.br
+.ti -1c
+.RI "\fBwhereInSub\fP ($column, Closure $\fBcallback\fP, $boolean, $not)"
+.br
+.ti -1c
+.RI "\fBaddDateBasedWhere\fP ($type, $column, $operator, $value, $boolean= 'and')"
+.br
+.ti -1c
+.RI "\fBaddDynamic\fP ($segment, $connector, $parameters, $index)"
+.br
+.ti -1c
+.RI "\fBrunSelect\fP ()"
+.br
+.ti -1c
+.RI "\fBbackupFieldsForCount\fP ()"
+.br
+.ti -1c
+.RI "\fBrestoreFieldsForCount\fP ()"
+.br
+.ti -1c
+.RI "\fBgetListSelect\fP ($column, $key)"
+.br
+.ti -1c
+.RI "\fBcleanBindings\fP (array $bindings)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$grammar\fP"
+.br
+.ti -1c
+.RI "\fB$processor\fP"
+.br
+.ti -1c
+.RI "\fB$bindings\fP"
+.br
+.ti -1c
+.RI "\fB$backups\fP = []"
+.br
+.ti -1c
+.RI "\fB$operators\fP"
+.br
+.ti -1c
+.RI "\fB$useWritePdo\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file Builder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBConnectionInterface\fP $connection, \fBGrammar\fP $grammar, \fBProcessor\fP $processor)"
+Create a new query builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.br
+\fI$grammar\fP 
+.br
+\fI$processor\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file Builder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__call ( $method,  $parameters)"
+Handle dynamic method calls into the method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 1983 of file Builder\&.php\&.
+.SS "addBinding ( $value,  $type = \fC'\fBwhere\fP'\fP)"
+Add a binding to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 1900 of file Builder\&.php\&.
+.SS "addDateBasedWhere ( $type,  $column,  $operator,  $value,  $boolean = \fC'and'\fP)\fC [protected]\fP"
+Add a date based (year, month, day) statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 959 of file Builder\&.php\&.
+.SS "addDynamic ( $segment,  $connector,  $parameters,  $index)\fC [protected]\fP"
+Add a single dynamic where clause statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$segment\fP 
+.br
+\fI$connector\fP 
+.br
+\fI$parameters\fP 
+.br
+\fI$index\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1021 of file Builder\&.php\&.
+.SS "addNestedWhereQuery ( $query,  $boolean = \fC'and'\fP)"
+Add another query builder as a nested where to the query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 650 of file Builder\&.php\&.
+.SS "addSelect ( $column)"
+Add a new select column to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 278 of file Builder\&.php\&.
+.SS "aggregate ( $function,  $columns = \fCarray('*')\fP)"
+Execute an aggregate function on the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$function\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1630 of file Builder\&.php\&.
+.SS "avg ( $column)"
+Retrieve the average of the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1618 of file Builder\&.php\&.
+.SS "backupFieldsForCount ()\fC [protected]\fP"
+Backup some fields for the pagination count\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1441 of file Builder\&.php\&.
+.SS "chunk ( $count, callable $callback)"
+Chunk the results of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$count\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1473 of file Builder\&.php\&.
+.SS "cleanBindings (array $bindings)\fC [protected]\fP"
+Remove all of the expressions from a list of bindings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1831 of file Builder\&.php\&.
+.SS "count ( $columns = \fC'*'\fP)"
+Retrieve the 'count' result of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1567 of file Builder\&.php\&.
+.SS "decrement ( $column,  $amount = \fC1\fP, array $extra = \fCarray()\fP)"
+Decrement a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$extra\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1761 of file Builder\&.php\&.
+.SS "delete ( $id = \fCnull\fP)"
+Delete a record from the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1776 of file Builder\&.php\&.
+.SS "distinct ()"
+Force the query to only return distinct results\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file Builder\&.php\&.
+.SS "dynamicWhere ( $method,  $parameters)"
+Handles dynamic 'where' clauses to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.br
+\fI$parameters\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 975 of file Builder\&.php\&.
+.SS "exists ()"
+Determine if any rows exist for the current query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1550 of file Builder\&.php\&.
+.SS "find ( $id,  $columns = \fCarray('*')\fP)"
+Execute a query for a single record by ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|static 
+.RE
+.PP
+
+.PP
+Definition at line 1315 of file Builder\&.php\&.
+.SS "first ( $columns = \fCarray('*')\fP)"
+Execute the query and get the first result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed|static 
+.RE
+.PP
+
+.PP
+Definition at line 1339 of file Builder\&.php\&.
+.SS "forPage ( $page,  $perPage = \fC15\fP)"
+Set the limit and offset for a given page\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$page\fP 
+.br
+\fI$perPage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1230 of file Builder\&.php\&.
+.SS "from ( $table)"
+Set the table which the query is targeting\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file Builder\&.php\&.
+.SS "get ( $columns = \fCarray('*')\fP)"
+Execute the query as a 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 1352 of file Builder\&.php\&.
+.SS "getBindings ()"
+Get the current query value bindings in a flattened array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1855 of file Builder\&.php\&.
+.SS "getConnection ()"
+Get the database connection instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1937 of file Builder\&.php\&.
+.SS "getCountForPagination ()"
+Get the count of the total records for the paginator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1425 of file Builder\&.php\&.
+.SS "getFresh ( $columns = \fCarray('*')\fP)"
+Execute the query as a fresh 'select' statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array|static[] 
+.RE
+.PP
+
+.PP
+Definition at line 1363 of file Builder\&.php\&.
+.SS "getGrammar ()"
+Get the query grammar instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1957 of file Builder\&.php\&.
+.SS "getListSelect ( $column,  $key)\fC [protected]\fP"
+Get the columns that should be used in a list array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1516 of file Builder\&.php\&.
+.SS "getProcessor ()"
+Get the database query processor instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1947 of file Builder\&.php\&.
+.SS "getRawBindings ()"
+Get the raw array of bindings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1865 of file Builder\&.php\&.
+.SS "groupBy ()"
+Add a 'group by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column,\&.\&.\&.\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1037 of file Builder\&.php\&.
+.SS "having ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)"
+Add a 'having' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1056 of file Builder\&.php\&.
+.SS "havingRaw ( $sql, array $bindings = \fCarray()\fP,  $boolean = \fC'and'\fP)"
+Add a raw having clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1091 of file Builder\&.php\&.
+.SS "implode ( $column,  $glue = \fCnull\fP)"
+Concatenate values of a given column as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$glue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1538 of file Builder\&.php\&.
+.SS "increment ( $column,  $amount = \fC1\fP, array $extra = \fCarray()\fP)"
+Increment a column's value by a given amount\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$amount\fP 
+.br
+\fI$extra\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1744 of file Builder\&.php\&.
+.SS "insert (array $values)"
+Insert a new record into the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1659 of file Builder\&.php\&.
+.SS "insertGetId (array $values,  $sequence = \fCnull\fP)"
+Insert a new record and get the value of the primary key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.br
+\fI$sequence\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1712 of file Builder\&.php\&.
+.SS "invalidOperatorAndValue ( $operator,  $value)\fC [protected]\fP"
+Determine if the given operator and value combination is legal\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 527 of file Builder\&.php\&.
+.SS "join ( $table,  $one,  $operator = \fCnull\fP,  $two = \fCnull\fP,  $type = \fC'inner'\fP,  $where = \fCfalse\fP)"
+Add a join clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.br
+\fI$type\fP 
+.br
+\fI$where\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file Builder\&.php\&.
+.SS "joinWhere ( $table,  $one,  $operator,  $two,  $type = \fC'inner'\fP)"
+Add a 'join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 360 of file Builder\&.php\&.
+.SS "latest ( $column = \fC'created_at'\fP)"
+Add an 'order by' clause for a timestamp to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1137 of file Builder\&.php\&.
+.SS "leftJoin ( $table,  $first,  $operator = \fCnull\fP,  $second = \fCnull\fP)"
+Add a left join to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$first\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$second\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 374 of file Builder\&.php\&.
+.SS "leftJoinWhere ( $table,  $one,  $operator,  $two)"
+Add a 'join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 388 of file Builder\&.php\&.
+.SS "limit ( $value)"
+Set the 'limit' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1203 of file Builder\&.php\&.
+.SS "lists ( $column,  $key = \fCnull\fP)"
+Get an array with the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1500 of file Builder\&.php\&.
+.SS "lock ( $value = \fCtrue\fP)"
+Lock the selected rows in the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1271 of file Builder\&.php\&.
+.SS "lockForUpdate ()"
+Lock the selected rows in the table for updating\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1283 of file Builder\&.php\&.
+.SS "max ( $column)"
+Retrieve the maximum value of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1594 of file Builder\&.php\&.
+.SS "mergeBindings (\fBBuilder\fP $query)"
+Merge an array of bindings into our bindings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1925 of file Builder\&.php\&.
+.SS "mergeWheres ( $wheres,  $bindings)"
+Merge an array of where clauses and bindings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$wheres\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1818 of file Builder\&.php\&.
+.SS "min ( $column)"
+Retrieve the minimum value of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1583 of file Builder\&.php\&.
+.SS "newQuery ()"
+Get a new instance of the query builder\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1806 of file Builder\&.php\&.
+.SS "offset ( $value)"
+Set the 'offset' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1177 of file Builder\&.php\&.
+.SS "oldest ( $column = \fC'created_at'\fP)"
+Add an 'order by' clause for a timestamp to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1148 of file Builder\&.php\&.
+.SS "orderBy ( $column,  $direction = \fC'asc'\fP)"
+Add an 'order by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$direction\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1121 of file Builder\&.php\&.
+.SS "orderByRaw ( $sql,  $bindings = \fCarray()\fP)"
+Add a raw 'order by' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1160 of file Builder\&.php\&.
+.SS "orHaving ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)"
+Add a 'or having' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1078 of file Builder\&.php\&.
+.SS "orHavingRaw ( $sql, array $bindings = \fCarray()\fP)"
+Add a raw or having clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1109 of file Builder\&.php\&.
+.SS "orWhere ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP)"
+Add an 'or where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 515 of file Builder\&.php\&.
+.SS "orWhereBetween ( $column, array $values)"
+Add an or where between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 592 of file Builder\&.php\&.
+.SS "orWhereExists (Closure $callback,  $not = \fCfalse\fP)"
+Add an or exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 724 of file Builder\&.php\&.
+.SS "orWhereIn ( $column,  $values)"
+Add an 'or where in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 787 of file Builder\&.php\&.
+.SS "orWhereNotBetween ( $column, array $values)"
+Add an or where not between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 617 of file Builder\&.php\&.
+.SS "orWhereNotExists (Closure $callback)"
+Add a where not exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 747 of file Builder\&.php\&.
+.SS "orWhereNotIn ( $column,  $values)"
+Add an 'or where not in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 812 of file Builder\&.php\&.
+.SS "orWhereNotNull ( $column)"
+Add an 'or where not null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 888 of file Builder\&.php\&.
+.SS "orWhereNull ( $column)"
+Add an 'or where null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 865 of file Builder\&.php\&.
+.SS "orWhereRaw ( $sql, array $bindings = \fCarray()\fP)"
+Add a raw or where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 560 of file Builder\&.php\&.
+.SS "paginate ( $perPage = \fC15\fP,  $columns = \fC['*']\fP)"
+Paginate the given query into a simple paginator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1387 of file Builder\&.php\&.
+.SS "pluck ( $column)"
+Pluck a single column's value from the first result of a query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1326 of file Builder\&.php\&.
+.SS "raw ( $value)"
+Create a raw database expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1845 of file Builder\&.php\&.
+.SS "restoreFieldsForCount ()\fC [protected]\fP"
+Restore some fields after the pagination count\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1456 of file Builder\&.php\&.
+.SS "rightJoin ( $table,  $first,  $operator = \fCnull\fP,  $second = \fCnull\fP)"
+Add a right join to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$first\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$second\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file Builder\&.php\&.
+.SS "rightJoinWhere ( $table,  $one,  $operator,  $two)"
+Add a 'right join where' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$one\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$two\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 416 of file Builder\&.php\&.
+.SS "runSelect ()\fC [protected]\fP"
+Run the query as a 'select' statement against the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1375 of file Builder\&.php\&.
+.SS "select ( $columns = \fCarray('*')\fP)"
+Set the columns to be selected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file Builder\&.php\&.
+.SS "selectRaw ( $expression, array $bindings = \fCarray()\fP)"
+Add a new 'raw' select expression to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$expression\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file Builder\&.php\&.
+.SS "selectSub ( $query,  $as)"
+Add a subselect expression to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$as\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Builder\&.php\&.
+.SS "setBindings (array $bindings,  $type = \fC'\fBwhere\fP'\fP)"
+Set the bindings on the query builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.br
+\fI$type\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 1879 of file Builder\&.php\&.
+.SS "sharedLock ()"
+Share lock the selected rows in the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1293 of file Builder\&.php\&.
+.SS "simplePaginate ( $perPage = \fC15\fP,  $columns = \fC['*']\fP)"
+Get a paginator only supporting simple next and previous links\&.
+.PP
+This is more efficient on larger data-sets, etc\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$perPage\fP 
+.br
+\fI$columns\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1409 of file Builder\&.php\&.
+.SS "skip ( $value)"
+Alias to set the 'offset' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1192 of file Builder\&.php\&.
+.SS "sum ( $column)"
+Retrieve the sum of the values of a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 1605 of file Builder\&.php\&.
+.SS "take ( $value)"
+Alias to set the 'limit' value of the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1218 of file Builder\&.php\&.
+.SS "toSql ()"
+Get the SQL representation of the query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1303 of file Builder\&.php\&.
+.SS "truncate ()"
+Run a truncate statement on the table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1793 of file Builder\&.php\&.
+.SS "union ( $query,  $all = \fCfalse\fP)"
+Add a union statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$all\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1242 of file Builder\&.php\&.
+.SS "unionAll ( $query)"
+Add a union all statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 1260 of file Builder\&.php\&.
+.SS "update (array $values)"
+Update a record in the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$values\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1727 of file Builder\&.php\&.
+.SS "useWritePdo ()"
+Use the write pdo for query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 1967 of file Builder\&.php\&.
+.SS "where ( $column,  $operator = \fCnull\fP,  $value = \fCnull\fP,  $boolean = \fC'and'\fP)"
+Add a basic where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 432 of file Builder\&.php\&.
+.SS "whereBetween ( $column, array $values,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)"
+Add a where between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 574 of file Builder\&.php\&.
+.SS "whereDate ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)"
+Add a 'where date' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 902 of file Builder\&.php\&.
+.SS "whereDay ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)"
+Add a 'where day' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 916 of file Builder\&.php\&.
+.SS "whereExists (Closure $callback,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)"
+Add an exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 699 of file Builder\&.php\&.
+.SS "whereIn ( $column,  $values,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)"
+Add a 'where in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 761 of file Builder\&.php\&.
+.SS "whereInSub ( $column, Closure $callback,  $boolean,  $not)\fC [protected]\fP"
+Add a where in with a sub-select to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 826 of file Builder\&.php\&.
+.SS "whereMonth ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)"
+Add a 'where month' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 930 of file Builder\&.php\&.
+.SS "whereNested (Closure $callback,  $boolean = \fC'and'\fP)"
+Add a nested where statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 629 of file Builder\&.php\&.
+.SS "whereNotBetween ( $column, array $values,  $boolean = \fC'and'\fP)"
+Add a where not between statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 605 of file Builder\&.php\&.
+.SS "whereNotExists (Closure $callback,  $boolean = \fC'and'\fP)"
+Add a where not exists clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 736 of file Builder\&.php\&.
+.SS "whereNotIn ( $column,  $values,  $boolean = \fC'and'\fP)"
+Add a 'where not in' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$values\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 800 of file Builder\&.php\&.
+.SS "whereNotNull ( $column,  $boolean = \fC'and'\fP)"
+Add a 'where not null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 877 of file Builder\&.php\&.
+.SS "whereNull ( $column,  $boolean = \fC'and'\fP,  $not = \fCfalse\fP)"
+Add a 'where null' clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$boolean\fP 
+.br
+\fI$not\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 850 of file Builder\&.php\&.
+.SS "whereRaw ( $sql, array $bindings = \fCarray()\fP,  $boolean = \fC'and'\fP)"
+Add a raw where clause to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sql\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 542 of file Builder\&.php\&.
+.SS "whereSub ( $column,  $operator, Closure $callback,  $boolean)\fC [protected]\fP"
+Add a full sub-select to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$callback\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 673 of file Builder\&.php\&.
+.SS "whereYear ( $column,  $operator,  $value,  $boolean = \fC'and'\fP)"
+Add a 'where year' statement to the query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$column\fP 
+.br
+\fI$operator\fP 
+.br
+\fI$value\fP 
+.br
+\fI$boolean\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|static 
+.RE
+.PP
+
+.PP
+Definition at line 944 of file Builder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBaggregate\fP"
+
+.PP
+Definition at line 54 of file Builder\&.php\&.
+.SS "$backups = []\fC [protected]\fP"
+
+.PP
+Definition at line 166 of file Builder\&.php\&.
+.SS "$bindings\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        'select' => [],
+        'join'   => [],
+        'where'  => [],
+        'having' => [],
+        'order'  => [],
+    )
+.fi
+.PP
+Definition at line 41 of file Builder\&.php\&.
+.SS "$columns"
+
+.PP
+Definition at line 61 of file Builder\&.php\&.
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Builder\&.php\&.
+.SS "$\fBdistinct\fP = false"
+
+.PP
+Definition at line 68 of file Builder\&.php\&.
+.SS "$\fBfrom\fP"
+
+.PP
+Definition at line 75 of file Builder\&.php\&.
+.SS "$grammar\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Builder\&.php\&.
+.SS "$groups"
+
+.PP
+Definition at line 96 of file Builder\&.php\&.
+.SS "$havings"
+
+.PP
+Definition at line 103 of file Builder\&.php\&.
+.SS "$joins"
+
+.PP
+Definition at line 82 of file Builder\&.php\&.
+.SS "$\fBlimit\fP"
+
+.PP
+Definition at line 117 of file Builder\&.php\&.
+.SS "$\fBlock\fP"
+
+.PP
+Definition at line 159 of file Builder\&.php\&.
+.SS "$\fBoffset\fP"
+
+.PP
+Definition at line 124 of file Builder\&.php\&.
+.SS "$operators\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        '=', '<', '>', '<=', '>=', '<>', '!=',
+        'like', 'like binary', 'not like', 'between', 'ilike',
+        '&', '|', '^', '<<', '>>',
+        'rlike', 'regexp', 'not regexp',
+        '~', '~*', '!~', '!~*', 'similar to',
+                'not similar to',
+    )
+.fi
+.PP
+Definition at line 173 of file Builder\&.php\&.
+.SS "$orders"
+
+.PP
+Definition at line 110 of file Builder\&.php\&.
+.SS "$processor\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file Builder\&.php\&.
+.SS "$unionLimit"
+
+.PP
+Definition at line 138 of file Builder\&.php\&.
+.SS "$unionOffset"
+
+.PP
+Definition at line 145 of file Builder\&.php\&.
+.SS "$unionOrders"
+
+.PP
+Definition at line 152 of file Builder\&.php\&.
+.SS "$unions"
+
+.PP
+Definition at line 131 of file Builder\&.php\&.
+.SS "$\fBuseWritePdo\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 187 of file Builder\&.php\&.
+.SS "$wheres"
+
+.PP
+Definition at line 89 of file Builder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

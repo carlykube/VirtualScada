@@ -1,0 +1,117 @@
+.TH "UrlGeneratorInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UrlGeneratorInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRequestContextAwareInterface\fP\&.
+.PP
+Inherited by \fBUrlGenerator\fP, and \fBRouterInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerate\fP ($\fBname\fP, $parameters=array(), $referenceType=self::ABSOLUTE_PATH)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBABSOLUTE_URL\fP = true"
+.br
+.ti -1c
+.RI "const \fBABSOLUTE_PATH\fP = false"
+.br
+.ti -1c
+.RI "const \fBRELATIVE_PATH\fP = 'relative'"
+.br
+.ti -1c
+.RI "const \fBNETWORK_PATH\fP = 'network'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUrlGeneratorInterface\fP is the interface that all \fBURL\fP generator classes must implement\&.
+.PP
+The constants in this interface define the different types of resource references that are declared in RFC 3986: http://tools.ietf.org/html/rfc3986 We are using the term 'URL' instead of 'URI' as this is more common in web applications and we do not need to distinguish them as the difference is mostly semantical and less technical\&. Generating URIs, i\&.e\&. representation-independent resource identifiers, is also possible\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+
+.PP
+Definition at line 34 of file UrlGeneratorInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "generate ( $name,  $parameters = \fCarray()\fP,  $referenceType = \fCself::ABSOLUTE_PATH\fP)"
+Generates a \fBURL\fP or path for a specific route based on the given parameters\&.
+.PP
+Parameters that reference placeholders in the route pattern will substitute them in the path or host\&. Extra params are added as query string to the \fBURL\fP\&.
+.PP
+When the passed reference type cannot be generated for the route because it requires a different host or scheme than the current one, the method will return a more comprehensive reference that includes the required params\&. For example, when you call this method with $referenceType = ABSOLUTE_PATH but the route requires the https scheme whereas the current scheme is http, it will instead return an ABSOLUTE_URL with the https scheme and the current host\&. This makes sure the generated \fBURL\fP matches the route in any case\&.
+.PP
+If there is no route with the given name, the generator must throw the RouteNotFoundException\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The name of the route 
+.br
+\fI$parameters\fP An array of parameters 
+.br
+\fI$referenceType\fP The type of reference to be generated (one of the constants)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The generated \fBURL\fP
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIRouteNotFoundException\fP If the named route doesn't exist 
+.br
+\fIMissingMandatoryParametersException\fP When some parameters are missing that are mandatory for the route 
+.br
+\fIInvalidParameterException\fP When a parameter value for a placeholder is not correct because it does not match the requirement
+.RE
+.PP
+
+.PP
+Implemented in \fBRouter\fP, and \fBUrlGenerator\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const ABSOLUTE_PATH = false"
+Generates an absolute path, e\&.g\&. '/dir/file'\&. 
+.PP
+Definition at line 44 of file UrlGeneratorInterface\&.php\&.
+.SS "const ABSOLUTE_URL = true"
+Generates an absolute \fBURL\fP, e\&.g\&. 'http://example\&.com/dir/file'\&. 
+.PP
+Definition at line 39 of file UrlGeneratorInterface\&.php\&.
+.SS "const NETWORK_PATH = 'network'"
+Generates a network path, e\&.g\&. '//example\&.com/dir/file'\&. Such reference reuses the current scheme but specifies the host\&. 
+.PP
+Definition at line 57 of file UrlGeneratorInterface\&.php\&.
+.SS "const RELATIVE_PATH = 'relative'"
+Generates a relative path based on the current request path, e\&.g\&. '\&.\&./parent-file'\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBUrlGenerator::getRelativePath()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file UrlGeneratorInterface\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

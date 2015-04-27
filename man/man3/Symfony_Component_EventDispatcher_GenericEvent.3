@@ -1,0 +1,258 @@
+.TH "GenericEvent" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GenericEvent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBEvent\fP, ArrayAccess, and IteratorAggregate\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($subject=null, array $arguments=array())"
+.br
+.ti -1c
+.RI "\fBgetSubject\fP ()"
+.br
+.ti -1c
+.RI "\fBgetArgument\fP ($key)"
+.br
+.ti -1c
+.RI "\fBsetArgument\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBgetArguments\fP ()"
+.br
+.ti -1c
+.RI "\fBsetArguments\fP (array $args=array())"
+.br
+.ti -1c
+.RI "\fBhasArgument\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetGet\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetSet\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBoffsetUnset\fP ($key)"
+.br
+.ti -1c
+.RI "\fBoffsetExists\fP ($key)"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$subject\fP"
+.br
+.ti -1c
+.RI "\fB$arguments\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBEvent\fP encapsulation class\&.
+.PP
+Encapsulates events thus decoupling the observer from the subject they encapsulate\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Drak drak@zikula.org 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file GenericEvent\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $subject = \fCnull\fP, array $arguments = \fCarray()\fP)"
+Encapsulate an event with $subject and $args\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$subject\fP The subject of the event, usually an object\&. 
+.br
+\fI$arguments\fP Arguments to store in the event\&. 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file GenericEvent\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getArgument ( $key)"
+Get argument by key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Key\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 68 of file GenericEvent\&.php\&.
+.SS "getArguments ()"
+Getter for all arguments\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file GenericEvent\&.php\&.
+.SS "getIterator ()"
+IteratorAggregate for iterating over the object like an array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 182 of file GenericEvent\&.php\&.
+.SS "getSubject ()"
+Getter for subject property\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed $subject The observer subject\&. 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file GenericEvent\&.php\&.
+.SS "hasArgument ( $key)"
+Has argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Key of arguments array\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file GenericEvent\&.php\&.
+.SS "offsetExists ( $key)"
+ArrayAccess has argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Array key\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file GenericEvent\&.php\&.
+.SS "offsetGet ( $key)"
+ArrayAccess for argument getter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Array key\&.
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 137 of file GenericEvent\&.php\&.
+.SS "offsetSet ( $key,  $value)"
+ArrayAccess for argument setter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Array key to set\&. 
+.br
+\fI$value\fP Value\&. 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file GenericEvent\&.php\&.
+.SS "offsetUnset ( $key)"
+ArrayAccess for unset argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Array key\&. 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file GenericEvent\&.php\&.
+.SS "setArgument ( $key,  $value)"
+Add argument to event\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP Argument name\&. 
+.br
+\fI$value\fP Value\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBGenericEvent\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file GenericEvent\&.php\&.
+.SS "setArguments (array $args = \fCarray()\fP)"
+Set args property\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$args\fP Arguments\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBGenericEvent\fP 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file GenericEvent\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$arguments\fC [protected]\fP"
+
+.PP
+Definition at line 35 of file GenericEvent\&.php\&.
+.SS "$subject\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file GenericEvent\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

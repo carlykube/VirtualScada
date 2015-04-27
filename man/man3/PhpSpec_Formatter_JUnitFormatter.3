@@ -1,0 +1,217 @@
+.TH "JUnitFormatter" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+JUnitFormatter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBBasicFormatter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBPresenterInterface\fP $presenter, \fBIO\fP $\fBio\fP, \fBStatisticsCollector\fP $stats)"
+.br
+.ti -1c
+.RI "\fBsetTestCaseNodes\fP (array $testCaseNodes)"
+.br
+.ti -1c
+.RI "\fBgetTestCaseNodes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTestSuiteNodes\fP (array $testSuiteNodes)"
+.br
+.ti -1c
+.RI "\fBgetTestSuiteNodes\fP ()"
+.br
+.ti -1c
+.RI "\fBsetExampleStatusCounts\fP (array $exampleStatusCounts)"
+.br
+.ti -1c
+.RI "\fBgetExampleStatusCounts\fP ()"
+.br
+.ti -1c
+.RI "\fBafterExample\fP (\fBExampleEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBafterSpecification\fP (\fBSpecificationEvent\fP $\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBafterSuite\fP (\fBSuiteEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinitTestCaseNodes\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$testCaseNodes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$testSuiteNodes\fP = array()"
+.br
+.ti -1c
+.RI "\fB$exampleStatusCounts\fP = array()"
+.br
+.ti -1c
+.RI "\fB$jUnitStatuses\fP"
+.br
+.ti -1c
+.RI "\fB$resultTags\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The JUnit \fBFormatter\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Gildas Quemener gildas.quemener@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file JUnitFormatter\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBPresenterInterface\fP $presenter, \fBIO\fP $io, \fBStatisticsCollector\fP $stats)"
+
+.PP
+Definition at line 55 of file JUnitFormatter\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "afterExample (\fBExampleEvent\fP $event)"
+{} 
+.PP
+Definition at line 125 of file JUnitFormatter\&.php\&.
+.SS "afterSpecification (\fBSpecificationEvent\fP $event)"
+{} 
+.PP
+Definition at line 170 of file JUnitFormatter\&.php\&.
+.SS "afterSuite (\fBSuiteEvent\fP $event)"
+{} 
+.PP
+Definition at line 191 of file JUnitFormatter\&.php\&.
+.SS "getExampleStatusCounts ()"
+Get example status counts
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file JUnitFormatter\&.php\&.
+.SS "getTestCaseNodes ()"
+Get testcase nodes
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file JUnitFormatter\&.php\&.
+.SS "getTestSuiteNodes ()"
+Get testsuite nodes
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file JUnitFormatter\&.php\&.
+.SS "initTestCaseNodes ()\fC [protected]\fP"
+Initialize test case nodes and example status counts 
+.PP
+Definition at line 211 of file JUnitFormatter\&.php\&.
+.SS "setExampleStatusCounts (array $exampleStatusCounts)"
+Set example status counts
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exampleStatusCounts\fP 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file JUnitFormatter\&.php\&.
+.SS "setTestCaseNodes (array $testCaseNodes)"
+Set testcase nodes
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$testCaseNodes\fP 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file JUnitFormatter\&.php\&.
+.SS "setTestSuiteNodes (array $testSuiteNodes)"
+Set testsuite nodes
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$testSuiteNodes\fP 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file JUnitFormatter\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$exampleStatusCounts = array()\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file JUnitFormatter\&.php\&.
+.SS "$jUnitStatuses\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        ExampleEvent::PASSED  => 'passed',
+        ExampleEvent::PENDING => 'pending',
+        ExampleEvent::SKIPPED => 'skipped',
+        ExampleEvent::FAILED  => 'failed',
+        ExampleEvent::BROKEN  => 'broken',
+    )
+.fi
+.PP
+Definition at line 40 of file JUnitFormatter\&.php\&.
+.SS "$resultTags\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        ExampleEvent::FAILED  => 'failure',
+        ExampleEvent::BROKEN  => 'error',
+        ExampleEvent::SKIPPED => 'skipped',
+    )
+.fi
+.PP
+Definition at line 49 of file JUnitFormatter\&.php\&.
+.SS "$testCaseNodes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file JUnitFormatter\&.php\&.
+.SS "$testSuiteNodes = array()\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file JUnitFormatter\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

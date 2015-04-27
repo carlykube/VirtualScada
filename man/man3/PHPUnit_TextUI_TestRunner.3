@@ -1,0 +1,263 @@
+.TH "PHPUnit_TextUI_TestRunner" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPUnit_TextUI_TestRunner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Runner_BaseTestRunner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBPHPUnit_Runner_TestSuiteLoader\fP $loader=null, \fBPHP_CodeCoverage_Filter\fP $\fBfilter\fP=null)"
+.br
+.ti -1c
+.RI "\fBdoRun\fP (\fBPHPUnit_Framework_Test\fP $suite, array $arguments=array())"
+.br
+.ti -1c
+.RI "\fBsetPrinter\fP (\fBPHPUnit_TextUI_ResultPrinter\fP $resultPrinter)"
+.br
+.ti -1c
+.RI "\fBgetLoader\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBrun\fP ($test, array $arguments=array())"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBSUCCESS_EXIT\fP = 0"
+.br
+.ti -1c
+.RI "const \fBFAILURE_EXIT\fP = 1"
+.br
+.ti -1c
+.RI "const \fBEXCEPTION_EXIT\fP = 2"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcreateTestResult\fP ()"
+.br
+.ti -1c
+.RI "\fBrunFailed\fP ($message)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($buffer)"
+.br
+.ti -1c
+.RI "\fBhandleConfiguration\fP (array &$arguments)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$codeCoverageFilter\fP"
+.br
+.ti -1c
+.RI "\fB$loader\fP = null"
+.br
+.ti -1c
+.RI "\fB$printer\fP = null"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$versionStringPrinted\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 25 of file TestRunner\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBPHPUnit_Runner_TestSuiteLoader\fP $loader = \fCnull\fP, \fBPHP_CodeCoverage_Filter\fP $filter = \fCnull\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$loader\fP 
+.br
+\fI$filter\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.4\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file TestRunner\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "createTestResult ()\fC [protected]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file TestRunner\&.php\&.
+.SS "doRun (\fBPHPUnit_Framework_Test\fP $suite, array $arguments = \fCarray()\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$suite\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file TestRunner\&.php\&.
+.SS "getLoader ()"
+Returns the loader to be used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Runner_TestSuiteLoader\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 2\&.2\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 552 of file TestRunner\&.php\&.
+.SS "handleConfiguration (array & $arguments)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$arguments\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.2\&.1 
+.RE
+.PP
+
+.PP
+Definition at line 565 of file TestRunner\&.php\&.
+.SS "static run ( $test, array $arguments = \fCarray()\fP)\fC [static]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$test\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPHPUnit_Framework_TestResult\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBPHPUnit_Framework_Exception\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file TestRunner\&.php\&.
+.SS "runFailed ( $message)\fC [protected]\fP"
+Override to define how to handle a failed loading of a test suite\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP 
+.RE
+.PP
+
+.PP
+Definition at line 523 of file TestRunner\&.php\&.
+.SS "setPrinter (\fBPHPUnit_TextUI_ResultPrinter\fP $resultPrinter)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resultPrinter\fP 
+.RE
+.PP
+
+.PP
+Definition at line 512 of file TestRunner\&.php\&.
+.SS "write ( $buffer)\fC [protected]\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$buffer\fP 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Method available since Release 3\&.1\&.0 
+.RE
+.PP
+
+.PP
+Definition at line 533 of file TestRunner\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$codeCoverageFilter\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file TestRunner\&.php\&.
+.SS "$loader = null\fC [protected]\fP"
+
+.PP
+Definition at line 39 of file TestRunner\&.php\&.
+.SS "$printer = null\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file TestRunner\&.php\&.
+.SS "$versionStringPrinted = false\fC [static]\fP, \fC [protected]\fP"
+
+.PP
+Definition at line 49 of file TestRunner\&.php\&.
+.SS "const EXCEPTION_EXIT = 2"
+
+.PP
+Definition at line 29 of file TestRunner\&.php\&.
+.SS "const FAILURE_EXIT = 1"
+
+.PP
+Definition at line 28 of file TestRunner\&.php\&.
+.SS "const SUCCESS_EXIT = 0"
+
+.PP
+Definition at line 27 of file TestRunner\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

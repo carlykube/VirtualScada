@@ -1,0 +1,559 @@
+\section{Queue Class Reference}
+\label{class_queue}\index{Queue@{Queue}}
+Inheritance diagram for Queue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_queue}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf looping} (\${\bf callback})
+\item 
+static {\bf failing} (\${\bf callback})
+\item 
+static {\bf stopping} (\${\bf callback})
+\item 
+static {\bf connected} (\${\bf name}=null)
+\item 
+static {\bf connection} (\${\bf name}=null)
+\item 
+static {\bf extend} (\$driver, \$resolver)
+\item 
+static {\bf add\+Connector} (\$driver, \$resolver)
+\item 
+static {\bf get\+Default\+Driver} ()
+\item 
+static {\bf set\+Default\+Driver} (\${\bf name})
+\item 
+static {\bf get\+Name} (\${\bf connection}=null)
+\item 
+static {\bf is\+Down\+For\+Maintenance} ()
+\item 
+static {\bf push} (\$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+static {\bf store\+Job} (\$job, \${\bf data}, \${\bf delay}=0)
+\item 
+static {\bf start\+Process} (\$job\+Id, \${\bf delay}=0)
+\item 
+static {\bf later} (\${\bf delay}, \$job, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+static {\bf push\+Raw} (\$payload, \${\bf queue}=null, \${\bf options}=array())
+\item 
+static {\bf pop} (\${\bf queue}=null)
+\item 
+static {\bf marshal} ()
+\item 
+static {\bf bulk} (\$jobs, \${\bf data}= \textquotesingle{}\textquotesingle{}, \${\bf queue}=null)
+\item 
+static {\bf get\+Time} ()
+\item 
+static {\bf set\+Container} (\$container)
+\item 
+static {\bf set\+Encrypter} (\$crypt)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8288 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Queue@{Queue}!add\+Connector@{add\+Connector}}
+\index{add\+Connector@{add\+Connector}!Queue@{Queue}}
+\subsubsection[{add\+Connector}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Connector (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver, }
+\item[{}]{\$resolver}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_ab3e82d451c1d240d48fd9005e8db7e73}
+Add a queue connection resolver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$resolver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8365 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!bulk@{bulk}}
+\index{bulk@{bulk}!Queue@{Queue}}
+\subsubsection[{bulk}]{\setlength{\rightskip}{0pt plus 5cm}static bulk (
+\begin{DoxyParamCaption}
+\item[{}]{\$jobs, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a74d3dd2b984aca8c1f6c713e586c3d5b}
+Push an array of jobs onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$jobs} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 8511 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!connected@{connected}}
+\index{connected@{connected}!Queue@{Queue}}
+\subsubsection[{connected}]{\setlength{\rightskip}{0pt plus 5cm}static connected (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a61fc8366433450851f81e451d4b7e314}
+Determine if the driver is connected.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 8330 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!connection@{connection}}
+\index{connection@{connection}!Queue@{Queue}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}static connection (
+\begin{DoxyParamCaption}
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_ab5dd57483850dd6a439f11ea0afd22a0}
+Resolve a queue connection instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 8341 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!extend@{extend}}
+\index{extend@{extend}!Queue@{Queue}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}static extend (
+\begin{DoxyParamCaption}
+\item[{}]{\$driver, }
+\item[{}]{\$resolver}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_ae42e6207f3e5a00e6b2a6dbf5363b648}
+Add a queue connection resolver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$driver} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$resolver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8353 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!failing@{failing}}
+\index{failing@{failing}!Queue@{Queue}}
+\subsubsection[{failing}]{\setlength{\rightskip}{0pt plus 5cm}static failing (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a269819b8b78f1bb78f72333bbfd3ee68}
+Register an event listener for the failed job event.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8308 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!get\+Default\+Driver@{get\+Default\+Driver}}
+\index{get\+Default\+Driver@{get\+Default\+Driver}!Queue@{Queue}}
+\subsubsection[{get\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Default\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a081ddcfd54a847610d85f496366c9ba0}
+Get the name of the default queue connection.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 8375 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Queue@{Queue}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$connection = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_acf83e77e82e60d5897f725b8db313565}
+Get the full name for the given connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$connection} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 8397 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Queue@{Queue}}
+\subsubsection[{get\+Time}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_aa92bc76a13669ecce9ec67540eb232bc}
+Get the current U\+N\+I\+X timestamp.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 8522 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!is\+Down\+For\+Maintenance@{is\+Down\+For\+Maintenance}}
+\index{is\+Down\+For\+Maintenance@{is\+Down\+For\+Maintenance}!Queue@{Queue}}
+\subsubsection[{is\+Down\+For\+Maintenance}]{\setlength{\rightskip}{0pt plus 5cm}static is\+Down\+For\+Maintenance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_aaea1c7fd1a6f03e18ae370532fae220a}
+Determine if the application is in maintenance mode.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 8407 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!later@{later}}
+\index{later@{later}!Queue@{Queue}}
+\subsubsection[{later}]{\setlength{\rightskip}{0pt plus 5cm}static later (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a8e25d8074847c9c4953f9632b220caa5}
+Push a new job onto the queue after a delay.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$delay} & \\
+\hline
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 8461 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!looping@{looping}}
+\index{looping@{looping}!Queue@{Queue}}
+\subsubsection[{looping}]{\setlength{\rightskip}{0pt plus 5cm}static looping (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_afc9314efc40abd03c05924432695a8a5}
+Register an event listener for the daemon queue loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8297 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!marshal@{marshal}}
+\index{marshal@{marshal}!Queue@{Queue}}
+\subsubsection[{marshal}]{\setlength{\rightskip}{0pt plus 5cm}static marshal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a23c2d88af4143f7c652760da7a6ba022}
+Marshal a push queue request and fire the job.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 8497 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!pop@{pop}}
+\index{pop@{pop}!Queue@{Queue}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}static pop (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_ae959234742eefa0ad8c1564081bcfdfd}
+Pop the next job off of the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 8486 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!push@{push}}
+\index{push@{push}!Queue@{Queue}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}static push (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_aa7143b2397eaae8a23540c34607c663e}
+Push a new job onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+string | null & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 8420 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!push\+Raw@{push\+Raw}}
+\index{push\+Raw@{push\+Raw}!Queue@{Queue}}
+\subsubsection[{push\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static push\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$payload, }
+\item[{}]{\$queue = {\ttfamily null}, }
+\item[{}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a88d71f400e01eaae9214431c513959d5}
+Push a raw payload onto the queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$payload} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 8474 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!set\+Container@{set\+Container}}
+\index{set\+Container@{set\+Container}!Queue@{Queue}}
+\subsubsection[{set\+Container}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Container (
+\begin{DoxyParamCaption}
+\item[{}]{\$container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_acb6a8639573cd5b709a2b25b415c7680}
+Set the Io\+C container instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8534 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!set\+Default\+Driver@{set\+Default\+Driver}}
+\index{set\+Default\+Driver@{set\+Default\+Driver}!Queue@{Queue}}
+\subsubsection[{set\+Default\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Default\+Driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a08100bac7ff4bc3a5ea7ed8fa8a8acfd}
+Set the name of the default queue connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8386 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!set\+Encrypter@{set\+Encrypter}}
+\index{set\+Encrypter@{set\+Encrypter}!Queue@{Queue}}
+\subsubsection[{set\+Encrypter}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Encrypter (
+\begin{DoxyParamCaption}
+\item[{}]{\$crypt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_ae60405561b1604e368646f470bee656d}
+Set the encrypter instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Encryption\textbackslash{}\+Encrypter & {\em \$crypt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8546 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!start\+Process@{start\+Process}}
+\index{start\+Process@{start\+Process}!Queue@{Queue}}
+\subsubsection[{start\+Process}]{\setlength{\rightskip}{0pt plus 5cm}static start\+Process (
+\begin{DoxyParamCaption}
+\item[{}]{\$job\+Id, }
+\item[{}]{\$delay = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a531ac4da395a5eabec537391674d16d2}
+Make a Process for the \doxyref{Artisan}{p.}{class_artisan} command for the job id.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$job\+Id} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8447 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!stopping@{stopping}}
+\index{stopping@{stopping}!Queue@{Queue}}
+\subsubsection[{stopping}]{\setlength{\rightskip}{0pt plus 5cm}static stopping (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_a680c7f8da11933b29cc86b0fbf662f84}
+Register an event listener for the daemon queue stopping.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8319 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Queue@{Queue}!store\+Job@{store\+Job}}
+\index{store\+Job@{store\+Job}!Queue@{Queue}}
+\subsubsection[{store\+Job}]{\setlength{\rightskip}{0pt plus 5cm}static store\+Job (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data, }
+\item[{}]{\$delay = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_queue_af238f31612e133b368fd216ba0c2b998}
+Store the job in the database.
+
+Returns the id of the job.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$job} & \\
+\hline
+mixed & {\em \$data} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 8435 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+ide\+\_\+helper.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,234 @@
+.TH "RedisProfilerStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RedisProfilerStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProfilerStorageInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($dsn, $username= '', $password= '', $lifetime=86400)"
+.br
+.ti -1c
+.RI "\fBfind\fP ($ip, $url, $limit, $method, $start=null, $end=null)"
+.br
+.ti -1c
+.RI "\fBpurge\fP ()"
+.br
+.ti -1c
+.RI "\fBread\fP ($token)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (\fBProfile\fP $profile)"
+.br
+.ti -1c
+.RI "\fBsetRedis\fP ($redis)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBTOKEN_PREFIX\fP = 'sf_profiler_'"
+.br
+.ti -1c
+.RI "const \fBREDIS_OPT_SERIALIZER\fP = 1"
+.br
+.ti -1c
+.RI "const \fBREDIS_OPT_PREFIX\fP = 2"
+.br
+.ti -1c
+.RI "const \fBREDIS_SERIALIZER_NONE\fP = 0"
+.br
+.ti -1c
+.RI "const \fBREDIS_SERIALIZER_PHP\fP = 1"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRedis\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$dsn\fP"
+.br
+.ti -1c
+.RI "\fB$lifetime\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBRedisProfilerStorage\fP stores profiling information in \fBRedis\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Andrej Hudec pulzarraider@gmail.com 
+.PP
+Stephane PY py.stephane1@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file RedisProfilerStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $dsn,  $username = \fC''\fP,  $password = \fC''\fP,  $lifetime = \fC86400\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$dsn\fP \fBA\fP data source name 
+.br
+\fI$username\fP Not used 
+.br
+\fI$password\fP Not used 
+.br
+\fI$lifetime\fP The lifetime to use for the purge 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file RedisProfilerStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "find ( $ip,  $url,  $limit,  $method,  $start = \fCnull\fP,  $end = \fCnull\fP)"
+{Finds profiler tokens for the given criteria\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ip\fP The IP 
+.br
+\fI$url\fP The \fBURL\fP 
+.br
+\fI$limit\fP The maximum number of tokens to return 
+.br
+\fI$method\fP The request method 
+.br
+\fI$start\fP The start date to search from 
+.br
+\fI$end\fP The end date to search to
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of tokens
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 54 of file RedisProfilerStorage\&.php\&.
+.SS "getRedis ()\fC [protected]\fP"
+Internal convenience method that returns the instance of \fBRedis\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 203 of file RedisProfilerStorage\&.php\&.
+.SS "purge ()"
+{Purges all data from the database\&.} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 107 of file RedisProfilerStorage\&.php\&.
+.SS "read ( $token)"
+{Reads data associated with the given token\&.
+.PP
+The method returns false if the token does not exist in the storage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP \fBA\fP token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBProfile\fP The profile associated with token
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 140 of file RedisProfilerStorage\&.php\&.
+.SS "setRedis ( $redis)"
+Set instance of the \fBRedis\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$redis\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file RedisProfilerStorage\&.php\&.
+.SS "write (\fBProfile\fP $profile)"
+{Saves a \fBProfile\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$profile\fP \fBA\fP \fBProfile\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool Write operation successful
+.RE
+.PP
+} 
+.PP
+Implements \fBProfilerStorageInterface\fP\&.
+.PP
+Definition at line 158 of file RedisProfilerStorage\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$dsn\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file RedisProfilerStorage\&.php\&.
+.SS "$lifetime\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file RedisProfilerStorage\&.php\&.
+.SS "const REDIS_OPT_PREFIX = 2"
+
+.PP
+Definition at line 25 of file RedisProfilerStorage\&.php\&.
+.SS "const REDIS_OPT_SERIALIZER = 1"
+
+.PP
+Definition at line 24 of file RedisProfilerStorage\&.php\&.
+.SS "const REDIS_SERIALIZER_NONE = 0"
+
+.PP
+Definition at line 26 of file RedisProfilerStorage\&.php\&.
+.SS "const REDIS_SERIALIZER_PHP = 1"
+
+.PP
+Definition at line 27 of file RedisProfilerStorage\&.php\&.
+.SS "const TOKEN_PREFIX = 'sf_profiler_'"
+
+.PP
+Definition at line 22 of file RedisProfilerStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

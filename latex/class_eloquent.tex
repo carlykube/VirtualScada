@@ -1,0 +1,2893 @@
+\section{Eloquent Class Reference}
+\label{class_eloquent}\index{Eloquent@{Eloquent}}
+Inheritance diagram for Eloquent\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_eloquent}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf find\+Many} (\$id, \$columns=array())
+\item 
+static {\bf first} (\$columns=array())
+\item 
+static {\bf first\+Or\+Fail} (\$columns=array())
+\item 
+static {\bf get} (\$columns=array())
+\item 
+static {\bf pluck} (\$column)
+\item 
+static {\bf chunk} (\${\bf count}, \${\bf callback})
+\item 
+static {\bf lists} (\$column, \$key=null)
+\item 
+static {\bf paginate} (\$per\+Page=null, \$columns=array())
+\item 
+static {\bf simple\+Paginate} (\$per\+Page=null, \$columns=array())
+\item 
+static {\bf on\+Delete} (\${\bf callback})
+\item 
+static {\bf get\+Models} (\$columns=array())
+\item 
+static {\bf eager\+Load\+Relations} (\${\bf models})
+\item 
+static {\bf where} (\$column, \$operator=null, \$value=null, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where} (\$column, \$operator=null, \$value=null)
+\item 
+static {\bf has} (\$relation, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \${\bf count}=1, \$boolean= \textquotesingle{}and\textquotesingle{}, \${\bf callback}=null)
+\item 
+static {\bf doesnt\+Have} (\$relation, \$boolean= \textquotesingle{}and\textquotesingle{}, \${\bf callback}=null)
+\item 
+static {\bf where\+Has} (\$relation, \${\bf callback}, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \${\bf count}=1)
+\item 
+static {\bf where\+Doesnt\+Have} (\$relation, \${\bf callback}=null)
+\item 
+static {\bf or\+Has} (\$relation, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \${\bf count}=1)
+\item 
+static {\bf or\+Where\+Has} (\$relation, \${\bf callback}, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \${\bf count}=1)
+\item 
+static {\bf get\+Query} ()
+\item 
+static {\bf set\+Query} (\${\bf query})
+\item 
+static {\bf get\+Eager\+Loads} ()
+\item 
+static {\bf set\+Eager\+Loads} (\$eager\+Load)
+\item 
+static {\bf get\+Model} ()
+\item 
+static {\bf set\+Model} (\$model)
+\item 
+static {\bf macro} (\${\bf name}, \${\bf callback})
+\item 
+static {\bf get\+Macro} (\${\bf name})
+\item 
+static {\bf select} (\$columns=array())
+\item 
+static {\bf select\+Raw} (\$expression)
+\item 
+static {\bf add\+Select} (\$column)
+\item 
+static {\bf distinct} ()
+\item 
+static {\bf from} (\$table)
+\item 
+static {\bf join} (\$table, \$one, \$operator=null, \$two=null, \$type= \textquotesingle{}inner\textquotesingle{}, \${\bf where}=false)
+\item 
+static {\bf join\+Where} (\$table, \$one, \$operator, \$two, \$type= \textquotesingle{}inner\textquotesingle{})
+\item 
+static {\bf left\+Join} (\$table, \${\bf first}, \$operator=null, \${\bf second}=null)
+\item 
+static {\bf left\+Join\+Where} (\$table, \$one, \$operator, \$two)
+\item 
+static {\bf right\+Join} (\$table, \${\bf first}, \$operator=null, \${\bf second}=null)
+\item 
+static {\bf right\+Join\+Where} (\$table, \$one, \$operator, \$two)
+\item 
+static {\bf where\+Raw} (\$sql, \$bindings=array(), \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where\+Raw} (\$sql, \$bindings=array())
+\item 
+static {\bf where\+Between} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+static {\bf or\+Where\+Between} (\$column, \${\bf values})
+\item 
+static {\bf where\+Not\+Between} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where\+Not\+Between} (\$column, \${\bf values})
+\item 
+static {\bf where\+Nested} (\${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf add\+Nested\+Where\+Query} (\${\bf query}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf where\+Exists} (\${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+static {\bf or\+Where\+Exists} (\${\bf callback}, \$not=false)
+\item 
+static {\bf where\+Not\+Exists} (\${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where\+Not\+Exists} (\${\bf callback})
+\item 
+static {\bf where\+In} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+static {\bf or\+Where\+In} (\$column, \${\bf values})
+\item 
+static {\bf where\+Not\+In} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where\+Not\+In} (\$column, \${\bf values})
+\item 
+static {\bf where\+Null} (\$column, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+static {\bf or\+Where\+Null} (\$column)
+\item 
+static {\bf where\+Not\+Null} (\$column, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Where\+Not\+Null} (\$column)
+\item 
+static {\bf where\+Day} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf where\+Month} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf where\+Year} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf dynamic\+Where} (\$method, \$parameters)
+\item 
+static {\bf group\+By} ()
+\item 
+static {\bf having} (\$column, \$operator=null, \$value=null, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Having} (\$column, \$operator=null, \$value=null)
+\item 
+static {\bf having\+Raw} (\$sql, \$bindings=array(), \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+static {\bf or\+Having\+Raw} (\$sql, \$bindings=array())
+\item 
+static {\bf order\+By} (\$column, \$direction= \textquotesingle{}asc\textquotesingle{})
+\item 
+static {\bf latest} (\$column= \textquotesingle{}created\+\_\+at\textquotesingle{})
+\item 
+static {\bf oldest} (\$column= \textquotesingle{}created\+\_\+at\textquotesingle{})
+\item 
+static {\bf order\+By\+Raw} (\$sql, \$bindings=array())
+\item 
+static {\bf offset} (\$value)
+\item 
+static {\bf skip} (\$value)
+\item 
+static {\bf limit} (\$value)
+\item 
+static {\bf take} (\$value)
+\item 
+static {\bf for\+Page} (\$page, \$per\+Page=15)
+\item 
+static {\bf union} (\${\bf query}, \${\bf all}=false)
+\item 
+static {\bf union\+All} (\${\bf query})
+\item 
+static {\bf lock} (\$value=true)
+\item 
+static {\bf lock\+For\+Update} ()
+\item 
+static {\bf shared\+Lock} ()
+\item 
+static {\bf to\+Sql} ()
+\item 
+static {\bf remember} (\${\bf minutes}, \$key=null)
+\item 
+static {\bf remember\+Forever} (\$key=null)
+\item 
+static {\bf cache\+Tags} (\$cache\+Tags)
+\item 
+static {\bf cache\+Driver} (\$cache\+Driver)
+\item 
+static {\bf get\+Fresh} (\$columns=array())
+\item 
+static {\bf get\+Cached} (\$columns=array())
+\item 
+static {\bf get\+Cache\+Key} ()
+\item 
+static {\bf generate\+Cache\+Key} ()
+\item 
+static {\bf implode} (\$column, \$glue=null)
+\item 
+static {\bf build\+Raw\+Paginator} (\$paginator, \$results, \$per\+Page)
+\item 
+static {\bf get\+Pagination\+Count} ()
+\item 
+static {\bf exists} ()
+\item 
+static {\bf count} (\$columns= \textquotesingle{}$\ast$\textquotesingle{})
+\item 
+static {\bf min} (\$column)
+\item 
+static {\bf max} (\$column)
+\item 
+static {\bf sum} (\$column)
+\item 
+static {\bf avg} (\$column)
+\item 
+static {\bf aggregate} (\$function, \$columns=array())
+\item 
+static {\bf insert} (\${\bf values})
+\item 
+static {\bf insert\+Get\+Id} (\${\bf values}, \$sequence=null)
+\item 
+static {\bf truncate} ()
+\item 
+static {\bf merge\+Wheres} (\$wheres, \$bindings)
+\item 
+static {\bf raw} (\$value)
+\item 
+static {\bf get\+Bindings} ()
+\item 
+static {\bf get\+Raw\+Bindings} ()
+\item 
+static {\bf set\+Bindings} (\$bindings, \$type= \textquotesingle{}{\bf where}\textquotesingle{})
+\item 
+static {\bf add\+Binding} (\$value, \$type= \textquotesingle{}{\bf where}\textquotesingle{})
+\item 
+static {\bf merge\+Bindings} (\${\bf query})
+\item 
+static {\bf get\+Processor} ()
+\item 
+static {\bf get\+Grammar} ()
+\item 
+static {\bf use\+Write\+Pdo} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 3545 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Eloquent@{Eloquent}!add\+Binding@{add\+Binding}}
+\index{add\+Binding@{add\+Binding}!Eloquent@{Eloquent}}
+\subsubsection[{add\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}{\bf where}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab3613fb63140723d44e9e3062545d0c6}
+Add a binding to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 4848 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!add\+Nested\+Where\+Query@{add\+Nested\+Where\+Query}}
+\index{add\+Nested\+Where\+Query@{add\+Nested\+Where\+Query}!Eloquent@{Eloquent}}
+\subsubsection[{add\+Nested\+Where\+Query}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Nested\+Where\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ad36166239f4a383a570312470904d5c9}
+Add another query builder as a nested where to the query builder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | static & {\em \$query} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4118 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!add\+Select@{add\+Select}}
+\index{add\+Select@{add\+Select}!Eloquent@{Eloquent}}
+\subsubsection[{add\+Select}]{\setlength{\rightskip}{0pt plus 5cm}static add\+Select (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab2db7f7a3943570e93ff34ea835deb41}
+Add a new select column to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3910 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!aggregate@{aggregate}}
+\index{aggregate@{aggregate}!Eloquent@{Eloquent}}
+\subsubsection[{aggregate}]{\setlength{\rightskip}{0pt plus 5cm}static aggregate (
+\begin{DoxyParamCaption}
+\item[{}]{\$function, }
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a68115ca9a8ed8147eec2ec9436c8712c}
+Execute an aggregate function on the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$function} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 4746 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!avg@{avg}}
+\index{avg@{avg}!Eloquent@{Eloquent}}
+\subsubsection[{avg}]{\setlength{\rightskip}{0pt plus 5cm}static avg (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2ba3d260d09ac11ad757fb914ee8c838}
+Retrieve the average of the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 4734 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!build\+Raw\+Paginator@{build\+Raw\+Paginator}}
+\index{build\+Raw\+Paginator@{build\+Raw\+Paginator}!Eloquent@{Eloquent}}
+\subsubsection[{build\+Raw\+Paginator}]{\setlength{\rightskip}{0pt plus 5cm}static build\+Raw\+Paginator (
+\begin{DoxyParamCaption}
+\item[{}]{\$paginator, }
+\item[{}]{\$results, }
+\item[{}]{\$per\+Page}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a26bfbbe056f70cd57777ea958547a258}
+Build a paginator instance from a raw result array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Pagination\textbackslash{}\+Factory & {\em \$paginator} & \\
+\hline
+array & {\em \$results} & \\
+\hline
+int & {\em \$per\+Page} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4659 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!cache\+Driver@{cache\+Driver}}
+\index{cache\+Driver@{cache\+Driver}!Eloquent@{Eloquent}}
+\subsubsection[{cache\+Driver}]{\setlength{\rightskip}{0pt plus 5cm}static cache\+Driver (
+\begin{DoxyParamCaption}
+\item[{}]{\$cache\+Driver}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5744a6c67acc6c07536ce7894d169436}
+Indicate that the results, if cached, should use the given cache driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$cache\+Driver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4592 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!cache\+Tags@{cache\+Tags}}
+\index{cache\+Tags@{cache\+Tags}!Eloquent@{Eloquent}}
+\subsubsection[{cache\+Tags}]{\setlength{\rightskip}{0pt plus 5cm}static cache\+Tags (
+\begin{DoxyParamCaption}
+\item[{}]{\$cache\+Tags}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aa82d62c6bced49f53041e4f83649b916}
+Indicate that the results, if cached, should use the given cache tags.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | mixed & {\em \$cache\+Tags} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4581 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!chunk@{chunk}}
+\index{chunk@{chunk}!Eloquent@{Eloquent}}
+\subsubsection[{chunk}]{\setlength{\rightskip}{0pt plus 5cm}static chunk (
+\begin{DoxyParamCaption}
+\item[{}]{\$count, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a76620b4e982bb2cf2ccd796def7f1f3e}
+Chunk the results of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$count} & \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 3612 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!count@{count}}
+\index{count@{count}!Eloquent@{Eloquent}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}static count (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily \textquotesingle{}$\ast$\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a4f038676f3379b6235ec4e26847c3840}
+Retrieve the \char`\"{}count\char`\"{} result of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 4690 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!distinct@{distinct}}
+\index{distinct@{distinct}!Eloquent@{Eloquent}}
+\subsubsection[{distinct}]{\setlength{\rightskip}{0pt plus 5cm}static distinct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_abc445a03a45d9624ae4a002269d5b35b}
+Force the query to only return distinct results.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3920 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!doesnt\+Have@{doesnt\+Have}}
+\index{doesnt\+Have@{doesnt\+Have}!Eloquent@{Eloquent}}
+\subsubsection[{doesnt\+Have}]{\setlength{\rightskip}{0pt plus 5cm}static doesnt\+Have (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a51ff19744736a5b78af5ff44a8bc5bfe}
+Add a relationship count condition to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3738 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!dynamic\+Where@{dynamic\+Where}}
+\index{dynamic\+Where@{dynamic\+Where}!Eloquent@{Eloquent}}
+\subsubsection[{dynamic\+Where}]{\setlength{\rightskip}{0pt plus 5cm}static dynamic\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a825da86af331b7a1ca961810579fc1e5}
+Handles dynamic \char`\"{}where\char`\"{} clauses to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+string & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4318 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!eager\+Load\+Relations@{eager\+Load\+Relations}}
+\index{eager\+Load\+Relations@{eager\+Load\+Relations}!Eloquent@{Eloquent}}
+\subsubsection[{eager\+Load\+Relations}]{\setlength{\rightskip}{0pt plus 5cm}static eager\+Load\+Relations (
+\begin{DoxyParamCaption}
+\item[{}]{\$models}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_af4bbc9c2c67a76cb3b687564d8df3afd}
+Eager load the relationships for the models.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$models} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 3683 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!exists@{exists}}
+\index{exists@{exists}!Eloquent@{Eloquent}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}static exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a978657f07ea08bdfe8d3b895f596dbe7}
+Determine if any rows exist for the current query.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 4679 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!find\+Many@{find\+Many}}
+\index{find\+Many@{find\+Many}!Eloquent@{Eloquent}}
+\subsubsection[{find\+Many}]{\setlength{\rightskip}{0pt plus 5cm}static find\+Many (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_afeef7dfe76550aa4a97edf4d031b7dfa}
+Find a model by its primary key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$id} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3555 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!first@{first}}
+\index{first@{first}!Eloquent@{Eloquent}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}static first (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_add555f5f3736f74611cb805df0cd79fc}
+Execute the query and get the first result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 3566 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!first\+Or\+Fail@{first\+Or\+Fail}}
+\index{first\+Or\+Fail@{first\+Or\+Fail}!Eloquent@{Eloquent}}
+\subsubsection[{first\+Or\+Fail}]{\setlength{\rightskip}{0pt plus 5cm}static first\+Or\+Fail (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a59098559369001ae10f405750262f039}
+Execute the query and get the first result or throw an exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 3578 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!for\+Page@{for\+Page}}
+\index{for\+Page@{for\+Page}!Eloquent@{Eloquent}}
+\subsubsection[{for\+Page}]{\setlength{\rightskip}{0pt plus 5cm}static for\+Page (
+\begin{DoxyParamCaption}
+\item[{}]{\$page, }
+\item[{}]{\$per\+Page = {\ttfamily 15}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab9d65394238ecc0d309fbe8599f6501b}
+Set the limit and offset for a given page.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$page} & \\
+\hline
+int & {\em \$per\+Page} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4483 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!from@{from}}
+\index{from@{from}!Eloquent@{Eloquent}}
+\subsubsection[{from}]{\setlength{\rightskip}{0pt plus 5cm}static from (
+\begin{DoxyParamCaption}
+\item[{}]{\$table}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a8c43f9e70fb9c7d2fd772a220af510c2}
+Set the table which the query is targeting.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3931 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!generate\+Cache\+Key@{generate\+Cache\+Key}}
+\index{generate\+Cache\+Key@{generate\+Cache\+Key}!Eloquent@{Eloquent}}
+\subsubsection[{generate\+Cache\+Key}]{\setlength{\rightskip}{0pt plus 5cm}static generate\+Cache\+Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a6ac18f80bc9505fd63c7bc53f002da62}
+Generate the unique cache key for the query.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 4634 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get@{get}}
+\index{get@{get}!Eloquent@{Eloquent}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}static get (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab756906f442658d3711b507acf5d2c29}
+Execute the query as a \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static[] 
+\end{DoxyReturn}
+
+
+Definition at line 3589 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Bindings@{get\+Bindings}}
+\index{get\+Bindings@{get\+Bindings}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Bindings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a3d4a36a9dae4d5e9b6829c904a01f35f}
+Get the current query value bindings in a flattened array.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 4812 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Cached@{get\+Cached}}
+\index{get\+Cached@{get\+Cached}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Cached}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Cached (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2529c762f9739711d3eb4d9c487bbf87}
+Execute the query as a cached \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 4614 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Cache\+Key@{get\+Cache\+Key}}
+\index{get\+Cache\+Key@{get\+Cache\+Key}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Cache\+Key}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Cache\+Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2ce1ce1da273a59f5f208409f70e95d7}
+Get a unique cache key for the complete query.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 4624 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Eager\+Loads@{get\+Eager\+Loads}}
+\index{get\+Eager\+Loads@{get\+Eager\+Loads}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Eager\+Loads}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Eager\+Loads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_acf59bfa058afe0354060b90fd467cc7a}
+Get the relationships being eagerly loaded.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 3822 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Fresh@{get\+Fresh}}
+\index{get\+Fresh@{get\+Fresh}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Fresh}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Fresh (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_af9d763acb00f335251a6817a483bcbcf}
+Execute the query as a fresh \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$static[] 
+\end{DoxyReturn}
+
+
+Definition at line 4603 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Grammar@{get\+Grammar}}
+\index{get\+Grammar@{get\+Grammar}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a0acceeeee5005749f7acd41910b8c7b2}
+Get the query grammar instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4879 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Macro@{get\+Macro}}
+\index{get\+Macro@{get\+Macro}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Macro}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aee067200db1b6842cb450e9be54b12cd}
+Get the given macro by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3877 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Model@{get\+Model}}
+\index{get\+Model@{get\+Model}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Model}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aabe69344490065ea05784e9f71512bc1}
+Get the model instance being queried.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3843 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Models@{get\+Models}}
+\index{get\+Models@{get\+Models}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Models}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Models (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a36a5e1b2a1ccafce007e4abb90751ae1}
+Get the hydrated models without eager loading.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+[] 
+\end{DoxyReturn}
+
+
+Definition at line 3672 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Pagination\+Count@{get\+Pagination\+Count}}
+\index{get\+Pagination\+Count@{get\+Pagination\+Count}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Pagination\+Count}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Pagination\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a9fd0d1058383a18b9a7387ef552c2e31}
+Get the count of the total records for pagination.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 4669 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Processor@{get\+Processor}}
+\index{get\+Processor@{get\+Processor}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2beb721af98e866885274f01077b0bbc}
+Get the database query processor instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4869 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Query@{get\+Query}}
+\index{get\+Query@{get\+Query}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Query}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a794d4d4b03bab4f691c4fcaf8788fab5}
+Get the underlying query builder instance.
+
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3801 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!get\+Raw\+Bindings@{get\+Raw\+Bindings}}
+\index{get\+Raw\+Bindings@{get\+Raw\+Bindings}!Eloquent@{Eloquent}}
+\subsubsection[{get\+Raw\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Raw\+Bindings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a0c9932f64fc02305e9d117a5ab425bbc}
+Get the raw array of bindings.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 4822 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!group\+By@{group\+By}}
+\index{group\+By@{group\+By}!Eloquent@{Eloquent}}
+\subsubsection[{group\+By}]{\setlength{\rightskip}{0pt plus 5cm}static group\+By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab975968d824c13576cbbad642d231f48}
+Add a \char`\"{}group by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$column,...} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4329 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!has@{has}}
+\index{has@{has}!Eloquent@{Eloquent}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}static has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_abbd31d94ef35d31a1ff87556bc121e36}
+Add a relationship count condition to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3725 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!having@{having}}
+\index{having@{having}!Eloquent@{Eloquent}}
+\subsubsection[{having}]{\setlength{\rightskip}{0pt plus 5cm}static having (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_af1e75a254506c5eb4f17e3332e4595ac}
+Add a \char`\"{}having\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4343 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!having\+Raw@{having\+Raw}}
+\index{having\+Raw@{having\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{having\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static having\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a98724675a5cb7e900dedd85f570bf4c7}
+Add a raw having clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4369 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!implode@{implode}}
+\index{implode@{implode}!Eloquent@{Eloquent}}
+\subsubsection[{implode}]{\setlength{\rightskip}{0pt plus 5cm}static implode (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$glue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a343b4067dabc35f2706b456781139e7a}
+Concatenate values of a given column as a string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$glue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 4646 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!insert@{insert}}
+\index{insert@{insert}!Eloquent@{Eloquent}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}static insert (
+\begin{DoxyParamCaption}
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a739f319c34226fe2697f93eb561b2c46}
+Insert a new record into the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 4757 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!insert\+Get\+Id@{insert\+Get\+Id}}
+\index{insert\+Get\+Id@{insert\+Get\+Id}!Eloquent@{Eloquent}}
+\subsubsection[{insert\+Get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}static insert\+Get\+Id (
+\begin{DoxyParamCaption}
+\item[{}]{\$values, }
+\item[{}]{\$sequence = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a6caff4ed64082f05da64c4e826ef36e8}
+Insert a new record and get the value of the primary key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+string & {\em \$sequence} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 4769 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!join@{join}}
+\index{join@{join}!Eloquent@{Eloquent}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}static join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$two = {\ttfamily null}, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}inner\textquotesingle{}}, }
+\item[{}]{\$where = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ad3983d076bdaee3bffc3496d70857889}
+Add a join clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+bool & {\em \$where} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3947 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!join\+Where@{join\+Where}}
+\index{join\+Where@{join\+Where}!Eloquent@{Eloquent}}
+\subsubsection[{join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}static join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}inner\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a3c61dc07262290bcf065b489ec6e496a}
+Add a \char`\"{}join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3962 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!latest@{latest}}
+\index{latest@{latest}!Eloquent@{Eloquent}}
+\subsubsection[{latest}]{\setlength{\rightskip}{0pt plus 5cm}static latest (
+\begin{DoxyParamCaption}
+\item[{}]{\$column = {\ttfamily \textquotesingle{}created\+\_\+at\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a7743ad71ea041e94118f1c3505524e7d}
+Add an \char`\"{}order by\char`\"{} clause for a timestamp to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4404 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!left\+Join@{left\+Join}}
+\index{left\+Join@{left\+Join}!Eloquent@{Eloquent}}
+\subsubsection[{left\+Join}]{\setlength{\rightskip}{0pt plus 5cm}static left\+Join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$first, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$second = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a242d4ca2dce057065219927aa71a9acd}
+Add a left join to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$first} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3976 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!left\+Join\+Where@{left\+Join\+Where}}
+\index{left\+Join\+Where@{left\+Join\+Where}!Eloquent@{Eloquent}}
+\subsubsection[{left\+Join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}static left\+Join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a244cd040ab2f5f0e1f56838e8e267c8f}
+Add a \char`\"{}join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3990 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!limit@{limit}}
+\index{limit@{limit}!Eloquent@{Eloquent}}
+\subsubsection[{limit}]{\setlength{\rightskip}{0pt plus 5cm}static limit (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a3c8964a3a6fff557bf8c1b6b2c96fd45}
+Set the \char`\"{}limit\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4460 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!lists@{lists}}
+\index{lists@{lists}!Eloquent@{Eloquent}}
+\subsubsection[{lists}]{\setlength{\rightskip}{0pt plus 5cm}static lists (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a517f9a0f50505827100c5839c4d8df7e}
+Get an array with the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 3624 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!lock@{lock}}
+\index{lock@{lock}!Eloquent@{Eloquent}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}static lock (
+\begin{DoxyParamCaption}
+\item[{}]{\$value = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5f1ff26a92291e22869c2c04181198c7}
+Lock the selected rows in the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4517 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!lock\+For\+Update@{lock\+For\+Update}}
+\index{lock\+For\+Update@{lock\+For\+Update}!Eloquent@{Eloquent}}
+\subsubsection[{lock\+For\+Update}]{\setlength{\rightskip}{0pt plus 5cm}static lock\+For\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a8b492b319921b499adf026efa941e565}
+Lock the selected rows in the table for updating.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4527 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!macro@{macro}}
+\index{macro@{macro}!Eloquent@{Eloquent}}
+\subsubsection[{macro}]{\setlength{\rightskip}{0pt plus 5cm}static macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a69ce378a3417b0dbab643c0c9b837964}
+Extend the builder with a given callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 3866 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!max@{max}}
+\index{max@{max}!Eloquent@{Eloquent}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}static max (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ae74b9b0c09a324a09a4799c57026d89d}
+Retrieve the maximum value of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 4712 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!merge\+Bindings@{merge\+Bindings}}
+\index{merge\+Bindings@{merge\+Bindings}!Eloquent@{Eloquent}}
+\subsubsection[{merge\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+Bindings (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a190f7dd3c77cc0be1c62e1c5e6c1ff9b}
+Merge an array of bindings into our bindings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4859 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!merge\+Wheres@{merge\+Wheres}}
+\index{merge\+Wheres@{merge\+Wheres}!Eloquent@{Eloquent}}
+\subsubsection[{merge\+Wheres}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+Wheres (
+\begin{DoxyParamCaption}
+\item[{}]{\$wheres, }
+\item[{}]{\$bindings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_afa5b9b2582450f81d2411ad0712ecbda}
+Merge an array of where clauses and bindings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$wheres} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 4791 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!min@{min}}
+\index{min@{min}!Eloquent@{Eloquent}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}static min (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a7a10e0240e9056625eb1f54f237abe57}
+Retrieve the minimum value of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 4701 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!offset@{offset}}
+\index{offset@{offset}!Eloquent@{Eloquent}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}static offset (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aea27dd8f34ee8b336a27a796cc66372a}
+Set the \char`\"{}offset\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4438 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!oldest@{oldest}}
+\index{oldest@{oldest}!Eloquent@{Eloquent}}
+\subsubsection[{oldest}]{\setlength{\rightskip}{0pt plus 5cm}static oldest (
+\begin{DoxyParamCaption}
+\item[{}]{\$column = {\ttfamily \textquotesingle{}created\+\_\+at\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ad25a27ff146b9aea08d183b503506e8f}
+Add an \char`\"{}order by\char`\"{} clause for a timestamp to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4415 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!on\+Delete@{on\+Delete}}
+\index{on\+Delete@{on\+Delete}!Eloquent@{Eloquent}}
+\subsubsection[{on\+Delete}]{\setlength{\rightskip}{0pt plus 5cm}static on\+Delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_af14ae014fa8397cc3053e31140327c8f}
+Register a replacement for the default delete function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 3661 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!order\+By@{order\+By}}
+\index{order\+By@{order\+By}!Eloquent@{Eloquent}}
+\subsubsection[{order\+By}]{\setlength{\rightskip}{0pt plus 5cm}static order\+By (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$direction = {\ttfamily \textquotesingle{}asc\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a7b25a6dc4f8ed2bca68eb6b2add393d4}
+Add an \char`\"{}order by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$direction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4393 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!order\+By\+Raw@{order\+By\+Raw}}
+\index{order\+By\+Raw@{order\+By\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{order\+By\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static order\+By\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ae071d8a4f662325706c4d7e2b5e7e9b8}
+Add a raw \char`\"{}order by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4427 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Has@{or\+Has}}
+\index{or\+Has@{or\+Has}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Has}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_acf2a8a8afd50e113388376320751e786}
+Add a relationship count condition to the query with an \char`\"{}or\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3777 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Having@{or\+Having}}
+\index{or\+Having@{or\+Having}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Having}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Having (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aee5eb0c76a6a51c4e9b20078b675a4c5}
+Add a \char`\"{}or having\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4356 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Having\+Raw@{or\+Having\+Raw}}
+\index{or\+Having\+Raw@{or\+Having\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Having\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Having\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a4e4e75085baa8878ca271df67d53e30e}
+Add a raw or having clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4381 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where@{or\+Where}}
+\index{or\+Where@{or\+Where}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ad77cea82c6a7bc0b35c0a592be62b539}
+Add an \char`\"{}or where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3710 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Between@{or\+Where\+Between}}
+\index{or\+Where\+Between@{or\+Where\+Between}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Between}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a50b34fa9345d352a627b6dad1b9f9e67}
+Add an or where between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4069 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Exists@{or\+Where\+Exists}}
+\index{or\+Where\+Exists@{or\+Where\+Exists}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_abbda50bbbb58c0b85ef643817b849254}
+Add an or exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4143 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Has@{or\+Where\+Has}}
+\index{or\+Where\+Has@{or\+Where\+Has}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Has}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$callback, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a6b66c2d57787ed966f7dfb0dafa921e4}
+Add a relationship count condition to the query with where clauses and an \char`\"{}or\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3791 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+In@{or\+Where\+In}}
+\index{or\+Where\+In@{or\+Where\+In}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+In}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a17d127bdebbadbda47ee99dde6c154f1}
+Add an \char`\"{}or where in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4192 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Not\+Between@{or\+Where\+Not\+Between}}
+\index{or\+Where\+Not\+Between@{or\+Where\+Not\+Between}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Not\+Between}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Not\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a97189ab7f504c660fbcdcabcfd6f7316}
+Add an or where not between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4094 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Not\+Exists@{or\+Where\+Not\+Exists}}
+\index{or\+Where\+Not\+Exists@{or\+Where\+Not\+Exists}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Not\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Not\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aa252ff2002484f39211c9ddc2b4c72a9}
+Add a where not exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4166 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Not\+In@{or\+Where\+Not\+In}}
+\index{or\+Where\+Not\+In@{or\+Where\+Not\+In}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Not\+In}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Not\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ad6468d3018a644a511e7f12f47791553}
+Add an \char`\"{}or where not in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4217 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Not\+Null@{or\+Where\+Not\+Null}}
+\index{or\+Where\+Not\+Null@{or\+Where\+Not\+Null}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Not\+Null}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Not\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_adbbcaa543615712ab557ee64e342eed7}
+Add an \char`\"{}or where not null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4264 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Null@{or\+Where\+Null}}
+\index{or\+Where\+Null@{or\+Where\+Null}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Null}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a9cd968c8562cdaae1645867731a50282}
+Add an \char`\"{}or where null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4241 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!or\+Where\+Raw@{or\+Where\+Raw}}
+\index{or\+Where\+Raw@{or\+Where\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{or\+Where\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static or\+Where\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a4d6bd8058acc63662ab8764731f6b405}
+Add a raw or where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4043 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!paginate@{paginate}}
+\index{paginate@{paginate}!Eloquent@{Eloquent}}
+\subsubsection[{paginate}]{\setlength{\rightskip}{0pt plus 5cm}static paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily null}, }
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_adfb17beb819de278acf08ddf0ef1542b}
+Get a paginator for the \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3636 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!pluck@{pluck}}
+\index{pluck@{pluck}!Eloquent@{Eloquent}}
+\subsubsection[{pluck}]{\setlength{\rightskip}{0pt plus 5cm}static pluck (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a9c0033dee631e9306817e5734747751f}
+Pluck a single column from the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 3600 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!raw@{raw}}
+\index{raw@{raw}!Eloquent@{Eloquent}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}static raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a067198181d08be05b6d6a1ee31f72169}
+Create a raw database expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4802 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!remember@{remember}}
+\index{remember@{remember}!Eloquent@{Eloquent}}
+\subsubsection[{remember}]{\setlength{\rightskip}{0pt plus 5cm}static remember (
+\begin{DoxyParamCaption}
+\item[{}]{\$minutes, }
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ac089292a4ba5a31df961d7238aa612de}
+Indicate that the query results should be cached.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Date\+Time | int & {\em \$minutes} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4559 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!remember\+Forever@{remember\+Forever}}
+\index{remember\+Forever@{remember\+Forever}!Eloquent@{Eloquent}}
+\subsubsection[{remember\+Forever}]{\setlength{\rightskip}{0pt plus 5cm}static remember\+Forever (
+\begin{DoxyParamCaption}
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2362c564f3788dda0f7f7b7944ded0ac}
+Indicate that the query results should be cached forever.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4570 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!right\+Join@{right\+Join}}
+\index{right\+Join@{right\+Join}!Eloquent@{Eloquent}}
+\subsubsection[{right\+Join}]{\setlength{\rightskip}{0pt plus 5cm}static right\+Join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$first, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$second = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a66a2b0cb87d7469ed02e90556b6a5d4e}
+Add a right join to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$first} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4004 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!right\+Join\+Where@{right\+Join\+Where}}
+\index{right\+Join\+Where@{right\+Join\+Where}!Eloquent@{Eloquent}}
+\subsubsection[{right\+Join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}static right\+Join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ae038c062f2bd84b0647edeb4d8b74977}
+Add a \char`\"{}right join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4018 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!select@{select}}
+\index{select@{select}!Eloquent@{Eloquent}}
+\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}static select (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a2e3f8387cfbc9b03537c979be4e14a99}
+Set the columns to be selected.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3888 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!select\+Raw@{select\+Raw}}
+\index{select\+Raw@{select\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{select\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static select\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$expression}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a4ef7958dab141deb31e3a983b2821ade}
+Add a new \char`\"{}raw\char`\"{} select expression to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$expression} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3899 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!set\+Bindings@{set\+Bindings}}
+\index{set\+Bindings@{set\+Bindings}!Eloquent@{Eloquent}}
+\subsubsection[{set\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Bindings (
+\begin{DoxyParamCaption}
+\item[{}]{\$bindings, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}{\bf where}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ac9a04f23317b8bb17a8a3f1ba75eee2c}
+Set the bindings on the query builder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 4835 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!set\+Eager\+Loads@{set\+Eager\+Loads}}
+\index{set\+Eager\+Loads@{set\+Eager\+Loads}!Eloquent@{Eloquent}}
+\subsubsection[{set\+Eager\+Loads}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Eager\+Loads (
+\begin{DoxyParamCaption}
+\item[{}]{\$eager\+Load}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a63befc6a1ecf57d26d46b04c54f026fd}
+Set the relationships being eagerly loaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$eager\+Load} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 3833 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!set\+Model@{set\+Model}}
+\index{set\+Model@{set\+Model}!Eloquent@{Eloquent}}
+\subsubsection[{set\+Model}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Model (
+\begin{DoxyParamCaption}
+\item[{}]{\$model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a3b897b6992074e576cdd73b2725e32b3}
+Set a model instance for the model being queried.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Model & {\em \$model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3854 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!Eloquent@{Eloquent}}
+\subsubsection[{set\+Query}]{\setlength{\rightskip}{0pt plus 5cm}static set\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a1ea6f12210f330f4213e4251a8f86a0b}
+Set the underlying query builder instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 3812 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!shared\+Lock@{shared\+Lock}}
+\index{shared\+Lock@{shared\+Lock}!Eloquent@{Eloquent}}
+\subsubsection[{shared\+Lock}]{\setlength{\rightskip}{0pt plus 5cm}static shared\+Lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a9133d6b41d6e76ac6fdf3e1ea7b2ea48}
+Share lock the selected rows in the table.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 4537 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!simple\+Paginate@{simple\+Paginate}}
+\index{simple\+Paginate@{simple\+Paginate}!Eloquent@{Eloquent}}
+\subsubsection[{simple\+Paginate}]{\setlength{\rightskip}{0pt plus 5cm}static simple\+Paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily null}, }
+\item[{}]{\$columns = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_adf2a4d1a10b9f6bf6afbbc2cb559b474}
+Get a paginator only supporting simple next and previous links.
+
+This is more efficient on larger data-\/sets, etc.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3650 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!skip@{skip}}
+\index{skip@{skip}!Eloquent@{Eloquent}}
+\subsubsection[{skip}]{\setlength{\rightskip}{0pt plus 5cm}static skip (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a55983ccb2d101fa80b1e8c79af0d4054}
+Alias to set the \char`\"{}offset\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4449 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!sum@{sum}}
+\index{sum@{sum}!Eloquent@{Eloquent}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}static sum (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5d1457f7df7332cafd06f852e21f09ca}
+Retrieve the sum of the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 4723 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!take@{take}}
+\index{take@{take}!Eloquent@{Eloquent}}
+\subsubsection[{take}]{\setlength{\rightskip}{0pt plus 5cm}static take (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a7e93b3661fa8cf1132d3dbc17977aadd}
+Alias to set the \char`\"{}limit\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4471 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!to\+Sql@{to\+Sql}}
+\index{to\+Sql@{to\+Sql}!Eloquent@{Eloquent}}
+\subsubsection[{to\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}static to\+Sql (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab4d6a9404d9a1caa34b985a809ac23a3}
+Get the S\+Q\+L representation of the query.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 4547 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!truncate@{truncate}}
+\index{truncate@{truncate}!Eloquent@{Eloquent}}
+\subsubsection[{truncate}]{\setlength{\rightskip}{0pt plus 5cm}static truncate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aa6c3ac3f820b84788bd483fe569f3c01}
+Run a truncate statement on the table.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 4779 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!union@{union}}
+\index{union@{union}!Eloquent@{Eloquent}}
+\subsubsection[{union}]{\setlength{\rightskip}{0pt plus 5cm}static union (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$all = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a0e8c6bfc23592bc2f472ab0d0318240f}
+Add a union statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | \textbackslash{}\+Closure & {\em \$query} & \\
+\hline
+bool & {\em \$all} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4495 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!union\+All@{union\+All}}
+\index{union\+All@{union\+All}!Eloquent@{Eloquent}}
+\subsubsection[{union\+All}]{\setlength{\rightskip}{0pt plus 5cm}static union\+All (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a48041dd3d52357ec6ceee89e1244e181}
+Add a union all statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | \textbackslash{}\+Closure & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4506 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!use\+Write\+Pdo@{use\+Write\+Pdo}}
+\index{use\+Write\+Pdo@{use\+Write\+Pdo}!Eloquent@{Eloquent}}
+\subsubsection[{use\+Write\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}static use\+Write\+Pdo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a64f5c868e5c3e025d0209959b1a4fa53}
+Use the write pdo for query.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4889 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where@{where}}
+\index{where@{where}!Eloquent@{Eloquent}}
+\subsubsection[{where}]{\setlength{\rightskip}{0pt plus 5cm}static where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a18b43b8093091760c22b56dab6ac792d}
+Add a basic where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 3697 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Between@{where\+Between}}
+\index{where\+Between@{where\+Between}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Between}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a8d58d20cdbba5ada17f0efa18f7dfb6e}
+Add a where between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4057 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Day@{where\+Day}}
+\index{where\+Day@{where\+Day}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Day}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Day (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a06f49769899a07e286c2abdd83a24f25}
+Add a \char`\"{}where day\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4278 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Doesnt\+Have@{where\+Doesnt\+Have}}
+\index{where\+Doesnt\+Have@{where\+Doesnt\+Have}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Doesnt\+Have}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Doesnt\+Have (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a730540aa91da91611e826181f490b2d7}
+Add a relationship count condition to the query with where clauses.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3764 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Exists@{where\+Exists}}
+\index{where\+Exists@{where\+Exists}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a70c68f588e6f77d6ecbaef4574928c95}
+Add an exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4131 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Has@{where\+Has}}
+\index{where\+Has@{where\+Has}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Has}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$callback, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ab80ee580afdae24b713fc1fa1f600ba7}
+Add a relationship count condition to the query with where clauses.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 3752 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+In@{where\+In}}
+\index{where\+In@{where\+In}!Eloquent@{Eloquent}}
+\subsubsection[{where\+In}]{\setlength{\rightskip}{0pt plus 5cm}static where\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5108430123cac04aa49ca97fbecda348}
+Add a \char`\"{}where in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4180 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Month@{where\+Month}}
+\index{where\+Month@{where\+Month}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Month}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Month (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_aaf6eea9156ef346b787206a90153f6c2}
+Add a \char`\"{}where month\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4292 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Nested@{where\+Nested}}
+\index{where\+Nested@{where\+Nested}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ada43238be4118a15ee8a57efb8702a80}
+Add a nested where statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4106 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Not\+Between@{where\+Not\+Between}}
+\index{where\+Not\+Between@{where\+Not\+Between}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Not\+Between}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Not\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a64050790f2ab7cf74c3b841f82c2a400}
+Add a where not between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4082 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Not\+Exists@{where\+Not\+Exists}}
+\index{where\+Not\+Exists@{where\+Not\+Exists}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Not\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Not\+Exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_acdcfdb99a60340604e0969eb1095da33}
+Add a where not exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4155 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Not\+In@{where\+Not\+In}}
+\index{where\+Not\+In@{where\+Not\+In}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Not\+In}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Not\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_acbe1f4270b3da89ac5511307b91207fd}
+Add a \char`\"{}where not in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4205 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Not\+Null@{where\+Not\+Null}}
+\index{where\+Not\+Null@{where\+Not\+Null}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Not\+Null}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Not\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a52438f38b51d170f4d8169b23c60627e}
+Add a \char`\"{}where not null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4253 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Null@{where\+Null}}
+\index{where\+Null@{where\+Null}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Null}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_ae849283f56b308ff6cb58df2868292a0}
+Add a \char`\"{}where null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4230 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Raw@{where\+Raw}}
+\index{where\+Raw@{where\+Raw}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5a611af8a6bdebf6adae52bcb4aa5a73}
+Add a raw where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 4031 of file \+\_\+ide\+\_\+helper.\+php.
+
+\index{Eloquent@{Eloquent}!where\+Year@{where\+Year}}
+\index{where\+Year@{where\+Year}!Eloquent@{Eloquent}}
+\subsubsection[{where\+Year}]{\setlength{\rightskip}{0pt plus 5cm}static where\+Year (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_eloquent_a5482f30e705e7ae6ca3575a3cb5fc6fc}
+Add a \char`\"{}where year\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 4306 of file \+\_\+ide\+\_\+helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+ide\+\_\+helper.\+php}\end{DoxyCompactItemize}

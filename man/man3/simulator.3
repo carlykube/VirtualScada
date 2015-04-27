@@ -1,0 +1,137 @@
+.TH "simulator" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+simulator \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBprocvar\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBprocessUpdate\fP (\fBupdate\fP)"
+.br
+.ti -1c
+.RI "def \fBapplyUpdate\fP (\fBupdate\fP, state)"
+.br
+.ti -1c
+.RI "def \fBcompileUpdate\fP (state)"
+.br
+.ti -1c
+.RI "def \fBmain\fP (\fBsystem\fP, sim_output_filename)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "string \fBprogramDescription\fP = '''This program implements an ICS simulation\&.'''"
+.br
+.RI "\fIObtain simulation name as command line option\&. \fP"
+.ti -1c
+.RI "tuple \fBparser\fP = OptionParser(description=\fBprogramDescription\fP)"
+.br
+.ti -1c
+.RI "string \fBaction\fP = 'store'"
+.br
+.ti -1c
+.RI "\fBsystem\fP = opts\&.system"
+.br
+.ti -1c
+.RI "\fBlogfile_name\fP = opts\&.logfile"
+.br
+.RI "\fICreate a CSV file to record the sim state after each update\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def simulator\&.applyUpdate ( update,  state)"
+
+.PP
+.nf
+This function takes a dictionary corresponding to an update and 
+   if the key corresponds to a state variable, the state variable is set to
+   the value in the update.
+
+   @param update Dictionary derived from an update message.
+   @param state The state dictionary for the process simulation
+.fi
+.PP
+ 
+.PP
+Definition at line 82 of file simulator\&.py\&.
+.SS "def simulator\&.compileUpdate ( state)"
+
+.PP
+.nf
+This function creates a JSON string of all state variables.
+
+   @param state The dictionary of process state variables.
+   @returns A string containing the JSON representation of the
+                state variables.
+.fi
+.PP
+ 
+.PP
+Definition at line 101 of file simulator\&.py\&.
+.SS "def simulator\&.main ( system,  sim_output_filename)"
+
+.PP
+.nf
+This function contains the main logic of the simulator
+.fi
+.PP
+ 
+.PP
+Definition at line 113 of file simulator\&.py\&.
+.SS "def simulator\&.processUpdate ( update)"
+
+.PP
+.nf
+This function takes an update packet, converts JSON into Python data,
+and then applies all of the listed changes to the process variables.
+
+@param update This parameter is a JSON message received from the interface
+@returns A dictionary of the message contents
+
+.fi
+.PP
+ 
+.PP
+Definition at line 71 of file simulator\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "string action = 'store'"
+
+.PP
+Definition at line 188 of file simulator\&.py\&.
+.SS "logfile_name = opts\&.logfile"
+
+.PP
+Create a CSV file to record the sim state after each update\&. This is mostly for debugging\&. The bufsize=1 indicates the file should be line buffered 
+.PP
+Definition at line 196 of file simulator\&.py\&.
+.SS "tuple parser = OptionParser(description=\fBprogramDescription\fP)"
+
+.PP
+Definition at line 185 of file simulator\&.py\&.
+.SS "string programDescription = '''This program implements an ICS simulation\&.'''"
+
+.PP
+Obtain simulation name as command line option\&. 
+.PP
+Definition at line 184 of file simulator\&.py\&.
+.SS "system = opts\&.system"
+
+.PP
+Definition at line 193 of file simulator\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

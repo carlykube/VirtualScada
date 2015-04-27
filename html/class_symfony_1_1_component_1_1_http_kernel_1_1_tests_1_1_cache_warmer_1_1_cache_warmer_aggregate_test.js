@@ -1,0 +1,9 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test =
+[
+    [ "getCacheWarmerMock", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#ac317c0dab1f78a818c5862c8834294ea", null ],
+    [ "testInjectWarmersUsingAdd", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#adb313199b7d7163b74b4cc841605269a", null ],
+    [ "testInjectWarmersUsingConstructor", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#a011a2f87620b53347a704aa8005c9e48", null ],
+    [ "testInjectWarmersUsingSetWarmers", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#a0c51980361acd2c490b21728e1372997", null ],
+    [ "testWarmupDoesCallWarmupOnOptionalWarmersWhenEnableOptionalWarmersIsEnabled", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#a062b04312166ccd11782a7d7e2e3c901", null ],
+    [ "testWarmupDoesNotCallWarmupOnOptionalWarmersWhenEnableOptionalWarmersIsNotEnabled", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_cache_warmer_1_1_cache_warmer_aggregate_test.html#ae4cf9376d56b536b3601bfdfe0e8ad4c", null ]
+];

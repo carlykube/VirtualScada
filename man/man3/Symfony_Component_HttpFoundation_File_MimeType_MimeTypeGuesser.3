@@ -1,0 +1,128 @@
+.TH "MimeTypeGuesser" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MimeTypeGuesser \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBMimeTypeGuesserInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregister\fP (\fBMimeTypeGuesserInterface\fP $guesser)"
+.br
+.ti -1c
+.RI "\fBguess\fP ($\fBpath\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetInstance\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$guessers\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP singleton mime type guesser\&.
+.PP
+By default, all mime type guessers provided by the framework are installed (if available on the current OS/PHP setup)\&.
+.PP
+You can register custom guessers by calling the \fBregister()\fP method on the singleton instance\&. Custom guessers are always called before any default ones\&. 
+.PP
+.nf
+$guesser = MimeTypeGuesser::getInstance();
+$guesser->register(new MyCustomMimeTypeGuesser());
+
+.fi
+.PP
+.PP
+If you want to change the order of the default guessers, just re-register your preferred one as a custom one\&. The last registered guesser is preferred over previously registered ones\&.
+.PP
+Re-registering a built-in guesser also allows you to configure it: 
+.PP
+.nf
+$guesser = MimeTypeGuesser::getInstance();
+$guesser->register(new FileinfoMimeTypeGuesser('/path/to/magic/file'));
+
+.fi
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Bernhard Schussek bschussek@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file MimeTypeGuesser\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static getInstance ()\fC [static]\fP"
+Returns the singleton instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBMimeTypeGuesser\fP 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file MimeTypeGuesser\&.php\&.
+.SS "guess ( $path)"
+Tries to guess the mime type of the given file\&.
+.PP
+The file is passed to each registered mime type guesser in reverse order of their registration (last registered is queried first)\&. Once a guesser returns a value that is not NULL, this method terminates and returns the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path to the file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The mime type or NULL, if none could be guessed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBMimeTypeGuesserInterface\fP\&.
+.PP
+Definition at line 112 of file MimeTypeGuesser\&.php\&.
+.SS "register (\fBMimeTypeGuesserInterface\fP $guesser)"
+Registers a new mime type guesser\&.
+.PP
+When guessing, this guesser is preferred over previously registered ones\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$guesser\fP 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file MimeTypeGuesser\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$guessers = array()\fC [protected]\fP"
+
+.PP
+Definition at line 54 of file MimeTypeGuesser\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

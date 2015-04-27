@@ -1,0 +1,210 @@
+.TH "PresenterManager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PresenterManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPresenter\fP, and IteratorAggregate\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBaddPresenters\fP (array $presenters)"
+.br
+.ti -1c
+.RI "\fBaddPresenter\fP (\fBPresenter\fP $presenter)"
+.br
+.ti -1c
+.RI "\fBremovePresenter\fP (\fBPresenter\fP $presenter)"
+.br
+.ti -1c
+.RI "\fBcanPresent\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpresentRef\fP ($value)"
+.br
+.ti -1c
+.RI "\fBpresent\fP ($value, $depth=null, $\fBoptions\fP=0)"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPresenter\fP ($value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$presenters\fP = array()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP \fBPresenter\fP manager service\&.
+.PP
+Presenters are registered with the \fBPresenterManager\fP, which then delegates value presentation to the most recently registered \fBPresenter\fP capable of presenting that value\&. 
+.PP
+Definition at line 21 of file PresenterManager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+\fBPresenterManager\fP constructor\&.
+.PP
+Initializes default Presenters\&. 
+.PP
+Definition at line 30 of file PresenterManager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addPresenter (\fBPresenter\fP $presenter)"
+Register a \fBPresenter\fP\&.
+.PP
+If multiple Presenters are able to present a value, the most recently registered \fBPresenter\fP takes precedence\&.
+.PP
+If $presenter is already registered, it will be re-registered as the highest precedence \fBPresenter\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$presenter\fP 
+.RE
+.PP
+
+.PP
+Definition at line 69 of file PresenterManager\&.php\&.
+.SS "addPresenters (array $presenters)"
+Register Presenters\&.
+.PP
+Presenters should be passed in an array from lowest to highest precedence\&.
+.PP
+\fBSee also:\fP
+.RS 4
+self::addPresenter
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIPresenter[]\fP $presenters 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file PresenterManager\&.php\&.
+.SS "canPresent ( $value)"
+Check whether a \fBPresenter\fP is registered for $value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 101 of file PresenterManager\&.php\&.
+.SS "getIterator ()"
+IteratorAggregate interface\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 155 of file PresenterManager\&.php\&.
+.SS "getPresenter ( $value)\fC [protected]\fP"
+Find the highest precedence \fBPresenter\fP available for $value\&.
+.PP
+Returns null if none is present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null|Presenter 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file PresenterManager\&.php\&.
+.SS "present ( $value,  $depth = \fCnull\fP,  $options = \fC0\fP)"
+Present a full representation of the value\&.
+.PP
+If $depth is 0, the value will be presented as a ref instead\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$depth\fP (default: null) 
+.br
+\fI$options\fP \fBOne\fP of \fBPresenter\fP constants
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 137 of file PresenterManager\&.php\&.
+.SS "presentRef ( $value)"
+Present a reference to the value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBPresenter\fP\&.
+.PP
+Definition at line 115 of file PresenterManager\&.php\&.
+.SS "removePresenter (\fBPresenter\fP $presenter)"
+Unregister a \fBPresenter\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$presenter\fP 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file PresenterManager\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$presenters = array()\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file PresenterManager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

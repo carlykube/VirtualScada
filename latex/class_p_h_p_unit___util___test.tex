@@ -1,0 +1,592 @@
+\section{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test Class Reference}
+\label{class_p_h_p_unit___util___test}\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf describe} ({\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test} \$test, \$as\+String=true)
+\item 
+static {\bf get\+Lines\+To\+Be\+Covered} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Lines\+To\+Be\+Used} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Requirements} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Missing\+Requirements} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Expected\+Exception} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Provided\+Data} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf parse\+Test\+Method\+Annotations} (\$class\+Name, \$method\+Name= \textquotesingle{}\textquotesingle{})
+\item 
+static {\bf get\+Backup\+Settings} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Dependencies} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Error\+Handler\+Settings} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Groups} (\$class\+Name, \$method\+Name= \textquotesingle{}\textquotesingle{})
+\item 
+static {\bf get\+Size} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Tickets} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Process\+Isolation\+Settings} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Preserve\+Global\+State\+Settings} (\$class\+Name, \$method\+Name)
+\item 
+static {\bf get\+Hook\+Methods} (\$class\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R} = \textquotesingle{}/@data\+Provider\textbackslash{}s+([{\bf a}-\/z\+A-\/Z0-\/9.\+\_\+\+:-\/\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}x7f-\/\textbackslash{}xff]+)/\textquotesingle{}
+\item 
+const {\bf R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N} = \textquotesingle{}(@expected\+Exception\textbackslash{}s+([\+:.\textbackslash{}w\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}x7f-\/\textbackslash{}xff]+)(?\+:[\textbackslash{}t ]+(\textbackslash{}S$\ast$))?(?\+:[\textbackslash{}t ]+(\textbackslash{}S$\ast$))?\textbackslash{}s$\ast$\$)m\textquotesingle{}
+\item 
+const {\bf R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N} = \textquotesingle{}/@requires\textbackslash{}s+(?P$<${\bf name}$>$P\+H\+P(?\+:Unit)?)\textbackslash{}s+(?P$<$value$>$[\textbackslash{}d\textbackslash{}.-\/]+({\bf dev}$\vert$(R\+C$\vert$alpha$\vert$beta)[\textbackslash{}d\textbackslash{}.])?)[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}
+\item 
+const {\bf R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S} = \textquotesingle{}/@requires\textbackslash{}s+O\+S\textbackslash{}s+(?P$<$value$>$.+?)[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}
+\item 
+const {\bf R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S} = \textquotesingle{}/@requires\textbackslash{}s+(?P$<${\bf name}$>$function$\vert$extension)\textbackslash{}s+(?P$<$value$>$([$^\wedge$ ]+?))[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}
+\item 
+const {\bf S\+M\+A\+L\+L} = 0
+\item 
+const {\bf M\+E\+D\+I\+U\+M} = 1
+\item 
+const {\bf L\+A\+R\+G\+E} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 29 of file Test.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!describe@{describe}}
+\index{describe@{describe}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{describe}]{\setlength{\rightskip}{0pt plus 5cm}static describe (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}}]{\$test, }
+\item[{}]{\$as\+String = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a0d72b8e425a7024553f5115ba850b7e3}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Test}{p.}{interface_p_h_p_unit___framework___test} & {\em \$test} & \\
+\hline
+boolean & {\em \$as\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Backup\+Settings@{get\+Backup\+Settings}}
+\index{get\+Backup\+Settings@{get\+Backup\+Settings}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Backup\+Settings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Backup\+Settings (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a826b0e27923488caaa268009331e3f9a}
+Returns the backup settings for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 474 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Dependencies@{get\+Dependencies}}
+\index{get\+Dependencies@{get\+Dependencies}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Dependencies}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Dependencies (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a2195fde42b44d78e284334120dd800c2}
+Returns the dependencies for a test class or method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 498 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Error\+Handler\+Settings@{get\+Error\+Handler\+Settings}}
+\index{get\+Error\+Handler\+Settings@{get\+Error\+Handler\+Settings}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Error\+Handler\+Settings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Error\+Handler\+Settings (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a76e935dd2c50aa597cc40cfddd3c1410}
+Returns the error handler settings for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 529 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Expected\+Exception@{get\+Expected\+Exception}}
+\index{get\+Expected\+Exception@{get\+Expected\+Exception}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Expected\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Expected\+Exception (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a2d8407c92673d63d38f97954456209d8}
+Returns the expected exception for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+3.\+6 
+\end{DoxySince}
+
+
+Definition at line 268 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Groups@{get\+Groups}}
+\index{get\+Groups@{get\+Groups}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Groups}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Groups (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a62f1ff32c020c91093fa1dfd595dbd89}
+Returns the groups for a test class or method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line 546 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Hook\+Methods@{get\+Hook\+Methods}}
+\index{get\+Hook\+Methods@{get\+Hook\+Methods}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Hook\+Methods}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Hook\+Methods (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_ab4560a0a9c92206b61da8638ebaad3a3}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+0.\+8 
+\end{DoxySince}
+
+
+Definition at line 689 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Lines\+To\+Be\+Covered@{get\+Lines\+To\+Be\+Covered}}
+\index{get\+Lines\+To\+Be\+Covered@{get\+Lines\+To\+Be\+Covered}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Lines\+To\+Be\+Covered}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Lines\+To\+Be\+Covered (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a89f50f9b00efd90b9d4e1ef7c1ac59fd}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$bool 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Code\+Coverage\+Exception}{p.}{class_p_h_p_unit___framework___code_coverage_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 78 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Lines\+To\+Be\+Used@{get\+Lines\+To\+Be\+Used}}
+\index{get\+Lines\+To\+Be\+Used@{get\+Lines\+To\+Be\+Used}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Lines\+To\+Be\+Used}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Lines\+To\+Be\+Used (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a38cabc638131d7ec043dbabfd85b7b03}
+Returns lines of code specified with the  annotation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 100 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Missing\+Requirements@{get\+Missing\+Requirements}}
+\index{get\+Missing\+Requirements@{get\+Missing\+Requirements}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Missing\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Missing\+Requirements (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_aaedbc4ae962e9dbf074a6a3cd284ffd6}
+Returns the missing requirements for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 4.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line 216 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Preserve\+Global\+State\+Settings@{get\+Preserve\+Global\+State\+Settings}}
+\index{get\+Preserve\+Global\+State\+Settings@{get\+Preserve\+Global\+State\+Settings}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Preserve\+Global\+State\+Settings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Preserve\+Global\+State\+Settings (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a81cd468af157d6d2f1a9e30119e85f14}
+Returns the preserve global state settings for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 675 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Process\+Isolation\+Settings@{get\+Process\+Isolation\+Settings}}
+\index{get\+Process\+Isolation\+Settings@{get\+Process\+Isolation\+Settings}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Process\+Isolation\+Settings}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Process\+Isolation\+Settings (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_aa88a83fc430fcd1dfa1ac6c1ff72f0c1}
+Returns the process isolation settings for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+1 
+\end{DoxySince}
+
+
+Definition at line 652 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Provided\+Data@{get\+Provided\+Data}}
+\index{get\+Provided\+Data@{get\+Provided\+Data}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Provided\+Data}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Provided\+Data (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a1801fabe269aeaf27690144e4a42441b}
+Returns the provided data for a method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$\+Iterator when a data provider is specified and exists false when a data provider is specified but does not exist null when no data provider is specified 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line 353 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Requirements@{get\+Requirements}}
+\index{get\+Requirements@{get\+Requirements}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Requirements}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Requirements (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a1c48dbe1465042e44dc39725c14ab922}
+Returns the requirements for a test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+6.\+0 
+\end{DoxySince}
+
+
+Definition at line 172 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Size (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_a31a1a1c97c8b575db6bbe40720e280a8}
+Returns the size of the test.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+6.\+0 
+\end{DoxySince}
+
+
+Definition at line 596 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!get\+Tickets@{get\+Tickets}}
+\index{get\+Tickets@{get\+Tickets}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{get\+Tickets}]{\setlength{\rightskip}{0pt plus 5cm}static get\+Tickets (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_ad50f8c2943d0401b2a01abe0949dc48b}
+Returns the tickets for a test class or method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 624 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!parse\+Test\+Method\+Annotations@{parse\+Test\+Method\+Annotations}}
+\index{parse\+Test\+Method\+Annotations@{parse\+Test\+Method\+Annotations}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{parse\+Test\+Method\+Annotations}]{\setlength{\rightskip}{0pt plus 5cm}static parse\+Test\+Method\+Annotations (
+\begin{DoxyParamCaption}
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_p_h_p_unit___util___test_ae712e885ac59408ab343bcdf69cf8f40}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Reflection\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 3.\+4.\+0 
+\end{DoxySince}
+
+
+Definition at line 421 of file Test.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!L\+A\+R\+G\+E@{L\+A\+R\+G\+E}}
+\index{L\+A\+R\+G\+E@{L\+A\+R\+G\+E}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{L\+A\+R\+G\+E}]{\setlength{\rightskip}{0pt plus 5cm}const L\+A\+R\+G\+E = 2}\label{class_p_h_p_unit___util___test_a002a9c8499aa25c88e8418d0d99bfc4b}
+
+
+Definition at line 39 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!M\+E\+D\+I\+U\+M@{M\+E\+D\+I\+U\+M}}
+\index{M\+E\+D\+I\+U\+M@{M\+E\+D\+I\+U\+M}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{M\+E\+D\+I\+U\+M}]{\setlength{\rightskip}{0pt plus 5cm}const M\+E\+D\+I\+U\+M = 1}\label{class_p_h_p_unit___util___test_a7ca655183eb9a4bd8ae93d82c64209b8}
+
+
+Definition at line 38 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R@{R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R}}
+\index{R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R@{R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+G\+E\+X\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+O\+V\+I\+D\+E\+R = \textquotesingle{}/@data\+Provider\textbackslash{}s+([{\bf a}-\/z\+A-\/Z0-\/9.\+\_\+\+:-\/\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}x7f-\/\textbackslash{}xff]+)/\textquotesingle{}}\label{class_p_h_p_unit___util___test_a1b3ee24e7c7ec93bf0acc5adbe3aa9b0}
+
+
+Definition at line 31 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N@{R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N}}
+\index{R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N@{R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+G\+E\+X\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N = \textquotesingle{}(@expected\+Exception\textbackslash{}s+([\+:.\textbackslash{}w\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}x7f-\/\textbackslash{}xff]+)(?\+:[\textbackslash{}t ]+(\textbackslash{}S$\ast$))?(?\+:[\textbackslash{}t ]+(\textbackslash{}S$\ast$))?\textbackslash{}s$\ast$\$)m\textquotesingle{}}\label{class_p_h_p_unit___util___test_a2ce890f6751d460786f79997dec06743}
+
+
+Definition at line 32 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S}}
+\index{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S = \textquotesingle{}/@requires\textbackslash{}s+(?P$<${\bf name}$>$function$\vert$extension)\textbackslash{}s+(?P$<$value$>$([$^\wedge$ ]+?))[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}}\label{class_p_h_p_unit___util___test_abef4dac60c1119b84deaf0369e1fab33}
+
+
+Definition at line 35 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S}}
+\index{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+O\+S = \textquotesingle{}/@requires\textbackslash{}s+O\+S\textbackslash{}s+(?P$<$value$>$.+?)[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}}\label{class_p_h_p_unit___util___test_aab1a354980fb7ce403350ee18b56f5e1}
+
+
+Definition at line 34 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N@{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const R\+E\+G\+E\+X\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+S\+\_\+\+V\+E\+R\+S\+I\+O\+N = \textquotesingle{}/@requires\textbackslash{}s+(?P$<${\bf name}$>$P\+H\+P(?\+:Unit)?)\textbackslash{}s+(?P$<$value$>$[\textbackslash{}d\textbackslash{}.-\/]+({\bf dev}$\vert$(R\+C$\vert$alpha$\vert$beta)[\textbackslash{}d\textbackslash{}.])?)[ \textbackslash{}t]$\ast$\textbackslash{}{\bf r}?\$/m\textquotesingle{}}\label{class_p_h_p_unit___util___test_a90cc8808192399dde41fee04b82bb7b5}
+
+
+Definition at line 33 of file Test.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}!S\+M\+A\+L\+L@{S\+M\+A\+L\+L}}
+\index{S\+M\+A\+L\+L@{S\+M\+A\+L\+L}!P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test@{P\+H\+P\+Unit\+\_\+\+Util\+\_\+\+Test}}
+\subsubsection[{S\+M\+A\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}const S\+M\+A\+L\+L = 0}\label{class_p_h_p_unit___util___test_a948f7e23283c05b69e2cfb92a4f4c09a}
+
+
+Definition at line 37 of file Test.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpunit/phpunit/src/\+Util/{\bf Test.\+php}\end{DoxyCompactItemize}

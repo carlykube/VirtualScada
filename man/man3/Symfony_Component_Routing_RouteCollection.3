@@ -1,0 +1,311 @@
+.TH "RouteCollection" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RouteCollection \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits IteratorAggregate, and Countable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__clone\fP ()"
+.br
+.ti -1c
+.RI "\fBgetIterator\fP ()"
+.br
+.ti -1c
+.RI "\fBcount\fP ()"
+.br
+.ti -1c
+.RI "\fBadd\fP ($\fBname\fP, \fBRoute\fP $route)"
+.br
+.ti -1c
+.RI "\fBall\fP ()"
+.br
+.ti -1c
+.RI "\fBget\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBremove\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBaddCollection\fP (\fBRouteCollection\fP $collection)"
+.br
+.ti -1c
+.RI "\fBaddPrefix\fP ($prefix, array $defaults=array(), array $requirements=array())"
+.br
+.ti -1c
+.RI "\fBsetHost\fP ($pattern, array $defaults=array(), array $requirements=array())"
+.br
+.ti -1c
+.RI "\fBsetCondition\fP ($condition)"
+.br
+.ti -1c
+.RI "\fBaddDefaults\fP (array $defaults)"
+.br
+.ti -1c
+.RI "\fBaddRequirements\fP (array $requirements)"
+.br
+.ti -1c
+.RI "\fBaddOptions\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetSchemes\fP ($schemes)"
+.br
+.ti -1c
+.RI "\fBsetMethods\fP ($methods)"
+.br
+.ti -1c
+.RI "\fBgetResources\fP ()"
+.br
+.ti -1c
+.RI "\fBaddResource\fP (ResourceInterface $resource)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBA\fP \fBRouteCollection\fP represents a set of \fBRoute\fP instances\&.
+.PP
+When adding a route at the end of the collection, an existing route with the same name is removed first\&. So there can only be one route with a given name\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.PP
+Tobias Schultze http://tobion.de
+.RE
+.PP
+
+.PP
+Definition at line 28 of file RouteCollection\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "__clone ()"
+
+.PP
+Definition at line 40 of file RouteCollection\&.php\&.
+.SS "add ( $name, \fBRoute\fP $route)"
+Adds a route\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The route name 
+.br
+\fI$route\fP \fBA\fP \fBRoute\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 79 of file RouteCollection\&.php\&.
+.SS "addCollection (\fBRouteCollection\fP $collection)"
+Adds a route collection at the end of the current set by appending all routes of the added collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$collection\fP \fBA\fP \fBRouteCollection\fP instance
+.RE
+.PP
+
+.PP
+Definition at line 128 of file RouteCollection\&.php\&.
+.SS "addDefaults (array $defaults)"
+Adds defaults to all routes\&.
+.PP
+An existing default value under the same name in a route will be overridden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$defaults\fP An array of default values 
+.RE
+.PP
+
+.PP
+Definition at line 201 of file RouteCollection\&.php\&.
+.SS "addOptions (array $options)"
+Adds options to all routes\&.
+.PP
+An existing option value under the same name in a route will be overridden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP An array of options 
+.RE
+.PP
+
+.PP
+Definition at line 233 of file RouteCollection\&.php\&.
+.SS "addPrefix ( $prefix, array $defaults = \fCarray()\fP, array $requirements = \fCarray()\fP)"
+Adds a prefix to the path of all child routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP An optional prefix to add before each pattern of the route collection 
+.br
+\fI$defaults\fP An array of default values 
+.br
+\fI$requirements\fP An array of requirements
+.RE
+.PP
+
+.PP
+Definition at line 149 of file RouteCollection\&.php\&.
+.SS "addRequirements (array $requirements)"
+Adds requirements to all routes\&.
+.PP
+An existing requirement under the same name in a route will be overridden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$requirements\fP An array of requirements 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file RouteCollection\&.php\&.
+.SS "addResource (ResourceInterface $resource)"
+Adds a resource for this collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resource\fP \fBA\fP resource instance 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file RouteCollection\&.php\&.
+.SS "all ()"
+Returns all routes in this collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRoute\fP[] An array of routes 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file RouteCollection\&.php\&.
+.SS "count ()"
+Gets the number of Routes in this collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The number of routes 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file RouteCollection\&.php\&.
+.SS "get ( $name)"
+Gets a route by name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The route name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Route|null \fBA\fP \fBRoute\fP instance or null when not found 
+.RE
+.PP
+
+.PP
+Definition at line 103 of file RouteCollection\&.php\&.
+.SS "getIterator ()"
+Gets the current \fBRouteCollection\fP as an Iterator that includes all routes\&.
+.PP
+It implements \&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBall()\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+An  object for iterating over routes 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file RouteCollection\&.php\&.
+.SS "getResources ()"
+Returns an array of resources loaded to build this collection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ResourceInterface[] An array of resources 
+.RE
+.PP
+
+.PP
+Definition at line 271 of file RouteCollection\&.php\&.
+.SS "remove ( $name)"
+Removes a route or an array of routes by name from the collection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The route name or an array of route names 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file RouteCollection\&.php\&.
+.SS "setCondition ( $condition)"
+Sets a condition on all routes\&.
+.PP
+Existing conditions will be overridden\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$condition\fP The condition 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file RouteCollection\&.php\&.
+.SS "setHost ( $pattern, array $defaults = \fCarray()\fP, array $requirements = \fCarray()\fP)"
+Sets the host pattern on all routes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pattern\fP The pattern 
+.br
+\fI$defaults\fP An array of default values 
+.br
+\fI$requirements\fP An array of requirements 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file RouteCollection\&.php\&.
+.SS "setMethods ( $methods)"
+Sets the HTTP methods (e\&.g\&. 'POST') all child routes are restricted to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$methods\fP The method or an array of methods 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file RouteCollection\&.php\&.
+.SS "setSchemes ( $schemes)"
+Sets the schemes (e\&.g\&. 'https') all child routes are restricted to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$schemes\fP The scheme or an array of schemes 
+.RE
+.PP
+
+.PP
+Definition at line 247 of file RouteCollection\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,260 @@
+\section{Service\+Container Class Reference}
+\label{class_php_spec_1_1_service_container}\index{Service\+Container@{Service\+Container}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf set\+Param} (\$id, \$value)
+\item 
+{\bf get\+Param} (\$id, \$default=null)
+\item 
+{\bf set} (\$id, \$value)
+\item 
+{\bf set\+Shared} (\$id, \$callable)
+\item 
+{\bf get} (\$id)
+\item 
+{\bf is\+Defined} (\$id)
+\item 
+{\bf get\+By\+Prefix} (\$prefix)
+\item 
+{\bf remove} (\$id)
+\item 
+{\bf add\+Configurator} (\$configurator)
+\item 
+{\bf configure} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Service Container is a lightweight container based on Pimple to handle object creation of \doxyref{Php\+Spec}{p.}{namespace_php_spec} services. 
+
+Definition at line 22 of file Service\+Container.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!add\+Configurator@{add\+Configurator}}
+\index{add\+Configurator@{add\+Configurator}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{add\+Configurator}]{\setlength{\rightskip}{0pt plus 5cm}add\+Configurator (
+\begin{DoxyParamCaption}
+\item[{}]{\$configurator}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a938857d15207e0e13426e872922e809e}
+Adds a configurator, that can configure many services in one callable
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$configurator} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 206 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!configure@{configure}}
+\index{configure@{configure}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a9be5e0bdb5720efed6ddb6426c5c16ee}
+Loop through all configurators and invoke them 
+
+Definition at line 220 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!get@{get}}
+\index{get@{get}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a50e3bfb586b2f42932a6a93f3fbb0828}
+Retrieves a service from the container
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 134 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!get\+By\+Prefix@{get\+By\+Prefix}}
+\index{get\+By\+Prefix@{get\+By\+Prefix}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{get\+By\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+By\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$prefix}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a8ff179db1a9bf6905ef9ea75bfee8fb8}
+Retrieves a list of services of a given prefix
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!get\+Param@{get\+Param}}
+\index{get\+Param@{get\+Param}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{get\+Param}]{\setlength{\rightskip}{0pt plus 5cm}get\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_aa6e44b86a6ee83ef4e4623468b71e18d}
+Gets a param from the container or a default value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!is\+Defined@{is\+Defined}}
+\index{is\+Defined@{is\+Defined}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{is\+Defined}]{\setlength{\rightskip}{0pt plus 5cm}is\+Defined (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a4075018df8e6ebf4c7d1ee57b3bf4f1f}
+
+\begin{DoxyParams}{Parameters}
+{\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!remove@{remove}}
+\index{remove@{remove}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}remove (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a11f0aa9afc724ac4074e3ca127e79a2a}
+Removes a service from the container
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 185 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!set@{set}}
+\index{set@{set}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}set (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a4ba22f4c09574828ed7c28d7cefb6075}
+Sets a object or a callable for the object creation. \doxyref{A}{p.}{class_a} callable will be invoked every time get is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+object | callable & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 77 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!set\+Param@{set\+Param}}
+\index{set\+Param@{set\+Param}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{set\+Param}]{\setlength{\rightskip}{0pt plus 5cm}set\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a84b2f2b8b4321ac575bff0e9fe801461}
+Sets a param in the container
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Service\+Container.\+php.
+
+\index{Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}!set\+Shared@{set\+Shared}}
+\index{set\+Shared@{set\+Shared}!Php\+Spec\+::\+Service\+Container@{Php\+Spec\+::\+Service\+Container}}
+\subsubsection[{set\+Shared}]{\setlength{\rightskip}{0pt plus 5cm}set\+Shared (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$callable}
+\end{DoxyParamCaption}
+)}\label{class_php_spec_1_1_service_container_a1565fc4ee6577e4ea728a159d0f7f20e}
+Sets a callable for the object creation. The same object will be returned every time
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id} & \\
+\hline
+callable & {\em \$callable} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 106 of file Service\+Container.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpspec/phpspec/src/\+Php\+Spec/{\bf Service\+Container.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,217 @@
+\section{Container\+Aware\+Event\+Dispatcher Class Reference}
+\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher}\index{Container\+Aware\+Event\+Dispatcher@{Container\+Aware\+Event\+Dispatcher}}
+Inheritance diagram for Container\+Aware\+Event\+Dispatcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (Container\+Interface \$container)
+\item 
+{\bf add\+Listener\+Service} (\$event\+Name, \${\bf callback}, \$priority=0)
+\item 
+{\bf remove\+Listener} (\$event\+Name, \$listener)
+\item 
+{\bf has\+Listeners} (\$event\+Name=null)
+\item 
+{\bf get\+Listeners} (\$event\+Name=null)
+\item 
+{\bf add\+Subscriber\+Service} (\$service\+Id, \$class)
+\item 
+{\bf dispatch} (\$event\+Name, {\bf Event} \${\bf event}=null)
+\item 
+{\bf get\+Container} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lazy\+Load} (\$event\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lazily loads listeners and subscribers from the dependency injection container.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com} 
+
+Bernhard Schussek {\tt bschussek@gmail.\+com} 
+
+Jordan Alliot {\tt jordan.\+alliot@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 24 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{Container\+Interface}]{\$container}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a485ae35e25eed5f2bd7053b14a12bc78}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Container\+Interface & {\em \$container} & \doxyref{A}{p.}{class_a} Container\+Interface instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!add\+Listener\+Service@{add\+Listener\+Service}}
+\index{add\+Listener\+Service@{add\+Listener\+Service}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{add\+Listener\+Service}]{\setlength{\rightskip}{0pt plus 5cm}add\+Listener\+Service (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{}]{\$callback, }
+\item[{}]{\$priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a03f1a3698a82c80fa70288f395f44337}
+Adds a service as event listener.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & \doxyref{Event}{p.}{class_event} for which the listener is added \\
+\hline
+array & {\em \$callback} & The service I\+D of the listener service \& the method name that has to be called \\
+\hline
+int & {\em \$priority} & The higher this value, the earlier an event listener will be triggered in the chain. Defaults to 0.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 69 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!add\+Subscriber\+Service@{add\+Subscriber\+Service}}
+\index{add\+Subscriber\+Service@{add\+Subscriber\+Service}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{add\+Subscriber\+Service}]{\setlength{\rightskip}{0pt plus 5cm}add\+Subscriber\+Service (
+\begin{DoxyParamCaption}
+\item[{}]{\$service\+Id, }
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_aa9b81bdd8c7edce3d44da246fb0c3006}
+Adds a service as event subscriber.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$service\+Id} & The service I\+D of the subscriber service \\
+\hline
+string & {\em \$class} & The service\textquotesingle{}s class name (which must implement Event\+Subscriber\+Interface) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}dispatch (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{{\bf Event}}]{\$event = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a75b394fea0a8d9c842c91a34a4db99a5}
+\{\}
+
+Lazily loads listeners for this event from the dependency injection container.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!get\+Container@{get\+Container}}
+\index{get\+Container@{get\+Container}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{get\+Container}]{\setlength{\rightskip}{0pt plus 5cm}get\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a53e2ca32cf29808b0b18cd5accf3c4db}
+
+
+Definition at line 170 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!get\+Listeners@{get\+Listeners}}
+\index{get\+Listeners@{get\+Listeners}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{get\+Listeners}]{\setlength{\rightskip}{0pt plus 5cm}get\+Listeners (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a60846fb0ce44f706f2394a670fcdce9a}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Event\+Dispatcher\+Interface\+::get\+Listeners()}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_a60846fb0ce44f706f2394a670fcdce9a} 
+\end{DoxySeeAlso}
+
+
+Definition at line 121 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!has\+Listeners@{has\+Listeners}}
+\index{has\+Listeners@{has\+Listeners}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{has\+Listeners}]{\setlength{\rightskip}{0pt plus 5cm}has\+Listeners (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_ab616bc1ac4c11b03413416c7a26785e5}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Event\+Dispatcher\+Interface\+::has\+Listeners()}{p.}{interface_symfony_1_1_component_1_1_event_dispatcher_1_1_event_dispatcher_interface_ab616bc1ac4c11b03413416c7a26785e5} 
+\end{DoxySeeAlso}
+
+
+Definition at line 105 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!lazy\+Load@{lazy\+Load}}
+\index{lazy\+Load@{lazy\+Load}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{lazy\+Load}]{\setlength{\rightskip}{0pt plus 5cm}lazy\+Load (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_ad84368d063db177eb5c5d9eff4942e01}
+Lazily loads listeners for this event from the dependency injection container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event\+Name} & The name of the event to dispatch. The name of the event is the name of the method that is invoked on listeners. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 183 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+\index{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}!remove\+Listener@{remove\+Listener}}
+\index{remove\+Listener@{remove\+Listener}!Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher@{Symfony\+::\+Component\+::\+Event\+Dispatcher\+::\+Container\+Aware\+Event\+Dispatcher}}
+\subsubsection[{remove\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}remove\+Listener (
+\begin{DoxyParamCaption}
+\item[{}]{\$event\+Name, }
+\item[{}]{\$listener}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_event_dispatcher_1_1_container_aware_event_dispatcher_a285fd905f94dafed0c6007527b9d66fc}
+
+
+Definition at line 78 of file Container\+Aware\+Event\+Dispatcher.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/event-\/dispatcher/\+Symfony/\+Component/\+Event\+Dispatcher/{\bf Container\+Aware\+Event\+Dispatcher.\+php}\end{DoxyCompactItemize}

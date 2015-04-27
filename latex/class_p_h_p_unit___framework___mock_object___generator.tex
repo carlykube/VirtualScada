@@ -1,0 +1,633 @@
+\section{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator Class Reference}
+\label{class_p_h_p_unit___framework___mock_object___generator}\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Mock} (\$type, \$methods=array(), array \$arguments=array(), \$mock\+Class\+Name= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Constructor=T\+R\+U\+E, \$call\+Original\+Clone=T\+R\+U\+E, \$call\+Autoload=T\+R\+U\+E, \$clone\+Arguments=T\+R\+U\+E, \$call\+Original\+Methods=F\+A\+L\+S\+E, \$proxy\+Target=N\+U\+L\+L)
+\item 
+{\bf get\+Mock\+For\+Abstract\+Class} (\$original\+Class\+Name, array \$arguments=array(), \$mock\+Class\+Name= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Constructor=T\+R\+U\+E, \$call\+Original\+Clone=T\+R\+U\+E, \$call\+Autoload=T\+R\+U\+E, \$mocked\+Methods=array(), \$clone\+Arguments=T\+R\+U\+E)
+\item 
+{\bf get\+Mock\+For\+Trait} (\$trait\+Name, array \$arguments=array(), \$mock\+Class\+Name= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Constructor=T\+R\+U\+E, \$call\+Original\+Clone=T\+R\+U\+E, \$call\+Autoload=T\+R\+U\+E, \$mocked\+Methods=array(), \$clone\+Arguments=T\+R\+U\+E)
+\item 
+{\bf get\+Object\+For\+Trait} (\$trait\+Name, array \$arguments=array(), \$trait\+Class\+Name= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Constructor=T\+R\+U\+E, \$call\+Original\+Clone=T\+R\+U\+E, \$call\+Autoload=T\+R\+U\+E)
+\item 
+{\bf generate} (\$type, array \$methods=N\+U\+L\+L, \$mock\+Class\+Name= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Clone=T\+R\+U\+E, \$call\+Autoload=T\+R\+U\+E, \$clone\+Arguments=T\+R\+U\+E, \$call\+Original\+Methods=F\+A\+L\+S\+E)
+\item 
+{\bf generate\+Class\+From\+Wsdl} (\$wsdl\+File, \$class\+Name, array \$methods=array(), array \${\bf options}=array())
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Object} (\$code, \$class\+Name, \$type= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Constructor=F\+A\+L\+S\+E, \$call\+Autoload=F\+A\+L\+S\+E, array \$arguments=array(), \$call\+Original\+Methods=F\+A\+L\+S\+E, \$proxy\+Target=N\+U\+L\+L)
+\item 
+{\bf eval\+Class} (\$code, \$class\+Name)
+\item 
+{\bf generate\+Mock} (\$type, \$methods, \$mock\+Class\+Name, \$call\+Original\+Clone, \$call\+Autoload, \$clone\+Arguments, \$call\+Original\+Methods)
+\item 
+{\bf generate\+Class\+Name} (\$type, \$class\+Name, \$prefix)
+\item 
+{\bf generate\+Mock\+Class\+Declaration} (array \$mock\+Class\+Name, \$is\+Interface, array \$additional\+Interfaces=array())
+\item 
+{\bf generate\+Mocked\+Method\+Definition\+From\+Existing} (\$template\+Dir, Reflection\+Method \$method, \$clone\+Arguments, \$call\+Original\+Methods)
+\item 
+{\bf generate\+Mocked\+Method\+Definition} (\$template\+Dir, \$class\+Name, \$method\+Name, \$clone\+Arguments=T\+R\+U\+E, \$modifier= \textquotesingle{}public\textquotesingle{}, \$arguments\+\_\+decl= \textquotesingle{}\textquotesingle{}, \$arguments\+\_\+call= \textquotesingle{}\textquotesingle{}, \$reference= \textquotesingle{}\textquotesingle{}, \$call\+Original\+Methods=F\+A\+L\+S\+E, \$static=F\+A\+L\+S\+E)
+\item 
+{\bf can\+Mock\+Method} (Reflection\+Method \$method)
+\item 
+{\bf get\+Method\+Parameters} (Reflection\+Method \$method, \$for\+Call=F\+A\+L\+S\+E)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$blacklisted\+Method\+Names}
+\item 
+{\bf \$soap\+Loaded} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 33 of file Generator.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!can\+Mock\+Method@{can\+Mock\+Method}}
+\index{can\+Mock\+Method@{can\+Mock\+Method}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{can\+Mock\+Method}]{\setlength{\rightskip}{0pt plus 5cm}can\+Mock\+Method (
+\begin{DoxyParamCaption}
+\item[{Reflection\+Method}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a1936ec8d4db47776ff253a5230a97ddf}
+
+\begin{DoxyParams}[1]{Parameters}
+Reflection\+Method & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 994 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!eval\+Class@{eval\+Class}}
+\index{eval\+Class@{eval\+Class}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{eval\+Class}]{\setlength{\rightskip}{0pt plus 5cm}eval\+Class (
+\begin{DoxyParamCaption}
+\item[{}]{\$code, }
+\item[{}]{\$class\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a4e11bf092126273943f3054915fbd565}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$code} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 298 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate@{generate}}
+\index{generate@{generate}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate}]{\setlength{\rightskip}{0pt plus 5cm}generate (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{array}]{\$methods = {\ttfamily NULL}, }
+\item[{}]{\$mock\+Class\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Clone = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily TRUE}, }
+\item[{}]{\$clone\+Arguments = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Methods = {\ttfamily FALSE}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_a7442a733e38c444e4bd57de45aaba8c5}
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$type} & \\
+\hline
+array & {\em \$methods} & \\
+\hline
+string & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 495 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Class\+From\+Wsdl@{generate\+Class\+From\+Wsdl}}
+\index{generate\+Class\+From\+Wsdl@{generate\+Class\+From\+Wsdl}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Class\+From\+Wsdl}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Class\+From\+Wsdl (
+\begin{DoxyParamCaption}
+\item[{}]{\$wsdl\+File, }
+\item[{}]{\$class\+Name, }
+\item[{array}]{\$methods = {\ttfamily array()}, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_ad470b6438f6283cdf688d3fcb3d1dac7}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$wsdl\+File} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+array & {\em \$methods} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 540 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Class\+Name@{generate\+Class\+Name}}
+\index{generate\+Class\+Name@{generate\+Class\+Name}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Class\+Name}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Class\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$class\+Name, }
+\item[{}]{\$prefix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_af2aee43184898eccd338484ab20ab018}
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$type} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 829 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Mock@{generate\+Mock}}
+\index{generate\+Mock@{generate\+Mock}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Mock}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Mock (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$methods, }
+\item[{}]{\$mock\+Class\+Name, }
+\item[{}]{\$call\+Original\+Clone, }
+\item[{}]{\$call\+Autoload, }
+\item[{}]{\$clone\+Arguments, }
+\item[{}]{\$call\+Original\+Methods}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a3d2bd6fa213667eae6076558629dd21c}
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$type} & \\
+\hline
+array | null & {\em \$methods} & \\
+\hline
+string & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 642 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Mock\+Class\+Declaration@{generate\+Mock\+Class\+Declaration}}
+\index{generate\+Mock\+Class\+Declaration@{generate\+Mock\+Class\+Declaration}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Mock\+Class\+Declaration}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Mock\+Class\+Declaration (
+\begin{DoxyParamCaption}
+\item[{array}]{\$mock\+Class\+Name, }
+\item[{}]{\$is\+Interface, }
+\item[{array}]{\$additional\+Interfaces = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a980853bea9cdd56ca7212a7ddc481714}
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$is\+Interface} & \\
+\hline
+array & {\em \$additional\+Interfaces} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 871 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Mocked\+Method\+Definition@{generate\+Mocked\+Method\+Definition}}
+\index{generate\+Mocked\+Method\+Definition@{generate\+Mocked\+Method\+Definition}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Mocked\+Method\+Definition}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Mocked\+Method\+Definition (
+\begin{DoxyParamCaption}
+\item[{}]{\$template\+Dir, }
+\item[{}]{\$class\+Name, }
+\item[{}]{\$method\+Name, }
+\item[{}]{\$clone\+Arguments = {\ttfamily TRUE}, }
+\item[{}]{\$modifier = {\ttfamily \textquotesingle{}public\textquotesingle{}}, }
+\item[{}]{\$arguments\+\_\+decl = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$arguments\+\_\+call = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$reference = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Methods = {\ttfamily FALSE}, }
+\item[{}]{\$static = {\ttfamily FALSE}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a6808662f3c662b6100ace5ae686d1719}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$template\+Dir} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+string & {\em \$method\+Name} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+string & {\em \$modifier} & \\
+\hline
+string & {\em \$arguments\+\_\+decl} & \\
+\hline
+string & {\em \$arguments\+\_\+call} & \\
+\hline
+string & {\em \$reference} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+boolean & {\em \$static} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 961 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!generate\+Mocked\+Method\+Definition\+From\+Existing@{generate\+Mocked\+Method\+Definition\+From\+Existing}}
+\index{generate\+Mocked\+Method\+Definition\+From\+Existing@{generate\+Mocked\+Method\+Definition\+From\+Existing}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{generate\+Mocked\+Method\+Definition\+From\+Existing}]{\setlength{\rightskip}{0pt plus 5cm}generate\+Mocked\+Method\+Definition\+From\+Existing (
+\begin{DoxyParamCaption}
+\item[{}]{\$template\+Dir, }
+\item[{Reflection\+Method}]{\$method, }
+\item[{}]{\$clone\+Arguments, }
+\item[{}]{\$call\+Original\+Methods}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a62610662af515d8eb4c057dc9f6c71a9}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$template\+Dir} & \\
+\hline
+Reflection\+Method & {\em \$method} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 914 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Method\+Parameters@{get\+Method\+Parameters}}
+\index{get\+Method\+Parameters@{get\+Method\+Parameters}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Method\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}get\+Method\+Parameters (
+\begin{DoxyParamCaption}
+\item[{Reflection\+Method}]{\$method, }
+\item[{}]{\$for\+Call = {\ttfamily FALSE}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a4042c605cd4dc15e59c8bc1765c1bd01}
+Returns the parameters of a function or method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Reflection\+Method & {\em \$method} & \\
+\hline
+boolean & {\em \$for\+Call} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 2.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 1014 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Mock@{get\+Mock}}
+\index{get\+Mock@{get\+Mock}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Mock}]{\setlength{\rightskip}{0pt plus 5cm}get\+Mock (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$methods = {\ttfamily array()}, }
+\item[{array}]{\$arguments = {\ttfamily array()}, }
+\item[{}]{\$mock\+Class\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Constructor = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Clone = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily TRUE}, }
+\item[{}]{\$clone\+Arguments = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Methods = {\ttfamily FALSE}, }
+\item[{}]{\$proxy\+Target = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_a0bb8fc8c81ade099a8d070dfafe12076}
+Returns a mock object for the specified class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$type} & \\
+\hline
+array & {\em \$methods} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+string & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Constructor} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+object & {\em \$proxy\+Target} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & \\
+\hline
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line 145 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Mock\+For\+Abstract\+Class@{get\+Mock\+For\+Abstract\+Class}}
+\index{get\+Mock\+For\+Abstract\+Class@{get\+Mock\+For\+Abstract\+Class}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Mock\+For\+Abstract\+Class}]{\setlength{\rightskip}{0pt plus 5cm}get\+Mock\+For\+Abstract\+Class (
+\begin{DoxyParamCaption}
+\item[{}]{\$original\+Class\+Name, }
+\item[{array}]{\$arguments = {\ttfamily array()}, }
+\item[{}]{\$mock\+Class\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Constructor = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Clone = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily TRUE}, }
+\item[{}]{\$mocked\+Methods = {\ttfamily array()}, }
+\item[{}]{\$clone\+Arguments = {\ttfamily TRUE}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_afaa9c5f74b37295c5b1773728a1131b6}
+Returns a mock object for the specified abstract class with all abstract methods of the class mocked. Concrete methods to mock can be specified with the last parameter
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$original\+Class\+Name} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+string & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Constructor} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+array & {\em \$mocked\+Methods} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+0.\+0 
+\end{DoxySince}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 323 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Mock\+For\+Trait@{get\+Mock\+For\+Trait}}
+\index{get\+Mock\+For\+Trait@{get\+Mock\+For\+Trait}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Mock\+For\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}get\+Mock\+For\+Trait (
+\begin{DoxyParamCaption}
+\item[{}]{\$trait\+Name, }
+\item[{array}]{\$arguments = {\ttfamily array()}, }
+\item[{}]{\$mock\+Class\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Constructor = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Clone = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily TRUE}, }
+\item[{}]{\$mocked\+Methods = {\ttfamily array()}, }
+\item[{}]{\$clone\+Arguments = {\ttfamily TRUE}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_a704f654e429d8f62dc1cb71466fd0699}
+Returns a mock object for the specified trait with all abstract methods of the trait mocked. Concrete methods to mock can be specified with the {\ttfamily \$mocked\+Methods} parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$trait\+Name} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+string & {\em \$mock\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Constructor} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+array & {\em \$mocked\+Methods} & \\
+\hline
+boolean & {\em \$clone\+Arguments} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+2.\+3 
+\end{DoxySince}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 383 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Object@{get\+Object}}
+\index{get\+Object@{get\+Object}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Object}]{\setlength{\rightskip}{0pt plus 5cm}get\+Object (
+\begin{DoxyParamCaption}
+\item[{}]{\$code, }
+\item[{}]{\$class\+Name, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Constructor = {\ttfamily FALSE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily FALSE}, }
+\item[{array}]{\$arguments = {\ttfamily array()}, }
+\item[{}]{\$call\+Original\+Methods = {\ttfamily FALSE}, }
+\item[{}]{\$proxy\+Target = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a630e9ea604e4128e7bdf82b4d0ffd84c}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$code} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+array | string & {\em \$type} & \\
+\hline
+boolean & {\em \$call\+Original\+Constructor} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+boolean & {\em \$call\+Original\+Methods} & \\
+\hline
+object & {\em \$proxy\+Target} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!get\+Object\+For\+Trait@{get\+Object\+For\+Trait}}
+\index{get\+Object\+For\+Trait@{get\+Object\+For\+Trait}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{get\+Object\+For\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}get\+Object\+For\+Trait (
+\begin{DoxyParamCaption}
+\item[{}]{\$trait\+Name, }
+\item[{array}]{\$arguments = {\ttfamily array()}, }
+\item[{}]{\$trait\+Class\+Name = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$call\+Original\+Constructor = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Original\+Clone = {\ttfamily TRUE}, }
+\item[{}]{\$call\+Autoload = {\ttfamily TRUE}}
+\end{DoxyParamCaption}
+)}\label{class_p_h_p_unit___framework___mock_object___generator_a2887694f0bd1cae08f1d6bb7d1752255}
+Returns an object for the specified trait.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$trait\+Name} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+string & {\em \$trait\+Class\+Name} & \\
+\hline
+boolean & {\em \$call\+Original\+Constructor} & \\
+\hline
+boolean & {\em \$call\+Original\+Clone} & \\
+\hline
+boolean & {\em \$call\+Autoload} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+Method available since Release 1.\+1.\+0 
+\end{DoxySince}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Runtime\+Exception}{p.}{class_p_h_p_unit___framework___mock_object___runtime_exception}} & \\
+\hline
+{\em \doxyref{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Exception}{p.}{class_p_h_p_unit___framework___exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 442 of file Generator.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!\$blacklisted\+Method\+Names@{\$blacklisted\+Method\+Names}}
+\index{\$blacklisted\+Method\+Names@{\$blacklisted\+Method\+Names}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{\$blacklisted\+Method\+Names}]{\setlength{\rightskip}{0pt plus 5cm}\$blacklisted\+Method\+Names\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a66c5bb37cfd9182d90e5f67c9ddff1cd}
+
+
+Definition at line 43 of file Generator.\+php.
+
+\index{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}!\$soap\+Loaded@{\$soap\+Loaded}}
+\index{\$soap\+Loaded@{\$soap\+Loaded}!P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator@{P\+H\+P\+Unit\+\_\+\+Framework\+\_\+\+Mock\+Object\+\_\+\+Generator}}
+\subsubsection[{\$soap\+Loaded}]{\setlength{\rightskip}{0pt plus 5cm}\$soap\+Loaded = N\+U\+L\+L\hspace{0.3cm}{\ttfamily [protected]}}\label{class_p_h_p_unit___framework___mock_object___generator_a952e4b71c530ee524d75fbb828ae8b49}
+
+
+Definition at line 124 of file Generator.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/phpunit/phpunit-\/mock-\/objects/src/\+Framework/\+Mock\+Object/{\bf Generator.\+php}\end{DoxyCompactItemize}

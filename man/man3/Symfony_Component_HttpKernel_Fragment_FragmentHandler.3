@@ -1,0 +1,164 @@
+.TH "FragmentHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FragmentHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (array $renderers=array(), $debug=false, \fBRequestStack\fP $requestStack=null)"
+.br
+.ti -1c
+.RI "\fBaddRenderer\fP (\fBFragmentRendererInterface\fP $renderer)"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request=null)"
+.br
+.ti -1c
+.RI "\fBrender\fP ($uri, $renderer= 'inline', array $\fBoptions\fP=array())"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdeliver\fP (\fBResponse\fP $response)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Renders a URI that represents a resource fragment\&.
+.PP
+This class handles the rendering of resource fragments that are included into a main resource\&. The handling of the rendering is managed by specialized renderers\&.
+.PP
+This listener works in 2 modes:
+.PP
+.IP "\(bu" 2
+2\&.3 compatibility mode where you must call setRequest whenever the \fBRequest\fP changes\&.
+.IP "\(bu" 2
+2\&.4+ mode where you must pass a RequestStack instance in the constructor\&.
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBFragmentRendererInterface\fP 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file FragmentHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (array $renderers = \fCarray()\fP,  $debug = \fCfalse\fP, \fBRequestStack\fP $requestStack = \fCnull\fP)"
+Constructor\&.
+.PP
+RequestStack will become required in 3\&.0\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIFragmentRendererInterface[]\fP $renderers An array of \fBFragmentRendererInterface\fP instances 
+.br
+\fI$debug\fP Whether the debug mode is enabled or not 
+.br
+\fI$requestStack\fP The \fBRequest\fP stack that controls the lifecycle of requests 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file FragmentHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addRenderer (\fBFragmentRendererInterface\fP $renderer)"
+Adds a renderer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$renderer\fP \fBA\fP \fBFragmentRendererInterface\fP instance 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file FragmentHandler\&.php\&.
+.SS "deliver (\fBResponse\fP $response)\fC [protected]\fP"
+Delivers the \fBResponse\fP as a string\&.
+.PP
+When the \fBResponse\fP is a StreamedResponse, the content is streamed immediately instead of being returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$response\fP \fBA\fP \fBResponse\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The \fBResponse\fP content or null when the \fBResponse\fP is streamed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 131 of file FragmentHandler\&.php\&.
+.SS "render ( $uri,  $renderer = \fC'inline'\fP, array $options = \fCarray()\fP)"
+Renders a URI and returns the \fBResponse\fP content\&.
+.PP
+Available options:
+.PP
+.IP "\(bu" 2
+ignore_errors: true to return an empty string in case of an error
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$uri\fP \fBA\fP URI as a string or a ControllerReference instance 
+.br
+\fI$renderer\fP The renderer name 
+.br
+\fI$options\fP An array of options
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The \fBResponse\fP content or null when the \fBResponse\fP is streamed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 102 of file FragmentHandler\&.php\&.
+.SS "setRequest (\fBRequest\fP $request = \fCnull\fP)"
+Sets the current \fBRequest\fP\&.
+.PP
+This method was used to synchronize the \fBRequest\fP, but as the \fBHttpKernel\fP is doing that automatically now, you should never call it directly\&. It is kept public for BC with the 2\&.3 version\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Deprecated since version 2\&.4, to be removed in 3\&.0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file FragmentHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

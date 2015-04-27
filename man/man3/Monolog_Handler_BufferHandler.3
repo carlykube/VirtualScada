@@ -1,0 +1,144 @@
+.TH "BufferHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BufferHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBHandlerInterface\fP $handler, $bufferLimit=0, $level=\fBLogger::DEBUG\fP, $bubble=true, $flushOnOverflow=false)"
+.br
+.ti -1c
+.RI "\fBhandle\fP (array $record)"
+.br
+.ti -1c
+.RI "\fBflush\fP ()"
+.br
+.ti -1c
+.RI "\fB__destruct\fP ()"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBclear\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$handler\fP"
+.br
+.ti -1c
+.RI "\fB$bufferSize\fP = 0"
+.br
+.ti -1c
+.RI "\fB$bufferLimit\fP"
+.br
+.ti -1c
+.RI "\fB$flushOnOverflow\fP"
+.br
+.ti -1c
+.RI "\fB$buffer\fP = array()"
+.br
+.ti -1c
+.RI "\fB$initialized\fP = false"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Buffers all records until closing the handler and then pass them as batch\&.
+.PP
+This is useful for a \fBMailHandler\fP to send only one mail per request instead of sending one per log message\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Christophe Coevoet stof@notk.org 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file BufferHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBHandlerInterface\fP $handler,  $bufferLimit = \fC0\fP,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP,  $flushOnOverflow = \fCfalse\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$handler\fP \fBHandler\fP\&. 
+.br
+\fI$bufferLimit\fP How many entries should be buffered at most, beyond that the oldest items are removed from the buffer\&. 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$flushOnOverflow\fP If true, the buffer is flushed when the max size has been reached, by default oldest entries are discarded 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file BufferHandler\&.php\&.
+.SS "__destruct ()"
+
+.PP
+Definition at line 94 of file BufferHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "clear ()"
+Clears the buffer without flushing any messages down to the wrapped handler\&. 
+.PP
+Definition at line 112 of file BufferHandler\&.php\&.
+.SS "close ()"
+{} 
+.PP
+Definition at line 104 of file BufferHandler\&.php\&.
+.SS "flush ()"
+
+.PP
+Definition at line 84 of file BufferHandler\&.php\&.
+.SS "handle (array $record)"
+{} 
+.PP
+Implements \fBHandlerInterface\fP\&.
+.PP
+Definition at line 51 of file BufferHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$buffer = array()\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file BufferHandler\&.php\&.
+.SS "$bufferLimit\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file BufferHandler\&.php\&.
+.SS "$bufferSize = 0\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file BufferHandler\&.php\&.
+.SS "$flushOnOverflow\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file BufferHandler\&.php\&.
+.SS "$handler\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file BufferHandler\&.php\&.
+.SS "$initialized = false\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file BufferHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

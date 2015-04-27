@@ -1,0 +1,71 @@
+\section{module\+Scripts/\+R\+T\+Uscripts/vdev.py File Reference}
+\label{vdev_8py}\index{module\+Scripts/\+R\+T\+Uscripts/vdev.\+py@{module\+Scripts/\+R\+T\+Uscripts/vdev.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ {\bf vdev}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf process\+Update} ({\bf update})
+\item 
+def {\bf apply\+Update} ({\bf update}, state)
+\item 
+def {\bf compile\+Update} (state)
+\item 
+def {\bf logic} (proc\+Control, interface)
+\item 
+def {\bf sim\+Comm} (interface)
+\item 
+def {\bf q} ()
+\begin{DoxyCompactList}\small\item\em --Start all threads \end{DoxyCompactList}\item 
+def {\bf shwpts} ()
+\item 
+def {\bf shwwtr} ()
+\item 
+def {\bf waterstart} ()
+\item 
+def {\bf gasstart} ()
+\item 
+def {\bf halp} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple {\bf update\+Q} = Queue.\+Queue()
+\item 
+list {\bf thread\+List} = [$\,$]
+\item 
+{\bf config} = None
+\item 
+{\bf devconfig} = None
+\item 
+dictionary {\bf points} = \{\}
+\item 
+string {\bf program\+Description} = \char`\"{}\char`\"{}\char`\"{}This program implements {\bf a} virtual I\+C\+S device.\char`\"{}\char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em --Parse command line options \end{DoxyCompactList}\item 
+tuple {\bf parser} = Option\+Parser(description=program\+Description)
+\item 
+string {\bf action} = \textquotesingle{}store\textquotesingle{}
+\item 
+{\bf vdevname} = opts.\+device
+\item 
+{\bf system} = opts.\+system
+\item 
+string {\bf configfile} = \textquotesingle{}/\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em --Open config. \end{DoxyCompactList}\item 
+{\bf simiface} = None
+\begin{DoxyCompactList}\small\item\em --Set up points \end{DoxyCompactList}\item 
+list {\bf ifaceinfo} = devconfig[\textquotesingle{}simiface\textquotesingle{}]
+\item 
+tuple {\bf ifacetype} = getattr(ifaces, ifaceinfo[\textquotesingle{}typ\textquotesingle{}])
+\begin{DoxyCompactList}\small\item\em --Create I\+C\+S Comm Threads \end{DoxyCompactList}\item 
+tuple {\bf simiface\+Thread}
+\item 
+tuple {\bf icsiface} = ifacetype(ifaceinfo, {\bf points.\+values}())
+\item 
+tuple {\bf logic\+Thread} = threading.\+Thread(target=logic, {\bf name} = \textquotesingle{}logic\+Thread\textquotesingle{}, args=(proc\+Control, simiface))
+\begin{DoxyCompactList}\small\item\em --Create logic thread get sim logic from model \end{DoxyCompactList}\item 
+string {\bf banner} = \char`\"{}\char`\"{}\char`\"{}Virtual Device [\%s]. Type halp() {\bf for} info\char`\"{}\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}

@@ -1,0 +1,864 @@
+\section{Mailer Class Reference}
+\label{class_illuminate_1_1_mail_1_1_mailer}\index{Mailer@{Mailer}}
+Inheritance diagram for Mailer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_mail_1_1_mailer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Factory} \$views, {\bf Swift\+\_\+\+Mailer} \$swift, {\bf Dispatcher} \$events=null)
+\item 
+{\bf always\+From} (\$address, \${\bf name}=null)
+\item 
+{\bf raw} (\${\bf text}, \${\bf callback})
+\item 
+{\bf plain} (\$view, array \${\bf data}, \${\bf callback})
+\item 
+{\bf send} (\$view, array \${\bf data}, \${\bf callback})
+\item 
+{\bf queue} (\$view, array \${\bf data}, \${\bf callback}, \$queue=null)
+\item 
+{\bf queue\+On} (\${\bf queue}, \$view, array \${\bf data}, \${\bf callback})
+\item 
+{\bf later} (\${\bf delay}, \$view, array \${\bf data}, \${\bf callback}, \${\bf queue}=null)
+\item 
+{\bf later\+On} (\${\bf queue}, \${\bf delay}, \$view, array \${\bf data}, \${\bf callback})
+\item 
+{\bf handle\+Queued\+Message} (\$job, \${\bf data})
+\item 
+{\bf pretend} (\$value=true)
+\item 
+{\bf is\+Pretending} ()
+\item 
+{\bf get\+View\+Factory} ()
+\item 
+{\bf get\+Swift\+Mailer} ()
+\item 
+{\bf failures} ()
+\item 
+{\bf set\+Swift\+Mailer} (\$swift)
+\item 
+{\bf set\+Logger} ({\bf Logger\+Interface} \$logger)
+\item 
+{\bf set\+Queue} (Queue\+Contract \${\bf queue})
+\item 
+{\bf set\+Container} ({\bf Container} \$container)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf build\+Queue\+Callable} (\${\bf callback})
+\item 
+{\bf get\+Queued\+Callable} (array \${\bf data})
+\item 
+{\bf add\+Content} (\$message, \$view, \${\bf plain}, \${\bf raw}, \${\bf data})
+\item 
+{\bf parse\+View} (\$view)
+\item 
+{\bf send\+Swift\+Message} (\$message)
+\item 
+{\bf log\+Message} (\$message)
+\item 
+{\bf call\+Message\+Builder} (\${\bf callback}, \$message)
+\item 
+{\bf create\+Message} ()
+\item 
+{\bf get\+View} (\$view, \${\bf data})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$views}
+\item 
+{\bf \$swift}
+\item 
+{\bf \$events}
+\item 
+{\bf \$from}
+\item 
+{\bf \$logger}
+\item 
+{\bf \$container}
+\item 
+{\bf \$queue}
+\item 
+{\bf \$pretending} = false
+\item 
+{\bf \$failed\+Recipients} = array()
+\item 
+{\bf \$parsed\+Views} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Mailer.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Factory}}]{\$views, }
+\item[{{\bf Swift\+\_\+\+Mailer}}]{\$swift, }
+\item[{{\bf Dispatcher}}]{\$events = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a498eaf189813efb25f7813b6eecd7a81}
+Create a new \doxyref{Mailer}{p.}{class_illuminate_1_1_mail_1_1_mailer} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+Factory & {\em \$views} & \\
+\hline
+\textbackslash{}\+Swift\+\_\+\+Mailer & {\em \$swift} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Events\textbackslash{}\+Dispatcher & {\em \$events} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Mailer.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!add\+Content@{add\+Content}}
+\index{add\+Content@{add\+Content}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{add\+Content}]{\setlength{\rightskip}{0pt plus 5cm}add\+Content (
+\begin{DoxyParamCaption}
+\item[{}]{\$message, }
+\item[{}]{\$view, }
+\item[{}]{\$plain, }
+\item[{}]{\$raw, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_ae409b0d6b6b806bc511c1ffbef8d7d7f}
+Add the content to a given message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Mail\textbackslash{}\+Message & {\em \$message} & \\
+\hline
+string & {\em \$view} & \\
+\hline
+string & {\em \$plain} & \\
+\hline
+string & {\em \$raw} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!always\+From@{always\+From}}
+\index{always\+From@{always\+From}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{always\+From}]{\setlength{\rightskip}{0pt plus 5cm}always\+From (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a796e6429c10014db7f0e84b34db23cce}
+Set the global from address and name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!build\+Queue\+Callable@{build\+Queue\+Callable}}
+\index{build\+Queue\+Callable@{build\+Queue\+Callable}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{build\+Queue\+Callable}]{\setlength{\rightskip}{0pt plus 5cm}build\+Queue\+Callable (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a3f5bdd1f5320544b328c44aa1088d5fe}
+Build the callable for a queued e-\/mail job.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 237 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!call\+Message\+Builder@{call\+Message\+Builder}}
+\index{call\+Message\+Builder@{call\+Message\+Builder}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{call\+Message\+Builder}]{\setlength{\rightskip}{0pt plus 5cm}call\+Message\+Builder (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback, }
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a5e6e976177acc920dfacfcdb294d05dc}
+Call the provided message builder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Mail\textbackslash{}\+Message & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 382 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!create\+Message@{create\+Message}}
+\index{create\+Message@{create\+Message}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{create\+Message}]{\setlength{\rightskip}{0pt plus 5cm}create\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a4130d72755d3508d9d107f27f5da6a09}
+Create a new message instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 401 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!failures@{failures}}
+\index{failures@{failures}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{failures}]{\setlength{\rightskip}{0pt plus 5cm}failures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_ac28c0e12984d4b79034a20bd7900c846}
+Get the array of failed recipients.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Mailer} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_mail_1_1_mailer_ac28c0e12984d4b79034a20bd7900c846}.
+
+
+
+Definition at line 474 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!get\+Queued\+Callable@{get\+Queued\+Callable}}
+\index{get\+Queued\+Callable@{get\+Queued\+Callable}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{get\+Queued\+Callable}]{\setlength{\rightskip}{0pt plus 5cm}get\+Queued\+Callable (
+\begin{DoxyParamCaption}
+\item[{array}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_ac84e0710a1e7e2e39638b056990181be}
+Get the true callable for a queued e-\/mail message.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 264 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!get\+Swift\+Mailer@{get\+Swift\+Mailer}}
+\index{get\+Swift\+Mailer@{get\+Swift\+Mailer}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{get\+Swift\+Mailer}]{\setlength{\rightskip}{0pt plus 5cm}get\+Swift\+Mailer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_acd6aa8d4f8fee036a726a59ea45e1e2e}
+Get the \doxyref{Swift}{p.}{class_swift} \doxyref{Mailer}{p.}{class_illuminate_1_1_mail_1_1_mailer} instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 464 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}get\+View (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a6203251499043cb6241fee9370842cd6}
+Render the given view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 423 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!get\+View\+Factory@{get\+View\+Factory}}
+\index{get\+View\+Factory@{get\+View\+Factory}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{get\+View\+Factory}]{\setlength{\rightskip}{0pt plus 5cm}get\+View\+Factory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_aae5f3b69dde6b4f2d41af1c2c47e54db}
+Get the view factory instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 454 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!handle\+Queued\+Message@{handle\+Queued\+Message}}
+\index{handle\+Queued\+Message@{handle\+Queued\+Message}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{handle\+Queued\+Message}]{\setlength{\rightskip}{0pt plus 5cm}handle\+Queued\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{\$job, }
+\item[{}]{\$data}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a178eaabc34d33a01f0eadb2eaf8c4259}
+Handle a queued e-\/mail message job.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Queue\textbackslash{}\+Job & {\em \$job} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!is\+Pretending@{is\+Pretending}}
+\index{is\+Pretending@{is\+Pretending}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{is\+Pretending}]{\setlength{\rightskip}{0pt plus 5cm}is\+Pretending (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a5ad13064112716d2e41d957d13d51103}
+Check if the mailer is pretending to send messages.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 444 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!later@{later}}
+\index{later@{later}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{later}]{\setlength{\rightskip}{0pt plus 5cm}later (
+\begin{DoxyParamCaption}
+\item[{}]{\$delay, }
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a44cc52ad8e34b7c14f0ab96fc469bf8d}
+\doxyref{Queue}{p.}{namespace_illuminate_1_1_queue} a new e-\/mail message for sending after (n) seconds.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$delay} & \\
+\hline
+string | array & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Mail\+Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_mail_1_1_mail_queue_a44cc52ad8e34b7c14f0ab96fc469bf8d}.
+
+
+
+Definition at line 209 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!later\+On@{later\+On}}
+\index{later\+On@{later\+On}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{later\+On}]{\setlength{\rightskip}{0pt plus 5cm}later\+On (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$delay, }
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_ad88d3a1d3e925cd73a4e1a8122d5a5d4}
+\doxyref{Queue}{p.}{namespace_illuminate_1_1_queue} a new e-\/mail message for sending after (n) seconds on the given queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+int & {\em \$delay} & \\
+\hline
+string | array & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!log\+Message@{log\+Message}}
+\index{log\+Message@{log\+Message}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{log\+Message}]{\setlength{\rightskip}{0pt plus 5cm}log\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_ab4f645ef23d61413f2ec84bfdeea121b}
+\doxyref{Log}{p.}{namespace_illuminate_1_1_log} that a message was sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Swift\+\_\+\+Message & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 366 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!parse\+View@{parse\+View}}
+\index{parse\+View@{parse\+View}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{parse\+View}]{\setlength{\rightskip}{0pt plus 5cm}parse\+View (
+\begin{DoxyParamCaption}
+\item[{}]{\$view}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a0880a914e55d662a5959e805f50ba58a}
+Parse the given view name or array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$view} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 310 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!plain@{plain}}
+\index{plain@{plain}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{plain}]{\setlength{\rightskip}{0pt plus 5cm}plain (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_abfc5193795df54e678eab0edfe627aad}
+Send a new message when only a plain part.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!pretend@{pretend}}
+\index{pretend@{pretend}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{pretend}]{\setlength{\rightskip}{0pt plus 5cm}pretend (
+\begin{DoxyParamCaption}
+\item[{}]{\$value = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_afc2ca7e22bef9807bd628d2546ce624d}
+Tell the mailer to not really send messages.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 434 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!queue@{queue}}
+\index{queue@{queue}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{queue}]{\setlength{\rightskip}{0pt plus 5cm}queue (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback, }
+\item[{}]{\$queue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_afcfb1732b1da5d71534a6ce2e5fea3ec}
+\doxyref{Queue}{p.}{namespace_illuminate_1_1_queue} a new e-\/mail message for sending.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+string & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Mail\+Queue} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_mail_1_1_mail_queue_afcfb1732b1da5d71534a6ce2e5fea3ec}.
+
+
+
+Definition at line 178 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!queue\+On@{queue\+On}}
+\index{queue\+On@{queue\+On}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{queue\+On}]{\setlength{\rightskip}{0pt plus 5cm}queue\+On (
+\begin{DoxyParamCaption}
+\item[{}]{\$queue, }
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a7a06e87c1db587098ca399912a72c536}
+\doxyref{Queue}{p.}{namespace_illuminate_1_1_queue} a new e-\/mail message for sending on the given queue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$queue} & \\
+\hline
+string | array & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!raw@{raw}}
+\index{raw@{raw}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$text, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a1f42b6ebfd1d3b9c1637287ef0e2800b}
+Send a new message when only a raw text part.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$text} & \\
+\hline
+mixed & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Mailer} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_mail_1_1_mailer_a1f42b6ebfd1d3b9c1637287ef0e2800b}.
+
+
+
+Definition at line 122 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!send@{send}}
+\index{send@{send}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}send (
+\begin{DoxyParamCaption}
+\item[{}]{\$view, }
+\item[{array}]{\$data, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_aa87cd45a0b144211598e9338e5fd7ceb}
+Send a new message using a view.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | array & {\em \$view} & \\
+\hline
+array & {\em \$data} & \\
+\hline
+\textbackslash{}\+Closure | string & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Mailer} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_mail_1_1_mailer_aa87cd45a0b144211598e9338e5fd7ceb}.
+
+
+
+Definition at line 148 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!send\+Swift\+Message@{send\+Swift\+Message}}
+\index{send\+Swift\+Message@{send\+Swift\+Message}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{send\+Swift\+Message}]{\setlength{\rightskip}{0pt plus 5cm}send\+Swift\+Message (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_ad61ad9692dff6ce2326b7224057de65b}
+Send a \doxyref{Swift}{p.}{class_swift} \doxyref{Message}{p.}{class_illuminate_1_1_mail_1_1_message} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Swift\+\_\+\+Message & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 343 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!set\+Container@{set\+Container}}
+\index{set\+Container@{set\+Container}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{set\+Container}]{\setlength{\rightskip}{0pt plus 5cm}set\+Container (
+\begin{DoxyParamCaption}
+\item[{{\bf Container}}]{\$container}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a1ae42afbd11583595c4b7828cb602b08}
+Set the Io\+C container instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 522 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!set\+Logger@{set\+Logger}}
+\index{set\+Logger@{set\+Logger}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{set\+Logger}]{\setlength{\rightskip}{0pt plus 5cm}set\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf Logger\+Interface}}]{\$logger}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a80ec5ad53b685504efbf3395c8663ae0}
+Set the log writer instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface & {\em \$logger} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 496 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!set\+Queue@{set\+Queue}}
+\index{set\+Queue@{set\+Queue}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{set\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}set\+Queue (
+\begin{DoxyParamCaption}
+\item[{Queue\+Contract}]{\$queue}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a2b157be8bc93693f8117a314c185babe}
+Set the queue manager instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Queue\textbackslash{}\+Queue & {\em \$queue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 509 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!set\+Swift\+Mailer@{set\+Swift\+Mailer}}
+\index{set\+Swift\+Mailer@{set\+Swift\+Mailer}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{set\+Swift\+Mailer}]{\setlength{\rightskip}{0pt plus 5cm}set\+Swift\+Mailer (
+\begin{DoxyParamCaption}
+\item[{}]{\$swift}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_mail_1_1_mailer_a290ad31ad503d716339f0e07b20169cc}
+Set the \doxyref{Swift}{p.}{class_swift} \doxyref{Mailer}{p.}{class_illuminate_1_1_mail_1_1_mailer} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Swift\+\_\+\+Mailer & {\em \$swift} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 485 of file Mailer.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$container@{\$container}}
+\index{\$container@{\$container}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$container}]{\setlength{\rightskip}{0pt plus 5cm}\$container\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_ab97dd40df90f4ce6f0fce9091e7c7872}
+
+
+Definition at line 58 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 37 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$failed\+Recipients@{\$failed\+Recipients}}
+\index{\$failed\+Recipients@{\$failed\+Recipients}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$failed\+Recipients}]{\setlength{\rightskip}{0pt plus 5cm}\$failed\+Recipients = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a9154d76b9fd71441a1d3f5d2400463c1}
+
+
+Definition at line 79 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$from@{\$from}}
+\index{\$from@{\$from}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$from}]{\setlength{\rightskip}{0pt plus 5cm}\$from\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a0bb7e2b3d541598cc9c9e3b11bee859c}
+
+
+Definition at line 44 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$logger@{\$logger}}
+\index{\$logger@{\$logger}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$logger}]{\setlength{\rightskip}{0pt plus 5cm}\$logger\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_aebfec76216371ef236acc5910e90933d}
+
+
+Definition at line 51 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$parsed\+Views@{\$parsed\+Views}}
+\index{\$parsed\+Views@{\$parsed\+Views}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$parsed\+Views}]{\setlength{\rightskip}{0pt plus 5cm}\$parsed\+Views = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_af8fef1ffd21cf05e4be608081dba5504}
+
+
+Definition at line 86 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$pretending@{\$pretending}}
+\index{\$pretending@{\$pretending}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$pretending}]{\setlength{\rightskip}{0pt plus 5cm}\$pretending = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a25834abe279a366b29fc0dc99bf655de}
+
+
+Definition at line 72 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$queue@{\$queue}}
+\index{\$queue@{\$queue}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$queue}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf queue}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a4a0b48f6ae2fcb248a4f0288c7c344a6}
+
+
+Definition at line 65 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$swift@{\$swift}}
+\index{\$swift@{\$swift}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$swift}]{\setlength{\rightskip}{0pt plus 5cm}\$swift\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_aba03132779580e7d300fdc555155c3aa}
+
+
+Definition at line 30 of file Mailer.\+php.
+
+\index{Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}!\$views@{\$views}}
+\index{\$views@{\$views}!Illuminate\+::\+Mail\+::\+Mailer@{Illuminate\+::\+Mail\+::\+Mailer}}
+\subsubsection[{\$views}]{\setlength{\rightskip}{0pt plus 5cm}\$views\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_mail_1_1_mailer_a2bc32a57c3a42b3b411c76e457481767}
+
+
+Definition at line 23 of file Mailer.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Mail/{\bf Mailer.\+php}\end{DoxyCompactItemize}

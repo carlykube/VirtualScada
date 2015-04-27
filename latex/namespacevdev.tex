@@ -1,0 +1,379 @@
+\section{vdev Namespace Reference}
+\label{namespacevdev}\index{vdev@{vdev}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf process\+Update} ({\bf update})
+\item 
+def {\bf apply\+Update} ({\bf update}, state)
+\item 
+def {\bf compile\+Update} (state)
+\item 
+def {\bf logic} (proc\+Control, interface)
+\item 
+def {\bf sim\+Comm} (interface)
+\item 
+def {\bf q} ()
+\begin{DoxyCompactList}\small\item\em --Start all threads \end{DoxyCompactList}\item 
+def {\bf shwpts} ()
+\item 
+def {\bf shwwtr} ()
+\item 
+def {\bf waterstart} ()
+\item 
+def {\bf gasstart} ()
+\item 
+def {\bf halp} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple {\bf update\+Q} = Queue.\+Queue()
+\item 
+list {\bf thread\+List} = [$\,$]
+\item 
+{\bf config} = None
+\item 
+{\bf devconfig} = None
+\item 
+dictionary {\bf points} = \{\}
+\item 
+string {\bf program\+Description} = \char`\"{}\char`\"{}\char`\"{}This program implements {\bf a} virtual I\+C\+S device.\char`\"{}\char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em --Parse command line options \end{DoxyCompactList}\item 
+tuple {\bf parser} = Option\+Parser(description={\bf program\+Description})
+\item 
+string {\bf action} = \textquotesingle{}store\textquotesingle{}
+\item 
+{\bf vdevname} = opts.\+device
+\item 
+{\bf system} = opts.\+system
+\item 
+string {\bf configfile} = \textquotesingle{}/\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em --Open config. \end{DoxyCompactList}\item 
+{\bf simiface} = None
+\begin{DoxyCompactList}\small\item\em --Set up points \end{DoxyCompactList}\item 
+list {\bf ifaceinfo} = {\bf devconfig}[\textquotesingle{}{\bf simiface}\textquotesingle{}]
+\item 
+tuple {\bf ifacetype} = getattr(ifaces, {\bf ifaceinfo}[\textquotesingle{}typ\textquotesingle{}])
+\begin{DoxyCompactList}\small\item\em --Create I\+C\+S Comm Threads \end{DoxyCompactList}\item 
+tuple {\bf simiface\+Thread}
+\item 
+tuple {\bf icsiface} = {\bf ifacetype}({\bf ifaceinfo}, {\bf points.\+values}())
+\item 
+tuple {\bf logic\+Thread} = threading.\+Thread(target={\bf logic}, {\bf name} = \textquotesingle{}logic\+Thread\textquotesingle{}, args=(proc\+Control, {\bf simiface}))
+\begin{DoxyCompactList}\small\item\em --Create logic thread get sim logic from model \end{DoxyCompactList}\item 
+string {\bf banner} = \char`\"{}\char`\"{}\char`\"{}Virtual Device [\%s]. Type {\bf halp}() {\bf for} info\char`\"{}\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{vdev@{vdev}!apply\+Update@{apply\+Update}}
+\index{apply\+Update@{apply\+Update}!vdev@{vdev}}
+\subsubsection[{apply\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+apply\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{update, }
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a80a66b413ab82ea9fdede8ac4f7f9bcd}
+\begin{DoxyVerb}This function takes a dictionary corresponding to an update and 
+   if the key corresponds to a state variable, the state variable is set to
+   the value in the update.
+
+   @param update Dictionary derived from an update message.
+   @param state The state dictionary for the process simulation\end{DoxyVerb}
+ 
+
+Definition at line 37 of file vdev.\+py.
+
+\index{vdev@{vdev}!compile\+Update@{compile\+Update}}
+\index{compile\+Update@{compile\+Update}!vdev@{vdev}}
+\subsubsection[{compile\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+compile\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_ad8cfc0188b9a16c6eddb3a732cb91f95}
+\begin{DoxyVerb}This function creates a JSON string of all output
+    points and the current time.
+
+   @param state The dictionary of device points.
+   @returns A string containing the JSON representation of the
+                output variables.\end{DoxyVerb}
+ 
+
+Definition at line 59 of file vdev.\+py.
+
+\index{vdev@{vdev}!gasstart@{gasstart}}
+\index{gasstart@{gasstart}!vdev@{vdev}}
+\subsubsection[{gasstart}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+gasstart (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_ae49ae137e3a390d9af8f86ac364e734e}
+
+
+Definition at line 278 of file vdev.\+py.
+
+\index{vdev@{vdev}!halp@{halp}}
+\index{halp@{halp}!vdev@{vdev}}
+\subsubsection[{halp}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+halp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_abfeda73dd3254e6df958b36106c00bbd}
+
+
+Definition at line 283 of file vdev.\+py.
+
+\index{vdev@{vdev}!logic@{logic}}
+\index{logic@{logic}!vdev@{vdev}}
+\subsubsection[{logic}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+logic (
+\begin{DoxyParamCaption}
+\item[{}]{proc\+Control, }
+\item[{}]{interface}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a6a6c19610e96347cd128d761fdc40600}
+\begin{DoxyVerb}This function is a thread that arbitrates receiving updates from the
+    simulator and other devices. Those update messages are used to update
+    the device points. Once the points are updated, the process control
+    logic function for this device is run. An update is generated as a
+    result and passed to the simulator
+    
+    @param procControl  function object representing the process control
+                        logic. 
+    @param interface    iface to the simulator. Used for returning updates.\end{DoxyVerb}
+ 
+
+Definition at line 97 of file vdev.\+py.
+
+\index{vdev@{vdev}!process\+Update@{process\+Update}}
+\index{process\+Update@{process\+Update}!vdev@{vdev}}
+\subsubsection[{process\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+process\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{update}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_adc2f62d7dbb37ec1a7d792078cf1c0f4}
+\begin{DoxyVerb}processUpdate converts a JSON update string into Python data types
+    
+@param update This parameter is a JSON message received from the interface
+@returns A dictionary of the message contents
+\end{DoxyVerb}
+ 
+
+Definition at line 27 of file vdev.\+py.
+
+\index{vdev@{vdev}!q@{q}}
+\index{q@{q}!vdev@{vdev}}
+\subsubsection[{q}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+q (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a534f5adf83021cf368dd1b40dc73bfe5}
+
+
+--Start all threads 
+
+--For the user interface\+: 
+
+Definition at line 272 of file vdev.\+py.
+
+\index{vdev@{vdev}!shwpts@{shwpts}}
+\index{shwpts@{shwpts}!vdev@{vdev}}
+\subsubsection[{shwpts}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+shwpts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a268f743c2110c193cfde5fc1515ccbac}
+
+
+Definition at line 273 of file vdev.\+py.
+
+\index{vdev@{vdev}!shwwtr@{shwwtr}}
+\index{shwwtr@{shwwtr}!vdev@{vdev}}
+\subsubsection[{shwwtr}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+shwwtr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a1c258a9eb66ac699f4caa2dcbad842b1}
+
+
+Definition at line 274 of file vdev.\+py.
+
+\index{vdev@{vdev}!sim\+Comm@{sim\+Comm}}
+\index{sim\+Comm@{sim\+Comm}!vdev@{vdev}}
+\subsubsection[{sim\+Comm}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+sim\+Comm (
+\begin{DoxyParamCaption}
+\item[{}]{interface}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_abce524f03c465bdac571008271287464}
+\begin{DoxyVerb}Thread for receiving update messages from the simulator.
+
+    @param interface The iface connected to the simulator.\end{DoxyVerb}
+ 
+
+Definition at line 164 of file vdev.\+py.
+
+\index{vdev@{vdev}!waterstart@{waterstart}}
+\index{waterstart@{waterstart}!vdev@{vdev}}
+\subsubsection[{waterstart}]{\setlength{\rightskip}{0pt plus 5cm}def vdev.\+waterstart (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacevdev_a2d62740c7a7c6a416cb7381637bedeee}
+
+
+Definition at line 275 of file vdev.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{vdev@{vdev}!action@{action}}
+\index{action@{action}!vdev@{vdev}}
+\subsubsection[{action}]{\setlength{\rightskip}{0pt plus 5cm}string action = \textquotesingle{}store\textquotesingle{}}\label{namespacevdev_a6a30da6629d5b550c2025d3788d49cb9}
+
+
+Definition at line 194 of file vdev.\+py.
+
+\index{vdev@{vdev}!banner@{banner}}
+\index{banner@{banner}!vdev@{vdev}}
+\subsubsection[{banner}]{\setlength{\rightskip}{0pt plus 5cm}string banner = \char`\"{}\char`\"{}\char`\"{}Virtual Device [\%s]. Type {\bf halp}() {\bf for} info\char`\"{}\char`\"{}\char`\"{}}\label{namespacevdev_a6c50e11232bab3b86f7346be0d2aa797}
+
+
+Definition at line 291 of file vdev.\+py.
+
+\index{vdev@{vdev}!config@{config}}
+\index{config@{config}!vdev@{vdev}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}tuple config = None}\label{namespacevdev_ad5f91786d7c873886a576621a2c1b0b5}
+
+
+Definition at line 89 of file vdev.\+py.
+
+\index{vdev@{vdev}!configfile@{configfile}}
+\index{configfile@{configfile}!vdev@{vdev}}
+\subsubsection[{configfile}]{\setlength{\rightskip}{0pt plus 5cm}string configfile = \textquotesingle{}/\textquotesingle{}}\label{namespacevdev_a396bda2f457786351678a3c643731c6d}
+
+
+--Open config. 
+
+
+
+Definition at line 210 of file vdev.\+py.
+
+\index{vdev@{vdev}!devconfig@{devconfig}}
+\index{devconfig@{devconfig}!vdev@{vdev}}
+\subsubsection[{devconfig}]{\setlength{\rightskip}{0pt plus 5cm}list devconfig = None}\label{namespacevdev_a9b69825da704c2d2744ac94730120447}
+
+
+Definition at line 90 of file vdev.\+py.
+
+\index{vdev@{vdev}!icsiface@{icsiface}}
+\index{icsiface@{icsiface}!vdev@{vdev}}
+\subsubsection[{icsiface}]{\setlength{\rightskip}{0pt plus 5cm}tuple icsiface = {\bf ifacetype}({\bf ifaceinfo}, {\bf points.\+values}())}\label{namespacevdev_ad92ea964f1873ac469cfab527165c427}
+
+
+Definition at line 249 of file vdev.\+py.
+
+\index{vdev@{vdev}!ifaceinfo@{ifaceinfo}}
+\index{ifaceinfo@{ifaceinfo}!vdev@{vdev}}
+\subsubsection[{ifaceinfo}]{\setlength{\rightskip}{0pt plus 5cm}list ifaceinfo = {\bf devconfig}[\textquotesingle{}{\bf simiface}\textquotesingle{}]}\label{namespacevdev_a572e2ebf2df47cc5a806510b9ba577bf}
+
+
+Definition at line 229 of file vdev.\+py.
+
+\index{vdev@{vdev}!ifacetype@{ifacetype}}
+\index{ifacetype@{ifacetype}!vdev@{vdev}}
+\subsubsection[{ifacetype}]{\setlength{\rightskip}{0pt plus 5cm}tuple ifacetype = getattr(ifaces, {\bf ifaceinfo}[\textquotesingle{}typ\textquotesingle{}])}\label{namespacevdev_a950818cc38f4260289120c43e343ddca}
+
+
+--Create I\+C\+S Comm Threads 
+
+
+
+Definition at line 231 of file vdev.\+py.
+
+\index{vdev@{vdev}!logic\+Thread@{logic\+Thread}}
+\index{logic\+Thread@{logic\+Thread}!vdev@{vdev}}
+\subsubsection[{logic\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}tuple logic\+Thread = threading.\+Thread(target={\bf logic}, {\bf name} = \textquotesingle{}logic\+Thread\textquotesingle{}, args=(proc\+Control, {\bf simiface}))}\label{namespacevdev_aa1e988777ef792fd2b0954a4e9700fc6}
+
+
+--Create logic thread get sim logic from model 
+
+
+
+Definition at line 261 of file vdev.\+py.
+
+\index{vdev@{vdev}!parser@{parser}}
+\index{parser@{parser}!vdev@{vdev}}
+\subsubsection[{parser}]{\setlength{\rightskip}{0pt plus 5cm}tuple parser = Option\+Parser(description={\bf program\+Description})}\label{namespacevdev_a8842070e9da559035fb0c7cd5f8b3c6e}
+
+
+Definition at line 191 of file vdev.\+py.
+
+\index{vdev@{vdev}!points@{points}}
+\index{points@{points}!vdev@{vdev}}
+\subsubsection[{points}]{\setlength{\rightskip}{0pt plus 5cm}dictionary points = \{\}}\label{namespacevdev_a59607ced87c32fb4bba0c6981bbcf9a0}
+
+
+Definition at line 93 of file vdev.\+py.
+
+\index{vdev@{vdev}!program\+Description@{program\+Description}}
+\index{program\+Description@{program\+Description}!vdev@{vdev}}
+\subsubsection[{program\+Description}]{\setlength{\rightskip}{0pt plus 5cm}string program\+Description = \char`\"{}\char`\"{}\char`\"{}This program implements {\bf a} virtual I\+C\+S device.\char`\"{}\char`\"{}\char`\"{}}\label{namespacevdev_a638ba7c1243233951e914e5623d8b6b3}
+
+
+--Parse command line options 
+
+
+
+Definition at line 190 of file vdev.\+py.
+
+\index{vdev@{vdev}!simiface@{simiface}}
+\index{simiface@{simiface}!vdev@{vdev}}
+\subsubsection[{simiface}]{\setlength{\rightskip}{0pt plus 5cm}tuple simiface = None}\label{namespacevdev_a40e2c79edeb2927f4f7bf898d3684e13}
+
+
+--Set up points 
+
+--Create simcomm thread 
+
+Definition at line 228 of file vdev.\+py.
+
+\index{vdev@{vdev}!simiface\+Thread@{simiface\+Thread}}
+\index{simiface\+Thread@{simiface\+Thread}!vdev@{vdev}}
+\subsubsection[{simiface\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}tuple simiface\+Thread}\label{namespacevdev_a001c8a8297a6d12dce7741a7efc62bf3}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = threading.Thread(target=simComm, name=simiface, 
+2                                                 args=(simiface,))
+\end{DoxyCode}
+
+
+Definition at line 236 of file vdev.\+py.
+
+\index{vdev@{vdev}!system@{system}}
+\index{system@{system}!vdev@{vdev}}
+\subsubsection[{system}]{\setlength{\rightskip}{0pt plus 5cm}system = opts.\+system}\label{namespacevdev_ac4ca86dead4518ac4fd6e30172db3d9e}
+
+
+Definition at line 204 of file vdev.\+py.
+
+\index{vdev@{vdev}!thread\+List@{thread\+List}}
+\index{thread\+List@{thread\+List}!vdev@{vdev}}
+\subsubsection[{thread\+List}]{\setlength{\rightskip}{0pt plus 5cm}list thread\+List = [$\,$]}\label{namespacevdev_a2ce6f8c570995c6955f92898548bed82}
+
+
+Definition at line 86 of file vdev.\+py.
+
+\index{vdev@{vdev}!update\+Q@{update\+Q}}
+\index{update\+Q@{update\+Q}!vdev@{vdev}}
+\subsubsection[{update\+Q}]{\setlength{\rightskip}{0pt plus 5cm}tuple update\+Q = Queue.\+Queue()}\label{namespacevdev_a520453b0169401faa10a5efdac70708b}
+
+
+Definition at line 82 of file vdev.\+py.
+
+\index{vdev@{vdev}!vdevname@{vdevname}}
+\index{vdevname@{vdevname}!vdev@{vdev}}
+\subsubsection[{vdevname}]{\setlength{\rightskip}{0pt plus 5cm}vdevname = opts.\+device}\label{namespacevdev_aa192b1e2796072e4610bc18893a8dede}
+
+
+Definition at line 203 of file vdev.\+py.
+

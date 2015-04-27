@@ -1,0 +1,28 @@
+.TH "md_vendor_psr_log__r_e_a_d_m_e" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_psr_log__r_e_a_d_m_e \- PSR \fBLog\fP 
+This repository holds all interfaces/classes/traits related to \fBhttps:\fP//github\&.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface\&.md 'PSR-3'\&.
+.PP
+Note that this is not a logger of its own\&. It is merely an interface that describes a logger\&. See the specification for more details\&.
+.PP
+.SS "Usage "
+.PP
+If you need a logger, you can use the interface like this:
+.PP
+```php <?php
+.PP
+use \fBPsr\fP;
+.PP
+class \fBFoo\fP { private $logger;
+.PP
+public function __construct(LoggerInterface $logger = null) { $this->logger = $logger; }
+.PP
+public function doSomething() { if ($this->logger) { $this->logger->info('Doing work'); }
+.PP
+// do something useful } } ```
+.PP
+You can then pick one of the implementations of the interface to get a logger\&.
+.PP
+If you want to implement the interface, you can require this package and implement \fC\fBPsr\fP\\\fBLog\fP\\LoggerInterface\fP in your code\&. Please read the \fBhttps:\fP//github\&.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface\&.md 'specification text' for details\&. 

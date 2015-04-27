@@ -1,0 +1,270 @@
+.TH "UploadedFile" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UploadedFile \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBFile\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($\fBpath\fP, $originalName, $mimeType=null, $\fBsize\fP=null, $error=null, $test=false)"
+.br
+.ti -1c
+.RI "\fBgetClientOriginalName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClientOriginalExtension\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClientMimeType\fP ()"
+.br
+.ti -1c
+.RI "\fBguessClientExtension\fP ()"
+.br
+.ti -1c
+.RI "\fBgetClientSize\fP ()"
+.br
+.ti -1c
+.RI "\fBgetError\fP ()"
+.br
+.ti -1c
+.RI "\fBisValid\fP ()"
+.br
+.ti -1c
+.RI "\fBmove\fP ($directory, $\fBname\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetErrorMessage\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetMaxFilesize\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBA\fP file uploaded through a form\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Bernhard Schussek bschussek@gmail.com 
+.PP
+Florian Eckerstorfer florian@eckerstorfer.org 
+.PP
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 27 of file UploadedFile\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $path,  $originalName,  $mimeType = \fCnull\fP,  $size = \fCnull\fP,  $error = \fCnull\fP,  $test = \fCfalse\fP)"
+Accepts the information of the uploaded file as provided by the \fBPHP\fP global $_FILES\&.
+.PP
+The file object is only created when the uploaded file is valid (i\&.e\&. when the \fBisValid()\fP method returns true)\&. Otherwise the only methods that could be called on an \fBUploadedFile\fP instance are:
+.PP
+.IP "\(bu" 2
+getClientOriginalName,
+.IP "\(bu" 2
+getClientMimeType,
+.IP "\(bu" 2
+isValid,
+.IP "\(bu" 2
+getError\&.
+.PP
+.PP
+Calling any other method on an non-valid instance will cause an unpredictable result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The full temporary path to the file 
+.br
+\fI$originalName\fP The original file name 
+.br
+\fI$mimeType\fP The type of the file as provided by \fBPHP\fP 
+.br
+\fI$size\fP The file size 
+.br
+\fI$error\fP The error constant of the upload (one of \fBPHP\fP's UPLOAD_ERR_XXX constants) 
+.br
+\fI$test\fP Whether the test mode is active
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileException\fP If file_uploads is disabled 
+.br
+\fIFileNotFoundException\fP If the file does not exist
+.RE
+.PP
+
+.PP
+Definition at line 92 of file UploadedFile\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getClientMimeType ()"
+Returns the file mime type\&.
+.PP
+The client mime type is extracted from the request from which the file was uploaded, so it should not be considered as a safe value\&.
+.PP
+For a trusted mime type, use \fBgetMimeType()\fP instead (which guesses the mime type based on the file content)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The mime type
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetMimeType()\fP
+.RE
+.PP
+
+.PP
+Definition at line 146 of file UploadedFile\&.php\&.
+.SS "getClientOriginalExtension ()"
+Returns the original file extension\&.
+.PP
+It is extracted from the original file name that was uploaded\&. Then it should not be considered as a safe value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The extension 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file UploadedFile\&.php\&.
+.SS "getClientOriginalName ()"
+Returns the original file name\&.
+.PP
+It is extracted from the request from which the file has been uploaded\&. Then it should not be considered as a safe value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The original name
+.RE
+.PP
+
+.PP
+Definition at line 113 of file UploadedFile\&.php\&.
+.SS "getClientSize ()"
+Returns the file size\&.
+.PP
+It is extracted from the request from which the file has been uploaded\&. Then it should not be considered as a safe value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null The file size
+.RE
+.PP
+
+.PP
+Definition at line 186 of file UploadedFile\&.php\&.
+.SS "getError ()"
+Returns the upload error\&.
+.PP
+If the upload was successful, the constant UPLOAD_ERR_OK is returned\&. Otherwise one of the other UPLOAD_ERR_XXX constants is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The upload error
+.RE
+.PP
+
+.PP
+Definition at line 201 of file UploadedFile\&.php\&.
+.SS "getErrorMessage ()"
+Returns an informative upload error message\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The error message regarding the specified error code 
+.RE
+.PP
+
+.PP
+Definition at line 291 of file UploadedFile\&.php\&.
+.SS "static getMaxFilesize ()\fC [static]\fP"
+Returns the maximum size of an uploaded file as configured in php\&.ini\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The maximum size of an uploaded file in bytes 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file UploadedFile\&.php\&.
+.SS "guessClientExtension ()"
+Returns the extension based on the client mime type\&.
+.PP
+If the mime type is unknown, returns null\&.
+.PP
+This method uses the mime type as guessed by \fBgetClientMimeType()\fP to guess the file extension\&. As such, the extension returned by this method cannot be trusted\&.
+.PP
+For a trusted extension, use \fBguessExtension()\fP instead (which guesses the extension based on the guessed mime type for the file)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null The guessed extension or null if it cannot be guessed
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBguessExtension()\fP 
+.PP
+\fBgetClientMimeType()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file UploadedFile\&.php\&.
+.SS "isValid ()"
+Returns whether the file was uploaded successfully\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if the file has been uploaded with HTTP and no error occurred\&.
+.RE
+.PP
+
+.PP
+Definition at line 213 of file UploadedFile\&.php\&.
+.SS "move ( $directory,  $name = \fCnull\fP)"
+Moves the file to a new location\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$directory\fP The destination folder 
+.br
+\fI$name\fP The new file name
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBFile\fP \fBA\fP \fBFile\fP object representing the new file
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIFileException\fP if, for any reason, the file could not have been moved
+.RE
+.PP
+
+.PP
+Definition at line 232 of file UploadedFile\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

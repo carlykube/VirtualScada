@@ -1,0 +1,144 @@
+\section{simulator Namespace Reference}
+\label{namespacesimulator}\index{simulator@{simulator}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf procvar}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bf process\+Update} ({\bf update})
+\item 
+def {\bf apply\+Update} ({\bf update}, state)
+\item 
+def {\bf compile\+Update} (state)
+\item 
+def {\bf main} ({\bf system}, sim\+\_\+output\+\_\+filename)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string {\bf program\+Description} = \char`\"{}\char`\"{}\char`\"{}This program implements an I\+C\+S simulation.\char`\"{}\char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Obtain simulation name as command line option. \end{DoxyCompactList}\item 
+tuple {\bf parser} = Option\+Parser(description={\bf program\+Description})
+\item 
+string {\bf action} = \textquotesingle{}store\textquotesingle{}
+\item 
+{\bf system} = opts.\+system
+\item 
+{\bf logfile\+\_\+name} = opts.\+logfile
+\begin{DoxyCompactList}\small\item\em Create a C\+S\+V file to record the sim state after each update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{simulator@{simulator}!apply\+Update@{apply\+Update}}
+\index{apply\+Update@{apply\+Update}!simulator@{simulator}}
+\subsubsection[{apply\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def simulator.\+apply\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{update, }
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacesimulator_a5f12f886eae17182122898c2ce7b269e}
+\begin{DoxyVerb}This function takes a dictionary corresponding to an update and 
+   if the key corresponds to a state variable, the state variable is set to
+   the value in the update.
+
+   @param update Dictionary derived from an update message.
+   @param state The state dictionary for the process simulation\end{DoxyVerb}
+ 
+
+Definition at line 82 of file simulator.\+py.
+
+\index{simulator@{simulator}!compile\+Update@{compile\+Update}}
+\index{compile\+Update@{compile\+Update}!simulator@{simulator}}
+\subsubsection[{compile\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def simulator.\+compile\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacesimulator_aa585014f4c47c4e89877896750a66ffd}
+\begin{DoxyVerb}This function creates a JSON string of all state variables.
+
+   @param state The dictionary of process state variables.
+   @returns A string containing the JSON representation of the
+                state variables.\end{DoxyVerb}
+ 
+
+Definition at line 101 of file simulator.\+py.
+
+\index{simulator@{simulator}!main@{main}}
+\index{main@{main}!simulator@{simulator}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}def simulator.\+main (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{sim\+\_\+output\+\_\+filename}
+\end{DoxyParamCaption}
+)}\label{namespacesimulator_a4e96028e601800fc9c5385d582224979}
+\begin{DoxyVerb}This function contains the main logic of the simulator\end{DoxyVerb}
+ 
+
+Definition at line 113 of file simulator.\+py.
+
+\index{simulator@{simulator}!process\+Update@{process\+Update}}
+\index{process\+Update@{process\+Update}!simulator@{simulator}}
+\subsubsection[{process\+Update}]{\setlength{\rightskip}{0pt plus 5cm}def simulator.\+process\+Update (
+\begin{DoxyParamCaption}
+\item[{}]{update}
+\end{DoxyParamCaption}
+)}\label{namespacesimulator_a1a46fb55e271635d75bf8148f25cb246}
+\begin{DoxyVerb}This function takes an update packet, converts JSON into Python data,
+and then applies all of the listed changes to the process variables.
+
+@param update This parameter is a JSON message received from the interface
+@returns A dictionary of the message contents
+\end{DoxyVerb}
+ 
+
+Definition at line 71 of file simulator.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{simulator@{simulator}!action@{action}}
+\index{action@{action}!simulator@{simulator}}
+\subsubsection[{action}]{\setlength{\rightskip}{0pt plus 5cm}string action = \textquotesingle{}store\textquotesingle{}}\label{namespacesimulator_a6a30da6629d5b550c2025d3788d49cb9}
+
+
+Definition at line 188 of file simulator.\+py.
+
+\index{simulator@{simulator}!logfile\+\_\+name@{logfile\+\_\+name}}
+\index{logfile\+\_\+name@{logfile\+\_\+name}!simulator@{simulator}}
+\subsubsection[{logfile\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}logfile\+\_\+name = opts.\+logfile}\label{namespacesimulator_ae1656cbf537a2e164294e638539f301f}
+
+
+Create a C\+S\+V file to record the sim state after each update. 
+
+This is mostly for debugging. The bufsize=1 indicates the file should be line buffered 
+
+Definition at line 196 of file simulator.\+py.
+
+\index{simulator@{simulator}!parser@{parser}}
+\index{parser@{parser}!simulator@{simulator}}
+\subsubsection[{parser}]{\setlength{\rightskip}{0pt plus 5cm}tuple parser = Option\+Parser(description={\bf program\+Description})}\label{namespacesimulator_a8842070e9da559035fb0c7cd5f8b3c6e}
+
+
+Definition at line 185 of file simulator.\+py.
+
+\index{simulator@{simulator}!program\+Description@{program\+Description}}
+\index{program\+Description@{program\+Description}!simulator@{simulator}}
+\subsubsection[{program\+Description}]{\setlength{\rightskip}{0pt plus 5cm}string program\+Description = \char`\"{}\char`\"{}\char`\"{}This program implements an I\+C\+S simulation.\char`\"{}\char`\"{}\char`\"{}}\label{namespacesimulator_a638ba7c1243233951e914e5623d8b6b3}
+
+
+Obtain simulation name as command line option. 
+
+
+
+Definition at line 184 of file simulator.\+py.
+
+\index{simulator@{simulator}!system@{system}}
+\index{system@{system}!simulator@{simulator}}
+\subsubsection[{system}]{\setlength{\rightskip}{0pt plus 5cm}system = opts.\+system}\label{namespacesimulator_ac4ca86dead4518ac4fd6e30172db3d9e}
+
+
+Definition at line 193 of file simulator.\+py.
+

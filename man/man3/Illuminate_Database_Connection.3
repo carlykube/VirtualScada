@@ -1,0 +1,1362 @@
+.TH "Connection" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Connection \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBConnectionInterface\fP\&.
+.PP
+Inherited by \fBMySqlConnection\fP, \fBPostgresConnection\fP, \fBSQLiteConnection\fP, and \fBSqlServerConnection\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (PDO $pdo, $database= '', $tablePrefix= '', array $config=array())"
+.br
+.ti -1c
+.RI "\fBuseDefaultQueryGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBuseDefaultSchemaGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBuseDefaultPostProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSchemaBuilder\fP ()"
+.br
+.ti -1c
+.RI "\fBtable\fP ($table)"
+.br
+.ti -1c
+.RI "\fBraw\fP ($value)"
+.br
+.ti -1c
+.RI "\fBselectOne\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBselectFromWriteConnection\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBselect\fP ($query, $bindings=array(), $useReadPdo=true)"
+.br
+.ti -1c
+.RI "\fBinsert\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBstatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBaffectingStatement\fP ($query, $bindings=array())"
+.br
+.ti -1c
+.RI "\fBunprepared\fP ($query)"
+.br
+.ti -1c
+.RI "\fBprepareBindings\fP (array $bindings)"
+.br
+.ti -1c
+.RI "\fBtransaction\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBbeginTransaction\fP ()"
+.br
+.ti -1c
+.RI "\fBcommit\fP ()"
+.br
+.ti -1c
+.RI "\fBrollBack\fP ()"
+.br
+.ti -1c
+.RI "\fBtransactionLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBpretend\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBdisconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBreconnect\fP ()"
+.br
+.ti -1c
+.RI "\fBlogQuery\fP ($query, $bindings, $time=null)"
+.br
+.ti -1c
+.RI "\fBlisten\fP (Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineColumn\fP ($\fBtable\fP, $column)"
+.br
+.ti -1c
+.RI "\fBgetDoctrineSchemaManager\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDoctrineConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPdo\fP ()"
+.br
+.ti -1c
+.RI "\fBgetReadPdo\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPdo\fP ($pdo)"
+.br
+.ti -1c
+.RI "\fBsetReadPdo\fP ($pdo)"
+.br
+.ti -1c
+.RI "\fBsetReconnector\fP (callable $reconnector)"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetConfig\fP ($option)"
+.br
+.ti -1c
+.RI "\fBgetDriverName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetQueryGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBsetQueryGrammar\fP (\fBQuery\\Grammars\\Grammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBgetSchemaGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSchemaGrammar\fP (\fBSchema\\Grammars\\Grammar\fP $grammar)"
+.br
+.ti -1c
+.RI "\fBgetPostProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPostProcessor\fP (\fBProcessor\fP $processor)"
+.br
+.ti -1c
+.RI "\fBgetEventDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetEventDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBpretending\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFetchMode\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFetchMode\fP ($fetchMode)"
+.br
+.ti -1c
+.RI "\fBgetQueryLog\fP ()"
+.br
+.ti -1c
+.RI "\fBflushQueryLog\fP ()"
+.br
+.ti -1c
+.RI "\fBenableQueryLog\fP ()"
+.br
+.ti -1c
+.RI "\fBdisableQueryLog\fP ()"
+.br
+.ti -1c
+.RI "\fBlogging\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDatabaseName\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDatabaseName\fP ($database)"
+.br
+.ti -1c
+.RI "\fBgetTablePrefix\fP ()"
+.br
+.ti -1c
+.RI "\fBsetTablePrefix\fP ($prefix)"
+.br
+.ti -1c
+.RI "\fBwithTablePrefix\fP (\fBGrammar\fP $grammar)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDefaultQueryGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDefaultSchemaGrammar\fP ()"
+.br
+.ti -1c
+.RI "\fBgetDefaultPostProcessor\fP ()"
+.br
+.ti -1c
+.RI "\fBgetPdoForSelect\fP ($useReadPdo=true)"
+.br
+.ti -1c
+.RI "\fBrun\fP ($query, $bindings, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBrunQueryCallback\fP ($query, $bindings, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBtryAgainIfCausedByLostConnection\fP (\fBQueryException\fP $\fBe\fP, $query, $bindings, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcausedByLostConnection\fP (\fBQueryException\fP $\fBe\fP)"
+.br
+.ti -1c
+.RI "\fBreconnectIfMissingConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBfireConnectionEvent\fP ($\fBevent\fP)"
+.br
+.ti -1c
+.RI "\fBgetElapsedTime\fP ($start)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$pdo\fP"
+.br
+.ti -1c
+.RI "\fB$readPdo\fP"
+.br
+.ti -1c
+.RI "\fB$reconnector\fP"
+.br
+.ti -1c
+.RI "\fB$queryGrammar\fP"
+.br
+.ti -1c
+.RI "\fB$schemaGrammar\fP"
+.br
+.ti -1c
+.RI "\fB$postProcessor\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$fetchMode\fP = PDO::FETCH_ASSOC"
+.br
+.ti -1c
+.RI "\fB$transactions\fP = 0"
+.br
+.ti -1c
+.RI "\fB$queryLog\fP = array()"
+.br
+.ti -1c
+.RI "\fB$loggingQueries\fP = false"
+.br
+.ti -1c
+.RI "\fB$pretending\fP = false"
+.br
+.ti -1c
+.RI "\fB$database\fP"
+.br
+.ti -1c
+.RI "\fB$tablePrefix\fP = ''"
+.br
+.ti -1c
+.RI "\fB$config\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file Connection\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (PDO $pdo,  $database = \fC''\fP,  $tablePrefix = \fC''\fP, array $config = \fCarray()\fP)"
+Create a new database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP 
+.br
+\fI$database\fP 
+.br
+\fI$tablePrefix\fP 
+.br
+\fI$config\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file Connection\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "affectingStatement ( $query,  $bindings = \fCarray()\fP)"
+Run an SQL statement and get the number of rows affected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 369 of file Connection\&.php\&.
+.SS "beginTransaction ()"
+Start a new database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 470 of file Connection\&.php\&.
+.SS "causedByLostConnection (\fBQueryException\fP $e)\fC [protected]\fP"
+Determine if the given exception was caused by a lost connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 657 of file Connection\&.php\&.
+.SS "commit ()"
+Commit the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 487 of file Connection\&.php\&.
+.SS "delete ( $query,  $bindings = \fCarray()\fP)"
+Run a delete statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 338 of file Connection\&.php\&.
+.SS "disableQueryLog ()"
+Disable the query log on the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1050 of file Connection\&.php\&.
+.SS "disconnect ()"
+Disconnect from the underlying PDO connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 673 of file Connection\&.php\&.
+.SS "enableQueryLog ()"
+Enable the query log on the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1040 of file Connection\&.php\&.
+.SS "fireConnectionEvent ( $event)\fC [protected]\fP"
+Fire an event for this connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$event\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 748 of file Connection\&.php\&.
+.SS "flushQueryLog ()"
+Clear the query log\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1030 of file Connection\&.php\&.
+.SS "getConfig ( $option)"
+Get an option from the configuration options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$option\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 885 of file Connection\&.php\&.
+.SS "getDatabaseName ()"
+Get the name of the connected database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1070 of file Connection\&.php\&.
+.SS "getDefaultPostProcessor ()\fC [protected]\fP"
+Get the default post processor instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 202 of file Connection\&.php\&.
+.SS "getDefaultQueryGrammar ()\fC [protected]\fP"
+Get the default query grammar instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 165 of file Connection\&.php\&.
+.SS "getDefaultSchemaGrammar ()\fC [protected]\fP"
+Get the default schema grammar instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 185 of file Connection\&.php\&.
+.SS "getDoctrineColumn ( $table,  $column)"
+Get a \fBDoctrine\fP \fBSchema\fP Column instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 774 of file Connection\&.php\&.
+.SS "getDoctrineConnection ()"
+Get the \fBDoctrine\fP DBAL database connection instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 796 of file Connection\&.php\&.
+.SS "getDoctrineSchemaManager ()"
+Get the \fBDoctrine\fP DBAL schema manager for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 786 of file Connection\&.php\&.
+.SS "getDriverName ()"
+Get the PDO driver name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 895 of file Connection\&.php\&.
+.SS "getElapsedTime ( $start)\fC [protected]\fP"
+Get the elapsed time since a given starting point\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$start\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+float 
+.RE
+.PP
+
+.PP
+Definition at line 762 of file Connection\&.php\&.
+.SS "getEventDispatcher ()"
+Get the event dispatcher used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 968 of file Connection\&.php\&.
+.SS "getFetchMode ()"
+Get the default fetch mode for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 999 of file Connection\&.php\&.
+.SS "getName ()"
+Get the database connection name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 874 of file Connection\&.php\&.
+.SS "getPdo ()"
+Get the current PDO connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 810 of file Connection\&.php\&.
+.SS "getPdoForSelect ( $useReadPdo = \fCtrue\fP)\fC [protected]\fP"
+Get the PDO connection to use for a select query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$useReadPdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 302 of file Connection\&.php\&.
+.SS "getPostProcessor ()"
+Get the query post processor used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 947 of file Connection\&.php\&.
+.SS "getQueryGrammar ()"
+Get the query grammar used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 905 of file Connection\&.php\&.
+.SS "getQueryLog ()"
+Get the connection query log\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 1020 of file Connection\&.php\&.
+.SS "getReadPdo ()"
+Get the current PDO connection used for reading\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 820 of file Connection\&.php\&.
+.SS "getSchemaBuilder ()"
+Get a schema builder instance for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 212 of file Connection\&.php\&.
+.SS "getSchemaGrammar ()"
+Get the schema grammar used by the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 926 of file Connection\&.php\&.
+.SS "getTablePrefix ()"
+Get the table prefix for the connection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1091 of file Connection\&.php\&.
+.SS "insert ( $query,  $bindings = \fCarray()\fP)"
+Run an insert statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 314 of file Connection\&.php\&.
+.SS "listen (Closure $callback)"
+Register a database query listener with the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 734 of file Connection\&.php\&.
+.SS "logging ()"
+Determine whether we're logging queries\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 1060 of file Connection\&.php\&.
+.SS "logQuery ( $query,  $bindings,  $time = \fCnull\fP)"
+\fBLog\fP a query in the connection's query log\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$time\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 716 of file Connection\&.php\&.
+.SS "prepareBindings (array $bindings)"
+Prepare the query bindings for execution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 408 of file Connection\&.php\&.
+.SS "pretend (Closure $callback)"
+Execute the given callback in 'dry run' mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 533 of file Connection\&.php\&.
+.SS "pretending ()"
+Determine if the connection in a 'dry run'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 989 of file Connection\&.php\&.
+.SS "raw ( $value)"
+Get a new raw query expression\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 240 of file Connection\&.php\&.
+.SS "reconnect ()"
+Reconnect to the database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 685 of file Connection\&.php\&.
+.SS "reconnectIfMissingConnection ()\fC [protected]\fP"
+Reconnect to the database if a PDO connection is missing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 700 of file Connection\&.php\&.
+.SS "rollBack ()"
+Rollback the active database transaction\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 501 of file Connection\&.php\&.
+.SS "run ( $query,  $bindings, Closure $callback)\fC [protected]\fP"
+Run a SQL statement and log its execution context\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 565 of file Connection\&.php\&.
+.SS "runQueryCallback ( $query,  $bindings, Closure $callback)\fC [protected]\fP"
+Run a SQL statement\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 605 of file Connection\&.php\&.
+.SS "select ( $query,  $bindings = \fCarray()\fP,  $useReadPdo = \fCtrue\fP)"
+Run a select statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$useReadPdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 279 of file Connection\&.php\&.
+.SS "selectFromWriteConnection ( $query,  $bindings = \fCarray()\fP)"
+Run a select statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 266 of file Connection\&.php\&.
+.SS "selectOne ( $query,  $bindings = \fCarray()\fP)"
+Run a select statement and return a single result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 252 of file Connection\&.php\&.
+.SS "setDatabaseName ( $database)"
+Set the name of the connected database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$database\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 1081 of file Connection\&.php\&.
+.SS "setEventDispatcher (\fBDispatcher\fP $events)"
+Set the event dispatcher instance on the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 979 of file Connection\&.php\&.
+.SS "setFetchMode ( $fetchMode)"
+Set the default fetch mode for the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fetchMode\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 1010 of file Connection\&.php\&.
+.SS "setPdo ( $pdo)"
+Set the PDO connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 833 of file Connection\&.php\&.
+.SS "setPostProcessor (\fBProcessor\fP $processor)"
+Set the query post processor used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 958 of file Connection\&.php\&.
+.SS "setQueryGrammar (\fBQuery\\Grammars\\Grammar\fP $grammar)"
+Set the query grammar used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 916 of file Connection\&.php\&.
+.SS "setReadPdo ( $pdo)"
+Set the PDO connection used for reading\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$pdo\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 849 of file Connection\&.php\&.
+.SS "setReconnector (callable $reconnector)"
+Set the reconnect instance on the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$reconnector\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 862 of file Connection\&.php\&.
+.SS "setSchemaGrammar (\fBSchema\\Grammars\\Grammar\fP $grammar)"
+Set the schema grammar used by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 937 of file Connection\&.php\&.
+.SS "setTablePrefix ( $prefix)"
+Set the table prefix in use by the connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$prefix\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 1102 of file Connection\&.php\&.
+.SS "statement ( $query,  $bindings = \fCarray()\fP)"
+Execute an SQL statement and return the boolean result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 350 of file Connection\&.php\&.
+.SS "table ( $table)"
+Begin a fluent query against a database table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 225 of file Connection\&.php\&.
+.SS "transaction (Closure $callback)"
+Execute a Closure within a transaction\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 438 of file Connection\&.php\&.
+.SS "transactionLevel ()"
+Get the number of active transactions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 522 of file Connection\&.php\&.
+.SS "tryAgainIfCausedByLostConnection (\fBQueryException\fP $e,  $query,  $bindings, Closure $callback)\fC [protected]\fP"
+Handle a query exception that occurred during query execution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$e\fP 
+.br
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 639 of file Connection\&.php\&.
+.SS "unprepared ( $query)"
+Run a raw, unprepared query against the PDO connection\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 392 of file Connection\&.php\&.
+.SS "update ( $query,  $bindings = \fCarray()\fP)"
+Run an update statement against the database\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$bindings\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBConnectionInterface\fP\&.
+.PP
+Definition at line 326 of file Connection\&.php\&.
+.SS "useDefaultPostProcessor ()"
+Set the query post processor to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 192 of file Connection\&.php\&.
+.SS "useDefaultQueryGrammar ()"
+Set the query grammar to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file Connection\&.php\&.
+.SS "useDefaultSchemaGrammar ()"
+Set the schema grammar to the default implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file Connection\&.php\&.
+.SS "withTablePrefix (\fBGrammar\fP $grammar)"
+Set the table prefix and return the grammar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$grammar\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 1115 of file Connection\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$config = array()\fC [protected]\fP"
+
+.PP
+Definition at line 118 of file Connection\&.php\&.
+.SS "$database\fC [protected]\fP"
+
+.PP
+Definition at line 104 of file Connection\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 62 of file Connection\&.php\&.
+.SS "$fetchMode = PDO::FETCH_ASSOC\fC [protected]\fP"
+
+.PP
+Definition at line 69 of file Connection\&.php\&.
+.SS "$loggingQueries = false\fC [protected]\fP"
+
+.PP
+Definition at line 90 of file Connection\&.php\&.
+.SS "$pdo\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Connection\&.php\&.
+.SS "$postProcessor\fC [protected]\fP"
+
+.PP
+Definition at line 55 of file Connection\&.php\&.
+.SS "$\fBpretending\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 97 of file Connection\&.php\&.
+.SS "$queryGrammar\fC [protected]\fP"
+
+.PP
+Definition at line 41 of file Connection\&.php\&.
+.SS "$queryLog = array()\fC [protected]\fP"
+
+.PP
+Definition at line 83 of file Connection\&.php\&.
+.SS "$readPdo\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Connection\&.php\&.
+.SS "$reconnector\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file Connection\&.php\&.
+.SS "$schemaGrammar\fC [protected]\fP"
+
+.PP
+Definition at line 48 of file Connection\&.php\&.
+.SS "$tablePrefix = ''\fC [protected]\fP"
+
+.PP
+Definition at line 111 of file Connection\&.php\&.
+.SS "$transactions = 0\fC [protected]\fP"
+
+.PP
+Definition at line 76 of file Connection\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

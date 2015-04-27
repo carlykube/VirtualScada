@@ -1,0 +1,305 @@
+\section{Base\+Memcache\+Profiler\+Storage Class Reference}
+\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage}\index{Base\+Memcache\+Profiler\+Storage@{Base\+Memcache\+Profiler\+Storage}}
+Inheritance diagram for Base\+Memcache\+Profiler\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$dsn, \$username= \textquotesingle{}\textquotesingle{}, \$password= \textquotesingle{}\textquotesingle{}, \$lifetime=86400)
+\item 
+{\bf find} (\$ip, \$url, \$limit, \$method, \$start=null, \$end=null)
+\item 
+{\bf purge} ()
+\item 
+{\bf read} (\$token)
+\item 
+{\bf write} ({\bf Profile} \$profile)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X} = \textquotesingle{}sf\+\_\+profiler\+\_\+\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Value} (\$key)
+\item 
+{\bf set\+Value} (\$key, \$value, \$expiration=0)
+\item 
+{\bf delete} (\$key)
+\item 
+{\bf append\+Value} (\$key, \$value, \$expiration=0)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$dsn}
+\item 
+{\bf \$lifetime}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base Memcache storage for profiling information in a Memcache.
+
+\begin{DoxyAuthor}{Author}
+Andrej Hudec {\tt pulzarraider@gmail.\+com} 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$dsn, }
+\item[{}]{\$username = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$password = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$lifetime = {\ttfamily 86400}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a8fee35c4f249b479da1a38214d1f2dc6}
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$dsn} & \doxyref{A}{p.}{class_a} data source name \\
+\hline
+string & {\em \$username} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+int & {\em \$lifetime} & The lifetime to use for the purge \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!append\+Value@{append\+Value}}
+\index{append\+Value@{append\+Value}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{append\+Value}]{\setlength{\rightskip}{0pt plus 5cm}append\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$expiration = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_af75cc9a2e7ec20d8d49d8caea12d885a}
+Append data to an existing item on the memcache server.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+int & {\em \$expiration} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!delete@{delete}}
+\index{delete@{delete}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_aa74a2edd6f3cbb5c5353f7faa97b6d70}
+Delete item from the memcache server.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!find@{find}}
+\index{find@{find}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$ip, }
+\item[{}]{\$url, }
+\item[{}]{\$limit, }
+\item[{}]{\$method, }
+\item[{}]{\$start = {\ttfamily null}, }
+\item[{}]{\$end = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a78e1a362bc3a4a8b1290f3af9541d8b0}
+\{Finds profiler tokens for the given criteria.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ip} & The I\+P \\
+\hline
+string & {\em \$url} & The \doxyref{U\+R\+L}{p.}{class_u_r_l} \\
+\hline
+string & {\em \$limit} & The maximum number of tokens to return \\
+\hline
+string & {\em \$method} & The request method \\
+\hline
+int | null & {\em \$start} & The start date to search from \\
+\hline
+int | null & {\em \$end} & The end date to search to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array An array of tokens
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a78e1a362bc3a4a8b1290f3af9541d8b0}.
+
+
+
+Definition at line 43 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{get\+Value}]{\setlength{\rightskip}{0pt plus 5cm}get\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a8d7e1f100def0d8701b53ca45fabbfb4}
+Retrieve item from the memcache server.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!purge@{purge}}
+\index{purge@{purge}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{purge}]{\setlength{\rightskip}{0pt plus 5cm}purge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_ac400be513972a68ea08ef845d5b16824}
+\{Purges all data from the database.\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_ac400be513972a68ea08ef845d5b16824}.
+
+
+
+Definition at line 105 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!read@{read}}
+\index{read@{read}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}read (
+\begin{DoxyParamCaption}
+\item[{}]{\$token}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a2080f7cded6528ace4ee2172e48e5f3c}
+\{Reads data associated with the given token.
+
+The method returns false if the token does not exist in the storage.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$token} & \doxyref{A}{p.}{class_a} token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} The profile associated with token
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_a2080f7cded6528ace4ee2172e48e5f3c}.
+
+
+
+Definition at line 134 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}set\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$expiration = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a98d5b399e783e78f8b21a15646eeedc9}
+Store an item on the memcache server under the specified key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+int & {\em \$expiration} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!write@{write}}
+\index{write@{write}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (
+\begin{DoxyParamCaption}
+\item[{{\bf Profile}}]{\$profile}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_aea7881699586bacb79b542561f655a05}
+\{Saves a \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} & {\em \$profile} & \doxyref{A}{p.}{class_a} \doxyref{Profile}{p.}{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profile} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Write operation successful
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Profiler\+Storage\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_profiler_storage_interface_aea7881699586bacb79b542561f655a05}.
+
+
+
+Definition at line 152 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!\$dsn@{\$dsn}}
+\index{\$dsn@{\$dsn}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{\$dsn}]{\setlength{\rightskip}{0pt plus 5cm}\$dsn\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a6441cca8c9fa11e16d2017e8cb733c10}
+
+
+Definition at line 23 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!\$lifetime@{\$lifetime}}
+\index{\$lifetime@{\$lifetime}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{\$lifetime}]{\setlength{\rightskip}{0pt plus 5cm}\$lifetime\hspace{0.3cm}{\ttfamily [protected]}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_a2900bc497d166ddabb5dd0141a5a7e73}
+
+
+Definition at line 24 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+\index{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}!T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X@{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}}
+\index{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X@{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}!Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage@{Symfony\+::\+Component\+::\+Http\+Kernel\+::\+Profiler\+::\+Base\+Memcache\+Profiler\+Storage}}
+\subsubsection[{T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X}]{\setlength{\rightskip}{0pt plus 5cm}const T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+I\+X = \textquotesingle{}sf\+\_\+profiler\+\_\+\textquotesingle{}}\label{class_symfony_1_1_component_1_1_http_kernel_1_1_profiler_1_1_base_memcache_profiler_storage_afed9cbf22c5789d0dd6712dabd61e1dc}
+
+
+Definition at line 21 of file Base\+Memcache\+Profiler\+Storage.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/http-\/kernel/\+Symfony/\+Component/\+Http\+Kernel/\+Profiler/{\bf Base\+Memcache\+Profiler\+Storage.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,143 @@
+.TH "Registry" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Registry \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBaddLogger\fP (\fBLogger\fP $logger, $\fBname\fP=null, $overwrite=false)"
+.br
+.ti -1c
+.RI "static \fBhasLogger\fP ($logger)"
+.br
+.ti -1c
+.RI "static \fBremoveLogger\fP ($logger)"
+.br
+.ti -1c
+.RI "static \fBclear\fP ()"
+.br
+.ti -1c
+.RI "static \fBgetInstance\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "static \fB__callStatic\fP ($\fBname\fP, $arguments)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBMonolog\fP log registry
+.PP
+Allows to get \fC\fBLogger\fP\fP instances in the global scope via static method calls on this class\&.
+.PP
+\fC $application = new \fBMonolog\fP('application'); $api = new \fBMonolog\fP('api');\fP
+.PP
+\fC\fBMonolog\fP::addLogger($application); \fBMonolog\fP::addLogger($api);\fP
+.PP
+\fCfunction testLogger() { \fBMonolog\fP::api()->addError('Sent to $api \fBLogger\fP instance'); \fBMonolog\fP::application()->addError('Sent to $application \fBLogger\fP instance'); } \fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Tomas Tatarko tomas@tatarko.sk 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file Registry\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static __callStatic ( $name,  $arguments)\fC [static]\fP"
+Gets \fBLogger\fP instance from the registry via static method call
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP Name of the requested \fBLogger\fP instance 
+.br
+\fI$arguments\fP Arguments passed to static method call 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLogger\fP Requested instance of \fBLogger\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 130 of file Registry\&.php\&.
+.SS "static addLogger (\fBLogger\fP $logger,  $name = \fCnull\fP,  $overwrite = \fCfalse\fP)\fC [static]\fP"
+Adds new logging channel to the registry
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP Instance of the logging channel 
+.br
+\fI$name\fP Name of the logging channel ($logger->getName() by default) 
+.br
+\fI$overwrite\fP Overwrite instance in the registry if the given name already exists? 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 55 of file Registry\&.php\&.
+.SS "static clear ()\fC [static]\fP"
+Clears the registry 
+.PP
+Definition at line 101 of file Registry\&.php\&.
+.SS "static getInstance ( $name)\fC [static]\fP"
+Gets \fBLogger\fP instance from the registry
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP Name of the requested \fBLogger\fP instance 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLogger\fP Requested instance of \fBLogger\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 113 of file Registry\&.php\&.
+.SS "static hasLogger ( $logger)\fC [static]\fP"
+Checks if such logging channel exists by name or instance
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP Name or logger instance 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Registry\&.php\&.
+.SS "static removeLogger ( $logger)\fC [static]\fP"
+Removes instance from registry by name or instance
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$logger\fP Name or logger instance 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file Registry\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,1387 @@
+\section{Builder Class Reference}
+\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder}\index{Builder@{Builder}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (Query\+Builder \$query)
+\item 
+{\bf find} (\$id, \$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf find\+Many} (\$ids, \$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf find\+Or\+Fail} (\$id, \$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf first} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf first\+Or\+Fail} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf get} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf pluck} (\$column)
+\item 
+{\bf chunk} (\$count, callable \${\bf callback})
+\item 
+{\bf lists} (\$column, \$key=null)
+\item 
+{\bf paginate} (\$per\+Page=null, \$columns=[\textquotesingle{}$\ast$\textquotesingle{}])
+\item 
+{\bf simple\+Paginate} (\$per\+Page=null, \$columns=[\textquotesingle{}$\ast$\textquotesingle{}])
+\item 
+{\bf update} (array \${\bf values})
+\item 
+{\bf increment} (\$column, \$amount=1, array \$extra=array())
+\item 
+{\bf decrement} (\$column, \$amount=1, array \$extra=array())
+\item 
+{\bf delete} ()
+\item 
+{\bf force\+Delete} ()
+\item 
+{\bf on\+Delete} (Closure \${\bf callback})
+\item 
+{\bf get\+Models} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf eager\+Load\+Relations} (array \${\bf models})
+\item 
+{\bf get\+Relation} (\$relation)
+\item 
+{\bf where} (\$column, \$operator=null, \$value=null, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where} (\$column, \$operator=null, \$value=null)
+\item 
+{\bf has} (\$relation, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \$count=1, \$boolean= \textquotesingle{}and\textquotesingle{}, Closure \${\bf callback}=null)
+\item 
+{\bf doesnt\+Have} (\$relation, \$boolean= \textquotesingle{}and\textquotesingle{}, Closure \${\bf callback}=null)
+\item 
+{\bf where\+Has} (\$relation, Closure \${\bf callback}, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \$count=1)
+\item 
+{\bf where\+Doesnt\+Have} (\$relation, Closure \${\bf callback}=null)
+\item 
+{\bf or\+Has} (\$relation, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \$count=1)
+\item 
+{\bf or\+Where\+Has} (\$relation, Closure \${\bf callback}, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \$count=1)
+\item 
+{\bf with} (\$relations)
+\item 
+{\bf get\+Query} ()
+\item 
+{\bf set\+Query} (\$query)
+\item 
+{\bf get\+Eager\+Loads} ()
+\item 
+{\bf set\+Eager\+Loads} (array \$eager\+Load)
+\item 
+{\bf get\+Model} ()
+\item 
+{\bf set\+Model} ({\bf Model} \$model)
+\item 
+{\bf macro} (\${\bf name}, Closure \${\bf callback})
+\item 
+{\bf get\+Macro} (\${\bf name})
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$parameters)
+\item 
+{\bf \+\_\+\+\_\+clone} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf add\+Updated\+At\+Column} (array \${\bf values})
+\item 
+{\bf load\+Relation} (array \${\bf models}, \${\bf name}, Closure \$constraints)
+\item 
+{\bf nested\+Relations} (\$relation)
+\item 
+{\bf is\+Nested} (\${\bf name}, \$relation)
+\item 
+{\bf has\+Nested} (\$relations, \$operator= \textquotesingle{}$>$=\textquotesingle{}, \$count=1, \$boolean= \textquotesingle{}and\textquotesingle{}, \${\bf callback}=null)
+\item 
+{\bf add\+Has\+Where} ({\bf Builder} \$has\+Query, {\bf Relation} \$relation, \$operator, \$count, \$boolean)
+\item 
+{\bf merge\+Wheres\+To\+Has} ({\bf Builder} \$has\+Query, {\bf Relation} \$relation)
+\item 
+{\bf get\+Has\+Relation\+Query} (\$relation)
+\item 
+{\bf parse\+Relations} (array \$relations)
+\item 
+{\bf parse\+Nested} (\${\bf name}, \$results)
+\item 
+{\bf call\+Scope} (\$scope, \$parameters)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$query}
+\item 
+{\bf \$model}
+\item 
+{\bf \$eager\+Load} = array()
+\item 
+{\bf \$macros} = array()
+\item 
+{\bf \$on\+Delete}
+\item 
+{\bf \$passthru}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Builder.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{Query\+Builder}]{\$query}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a87038fe4487191eb5a247b9f42e857ac}
+Create a new \doxyref{Eloquent}{p.}{namespace_illuminate_1_1_database_1_1_eloquent} query builder instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file Builder.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ac565bd6a9d062c73a0a0db7afe0ffea9}
+Dynamically handle calls into the query instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 920 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}}
+\index{\+\_\+\+\_\+clone@{\+\_\+\+\_\+clone}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\+\_\+\+\_\+clone}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ad0cb87b388bc74d63dc884accdca8713}
+Force a clone of the underlying query builder when cloning.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 943 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!add\+Has\+Where@{add\+Has\+Where}}
+\index{add\+Has\+Where@{add\+Has\+Where}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{add\+Has\+Where}]{\setlength{\rightskip}{0pt plus 5cm}add\+Has\+Where (
+\begin{DoxyParamCaption}
+\item[{{\bf Builder}}]{\$has\+Query, }
+\item[{{\bf Relation}}]{\$relation, }
+\item[{}]{\$operator, }
+\item[{}]{\$count, }
+\item[{}]{\$boolean}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a24f8df9891f19a591f43079921378166}
+Add the \char`\"{}has\char`\"{} condition where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Builder & {\em \$has\+Query} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Relations\textbackslash{}\+Relation & {\em \$relation} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 679 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!add\+Updated\+At\+Column@{add\+Updated\+At\+Column}}
+\index{add\+Updated\+At\+Column@{add\+Updated\+At\+Column}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{add\+Updated\+At\+Column}]{\setlength{\rightskip}{0pt plus 5cm}add\+Updated\+At\+Column (
+\begin{DoxyParamCaption}
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a26998ad790d513664d4e8a4c0a92c256}
+Add the \char`\"{}updated at\char`\"{} column to an array of values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 327 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!call\+Scope@{call\+Scope}}
+\index{call\+Scope@{call\+Scope}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{call\+Scope}]{\setlength{\rightskip}{0pt plus 5cm}call\+Scope (
+\begin{DoxyParamCaption}
+\item[{}]{\$scope, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_aea3a4881efb44624104e7090f74d0fd1}
+Call the given model scope on the underlying model.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$scope} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 812 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!chunk@{chunk}}
+\index{chunk@{chunk}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{chunk}]{\setlength{\rightskip}{0pt plus 5cm}chunk (
+\begin{DoxyParamCaption}
+\item[{}]{\$count, }
+\item[{callable}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a2f69b852143529f0c599dc6a7f2c983c}
+Chunk the results of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$count} & \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!decrement@{decrement}}
+\index{decrement@{decrement}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}decrement (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$amount = {\ttfamily 1}, }
+\item[{array}]{\$extra = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a8d117d01be1231393b73f4a7fef5715b}
+Decrement a column\textquotesingle{}s value by a given amount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$amount} & \\
+\hline
+array & {\em \$extra} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 314 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a13bdffdd926f26b825ea57066334ff01}
+Delete a record from the database.
+
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 341 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!doesnt\+Have@{doesnt\+Have}}
+\index{doesnt\+Have@{doesnt\+Have}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{doesnt\+Have}]{\setlength{\rightskip}{0pt plus 5cm}doesnt\+Have (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_adb02284a1197cb72bf6bff9ba2649438}
+Add a relationship count condition to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 611 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!eager\+Load\+Relations@{eager\+Load\+Relations}}
+\index{eager\+Load\+Relations@{eager\+Load\+Relations}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{eager\+Load\+Relations}]{\setlength{\rightskip}{0pt plus 5cm}eager\+Load\+Relations (
+\begin{DoxyParamCaption}
+\item[{array}]{\$models}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a31ae6143148d773e5aabf5d5cd5cf12e}
+Eager load the relationships for the models.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$models} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 393 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!find@{find}}
+\index{find@{find}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a9bd3eaf9ca9d134d273e56343252c04f}
+Find a model by its primary key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$id} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!find\+Many@{find\+Many}}
+\index{find\+Many@{find\+Many}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{find\+Many}]{\setlength{\rightskip}{0pt plus 5cm}find\+Many (
+\begin{DoxyParamCaption}
+\item[{}]{\$ids, }
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a6edfe928e8aae7fc98676690f56d9f69}
+Find a model by its primary key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$ids} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 94 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!find\+Or\+Fail@{find\+Or\+Fail}}
+\index{find\+Or\+Fail@{find\+Or\+Fail}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{find\+Or\+Fail}]{\setlength{\rightskip}{0pt plus 5cm}find\+Or\+Fail (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_aee538d1cb395f83d870b7a78202112c2}
+Find a model by its primary key or throw an exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$id} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 112 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!first@{first}}
+\index{first@{first}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}first (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ad9a8f9de57ed3ce276161183e7d80f2e}
+Execute the query and get the first result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!first\+Or\+Fail@{first\+Or\+Fail}}
+\index{first\+Or\+Fail@{first\+Or\+Fail}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{first\+Or\+Fail}]{\setlength{\rightskip}{0pt plus 5cm}first\+Or\+Fail (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ae49da01af18a2ca8169b5a4395b6dce9}
+Execute the query and get the first result or throw an exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 147 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!force\+Delete@{force\+Delete}}
+\index{force\+Delete@{force\+Delete}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{force\+Delete}]{\setlength{\rightskip}{0pt plus 5cm}force\+Delete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a939ba8fcbe462d69f48c970435a64eb7}
+Run the default delete function on the builder.
+
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 356 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a6fa685740045a0b4627e75f0808c0335}
+Execute the query as a \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static[] 
+\end{DoxyReturn}
+
+
+Definition at line 160 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Eager\+Loads@{get\+Eager\+Loads}}
+\index{get\+Eager\+Loads@{get\+Eager\+Loads}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Eager\+Loads}]{\setlength{\rightskip}{0pt plus 5cm}get\+Eager\+Loads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ab469118c72de1251757f02caa1c68aba}
+Get the relationships being eagerly loaded.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 847 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Has\+Relation\+Query@{get\+Has\+Relation\+Query}}
+\index{get\+Has\+Relation\+Query@{get\+Has\+Relation\+Query}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Has\+Relation\+Query}]{\setlength{\rightskip}{0pt plus 5cm}get\+Has\+Relation\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a918e921f45c5b6824285431e06f89e79}
+Get the \char`\"{}has relation\char`\"{} base query instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 720 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Macro@{get\+Macro}}
+\index{get\+Macro@{get\+Macro}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Macro}]{\setlength{\rightskip}{0pt plus 5cm}get\+Macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ae0495451a441d53e04e25353b9f63972}
+Get the given macro by name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 908 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Model@{get\+Model}}
+\index{get\+Model@{get\+Model}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Model}]{\setlength{\rightskip}{0pt plus 5cm}get\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a0a086ca877b41192556a2de7e4a97b98}
+Get the model instance being queried.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 870 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Models@{get\+Models}}
+\index{get\+Models@{get\+Models}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Models}]{\setlength{\rightskip}{0pt plus 5cm}get\+Models (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a2dac73faad3b577aa1de219484f5201a}
+Get the hydrated models without eager loading.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+[] 
+\end{DoxyReturn}
+
+
+Definition at line 378 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Query@{get\+Query}}
+\index{get\+Query@{get\+Query}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Query}]{\setlength{\rightskip}{0pt plus 5cm}get\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a55f162785567258fe5138af282e588c2}
+Get the underlying query builder instance.
+
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 824 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!get\+Relation@{get\+Relation}}
+\index{get\+Relation@{get\+Relation}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{get\+Relation}]{\setlength{\rightskip}{0pt plus 5cm}get\+Relation (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a18d16d70ee1e05044e3e59aad4446974}
+Get the relation instance for the given relation name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 444 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a05631c22ae5f0feb5b49a6e788e21f25}
+Add a relationship count condition to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 555 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!has\+Nested@{has\+Nested}}
+\index{has\+Nested@{has\+Nested}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{has\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}has\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{\$relations, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a4e43df4ce2c553ae490d2ff1dd220cf2}
+Add nested relationship count conditions to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relations} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 581 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!increment@{increment}}
+\index{increment@{increment}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}increment (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$amount = {\ttfamily 1}, }
+\item[{array}]{\$extra = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a0b7b0ca415c71e48feba9444061751d6}
+Increment a column\textquotesingle{}s value by a given amount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$amount} & \\
+\hline
+array & {\em \$extra} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!is\+Nested@{is\+Nested}}
+\index{is\+Nested@{is\+Nested}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{is\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}is\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$relation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a50a56b8083a31b20f610c3d59a060a41}
+Determine if the relationship is nested.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$relation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 498 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!lists@{lists}}
+\index{lists@{lists}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{lists}]{\setlength{\rightskip}{0pt plus 5cm}lists (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_aa1f14e77d5538388d4ff5129a0e5c048}
+Get an array with the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!load\+Relation@{load\+Relation}}
+\index{load\+Relation@{load\+Relation}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{load\+Relation}]{\setlength{\rightskip}{0pt plus 5cm}load\+Relation (
+\begin{DoxyParamCaption}
+\item[{array}]{\$models, }
+\item[{}]{\$name, }
+\item[{Closure}]{\$constraints}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ac0e47aabcab7a0d73ba2dcb283b6ed07}
+Eagerly load the relationship on a set of models.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$models} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$constraints} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 417 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!macro@{macro}}
+\index{macro@{macro}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{macro}]{\setlength{\rightskip}{0pt plus 5cm}macro (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ab274a9cea3167f866778b2a0555b500e}
+Extend the builder with a given callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 897 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!merge\+Wheres\+To\+Has@{merge\+Wheres\+To\+Has}}
+\index{merge\+Wheres\+To\+Has@{merge\+Wheres\+To\+Has}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{merge\+Wheres\+To\+Has}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Wheres\+To\+Has (
+\begin{DoxyParamCaption}
+\item[{{\bf Builder}}]{\$has\+Query, }
+\item[{{\bf Relation}}]{\$relation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a54f0f8f4d0e6cfcaaea09487f1e9514e}
+Merge the \char`\"{}wheres\char`\"{} from a relation query to a has query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Builder & {\em \$has\+Query} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Relations\textbackslash{}\+Relation & {\em \$relation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 698 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!nested\+Relations@{nested\+Relations}}
+\index{nested\+Relations@{nested\+Relations}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{nested\+Relations}]{\setlength{\rightskip}{0pt plus 5cm}nested\+Relations (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_abf6412537b2ca2c38a93d1cf7fc5ef49}
+Get the deeply nested relations for a given top-\/level relation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 473 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!on\+Delete@{on\+Delete}}
+\index{on\+Delete@{on\+Delete}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{on\+Delete}]{\setlength{\rightskip}{0pt plus 5cm}on\+Delete (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a83980600957babfe2a5dd1fef3333191}
+Register a replacement for the default delete function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 367 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!or\+Has@{or\+Has}}
+\index{or\+Has@{or\+Has}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{or\+Has}]{\setlength{\rightskip}{0pt plus 5cm}or\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_ad3862ce0502d2cae4253cf536edd08e9}
+Add a relationship count condition to the query with an \char`\"{}or\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 650 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!or\+Where@{or\+Where}}
+\index{or\+Where@{or\+Where}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{or\+Where}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a40bf8a810202740d824abf89f82a52a6}
+Add an \char`\"{}or where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 540 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!or\+Where\+Has@{or\+Where\+Has}}
+\index{or\+Where\+Has@{or\+Where\+Has}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{or\+Where\+Has}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{Closure}]{\$callback, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a933bd0f9af675b8b696983da8f6478fd}
+Add a relationship count condition to the query with where clauses and an \char`\"{}or\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 664 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!paginate@{paginate}}
+\index{paginate@{paginate}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{paginate}]{\setlength{\rightskip}{0pt plus 5cm}paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily null}, }
+\item[{}]{\$columns = {\ttfamily [\textquotesingle{}$\ast$\textquotesingle{}]}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a5c3ae014fbb90b5b6e47f75176d9d25c}
+Paginate the given query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!parse\+Nested@{parse\+Nested}}
+\index{parse\+Nested@{parse\+Nested}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{parse\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$results}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a8bbc64c19916eebd4389efb2fc0e9a5f}
+Parse the nested relationships in a relation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+array & {\em \$results} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 785 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!parse\+Relations@{parse\+Relations}}
+\index{parse\+Relations@{parse\+Relations}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{parse\+Relations}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Relations (
+\begin{DoxyParamCaption}
+\item[{array}]{\$relations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_aee6e7c8682cbdca948843a82ebb26862}
+Parse a list of relations into individuals.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$relations} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 751 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!pluck@{pluck}}
+\index{pluck@{pluck}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{pluck}]{\setlength{\rightskip}{0pt plus 5cm}pluck (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a7ddb78792325055e4c6d4bb11baeb888}
+Pluck a single column from the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!set\+Eager\+Loads@{set\+Eager\+Loads}}
+\index{set\+Eager\+Loads@{set\+Eager\+Loads}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{set\+Eager\+Loads}]{\setlength{\rightskip}{0pt plus 5cm}set\+Eager\+Loads (
+\begin{DoxyParamCaption}
+\item[{array}]{\$eager\+Load}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a0ca62b07f9e17c8c97d5dbe00267536f}
+Set the relationships being eagerly loaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$eager\+Load} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 858 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!set\+Model@{set\+Model}}
+\index{set\+Model@{set\+Model}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{set\+Model}]{\setlength{\rightskip}{0pt plus 5cm}set\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{\$model}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a88c6bc94f711dbd066df233fd854ee64}
+Set a model instance for the model being queried.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Model & {\em \$model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 881 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{set\+Query}]{\setlength{\rightskip}{0pt plus 5cm}set\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a98461277283f622f45136a6f0deca8e8}
+Set the underlying query builder instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 835 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!simple\+Paginate@{simple\+Paginate}}
+\index{simple\+Paginate@{simple\+Paginate}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{simple\+Paginate}]{\setlength{\rightskip}{0pt plus 5cm}simple\+Paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily null}, }
+\item[{}]{\$columns = {\ttfamily [\textquotesingle{}$\ast$\textquotesingle{}]}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a0a5fe3952a23c818270c5bdacfa8e9d6}
+Paginate the given query into a simple paginator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!update@{update}}
+\index{update@{update}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}update (
+\begin{DoxyParamCaption}
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a5a16e3c167db1e77399f38dce64992bd}
+Update a record in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 286 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!where@{where}}
+\index{where@{where}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{where}]{\setlength{\rightskip}{0pt plus 5cm}where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a75c6d963c6190023052f581cf21509d8}
+Add a basic where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 514 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!where\+Doesnt\+Have@{where\+Doesnt\+Have}}
+\index{where\+Doesnt\+Have@{where\+Doesnt\+Have}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{where\+Doesnt\+Have}]{\setlength{\rightskip}{0pt plus 5cm}where\+Doesnt\+Have (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a13ced3213064052663cf58152093fde7}
+Add a relationship count condition to the query with where clauses.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 637 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!where\+Has@{where\+Has}}
+\index{where\+Has@{where\+Has}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{where\+Has}]{\setlength{\rightskip}{0pt plus 5cm}where\+Has (
+\begin{DoxyParamCaption}
+\item[{}]{\$relation, }
+\item[{Closure}]{\$callback, }
+\item[{}]{\$operator = {\ttfamily \textquotesingle{}$>$=\textquotesingle{}}, }
+\item[{}]{\$count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a6fff4d66c78124ef217fb5d9c8ae8c55}
+Add a relationship count condition to the query with where clauses.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$relation} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 625 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!with@{with}}
+\index{with@{with}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{with}]{\setlength{\rightskip}{0pt plus 5cm}with (
+\begin{DoxyParamCaption}
+\item[{}]{\$relations}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a5e8e1426cd0487f2681d15d301ebd7b6}
+Set the relationships that should be eager loaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$relations} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 734 of file Builder.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$eager\+Load@{\$eager\+Load}}
+\index{\$eager\+Load@{\$eager\+Load}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$eager\+Load}]{\setlength{\rightskip}{0pt plus 5cm}\$eager\+Load = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a304191daf2aa4669f904d2a28a51cf22}
+
+
+Definition at line 31 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$macros@{\$macros}}
+\index{\$macros@{\$macros}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$macros}]{\setlength{\rightskip}{0pt plus 5cm}\$macros = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_aa11dc0c9db28ed82b4e1a0efb656d120}
+
+
+Definition at line 38 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$model@{\$model}}
+\index{\$model@{\$model}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$model}]{\setlength{\rightskip}{0pt plus 5cm}\$model\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a08fdd91bde255dbe3e2d15a22d9663e8}
+
+
+Definition at line 24 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$on\+Delete@{\$on\+Delete}}
+\index{\$on\+Delete@{\$on\+Delete}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$on\+Delete}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf on\+Delete}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a8c3c583844e5a9559106f958da922611}
+
+
+Definition at line 45 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$passthru@{\$passthru}}
+\index{\$passthru@{\$passthru}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$passthru}]{\setlength{\rightskip}{0pt plus 5cm}\$passthru\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_a291dc574eb95ac78da5f0dffafdfd91a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{stringliteral}{'toSql'}, \textcolor{stringliteral}{'lists'}, \textcolor{stringliteral}{'insert'}, \textcolor{stringliteral}{'insertGetId'}, \textcolor{stringliteral}{'pluck'}, \textcolor{stringliteral}{'count'},
+        \textcolor{stringliteral}{'min'}, \textcolor{stringliteral}{'max'}, \textcolor{stringliteral}{'avg'}, \textcolor{stringliteral}{'sum'}, \textcolor{stringliteral}{'exists'}, \textcolor{stringliteral}{'getBindings'},
+    )
+\end{DoxyCode}
+
+
+Definition at line 52 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}!\$query@{\$query}}
+\index{\$query@{\$query}!Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder@{Illuminate\+::\+Database\+::\+Eloquent\+::\+Builder}}
+\subsubsection[{\$query}]{\setlength{\rightskip}{0pt plus 5cm}\$query\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_eloquent_1_1_builder_af59a5f7cd609e592c41dc3643efd3c98}
+
+
+Definition at line 17 of file Builder.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Eloquent/{\bf Builder.\+php}\end{DoxyCompactItemize}

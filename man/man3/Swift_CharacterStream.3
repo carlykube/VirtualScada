@@ -1,0 +1,163 @@
+.TH "Swift_CharacterStream" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Swift_CharacterStream \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSwift_CharacterStream_ArrayCharacterStream\fP, and \fBSwift_CharacterStream_NgCharacterStream\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetCharacterSet\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBsetCharacterReaderFactory\fP (\fBSwift_CharacterReaderFactory\fP $\fBfactory\fP)"
+.br
+.ti -1c
+.RI "\fBimportByteStream\fP (\fBSwift_OutputByteStream\fP $os)"
+.br
+.ti -1c
+.RI "\fBimportString\fP ($string)"
+.br
+.ti -1c
+.RI "\fBread\fP ($length)"
+.br
+.ti -1c
+.RI "\fBreadBytes\fP ($length)"
+.br
+.ti -1c
+.RI "\fBwrite\fP ($chars)"
+.br
+.ti -1c
+.RI "\fBsetPointer\fP ($charOffset)"
+.br
+.ti -1c
+.RI "\fBflushContents\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An abstract means of reading and writing data in terms of characters as opposed to bytes\&.
+.PP
+Classes implementing this interface may use a subsystem which requires less memory than working with large strings of data\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Chris Corbyn 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file CharacterStream\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "flushContents ()"
+Empty the stream and reset the internal pointer\&. 
+.PP
+Implemented in \fBSwift_CharacterStream_ArrayCharacterStream\fP, and \fBSwift_CharacterStream_NgCharacterStream\fP\&.
+.SS "importByteStream (\fBSwift_OutputByteStream\fP $os)"
+Overwrite this character stream using the byte sequence in the byte stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$os\fP output stream to read from 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "importString ( $string)"
+Import a string a bytes into this CharacterStream, overwriting any existing data in the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "read ( $length)"
+Read $length characters from the stream and move the internal pointer $length further into the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "readBytes ( $length)"
+Read $length characters from the stream and return a 1-dimensional array containing there octet values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$length\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "setCharacterReaderFactory (\fBSwift_CharacterReaderFactory\fP $factory)"
+Set the CharacterReaderFactory for multi charset support\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$factory\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "setCharacterSet ( $charset)"
+Set the character set used in this CharacterStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+.SS "setPointer ( $charOffset)"
+Move the internal pointer to $charOffset in the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charOffset\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_ArrayCharacterStream\fP, and \fBSwift_CharacterStream_NgCharacterStream\fP\&.
+.SS "write ( $chars)"
+Write $chars to the end of the stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$chars\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBSwift_CharacterStream_NgCharacterStream\fP, and \fBSwift_CharacterStream_ArrayCharacterStream\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,3310 @@
+\section{Router Class Reference}
+\label{class_illuminate_1_1_routing_1_1_router}\index{Router@{Router}}
+Inheritance diagram for Router\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_illuminate_1_1_routing_1_1_router}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Dispatcher} \$events, {\bf Container} \$container=null)
+\item 
+{\bf get} (\$uri, \$action)
+\item 
+{\bf post} (\$uri, \$action)
+\item 
+{\bf put} (\$uri, \$action)
+\item 
+{\bf patch} (\$uri, \$action)
+\item 
+{\bf delete} (\$uri, \$action)
+\item 
+{\bf options} (\$uri, \$action)
+\item 
+{\bf any} (\$uri, \$action)
+\item 
+{\bf match} (\$methods, \$uri, \$action)
+\item 
+{\bf controllers} (array \$controllers)
+\item 
+{\bf controller} (\$uri, \$controller, \$names=array())
+\item 
+{\bf resources} (array \$resources)
+\item 
+{\bf resource} (\${\bf name}, \${\bf controller}, array \${\bf options}=array())
+\item 
+{\bf group} (array \$attributes, Closure \${\bf callback})
+\item 
+{\bf merge\+With\+Last\+Group} (\$new)
+\item 
+{\bf get\+Last\+Group\+Prefix} ()
+\item 
+{\bf dispatch} ({\bf Request} \$request)
+\item 
+{\bf dispatch\+To\+Route} ({\bf Request} \$request)
+\item 
+{\bf gather\+Route\+Middlewares} ({\bf Route} \$route)
+\item 
+{\bf matched} (\${\bf callback})
+\item 
+{\bf before} (\${\bf callback})
+\item 
+{\bf after} (\${\bf callback})
+\item 
+{\bf get\+Middleware} ()
+\item 
+{\bf middleware} (\${\bf name}, \$class)
+\item 
+{\bf filter} (\${\bf name}, \${\bf callback})
+\item 
+{\bf when} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+{\bf when\+Regex} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+{\bf model} (\$key, \$class, Closure \${\bf callback}=null)
+\item 
+{\bf bind} (\$key, \$binder)
+\item 
+{\bf create\+Class\+Binding} (\$binding)
+\item 
+{\bf pattern} (\$key, \$pattern)
+\item 
+{\bf patterns} (\$patterns)
+\item 
+{\bf call\+Route\+Before} (\$route, \$request)
+\item 
+{\bf find\+Pattern\+Filters} (\$request)
+\item 
+{\bf call\+Route\+After} (\$route, \$request, \$response)
+\item 
+{\bf call\+Route\+Filter} (\${\bf filter}, \$parameters, \$route, \$request, \$response=null)
+\item 
+{\bf has\+Group\+Stack} ()
+\item 
+{\bf get\+Group\+Stack} ()
+\item 
+{\bf input} (\$key, \$default=null)
+\item 
+{\bf get\+Current\+Route} ()
+\item 
+{\bf current} ()
+\item 
+{\bf has} (\${\bf name})
+\item 
+{\bf current\+Route\+Name} ()
+\item 
+{\bf is} ()
+\item 
+{\bf current\+Route\+Named} (\${\bf name})
+\item 
+{\bf current\+Route\+Action} ()
+\item 
+{\bf uses} ()
+\item 
+{\bf current\+Route\+Uses} (\$action)
+\item 
+{\bf get\+Current\+Request} ()
+\item 
+{\bf get\+Routes} ()
+\item 
+{\bf set\+Routes} ({\bf Route\+Collection} \$routes)
+\item 
+{\bf get\+Patterns} ()
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Dispatcher} \$events, {\bf Container} \$container=null)
+\item 
+{\bf get} (\$uri, \$action)
+\item 
+{\bf post} (\$uri, \$action)
+\item 
+{\bf put} (\$uri, \$action)
+\item 
+{\bf patch} (\$uri, \$action)
+\item 
+{\bf delete} (\$uri, \$action)
+\item 
+{\bf options} (\$uri, \$action)
+\item 
+{\bf any} (\$uri, \$action)
+\item 
+{\bf match} (\$methods, \$uri, \$action)
+\item 
+{\bf controllers} (array \$controllers)
+\item 
+{\bf controller} (\$uri, \$controller, \$names=array())
+\item 
+{\bf resources} (array \$resources)
+\item 
+{\bf resource} (\${\bf name}, \${\bf controller}, array \${\bf options}=array())
+\item 
+{\bf group} (array \$attributes, Closure \${\bf callback})
+\item 
+{\bf merge\+With\+Last\+Group} (\$new)
+\item 
+{\bf get\+Last\+Group\+Prefix} ()
+\item 
+{\bf dispatch} ({\bf Request} \$request)
+\item 
+{\bf dispatch\+To\+Route} ({\bf Request} \$request)
+\item 
+{\bf gather\+Route\+Middlewares} ({\bf Route} \$route)
+\item 
+{\bf matched} (\${\bf callback})
+\item 
+{\bf before} (\${\bf callback})
+\item 
+{\bf after} (\${\bf callback})
+\item 
+{\bf get\+Middleware} ()
+\item 
+{\bf middleware} (\${\bf name}, \$class)
+\item 
+{\bf filter} (\${\bf name}, \${\bf callback})
+\item 
+{\bf when} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+{\bf when\+Regex} (\${\bf pattern}, \${\bf name}, \$methods=null)
+\item 
+{\bf model} (\$key, \$class, Closure \${\bf callback}=null)
+\item 
+{\bf bind} (\$key, \$binder)
+\item 
+{\bf create\+Class\+Binding} (\$binding)
+\item 
+{\bf pattern} (\$key, \$pattern)
+\item 
+{\bf patterns} (\$patterns)
+\item 
+{\bf call\+Route\+Before} (\$route, \$request)
+\item 
+{\bf find\+Pattern\+Filters} (\$request)
+\item 
+{\bf call\+Route\+After} (\$route, \$request, \$response)
+\item 
+{\bf call\+Route\+Filter} (\${\bf filter}, \$parameters, \$route, \$request, \$response=null)
+\item 
+{\bf has\+Group\+Stack} ()
+\item 
+{\bf get\+Group\+Stack} ()
+\item 
+{\bf input} (\$key, \$default=null)
+\item 
+{\bf get\+Current\+Route} ()
+\item 
+{\bf current} ()
+\item 
+{\bf has} (\${\bf name})
+\item 
+{\bf current\+Route\+Name} ()
+\item 
+{\bf is} ()
+\item 
+{\bf current\+Route\+Named} (\${\bf name})
+\item 
+{\bf current\+Route\+Action} ()
+\item 
+{\bf uses} ()
+\item 
+{\bf current\+Route\+Uses} (\$action)
+\item 
+{\bf get\+Current\+Request} ()
+\item 
+{\bf get\+Routes} ()
+\item 
+{\bf set\+Routes} ({\bf Route\+Collection} \$routes)
+\item 
+{\bf get\+Patterns} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf merge\+Group} (\$new, \$old)
+\item 
+static {\bf merge\+Group} (\$new, \$old)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$verbs} = array(\textquotesingle{}G\+E\+T\textquotesingle{}, \textquotesingle{}H\+E\+A\+D\textquotesingle{}, \textquotesingle{}P\+O\+S\+T\textquotesingle{}, \textquotesingle{}P\+U\+T\textquotesingle{}, \textquotesingle{}P\+A\+T\+C\+H\textquotesingle{}, \textquotesingle{}D\+E\+L\+E\+T\+E\textquotesingle{}, \textquotesingle{}O\+P\+T\+I\+O\+N\+S\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf register\+Inspected} (\$route, \${\bf controller}, \$method, \&\$names)
+\item 
+{\bf add\+Fallthrough\+Route} (\${\bf controller}, \$uri)
+\item 
+{\bf update\+Group\+Stack} (array \$attributes)
+\item 
+{\bf add\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf create\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf new\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf prefix} (\$uri)
+\item 
+{\bf add\+Where\+Clauses\+To\+Route} (\$route)
+\item 
+{\bf merge\+Group\+Attributes\+Into\+Route} (\$route)
+\item 
+{\bf action\+References\+Controller} (\$action)
+\item 
+{\bf convert\+To\+Controller\+Action} (\$action)
+\item 
+{\bf prepend\+Group\+Uses} (\${\bf uses})
+\item 
+{\bf run\+Route\+Within\+Stack} ({\bf Route} \$route, {\bf Request} \$request)
+\item 
+{\bf find\+Route} (\$request)
+\item 
+{\bf substitute\+Bindings} (\$route)
+\item 
+{\bf perform\+Binding} (\$key, \$value, \$route)
+\item 
+{\bf add\+Global\+Filter} (\${\bf filter}, \${\bf callback})
+\item 
+{\bf parse\+Filter} (\${\bf callback})
+\item 
+{\bf call\+Filter} (\${\bf filter}, \$request, \$response=null)
+\item 
+{\bf call\+Pattern\+Filters} (\$route, \$request)
+\item 
+{\bf patterns\+By\+Method} (\$method, \$filters)
+\item 
+{\bf filter\+Supports\+Method} (\${\bf filter}, \$method)
+\item 
+{\bf call\+Attached\+Befores} (\$route, \$request)
+\item 
+{\bf clean\+Filter\+Parameters} (array \$parameters)
+\item 
+{\bf prepare\+Response} (\$request, \$response)
+\item 
+{\bf register\+Inspected} (\$route, \${\bf controller}, \$method, \&\$names)
+\item 
+{\bf add\+Fallthrough\+Route} (\${\bf controller}, \$uri)
+\item 
+{\bf update\+Group\+Stack} (array \$attributes)
+\item 
+{\bf add\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf create\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf new\+Route} (\$methods, \$uri, \$action)
+\item 
+{\bf prefix} (\$uri)
+\item 
+{\bf add\+Where\+Clauses\+To\+Route} (\$route)
+\item 
+{\bf merge\+Group\+Attributes\+Into\+Route} (\$route)
+\item 
+{\bf action\+References\+Controller} (\$action)
+\item 
+{\bf convert\+To\+Controller\+Action} (\$action)
+\item 
+{\bf prepend\+Group\+Uses} (\${\bf uses})
+\item 
+{\bf run\+Route\+Within\+Stack} ({\bf Route} \$route, {\bf Request} \$request)
+\item 
+{\bf find\+Route} (\$request)
+\item 
+{\bf substitute\+Bindings} (\$route)
+\item 
+{\bf perform\+Binding} (\$key, \$value, \$route)
+\item 
+{\bf add\+Global\+Filter} (\${\bf filter}, \${\bf callback})
+\item 
+{\bf parse\+Filter} (\${\bf callback})
+\item 
+{\bf call\+Filter} (\${\bf filter}, \$request, \$response=null)
+\item 
+{\bf call\+Pattern\+Filters} (\$route, \$request)
+\item 
+{\bf patterns\+By\+Method} (\$method, \$filters)
+\item 
+{\bf filter\+Supports\+Method} (\${\bf filter}, \$method)
+\item 
+{\bf call\+Attached\+Befores} (\$route, \$request)
+\item 
+{\bf clean\+Filter\+Parameters} (array \$parameters)
+\item 
+{\bf prepare\+Response} (\$request, \$response)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf format\+Uses\+Prefix} (\$new, \$old)
+\item 
+static {\bf format\+Group\+Prefix} (\$new, \$old)
+\item 
+static {\bf format\+Uses\+Prefix} (\$new, \$old)
+\item 
+static {\bf format\+Group\+Prefix} (\$new, \$old)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$events}
+\item 
+{\bf \$container}
+\item 
+{\bf \$routes}
+\item 
+{\bf \$current}
+\item 
+{\bf \$current\+Request}
+\item 
+{\bf \$middleware} = array()
+\item 
+{\bf \$pattern\+Filters} = array()
+\item 
+{\bf \$regex\+Filters} = array()
+\item 
+{\bf \$binders} = array()
+\item 
+{\bf \$patterns} = array()
+\item 
+{\bf \$group\+Stack} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6783 of file compiled.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Dispatcher}}]{\$events, }
+\item[{{\bf Container}}]{\$container = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a28ffb589c380b0139d04ef0cfb0a832f}
+
+
+Definition at line 6798 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Dispatcher}}]{\$events, }
+\item[{{\bf Container}}]{\$container = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a28ffb589c380b0139d04ef0cfb0a832f}
+Create a new \doxyref{Router}{p.}{class_illuminate_1_1_routing_1_1_router} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+Events\textbackslash{}\+Dispatcher & {\em \$events} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Container\textbackslash{}\+Container & {\em \$container} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Router.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!action\+References\+Controller@{action\+References\+Controller}}
+\index{action\+References\+Controller@{action\+References\+Controller}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{action\+References\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}action\+References\+Controller (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a1e877b62a412a6e23c1171e70dc8f080}
+Determine if the action is routing to a controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 556 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!action\+References\+Controller@{action\+References\+Controller}}
+\index{action\+References\+Controller@{action\+References\+Controller}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{action\+References\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}action\+References\+Controller (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a1e877b62a412a6e23c1171e70dc8f080}
+
+
+Definition at line 6963 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Fallthrough\+Route@{add\+Fallthrough\+Route}}
+\index{add\+Fallthrough\+Route@{add\+Fallthrough\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Fallthrough\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Fallthrough\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$controller, }
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a0a2ec8c9509c2ed0806e8d928a6e6204}
+Add a fallthrough route for a controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$controller} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Fallthrough\+Route@{add\+Fallthrough\+Route}}
+\index{add\+Fallthrough\+Route@{add\+Fallthrough\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Fallthrough\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Fallthrough\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$controller, }
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a0a2ec8c9509c2ed0806e8d928a6e6204}
+
+
+Definition at line 6863 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Global\+Filter@{add\+Global\+Filter}}
+\index{add\+Global\+Filter@{add\+Global\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Global\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}add\+Global\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae7d09ecaee5816b0f0b320580c10cd96}
+Register a new global filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filter} & \\
+\hline
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 799 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Global\+Filter@{add\+Global\+Filter}}
+\index{add\+Global\+Filter@{add\+Global\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Global\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}add\+Global\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae7d09ecaee5816b0f0b320580c10cd96}
+
+
+Definition at line 7056 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Route@{add\+Route}}
+\index{add\+Route@{add\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_aa6f84b006db480421de82446fb2d6326}
+Add a route to the underlying route collection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$methods} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 458 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Route@{add\+Route}}
+\index{add\+Route@{add\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_aa6f84b006db480421de82446fb2d6326}
+
+
+Definition at line 6929 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Where\+Clauses\+To\+Route@{add\+Where\+Clauses\+To\+Route}}
+\index{add\+Where\+Clauses\+To\+Route@{add\+Where\+Clauses\+To\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Where\+Clauses\+To\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Where\+Clauses\+To\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a08fa6933281410b904fcf16f7294c726}
+Add the necessary where clauses to the route based on its initial registration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 528 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!add\+Where\+Clauses\+To\+Route@{add\+Where\+Clauses\+To\+Route}}
+\index{add\+Where\+Clauses\+To\+Route@{add\+Where\+Clauses\+To\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{add\+Where\+Clauses\+To\+Route}]{\setlength{\rightskip}{0pt plus 5cm}add\+Where\+Clauses\+To\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a08fa6933281410b904fcf16f7294c726}
+
+
+Definition at line 6953 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!after@{after}}
+\index{after@{after}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{after}]{\setlength{\rightskip}{0pt plus 5cm}after (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a50da401fdaaa46264648d3b78ffb8e6e}
+Register a new \char`\"{}after\char`\"{} filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a50da401fdaaa46264648d3b78ffb8e6e}.
+
+
+
+Definition at line 787 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!after@{after}}
+\index{after@{after}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{after}]{\setlength{\rightskip}{0pt plus 5cm}after (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a50da401fdaaa46264648d3b78ffb8e6e}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a50da401fdaaa46264648d3b78ffb8e6e}.
+
+
+
+Definition at line 7052 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!any@{any}}
+\index{any@{any}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{any}]{\setlength{\rightskip}{0pt plus 5cm}any (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a01d4a5acd1e5323727179e8f80e24ac8}
+Register a new route responding to all verbs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 196 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!any@{any}}
+\index{any@{any}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{any}]{\setlength{\rightskip}{0pt plus 5cm}any (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a01d4a5acd1e5323727179e8f80e24ac8}
+
+
+Definition at line 6828 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!before@{before}}
+\index{before@{before}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{before}]{\setlength{\rightskip}{0pt plus 5cm}before (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8fd72ebf77e35afac6dab000e122d41b}
+Register a new \char`\"{}before\char`\"{} filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a8fd72ebf77e35afac6dab000e122d41b}.
+
+
+
+Definition at line 776 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!before@{before}}
+\index{before@{before}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{before}]{\setlength{\rightskip}{0pt plus 5cm}before (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8fd72ebf77e35afac6dab000e122d41b}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a8fd72ebf77e35afac6dab000e122d41b}.
+
+
+
+Definition at line 7048 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!bind@{bind}}
+\index{bind@{bind}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$binder}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a34f43c903a3ea151ff61049343515460}
+Add a new route parameter binder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string | callable & {\em \$binder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 929 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!bind@{bind}}
+\index{bind@{bind}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$binder}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a34f43c903a3ea151ff61049343515460}
+
+
+Definition at line 7109 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Attached\+Befores@{call\+Attached\+Befores}}
+\index{call\+Attached\+Befores@{call\+Attached\+Befores}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Attached\+Befores}]{\setlength{\rightskip}{0pt plus 5cm}call\+Attached\+Befores (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a940dcbd10ffbee9393173a5812fbafbe}
+Call the given route\textquotesingle{}s before (non-\/pattern) filters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1121 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Attached\+Befores@{call\+Attached\+Befores}}
+\index{call\+Attached\+Befores@{call\+Attached\+Befores}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Attached\+Befores}]{\setlength{\rightskip}{0pt plus 5cm}call\+Attached\+Befores (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a940dcbd10ffbee9393173a5812fbafbe}
+
+
+Definition at line 7187 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Filter@{call\+Filter}}
+\index{call\+Filter@{call\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}call\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$request, }
+\item[{}]{\$response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a10563408201013bc7896fef6798c6614}
+Call the given filter with the request and response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filter} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 996 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Filter@{call\+Filter}}
+\index{call\+Filter@{call\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}call\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$request, }
+\item[{}]{\$response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a10563408201013bc7896fef6798c6614}
+
+
+Definition at line 7135 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Pattern\+Filters@{call\+Pattern\+Filters}}
+\index{call\+Pattern\+Filters@{call\+Pattern\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}call\+Pattern\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_accc5186f30bb56bee50fe98e9b6ed82d}
+Call the pattern based filters for the request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 1022 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Pattern\+Filters@{call\+Pattern\+Filters}}
+\index{call\+Pattern\+Filters@{call\+Pattern\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}call\+Pattern\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_accc5186f30bb56bee50fe98e9b6ed82d}
+
+
+Definition at line 7144 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+After@{call\+Route\+After}}
+\index{call\+Route\+After@{call\+Route\+After}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+After}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+After (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a7d7850374f61aaa6499984c4ca2ac57d}
+Call the given route\textquotesingle{}s after filters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1139 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+After@{call\+Route\+After}}
+\index{call\+Route\+After@{call\+Route\+After}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+After}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+After (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a7d7850374f61aaa6499984c4ca2ac57d}
+
+
+Definition at line 7196 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+Before@{call\+Route\+Before}}
+\index{call\+Route\+Before@{call\+Route\+Before}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+Before}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+Before (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a54cae2201f11f1da820214efc57be511}
+Call the given route\textquotesingle{}s before filters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1008 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+Before@{call\+Route\+Before}}
+\index{call\+Route\+Before@{call\+Route\+Before}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+Before}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+Before (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a54cae2201f11f1da820214efc57be511}
+
+
+Definition at line 7139 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+Filter@{call\+Route\+Filter}}
+\index{call\+Route\+Filter@{call\+Route\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$parameters, }
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0fab2862ce60a0b615a68674e1144a55}
+Call the given route filter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filter} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response | null & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1157 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!call\+Route\+Filter@{call\+Route\+Filter}}
+\index{call\+Route\+Filter@{call\+Route\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{call\+Route\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}call\+Route\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$parameters, }
+\item[{}]{\$route, }
+\item[{}]{\$request, }
+\item[{}]{\$response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0fab2862ce60a0b615a68674e1144a55}
+
+
+Definition at line 7202 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!clean\+Filter\+Parameters@{clean\+Filter\+Parameters}}
+\index{clean\+Filter\+Parameters@{clean\+Filter\+Parameters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{clean\+Filter\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}clean\+Filter\+Parameters (
+\begin{DoxyParamCaption}
+\item[{array}]{\$parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a4c8e97f5f82982e70a6e4ea86ea2bcc9}
+Clean the parameters being passed to a filter callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1170 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!clean\+Filter\+Parameters@{clean\+Filter\+Parameters}}
+\index{clean\+Filter\+Parameters@{clean\+Filter\+Parameters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{clean\+Filter\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}clean\+Filter\+Parameters (
+\begin{DoxyParamCaption}
+\item[{array}]{\$parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a4c8e97f5f82982e70a6e4ea86ea2bcc9}
+
+
+Definition at line 7207 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!controller@{controller}}
+\index{controller@{controller}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{controller}]{\setlength{\rightskip}{0pt plus 5cm}controller (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$controller, }
+\item[{}]{\$names = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae4bcf779817bc5f83a77bfb6a4da5ca8}
+\doxyref{Route}{p.}{class_illuminate_1_1_routing_1_1_route} a controller to a U\+R\+I with wildcard routing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+string & {\em \$controller} & \\
+\hline
+array & {\em \$names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!controller@{controller}}
+\index{controller@{controller}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{controller}]{\setlength{\rightskip}{0pt plus 5cm}controller (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$controller, }
+\item[{}]{\$names = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae4bcf779817bc5f83a77bfb6a4da5ca8}
+
+
+Definition at line 6843 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!controllers@{controllers}}
+\index{controllers@{controllers}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{controllers}]{\setlength{\rightskip}{0pt plus 5cm}controllers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$controllers}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a63437da103114c2a5b80293973cf1cdb}
+Register an array of controllers with wildcard routing.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$controllers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!controllers@{controllers}}
+\index{controllers@{controllers}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{controllers}]{\setlength{\rightskip}{0pt plus 5cm}controllers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$controllers}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a63437da103114c2a5b80293973cf1cdb}
+
+
+Definition at line 6837 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!convert\+To\+Controller\+Action@{convert\+To\+Controller\+Action}}
+\index{convert\+To\+Controller\+Action@{convert\+To\+Controller\+Action}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{convert\+To\+Controller\+Action}]{\setlength{\rightskip}{0pt plus 5cm}convert\+To\+Controller\+Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a7e89fc0d99dcfbc3dd511177d76522a3}
+Add a controller based route action to the action array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 569 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!convert\+To\+Controller\+Action@{convert\+To\+Controller\+Action}}
+\index{convert\+To\+Controller\+Action@{convert\+To\+Controller\+Action}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{convert\+To\+Controller\+Action}]{\setlength{\rightskip}{0pt plus 5cm}convert\+To\+Controller\+Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a7e89fc0d99dcfbc3dd511177d76522a3}
+
+
+Definition at line 6970 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!create\+Class\+Binding@{create\+Class\+Binding}}
+\index{create\+Class\+Binding@{create\+Class\+Binding}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{create\+Class\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}create\+Class\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$binding}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8f4fe33289957f2e38c0e88175afd729}
+Create a class based binding using the Io\+C container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$binding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 945 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!create\+Class\+Binding@{create\+Class\+Binding}}
+\index{create\+Class\+Binding@{create\+Class\+Binding}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{create\+Class\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}create\+Class\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$binding}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8f4fe33289957f2e38c0e88175afd729}
+
+
+Definition at line 7116 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!create\+Route@{create\+Route}}
+\index{create\+Route@{create\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{create\+Route}]{\setlength{\rightskip}{0pt plus 5cm}create\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a3aeca2c75fe0b8aa31ddaa4d12686a44}
+Create a new route instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$methods} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+mixed & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 471 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!create\+Route@{create\+Route}}
+\index{create\+Route@{create\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{create\+Route}]{\setlength{\rightskip}{0pt plus 5cm}create\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a3aeca2c75fe0b8aa31ddaa4d12686a44}
+
+
+Definition at line 6933 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current@{current}}
+\index{current@{current}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_af343507d1926e6ecf964625d41db528c}
+Get the currently dispatched route instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1242 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current@{current}}
+\index{current@{current}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_af343507d1926e6ecf964625d41db528c}
+
+
+Definition at line 7236 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Action@{current\+Route\+Action}}
+\index{current\+Route\+Action@{current\+Route\+Action}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Action}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aa08c026f75a92bcda5f8ef925bb545bf}
+Get the current route action.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 1303 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Action@{current\+Route\+Action}}
+\index{current\+Route\+Action@{current\+Route\+Action}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Action}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aa08c026f75a92bcda5f8ef925bb545bf}
+
+
+Definition at line 7261 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Name@{current\+Route\+Name}}
+\index{current\+Route\+Name@{current\+Route\+Name}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Name}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a3ba152fd4fa9da496972a36e057ebba0}
+Get the current route name.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 1263 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Name@{current\+Route\+Name}}
+\index{current\+Route\+Name@{current\+Route\+Name}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Name}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a3ba152fd4fa9da496972a36e057ebba0}
+
+
+Definition at line 7244 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Named@{current\+Route\+Named}}
+\index{current\+Route\+Named@{current\+Route\+Named}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Named}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Named (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a75ec91300ca8ad135df07b741e968569}
+Determine if the current route matches a given name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1293 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Named@{current\+Route\+Named}}
+\index{current\+Route\+Named@{current\+Route\+Named}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Named}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Named (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a75ec91300ca8ad135df07b741e968569}
+
+
+Definition at line 7257 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Uses@{current\+Route\+Uses}}
+\index{current\+Route\+Uses@{current\+Route\+Uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Uses}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Uses (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a7ef334a8b970fc1f04755ff9e3278304}
+Determine if the current route action matches a given action.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1337 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!current\+Route\+Uses@{current\+Route\+Uses}}
+\index{current\+Route\+Uses@{current\+Route\+Uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{current\+Route\+Uses}]{\setlength{\rightskip}{0pt plus 5cm}current\+Route\+Uses (
+\begin{DoxyParamCaption}
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a7ef334a8b970fc1f04755ff9e3278304}
+
+
+Definition at line 7278 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0c6262eff16f6758358e04d6b6bd301e}
+Register a new D\+E\+L\+E\+T\+E route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a0c6262eff16f6758358e04d6b6bd301e}.
+
+
+
+Definition at line 172 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0c6262eff16f6758358e04d6b6bd301e}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a0c6262eff16f6758358e04d6b6bd301e}.
+
+
+
+Definition at line 6820 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aaabf4dda617c109a2cafd13cd7941b61}
+Dispatch the request to the application.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 608 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aaabf4dda617c109a2cafd13cd7941b61}
+
+
+Definition at line 6986 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!dispatch\+To\+Route@{dispatch\+To\+Route}}
+\index{dispatch\+To\+Route@{dispatch\+To\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{dispatch\+To\+Route}]{\setlength{\rightskip}{0pt plus 5cm}dispatch\+To\+Route (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad031bdb6dd3384448dee66b438e50524}
+Dispatch the request to a route and return the response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 638 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!dispatch\+To\+Route@{dispatch\+To\+Route}}
+\index{dispatch\+To\+Route@{dispatch\+To\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{dispatch\+To\+Route}]{\setlength{\rightskip}{0pt plus 5cm}dispatch\+To\+Route (
+\begin{DoxyParamCaption}
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad031bdb6dd3384448dee66b438e50524}
+
+
+Definition at line 6997 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!filter@{filter}}
+\index{filter@{filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae46e98f8c2aaac64e5b1b8dd3f952a0b}
+Register a new filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae46e98f8c2aaac64e5b1b8dd3f952a0b}.
+
+
+
+Definition at line 835 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!filter@{filter}}
+\index{filter@{filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae46e98f8c2aaac64e5b1b8dd3f952a0b}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae46e98f8c2aaac64e5b1b8dd3f952a0b}.
+
+
+
+Definition at line 7069 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!filter\+Supports\+Method@{filter\+Supports\+Method}}
+\index{filter\+Supports\+Method@{filter\+Supports\+Method}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{filter\+Supports\+Method}]{\setlength{\rightskip}{0pt plus 5cm}filter\+Supports\+Method (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ad8458b258abb5dddd6a8d7e5b70ae0e5}
+Determine if the given pattern filters applies to a given method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$filter} & \\
+\hline
+array & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1107 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!filter\+Supports\+Method@{filter\+Supports\+Method}}
+\index{filter\+Supports\+Method@{filter\+Supports\+Method}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{filter\+Supports\+Method}]{\setlength{\rightskip}{0pt plus 5cm}filter\+Supports\+Method (
+\begin{DoxyParamCaption}
+\item[{}]{\$filter, }
+\item[{}]{\$method}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ad8458b258abb5dddd6a8d7e5b70ae0e5}
+
+
+Definition at line 7182 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!find\+Pattern\+Filters@{find\+Pattern\+Filters}}
+\index{find\+Pattern\+Filters@{find\+Pattern\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{find\+Pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}find\+Pattern\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad61725a4f8aacb129e1d97a47949be9d}
+Find the patterned filters matching a request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1038 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!find\+Pattern\+Filters@{find\+Pattern\+Filters}}
+\index{find\+Pattern\+Filters@{find\+Pattern\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{find\+Pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}find\+Pattern\+Filters (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad61725a4f8aacb129e1d97a47949be9d}
+
+
+Definition at line 7153 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!find\+Route@{find\+Route}}
+\index{find\+Route@{find\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{find\+Route}]{\setlength{\rightskip}{0pt plus 5cm}find\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a4264950c062dace24e4c7cb853bc0bf2}
+Find the route matching a given request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 718 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!find\+Route@{find\+Route}}
+\index{find\+Route@{find\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{find\+Route}]{\setlength{\rightskip}{0pt plus 5cm}find\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a4264950c062dace24e4c7cb853bc0bf2}
+
+
+Definition at line 7025 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!format\+Group\+Prefix@{format\+Group\+Prefix}}
+\index{format\+Group\+Prefix@{format\+Group\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{format\+Group\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static format\+Group\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a073e45583aab196db771677593aba954}
+Format the prefix for the new group attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+array & {\em \$old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 423 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!format\+Group\+Prefix@{format\+Group\+Prefix}}
+\index{format\+Group\+Prefix@{format\+Group\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{format\+Group\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static format\+Group\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a073e45583aab196db771677593aba954}
+
+
+Definition at line 6914 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!format\+Uses\+Prefix@{format\+Uses\+Prefix}}
+\index{format\+Uses\+Prefix@{format\+Uses\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{format\+Uses\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static format\+Uses\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a31adf75bea8a4b87420057c5167379e7}
+Format the uses prefix for the new group attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+array & {\em \$old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 402 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!format\+Uses\+Prefix@{format\+Uses\+Prefix}}
+\index{format\+Uses\+Prefix@{format\+Uses\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{format\+Uses\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}static format\+Uses\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a31adf75bea8a4b87420057c5167379e7}
+
+
+Definition at line 6905 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!gather\+Route\+Middlewares@{gather\+Route\+Middlewares}}
+\index{gather\+Route\+Middlewares@{gather\+Route\+Middlewares}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{gather\+Route\+Middlewares}]{\setlength{\rightskip}{0pt plus 5cm}gather\+Route\+Middlewares (
+\begin{DoxyParamCaption}
+\item[{{\bf Route}}]{\$route}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5eda204ec713d25627799c0d8ec1e4d}
+Gather the middleware for the given route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 703 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!gather\+Route\+Middlewares@{gather\+Route\+Middlewares}}
+\index{gather\+Route\+Middlewares@{gather\+Route\+Middlewares}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{gather\+Route\+Middlewares}]{\setlength{\rightskip}{0pt plus 5cm}gather\+Route\+Middlewares (
+\begin{DoxyParamCaption}
+\item[{{\bf Route}}]{\$route}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5eda204ec713d25627799c0d8ec1e4d}
+
+
+Definition at line 7019 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a5881741515db3c3d3a89573a45ffeb8b}
+Register a new G\+E\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a5881741515db3c3d3a89573a45ffeb8b}.
+
+
+
+Definition at line 124 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a5881741515db3c3d3a89573a45ffeb8b}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a5881741515db3c3d3a89573a45ffeb8b}.
+
+
+
+Definition at line 6804 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Current\+Request@{get\+Current\+Request}}
+\index{get\+Current\+Request@{get\+Current\+Request}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Current\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Current\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5ea9169d54bd7cabaa4e469f0d69714}
+Get the request currently being dispatched.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1347 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Current\+Request@{get\+Current\+Request}}
+\index{get\+Current\+Request@{get\+Current\+Request}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Current\+Request}]{\setlength{\rightskip}{0pt plus 5cm}get\+Current\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5ea9169d54bd7cabaa4e469f0d69714}
+
+
+Definition at line 7282 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Current\+Route@{get\+Current\+Route}}
+\index{get\+Current\+Route@{get\+Current\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Current\+Route}]{\setlength{\rightskip}{0pt plus 5cm}get\+Current\+Route (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad93c6ce23abda2b716ec074b54b369a2}
+Get the currently dispatched route instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1232 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Current\+Route@{get\+Current\+Route}}
+\index{get\+Current\+Route@{get\+Current\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Current\+Route}]{\setlength{\rightskip}{0pt plus 5cm}get\+Current\+Route (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad93c6ce23abda2b716ec074b54b369a2}
+
+
+Definition at line 7232 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Group\+Stack@{get\+Group\+Stack}}
+\index{get\+Group\+Stack@{get\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}get\+Group\+Stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a47f02c5f307444c577ad44044cc16617}
+Get the current group stack for the router.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1210 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Group\+Stack@{get\+Group\+Stack}}
+\index{get\+Group\+Stack@{get\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}get\+Group\+Stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a47f02c5f307444c577ad44044cc16617}
+
+
+Definition at line 7224 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Last\+Group\+Prefix@{get\+Last\+Group\+Prefix}}
+\index{get\+Last\+Group\+Prefix@{get\+Last\+Group\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Last\+Group\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Last\+Group\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_abf98c75911ee8ecc001048500f05042b}
+Get the prefix from the last group on the stack.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 438 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Last\+Group\+Prefix@{get\+Last\+Group\+Prefix}}
+\index{get\+Last\+Group\+Prefix@{get\+Last\+Group\+Prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Last\+Group\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Last\+Group\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_abf98c75911ee8ecc001048500f05042b}
+
+
+Definition at line 6921 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Middleware@{get\+Middleware}}
+\index{get\+Middleware@{get\+Middleware}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Middleware}]{\setlength{\rightskip}{0pt plus 5cm}get\+Middleware (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_af09a4d42693ca813040ddf1ebb7a306f}
+Get all of the defined middleware short-\/hand names.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 809 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Middleware@{get\+Middleware}}
+\index{get\+Middleware@{get\+Middleware}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Middleware}]{\setlength{\rightskip}{0pt plus 5cm}get\+Middleware (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_af09a4d42693ca813040ddf1ebb7a306f}
+
+
+Definition at line 7060 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Patterns@{get\+Patterns}}
+\index{get\+Patterns@{get\+Patterns}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Patterns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Patterns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a148a61db3ecd914e55580fcdcab20f92}
+Get the global \char`\"{}where\char`\"{} patterns.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1385 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Patterns@{get\+Patterns}}
+\index{get\+Patterns@{get\+Patterns}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Patterns}]{\setlength{\rightskip}{0pt plus 5cm}get\+Patterns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a148a61db3ecd914e55580fcdcab20f92}
+
+
+Definition at line 7298 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Routes@{get\+Routes}}
+\index{get\+Routes@{get\+Routes}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Routes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Routes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a18da86bf318ebe47e501aaad267d59ed}
+Get the underlying route collection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1357 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!get\+Routes@{get\+Routes}}
+\index{get\+Routes@{get\+Routes}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{get\+Routes}]{\setlength{\rightskip}{0pt plus 5cm}get\+Routes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a18da86bf318ebe47e501aaad267d59ed}
+
+
+Definition at line 7286 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!group@{group}}
+\index{group@{group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{group}]{\setlength{\rightskip}{0pt plus 5cm}group (
+\begin{DoxyParamCaption}
+\item[{array}]{\$attributes, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae42d188a091c66bd908c8efc02e7cb89}
+Create a route group with shared attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$attributes} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae42d188a091c66bd908c8efc02e7cb89}.
+
+
+
+Definition at line 336 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!group@{group}}
+\index{group@{group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{group}]{\setlength{\rightskip}{0pt plus 5cm}group (
+\begin{DoxyParamCaption}
+\item[{array}]{\$attributes, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae42d188a091c66bd908c8efc02e7cb89}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae42d188a091c66bd908c8efc02e7cb89}.
+
+
+
+Definition at line 6878 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a623d004aa083376c599112f235c0af9d}
+Check if a route with the given name exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1253 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!has@{has}}
+\index{has@{has}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{has}]{\setlength{\rightskip}{0pt plus 5cm}has (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a623d004aa083376c599112f235c0af9d}
+
+
+Definition at line 7240 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!has\+Group\+Stack@{has\+Group\+Stack}}
+\index{has\+Group\+Stack@{has\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{has\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}has\+Group\+Stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_abe199b0eba5681ae8cc93598bceab456}
+Determine if the router currently has a group stack.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1200 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!has\+Group\+Stack@{has\+Group\+Stack}}
+\index{has\+Group\+Stack@{has\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{has\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}has\+Group\+Stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_abe199b0eba5681ae8cc93598bceab456}
+
+
+Definition at line 7220 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!input@{input}}
+\index{input@{input}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}input (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aa20a90cb3b93b31f71a0e30756aad9f2}
+Get a route parameter for the current route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1222 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!input@{input}}
+\index{input@{input}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}input (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aa20a90cb3b93b31f71a0e30756aad9f2}
+
+
+Definition at line 7228 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!is@{is}}
+\index{is@{is}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{is}]{\setlength{\rightskip}{0pt plus 5cm}is (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0349d1bb80dac816bf0f23e2430d3561}
+Alias for the \char`\"{}current\+Route\+Named\char`\"{} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mixed} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1274 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!is@{is}}
+\index{is@{is}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{is}]{\setlength{\rightskip}{0pt plus 5cm}is (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0349d1bb80dac816bf0f23e2430d3561}
+
+
+Definition at line 7248 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!match@{match}}
+\index{match@{match}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{match}]{\setlength{\rightskip}{0pt plus 5cm}match (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae1a1620f8c7de02690855bf0741d923b}
+Register a new route with the given verbs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$methods} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae1a1620f8c7de02690855bf0741d923b}.
+
+
+
+Definition at line 211 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!match@{match}}
+\index{match@{match}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{match}]{\setlength{\rightskip}{0pt plus 5cm}match (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae1a1620f8c7de02690855bf0741d923b}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae1a1620f8c7de02690855bf0741d923b}.
+
+
+
+Definition at line 6833 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!matched@{matched}}
+\index{matched@{matched}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{matched}]{\setlength{\rightskip}{0pt plus 5cm}matched (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9c8a96dc1f1d37b8fd6e0148943c96e3}
+Register a route matched event listener.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 765 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!matched@{matched}}
+\index{matched@{matched}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{matched}]{\setlength{\rightskip}{0pt plus 5cm}matched (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9c8a96dc1f1d37b8fd6e0148943c96e3}
+
+
+Definition at line 7044 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+Group@{merge\+Group}}
+\index{merge\+Group@{merge\+Group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+Group}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_illuminate_1_1_routing_1_1_router_a77ff114b4824c76618641f9abd24d4d2}
+Merge the given group attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+array & {\em \$old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 382 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+Group@{merge\+Group}}
+\index{merge\+Group@{merge\+Group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+Group}]{\setlength{\rightskip}{0pt plus 5cm}static merge\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new, }
+\item[{}]{\$old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_illuminate_1_1_routing_1_1_router_a77ff114b4824c76618641f9abd24d4d2}
+
+
+Definition at line 6895 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+Group\+Attributes\+Into\+Route@{merge\+Group\+Attributes\+Into\+Route}}
+\index{merge\+Group\+Attributes\+Into\+Route@{merge\+Group\+Attributes\+Into\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+Group\+Attributes\+Into\+Route}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Group\+Attributes\+Into\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a6fc045f8ea069cbae8d6bfb8e4d54068}
+Merge the group stack with the controller action.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 543 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+Group\+Attributes\+Into\+Route@{merge\+Group\+Attributes\+Into\+Route}}
+\index{merge\+Group\+Attributes\+Into\+Route@{merge\+Group\+Attributes\+Into\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+Group\+Attributes\+Into\+Route}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Group\+Attributes\+Into\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a6fc045f8ea069cbae8d6bfb8e4d54068}
+
+
+Definition at line 6958 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+With\+Last\+Group@{merge\+With\+Last\+Group}}
+\index{merge\+With\+Last\+Group@{merge\+With\+Last\+Group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+With\+Last\+Group}]{\setlength{\rightskip}{0pt plus 5cm}merge\+With\+Last\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aaee07683db008b179a7c5a6b2b86db6b}
+Merge the given array with the last group stack.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 370 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!merge\+With\+Last\+Group@{merge\+With\+Last\+Group}}
+\index{merge\+With\+Last\+Group@{merge\+With\+Last\+Group}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{merge\+With\+Last\+Group}]{\setlength{\rightskip}{0pt plus 5cm}merge\+With\+Last\+Group (
+\begin{DoxyParamCaption}
+\item[{}]{\$new}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aaee07683db008b179a7c5a6b2b86db6b}
+
+
+Definition at line 6891 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!middleware@{middleware}}
+\index{middleware@{middleware}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{middleware}]{\setlength{\rightskip}{0pt plus 5cm}middleware (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0c1340bd0d570951030e63289f3e0822}
+Register a short-\/hand name for a middleware.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 821 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!middleware@{middleware}}
+\index{middleware@{middleware}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{middleware}]{\setlength{\rightskip}{0pt plus 5cm}middleware (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$class}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a0c1340bd0d570951030e63289f3e0822}
+
+
+Definition at line 7064 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!model@{model}}
+\index{model@{model}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}model (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$class, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a15e046475d4254ddccd7fbfc96115df2}
+Register a model binder for a wildcard.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$class} & \\
+\hline
+\textbackslash{}\+Closure | null & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Found\+Http\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 896 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!model@{model}}
+\index{model@{model}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}model (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$class, }
+\item[{Closure}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a15e046475d4254ddccd7fbfc96115df2}
+
+
+Definition at line 7094 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!new\+Route@{new\+Route}}
+\index{new\+Route@{new\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{new\+Route}]{\setlength{\rightskip}{0pt plus 5cm}new\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae5f8a8caf8c6b0f7b2531ec118e58c70}
+Create a new \doxyref{Route}{p.}{class_illuminate_1_1_routing_1_1_route} object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$methods} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+mixed & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 506 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!new\+Route@{new\+Route}}
+\index{new\+Route@{new\+Route}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{new\+Route}]{\setlength{\rightskip}{0pt plus 5cm}new\+Route (
+\begin{DoxyParamCaption}
+\item[{}]{\$methods, }
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae5f8a8caf8c6b0f7b2531ec118e58c70}
+
+
+Definition at line 6945 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!options@{options}}
+\index{options@{options}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}options (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a771d4f4a78380ed441cfc4f7592b0e92}
+Register a new O\+P\+T\+I\+O\+N\+S route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a771d4f4a78380ed441cfc4f7592b0e92}.
+
+
+
+Definition at line 184 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!options@{options}}
+\index{options@{options}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}options (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a771d4f4a78380ed441cfc4f7592b0e92}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a771d4f4a78380ed441cfc4f7592b0e92}.
+
+
+
+Definition at line 6824 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!parse\+Filter@{parse\+Filter}}
+\index{parse\+Filter@{parse\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{parse\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a8acc8842fa17d5e37e1efc8f80b2bc33}
+Parse the registered filter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable | string & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 846 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!parse\+Filter@{parse\+Filter}}
+\index{parse\+Filter@{parse\+Filter}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{parse\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}parse\+Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a8acc8842fa17d5e37e1efc8f80b2bc33}
+
+
+Definition at line 7073 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patch@{patch}}
+\index{patch@{patch}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patch}]{\setlength{\rightskip}{0pt plus 5cm}patch (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9753f32bc6746b6a8674b0fdd40f272f}
+Register a new P\+A\+T\+C\+H route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a9753f32bc6746b6a8674b0fdd40f272f}.
+
+
+
+Definition at line 160 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patch@{patch}}
+\index{patch@{patch}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patch}]{\setlength{\rightskip}{0pt plus 5cm}patch (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9753f32bc6746b6a8674b0fdd40f272f}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_a9753f32bc6746b6a8674b0fdd40f272f}.
+
+
+
+Definition at line 6816 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!pattern@{pattern}}
+\index{pattern@{pattern}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{pattern}]{\setlength{\rightskip}{0pt plus 5cm}pattern (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5615cd24c744d7f5eaade84fbf02491}
+Set a global where pattern on all routes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$pattern} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 969 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!pattern@{pattern}}
+\index{pattern@{pattern}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{pattern}]{\setlength{\rightskip}{0pt plus 5cm}pattern (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab5615cd24c744d7f5eaade84fbf02491}
+
+
+Definition at line 7125 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patterns@{patterns}}
+\index{patterns@{patterns}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}patterns (
+\begin{DoxyParamCaption}
+\item[{}]{\$patterns}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a6e857a53910301d378a83f66217e6a32}
+Set a group of global where patterns on all routes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$patterns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 980 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patterns@{patterns}}
+\index{patterns@{patterns}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}patterns (
+\begin{DoxyParamCaption}
+\item[{}]{\$patterns}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a6e857a53910301d378a83f66217e6a32}
+
+
+Definition at line 7129 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patterns\+By\+Method@{patterns\+By\+Method}}
+\index{patterns\+By\+Method@{patterns\+By\+Method}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patterns\+By\+Method}]{\setlength{\rightskip}{0pt plus 5cm}patterns\+By\+Method (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a045be2aca87d690cb7ec8d477ad1eb41}
+Filter pattern filters that don\textquotesingle{}t apply to the request verb.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1080 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!patterns\+By\+Method@{patterns\+By\+Method}}
+\index{patterns\+By\+Method@{patterns\+By\+Method}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{patterns\+By\+Method}]{\setlength{\rightskip}{0pt plus 5cm}patterns\+By\+Method (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a045be2aca87d690cb7ec8d477ad1eb41}
+
+
+Definition at line 7171 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!perform\+Binding@{perform\+Binding}}
+\index{perform\+Binding@{perform\+Binding}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{perform\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}perform\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a1adca4b1733ae58a25881117b1986fc0}
+Call the binding callback for the given key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 754 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!perform\+Binding@{perform\+Binding}}
+\index{perform\+Binding@{perform\+Binding}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{perform\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}perform\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value, }
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a1adca4b1733ae58a25881117b1986fc0}
+
+
+Definition at line 7040 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!post@{post}}
+\index{post@{post}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{post}]{\setlength{\rightskip}{0pt plus 5cm}post (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab48482b981776470e4c297fc6a7399ba}
+Register a new P\+O\+S\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ab48482b981776470e4c297fc6a7399ba}.
+
+
+
+Definition at line 136 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!post@{post}}
+\index{post@{post}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{post}]{\setlength{\rightskip}{0pt plus 5cm}post (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ab48482b981776470e4c297fc6a7399ba}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ab48482b981776470e4c297fc6a7399ba}.
+
+
+
+Definition at line 6808 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prefix@{prefix}}
+\index{prefix@{prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prefix}]{\setlength{\rightskip}{0pt plus 5cm}prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae52d3e52d930910fef6553cb4c605aa9}
+Prefix the given U\+R\+I with the last prefix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 517 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prefix@{prefix}}
+\index{prefix@{prefix}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prefix}]{\setlength{\rightskip}{0pt plus 5cm}prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ae52d3e52d930910fef6553cb4c605aa9}
+
+
+Definition at line 6949 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prepare\+Response@{prepare\+Response}}
+\index{prepare\+Response@{prepare\+Response}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prepare\+Response}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Response (
+\begin{DoxyParamCaption}
+\item[{}]{\$request, }
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a21c159e73bfc7c1712dd9e44cec8b98d}
+Create a response instance from the given value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Symfony\textbackslash{}\+Component\textbackslash{}\+Http\+Foundation\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+mixed & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1185 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prepare\+Response@{prepare\+Response}}
+\index{prepare\+Response@{prepare\+Response}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prepare\+Response}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Response (
+\begin{DoxyParamCaption}
+\item[{}]{\$request, }
+\item[{}]{\$response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a21c159e73bfc7c1712dd9e44cec8b98d}
+
+
+Definition at line 7213 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prepend\+Group\+Uses@{prepend\+Group\+Uses}}
+\index{prepend\+Group\+Uses@{prepend\+Group\+Uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prepend\+Group\+Uses}]{\setlength{\rightskip}{0pt plus 5cm}prepend\+Group\+Uses (
+\begin{DoxyParamCaption}
+\item[{}]{\$uses}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_af3dff58027ef436c3a488c831aa636a3}
+Prepend the last group uses onto the use clause.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uses} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 595 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!prepend\+Group\+Uses@{prepend\+Group\+Uses}}
+\index{prepend\+Group\+Uses@{prepend\+Group\+Uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{prepend\+Group\+Uses}]{\setlength{\rightskip}{0pt plus 5cm}prepend\+Group\+Uses (
+\begin{DoxyParamCaption}
+\item[{}]{\$uses}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_af3dff58027ef436c3a488c831aa636a3}
+
+
+Definition at line 6981 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad4de98e9460f761831bd951830a2e1b2}
+Register a new P\+U\+T route with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$uri} & \\
+\hline
+\textbackslash{}\+Closure | array | string & {\em \$action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ad4de98e9460f761831bd951830a2e1b2}.
+
+
+
+Definition at line 148 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!put@{put}}
+\index{put@{put}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}put (
+\begin{DoxyParamCaption}
+\item[{}]{\$uri, }
+\item[{}]{\$action}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad4de98e9460f761831bd951830a2e1b2}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ad4de98e9460f761831bd951830a2e1b2}.
+
+
+
+Definition at line 6812 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!register\+Inspected@{register\+Inspected}}
+\index{register\+Inspected@{register\+Inspected}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{register\+Inspected}]{\setlength{\rightskip}{0pt plus 5cm}register\+Inspected (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$controller, }
+\item[{}]{\$method, }
+\item[{\&}]{\$names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a9277f7d1b03ed0b5f77a6fa8d78ab44f}
+Register an inspected controller route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$route} & \\
+\hline
+string & {\em \$controller} & \\
+\hline
+string & {\em \$method} & \\
+\hline
+array & {\em \$names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 276 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!register\+Inspected@{register\+Inspected}}
+\index{register\+Inspected@{register\+Inspected}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{register\+Inspected}]{\setlength{\rightskip}{0pt plus 5cm}register\+Inspected (
+\begin{DoxyParamCaption}
+\item[{}]{\$route, }
+\item[{}]{\$controller, }
+\item[{}]{\$method, }
+\item[{\&}]{\$names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a9277f7d1b03ed0b5f77a6fa8d78ab44f}
+
+
+Definition at line 6857 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!resource@{resource}}
+\index{resource@{resource}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{resource}]{\setlength{\rightskip}{0pt plus 5cm}resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$controller, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae9cdf1bdeb17769bd36b9b894e063942}
+\doxyref{Route}{p.}{class_illuminate_1_1_routing_1_1_route} a resource to a controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$controller} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae9cdf1bdeb17769bd36b9b894e063942}.
+
+
+
+Definition at line 324 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!resource@{resource}}
+\index{resource@{resource}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{resource}]{\setlength{\rightskip}{0pt plus 5cm}resource (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$controller, }
+\item[{array}]{\$options = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ae9cdf1bdeb17769bd36b9b894e063942}
+
+
+Implements {\bf Registrar} \doxyref{}{p.}{interface_illuminate_1_1_contracts_1_1_routing_1_1_registrar_ae9cdf1bdeb17769bd36b9b894e063942}.
+
+
+
+Definition at line 6874 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!resources@{resources}}
+\index{resources@{resources}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{resources}]{\setlength{\rightskip}{0pt plus 5cm}resources (
+\begin{DoxyParamCaption}
+\item[{array}]{\$resources}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8400cc5ddb2205887cbb462e63bd9c34}
+Register an array of resource controllers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$resources} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 308 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!resources@{resources}}
+\index{resources@{resources}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{resources}]{\setlength{\rightskip}{0pt plus 5cm}resources (
+\begin{DoxyParamCaption}
+\item[{array}]{\$resources}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a8400cc5ddb2205887cbb462e63bd9c34}
+
+
+Definition at line 6868 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!run\+Route\+Within\+Stack@{run\+Route\+Within\+Stack}}
+\index{run\+Route\+Within\+Stack@{run\+Route\+Within\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{run\+Route\+Within\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}run\+Route\+Within\+Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf Route}}]{\$route, }
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ab2e6fc29787d2f8319845d628f27c83b}
+Run the given route within a Stack \char`\"{}onion\char`\"{} instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 681 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!run\+Route\+Within\+Stack@{run\+Route\+Within\+Stack}}
+\index{run\+Route\+Within\+Stack@{run\+Route\+Within\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{run\+Route\+Within\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}run\+Route\+Within\+Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf Route}}]{\$route, }
+\item[{{\bf Request}}]{\$request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ab2e6fc29787d2f8319845d628f27c83b}
+
+
+Definition at line 7012 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!set\+Routes@{set\+Routes}}
+\index{set\+Routes@{set\+Routes}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{set\+Routes}]{\setlength{\rightskip}{0pt plus 5cm}set\+Routes (
+\begin{DoxyParamCaption}
+\item[{{\bf Route\+Collection}}]{\$routes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad27e68b6c5bfd2f0359d46859ab68c70}
+Set the route collection instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route\+Collection & {\em \$routes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1368 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!set\+Routes@{set\+Routes}}
+\index{set\+Routes@{set\+Routes}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{set\+Routes}]{\setlength{\rightskip}{0pt plus 5cm}set\+Routes (
+\begin{DoxyParamCaption}
+\item[{{\bf Route\+Collection}}]{\$routes}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ad27e68b6c5bfd2f0359d46859ab68c70}
+
+
+Definition at line 7290 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!substitute\+Bindings@{substitute\+Bindings}}
+\index{substitute\+Bindings@{substitute\+Bindings}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{substitute\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}substitute\+Bindings (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a126e9a6ed72f6f4c82ea305427ec9e13}
+Substitute the route bindings onto the route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Routing\textbackslash{}\+Route & {\em \$route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 733 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!substitute\+Bindings@{substitute\+Bindings}}
+\index{substitute\+Bindings@{substitute\+Bindings}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{substitute\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}substitute\+Bindings (
+\begin{DoxyParamCaption}
+\item[{}]{\$route}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a126e9a6ed72f6f4c82ea305427ec9e13}
+
+
+Definition at line 7031 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!update\+Group\+Stack@{update\+Group\+Stack}}
+\index{update\+Group\+Stack@{update\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{update\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}update\+Group\+Stack (
+\begin{DoxyParamCaption}
+\item[{array}]{\$attributes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ab581ebe17f8004762725dbe37dc9bb9b}
+Update the group stack with the given attributes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 354 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!update\+Group\+Stack@{update\+Group\+Stack}}
+\index{update\+Group\+Stack@{update\+Group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{update\+Group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}update\+Group\+Stack (
+\begin{DoxyParamCaption}
+\item[{array}]{\$attributes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ab581ebe17f8004762725dbe37dc9bb9b}
+
+
+Definition at line 6884 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!uses@{uses}}
+\index{uses@{uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{uses}]{\setlength{\rightskip}{0pt plus 5cm}uses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9ca9689c63555d8d2a9cd7da0eb51312}
+Alias for the \char`\"{}current\+Route\+Uses\char`\"{} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mixed} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1318 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!uses@{uses}}
+\index{uses@{uses}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{uses}]{\setlength{\rightskip}{0pt plus 5cm}uses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_a9ca9689c63555d8d2a9cd7da0eb51312}
+
+
+Definition at line 7269 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!when@{when}}
+\index{when@{when}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{when}]{\setlength{\rightskip}{0pt plus 5cm}when (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aada01fa096c72dbadf7063f96199be83}
+Register a pattern-\/based filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+array | null & {\em \$methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 864 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!when@{when}}
+\index{when@{when}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{when}]{\setlength{\rightskip}{0pt plus 5cm}when (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_aada01fa096c72dbadf7063f96199be83}
+
+
+Definition at line 7080 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!when\+Regex@{when\+Regex}}
+\index{when\+Regex@{when\+Regex}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{when\+Regex}]{\setlength{\rightskip}{0pt plus 5cm}when\+Regex (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ac97ab1d4a047c2428349ba2c3ff6ae45}
+Register a regular expression based filter with the router.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$pattern} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+array | null & {\em \$methods} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 879 of file Router.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!when\+Regex@{when\+Regex}}
+\index{when\+Regex@{when\+Regex}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{when\+Regex}]{\setlength{\rightskip}{0pt plus 5cm}when\+Regex (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern, }
+\item[{}]{\$name, }
+\item[{}]{\$methods = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_routing_1_1_router_ac97ab1d4a047c2428349ba2c3ff6ae45}
+
+
+Definition at line 7087 of file compiled.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$binders@{\$binders}}
+\index{\$binders@{\$binders}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$binders}]{\setlength{\rightskip}{0pt plus 5cm}\$binders = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a96a9341d6fe308c57524bacc9b0123b2}
+
+
+Definition at line 6794 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$container@{\$container}}
+\index{\$container@{\$container}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$container}]{\setlength{\rightskip}{0pt plus 5cm}\$container\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ab97dd40df90f4ce6f0fce9091e7c7872}
+
+
+Definition at line 6787 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$current@{\$current}}
+\index{\$current@{\$current}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$current}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf current}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a2c4c58e377f6c66ca38c8ea97666fc5e}
+
+
+Definition at line 6789 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$current\+Request@{\$current\+Request}}
+\index{\$current\+Request@{\$current\+Request}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$current\+Request}]{\setlength{\rightskip}{0pt plus 5cm}\$current\+Request\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_ad49fa03c9c50a22d1d48bfd99f2d76c1}
+
+
+Definition at line 6790 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 6786 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$group\+Stack@{\$group\+Stack}}
+\index{\$group\+Stack@{\$group\+Stack}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$group\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}\$group\+Stack = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a9747384f253bb2db805fa94a50a9f650}
+
+
+Definition at line 6796 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$middleware@{\$middleware}}
+\index{\$middleware@{\$middleware}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$middleware}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf middleware} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a36a993ea76b635c84749f6e5e6562344}
+
+
+Definition at line 6791 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$pattern\+Filters@{\$pattern\+Filters}}
+\index{\$pattern\+Filters@{\$pattern\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$pattern\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}\$pattern\+Filters = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_af7dc4a8a6c14309bc8cc798760365cd3}
+
+
+Definition at line 6792 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$patterns@{\$patterns}}
+\index{\$patterns@{\$patterns}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$patterns}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf patterns} = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a99c668c59ad650ca9b31ad5313dc5720}
+
+
+Definition at line 6795 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$regex\+Filters@{\$regex\+Filters}}
+\index{\$regex\+Filters@{\$regex\+Filters}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$regex\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}\$regex\+Filters = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a7ff64c2c1b8bb51294882de3d6488fab}
+
+
+Definition at line 6793 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$routes@{\$routes}}
+\index{\$routes@{\$routes}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$routes}]{\setlength{\rightskip}{0pt plus 5cm}\$routes\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_routing_1_1_router_a8f7eb04a54e0f0bfc0cedeb9899ce4a8}
+
+
+Definition at line 6788 of file compiled.\+php.
+
+\index{Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}!\$verbs@{\$verbs}}
+\index{\$verbs@{\$verbs}!Illuminate\+::\+Routing\+::\+Router@{Illuminate\+::\+Routing\+::\+Router}}
+\subsubsection[{\$verbs}]{\setlength{\rightskip}{0pt plus 5cm}static \$verbs = array(\textquotesingle{}G\+E\+T\textquotesingle{}, \textquotesingle{}H\+E\+A\+D\textquotesingle{}, \textquotesingle{}P\+O\+S\+T\textquotesingle{}, \textquotesingle{}P\+U\+T\textquotesingle{}, \textquotesingle{}P\+A\+T\+C\+H\textquotesingle{}, \textquotesingle{}D\+E\+L\+E\+T\+E\textquotesingle{}, \textquotesingle{}O\+P\+T\+I\+O\+N\+S\textquotesingle{})\hspace{0.3cm}{\ttfamily [static]}}\label{class_illuminate_1_1_routing_1_1_router_a5aec4ffebecd5a28d7f7c4d8cb6e5d81}
+
+
+Definition at line 6797 of file compiled.\+php.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vendor/{\bf compiled.\+php}\item 
+vendor/laravel/framework/src/\+Illuminate/\+Routing/{\bf Router.\+php}\end{DoxyCompactItemize}

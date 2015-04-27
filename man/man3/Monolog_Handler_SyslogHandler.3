@@ -1,0 +1,98 @@
+.TH "SyslogHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SyslogHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAbstractSyslogHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($ident, $facility=LOG_USER, $level=\fBLogger::DEBUG\fP, $bubble=true, $logopts=LOG_PID)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$ident\fP"
+.br
+.ti -1c
+.RI "\fB$logopts\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Logs to syslog service\&.
+.PP
+usage example:
+.PP
+$log = new \fBLogger\fP('application'); $syslog = new \fBSyslogHandler\fP('myfacility', 'local6'); $formatter = new LineFormatter('%channel%\&.%level_name%: %message% %extra%'); $syslog->setFormatter($formatter); $log->pushHandler($syslog);
+.PP
+\fBAuthor:\fP
+.RS 4
+Sven Paulus sven@karlsruhe.org 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file SyslogHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $ident,  $facility = \fCLOG_USER\fP,  $level = \fC\fBLogger::DEBUG\fP\fP,  $bubble = \fCtrue\fP,  $logopts = \fCLOG_PID\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$ident\fP 
+.br
+\fI$facility\fP 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$logopts\fP Option flags for the openlog() call, defaults to LOG_PID 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file SyslogHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+{} 
+.PP
+Definition at line 52 of file SyslogHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+{} 
+.PP
+Definition at line 60 of file SyslogHandler\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$ident\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file SyslogHandler\&.php\&.
+.SS "$logopts\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file SyslogHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

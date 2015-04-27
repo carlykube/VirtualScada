@@ -1,0 +1,197 @@
+.TH "SqsQueue" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SqsQueue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBQueue\fP, and \fBQueue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (SqsClient $sqs, $default)"
+.br
+.ti -1c
+.RI "\fBpush\fP ($job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpushRaw\fP ($payload, $\fBqueue\fP=null, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBlater\fP ($\fBdelay\fP, $job, $\fBdata\fP= '', $\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBpop\fP ($\fBqueue\fP=null)"
+.br
+.ti -1c
+.RI "\fBgetQueue\fP ($\fBqueue\fP)"
+.br
+.ti -1c
+.RI "\fBgetSqs\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$sqs\fP"
+.br
+.ti -1c
+.RI "\fB$default\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file SqsQueue\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (SqsClient $sqs,  $default)"
+Create a new Amazon SQS queue instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$sqs\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file SqsQueue\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getQueue ( $queue)"
+Get the queue or return the default\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file SqsQueue\&.php\&.
+.SS "getSqs ()"
+Get the underlying SQS instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 122 of file SqsQueue\&.php\&.
+.SS "later ( $delay,  $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue after a delay\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$delay\fP 
+.br
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 73 of file SqsQueue\&.php\&.
+.SS "pop ( $queue = \fCnull\fP)"
+Pop the next job off of the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 92 of file SqsQueue\&.php\&.
+.SS "push ( $job,  $data = \fC''\fP,  $queue = \fCnull\fP)"
+Push a new job onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$job\fP 
+.br
+\fI$data\fP 
+.br
+\fI$queue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 44 of file SqsQueue\&.php\&.
+.SS "pushRaw ( $payload,  $queue = \fCnull\fP, array $options = \fCarray()\fP)"
+Push a raw payload onto the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$payload\fP 
+.br
+\fI$queue\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Implements \fBQueue\fP\&.
+.PP
+Definition at line 57 of file SqsQueue\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$default\fC [protected]\fP"
+
+.PP
+Definition at line 21 of file SqsQueue\&.php\&.
+.SS "$sqs\fC [protected]\fP"
+
+.PP
+Definition at line 14 of file SqsQueue\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

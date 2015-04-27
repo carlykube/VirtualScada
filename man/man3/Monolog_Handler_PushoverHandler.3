@@ -1,0 +1,104 @@
+.TH "PushoverHandler" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PushoverHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSocketHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($token, $users, $title=null, $level=\fBLogger::CRITICAL\fP, $bubble=true, $useSSL=true, $highPriorityLevel=\fBLogger::CRITICAL\fP, $emergencyLevel=\fBLogger::EMERGENCY\fP, $retry=30, $expire=25200)"
+.br
+.ti -1c
+.RI "\fBsetHighPriorityLevel\fP ($value)"
+.br
+.ti -1c
+.RI "\fBsetEmergencyLevel\fP ($value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateDataStream\fP ($record)"
+.br
+.ti -1c
+.RI "\fBwrite\fP (array $record)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Sends notifications through the pushover api to mobile phones
+.PP
+\fBAuthor:\fP
+.RS 4
+Sebastian Göttschkes sebastian.goettschkes@googlemail.com 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+https://www.pushover.net/api 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file PushoverHandler\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $token,  $users,  $title = \fCnull\fP,  $level = \fC\fBLogger::CRITICAL\fP\fP,  $bubble = \fCtrue\fP,  $useSSL = \fCtrue\fP,  $highPriorityLevel = \fC\fBLogger::CRITICAL\fP\fP,  $emergencyLevel = \fC\fBLogger::EMERGENCY\fP\fP,  $retry = \fC30\fP,  $expire = \fC25200\fP)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$token\fP Pushover api token 
+.br
+\fI$users\fP Pushover user id or array of ids the message will be sent to 
+.br
+\fI$title\fP Title sent to the Pushover API 
+.br
+\fI$level\fP The minimum logging level at which this handler will be triggered 
+.br
+\fI$bubble\fP Whether the messages that are handled can bubble up the stack or not 
+.br
+\fI$useSSL\fP Whether to connect via SSL\&. Required when pushing messages to users that are not the pushover\&.net app owner\&. OpenSSL is required for this option\&. 
+.br
+\fI$highPriorityLevel\fP The minimum logging level at which this handler will start sending 'high priority' requests to the Pushover API 
+.br
+\fI$emergencyLevel\fP The minimum logging level at which this handler will start sending 'emergency' requests to the Pushover API 
+.br
+\fI$retry\fP The retry parameter specifies how often (in seconds) the Pushover servers will send the same notification to the user\&. 
+.br
+\fI$expire\fP The expire parameter specifies how many seconds your notification will continue to be retried for (every retry seconds)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file PushoverHandler\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "generateDataStream ( $record)\fC [protected]\fP"
+
+.PP
+Definition at line 95 of file PushoverHandler\&.php\&.
+.SS "setEmergencyLevel ( $value)"
+
+.PP
+Definition at line 168 of file PushoverHandler\&.php\&.
+.SS "setHighPriorityLevel ( $value)"
+
+.PP
+Definition at line 163 of file PushoverHandler\&.php\&.
+.SS "write (array $record)\fC [protected]\fP"
+
+.PP
+Definition at line 151 of file PushoverHandler\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,122 @@
+.TH "ExceptionListener" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExceptionListener \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventSubscriberInterface\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($controller, \fBLoggerInterface\fP $logger=null)"
+.br
+.ti -1c
+.RI "\fBonKernelException\fP (\fBGetResponseForExceptionEvent\fP $\fBevent\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBgetSubscribedEvents\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlogException\fP (\\Exception $exception, $message, $original=true)"
+.br
+.ti -1c
+.RI "\fBduplicateRequest\fP (\\Exception $exception, \fBRequest\fP $request)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$controller\fP"
+.br
+.ti -1c
+.RI "\fB$logger\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBExceptionListener\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file ExceptionListener\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $controller, \fBLoggerInterface\fP $logger = \fCnull\fP)"
+
+.PP
+Definition at line 34 of file ExceptionListener\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "duplicateRequest (\\Exception $exception, \fBRequest\fP $request)\fC [protected]\fP"
+Clones the request for the exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exception\fP The thrown exception\&. 
+.br
+\fI$request\fP The original request\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBRequest\fP $request The cloned request\&. 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file ExceptionListener\&.php\&.
+.SS "static getSubscribedEvents ()\fC [static]\fP"
+
+.PP
+Definition at line 74 of file ExceptionListener\&.php\&.
+.SS "logException (\\Exception $exception,  $message,  $original = \fCtrue\fP)\fC [protected]\fP"
+Logs an exception\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$exception\fP The  instance 
+.br
+\fI$message\fP The error message to log 
+.br
+\fI$original\fP False when the handling of the exception thrown another exception 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file ExceptionListener\&.php\&.
+.SS "onKernelException (\fBGetResponseForExceptionEvent\fP $event)"
+
+.PP
+Definition at line 40 of file ExceptionListener\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$controller\fC [protected]\fP"
+
+.PP
+Definition at line 31 of file ExceptionListener\&.php\&.
+.SS "$logger\fC [protected]\fP"
+
+.PP
+Definition at line 32 of file ExceptionListener\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

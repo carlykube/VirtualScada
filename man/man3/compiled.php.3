@@ -1,0 +1,912 @@
+.TH "vendor/compiled.php" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vendor/compiled.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "interface \fBContainer\fP"
+.br
+.ti -1c
+.RI "interface \fBContextualBindingBuilder\fP"
+.br
+.ti -1c
+.RI "interface \fBApplication\fP"
+.br
+.ti -1c
+.RI "interface \fBDispatcher\fP"
+.br
+.ti -1c
+.RI "interface \fBQueueingDispatcher\fP"
+.br
+.ti -1c
+.RI "interface \fBHandlerResolver\fP"
+.br
+.ti -1c
+.RI "interface \fBPipeline\fP"
+.br
+.ti -1c
+.RI "interface \fBRenderable\fP"
+.br
+.ti -1c
+.RI "interface \fBLog\fP"
+.br
+.ti -1c
+.RI "interface \fBRepository\fP"
+.br
+.ti -1c
+.RI "interface \fBDispatcher\fP"
+.br
+.ti -1c
+.RI "interface \fBArrayable\fP"
+.br
+.ti -1c
+.RI "interface \fBJsonable\fP"
+.br
+.ti -1c
+.RI "interface \fBFactory\fP"
+.br
+.ti -1c
+.RI "interface \fBQueueingFactory\fP"
+.br
+.ti -1c
+.RI "interface \fBEncrypter\fP"
+.br
+.ti -1c
+.RI "interface \fBQueueableEntity\fP"
+.br
+.ti -1c
+.RI "interface \fBRegistrar\fP"
+.br
+.ti -1c
+.RI "interface \fBResponseFactory\fP"
+.br
+.ti -1c
+.RI "interface \fBUrlGenerator\fP"
+.br
+.ti -1c
+.RI "interface \fBUrlRoutable\fP"
+.br
+.ti -1c
+.RI "interface \fBMiddleware\fP"
+.br
+.ti -1c
+.RI "interface \fBTerminableMiddleware\fP"
+.br
+.ti -1c
+.RI "interface \fBValidatesWhenResolved\fP"
+.br
+.ti -1c
+.RI "interface \fBFactory\fP"
+.br
+.ti -1c
+.RI "interface \fBMessageProvider\fP"
+.br
+.ti -1c
+.RI "interface \fBMessageBag\fP"
+.br
+.ti -1c
+.RI "interface \fBView\fP"
+.br
+.ti -1c
+.RI "interface \fBKernel\fP"
+.br
+.ti -1c
+.RI "interface \fBGuard\fP"
+.br
+.ti -1c
+.RI "interface \fBHasher\fP"
+.br
+.ti -1c
+.RI "class \fBAuthManager\fP"
+.br
+.ti -1c
+.RI "class \fBGuard\fP"
+.br
+.ti -1c
+.RI "interface \fBUserProvider\fP"
+.br
+.ti -1c
+.RI "class \fBEloquentUserProvider\fP"
+.br
+.ti -1c
+.RI "class \fBContainer\fP"
+.br
+.ti -1c
+.RI "interface \fBHttpKernelInterface\fP"
+.br
+.ti -1c
+.RI "interface \fBTerminableInterface\fP"
+.br
+.ti -1c
+.RI "class \fBApplication\fP"
+.br
+.ti -1c
+.RI "class \fBEnvironmentDetector\fP"
+.br
+.ti -1c
+.RI "class \fBConfigureLogging\fP"
+.br
+.ti -1c
+.RI "class \fBHandleExceptions\fP"
+.br
+.ti -1c
+.RI "class \fBRegisterFacades\fP"
+.br
+.ti -1c
+.RI "class \fBRegisterProviders\fP"
+.br
+.ti -1c
+.RI "class \fBBootProviders\fP"
+.br
+.ti -1c
+.RI "class \fBLoadConfiguration\fP"
+.br
+.ti -1c
+.RI "class \fBDetectEnvironment\fP"
+.br
+.ti -1c
+.RI "class \fBKernel\fP"
+.br
+.ti -1c
+.RI "class \fBRequest\fP"
+.br
+.ti -1c
+.RI "class \fBFrameGuard\fP"
+.br
+.ti -1c
+.RI "class \fBVerifyCsrfToken\fP"
+.br
+.ti -1c
+.RI "class \fBCheckForMaintenanceMode\fP"
+.br
+.ti -1c
+.RI "class \fBRequest\fP"
+.br
+.ti -1c
+.RI "class \fBParameterBag\fP"
+.br
+.ti -1c
+.RI "class \fBFileBag\fP"
+.br
+.ti -1c
+.RI "class \fBServerBag\fP"
+.br
+.ti -1c
+.RI "class \fBHeaderBag\fP"
+.br
+.ti -1c
+.RI "interface \fBSessionInterface\fP"
+.br
+.ti -1c
+.RI "interface \fBSessionBagInterface\fP"
+.br
+.ti -1c
+.RI "interface \fBAttributeBagInterface\fP"
+.br
+.ti -1c
+.RI "class \fBAttributeBag\fP"
+.br
+.ti -1c
+.RI "class \fBMetadataBag\fP"
+.br
+.ti -1c
+.RI "class \fBAcceptHeaderItem\fP"
+.br
+.ti -1c
+.RI "class \fBAcceptHeader\fP"
+.br
+.ti -1c
+.RI "class \fBExceptionHandler\fP"
+.br
+.ti -1c
+.RI "class \fBServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBAggregateServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBRoutingServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBControllerServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBEventServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBValidationServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBFormRequest\fP"
+.br
+.ti -1c
+.RI "class \fBFoundationServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBFormRequestServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBAuthServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBPaginationServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBRouteServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBEventServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBHashServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBBcryptHasher\fP"
+.br
+.ti -1c
+.RI "interface \fBPaginator\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractPaginator\fP"
+.br
+.ti -1c
+.RI "class \fBPaginator\fP"
+.br
+.ti -1c
+.RI "class \fBFacade\fP"
+.br
+.ti -1c
+.RI "class \fBArr\fP"
+.br
+.ti -1c
+.RI "class \fBStr\fP"
+.br
+.ti -1c
+.RI "class \fBErrorHandler\fP"
+.br
+.ti -1c
+.RI "class \fBErrorHandlerCanary\fP"
+.br
+.ti -1c
+.RI "class \fBErrorHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRepository\fP"
+.br
+.ti -1c
+.RI "class \fBNamespacedItemResolver\fP"
+.br
+.ti -1c
+.RI "class \fBFilesystem\fP"
+.br
+.ti -1c
+.RI "class \fBAliasLoader\fP"
+.br
+.ti -1c
+.RI "class \fBProviderRepository\fP"
+.br
+.ti -1c
+.RI "class \fBCookieServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBDatabaseServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBEncryptionServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBFilesystemServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBSessionServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBViewServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBRouter\fP"
+.br
+.ti -1c
+.RI "class \fBRoute\fP"
+.br
+.ti -1c
+.RI "class \fBRouteCollection\fP"
+.br
+.ti -1c
+.RI "class \fBCompiledRoute\fP"
+.br
+.ti -1c
+.RI "interface \fBRouteCompilerInterface\fP"
+.br
+.ti -1c
+.RI "class \fBRouteCompiler\fP"
+.br
+.ti -1c
+.RI "class \fBRoute\fP"
+.br
+.ti -1c
+.RI "class \fBController\fP"
+.br
+.ti -1c
+.RI "class \fBControllerDispatcher\fP"
+.br
+.ti -1c
+.RI "class \fBControllerInspector\fP"
+.br
+.ti -1c
+.RI "class \fBUrlGenerator\fP"
+.br
+.ti -1c
+.RI "class \fBBusServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBDispatcher\fP"
+.br
+.ti -1c
+.RI "class \fBPipeline\fP"
+.br
+.ti -1c
+.RI "interface \fBValidatorInterface\fP"
+.br
+.ti -1c
+.RI "class \fBHostValidator\fP"
+.br
+.ti -1c
+.RI "class \fBMethodValidator\fP"
+.br
+.ti -1c
+.RI "class \fBSchemeValidator\fP"
+.br
+.ti -1c
+.RI "class \fBUriValidator\fP"
+.br
+.ti -1c
+.RI "class \fBDispatcher\fP"
+.br
+.ti -1c
+.RI "class \fBModel\fP"
+.br
+.ti -1c
+.RI "class \fBDatabaseManager\fP"
+.br
+.ti -1c
+.RI "interface \fBConnectionResolverInterface\fP"
+.br
+.ti -1c
+.RI "class \fBConnectionFactory\fP"
+.br
+.ti -1c
+.RI "interface \fBSessionInterface\fP"
+.br
+.ti -1c
+.RI "class \fBStartSession\fP"
+.br
+.ti -1c
+.RI "class \fBStore\fP"
+.br
+.ti -1c
+.RI "class \fBSessionManager\fP"
+.br
+.ti -1c
+.RI "class \fBManager\fP"
+.br
+.ti -1c
+.RI "class \fBCollection\fP"
+.br
+.ti -1c
+.RI "class \fBCookieJar\fP"
+.br
+.ti -1c
+.RI "class \fBEncryptCookies\fP"
+.br
+.ti -1c
+.RI "class \fBAddQueuedCookiesToResponse\fP"
+.br
+.ti -1c
+.RI "class \fBEncrypter\fP"
+.br
+.ti -1c
+.RI "class \fBLog\fP"
+.br
+.ti -1c
+.RI "class \fBWriter\fP"
+.br
+.ti -1c
+.RI "class \fBShareErrorsFromSession\fP"
+.br
+.ti -1c
+.RI "class \fBLogger\fP"
+.br
+.ti -1c
+.RI "interface \fBLoggerInterface\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractHandler\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractProcessingHandler\fP"
+.br
+.ti -1c
+.RI "class \fBStreamHandler\fP"
+.br
+.ti -1c
+.RI "class \fBRotatingFileHandler\fP"
+.br
+.ti -1c
+.RI "interface \fBHandlerInterface\fP"
+.br
+.ti -1c
+.RI "interface \fBFormatterInterface\fP"
+.br
+.ti -1c
+.RI "class \fBNormalizerFormatter\fP"
+.br
+.ti -1c
+.RI "class \fBLineFormatter\fP"
+.br
+.ti -1c
+.RI "class \fBApp\fP"
+.br
+.ti -1c
+.RI "class \fBRoute\fP"
+.br
+.ti -1c
+.RI "class \fBEngineResolver\fP"
+.br
+.ti -1c
+.RI "interface \fBViewFinderInterface\fP"
+.br
+.ti -1c
+.RI "class \fBFileViewFinder\fP"
+.br
+.ti -1c
+.RI "class \fBFactory\fP"
+.br
+.ti -1c
+.RI "class \fBViewErrorBag\fP"
+.br
+.ti -1c
+.RI "class \fBMessageBag\fP"
+.br
+.ti -1c
+.RI "class \fBView\fP"
+.br
+.ti -1c
+.RI "class \fBView\fP"
+.br
+.ti -1c
+.RI "interface \fBEngineInterface\fP"
+.br
+.ti -1c
+.RI "class \fBPhpEngine\fP"
+.br
+.ti -1c
+.RI "class \fBCompilerEngine\fP"
+.br
+.ti -1c
+.RI "interface \fBCompilerInterface\fP"
+.br
+.ti -1c
+.RI "class \fBCompiler\fP"
+.br
+.ti -1c
+.RI "class \fBBladeCompiler\fP"
+.br
+.ti -1c
+.RI "class \fBResponse\fP"
+.br
+.ti -1c
+.RI "class \fBResponse\fP"
+.br
+.ti -1c
+.RI "class \fBResponseHeaderBag\fP"
+.br
+.ti -1c
+.RI "class \fBCookie\fP"
+.br
+.ti -1c
+.RI "class \fBStringUtils\fP"
+.br
+.ti -1c
+.RI "interface \fBSecureRandomInterface\fP"
+.br
+.ti -1c
+.RI "class \fBSecureRandom\fP"
+.br
+.ti -1c
+.RI "class \fBSplFileInfo\fP"
+.br
+.ti -1c
+.RI "class \fBRegex\fP"
+.br
+.ti -1c
+.RI "interface \fBValueInterface\fP"
+.br
+.ti -1c
+.RI "class \fBExpression\fP"
+.br
+.ti -1c
+.RI "class \fBFilterIterator\fP"
+.br
+.ti -1c
+.RI "class \fBMultiplePcreFilterIterator\fP"
+.br
+.ti -1c
+.RI "class \fBPathFilterIterator\fP"
+.br
+.ti -1c
+.RI "class \fBExcludeDirectoryFilterIterator\fP"
+.br
+.ti -1c
+.RI "class \fBRecursiveDirectoryIterator\fP"
+.br
+.ti -1c
+.RI "class \fBFileTypeFilterIterator\fP"
+.br
+.ti -1c
+.RI "class \fBShell\fP"
+.br
+.ti -1c
+.RI "interface \fBAdapterInterface\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractAdapter\fP"
+.br
+.ti -1c
+.RI "class \fBAbstractFindAdapter\fP"
+.br
+.ti -1c
+.RI "class \fBGnuFindAdapter\fP"
+.br
+.ti -1c
+.RI "class \fBPhpAdapter\fP"
+.br
+.ti -1c
+.RI "class \fBBsdFindAdapter\fP"
+.br
+.ti -1c
+.RI "class \fBFinder\fP"
+.br
+.ti -1c
+.RI "class \fBCarbon\fP"
+.br
+.ti -1c
+.RI "class \fBAppServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBBusServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBConfigServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBEventServiceProvider\fP"
+.br
+.ti -1c
+.RI "class \fBRouteServiceProvider\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Container\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Foundation\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Bus\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Pipeline\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Support\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Logging\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Config\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Events\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Cookie\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Encryption\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Queue\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Routing\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Validation\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\View\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Http\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Auth\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Hashing\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Auth\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Container\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpKernel\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Bootstrap\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Http\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Auth\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Http\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Http\\Middleware\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Http\\Middleware\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpFoundation\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpFoundation\\Session\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpFoundation\\Session\\Attribute\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpFoundation\\Session\\Storage\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Debug\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Support\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Routing\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Events\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Validation\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Validation\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Bus\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Providers\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Pagination\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Foundation\\Support\\Providers\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Hashing\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Contracts\\Pagination\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Support\\Facades\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Support\\Traits\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\HttpKernel\\Debug\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Config\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Filesystem\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Cookie\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Database\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Encryption\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Session\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\View\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Routing\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Bus\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Pipeline\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Routing\\Matching\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Database\\Eloquent\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Database\\Connectors\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Session\\Middleware\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Cookie\\Middleware\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\Log\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\View\\Middleware\fP"
+.br
+.ti -1c
+.RI " \fBMonolog\fP"
+.br
+.ti -1c
+.RI " \fBPsr\\Log\fP"
+.br
+.ti -1c
+.RI " \fBMonolog\\Handler\fP"
+.br
+.ti -1c
+.RI " \fBMonolog\\Formatter\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\View\\Engines\fP"
+.br
+.ti -1c
+.RI " \fBIlluminate\\View\\Compilers\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Security\\Core\\Util\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Finder\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Finder\\Expression\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Finder\\Iterator\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Finder\\Shell\fP"
+.br
+.ti -1c
+.RI " \fBSymfony\\Component\\Finder\\Adapter\fP"
+.br
+.ti -1c
+.RI " \fBCarbon\fP"
+.br
+.ti -1c
+.RI " \fBApp\\Providers\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetRegister\fP ()"
+.br
+.ti -1c
+.RI "\fBpostRegister\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetLogin\fP ()"
+.br
+.ti -1c
+.RI "\fBpostLogin\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetFailedLoginMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLogout\fP ()"
+.br
+.ti -1c
+.RI "\fBredirectPath\fP ()"
+.br
+.ti -1c
+.RI "\fBloginPath\fP ()"
+.br
+.ti -1c
+.RI "\fBgetEmail\fP ()"
+.br
+.ti -1c
+.RI "\fBpostEmail\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetEmailSubject\fP ()"
+.br
+.ti -1c
+.RI "\fBgetReset\fP ($token=null)"
+.br
+.ti -1c
+.RI "\fBpostReset\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fB__call\fP ($method, $parameters)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "trait \fBAuthenticatesAndRegistersUsers\fP"
+.br
+.ti -1c
+.RI "\fB$registrar\fP"
+.br
+.ti -1c
+.RI "trait \fBResetsPasswords\fP"
+.br
+.ti -1c
+.RI "\fB$passwords\fP"
+.br
+.ti -1c
+.RI "trait \fBValidatesRequests\fP"
+.br
+.ti -1c
+.RI "trait \fBValidatesWhenResolvedTrait\fP"
+.br
+.ti -1c
+.RI "trait \fBDispatchesCommands\fP"
+.br
+.ti -1c
+.RI "trait \fBMacroable\fP"
+.br
+.ti -1c
+.RI "trait \fBRouteDependencyResolverTrait\fP"
+.br
+.ti -1c
+.RI "trait \fBResponseTrait\fP"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

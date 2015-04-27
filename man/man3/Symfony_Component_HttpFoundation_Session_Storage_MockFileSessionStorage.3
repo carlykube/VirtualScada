@@ -1,0 +1,120 @@
+.TH "MockFileSessionStorage" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MockFileSessionStorage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBMockArraySessionStorage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($savePath=null, $\fBname\fP= 'MOCKSESSID', \fBMetadataBag\fP $metaBag=null)"
+.br
+.ti -1c
+.RI "\fBstart\fP ()"
+.br
+.ti -1c
+.RI "\fBregenerate\fP ($destroy=false, $lifetime=null)"
+.br
+.ti -1c
+.RI "\fBsave\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBMockFileSessionStorage\fP is used to mock sessions for functional testing when done in a single \fBPHP\fP process\&.
+.PP
+No \fBPHP\fP session is actually started since a session can be initialized and shutdown only once per \fBPHP\fP execution cycle and this class does not pollute any session related globals, including session_*() functions or session\&.* \fBPHP\fP ini directives\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Drak drak@zikula.org 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file MockFileSessionStorage\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $savePath = \fCnull\fP,  $name = \fC'MOCKSESSID'\fP, \fBMetadataBag\fP $metaBag = \fCnull\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$savePath\fP Path of directory to save session files\&. 
+.br
+\fI$name\fP \fBSession\fP name\&. 
+.br
+\fI$metaBag\fP \fBMetadataBag\fP instance\&. 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file MockFileSessionStorage\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "regenerate ( $destroy = \fCfalse\fP,  $lifetime = \fCnull\fP)"
+{Regenerates id that represents this storage\&.
+.PP
+This method must invoke session_regenerate_id($destroy) unless this interface is used for a storage object designed for unit or functional testing where a real \fBPHP\fP session would interfere with testing\&.
+.PP
+Note regenerate+destroy should not clear the session data in memory only delete the session data from persistent storage\&.
+.PP
+Care: When regenerating the session ID no locking is involved in PHPs session design\&. See https://bugs.php.net/bug.php?id=61470 for a discussion\&. So you must make sure the regenerated session is saved BEFORE sending the headers with the new ID\&. Symfonys \fBHttpKernel\fP offers a listener for this\&. See \fBSymfony\fP\&. Otherwise session data could get lost again for concurrent requests with the new ID\&. \fBOne\fP result could be that you get logged out after just logging in\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$destroy\fP Destroy session when regenerating? 
+.br
+\fI$lifetime\fP Sets the cookie lifetime for the session cookie\&. \fBA\fP null value will leave the system settings unchanged, 0 sets the cookie to expire with browser session\&. Time is in seconds, and is not a Unix timestamp\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool True if session regenerated, false if error
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 77 of file MockFileSessionStorage\&.php\&.
+.SS "save ()"
+{Force the session to be saved and closed\&.
+.PP
+This method must invoke session_write_close() unless this interface is used for a storage object design for unit or functional testing where a real \fBPHP\fP session would interfere with testing, in which case it it should actually persist the session data if required\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 93 of file MockFileSessionStorage\&.php\&.
+.SS "start ()"
+{Starts the session\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+} 
+.PP
+Implements \fBSessionStorageInterface\fP\&.
+.PP
+Definition at line 57 of file MockFileSessionStorage\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,314 @@
+.TH "Builder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Builder \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBMySqlBuilder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBConnection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBhasTable\fP ($\fBtable\fP)"
+.br
+.ti -1c
+.RI "\fBhasColumn\fP ($\fBtable\fP, $column)"
+.br
+.ti -1c
+.RI "\fBgetColumnListing\fP ($\fBtable\fP)"
+.br
+.ti -1c
+.RI "\fBtable\fP ($table, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBcreate\fP ($\fBtable\fP, Closure $\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBdrop\fP ($\fBtable\fP)"
+.br
+.ti -1c
+.RI "\fBdropIfExists\fP ($\fBtable\fP)"
+.br
+.ti -1c
+.RI "\fBrename\fP ($from, $\fBto\fP)"
+.br
+.ti -1c
+.RI "\fBgetConnection\fP ()"
+.br
+.ti -1c
+.RI "\fBsetConnection\fP (\fBConnection\fP $connection)"
+.br
+.ti -1c
+.RI "\fBblueprintResolver\fP (Closure $resolver)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbuild\fP (\fBBlueprint\fP $blueprint)"
+.br
+.ti -1c
+.RI "\fBcreateBlueprint\fP ($\fBtable\fP, Closure $\fBcallback\fP=null)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$grammar\fP"
+.br
+.ti -1c
+.RI "\fB$resolver\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file Builder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBConnection\fP $connection)"
+Create a new database \fBSchema\fP manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$connection\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file Builder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "blueprintResolver (Closure $resolver)"
+Set the \fBSchema\fP \fBBlueprint\fP resolver callback\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$resolver\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file Builder\&.php\&.
+.SS "build (\fBBlueprint\fP $blueprint)\fC [protected]\fP"
+Execute the blueprint to build / modify the table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blueprint\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file Builder\&.php\&.
+.SS "create ( $table, Closure $callback)"
+Create a new table on the schema\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 104 of file Builder\&.php\&.
+.SS "createBlueprint ( $table, Closure $callback = \fCnull\fP)\fC [protected]\fP"
+Create a new command set with a Closure\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 179 of file Builder\&.php\&.
+.SS "drop ( $table)"
+Drop a table from the schema\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 121 of file Builder\&.php\&.
+.SS "dropIfExists ( $table)"
+Drop a table from the schema if it exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 136 of file Builder\&.php\&.
+.SS "getColumnListing ( $table)"
+Get the column listing for a given table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file Builder\&.php\&.
+.SS "getConnection ()"
+Get the database connection instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 194 of file Builder\&.php\&.
+.SS "hasColumn ( $table,  $column)"
+Determine if the given table has a given column\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$column\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file Builder\&.php\&.
+.SS "hasTable ( $table)"
+Determine if the given table exists\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 47 of file Builder\&.php\&.
+.SS "rename ( $from,  $to)"
+Rename a table on the schema\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$from\fP 
+.br
+\fI$to\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 152 of file Builder\&.php\&.
+.SS "setConnection (\fBConnection\fP $connection)"
+Set the database connection instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 205 of file Builder\&.php\&.
+.SS "table ( $table, Closure $callback)"
+Modify a table on the schema\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$table\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 92 of file Builder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$connection\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file Builder\&.php\&.
+.SS "$grammar\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Builder\&.php\&.
+.SS "$resolver\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Builder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

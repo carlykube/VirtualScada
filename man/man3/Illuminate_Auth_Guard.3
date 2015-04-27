@@ -1,0 +1,1257 @@
+.TH "Guard" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Guard \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGuard\fP, and \fBGuard\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBUserProvider\fP $provider, \fBSessionInterface\fP $session, \fBRequest\fP $request=null)"
+.br
+.ti -1c
+.RI "\fBcheck\fP ()"
+.br
+.ti -1c
+.RI "\fBguest\fP ()"
+.br
+.ti -1c
+.RI "\fBuser\fP ()"
+.br
+.ti -1c
+.RI "\fBid\fP ()"
+.br
+.ti -1c
+.RI "\fBonce\fP (array $credentials=array())"
+.br
+.ti -1c
+.RI "\fBvalidate\fP (array $credentials=array())"
+.br
+.ti -1c
+.RI "\fBbasic\fP ($field= 'email')"
+.br
+.ti -1c
+.RI "\fBonceBasic\fP ($field= 'email')"
+.br
+.ti -1c
+.RI "\fBattempt\fP (array $credentials=array(), $remember=false, $\fBlogin\fP=true)"
+.br
+.ti -1c
+.RI "\fBattempting\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBlogin\fP (UserContract $\fBuser\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBloginUsingId\fP ($\fBid\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBonceUsingId\fP ($\fBid\fP)"
+.br
+.ti -1c
+.RI "\fBlogout\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCookieJar\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCookieJar\fP (CookieJar $cookie)"
+.br
+.ti -1c
+.RI "\fBgetDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBgetSession\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProvider\fP ()"
+.br
+.ti -1c
+.RI "\fBsetProvider\fP (\fBUserProvider\fP $provider)"
+.br
+.ti -1c
+.RI "\fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUser\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetLastAttempted\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRecallerName\fP ()"
+.br
+.ti -1c
+.RI "\fBviaRemember\fP ()"
+.br
+.ti -1c
+.RI "\fB__construct\fP (\fBUserProvider\fP $provider, \fBSessionInterface\fP $session, \fBRequest\fP $request=null)"
+.br
+.ti -1c
+.RI "\fBcheck\fP ()"
+.br
+.ti -1c
+.RI "\fBguest\fP ()"
+.br
+.ti -1c
+.RI "\fBuser\fP ()"
+.br
+.ti -1c
+.RI "\fBid\fP ()"
+.br
+.ti -1c
+.RI "\fBonce\fP (array $credentials=[])"
+.br
+.ti -1c
+.RI "\fBvalidate\fP (array $credentials=[])"
+.br
+.ti -1c
+.RI "\fBbasic\fP ($field= 'email')"
+.br
+.ti -1c
+.RI "\fBonceBasic\fP ($field= 'email')"
+.br
+.ti -1c
+.RI "\fBattempt\fP (array $credentials=[], $remember=false, $\fBlogin\fP=true)"
+.br
+.ti -1c
+.RI "\fBattempting\fP ($\fBcallback\fP)"
+.br
+.ti -1c
+.RI "\fBlogin\fP (UserContract $\fBuser\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBloginUsingId\fP ($\fBid\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBonceUsingId\fP ($\fBid\fP)"
+.br
+.ti -1c
+.RI "\fBlogout\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCookieJar\fP ()"
+.br
+.ti -1c
+.RI "\fBsetCookieJar\fP (CookieJar $cookie)"
+.br
+.ti -1c
+.RI "\fBgetDispatcher\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDispatcher\fP (\fBDispatcher\fP $events)"
+.br
+.ti -1c
+.RI "\fBgetSession\fP ()"
+.br
+.ti -1c
+.RI "\fBgetProvider\fP ()"
+.br
+.ti -1c
+.RI "\fBsetProvider\fP (\fBUserProvider\fP $provider)"
+.br
+.ti -1c
+.RI "\fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUser\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBsetRequest\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetLastAttempted\fP ()"
+.br
+.ti -1c
+.RI "\fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRecallerName\fP ()"
+.br
+.ti -1c
+.RI "\fBviaRemember\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetUserByRecaller\fP ($recaller)"
+.br
+.ti -1c
+.RI "\fBgetRecaller\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRecallerId\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidRecaller\fP ($recaller)"
+.br
+.ti -1c
+.RI "\fBattemptBasic\fP (\fBRequest\fP $request, $field)"
+.br
+.ti -1c
+.RI "\fBgetBasicCredentials\fP (\fBRequest\fP $request, $field)"
+.br
+.ti -1c
+.RI "\fBgetBasicResponse\fP ()"
+.br
+.ti -1c
+.RI "\fBhasValidCredentials\fP ($\fBuser\fP, $credentials)"
+.br
+.ti -1c
+.RI "\fBfireAttemptEvent\fP (array $credentials, $remember, $\fBlogin\fP)"
+.br
+.ti -1c
+.RI "\fBfireLoginEvent\fP ($\fBuser\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBupdateSession\fP ($\fBid\fP)"
+.br
+.ti -1c
+.RI "\fBqueueRecallerCookie\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBcreateRecaller\fP ($value)"
+.br
+.ti -1c
+.RI "\fBclearUserDataFromStorage\fP ()"
+.br
+.ti -1c
+.RI "\fBrefreshRememberToken\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBcreateRememberTokenIfDoesntExist\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBgetUserByRecaller\fP ($recaller)"
+.br
+.ti -1c
+.RI "\fBgetRecaller\fP ()"
+.br
+.ti -1c
+.RI "\fBgetRecallerId\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidRecaller\fP ($recaller)"
+.br
+.ti -1c
+.RI "\fBattemptBasic\fP (\fBRequest\fP $request, $field)"
+.br
+.ti -1c
+.RI "\fBgetBasicCredentials\fP (\fBRequest\fP $request, $field)"
+.br
+.ti -1c
+.RI "\fBgetBasicResponse\fP ()"
+.br
+.ti -1c
+.RI "\fBhasValidCredentials\fP ($\fBuser\fP, $credentials)"
+.br
+.ti -1c
+.RI "\fBfireAttemptEvent\fP (array $credentials, $remember, $\fBlogin\fP)"
+.br
+.ti -1c
+.RI "\fBfireLoginEvent\fP ($\fBuser\fP, $remember=false)"
+.br
+.ti -1c
+.RI "\fBupdateSession\fP ($\fBid\fP)"
+.br
+.ti -1c
+.RI "\fBqueueRecallerCookie\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBcreateRecaller\fP ($value)"
+.br
+.ti -1c
+.RI "\fBclearUserDataFromStorage\fP ()"
+.br
+.ti -1c
+.RI "\fBrefreshRememberToken\fP (UserContract $\fBuser\fP)"
+.br
+.ti -1c
+.RI "\fBcreateRememberTokenIfDoesntExist\fP (UserContract $\fBuser\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$user\fP"
+.br
+.ti -1c
+.RI "\fB$lastAttempted\fP"
+.br
+.ti -1c
+.RI "\fB$viaRemember\fP = false"
+.br
+.ti -1c
+.RI "\fB$provider\fP"
+.br
+.ti -1c
+.RI "\fB$session\fP"
+.br
+.ti -1c
+.RI "\fB$cookie\fP"
+.br
+.ti -1c
+.RI "\fB$request\fP"
+.br
+.ti -1c
+.RI "\fB$events\fP"
+.br
+.ti -1c
+.RI "\fB$loggedOut\fP = false"
+.br
+.ti -1c
+.RI "\fB$tokenRetrievalAttempted\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 380 of file compiled\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBUserProvider\fP $provider, \fBSessionInterface\fP $session, \fBRequest\fP $request = \fCnull\fP)"
+
+.PP
+Definition at line 392 of file compiled\&.php\&.
+.SS "__construct (\fBUserProvider\fP $provider, \fBSessionInterface\fP $session, \fBRequest\fP $request = \fCnull\fP)"
+Create a new authentication guard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.br
+\fI$session\fP 
+.br
+\fI$request\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file Guard\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "attempt (array $credentials = \fC[]\fP,  $remember = \fCfalse\fP,  $login = \fCtrue\fP)"
+Attempt to authenticate a user using the given credentials\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$credentials\fP 
+.br
+\fI$remember\fP 
+.br
+\fI$login\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 355 of file Guard\&.php\&.
+.SS "attempt (array $credentials = \fCarray()\fP,  $remember = \fCfalse\fP,  $login = \fCtrue\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 511 of file compiled\&.php\&.
+.SS "attemptBasic (\fBRequest\fP $request,  $field)\fC [protected]\fP"
+Attempt to authenticate using basic authentication\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.br
+\fI$field\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 316 of file Guard\&.php\&.
+.SS "attemptBasic (\fBRequest\fP $request,  $field)\fC [protected]\fP"
+
+.PP
+Definition at line 495 of file compiled\&.php\&.
+.SS "attempting ( $callback)"
+Register an authentication attempt event listener\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 410 of file Guard\&.php\&.
+.SS "attempting ( $callback)"
+
+.PP
+Definition at line 534 of file compiled\&.php\&.
+.SS "basic ( $field = \fC'email'\fP)"
+Attempt to authenticate using HTTP Basic \fBAuth\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 283 of file Guard\&.php\&.
+.SS "basic ( $field = \fC'email'\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 479 of file compiled\&.php\&.
+.SS "check ()"
+Determine if the current user is authenticated\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 107 of file Guard\&.php\&.
+.SS "check ()"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 398 of file compiled\&.php\&.
+.SS "clearUserDataFromStorage ()\fC [protected]\fP"
+Remove the user data from the session and cookies\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 565 of file Guard\&.php\&.
+.SS "clearUserDataFromStorage ()\fC [protected]\fP"
+
+.PP
+Definition at line 594 of file compiled\&.php\&.
+.SS "createRecaller ( $value)\fC [protected]\fP"
+Create a remember me cookie for a given ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 523 of file Guard\&.php\&.
+.SS "createRecaller ( $value)\fC [protected]\fP"
+
+.PP
+Definition at line 577 of file compiled\&.php\&.
+.SS "createRememberTokenIfDoesntExist (UserContract $user)\fC [protected]\fP"
+Create a new remember token for the user if one doesn't already exist\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 593 of file Guard\&.php\&.
+.SS "createRememberTokenIfDoesntExist (UserContract $user)\fC [protected]\fP"
+
+.PP
+Definition at line 605 of file compiled\&.php\&.
+.SS "fireAttemptEvent (array $credentials,  $remember,  $login)\fC [protected]\fP"
+Fire the attempt event with the arguments\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$credentials\fP 
+.br
+\fI$remember\fP 
+.br
+\fI$login\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 394 of file Guard\&.php\&.
+.SS "fireAttemptEvent (array $credentials,  $remember,  $login)\fC [protected]\fP"
+
+.PP
+Definition at line 527 of file compiled\&.php\&.
+.SS "fireLoginEvent ( $user,  $remember = \fCfalse\fP)\fC [protected]\fP"
+Fire the login event if the dispatcher is set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.br
+\fI$remember\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Guard\&.php\&.
+.SS "fireLoginEvent ( $user,  $remember = \fCfalse\fP)\fC [protected]\fP"
+
+.PP
+Definition at line 550 of file compiled\&.php\&.
+.SS "getBasicCredentials (\fBRequest\fP $request,  $field)\fC [protected]\fP"
+Get the credential array for a HTTP Basic request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP 
+.br
+\fI$field\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 330 of file Guard\&.php\&.
+.SS "getBasicCredentials (\fBRequest\fP $request,  $field)\fC [protected]\fP"
+
+.PP
+Definition at line 502 of file compiled\&.php\&.
+.SS "getBasicResponse ()\fC [protected]\fP"
+Get the response for basic authentication\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 340 of file Guard\&.php\&.
+.SS "getBasicResponse ()\fC [protected]\fP"
+
+.PP
+Definition at line 506 of file compiled\&.php\&.
+.SS "getCookieJar ()"
+Get the cookie creator instance used by the guard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 610 of file Guard\&.php\&.
+.SS "getCookieJar ()"
+
+.PP
+Definition at line 612 of file compiled\&.php\&.
+.SS "getDispatcher ()"
+
+.PP
+Definition at line 623 of file compiled\&.php\&.
+.SS "getDispatcher ()"
+Get the event dispatcher instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 636 of file Guard\&.php\&.
+.SS "getLastAttempted ()"
+
+.PP
+Definition at line 661 of file compiled\&.php\&.
+.SS "getLastAttempted ()"
+Get the last user we attempted to authenticate\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 734 of file Guard\&.php\&.
+.SS "getName ()"
+
+.PP
+Definition at line 665 of file compiled\&.php\&.
+.SS "getName ()"
+Get a unique identifier for the auth session value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 744 of file Guard\&.php\&.
+.SS "getProvider ()"
+
+.PP
+Definition at line 635 of file compiled\&.php\&.
+.SS "getProvider ()"
+Get the user provider used by the guard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 667 of file Guard\&.php\&.
+.SS "getRecaller ()\fC [protected]\fP"
+Get the decrypted recaller cookie for the request\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Guard\&.php\&.
+.SS "getRecaller ()\fC [protected]\fP"
+
+.PP
+Definition at line 449 of file compiled\&.php\&.
+.SS "getRecallerId ()\fC [protected]\fP"
+Get the user ID from the recaller cookie\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file Guard\&.php\&.
+.SS "getRecallerId ()\fC [protected]\fP"
+
+.PP
+Definition at line 453 of file compiled\&.php\&.
+.SS "getRecallerName ()"
+
+.PP
+Definition at line 669 of file compiled\&.php\&.
+.SS "getRecallerName ()"
+Get the name of the cookie used to store the 'recaller'\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 754 of file Guard\&.php\&.
+.SS "getRequest ()"
+
+.PP
+Definition at line 652 of file compiled\&.php\&.
+.SS "getRequest ()"
+Get the current request instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 711 of file Guard\&.php\&.
+.SS "getSession ()"
+
+.PP
+Definition at line 631 of file compiled\&.php\&.
+.SS "getSession ()"
+Get the session store used by the guard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 657 of file Guard\&.php\&.
+.SS "getUser ()"
+
+.PP
+Definition at line 643 of file compiled\&.php\&.
+.SS "getUser ()"
+Return the currently cached user of the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Definition at line 688 of file Guard\&.php\&.
+.SS "getUserByRecaller ( $recaller)\fC [protected]\fP"
+Pull a user from the repository by its recaller ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$recaller\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file Guard\&.php\&.
+.SS "getUserByRecaller ( $recaller)\fC [protected]\fP"
+
+.PP
+Definition at line 440 of file compiled\&.php\&.
+.SS "guest ()"
+Determine if the current user is a guest\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 117 of file Guard\&.php\&.
+.SS "guest ()"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 402 of file compiled\&.php\&.
+.SS "hasValidCredentials ( $user,  $credentials)\fC [protected]\fP"
+Determine if the user matches the credentials\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.br
+\fI$credentials\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 381 of file Guard\&.php\&.
+.SS "hasValidCredentials ( $user,  $credentials)\fC [protected]\fP"
+
+.PP
+Definition at line 523 of file compiled\&.php\&.
+.SS "id ()"
+Get the ID for the currently authenticated user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int|null 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file Guard\&.php\&.
+.SS "id ()"
+
+.PP
+Definition at line 429 of file compiled\&.php\&.
+.SS "login (UserContract $user,  $remember = \fCfalse\fP)"
+\fBLog\fP a user into the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.br
+\fI$remember\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file Guard\&.php\&.
+.SS "login (UserContract $user,  $remember = \fCfalse\fP)"
+
+.PP
+Definition at line 540 of file compiled\&.php\&.
+.SS "loginUsingId ( $id,  $remember = \fCfalse\fP)"
+\fBLog\fP the given user ID into the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$remember\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 482 of file Guard\&.php\&.
+.SS "loginUsingId ( $id,  $remember = \fCfalse\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 561 of file compiled\&.php\&.
+.SS "logout ()"
+\fBLog\fP the user out of the application\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 533 of file Guard\&.php\&.
+.SS "logout ()"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 581 of file compiled\&.php\&.
+.SS "once (array $credentials = \fC[]\fP)"
+\fBLog\fP a user into the application without sessions or cookies\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$credentials\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 254 of file Guard\&.php\&.
+.SS "once (array $credentials = \fCarray()\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 467 of file compiled\&.php\&.
+.SS "onceBasic ( $field = \fC'email'\fP)"
+Perform a stateless HTTP Basic login attempt\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 301 of file Guard\&.php\&.
+.SS "onceBasic ( $field = \fC'email'\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 489 of file compiled\&.php\&.
+.SS "onceUsingId ( $id)"
+\fBLog\fP the given user ID into the application without sessions or cookies\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 497 of file Guard\&.php\&.
+.SS "onceUsingId ( $id)"
+
+.PP
+Definition at line 567 of file compiled\&.php\&.
+.SS "queueRecallerCookie (UserContract $user)\fC [protected]\fP"
+\fBQueue\fP the recaller cookie into the cookie jar\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file Guard\&.php\&.
+.SS "queueRecallerCookie (UserContract $user)\fC [protected]\fP"
+
+.PP
+Definition at line 572 of file compiled\&.php\&.
+.SS "refreshRememberToken (UserContract $user)\fC [protected]\fP"
+Refresh the remember token for the user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 580 of file Guard\&.php\&.
+.SS "refreshRememberToken (UserContract $user)\fC [protected]\fP"
+
+.PP
+Definition at line 600 of file compiled\&.php\&.
+.SS "setCookieJar (CookieJar $cookie)"
+
+.PP
+Definition at line 619 of file compiled\&.php\&.
+.SS "setCookieJar (CookieJar $cookie)"
+Set the cookie creator instance used by the guard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$cookie\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 626 of file Guard\&.php\&.
+.SS "setDispatcher (\fBDispatcher\fP $events)"
+
+.PP
+Definition at line 627 of file compiled\&.php\&.
+.SS "setDispatcher (\fBDispatcher\fP $events)"
+Set the event dispatcher instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 647 of file Guard\&.php\&.
+.SS "setProvider (\fBUserProvider\fP $provider)"
+
+.PP
+Definition at line 639 of file compiled\&.php\&.
+.SS "setProvider (\fBUserProvider\fP $provider)"
+Set the user provider used by the guard\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$provider\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 678 of file Guard\&.php\&.
+.SS "setRequest (\fBRequest\fP $request)"
+
+.PP
+Definition at line 656 of file compiled\&.php\&.
+.SS "setRequest (\fBRequest\fP $request)"
+Set the current request instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 722 of file Guard\&.php\&.
+.SS "setUser (UserContract $user)"
+
+.PP
+Definition at line 647 of file compiled\&.php\&.
+.SS "setUser (UserContract $user)"
+Set the current user of the application\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$user\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 699 of file Guard\&.php\&.
+.SS "updateSession ( $id)\fC [protected]\fP"
+Update the session with the given ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 468 of file Guard\&.php\&.
+.SS "updateSession ( $id)\fC [protected]\fP"
+
+.PP
+Definition at line 556 of file compiled\&.php\&.
+.SS "user ()"
+Get the currently authenticated user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+|null 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 127 of file Guard\&.php\&.
+.SS "user ()"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 406 of file compiled\&.php\&.
+.SS "validate (array $credentials = \fC[]\fP)"
+Validate a user's credentials\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$credentials\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 272 of file Guard\&.php\&.
+.SS "validate (array $credentials = \fCarray()\fP)"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 475 of file compiled\&.php\&.
+.SS "validRecaller ( $recaller)\fC [protected]\fP"
+Determine if the recaller cookie is in a valid format\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$recaller\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file Guard\&.php\&.
+.SS "validRecaller ( $recaller)\fC [protected]\fP"
+
+.PP
+Definition at line 459 of file compiled\&.php\&.
+.SS "viaRemember ()"
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 673 of file compiled\&.php\&.
+.SS "viaRemember ()"
+Determine if the user was authenticated via 'remember me' cookie\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implements \fBGuard\fP\&.
+.PP
+Definition at line 764 of file Guard\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$cookie\fC [protected]\fP"
+
+.PP
+Definition at line 387 of file compiled\&.php\&.
+.SS "$events\fC [protected]\fP"
+
+.PP
+Definition at line 389 of file compiled\&.php\&.
+.SS "$lastAttempted\fC [protected]\fP"
+
+.PP
+Definition at line 383 of file compiled\&.php\&.
+.SS "$loggedOut = false\fC [protected]\fP"
+
+.PP
+Definition at line 390 of file compiled\&.php\&.
+.SS "$provider\fC [protected]\fP"
+
+.PP
+Definition at line 385 of file compiled\&.php\&.
+.SS "$request\fC [protected]\fP"
+
+.PP
+Definition at line 388 of file compiled\&.php\&.
+.SS "$session\fC [protected]\fP"
+
+.PP
+Definition at line 386 of file compiled\&.php\&.
+.SS "$tokenRetrievalAttempted = false\fC [protected]\fP"
+
+.PP
+Definition at line 391 of file compiled\&.php\&.
+.SS "$\fBuser\fP\fC [protected]\fP"
+
+.PP
+Definition at line 382 of file compiled\&.php\&.
+.SS "$\fBviaRemember\fP = false\fC [protected]\fP"
+
+.PP
+Definition at line 384 of file compiled\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

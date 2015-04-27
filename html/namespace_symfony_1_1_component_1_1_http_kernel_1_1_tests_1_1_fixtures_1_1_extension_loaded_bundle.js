@@ -1,0 +1,5 @@
+var namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_loaded_bundle =
+[
+    [ "DependencyInjection", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_loaded_bundle_1_1_dependency_injection.html", "namespace_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_loaded_bundle_1_1_dependency_injection" ],
+    [ "ExtensionLoadedBundle", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_fixtures_1_1_extension_loaded_bundle_1_1_extension_loaded_bundle.html", null ]
+];

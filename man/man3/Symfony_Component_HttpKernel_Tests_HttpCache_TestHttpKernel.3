@@ -1,0 +1,188 @@
+.TH "TestHttpKernel" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TestHttpKernel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHttpKernel\fP, and \fBControllerResolverInterface\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($body, $status, $headers,\\Closure $customizer=null)"
+.br
+.ti -1c
+.RI "\fBgetBackendRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBhandle\fP (\fBRequest\fP $request, $type=\fBHttpKernelInterface::MASTER_REQUEST\fP, $catch=false)"
+.br
+.ti -1c
+.RI "\fBisCatchingExceptions\fP ()"
+.br
+.ti -1c
+.RI "\fBgetController\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBgetArguments\fP (\fBRequest\fP $request, $controller)"
+.br
+.ti -1c
+.RI "\fBcallController\fP (\fBRequest\fP $request)"
+.br
+.ti -1c
+.RI "\fBhasBeenCalled\fP ()"
+.br
+.ti -1c
+.RI "\fBreset\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$body\fP"
+.br
+.ti -1c
+.RI "\fB$status\fP"
+.br
+.ti -1c
+.RI "\fB$headers\fP"
+.br
+.ti -1c
+.RI "\fB$called\fP = false"
+.br
+.ti -1c
+.RI "\fB$customizer\fP"
+.br
+.ti -1c
+.RI "\fB$catch\fP = false"
+.br
+.ti -1c
+.RI "\fB$backendRequest\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 21 of file TestHttpKernel\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $body,  $status,  $headers, \\Closure $customizer = \fCnull\fP)"
+
+.PP
+Definition at line 31 of file TestHttpKernel\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "callController (\fBRequest\fP $request)"
+
+.PP
+Definition at line 69 of file TestHttpKernel\&.php\&.
+.SS "getArguments (\fBRequest\fP $request,  $controller)"
+Returns the arguments to pass to the controller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance 
+.br
+\fI$controller\fP \fBA\fP \fBPHP\fP callable
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array An array of arguments to pass to the controller
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBControllerResolverInterface\fP\&.
+.PP
+Definition at line 64 of file TestHttpKernel\&.php\&.
+.SS "getBackendRequest ()"
+
+.PP
+Definition at line 41 of file TestHttpKernel\&.php\&.
+.SS "getController (\fBRequest\fP $request)"
+Returns the \fBController\fP instance associated with a \fBRequest\fP\&.
+.PP
+As several resolvers can exist for a single application, a resolver must return false when it is not able to determine the controller\&.
+.PP
+The resolver must only throw an exception when it should be able to load controller but cannot because of some errors made by the developer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$request\fP \fBA\fP \fBRequest\fP instance
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+callable|false \fBA\fP \fBPHP\fP callable representing the \fBController\fP, or false if this resolver is not able to determine the controller
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implements \fBControllerResolverInterface\fP\&.
+.PP
+Definition at line 59 of file TestHttpKernel\&.php\&.
+.SS "handle (\fBRequest\fP $request,  $type = \fC\fBHttpKernelInterface::MASTER_REQUEST\fP\fP,  $catch = \fCfalse\fP)"
+
+.PP
+Implements \fBHttpKernelInterface\fP\&.
+.PP
+Definition at line 46 of file TestHttpKernel\&.php\&.
+.SS "hasBeenCalled ()"
+
+.PP
+Definition at line 82 of file TestHttpKernel\&.php\&.
+.SS "isCatchingExceptions ()"
+
+.PP
+Definition at line 54 of file TestHttpKernel\&.php\&.
+.SS "reset ()"
+
+.PP
+Definition at line 87 of file TestHttpKernel\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$backendRequest\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file TestHttpKernel\&.php\&.
+.SS "$body\fC [protected]\fP"
+
+.PP
+Definition at line 23 of file TestHttpKernel\&.php\&.
+.SS "$called = false\fC [protected]\fP"
+
+.PP
+Definition at line 26 of file TestHttpKernel\&.php\&.
+.SS "$catch = false\fC [protected]\fP"
+
+.PP
+Definition at line 28 of file TestHttpKernel\&.php\&.
+.SS "$customizer\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file TestHttpKernel\&.php\&.
+.SS "$headers\fC [protected]\fP"
+
+.PP
+Definition at line 25 of file TestHttpKernel\&.php\&.
+.SS "$status\fC [protected]\fP"
+
+.PP
+Definition at line 24 of file TestHttpKernel\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

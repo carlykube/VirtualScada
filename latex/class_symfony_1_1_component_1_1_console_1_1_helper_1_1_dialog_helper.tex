@@ -1,0 +1,331 @@
+\section{Dialog\+Helper Class Reference}
+\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper}\index{Dialog\+Helper@{Dialog\+Helper}}
+Inheritance diagram for Dialog\+Helper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf select} ({\bf Output\+Interface} \$output, \$question, \$choices, \$default=null, \$attempts=false, \$error\+Message= \textquotesingle{}Value\char`\"{}\%s\char`\"{}is invalid\textquotesingle{}, \$multiselect=false)
+\item 
+{\bf ask} ({\bf Output\+Interface} \$output, \$question, \$default=null, array \$autocomplete=null)
+\item 
+{\bf ask\+Confirmation} ({\bf Output\+Interface} \$output, \$question, \$default=true)
+\item 
+{\bf ask\+Hidden\+Response} ({\bf Output\+Interface} \$output, \$question, \$fallback=true)
+\item 
+{\bf ask\+And\+Validate} ({\bf Output\+Interface} \$output, \$question, \$validator, \$attempts=false, \$default=null, array \$autocomplete=null)
+\item 
+{\bf ask\+Hidden\+Response\+And\+Validate} ({\bf Output\+Interface} \$output, \$question, \$validator, \$attempts=false, \$fallback=true)
+\item 
+{\bf set\+Input\+Stream} (\${\bf stream})
+\item 
+{\bf get\+Input\+Stream} ()
+\item 
+{\bf get\+Name} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The Dialog class provides helpers to interact with the user.
+
+\begin{DoxyAuthor}{Author}
+Fabien Potencier {\tt fabien@symfony.\+com}
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Deprecated since version 2.\+5, to be removed in 3.\+0. Use the question helper instead. \end{DoxyRefDesc}
+
+
+Definition at line 25 of file Dialog\+Helper.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!ask@{ask}}
+\index{ask@{ask}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{ask}]{\setlength{\rightskip}{0pt plus 5cm}ask (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$default = {\ttfamily null}, }
+\item[{array}]{\$autocomplete = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a6c6e97b2bce29bbe2c786ef309b72754}
+Asks a question to the user.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question to ask \\
+\hline
+string & {\em \$default} & The default answer if none is given by the user \\
+\hline
+array & {\em \$autocomplete} & List of values to autocomplete\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The user answer
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 102 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!ask\+And\+Validate@{ask\+And\+Validate}}
+\index{ask\+And\+Validate@{ask\+And\+Validate}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{ask\+And\+Validate}]{\setlength{\rightskip}{0pt plus 5cm}ask\+And\+Validate (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$validator, }
+\item[{}]{\$attempts = {\ttfamily false}, }
+\item[{}]{\$default = {\ttfamily null}, }
+\item[{array}]{\$autocomplete = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_adfa1f6af0fd5a0cfc25b1b871b270bd4}
+Asks for a value and validates the response.
+
+The validator receives the data to validate. It must return the validated data when the data is valid and throw an exception otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question to ask \\
+\hline
+callable & {\em \$validator} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callback \\
+\hline
+int | false & {\em \$attempts} & Max number of times to ask before giving up (false by default, which means infinite) \\
+\hline
+string & {\em \$default} & The default answer if none is given by the user \\
+\hline
+array & {\em \$autocomplete} & List of values to autocomplete\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 340 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!ask\+Confirmation@{ask\+Confirmation}}
+\index{ask\+Confirmation@{ask\+Confirmation}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{ask\+Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}ask\+Confirmation (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$default = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a8210bb95c0e501d7f912b5234e68ac32}
+Asks a confirmation to the user.
+
+The question will be asked until the user answers by nothing, yes, or no.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question to ask \\
+\hline
+bool & {\em \$default} & The default answer if the user enters nothing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the user has confirmed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!ask\+Hidden\+Response@{ask\+Hidden\+Response}}
+\index{ask\+Hidden\+Response@{ask\+Hidden\+Response}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{ask\+Hidden\+Response}]{\setlength{\rightskip}{0pt plus 5cm}ask\+Hidden\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$fallback = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a754a5792a2f186135d4c62c8d4187a8e}
+Asks a question to the user, the response is hidden.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question \\
+\hline
+bool & {\em \$fallback} & In case the response can not be hidden, whether to fallback on non-\/hidden question or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The answer
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 263 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!ask\+Hidden\+Response\+And\+Validate@{ask\+Hidden\+Response\+And\+Validate}}
+\index{ask\+Hidden\+Response\+And\+Validate@{ask\+Hidden\+Response\+And\+Validate}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{ask\+Hidden\+Response\+And\+Validate}]{\setlength{\rightskip}{0pt plus 5cm}ask\+Hidden\+Response\+And\+Validate (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$validator, }
+\item[{}]{\$attempts = {\ttfamily false}, }
+\item[{}]{\$fallback = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a09a5b29f8fb91ea35adfdbaa451a6235}
+Asks for a value, hide and validates the response.
+
+The validator receives the data to validate. It must return the validated data when the data is valid and throw an exception otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question to ask \\
+\hline
+callable & {\em \$validator} & \doxyref{A}{p.}{class_a} \doxyref{P\+H\+P}{p.}{namespace_p_h_p} callback \\
+\hline
+int | false & {\em \$attempts} & Max number of times to ask before giving up (false by default, which means infinite) \\
+\hline
+bool & {\em \$fallback} & In case the response can not be hidden, whether to fallback on non-\/hidden question or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The response
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 369 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!get\+Input\+Stream@{get\+Input\+Stream}}
+\index{get\+Input\+Stream@{get\+Input\+Stream}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{get\+Input\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}get\+Input\+Stream (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a900071ae2a2d77ac76212b3e784b9148}
+Returns the helper\textquotesingle{}s input stream.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 397 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a3d0963e68bb313b163a73f2803c64600}
+\{Returns the canonical name of this helper.
+
+\begin{DoxyReturn}{Returns}
+string The canonical name
+\end{DoxyReturn}
+\} 
+
+Implements {\bf Helper\+Interface} \doxyref{}{p.}{interface_symfony_1_1_component_1_1_console_1_1_helper_1_1_helper_interface_a3d0963e68bb313b163a73f2803c64600}.
+
+
+
+Definition at line 405 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!select@{select}}
+\index{select@{select}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}select (
+\begin{DoxyParamCaption}
+\item[{{\bf Output\+Interface}}]{\$output, }
+\item[{}]{\$question, }
+\item[{}]{\$choices, }
+\item[{}]{\$default = {\ttfamily null}, }
+\item[{}]{\$attempts = {\ttfamily false}, }
+\item[{}]{\$error\+Message = {\ttfamily \textquotesingle{}Value~\char`\"{}\%s\char`\"{}~is~invalid\textquotesingle{}}, }
+\item[{}]{\$multiselect = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a6a4b657134427556308e552d3f7b262d}
+Asks the user to select a value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Output\+Interface & {\em \$output} & An \doxyref{Output}{p.}{namespace_symfony_1_1_component_1_1_console_1_1_output} instance \\
+\hline
+string | array & {\em \$question} & The question to ask \\
+\hline
+array & {\em \$choices} & List of choices to pick from \\
+\hline
+bool | string & {\em \$default} & The default answer if the user enters nothing \\
+\hline
+bool | int & {\em \$attempts} & Max number of times to ask before giving up (false by default, which means infinite) \\
+\hline
+string & {\em \$error\+Message} & Message which will be shown if invalid value from choice list would be picked \\
+\hline
+bool & {\em \$multiselect} & Select more than one value separated by comma\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\vert$string$\vert$array The selected value or values (the key of the choices array)
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 46 of file Dialog\+Helper.\+php.
+
+\index{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}!set\+Input\+Stream@{set\+Input\+Stream}}
+\index{set\+Input\+Stream@{set\+Input\+Stream}!Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper@{Symfony\+::\+Component\+::\+Console\+::\+Helper\+::\+Dialog\+Helper}}
+\subsubsection[{set\+Input\+Stream}]{\setlength{\rightskip}{0pt plus 5cm}set\+Input\+Stream (
+\begin{DoxyParamCaption}
+\item[{}]{\$stream}
+\end{DoxyParamCaption}
+)}\label{class_symfony_1_1_component_1_1_console_1_1_helper_1_1_dialog_helper_a2fe1ed3e67d0ffca81b02c68406b7bcc}
+Sets the input stream to read from when interacting with the user.
+
+This is mainly useful for testing purpose.
+
+
+\begin{DoxyParams}[1]{Parameters}
+resource & {\em \$stream} & The input stream \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 387 of file Dialog\+Helper.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/symfony/console/\+Symfony/\+Component/\+Console/\+Helper/{\bf Dialog\+Helper.\+php}\end{DoxyCompactItemize}

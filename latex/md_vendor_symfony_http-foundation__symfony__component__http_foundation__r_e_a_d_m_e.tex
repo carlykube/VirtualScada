@@ -1,0 +1,32 @@
+Http\+Foundation defines an object-\/oriented layer for the H\+T\+T\+P specification.
+
+It provides an abstraction for requests, responses, uploaded files, cookies, sessions, ...
+
+In this example, we get a \doxyref{Request}{p.}{class_request} object from the current \doxyref{P\+H\+P}{p.}{namespace_p_h_p} global variables\+:
+
+```php use \doxyref{Symfony}{p.}{namespace_symfony}; use \doxyref{Symfony}{p.}{namespace_symfony};
+
+\$request = \doxyref{Request\+::create\+From\+Globals()}{p.}{class_request_a79ce60596ee2f79e24a5188ba3e3d74f}; echo \$request-\/$>$get\+Path\+Info(); ```
+
+You can also create a \doxyref{Request}{p.}{class_request} directly -- that\textquotesingle{}s interesting for unit testing\+:
+
+```php \$request = \doxyref{Request\+::create}{p.}{class_request_ada6661c52798f1c6c3ec234a4ac30101}(\textquotesingle{}/?foo=bar\textquotesingle{}, \textquotesingle{}G\+E\+T\textquotesingle{}); echo \$request-\/$>$get\+Path\+Info(); ```
+
+And here is how to create and send a \doxyref{Response}{p.}{class_response}\+:
+
+```php \$response = new \doxyref{Response}{p.}{class_response}(\textquotesingle{}Not Found\textquotesingle{}, 404, array(\textquotesingle{}Content-\/\+Type\textquotesingle{} =$>$ \textquotesingle{}text/plain\textquotesingle{})); \$response-\/$>$send(); ```
+
+The \doxyref{Request}{p.}{class_request} and the \doxyref{Response}{p.}{class_response} classes have many other methods that implement the H\+T\+T\+P specification.
+
+\subsection*{Loading }
+
+If you are not using \doxyref{Composer}{p.}{namespace_composer} but are using \doxyref{P\+H\+P}{p.}{namespace_p_h_p} 5.\+3.\+x, you must add the following to your autoloader\+:
+
+```php // \doxyref{Session\+Handler\+Interface}{p.}{interface_session_handler_interface} if (!interface\+\_\+exists(\textquotesingle{}\doxyref{Session\+Handler\+Interface}{p.}{interface_session_handler_interface}\textquotesingle{})) \{ \$loader-\/$>$register\+Prefix\+Fallback({\bfseries D\+I\+R}.\textquotesingle{}/../vendor/symfony/src/\+Symfony/\+Component/\+Http\+Foundation/\+Resources/stubs\textquotesingle{}); \} ```
+
+\subsection*{Resources }
+
+You can run the unit tests with the following command\+: \begin{DoxyVerb}$ cd path/to/Symfony/Component/HttpFoundation/
+$ composer install
+$ phpunit\end{DoxyVerb}
+ 

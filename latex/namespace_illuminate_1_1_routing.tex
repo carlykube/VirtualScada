@@ -1,0 +1,89 @@
+\section{Illuminate\textbackslash{}Routing Namespace Reference}
+\label{namespace_illuminate_1_1_routing}\index{Illuminate\textbackslash{}\+Routing@{Illuminate\textbackslash{}\+Routing}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ {\bf Console}
+\item 
+ {\bf Matching}
+\end{DoxyCompactItemize}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Controller}
+\item 
+class {\bf Controller\+Dispatcher}
+\item 
+class {\bf Controller\+Inspector}
+\item 
+class {\bf Controller\+Service\+Provider}
+\item 
+class {\bf Generator\+Service\+Provider}
+\item 
+class {\bf Redirector}
+\item 
+class {\bf Resource\+Registrar}
+\item 
+class {\bf Response\+Factory}
+\item 
+class {\bf Route}
+\item 
+class {\bf Route\+Collection}
+\item 
+class {\bf Router}
+\item 
+class {\bf Routing\+Service\+Provider}
+\item 
+class {\bf Url\+Generator}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+trait {\bf Route\+Dependency\+Resolver\+Trait}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{Illuminate\+::\+Routing@{Illuminate\+::\+Routing}!Route\+Dependency\+Resolver\+Trait@{Route\+Dependency\+Resolver\+Trait}}
+\index{Route\+Dependency\+Resolver\+Trait@{Route\+Dependency\+Resolver\+Trait}!Illuminate\+::\+Routing@{Illuminate\+::\+Routing}}
+\subsubsection[{Route\+Dependency\+Resolver\+Trait}]{\setlength{\rightskip}{0pt plus 5cm}trait Route\+Dependency\+Resolver\+Trait}\label{namespace_illuminate_1_1_routing_ac73829d2987d32664ccdbefd0c8a5a9c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{protected} \textcolor{keyword}{function} callWithDependencies($instance, $method)
+    \{
+        \textcolor{keywordflow}{return} call\_user\_func\_array(array($instance, $method), $this->resolveClassMethodDependencies(array(
+      ), $instance, $method));
+    \}
+    \textcolor{keyword}{protected} \textcolor{keyword}{function} resolveClassMethodDependencies(array $parameters, $instance, $method)
+    \{
+        \textcolor{keywordflow}{if} (!method\_exists($instance, $method)) \{
+            \textcolor{keywordflow}{return} $parameters;
+        \}
+        \textcolor{keywordflow}{return} $this->resolveMethodDependencies($parameters, \textcolor{keyword}{new} 
+      ReflectionMethod($instance, $method));
+    \}
+    \textcolor{keyword}{public} \textcolor{keyword}{function} resolveMethodDependencies(array $parameters, 
+      ReflectionFunctionAbstract $reflector)
+    \{
+        \textcolor{keywordflow}{foreach} ($reflector->getParameters() as $key => $parameter) \{
+            $class = $parameter->getClass();
+            \textcolor{keywordflow}{if} ($class && !$this->alreadyInParameters($class->name, $parameters)) \{
+                array\_splice($parameters, $key, 0, array($this->container->make($class->name)));
+            \}
+        \}
+        \textcolor{keywordflow}{return} $parameters;
+    \}
+    \textcolor{keyword}{protected} \textcolor{keyword}{function} alreadyInParameters($class, array $parameters)
+    \{
+        \textcolor{keywordflow}{return} !is\_null(array\_first($parameters, \textcolor{keyword}{function} ($key, $value) use($class) \{
+            \textcolor{keywordflow}{return} $value instanceof $class;
+        \}));
+    \}
+\}
+\textcolor{keyword}{namespace }Illuminate\Routing
+\end{DoxyCode}
+
+
+Definition at line 6741 of file compiled.\+php.
+

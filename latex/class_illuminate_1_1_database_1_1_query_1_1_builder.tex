@@ -1,0 +1,3020 @@
+\section{Builder Class Reference}
+\label{class_illuminate_1_1_database_1_1_query_1_1_builder}\index{Builder@{Builder}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} ({\bf Connection\+Interface} \$connection, {\bf Grammar} \$grammar, {\bf Processor} \$processor)
+\item 
+{\bf select} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf select\+Raw} (\$expression, array \$bindings=array())
+\item 
+{\bf select\+Sub} (\$query, \$as)
+\item 
+{\bf add\+Select} (\$column)
+\item 
+{\bf distinct} ()
+\item 
+{\bf from} (\$table)
+\item 
+{\bf join} (\$table, \$one, \$operator=null, \$two=null, \$type= \textquotesingle{}inner\textquotesingle{}, \${\bf where}=false)
+\item 
+{\bf join\+Where} (\$table, \$one, \$operator, \$two, \$type= \textquotesingle{}inner\textquotesingle{})
+\item 
+{\bf left\+Join} (\$table, \${\bf first}, \$operator=null, \${\bf second}=null)
+\item 
+{\bf left\+Join\+Where} (\$table, \$one, \$operator, \$two)
+\item 
+{\bf right\+Join} (\$table, \${\bf first}, \$operator=null, \${\bf second}=null)
+\item 
+{\bf right\+Join\+Where} (\$table, \$one, \$operator, \$two)
+\item 
+{\bf where} (\$column, \$operator=null, \$value=null, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where} (\$column, \$operator=null, \$value=null)
+\item 
+{\bf where\+Raw} (\$sql, array \$bindings=array(), \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where\+Raw} (\$sql, array \$bindings=array())
+\item 
+{\bf where\+Between} (\$column, array \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+{\bf or\+Where\+Between} (\$column, array \${\bf values})
+\item 
+{\bf where\+Not\+Between} (\$column, array \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where\+Not\+Between} (\$column, array \${\bf values})
+\item 
+{\bf where\+Nested} (Closure \${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf add\+Nested\+Where\+Query} (\$query, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf where\+Exists} (Closure \${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+{\bf or\+Where\+Exists} (Closure \${\bf callback}, \$not=false)
+\item 
+{\bf where\+Not\+Exists} (Closure \${\bf callback}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where\+Not\+Exists} (Closure \${\bf callback})
+\item 
+{\bf where\+In} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+{\bf or\+Where\+In} (\$column, \${\bf values})
+\item 
+{\bf where\+Not\+In} (\$column, \${\bf values}, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where\+Not\+In} (\$column, \${\bf values})
+\item 
+{\bf where\+Null} (\$column, \$boolean= \textquotesingle{}and\textquotesingle{}, \$not=false)
+\item 
+{\bf or\+Where\+Null} (\$column)
+\item 
+{\bf where\+Not\+Null} (\$column, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Where\+Not\+Null} (\$column)
+\item 
+{\bf where\+Date} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf where\+Day} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf where\+Month} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf where\+Year} (\$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf dynamic\+Where} (\$method, \$parameters)
+\item 
+{\bf group\+By} ()
+\item 
+{\bf having} (\$column, \$operator=null, \$value=null, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Having} (\$column, \$operator=null, \$value=null)
+\item 
+{\bf having\+Raw} (\$sql, array \$bindings=array(), \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf or\+Having\+Raw} (\$sql, array \$bindings=array())
+\item 
+{\bf order\+By} (\$column, \$direction= \textquotesingle{}asc\textquotesingle{})
+\item 
+{\bf latest} (\$column= \textquotesingle{}created\+\_\+at\textquotesingle{})
+\item 
+{\bf oldest} (\$column= \textquotesingle{}created\+\_\+at\textquotesingle{})
+\item 
+{\bf order\+By\+Raw} (\$sql, \$bindings=array())
+\item 
+{\bf offset} (\$value)
+\item 
+{\bf skip} (\$value)
+\item 
+{\bf limit} (\$value)
+\item 
+{\bf take} (\$value)
+\item 
+{\bf for\+Page} (\$page, \$per\+Page=15)
+\item 
+{\bf union} (\$query, \$all=false)
+\item 
+{\bf union\+All} (\$query)
+\item 
+{\bf lock} (\$value=true)
+\item 
+{\bf lock\+For\+Update} ()
+\item 
+{\bf shared\+Lock} ()
+\item 
+{\bf to\+Sql} ()
+\item 
+{\bf find} (\$id, \$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf pluck} (\$column)
+\item 
+{\bf first} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf get} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf get\+Fresh} (\$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf paginate} (\$per\+Page=15, \$columns=[\textquotesingle{}$\ast$\textquotesingle{}])
+\item 
+{\bf simple\+Paginate} (\$per\+Page=15, \$columns=[\textquotesingle{}$\ast$\textquotesingle{}])
+\item 
+{\bf get\+Count\+For\+Pagination} ()
+\item 
+{\bf chunk} (\${\bf count}, callable \${\bf callback})
+\item 
+{\bf lists} (\$column, \$key=null)
+\item 
+{\bf implode} (\$column, \$glue=null)
+\item 
+{\bf exists} ()
+\item 
+{\bf count} (\$columns= \textquotesingle{}$\ast$\textquotesingle{})
+\item 
+{\bf min} (\$column)
+\item 
+{\bf max} (\$column)
+\item 
+{\bf sum} (\$column)
+\item 
+{\bf avg} (\$column)
+\item 
+{\bf aggregate} (\$function, \$columns=array(\textquotesingle{}$\ast$\textquotesingle{}))
+\item 
+{\bf insert} (array \${\bf values})
+\item 
+{\bf insert\+Get\+Id} (array \${\bf values}, \$sequence=null)
+\item 
+{\bf update} (array \${\bf values})
+\item 
+{\bf increment} (\$column, \$amount=1, array \$extra=array())
+\item 
+{\bf decrement} (\$column, \$amount=1, array \$extra=array())
+\item 
+{\bf delete} (\$id=null)
+\item 
+{\bf truncate} ()
+\item 
+{\bf new\+Query} ()
+\item 
+{\bf merge\+Wheres} (\$wheres, \$bindings)
+\item 
+{\bf raw} (\$value)
+\item 
+{\bf get\+Bindings} ()
+\item 
+{\bf get\+Raw\+Bindings} ()
+\item 
+{\bf set\+Bindings} (array \$bindings, \$type= \textquotesingle{}{\bf where}\textquotesingle{})
+\item 
+{\bf add\+Binding} (\$value, \$type= \textquotesingle{}{\bf where}\textquotesingle{})
+\item 
+{\bf merge\+Bindings} ({\bf Builder} \$query)
+\item 
+{\bf get\+Connection} ()
+\item 
+{\bf get\+Processor} ()
+\item 
+{\bf get\+Grammar} ()
+\item 
+{\bf use\+Write\+Pdo} ()
+\item 
+{\bf \+\_\+\+\_\+call} (\$method, \$parameters)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$aggregate}
+\item 
+{\bf \$columns}
+\item 
+{\bf \$distinct} = false
+\item 
+{\bf \$from}
+\item 
+{\bf \$joins}
+\item 
+{\bf \$wheres}
+\item 
+{\bf \$groups}
+\item 
+{\bf \$havings}
+\item 
+{\bf \$orders}
+\item 
+{\bf \$limit}
+\item 
+{\bf \$offset}
+\item 
+{\bf \$unions}
+\item 
+{\bf \$union\+Limit}
+\item 
+{\bf \$union\+Offset}
+\item 
+{\bf \$union\+Orders}
+\item 
+{\bf \$lock}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf invalid\+Operator\+And\+Value} (\$operator, \$value)
+\item 
+{\bf where\+Sub} (\$column, \$operator, Closure \${\bf callback}, \$boolean)
+\item 
+{\bf where\+In\+Sub} (\$column, Closure \${\bf callback}, \$boolean, \$not)
+\item 
+{\bf add\+Date\+Based\+Where} (\$type, \$column, \$operator, \$value, \$boolean= \textquotesingle{}and\textquotesingle{})
+\item 
+{\bf add\+Dynamic} (\$segment, \$connector, \$parameters, \$index)
+\item 
+{\bf run\+Select} ()
+\item 
+{\bf backup\+Fields\+For\+Count} ()
+\item 
+{\bf restore\+Fields\+For\+Count} ()
+\item 
+{\bf get\+List\+Select} (\$column, \$key)
+\item 
+{\bf clean\+Bindings} (array \$bindings)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$connection}
+\item 
+{\bf \$grammar}
+\item 
+{\bf \$processor}
+\item 
+{\bf \$bindings}
+\item 
+{\bf \$backups} = [$\,$]
+\item 
+{\bf \$operators}
+\item 
+{\bf \$use\+Write\+Pdo} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Builder.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{{\bf Connection\+Interface}}]{\$connection, }
+\item[{{\bf Grammar}}]{\$grammar, }
+\item[{{\bf Processor}}]{\$processor}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab754bdf05a3a3443a8cacfa8ed78756a}
+Create a new query builder instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Connection\+Interface & {\em \$connection} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Grammars\textbackslash{}\+Grammar & {\em \$grammar} & \\
+\hline
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Processors\textbackslash{}\+Processor & {\em \$processor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file Builder.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\+\_\+\+\_\+call@{\+\_\+\+\_\+call}}
+\index{\+\_\+\+\_\+call@{\+\_\+\+\_\+call}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\+\_\+\+\_\+call}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac565bd6a9d062c73a0a0db7afe0ffea9}
+Handle dynamic method calls into the method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 1983 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!add\+Binding@{add\+Binding}}
+\index{add\+Binding@{add\+Binding}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{add\+Binding}]{\setlength{\rightskip}{0pt plus 5cm}add\+Binding (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}{\bf where}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a140d35f2c23c03fe60fae9156e5c041b}
+Add a binding to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 1900 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!add\+Date\+Based\+Where@{add\+Date\+Based\+Where}}
+\index{add\+Date\+Based\+Where@{add\+Date\+Based\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{add\+Date\+Based\+Where}]{\setlength{\rightskip}{0pt plus 5cm}add\+Date\+Based\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_af2b0d9657c6b09daf2a3ad0971f0344e}
+Add a date based (year, month, day) statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & \\
+\hline
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 959 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!add\+Dynamic@{add\+Dynamic}}
+\index{add\+Dynamic@{add\+Dynamic}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{add\+Dynamic}]{\setlength{\rightskip}{0pt plus 5cm}add\+Dynamic (
+\begin{DoxyParamCaption}
+\item[{}]{\$segment, }
+\item[{}]{\$connector, }
+\item[{}]{\$parameters, }
+\item[{}]{\$index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac254f9a93b18a5b82412611eaa6297c3}
+Add a single dynamic where clause statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$segment} & \\
+\hline
+string & {\em \$connector} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+int & {\em \$index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1021 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!add\+Nested\+Where\+Query@{add\+Nested\+Where\+Query}}
+\index{add\+Nested\+Where\+Query@{add\+Nested\+Where\+Query}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{add\+Nested\+Where\+Query}]{\setlength{\rightskip}{0pt plus 5cm}add\+Nested\+Where\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a3322122e8b888c70743884a532b8c41b}
+Add another query builder as a nested where to the query builder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | static & {\em \$query} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 650 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!add\+Select@{add\+Select}}
+\index{add\+Select@{add\+Select}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{add\+Select}]{\setlength{\rightskip}{0pt plus 5cm}add\+Select (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aa97aaab835675f304ec8cdd9a3bcc19b}
+Add a new select column to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 278 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!aggregate@{aggregate}}
+\index{aggregate@{aggregate}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{aggregate}]{\setlength{\rightskip}{0pt plus 5cm}aggregate (
+\begin{DoxyParamCaption}
+\item[{}]{\$function, }
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a41f38969bf2f96c2e530d5be38c0ff18}
+Execute an aggregate function on the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$function} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1630 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!avg@{avg}}
+\index{avg@{avg}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{avg}]{\setlength{\rightskip}{0pt plus 5cm}avg (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a5529b659f045fa6a9336731233dbad05}
+Retrieve the average of the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1618 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!backup\+Fields\+For\+Count@{backup\+Fields\+For\+Count}}
+\index{backup\+Fields\+For\+Count@{backup\+Fields\+For\+Count}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{backup\+Fields\+For\+Count}]{\setlength{\rightskip}{0pt plus 5cm}backup\+Fields\+For\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a78658daf4ab983452dcd75194bb1f9be}
+Backup some fields for the pagination count.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1441 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!chunk@{chunk}}
+\index{chunk@{chunk}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{chunk}]{\setlength{\rightskip}{0pt plus 5cm}chunk (
+\begin{DoxyParamCaption}
+\item[{}]{\$count, }
+\item[{callable}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a2f69b852143529f0c599dc6a7f2c983c}
+Chunk the results of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$count} & \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1473 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!clean\+Bindings@{clean\+Bindings}}
+\index{clean\+Bindings@{clean\+Bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{clean\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}clean\+Bindings (
+\begin{DoxyParamCaption}
+\item[{array}]{\$bindings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aa792499aed13026cad30256b4f7e5bba}
+Remove all of the expressions from a list of bindings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1831 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!count@{count}}
+\index{count@{count}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}count (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily \textquotesingle{}$\ast$\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a59ac97b07ad587d3617929303dab61b8}
+Retrieve the \char`\"{}count\char`\"{} result of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1567 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!decrement@{decrement}}
+\index{decrement@{decrement}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}decrement (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$amount = {\ttfamily 1}, }
+\item[{array}]{\$extra = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a8d117d01be1231393b73f4a7fef5715b}
+Decrement a column\textquotesingle{}s value by a given amount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$amount} & \\
+\hline
+array & {\em \$extra} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1761 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$id = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0fa3387249f930dea59b44e92b7235eb}
+Delete a record from the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1776 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!distinct@{distinct}}
+\index{distinct@{distinct}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{distinct}]{\setlength{\rightskip}{0pt plus 5cm}distinct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ae4874fb37e48bd82b312d994b357fad8}
+Force the query to only return distinct results.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!dynamic\+Where@{dynamic\+Where}}
+\index{dynamic\+Where@{dynamic\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{dynamic\+Where}]{\setlength{\rightskip}{0pt plus 5cm}dynamic\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$method, }
+\item[{}]{\$parameters}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a378eff33f3a9c0d0e8bcbc5151aba67b}
+Handles dynamic \char`\"{}where\char`\"{} clauses to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+string & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 975 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!exists@{exists}}
+\index{exists@{exists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac2f864b72dc2f778e68ad96364c48c5e}
+Determine if any rows exist for the current query.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1550 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!find@{find}}
+\index{find@{find}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}find (
+\begin{DoxyParamCaption}
+\item[{}]{\$id, }
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a9bd3eaf9ca9d134d273e56343252c04f}
+Execute a query for a single record by I\+D.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1315 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!first@{first}}
+\index{first@{first}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}first (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad9a8f9de57ed3ce276161183e7d80f2e}
+Execute the query and get the first result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1339 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!for\+Page@{for\+Page}}
+\index{for\+Page@{for\+Page}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{for\+Page}]{\setlength{\rightskip}{0pt plus 5cm}for\+Page (
+\begin{DoxyParamCaption}
+\item[{}]{\$page, }
+\item[{}]{\$per\+Page = {\ttfamily 15}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac82d8fdef5f9e362a340d929efcc20a9}
+Set the limit and offset for a given page.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$page} & \\
+\hline
+int & {\em \$per\+Page} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1230 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!from@{from}}
+\index{from@{from}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{from}]{\setlength{\rightskip}{0pt plus 5cm}from (
+\begin{DoxyParamCaption}
+\item[{}]{\$table}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac13b3019b235987db688007a12422882}
+Set the table which the query is targeting.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 305 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get@{get}}
+\index{get@{get}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a6fa685740045a0b4627e75f0808c0335}
+Execute the query as a \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$static[] 
+\end{DoxyReturn}
+
+
+Definition at line 1352 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Bindings@{get\+Bindings}}
+\index{get\+Bindings@{get\+Bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bindings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad89786cda7caa3dc6dd46f4e4af51ede}
+Get the current query value bindings in a flattened array.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1855 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Connection@{get\+Connection}}
+\index{get\+Connection@{get\+Connection}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}get\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab7a0a080d0e721c656eef11cd641638b}
+Get the database connection instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1937 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Count\+For\+Pagination@{get\+Count\+For\+Pagination}}
+\index{get\+Count\+For\+Pagination@{get\+Count\+For\+Pagination}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Count\+For\+Pagination}]{\setlength{\rightskip}{0pt plus 5cm}get\+Count\+For\+Pagination (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a52833e5fcb35ad3a2a9e20779c3efc2a}
+Get the count of the total records for the paginator.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1425 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Fresh@{get\+Fresh}}
+\index{get\+Fresh@{get\+Fresh}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Fresh}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fresh (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad7cac59681523ed082d19e6670234ed7}
+Execute the query as a fresh \char`\"{}select\char`\"{} statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$static[] 
+\end{DoxyReturn}
+
+
+Definition at line 1363 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Grammar@{get\+Grammar}}
+\index{get\+Grammar@{get\+Grammar}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}get\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ae428431481f283d8fbb68d84c86bf737}
+Get the query grammar instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1957 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+List\+Select@{get\+List\+Select}}
+\index{get\+List\+Select@{get\+List\+Select}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+List\+Select}]{\setlength{\rightskip}{0pt plus 5cm}get\+List\+Select (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a08c0a9548e595d832b58debba249d662}
+Get the columns that should be used in a list array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1516 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Processor@{get\+Processor}}
+\index{get\+Processor@{get\+Processor}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}get\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a3ace868ad456ff61f545cb44ee01c562}
+Get the database query processor instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1947 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!get\+Raw\+Bindings@{get\+Raw\+Bindings}}
+\index{get\+Raw\+Bindings@{get\+Raw\+Bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{get\+Raw\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}get\+Raw\+Bindings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_acffc8e038fb7524ce801e2015e1e3fc0}
+Get the raw array of bindings.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1865 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!group\+By@{group\+By}}
+\index{group\+By@{group\+By}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{group\+By}]{\setlength{\rightskip}{0pt plus 5cm}group\+By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0d670c1020e10c17c58b3f15bfd2b407}
+Add a \char`\"{}group by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array | string & {\em \$column,...} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1037 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!having@{having}}
+\index{having@{having}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{having}]{\setlength{\rightskip}{0pt plus 5cm}having (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad6d16922f5f38fd228c6c79614de327c}
+Add a \char`\"{}having\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1056 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!having\+Raw@{having\+Raw}}
+\index{having\+Raw@{having\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{having\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}having\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{array}]{\$bindings = {\ttfamily array()}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a26d6cf42231d276fda2a638795285131}
+Add a raw having clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1091 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!implode@{implode}}
+\index{implode@{implode}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{implode}]{\setlength{\rightskip}{0pt plus 5cm}implode (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$glue = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a7bea582c043da91a2f8c731c6211776f}
+Concatenate values of a given column as a string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$glue} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1538 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!increment@{increment}}
+\index{increment@{increment}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}increment (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$amount = {\ttfamily 1}, }
+\item[{array}]{\$extra = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0b7b0ca415c71e48feba9444061751d6}
+Increment a column\textquotesingle{}s value by a given amount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+int & {\em \$amount} & \\
+\hline
+array & {\em \$extra} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1744 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!insert@{insert}}
+\index{insert@{insert}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}insert (
+\begin{DoxyParamCaption}
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a68f23e9c82091ca28929fe4f29b990c8}
+Insert a new record into the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1659 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!insert\+Get\+Id@{insert\+Get\+Id}}
+\index{insert\+Get\+Id@{insert\+Get\+Id}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{insert\+Get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}insert\+Get\+Id (
+\begin{DoxyParamCaption}
+\item[{array}]{\$values, }
+\item[{}]{\$sequence = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a2d6ca133d462c29e9169ac1c65af1b59}
+Insert a new record and get the value of the primary key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+string & {\em \$sequence} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1712 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!invalid\+Operator\+And\+Value@{invalid\+Operator\+And\+Value}}
+\index{invalid\+Operator\+And\+Value@{invalid\+Operator\+And\+Value}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{invalid\+Operator\+And\+Value}]{\setlength{\rightskip}{0pt plus 5cm}invalid\+Operator\+And\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{\$operator, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_afb7b2723dc3164398fc36364d2e2f0ad}
+Determine if the given operator and value combination is legal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 527 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!join@{join}}
+\index{join@{join}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$two = {\ttfamily null}, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}inner\textquotesingle{}}, }
+\item[{}]{\$where = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a9e5f1a8f3b5bd5b2b305cd001a4aa34c}
+Add a join clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+bool & {\em \$where} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 323 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!join\+Where@{join\+Where}}
+\index{join\+Where@{join\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}inner\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a87a715d907063dd613f51bd60bdd5675}
+Add a \char`\"{}join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 360 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!latest@{latest}}
+\index{latest@{latest}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{latest}]{\setlength{\rightskip}{0pt plus 5cm}latest (
+\begin{DoxyParamCaption}
+\item[{}]{\$column = {\ttfamily \textquotesingle{}created\+\_\+at\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a1384b1fa771417ce9f623e9f0d3229ce}
+Add an \char`\"{}order by\char`\"{} clause for a timestamp to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1137 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!left\+Join@{left\+Join}}
+\index{left\+Join@{left\+Join}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{left\+Join}]{\setlength{\rightskip}{0pt plus 5cm}left\+Join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$first, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$second = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a68c2016b30b8b683dadf17c2f6db9978}
+Add a left join to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$first} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 374 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!left\+Join\+Where@{left\+Join\+Where}}
+\index{left\+Join\+Where@{left\+Join\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{left\+Join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}left\+Join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac5cd91dfd4ab5f1c6f18767966ecd86e}
+Add a \char`\"{}join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 388 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!limit@{limit}}
+\index{limit@{limit}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{limit}]{\setlength{\rightskip}{0pt plus 5cm}limit (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aeb3550cac61dc3b85274e6e1f8692217}
+Set the \char`\"{}limit\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1203 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!lists@{lists}}
+\index{lists@{lists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{lists}]{\setlength{\rightskip}{0pt plus 5cm}lists (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$key = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aa1f14e77d5538388d4ff5129a0e5c048}
+Get an array with the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1500 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!lock@{lock}}
+\index{lock@{lock}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}lock (
+\begin{DoxyParamCaption}
+\item[{}]{\$value = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_afe7c3faadcc69c41cd5c2fcf89c6495b}
+Lock the selected rows in the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1271 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!lock\+For\+Update@{lock\+For\+Update}}
+\index{lock\+For\+Update@{lock\+For\+Update}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{lock\+For\+Update}]{\setlength{\rightskip}{0pt plus 5cm}lock\+For\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aa1c40c8fe2f3b005b7aed9eea6efd0bc}
+Lock the selected rows in the table for updating.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1283 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!max@{max}}
+\index{max@{max}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}max (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a97f7295366a97461aeaa8a5a23feb224}
+Retrieve the maximum value of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1594 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!merge\+Bindings@{merge\+Bindings}}
+\index{merge\+Bindings@{merge\+Bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{merge\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Bindings (
+\begin{DoxyParamCaption}
+\item[{{\bf Builder}}]{\$query}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a006ab2bccfc3cec04ff6cec6408fcf3f}
+Merge an array of bindings into our bindings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1925 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!merge\+Wheres@{merge\+Wheres}}
+\index{merge\+Wheres@{merge\+Wheres}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{merge\+Wheres}]{\setlength{\rightskip}{0pt plus 5cm}merge\+Wheres (
+\begin{DoxyParamCaption}
+\item[{}]{\$wheres, }
+\item[{}]{\$bindings}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a9f4a9f28a188b5364f303ea6c01e2dc7}
+Merge an array of where clauses and bindings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$wheres} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1818 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!min@{min}}
+\index{min@{min}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}min (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac80c24b57fc58449dd0d985aa7a402ca}
+Retrieve the minimum value of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1583 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!new\+Query@{new\+Query}}
+\index{new\+Query@{new\+Query}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{new\+Query}]{\setlength{\rightskip}{0pt plus 5cm}new\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_afaeae23ed641d0a21d734e3c9f97f6cb}
+Get a new instance of the query builder.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1806 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!offset@{offset}}
+\index{offset@{offset}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}offset (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab6c3d9dcd61f469533182cbe28d24244}
+Set the \char`\"{}offset\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1177 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!oldest@{oldest}}
+\index{oldest@{oldest}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{oldest}]{\setlength{\rightskip}{0pt plus 5cm}oldest (
+\begin{DoxyParamCaption}
+\item[{}]{\$column = {\ttfamily \textquotesingle{}created\+\_\+at\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad48f29d4d78ac569e143aa51c45c1cbd}
+Add an \char`\"{}order by\char`\"{} clause for a timestamp to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1148 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!order\+By@{order\+By}}
+\index{order\+By@{order\+By}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{order\+By}]{\setlength{\rightskip}{0pt plus 5cm}order\+By (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$direction = {\ttfamily \textquotesingle{}asc\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0294b5b32c9a2bb88d5c7ea2313e78f0}
+Add an \char`\"{}order by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$direction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1121 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!order\+By\+Raw@{order\+By\+Raw}}
+\index{order\+By\+Raw@{order\+By\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{order\+By\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}order\+By\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0cb61d788a72a9952a54f3f0ba3bbf68}
+Add a raw \char`\"{}order by\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1160 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Having@{or\+Having}}
+\index{or\+Having@{or\+Having}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Having}]{\setlength{\rightskip}{0pt plus 5cm}or\+Having (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a029d00800c53a97d0079b73f3b59d04a}
+Add a \char`\"{}or having\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1078 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Having\+Raw@{or\+Having\+Raw}}
+\index{or\+Having\+Raw@{or\+Having\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Having\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}or\+Having\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{array}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a928d129f2939d4602b003007f0af4748}
+Add a raw or having clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1109 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where@{or\+Where}}
+\index{or\+Where@{or\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a40bf8a810202740d824abf89f82a52a6}
+Add an \char`\"{}or where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 515 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Between@{or\+Where\+Between}}
+\index{or\+Where\+Between@{or\+Where\+Between}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Between}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_adb6f6ec0e85119518be9922702b2ccec}
+Add an or where between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 592 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Exists@{or\+Where\+Exists}}
+\index{or\+Where\+Exists@{or\+Where\+Exists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Exists (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a7c914d6da3bf96fe6b3c3525eaa002e3}
+Add an or exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 724 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+In@{or\+Where\+In}}
+\index{or\+Where\+In@{or\+Where\+In}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+In}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a206d6de00bb7359f78f996b1819a57f3}
+Add an \char`\"{}or where in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 787 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Not\+Between@{or\+Where\+Not\+Between}}
+\index{or\+Where\+Not\+Between@{or\+Where\+Not\+Between}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Not\+Between}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Not\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a1f35a9feb76da27c4fb76c02cd0f8c9d}
+Add an or where not between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 617 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Not\+Exists@{or\+Where\+Not\+Exists}}
+\index{or\+Where\+Not\+Exists@{or\+Where\+Not\+Exists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Not\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Not\+Exists (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ae7469c5789ea8c4b9515df3cd9657df7}
+Add a where not exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 747 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Not\+In@{or\+Where\+Not\+In}}
+\index{or\+Where\+Not\+In@{or\+Where\+Not\+In}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Not\+In}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Not\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a6065412d4fd6446a5f8dc4837d7e3bda}
+Add an \char`\"{}or where not in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 812 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Not\+Null@{or\+Where\+Not\+Null}}
+\index{or\+Where\+Not\+Null@{or\+Where\+Not\+Null}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Not\+Null}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Not\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a51a5c2112824430a98e96478ac051c90}
+Add an \char`\"{}or where not null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 888 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Null@{or\+Where\+Null}}
+\index{or\+Where\+Null@{or\+Where\+Null}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Null}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a391a26e2f6746790ccf1225c912bdf1c}
+Add an \char`\"{}or where null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 865 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!or\+Where\+Raw@{or\+Where\+Raw}}
+\index{or\+Where\+Raw@{or\+Where\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{or\+Where\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}or\+Where\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{array}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a688109312ef130ab08034dfec0492284}
+Add a raw or where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 560 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!paginate@{paginate}}
+\index{paginate@{paginate}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{paginate}]{\setlength{\rightskip}{0pt plus 5cm}paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily 15}, }
+\item[{}]{\$columns = {\ttfamily [\textquotesingle{}$\ast$\textquotesingle{}]}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ad04383bbd82b5cfd2822d0d0d28ae7dd}
+Paginate the given query into a simple paginator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1387 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!pluck@{pluck}}
+\index{pluck@{pluck}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{pluck}]{\setlength{\rightskip}{0pt plus 5cm}pluck (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a7ddb78792325055e4c6d4bb11baeb888}
+Pluck a single column\textquotesingle{}s value from the first result of a query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1326 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!raw@{raw}}
+\index{raw@{raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a7568f9b715fc80fe8472419fb4c0a5fd}
+Create a raw database expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1845 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!restore\+Fields\+For\+Count@{restore\+Fields\+For\+Count}}
+\index{restore\+Fields\+For\+Count@{restore\+Fields\+For\+Count}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{restore\+Fields\+For\+Count}]{\setlength{\rightskip}{0pt plus 5cm}restore\+Fields\+For\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_afa3147ce425b561c6741199ec378a790}
+Restore some fields after the pagination count.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1456 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!right\+Join@{right\+Join}}
+\index{right\+Join@{right\+Join}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{right\+Join}]{\setlength{\rightskip}{0pt plus 5cm}right\+Join (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$first, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$second = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a6011ad394eb4ee831e1fc29bcd244ca9}
+Add a right join to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$first} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 402 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!right\+Join\+Where@{right\+Join\+Where}}
+\index{right\+Join\+Where@{right\+Join\+Where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{right\+Join\+Where}]{\setlength{\rightskip}{0pt plus 5cm}right\+Join\+Where (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$one, }
+\item[{}]{\$operator, }
+\item[{}]{\$two}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a3014091aca10bb9a5cf5976b7ba543b5}
+Add a \char`\"{}right join where\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$one} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+string & {\em \$two} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 416 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!run\+Select@{run\+Select}}
+\index{run\+Select@{run\+Select}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{run\+Select}]{\setlength{\rightskip}{0pt plus 5cm}run\+Select (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aff9a90338b2b04e8a0cb0cf540145790}
+Run the query as a \char`\"{}select\char`\"{} statement against the connection.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1375 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!select@{select}}
+\index{select@{select}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}select (
+\begin{DoxyParamCaption}
+\item[{}]{\$columns = {\ttfamily array(\textquotesingle{}$\ast$\textquotesingle{})}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a94c31095eb5803cbdfa67528b96e40c4}
+Set the columns to be selected.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!select\+Raw@{select\+Raw}}
+\index{select\+Raw@{select\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{select\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}select\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$expression, }
+\item[{array}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aa786a75b9ed616f93b069dad312f2c1e}
+Add a new \char`\"{}raw\char`\"{} select expression to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$expression} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!select\+Sub@{select\+Sub}}
+\index{select\+Sub@{select\+Sub}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{select\+Sub}]{\setlength{\rightskip}{0pt plus 5cm}select\+Sub (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$as}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a34ad95f8462547471fbc20a77d80380b}
+Add a subselect expression to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure | \textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | string & {\em \$query} & \\
+\hline
+string & {\em \$as} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!set\+Bindings@{set\+Bindings}}
+\index{set\+Bindings@{set\+Bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{set\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}set\+Bindings (
+\begin{DoxyParamCaption}
+\item[{array}]{\$bindings, }
+\item[{}]{\$type = {\ttfamily \textquotesingle{}{\bf where}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0e7926003dada1c22621209018b3feb4}
+Set the bindings on the query builder.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 1879 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!shared\+Lock@{shared\+Lock}}
+\index{shared\+Lock@{shared\+Lock}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{shared\+Lock}]{\setlength{\rightskip}{0pt plus 5cm}shared\+Lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_afda417b426385f08bfb07648df6bfd05}
+Share lock the selected rows in the table.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1293 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!simple\+Paginate@{simple\+Paginate}}
+\index{simple\+Paginate@{simple\+Paginate}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{simple\+Paginate}]{\setlength{\rightskip}{0pt plus 5cm}simple\+Paginate (
+\begin{DoxyParamCaption}
+\item[{}]{\$per\+Page = {\ttfamily 15}, }
+\item[{}]{\$columns = {\ttfamily [\textquotesingle{}$\ast$\textquotesingle{}]}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a99148dae732b55297aac03d5032e829c}
+Get a paginator only supporting simple next and previous links.
+
+This is more efficient on larger data-\/sets, etc.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$per\+Page} & \\
+\hline
+array & {\em \$columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1409 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!skip@{skip}}
+\index{skip@{skip}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{skip}]{\setlength{\rightskip}{0pt plus 5cm}skip (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a9f9e9a8863d0b817ff77a17f9d85eb17}
+Alias to set the \char`\"{}offset\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1192 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!sum@{sum}}
+\index{sum@{sum}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}sum (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a4732c87758053020e8f64444ede37d0a}
+Retrieve the sum of the values of a given column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 1605 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!take@{take}}
+\index{take@{take}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{take}]{\setlength{\rightskip}{0pt plus 5cm}take (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_adc5dc272ca7a084b785a1cdb31dac217}
+Alias to set the \char`\"{}limit\char`\"{} value of the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1218 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!to\+Sql@{to\+Sql}}
+\index{to\+Sql@{to\+Sql}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{to\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}to\+Sql (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a63f8ba861f1ecabe359d454fde60d395}
+Get the S\+Q\+L representation of the query.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1303 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!truncate@{truncate}}
+\index{truncate@{truncate}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{truncate}]{\setlength{\rightskip}{0pt plus 5cm}truncate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aded92815b0f4cd9a64f76a6019162198}
+Run a truncate statement on the table.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1793 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!union@{union}}
+\index{union@{union}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{union}]{\setlength{\rightskip}{0pt plus 5cm}union (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$all = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a3695800ffe9bb78ec54e85d622adc997}
+Add a union statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | \textbackslash{}\+Closure & {\em \$query} & \\
+\hline
+bool & {\em \$all} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1242 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!union\+All@{union\+All}}
+\index{union\+All@{union\+All}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{union\+All}]{\setlength{\rightskip}{0pt plus 5cm}union\+All (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_add146afb41a9fd59b5e73c9f627e784e}
+Add a union all statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\textbackslash{}\+Builder | \textbackslash{}\+Closure & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 1260 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!update@{update}}
+\index{update@{update}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}update (
+\begin{DoxyParamCaption}
+\item[{array}]{\$values}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a5a16e3c167db1e77399f38dce64992bd}
+Update a record in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1727 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!use\+Write\+Pdo@{use\+Write\+Pdo}}
+\index{use\+Write\+Pdo@{use\+Write\+Pdo}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{use\+Write\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}use\+Write\+Pdo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a21601a2ac299276d55482f8496d841e2}
+Use the write pdo for query.
+
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 1967 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where@{where}}
+\index{where@{where}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where}]{\setlength{\rightskip}{0pt plus 5cm}where (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator = {\ttfamily null}, }
+\item[{}]{\$value = {\ttfamily null}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a75c6d963c6190023052f581cf21509d8}
+Add a basic where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 432 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Between@{where\+Between}}
+\index{where\+Between@{where\+Between}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Between}]{\setlength{\rightskip}{0pt plus 5cm}where\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{array}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a50a43c7beb7e022da874dccd75c582a6}
+Add a where between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 574 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Date@{where\+Date}}
+\index{where\+Date@{where\+Date}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Date}]{\setlength{\rightskip}{0pt plus 5cm}where\+Date (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0f05c433fbca58f182f512184ff28ecb}
+Add a \char`\"{}where date\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 902 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Day@{where\+Day}}
+\index{where\+Day@{where\+Day}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Day}]{\setlength{\rightskip}{0pt plus 5cm}where\+Day (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a8fe21c0b7c38b93e20c529e29e5eef30}
+Add a \char`\"{}where day\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 916 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Exists@{where\+Exists}}
+\index{where\+Exists@{where\+Exists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}where\+Exists (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a62485c1efb81958b485d65e7e320e67b}
+Add an exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 699 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+In@{where\+In}}
+\index{where\+In@{where\+In}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+In}]{\setlength{\rightskip}{0pt plus 5cm}where\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a26e2b0840158e872d64ad75f9c3e44e2}
+Add a \char`\"{}where in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 761 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+In\+Sub@{where\+In\+Sub}}
+\index{where\+In\+Sub@{where\+In\+Sub}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+In\+Sub}]{\setlength{\rightskip}{0pt plus 5cm}where\+In\+Sub (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{Closure}]{\$callback, }
+\item[{}]{\$boolean, }
+\item[{}]{\$not}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab89392952b381456b8ef5e03523bd68e}
+Add a where in with a sub-\/select to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 826 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Month@{where\+Month}}
+\index{where\+Month@{where\+Month}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Month}]{\setlength{\rightskip}{0pt plus 5cm}where\+Month (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a148fbac8a693fa1cfde8e912a4c333f4}
+Add a \char`\"{}where month\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 930 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Nested@{where\+Nested}}
+\index{where\+Nested@{where\+Nested}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}where\+Nested (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ade0d47824fe2a4fdadcda4340e92ca7d}
+Add a nested where statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 629 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Not\+Between@{where\+Not\+Between}}
+\index{where\+Not\+Between@{where\+Not\+Between}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Not\+Between}]{\setlength{\rightskip}{0pt plus 5cm}where\+Not\+Between (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{array}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a15ec71a4c4681f5c1b695ad604ec9299}
+Add a where not between statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+array & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 605 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Not\+Exists@{where\+Not\+Exists}}
+\index{where\+Not\+Exists@{where\+Not\+Exists}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Not\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}where\+Not\+Exists (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a1f7a23e85ba9f2eb9b225328d4bccf56}
+Add a where not exists clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 736 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Not\+In@{where\+Not\+In}}
+\index{where\+Not\+In@{where\+Not\+In}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Not\+In}]{\setlength{\rightskip}{0pt plus 5cm}where\+Not\+In (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$values, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a918f4b25cbd1e7883a94da7d5c175602}
+Add a \char`\"{}where not in\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 800 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Not\+Null@{where\+Not\+Null}}
+\index{where\+Not\+Null@{where\+Not\+Null}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Not\+Null}]{\setlength{\rightskip}{0pt plus 5cm}where\+Not\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac1c1b0f45ea8f7862b507b56509bcbd9}
+Add a \char`\"{}where not null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 877 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Null@{where\+Null}}
+\index{where\+Null@{where\+Null}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Null}]{\setlength{\rightskip}{0pt plus 5cm}where\+Null (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}, }
+\item[{}]{\$not = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a6b01d63c5071032b9c84c99163d7cbef}
+Add a \char`\"{}where null\char`\"{} clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+bool & {\em \$not} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 850 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Raw@{where\+Raw}}
+\index{where\+Raw@{where\+Raw}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Raw}]{\setlength{\rightskip}{0pt plus 5cm}where\+Raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$sql, }
+\item[{array}]{\$bindings = {\ttfamily array()}, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a2034d61dafa43649aeb76f0e546b7d47}
+Add a raw where clause to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 542 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Sub@{where\+Sub}}
+\index{where\+Sub@{where\+Sub}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Sub}]{\setlength{\rightskip}{0pt plus 5cm}where\+Sub (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{Closure}]{\$callback, }
+\item[{}]{\$boolean}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a5022dd7f0042611a1e6633d0476058d7}
+Add a full sub-\/select to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 673 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!where\+Year@{where\+Year}}
+\index{where\+Year@{where\+Year}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{where\+Year}]{\setlength{\rightskip}{0pt plus 5cm}where\+Year (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$operator, }
+\item[{}]{\$value, }
+\item[{}]{\$boolean = {\ttfamily \textquotesingle{}and\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a40efd4f64eeb71f4c9e5058a96d367f8}
+Add a \char`\"{}where year\char`\"{} statement to the query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & \\
+\hline
+string & {\em \$operator} & \\
+\hline
+int & {\em \$value} & \\
+\hline
+string & {\em \$boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\vert$static 
+\end{DoxyReturn}
+
+
+Definition at line 944 of file Builder.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$aggregate@{\$aggregate}}
+\index{\$aggregate@{\$aggregate}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$aggregate}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf aggregate}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a64886274e81c8152b822038ab683dbe1}
+
+
+Definition at line 54 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$backups@{\$backups}}
+\index{\$backups@{\$backups}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$backups}]{\setlength{\rightskip}{0pt plus 5cm}\$backups = [$\,$]\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a3aea4fd2897c89ac96318aaa1a456e44}
+
+
+Definition at line 166 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$bindings@{\$bindings}}
+\index{\$bindings@{\$bindings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$bindings}]{\setlength{\rightskip}{0pt plus 5cm}\$bindings\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_adacdcea57647569304169243ff32cd10}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{stringliteral}{'select'} => [],
+        \textcolor{stringliteral}{'join'}   => [],
+        \textcolor{stringliteral}{'where'}  => [],
+        \textcolor{stringliteral}{'having'} => [],
+        \textcolor{stringliteral}{'order'}  => [],
+    )
+\end{DoxyCode}
+
+
+Definition at line 41 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$columns@{\$columns}}
+\index{\$columns@{\$columns}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$columns}]{\setlength{\rightskip}{0pt plus 5cm}\$columns}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a19d2a3d21fe02053311fde465e6ae2e9}
+
+
+Definition at line 61 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$connection@{\$connection}}
+\index{\$connection@{\$connection}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$connection}]{\setlength{\rightskip}{0pt plus 5cm}\$connection\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+
+Definition at line 20 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$distinct@{\$distinct}}
+\index{\$distinct@{\$distinct}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$distinct}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf distinct} = false}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_acbbc8c97b5c2f4025e1b18736b487470}
+
+
+Definition at line 68 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$from@{\$from}}
+\index{\$from@{\$from}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$from}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf from}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a0bb7e2b3d541598cc9c9e3b11bee859c}
+
+
+Definition at line 75 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$grammar@{\$grammar}}
+\index{\$grammar@{\$grammar}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$grammar}]{\setlength{\rightskip}{0pt plus 5cm}\$grammar\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a2dfa4e71d138cd57ea860d5faa22b4ec}
+
+
+Definition at line 27 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$groups@{\$groups}}
+\index{\$groups@{\$groups}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$groups}]{\setlength{\rightskip}{0pt plus 5cm}\$groups}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a1af3c911abb4f6414a86954705266327}
+
+
+Definition at line 96 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$havings@{\$havings}}
+\index{\$havings@{\$havings}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$havings}]{\setlength{\rightskip}{0pt plus 5cm}\$havings}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ace160b2fe6eab9fcee769dc7197cf53c}
+
+
+Definition at line 103 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$joins@{\$joins}}
+\index{\$joins@{\$joins}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$joins}]{\setlength{\rightskip}{0pt plus 5cm}\$joins}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aaaa369506317e152257a8c293dc826ba}
+
+
+Definition at line 82 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$limit@{\$limit}}
+\index{\$limit@{\$limit}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$limit}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf limit}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ae05862a0294251c88629b141b5ce329a}
+
+
+Definition at line 117 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$lock@{\$lock}}
+\index{\$lock@{\$lock}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$lock}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf lock}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_af42e78ece9ec638f2928b3bef452d3e1}
+
+
+Definition at line 159 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$offset@{\$offset}}
+\index{\$offset@{\$offset}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$offset}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf offset}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_aec4de82415d7f05cb9748d12d3a95a87}
+
+
+Definition at line 124 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$operators@{\$operators}}
+\index{\$operators@{\$operators}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$operators}]{\setlength{\rightskip}{0pt plus 5cm}\$operators\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a1a526a18e63270ba6814d699637f22bf}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{charliteral}{'='}, \textcolor{charliteral}{'<'}, \textcolor{charliteral}{'>'}, \textcolor{stringliteral}{'<='}, \textcolor{stringliteral}{'>='}, \textcolor{stringliteral}{'<>'}, \textcolor{stringliteral}{'!='},
+        \textcolor{stringliteral}{'like'}, \textcolor{stringliteral}{'like binary'}, \textcolor{stringliteral}{'not like'}, \textcolor{stringliteral}{'between'}, \textcolor{stringliteral}{'ilike'},
+        \textcolor{charliteral}{'&'}, \textcolor{charliteral}{'|'}, \textcolor{charliteral}{'^'}, \textcolor{stringliteral}{'<<'}, \textcolor{stringliteral}{'>>'},
+        \textcolor{stringliteral}{'rlike'}, \textcolor{stringliteral}{'regexp'}, \textcolor{stringliteral}{'not regexp'},
+        \textcolor{charliteral}{'~'}, \textcolor{stringliteral}{'~*'}, \textcolor{stringliteral}{'!~'}, \textcolor{stringliteral}{'!~*'}, \textcolor{stringliteral}{'similar to'},
+                \textcolor{stringliteral}{'not similar to'},
+    )
+\end{DoxyCode}
+
+
+Definition at line 173 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$orders@{\$orders}}
+\index{\$orders@{\$orders}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$orders}]{\setlength{\rightskip}{0pt plus 5cm}\$orders}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab9e04b6a2b01971e953acfb314a1e079}
+
+
+Definition at line 110 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$processor@{\$processor}}
+\index{\$processor@{\$processor}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$processor}]{\setlength{\rightskip}{0pt plus 5cm}\$processor\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a11fe8ad69d64b596f8b712b0b7e7e1e3}
+
+
+Definition at line 34 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$union\+Limit@{\$union\+Limit}}
+\index{\$union\+Limit@{\$union\+Limit}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$union\+Limit}]{\setlength{\rightskip}{0pt plus 5cm}\$union\+Limit}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a66c309975c4cd8c33269adb41b44d302}
+
+
+Definition at line 138 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$union\+Offset@{\$union\+Offset}}
+\index{\$union\+Offset@{\$union\+Offset}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$union\+Offset}]{\setlength{\rightskip}{0pt plus 5cm}\$union\+Offset}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_acfcaa6af2b548c173c51ae238a12dd9b}
+
+
+Definition at line 145 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$union\+Orders@{\$union\+Orders}}
+\index{\$union\+Orders@{\$union\+Orders}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$union\+Orders}]{\setlength{\rightskip}{0pt plus 5cm}\$union\+Orders}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a00c6de37662ff0119594fd16e8aa537e}
+
+
+Definition at line 152 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$unions@{\$unions}}
+\index{\$unions@{\$unions}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$unions}]{\setlength{\rightskip}{0pt plus 5cm}\$unions}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_a29c9c93feba47d262322ea0d8e92937d}
+
+
+Definition at line 131 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$use\+Write\+Pdo@{\$use\+Write\+Pdo}}
+\index{\$use\+Write\+Pdo@{\$use\+Write\+Pdo}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$use\+Write\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf use\+Write\+Pdo} = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ab9c2856fb1bb6b078a7af1c5b6b1059c}
+
+
+Definition at line 187 of file Builder.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}!\$wheres@{\$wheres}}
+\index{\$wheres@{\$wheres}!Illuminate\+::\+Database\+::\+Query\+::\+Builder@{Illuminate\+::\+Database\+::\+Query\+::\+Builder}}
+\subsubsection[{\$wheres}]{\setlength{\rightskip}{0pt plus 5cm}\$wheres}\label{class_illuminate_1_1_database_1_1_query_1_1_builder_ac95d1c24a529a97f334c1e55887099e2}
+
+
+Definition at line 89 of file Builder.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/\+Query/{\bf Builder.\+php}\end{DoxyCompactItemize}

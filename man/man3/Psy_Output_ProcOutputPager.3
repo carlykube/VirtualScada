@@ -1,0 +1,75 @@
+.TH "ProcOutputPager" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProcOutputPager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBStreamOutput\fP, and \fBOutputPager\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBStreamOutput\fP $output, $cmd= 'less-R-S-F-X')"
+.br
+.ti -1c
+.RI "\fBdoWrite\fP ($message, $newline)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBProcOutputPager\fP class\&.
+.PP
+\fBA\fP \fBProcOutputPager\fP instance wraps a regular StreamOutput's stream\&. Rather than writing directly to the stream, it shells out to a pager process and gives that process the stream as stdout\&. This means regular *nix commands like \fCless\fP and \fCmore\fP can be used to page large amounts of output\&. 
+.PP
+Definition at line 24 of file ProcOutputPager\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBStreamOutput\fP $output,  $cmd = \fC'less -R -S -F -X'\fP)"
+Constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$output\fP 
+.br
+\fI$cmd\fP Pager process command (default: 'less -R -S -F -X') 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file ProcOutputPager\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "close ()"
+Close the current pager process\&. 
+.PP
+Implements \fBOutputPager\fP\&.
+.PP
+Definition at line 67 of file ProcOutputPager\&.php\&.
+.SS "doWrite ( $message,  $newline)"
+Writes a message to the output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP \fBA\fP message to write to the output 
+.br
+\fI$newline\fP Whether to add a newline or not
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 51 of file ProcOutputPager\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

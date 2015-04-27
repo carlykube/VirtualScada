@@ -1,0 +1,220 @@
+.TH "OutputInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OutputInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBOutputPager\fP, \fBConsoleOutputInterface\fP, \fBNullOutput\fP, and \fBOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBwrite\fP ($messages, $newline=false, $type=self::OUTPUT_NORMAL)"
+.br
+.ti -1c
+.RI "\fBwriteln\fP ($messages, $type=self::OUTPUT_NORMAL)"
+.br
+.ti -1c
+.RI "\fBsetVerbosity\fP ($level)"
+.br
+.ti -1c
+.RI "\fBgetVerbosity\fP ()"
+.br
+.ti -1c
+.RI "\fBsetDecorated\fP ($decorated)"
+.br
+.ti -1c
+.RI "\fBisDecorated\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFormatter\fP (\fBOutputFormatterInterface\fP $formatter)"
+.br
+.ti -1c
+.RI "\fBgetFormatter\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERBOSITY_QUIET\fP = 0"
+.br
+.ti -1c
+.RI "const \fBVERBOSITY_NORMAL\fP = 1"
+.br
+.ti -1c
+.RI "const \fBVERBOSITY_VERBOSE\fP = 2"
+.br
+.ti -1c
+.RI "const \fBVERBOSITY_VERY_VERBOSE\fP = 3"
+.br
+.ti -1c
+.RI "const \fBVERBOSITY_DEBUG\fP = 4"
+.br
+.ti -1c
+.RI "const \fBOUTPUT_NORMAL\fP = 0"
+.br
+.ti -1c
+.RI "const \fBOUTPUT_RAW\fP = 1"
+.br
+.ti -1c
+.RI "const \fBOUTPUT_PLAIN\fP = 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBOutputInterface\fP is the interface implemented by all \fBOutput\fP classes\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fabien Potencier fabien@symfony.com
+.RE
+.PP
+
+.PP
+Definition at line 23 of file OutputInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getFormatter ()"
+Returns current output formatter instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+OutputFormatterInterface
+.RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, and \fBNullOutput\fP\&.
+.SS "getVerbosity ()"
+Gets the current verbosity of the output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int The current level of verbosity (one of the VERBOSITY constants)
+.RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, and \fBNullOutput\fP\&.
+.SS "isDecorated ()"
+Gets the decorated flag\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool true if the output will decorate messages, false otherwise
+.RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, and \fBNullOutput\fP\&.
+.SS "setDecorated ( $decorated)"
+Sets the decorated flag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$decorated\fP Whether to decorate the messages
+.RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, \fBConsoleOutput\fP, and \fBNullOutput\fP\&.
+.SS "setFormatter (\fBOutputFormatterInterface\fP $formatter)"
+Sets output formatter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$formatter\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBConsoleOutput\fP, \fBOutput\fP, and \fBNullOutput\fP\&.
+.SS "setVerbosity ( $level)"
+Sets the verbosity of the output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$level\fP The level of verbosity (one of the VERBOSITY constants)
+.RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, \fBConsoleOutput\fP, and \fBNullOutput\fP\&.
+.SS "write ( $messages,  $newline = \fCfalse\fP,  $type = \fCself::OUTPUT_NORMAL\fP)"
+Writes a message to the output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP The message as an array of lines or a single string 
+.br
+\fI$newline\fP Whether to add a newline 
+.br
+\fI$type\fP The type of output (one of the OUTPUT constants)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, \fBShellOutput\fP, and \fBNullOutput\fP\&.
+.SS "writeln ( $messages,  $type = \fCself::OUTPUT_NORMAL\fP)"
+Writes a message to the output and adds a newline at the end\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messages\fP The message as an array of lines of a single string 
+.br
+\fI$type\fP The type of output (one of the OUTPUT constants)
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Implemented in \fBOutput\fP, and \fBNullOutput\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const OUTPUT_NORMAL = 0"
+
+.PP
+Definition at line 31 of file OutputInterface\&.php\&.
+.SS "const OUTPUT_PLAIN = 2"
+
+.PP
+Definition at line 33 of file OutputInterface\&.php\&.
+.SS "const OUTPUT_RAW = 1"
+
+.PP
+Definition at line 32 of file OutputInterface\&.php\&.
+.SS "const VERBOSITY_DEBUG = 4"
+
+.PP
+Definition at line 29 of file OutputInterface\&.php\&.
+.SS "const VERBOSITY_NORMAL = 1"
+
+.PP
+Definition at line 26 of file OutputInterface\&.php\&.
+.SS "const VERBOSITY_QUIET = 0"
+
+.PP
+Definition at line 25 of file OutputInterface\&.php\&.
+.SS "const VERBOSITY_VERBOSE = 2"
+
+.PP
+Definition at line 27 of file OutputInterface\&.php\&.
+.SS "const VERBOSITY_VERY_VERBOSE = 3"
+
+.PP
+Definition at line 28 of file OutputInterface\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

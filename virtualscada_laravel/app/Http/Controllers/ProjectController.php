@@ -3,13 +3,23 @@
 
 require_once __DIR__.'/../../../vendor/autoload.php';
 
+use App\Downtime;
+use App\User;
 use Auth;
 use App\Project;
+use DB;
+use Illuminate\Database\Eloquent\Model;
 use Request;
 use App\Http\Requests\CreateProjectRequest;
 use Symfony\Component\Process\Process;
 
 
+/**
+ * Controller for each Project class
+ *
+ * Class ProjectController
+ * @package App\Http\Controllers
+ */
 class ProjectController extends Controller {
 
     /**
@@ -28,7 +38,14 @@ class ProjectController extends Controller {
     public function index()
     {
         $projects = Project::ofUser(Auth::id())->get();
-        return view('home', compact('projects'));
+        $downtimes = [];
+
+        if (Auth::user()->admin){
+            $downtimes = Downtime::latest('start_time')->future()->get();
+//                DB::table('downtime')->future()->get();
+        }
+
+        return view('home', ['projects' => $projects, 'downtimes' => $downtimes]);
     }
 
     /**
@@ -45,7 +62,16 @@ class ProjectController extends Controller {
             return redirect('/');
         }
 
-        return view('projects.show', compact('project'));
+        $owner = $project->user;
+        $owner['password'] = "";
+        $owner['remember_token'] = "";
+
+        $project['number_hmi'] = $project->modules()->where('type', '=', 'hmi')->count();
+        $project['number_rtu'] = $project->modules()->where('type', '=', 'rtu')->count();
+        $project['number_plc'] = $project->modules()->where('type', '=', 'plc')->count();
+        $project['number_sensor'] = $project->modules()->where('type', '=', 'sensor')->count();
+
+        return view('projects.show', ['project' => $project, 'owner' => $owner ]);
     }
 
     /**
@@ -174,6 +200,12 @@ class ProjectController extends Controller {
         return view('projects.open', ['project' => $project, 'output' => $output, 'modules' => $modules]);
     }
 
+    /**
+     * Edit the project permissions
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function editPermissions(Project $project)
     {
         // check that user is allowed to edit project
@@ -185,6 +217,12 @@ class ProjectController extends Controller {
         return view('projects.editPermissions', compact('project'));
     }
 
+    /**
+     * Update the project permissions
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function updatePermissions(Project $project)
     {
         // check that user is allowed to edit project

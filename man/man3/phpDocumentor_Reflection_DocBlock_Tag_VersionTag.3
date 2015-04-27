@@ -1,0 +1,126 @@
+.TH "VersionTag" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VersionTag \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBTag\fP\&.
+.PP
+Inherited by \fBDeprecatedTag\fP, and \fBSinceTag\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetContent\fP ()"
+.br
+.ti -1c
+.RI "\fBsetContent\fP ($content)"
+.br
+.ti -1c
+.RI "\fBgetVersion\fP ()"
+.br
+.ti -1c
+.RI "\fBsetVersion\fP ($\fBversion\fP)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBREGEX_VECTOR\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$version\fP = ''"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBReflection\fP class for a 
+.PP
+\fBVersion:\fP
+.RS 4
+tag in a Docblock\&.
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Vasil Rangelov boen.robot@gmail.com  http://www.opensource.org/licenses/mit-license.php MIT \fBhttp://phpdoc\&.org\fP
+.RE
+.PP
+
+.PP
+Definition at line 24 of file VersionTag\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "getContent ()"
+
+.PP
+Definition at line 45 of file VersionTag\&.php\&.
+.SS "getVersion ()"
+Gets the version section of the tag\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The version section of the tag\&. 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file VersionTag\&.php\&.
+.SS "setContent ( $content)"
+{} 
+.PP
+Definition at line 57 of file VersionTag\&.php\&.
+.SS "setVersion ( $version)"
+Sets the version section of the tag\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$version\fP The new version section of the tag\&. An invalid value will set an empty string\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file VersionTag\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$\fBversion\fP = ''\fC [protected]\fP"
+
+.PP
+Definition at line 43 of file VersionTag\&.php\&.
+.SS "const REGEX_VECTOR"
+\fBInitial value:\fP
+.PP
+.nf
+= '(?:
+        # Normal release vectors\&.
+        \d\S*
+        |
+        # VCS version vectors\&. Per PHPCS, they are expected to
+        # follow the form of the VCS name, followed by ":", followed
+        # by the version vector itself\&.
+        # By convention, popular VCSes like CVS, SVN and GIT use "$"
+        # around the actual version vector\&.
+        [^\s\:]+\:\s*\$[^\$]+\$
+    )'
+.fi
+PCRE regular expression matching a version vector\&. Assumes the 'x' modifier\&. 
+.PP
+Definition at line 30 of file VersionTag\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

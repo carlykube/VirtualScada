@@ -1,0 +1,164 @@
+\section{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin Class Reference}
+\label{class_swift___plugins___decorator_plugin}\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+Inheritance diagram for Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_swift___plugins___decorator_plugin}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (\$replacements)
+\item 
+{\bf set\+Replacements} (\$replacements)
+\item 
+{\bf before\+Send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\item 
+{\bf get\+Replacements\+For} (\$address)
+\item 
+{\bf send\+Performed} ({\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event} \$evt)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows customization of Messages on-\/the-\/fly.
+
+\begin{DoxyAuthor}{Author}
+Chris Corbyn 
+
+Fabien Potencier 
+\end{DoxyAuthor}
+
+
+Definition at line 17 of file Decorator\+Plugin.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$replacements}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___decorator_plugin_a5116885ea4ac5ed58b11cd0130bd3c08}
+Create a new Decorator\+Plugin with \$replacements.
+
+The \$replacements can either be an associative array, or an implementation of \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements}{p.}{interface_swift___plugins___decorator___replacements}.
+
+When using an array, it should be of the form\+: {\ttfamily  \$replacements = array( \char`\"{}address1@domain.\+tld\char`\"{} =$>$ array(\char`\"{}\{a\}\char`\"{} =$>$ \char`\"{}b\char`\"{}, \char`\"{}\{c\}\char`\"{} =$>$ \char`\"{}d\char`\"{}), \char`\"{}address2@domain.\+tld\char`\"{} =$>$ array(\char`\"{}\{a\}\char`\"{} =$>$ \char`\"{}x\char`\"{}, \char`\"{}\{c\}\char`\"{} =$>$ \char`\"{}y\char`\"{}) ) }
+
+When using an instance of \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements}{p.}{interface_swift___plugins___decorator___replacements}, the object should return just the array of replacements for the address given to \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements\+::get\+Replacements\+For()}{p.}{interface_swift___plugins___decorator___replacements_a9c6c16c132f7c4d04c9b92f65bed9e98}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$replacements} & Array or \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements}{p.}{interface_swift___plugins___decorator___replacements} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Decorator\+Plugin.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}!before\+Send\+Performed@{before\+Send\+Performed}}
+\index{before\+Send\+Performed@{before\+Send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+\subsubsection[{before\+Send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}before\+Send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___decorator_plugin_a941622ff727bb3121b075a67b09b4a5d}
+Invoked immediately before the Message is sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a941622ff727bb3121b075a67b09b4a5d}.
+
+
+
+Definition at line 80 of file Decorator\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}!get\+Replacements\+For@{get\+Replacements\+For}}
+\index{get\+Replacements\+For@{get\+Replacements\+For}!Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+\subsubsection[{get\+Replacements\+For}]{\setlength{\rightskip}{0pt plus 5cm}get\+Replacements\+For (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___decorator_plugin_a9c6c16c132f7c4d04c9b92f65bed9e98}
+Find a map of replacements for the address.
+
+If this plugin was provided with a delegate instance of \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements}{p.}{interface_swift___plugins___decorator___replacements} then the call will be delegated to it. Otherwise, it will attempt to find the replacements from the array provided in the constructor.
+
+If no replacements can be found, an empty value (N\+U\+L\+L) is returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$address} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements} \doxyref{}{p.}{interface_swift___plugins___decorator___replacements_a9c6c16c132f7c4d04c9b92f65bed9e98}.
+
+
+
+Definition at line 156 of file Decorator\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}!send\+Performed@{send\+Performed}}
+\index{send\+Performed@{send\+Performed}!Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+\subsubsection[{send\+Performed}]{\setlength{\rightskip}{0pt plus 5cm}send\+Performed (
+\begin{DoxyParamCaption}
+\item[{{\bf Swift\+\_\+\+Events\+\_\+\+Send\+Event}}]{\$evt}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___decorator_plugin_a7c3dcdd16f538ba21696e8b27702e19f}
+Invoked immediately after the Message is sent.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxyref{Swift\+\_\+\+Events\+\_\+\+Send\+Event}{p.}{class_swift___events___send_event} & {\em \$evt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf Swift\+\_\+\+Events\+\_\+\+Send\+Listener} \doxyref{}{p.}{interface_swift___events___send_listener_a7c3dcdd16f538ba21696e8b27702e19f}.
+
+
+
+Definition at line 173 of file Decorator\+Plugin.\+php.
+
+\index{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}!set\+Replacements@{set\+Replacements}}
+\index{set\+Replacements@{set\+Replacements}!Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin@{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+Plugin}}
+\subsubsection[{set\+Replacements}]{\setlength{\rightskip}{0pt plus 5cm}set\+Replacements (
+\begin{DoxyParamCaption}
+\item[{}]{\$replacements}
+\end{DoxyParamCaption}
+)}\label{class_swift___plugins___decorator_plugin_a4ea01a952ee65cd0829def649d9a65ce}
+Sets replacements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$replacements} & Array or \doxyref{Swift\+\_\+\+Plugins\+\_\+\+Decorator\+\_\+\+Replacements}{p.}{interface_swift___plugins___decorator___replacements}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{\+\_\+\+\_\+construct()}{p.}{class_swift___plugins___decorator_plugin_a5116885ea4ac5ed58b11cd0130bd3c08} 
+\end{DoxySeeAlso}
+
+
+Definition at line 66 of file Decorator\+Plugin.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/swiftmailer/swiftmailer/lib/classes/\+Swift/\+Plugins/{\bf Decorator\+Plugin.\+php}\end{DoxyCompactItemize}

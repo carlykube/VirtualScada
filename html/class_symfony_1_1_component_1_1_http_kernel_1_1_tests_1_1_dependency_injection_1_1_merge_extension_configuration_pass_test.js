@@ -1,0 +1,4 @@
+var class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_merge_extension_configuration_pass_test =
+[
+    [ "testAutoloadMainExtension", "class_symfony_1_1_component_1_1_http_kernel_1_1_tests_1_1_dependency_injection_1_1_merge_extension_configuration_pass_test.html#a4b085a3bc69ceb503a92e4421acb2ebc", null ]
+];

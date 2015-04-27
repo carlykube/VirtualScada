@@ -1,0 +1,5 @@
+var class_symfony_1_1_component_1_1_routing_1_1_tests_1_1_matcher_1_1_dumper_1_1_dumper_prefix_collection_test =
+[
+    [ "testAddPrefixRoute", "class_symfony_1_1_component_1_1_routing_1_1_tests_1_1_matcher_1_1_dumper_1_1_dumper_prefix_collection_test.html#a8dd772ff9a1d1d880ae3a8ed74b9ca3a", null ],
+    [ "testMergeSlashNodes", "class_symfony_1_1_component_1_1_routing_1_1_tests_1_1_matcher_1_1_dumper_1_1_dumper_prefix_collection_test.html#afc3463b8140c5ecebdae23d6736f4895", null ]
+];

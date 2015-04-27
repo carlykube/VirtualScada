@@ -1,0 +1,244 @@
+.TH "MimeEntityFixture" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MimeEntityFixture \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSwift_Mime_MimeEntity\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($level=null, $string= '', $contentType=null)"
+.br
+.ti -1c
+.RI "\fBgetNestingLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBgetContentType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetId\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHeaders\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBody\fP ()"
+.br
+.ti -1c
+.RI "\fBsetBody\fP ($body, $contentType=null)"
+.br
+.ti -1c
+.RI "\fBtoByteStream\fP (\fBSwift_InputByteStream\fP $is)"
+.br
+.ti -1c
+.RI "\fBcharsetChanged\fP ($charset)"
+.br
+.ti -1c
+.RI "\fBencoderChanged\fP (\fBSwift_Mime_ContentEncoder\fP $encoder)"
+.br
+.ti -1c
+.RI "\fBgetChildren\fP ()"
+.br
+.ti -1c
+.RI "\fBsetChildren\fP (array $children)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file MimeEntityFixture\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ( $level = \fCnull\fP,  $string = \fC''\fP,  $contentType = \fCnull\fP)"
+
+.PP
+Definition at line 9 of file MimeEntityFixture\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "charsetChanged ( $charset)"
+Notify this observer that the entity's charset has changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$charset\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_CharsetObserver\fP\&.
+.PP
+Definition at line 37 of file MimeEntityFixture\&.php\&.
+.SS "encoderChanged (\fBSwift_Mime_ContentEncoder\fP $encoder)"
+Notify this observer that the observed entity's ContentEncoder has changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$encoder\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_EncodingObserver\fP\&.
+.PP
+Definition at line 38 of file MimeEntityFixture\&.php\&.
+.SS "getBody ()"
+Get the body content of this entity as a string\&.
+.PP
+Returns NULL if no body has been set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string|null 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 34 of file MimeEntityFixture\&.php\&.
+.SS "getChildren ()"
+Get all children nested inside this entity\&.
+.PP
+These are not just the immediate children, but all children\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_MimeEntity\fP[] 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 39 of file MimeEntityFixture\&.php\&.
+.SS "getContentType ()"
+Get the qualified content-type of this mime entity\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 26 of file MimeEntityFixture\&.php\&.
+.SS "getHeaders ()"
+Get the collection of Headers in this Mime entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSwift_Mime_HeaderSet\fP 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 33 of file MimeEntityFixture\&.php\&.
+.SS "getId ()"
+Returns a unique ID for this entity\&.
+.PP
+For most entities this will likely be the Content-ID, though it has no explicit semantic meaning and can be considered an identifier for programming logic purposes\&.
+.PP
+If a Content-ID header is present, this value SHOULD match the value of the header\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 32 of file MimeEntityFixture\&.php\&.
+.SS "getNestingLevel ()"
+Get the level at which this entity shall be nested in final document\&.
+.PP
+The lower the value, the more outermost the entity will be nested\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBLEVEL_TOP\fP, \fBLEVEL_MIXED\fP, \fBLEVEL_RELATED\fP, \fBLEVEL_ALTERNATIVE\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 16 of file MimeEntityFixture\&.php\&.
+.SS "setBody ( $body,  $contentType = \fCnull\fP)"
+Set the body content of this entity as a string\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$body\fP 
+.br
+\fI$contentType\fP optional 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 35 of file MimeEntityFixture\&.php\&.
+.SS "setChildren (array $children)"
+Set all children nested inside this entity\&.
+.PP
+This includes grandchildren\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fISwift_Mime_MimeEntity[]\fP $children 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 40 of file MimeEntityFixture\&.php\&.
+.SS "toByteStream (\fBSwift_InputByteStream\fP $is)"
+Get this entire entity as a ByteStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$is\fP to write to 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 36 of file MimeEntityFixture\&.php\&.
+.SS "toString ()"
+Get this entire entity in its string form\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Implements \fBSwift_Mime_MimeEntity\fP\&.
+.PP
+Definition at line 21 of file MimeEntityFixture\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

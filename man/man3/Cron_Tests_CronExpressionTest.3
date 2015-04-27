@@ -1,0 +1,191 @@
+.TH "CronExpressionTest" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CronExpressionTest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPHPUnit_Framework_TestCase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtestFactoryRecognizesTemplates\fP ()"
+.br
+.ti -1c
+.RI "\fBtestParsesCronSchedule\fP ()"
+.br
+.ti -1c
+.RI "\fBtestParsesCronScheduleWithAnySpaceCharsAsSeparators\fP ($schedule, array $expected)"
+.br
+.ti -1c
+.RI "\fBtestInvalidCronsWillFail\fP ()"
+.br
+.ti -1c
+.RI "\fBtestInvalidPartsWillFail\fP ()"
+.br
+.ti -1c
+.RI "\fBscheduleProvider\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDeterminesIfCronIsDue\fP ($schedule, $relativeTime, $nextRun, $isDue)"
+.br
+.ti -1c
+.RI "\fBtestIsDueHandlesDifferentDates\fP ()"
+.br
+.ti -1c
+.RI "\fBtestIsDueHandlesDifferentTimezones\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCanGetPreviousRunDates\fP ()"
+.br
+.ti -1c
+.RI "\fBtestProvidesMultipleRunDates\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCanIterateOverNextRuns\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSkipsCurrentDateByDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBtestStripsForSeconds\fP ()"
+.br
+.ti -1c
+.RI "\fBtestFixesPhpBugInDateIntervalMonth\fP ()"
+.br
+.ti -1c
+.RI "\fBtestIssue29\fP ()"
+.br
+.ti -1c
+.RI "\fBtestIssue20\fP ()"
+.br
+.ti -1c
+.RI "\fBtestKeepOriginalTime\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBscheduleWithDifferentSeparatorsProvider\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Michael Dowling mtdowling@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 12 of file CronExpressionTest\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "scheduleProvider ()"
+Data provider for cron schedule
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file CronExpressionTest\&.php\&.
+.SS "static scheduleWithDifferentSeparatorsProvider ()\fC [static]\fP"
+Data provider for testParsesCronScheduleWithAnySpaceCharsAsSeparators
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 70 of file CronExpressionTest\&.php\&.
+.SS "testCanGetPreviousRunDates ()"
+\fBCron\fP::getPreviousRunDate 
+.PP
+Definition at line 248 of file CronExpressionTest\&.php\&.
+.SS "testCanIterateOverNextRuns ()"
+\fBCron\fP 
+.PP
+Definition at line 283 of file CronExpressionTest\&.php\&.
+.SS "testDeterminesIfCronIsDue ( $schedule,  $relativeTime,  $nextRun,  $isDue)"
+\fBCron\fP::isDue  \fBCron\fP::getNextRunDate  \fBCron\fP  \fBCron\fP  \fBCron\fP  \fBCron\fP  \fBCron\fP  \fBCron\fP  \fBCron\fP::getRunDate  scheduleProvider 
+.PP
+Definition at line 190 of file CronExpressionTest\&.php\&.
+.SS "testFactoryRecognizesTemplates ()"
+\fBCron\fP\fBfactory\fP 
+.PP
+Definition at line 17 of file CronExpressionTest\&.php\&.
+.SS "testFixesPhpBugInDateIntervalMonth ()"
+\fBCron\fP::getRunDate 
+.PP
+Definition at line 330 of file CronExpressionTest\&.php\&.
+.SS "testInvalidCronsWillFail ()"
+\fBCron\fP::__construct  \fBCron\fP::setExpression  \fBCron\fP::setPart  InvalidArgumentException 
+.PP
+Definition at line 86 of file CronExpressionTest\&.php\&.
+.SS "testInvalidPartsWillFail ()"
+\fBCron\fP::setPart  InvalidArgumentException 
+.PP
+Definition at line 96 of file CronExpressionTest\&.php\&.
+.SS "testIsDueHandlesDifferentDates ()"
+\fBCron\fP::isDue 
+.PP
+Definition at line 209 of file CronExpressionTest\&.php\&.
+.SS "testIsDueHandlesDifferentTimezones ()"
+\fBCron\fP::isDue 
+.PP
+Definition at line 221 of file CronExpressionTest\&.php\&.
+.SS "testIssue20 ()"
+
+.PP
+\fBSee also:\fP
+.RS 4
+https://github.com/mtdowling/cron-expression/issues/20 
+.RE
+.PP
+
+.PP
+Definition at line 348 of file CronExpressionTest\&.php\&.
+.SS "testIssue29 ()"
+
+.PP
+Definition at line 336 of file CronExpressionTest\&.php\&.
+.SS "testKeepOriginalTime ()"
+\fBCron\fP::getRunDate 
+.PP
+Definition at line 368 of file CronExpressionTest\&.php\&.
+.SS "testParsesCronSchedule ()"
+\fBCron\fP::__construct  \fBCron\fP::getExpression  \fBCron\fP::__toString 
+.PP
+Definition at line 29 of file CronExpressionTest\&.php\&.
+.SS "testParsesCronScheduleWithAnySpaceCharsAsSeparators ( $schedule, array $expected)"
+\fBCron\fP::__construct  \fBCron\fP::getExpression  scheduleWithDifferentSeparatorsProvider 
+.PP
+Definition at line 54 of file CronExpressionTest\&.php\&.
+.SS "testProvidesMultipleRunDates ()"
+\fBCron\fP::getMultipleRunDates 
+.PP
+Definition at line 269 of file CronExpressionTest\&.php\&.
+.SS "testSkipsCurrentDateByDefault ()"
+\fBCron\fP::getRunDate 
+.PP
+Definition at line 307 of file CronExpressionTest\&.php\&.
+.SS "testStripsForSeconds ()"
+\fBCron\fP::getRunDate  7 
+.PP
+Definition at line 320 of file CronExpressionTest\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

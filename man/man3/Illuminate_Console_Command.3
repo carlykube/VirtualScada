@@ -1,0 +1,526 @@
+.TH "Command" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Command \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCommand\fP\&.
+.PP
+Inherited by \fBInspire\fP, \fBClearResetsCommand\fP, \fBCacheTableCommand\fP, \fBClearCommand\fP, \fBGeneratorCommand\fP, \fBScheduleRunCommand\fP, \fBBaseCommand\fP, \fBInstallCommand\fP, \fBRefreshCommand\fP, \fBResetCommand\fP, \fBRollbackCommand\fP, \fBSeedCommand\fP, \fBAppNameCommand\fP, \fBClearCompiledCommand\fP, \fBConfigCacheCommand\fP, \fBConfigClearCommand\fP, \fBDownCommand\fP, \fBEnvironmentCommand\fP, \fBEventGenerateCommand\fP, \fBFreshCommand\fP, \fBKeyGenerateCommand\fP, \fBOptimizeCommand\fP, \fBRouteCacheCommand\fP, \fBRouteClearCommand\fP, \fBRouteListCommand\fP, \fBServeCommand\fP, \fBTinkerCommand\fP, \fBUpCommand\fP, \fBVendorPublishCommand\fP, \fBFailedTableCommand\fP, \fBFlushFailedCommand\fP, \fBForgetFailedCommand\fP, \fBListenCommand\fP, \fBListFailedCommand\fP, \fBRestartCommand\fP, \fBRetryCommand\fP, \fBSubscribeCommand\fP, \fBTableCommand\fP, \fBWorkCommand\fP, and \fBSessionTableCommand\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBrun\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBcall\fP ($command, array $arguments=array())"
+.br
+.ti -1c
+.RI "\fBcallSilent\fP ($command, array $arguments=array())"
+.br
+.ti -1c
+.RI "\fBargument\fP ($key=null)"
+.br
+.ti -1c
+.RI "\fBoption\fP ($key=null)"
+.br
+.ti -1c
+.RI "\fBconfirm\fP ($\fBquestion\fP, $default=false)"
+.br
+.ti -1c
+.RI "\fBask\fP ($\fBquestion\fP, $default=null)"
+.br
+.ti -1c
+.RI "\fBaskWithCompletion\fP ($\fBquestion\fP, array $choices, $default=null)"
+.br
+.ti -1c
+.RI "\fBsecret\fP ($\fBquestion\fP, $fallback=true)"
+.br
+.ti -1c
+.RI "\fBchoice\fP ($\fBquestion\fP, array $choices, $default=null, $attempts=null, $multiple=null)"
+.br
+.ti -1c
+.RI "\fBtable\fP (array $headers, array $rows, $\fBstyle\fP= 'default')"
+.br
+.ti -1c
+.RI "\fBinfo\fP ($string)"
+.br
+.ti -1c
+.RI "\fBline\fP ($string)"
+.br
+.ti -1c
+.RI "\fBcomment\fP ($string)"
+.br
+.ti -1c
+.RI "\fBquestion\fP ($string)"
+.br
+.ti -1c
+.RI "\fBerror\fP ($string)"
+.br
+.ti -1c
+.RI "\fBgetOutput\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLaravel\fP ()"
+.br
+.ti -1c
+.RI "\fBsetLaravel\fP (LaravelApplication $laravel)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBspecifyParameters\fP ()"
+.br
+.ti -1c
+.RI "\fBexecute\fP (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+.br
+.ti -1c
+.RI "\fBgetArguments\fP ()"
+.br
+.ti -1c
+.RI "\fBgetOptions\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$laravel\fP"
+.br
+.ti -1c
+.RI "\fB$input\fP"
+.br
+.ti -1c
+.RI "\fB$output\fP"
+.br
+.ti -1c
+.RI "\fB$name\fP"
+.br
+.ti -1c
+.RI "\fB$description\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file Command\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Create a new console command instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file Command\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "argument ( $key = \fCnull\fP)"
+Get the value of a command argument\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|array 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file Command\&.php\&.
+.SS "ask ( $question,  $default = \fCnull\fP)"
+Prompt the user for input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file Command\&.php\&.
+.SS "askWithCompletion ( $question, array $choices,  $default = \fCnull\fP)"
+Prompt the user for input with auto completion\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP 
+.br
+\fI$choices\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file Command\&.php\&.
+.SS "call ( $command, array $arguments = \fCarray()\fP)"
+Call another console command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file Command\&.php\&.
+.SS "callSilent ( $command, array $arguments = \fCarray()\fP)"
+Call another console command silently\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$command\fP 
+.br
+\fI$arguments\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file Command\&.php\&.
+.SS "choice ( $question, array $choices,  $default = \fCnull\fP,  $attempts = \fCnull\fP,  $multiple = \fCnull\fP)"
+Give the user a single choice from an array of answers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP 
+.br
+\fI$choices\fP 
+.br
+\fI$default\fP 
+.br
+\fI$attempts\fP 
+.br
+\fI$multiple\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file Command\&.php\&.
+.SS "comment ( $string)"
+Write a string as comment output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 309 of file Command\&.php\&.
+.SS "confirm ( $question,  $default = \fCfalse\fP)"
+Confirm a question with the user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP 
+.br
+\fI$default\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file Command\&.php\&.
+.SS "error ( $string)"
+Write a string as error output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 331 of file Command\&.php\&.
+.SS "execute (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)\fC [protected]\fP"
+Execute the console command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$output\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file Command\&.php\&.
+.SS "getArguments ()\fC [protected]\fP"
+Get the console command arguments\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 341 of file Command\&.php\&.
+.SS "getLaravel ()"
+Get the \fBLaravel\fP application instance\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 371 of file Command\&.php\&.
+.SS "getOptions ()\fC [protected]\fP"
+Get the console command options\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file Command\&.php\&.
+.SS "getOutput ()"
+Get the output implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 361 of file Command\&.php\&.
+.SS "info ( $string)"
+Write a string as information output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 287 of file Command\&.php\&.
+.SS "line ( $string)"
+Write a string as standard output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file Command\&.php\&.
+.SS "option ( $key = \fCnull\fP)"
+Get the value of a command option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|array 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file Command\&.php\&.
+.SS "question ( $string)"
+Write a string as question output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$string\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file Command\&.php\&.
+.SS "run (\fBInputInterface\fP $input, \fBOutputInterface\fP $output)"
+Run the console command\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$output\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Command\&.php\&.
+.SS "secret ( $question,  $fallback = \fCtrue\fP)"
+Prompt the user for input but hide the answer from the console\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$question\fP 
+.br
+\fI$fallback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file Command\&.php\&.
+.SS "setLaravel (LaravelApplication $laravel)"
+Set the \fBLaravel\fP application instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$laravel\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 382 of file Command\&.php\&.
+.SS "specifyParameters ()\fC [protected]\fP"
+Specify the arguments and options on the command\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Command\&.php\&.
+.SS "table (array $headers, array $rows,  $style = \fC'default'\fP)"
+Format input to textual table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$headers\fP 
+.br
+\fI$rows\fP 
+.br
+\fI$style\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file Command\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$description\fC [protected]\fP"
+
+.PP
+Definition at line 48 of file Command\&.php\&.
+.SS "$input\fC [protected]\fP"
+
+.PP
+Definition at line 27 of file Command\&.php\&.
+.SS "$laravel\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file Command\&.php\&.
+.SS "$\fBname\fP\fC [protected]\fP"
+
+.PP
+Definition at line 41 of file Command\&.php\&.
+.SS "$output\fC [protected]\fP"
+
+.PP
+Definition at line 34 of file Command\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,1761 @@
+\section{Connection Class Reference}
+\label{class_illuminate_1_1_database_1_1_connection}\index{Connection@{Connection}}
+Inheritance diagram for Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_illuminate_1_1_database_1_1_connection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \+\_\+\+\_\+construct} (P\+D\+O \$pdo, \$database= \textquotesingle{}\textquotesingle{}, \$table\+Prefix= \textquotesingle{}\textquotesingle{}, array \$config=array())
+\item 
+{\bf use\+Default\+Query\+Grammar} ()
+\item 
+{\bf use\+Default\+Schema\+Grammar} ()
+\item 
+{\bf use\+Default\+Post\+Processor} ()
+\item 
+{\bf get\+Schema\+Builder} ()
+\item 
+{\bf table} (\$table)
+\item 
+{\bf raw} (\$value)
+\item 
+{\bf select\+One} (\$query, \$bindings=array())
+\item 
+{\bf select\+From\+Write\+Connection} (\$query, \$bindings=array())
+\item 
+{\bf select} (\$query, \$bindings=array(), \$use\+Read\+Pdo=true)
+\item 
+{\bf insert} (\$query, \$bindings=array())
+\item 
+{\bf update} (\$query, \$bindings=array())
+\item 
+{\bf delete} (\$query, \$bindings=array())
+\item 
+{\bf statement} (\$query, \$bindings=array())
+\item 
+{\bf affecting\+Statement} (\$query, \$bindings=array())
+\item 
+{\bf unprepared} (\$query)
+\item 
+{\bf prepare\+Bindings} (array \$bindings)
+\item 
+{\bf transaction} (Closure \${\bf callback})
+\item 
+{\bf begin\+Transaction} ()
+\item 
+{\bf commit} ()
+\item 
+{\bf roll\+Back} ()
+\item 
+{\bf transaction\+Level} ()
+\item 
+{\bf pretend} (Closure \${\bf callback})
+\item 
+{\bf disconnect} ()
+\item 
+{\bf reconnect} ()
+\item 
+{\bf log\+Query} (\$query, \$bindings, \$time=null)
+\item 
+{\bf listen} (Closure \${\bf callback})
+\item 
+{\bf get\+Doctrine\+Column} (\${\bf table}, \$column)
+\item 
+{\bf get\+Doctrine\+Schema\+Manager} ()
+\item 
+{\bf get\+Doctrine\+Connection} ()
+\item 
+{\bf get\+Pdo} ()
+\item 
+{\bf get\+Read\+Pdo} ()
+\item 
+{\bf set\+Pdo} (\$pdo)
+\item 
+{\bf set\+Read\+Pdo} (\$pdo)
+\item 
+{\bf set\+Reconnector} (callable \$reconnector)
+\item 
+{\bf get\+Name} ()
+\item 
+{\bf get\+Config} (\$option)
+\item 
+{\bf get\+Driver\+Name} ()
+\item 
+{\bf get\+Query\+Grammar} ()
+\item 
+{\bf set\+Query\+Grammar} ({\bf Query\textbackslash{}\+Grammars\textbackslash{}\+Grammar} \$grammar)
+\item 
+{\bf get\+Schema\+Grammar} ()
+\item 
+{\bf set\+Schema\+Grammar} ({\bf Schema\textbackslash{}\+Grammars\textbackslash{}\+Grammar} \$grammar)
+\item 
+{\bf get\+Post\+Processor} ()
+\item 
+{\bf set\+Post\+Processor} ({\bf Processor} \$processor)
+\item 
+{\bf get\+Event\+Dispatcher} ()
+\item 
+{\bf set\+Event\+Dispatcher} ({\bf Dispatcher} \$events)
+\item 
+{\bf pretending} ()
+\item 
+{\bf get\+Fetch\+Mode} ()
+\item 
+{\bf set\+Fetch\+Mode} (\$fetch\+Mode)
+\item 
+{\bf get\+Query\+Log} ()
+\item 
+{\bf flush\+Query\+Log} ()
+\item 
+{\bf enable\+Query\+Log} ()
+\item 
+{\bf disable\+Query\+Log} ()
+\item 
+{\bf logging} ()
+\item 
+{\bf get\+Database\+Name} ()
+\item 
+{\bf set\+Database\+Name} (\$database)
+\item 
+{\bf get\+Table\+Prefix} ()
+\item 
+{\bf set\+Table\+Prefix} (\$prefix)
+\item 
+{\bf with\+Table\+Prefix} ({\bf Grammar} \$grammar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf get\+Default\+Query\+Grammar} ()
+\item 
+{\bf get\+Default\+Schema\+Grammar} ()
+\item 
+{\bf get\+Default\+Post\+Processor} ()
+\item 
+{\bf get\+Pdo\+For\+Select} (\$use\+Read\+Pdo=true)
+\item 
+{\bf run} (\$query, \$bindings, Closure \${\bf callback})
+\item 
+{\bf run\+Query\+Callback} (\$query, \$bindings, Closure \${\bf callback})
+\item 
+{\bf try\+Again\+If\+Caused\+By\+Lost\+Connection} ({\bf Query\+Exception} \${\bf e}, \$query, \$bindings, Closure \${\bf callback})
+\item 
+{\bf caused\+By\+Lost\+Connection} ({\bf Query\+Exception} \${\bf e})
+\item 
+{\bf reconnect\+If\+Missing\+Connection} ()
+\item 
+{\bf fire\+Connection\+Event} (\${\bf event})
+\item 
+{\bf get\+Elapsed\+Time} (\$start)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$pdo}
+\item 
+{\bf \$read\+Pdo}
+\item 
+{\bf \$reconnector}
+\item 
+{\bf \$query\+Grammar}
+\item 
+{\bf \$schema\+Grammar}
+\item 
+{\bf \$post\+Processor}
+\item 
+{\bf \$events}
+\item 
+{\bf \$fetch\+Mode} = P\+D\+O\+::\+F\+E\+T\+C\+H\+\_\+\+A\+S\+S\+O\+C
+\item 
+{\bf \$transactions} = 0
+\item 
+{\bf \$query\+Log} = array()
+\item 
+{\bf \$logging\+Queries} = false
+\item 
+{\bf \$pretending} = false
+\item 
+{\bf \$database}
+\item 
+{\bf \$table\+Prefix} = \textquotesingle{}\textquotesingle{}
+\item 
+{\bf \$config} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Connection.\+php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{P\+D\+O}]{\$pdo, }
+\item[{}]{\$database = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{}]{\$table\+Prefix = {\ttfamily \textquotesingle{}\textquotesingle{}}, }
+\item[{array}]{\$config = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a59192da59ceb7cf4560e0b262e869153}
+Create a new database connection instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+P\+D\+O & {\em \$pdo} & \\
+\hline
+string & {\em \$database} & \\
+\hline
+string & {\em \$table\+Prefix} & \\
+\hline
+array & {\em \$config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file Connection.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!affecting\+Statement@{affecting\+Statement}}
+\index{affecting\+Statement@{affecting\+Statement}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{affecting\+Statement}]{\setlength{\rightskip}{0pt plus 5cm}affecting\+Statement (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a9c3f895eaa3eb0c49d3786ef9ca1f156}
+Run an S\+Q\+L statement and get the number of rows affected.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a9c3f895eaa3eb0c49d3786ef9ca1f156}.
+
+
+
+Definition at line 369 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!begin\+Transaction@{begin\+Transaction}}
+\index{begin\+Transaction@{begin\+Transaction}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{begin\+Transaction}]{\setlength{\rightskip}{0pt plus 5cm}begin\+Transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af3380f3b13931d581fa973a382946b32}
+Start a new database transaction.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_af3380f3b13931d581fa973a382946b32}.
+
+
+
+Definition at line 470 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!caused\+By\+Lost\+Connection@{caused\+By\+Lost\+Connection}}
+\index{caused\+By\+Lost\+Connection@{caused\+By\+Lost\+Connection}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{caused\+By\+Lost\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}caused\+By\+Lost\+Connection (
+\begin{DoxyParamCaption}
+\item[{{\bf Query\+Exception}}]{\$e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a81b8aabec19844ebbe78ab2ab84bcb11}
+Determine if the given exception was caused by a lost connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\+Exception & {\em \$e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 657 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!commit@{commit}}
+\index{commit@{commit}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af5674c27d4a92f6228565010eacbb9cb}
+Commit the active database transaction.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_af5674c27d4a92f6228565010eacbb9cb}.
+
+
+
+Definition at line 487 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!delete@{delete}}
+\index{delete@{delete}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a0a96ff7cd5bcbd215ee3a64a03d7914a}
+Run a delete statement against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a0a96ff7cd5bcbd215ee3a64a03d7914a}.
+
+
+
+Definition at line 338 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!disable\+Query\+Log@{disable\+Query\+Log}}
+\index{disable\+Query\+Log@{disable\+Query\+Log}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{disable\+Query\+Log}]{\setlength{\rightskip}{0pt plus 5cm}disable\+Query\+Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_ae275aa97e13d0cfebf4786d33f38652b}
+Disable the query log on the connection.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1050 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_abe175fcf658475bc56e9d6fa02bc88ec}
+Disconnect from the underlying P\+D\+O connection.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 673 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!enable\+Query\+Log@{enable\+Query\+Log}}
+\index{enable\+Query\+Log@{enable\+Query\+Log}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{enable\+Query\+Log}]{\setlength{\rightskip}{0pt plus 5cm}enable\+Query\+Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aea8b534bac85a230cbad4f399aac89b6}
+Enable the query log on the connection.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1040 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!fire\+Connection\+Event@{fire\+Connection\+Event}}
+\index{fire\+Connection\+Event@{fire\+Connection\+Event}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{fire\+Connection\+Event}]{\setlength{\rightskip}{0pt plus 5cm}fire\+Connection\+Event (
+\begin{DoxyParamCaption}
+\item[{}]{\$event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a7e9d28a775a069fe7726d43f340f65a1}
+Fire an event for this connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$event} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 748 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!flush\+Query\+Log@{flush\+Query\+Log}}
+\index{flush\+Query\+Log@{flush\+Query\+Log}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{flush\+Query\+Log}]{\setlength{\rightskip}{0pt plus 5cm}flush\+Query\+Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af505405f7b9e18ee5468844c375f8044}
+Clear the query log.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1030 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Config@{get\+Config}}
+\index{get\+Config@{get\+Config}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Config}]{\setlength{\rightskip}{0pt plus 5cm}get\+Config (
+\begin{DoxyParamCaption}
+\item[{}]{\$option}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a132428d5719fa4c74bb7f399d8e96b18}
+Get an option from the configuration options.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$option} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Definition at line 885 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Database\+Name@{get\+Database\+Name}}
+\index{get\+Database\+Name@{get\+Database\+Name}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Database\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Database\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a6c2092833f367c0aefa1eee1065a2e9e}
+Get the name of the connected database.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1070 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Default\+Post\+Processor@{get\+Default\+Post\+Processor}}
+\index{get\+Default\+Post\+Processor@{get\+Default\+Post\+Processor}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Default\+Post\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Post\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a6fa8522b0b3d00aadf86aa5a369d8ce9}
+Get the default post processor instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 202 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Default\+Query\+Grammar@{get\+Default\+Query\+Grammar}}
+\index{get\+Default\+Query\+Grammar@{get\+Default\+Query\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Default\+Query\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Query\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a6b385542311bd04d0e596a275013a5e3}
+Get the default query grammar instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 165 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Default\+Schema\+Grammar@{get\+Default\+Schema\+Grammar}}
+\index{get\+Default\+Schema\+Grammar@{get\+Default\+Schema\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Default\+Schema\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}get\+Default\+Schema\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a4151cbf154e3af1ea9fa6a9027eb8b26}
+Get the default schema grammar instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 185 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Doctrine\+Column@{get\+Doctrine\+Column}}
+\index{get\+Doctrine\+Column@{get\+Doctrine\+Column}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Doctrine\+Column}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$table, }
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a2b1b607735a781bd32a3e5206027dd77}
+Get a \doxyref{Doctrine}{p.}{namespace_doctrine} \doxyref{Schema}{p.}{namespace_illuminate_1_1_database_1_1_schema} Column instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+string & {\em \$column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 774 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Doctrine\+Connection@{get\+Doctrine\+Connection}}
+\index{get\+Doctrine\+Connection@{get\+Doctrine\+Connection}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Doctrine\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a562f291f7ce964191b5be98cad93ae5d}
+Get the \doxyref{Doctrine}{p.}{namespace_doctrine} D\+B\+A\+L database connection instance.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 796 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Doctrine\+Schema\+Manager@{get\+Doctrine\+Schema\+Manager}}
+\index{get\+Doctrine\+Schema\+Manager@{get\+Doctrine\+Schema\+Manager}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Doctrine\+Schema\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}get\+Doctrine\+Schema\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aa0b0770eb60af99af01793a6eea3d45b}
+Get the \doxyref{Doctrine}{p.}{namespace_doctrine} D\+B\+A\+L schema manager for the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 786 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Driver\+Name@{get\+Driver\+Name}}
+\index{get\+Driver\+Name@{get\+Driver\+Name}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Driver\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Driver\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aa5addac34e519c0029d8c9279af02361}
+Get the P\+D\+O driver name.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 895 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Elapsed\+Time@{get\+Elapsed\+Time}}
+\index{get\+Elapsed\+Time@{get\+Elapsed\+Time}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Elapsed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}get\+Elapsed\+Time (
+\begin{DoxyParamCaption}
+\item[{}]{\$start}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a152bca970456c207e1e16f56fd64137e}
+Get the elapsed time since a given starting point.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$start} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 762 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Event\+Dispatcher@{get\+Event\+Dispatcher}}
+\index{get\+Event\+Dispatcher@{get\+Event\+Dispatcher}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Event\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}get\+Event\+Dispatcher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a1038704d0a304d447214b6a700e7607f}
+Get the event dispatcher used by the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 968 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Fetch\+Mode@{get\+Fetch\+Mode}}
+\index{get\+Fetch\+Mode@{get\+Fetch\+Mode}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Fetch\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}get\+Fetch\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a56d386a75c7fef20b67a9add5a944232}
+Get the default fetch mode for the connection.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 999 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a3d0963e68bb313b163a73f2803c64600}
+Get the database connection name.
+
+\begin{DoxyReturn}{Returns}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definition at line 874 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Pdo@{get\+Pdo}}
+\index{get\+Pdo@{get\+Pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}get\+Pdo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a6e7560ad95a7986be67f7528c80e7f1a}
+Get the current P\+D\+O connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 810 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Pdo\+For\+Select@{get\+Pdo\+For\+Select}}
+\index{get\+Pdo\+For\+Select@{get\+Pdo\+For\+Select}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Pdo\+For\+Select}]{\setlength{\rightskip}{0pt plus 5cm}get\+Pdo\+For\+Select (
+\begin{DoxyParamCaption}
+\item[{}]{\$use\+Read\+Pdo = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a015ffc9f0bed37412bc843223e7d9453}
+Get the P\+D\+O connection to use for a select query.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$use\+Read\+Pdo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 302 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Post\+Processor@{get\+Post\+Processor}}
+\index{get\+Post\+Processor@{get\+Post\+Processor}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Post\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}get\+Post\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a81220945d2c89d5d9037f4d6d50514d4}
+Get the query post processor used by the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 947 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Query\+Grammar@{get\+Query\+Grammar}}
+\index{get\+Query\+Grammar@{get\+Query\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Query\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}get\+Query\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aa637e43bbf3e9507c7df6ca5e2196f21}
+Get the query grammar used by the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 905 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Query\+Log@{get\+Query\+Log}}
+\index{get\+Query\+Log@{get\+Query\+Log}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Query\+Log}]{\setlength{\rightskip}{0pt plus 5cm}get\+Query\+Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aa079f5f3b6ddedef94de8233a992d4b1}
+Get the connection query log.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 1020 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Read\+Pdo@{get\+Read\+Pdo}}
+\index{get\+Read\+Pdo@{get\+Read\+Pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Read\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}get\+Read\+Pdo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a5ac1cf5358913d5df5f0e1be9765e577}
+Get the current P\+D\+O connection used for reading.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 820 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Schema\+Builder@{get\+Schema\+Builder}}
+\index{get\+Schema\+Builder@{get\+Schema\+Builder}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Schema\+Builder}]{\setlength{\rightskip}{0pt plus 5cm}get\+Schema\+Builder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a9928b40d4e9aed6a7a0de4e6c0a085e0}
+Get a schema builder instance for the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Schema\+Grammar@{get\+Schema\+Grammar}}
+\index{get\+Schema\+Grammar@{get\+Schema\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Schema\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}get\+Schema\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a905d2d0abd585e23ec1bc2c42df262ce}
+Get the schema grammar used by the connection.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 926 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!get\+Table\+Prefix@{get\+Table\+Prefix}}
+\index{get\+Table\+Prefix@{get\+Table\+Prefix}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{get\+Table\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}get\+Table\+Prefix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a21e18eb7091f0ae3098c37a4c68fd5dc}
+Get the table prefix for the connection.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1091 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!insert@{insert}}
+\index{insert@{insert}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}insert (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_ab875542d113c59dbd2844005e0d00c12}
+Run an insert statement against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_ab875542d113c59dbd2844005e0d00c12}.
+
+
+
+Definition at line 314 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!listen@{listen}}
+\index{listen@{listen}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}listen (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aa06b3fedc0509b943bc59e7c185c3a51}
+Register a database query listener with the connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 734 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!logging@{logging}}
+\index{logging@{logging}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{logging}]{\setlength{\rightskip}{0pt plus 5cm}logging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a2a752acae09abac67b6c8de3bb8ab21e}
+Determine whether we\textquotesingle{}re logging queries.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 1060 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!log\+Query@{log\+Query}}
+\index{log\+Query@{log\+Query}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{log\+Query}]{\setlength{\rightskip}{0pt plus 5cm}log\+Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings, }
+\item[{}]{\$time = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a39372e2d375d2c6f3f08a87199e022ed}
+\doxyref{Log}{p.}{namespace_illuminate_1_1_log} a query in the connection\textquotesingle{}s query log.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+float | null & {\em \$time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 716 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!prepare\+Bindings@{prepare\+Bindings}}
+\index{prepare\+Bindings@{prepare\+Bindings}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{prepare\+Bindings}]{\setlength{\rightskip}{0pt plus 5cm}prepare\+Bindings (
+\begin{DoxyParamCaption}
+\item[{array}]{\$bindings}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a79a8d9fd37a6ab5b265cea76d1a12616}
+Prepare the query bindings for execution.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a79a8d9fd37a6ab5b265cea76d1a12616}.
+
+
+
+Definition at line 408 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!pretend@{pretend}}
+\index{pretend@{pretend}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{pretend}]{\setlength{\rightskip}{0pt plus 5cm}pretend (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a2b543f0701ee89af4f9f041f93215b70}
+Execute the given callback in \char`\"{}dry run\char`\"{} mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a2b543f0701ee89af4f9f041f93215b70}.
+
+
+
+Definition at line 533 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!pretending@{pretending}}
+\index{pretending@{pretending}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{pretending}]{\setlength{\rightskip}{0pt plus 5cm}pretending (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_afa7f2718cc7cecb1c6e07dc8a8787737}
+Determine if the connection in a \char`\"{}dry run\char`\"{}.
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 989 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!raw@{raw}}
+\index{raw@{raw}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}raw (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a7568f9b715fc80fe8472419fb4c0a5fd}
+Get a new raw query expression.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a7568f9b715fc80fe8472419fb4c0a5fd}.
+
+
+
+Definition at line 240 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!reconnect@{reconnect}}
+\index{reconnect@{reconnect}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{reconnect}]{\setlength{\rightskip}{0pt plus 5cm}reconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a57c19c642ab3023e28d10c50f86ff0a8}
+Reconnect to the database.
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 685 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!reconnect\+If\+Missing\+Connection@{reconnect\+If\+Missing\+Connection}}
+\index{reconnect\+If\+Missing\+Connection@{reconnect\+If\+Missing\+Connection}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{reconnect\+If\+Missing\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}reconnect\+If\+Missing\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a9da2c60f725db010aea5070745ed4b62}
+Reconnect to the database if a P\+D\+O connection is missing.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 700 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!roll\+Back@{roll\+Back}}
+\index{roll\+Back@{roll\+Back}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{roll\+Back}]{\setlength{\rightskip}{0pt plus 5cm}roll\+Back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aebaea4cae21e0e75ec1489c1648caeb3}
+Rollback the active database transaction.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_aebaea4cae21e0e75ec1489c1648caeb3}.
+
+
+
+Definition at line 501 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!run@{run}}
+\index{run@{run}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_aa7028362e2b3ad459953cef33b081aee}
+Run a S\+Q\+L statement and log its execution context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 565 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!run\+Query\+Callback@{run\+Query\+Callback}}
+\index{run\+Query\+Callback@{run\+Query\+Callback}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{run\+Query\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}run\+Query\+Callback (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a6e94c7b36226e3e490bdc81e3a5707b4}
+Run a S\+Q\+L statement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 605 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!select@{select}}
+\index{select@{select}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}select (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}, }
+\item[{}]{\$use\+Read\+Pdo = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a9bcdb93a006b367d6d174004f0b4ce9c}
+Run a select statement against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+bool & {\em \$use\+Read\+Pdo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 279 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!select\+From\+Write\+Connection@{select\+From\+Write\+Connection}}
+\index{select\+From\+Write\+Connection@{select\+From\+Write\+Connection}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{select\+From\+Write\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}select\+From\+Write\+Connection (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a6467747bf67d7ffe113bab08f87b173f}
+Run a select statement against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 266 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!select\+One@{select\+One}}
+\index{select\+One@{select\+One}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{select\+One}]{\setlength{\rightskip}{0pt plus 5cm}select\+One (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a9d35cd53d3adb71808e2b018827a645d}
+Run a select statement and return a single result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a9d35cd53d3adb71808e2b018827a645d}.
+
+
+
+Definition at line 252 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Database\+Name@{set\+Database\+Name}}
+\index{set\+Database\+Name@{set\+Database\+Name}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Database\+Name}]{\setlength{\rightskip}{0pt plus 5cm}set\+Database\+Name (
+\begin{DoxyParamCaption}
+\item[{}]{\$database}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a0a366ea4c23755f3538955f9d1b7f8ce}
+Set the name of the connected database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$database} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 1081 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Event\+Dispatcher@{set\+Event\+Dispatcher}}
+\index{set\+Event\+Dispatcher@{set\+Event\+Dispatcher}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Event\+Dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}set\+Event\+Dispatcher (
+\begin{DoxyParamCaption}
+\item[{{\bf Dispatcher}}]{\$events}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a4b9f7d9f845e655d0589dbb5376bed5a}
+Set the event dispatcher instance on the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 979 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Fetch\+Mode@{set\+Fetch\+Mode}}
+\index{set\+Fetch\+Mode@{set\+Fetch\+Mode}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Fetch\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}set\+Fetch\+Mode (
+\begin{DoxyParamCaption}
+\item[{}]{\$fetch\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a7a19dfd24dfab689a38be8a8e1790472}
+Set the default fetch mode for the connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$fetch\+Mode} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 1010 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Pdo@{set\+Pdo}}
+\index{set\+Pdo@{set\+Pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}set\+Pdo (
+\begin{DoxyParamCaption}
+\item[{}]{\$pdo}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_aafe9ccc8334eff61c1211a7aba46d93b}
+Set the P\+D\+O connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+P\+D\+O | null & {\em \$pdo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 833 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Post\+Processor@{set\+Post\+Processor}}
+\index{set\+Post\+Processor@{set\+Post\+Processor}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Post\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}set\+Post\+Processor (
+\begin{DoxyParamCaption}
+\item[{{\bf Processor}}]{\$processor}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a2704c858687c32b4b225844674547a7a}
+Set the query post processor used by the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 958 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Query\+Grammar@{set\+Query\+Grammar}}
+\index{set\+Query\+Grammar@{set\+Query\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Query\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}set\+Query\+Grammar (
+\begin{DoxyParamCaption}
+\item[{{\bf Query\textbackslash{}\+Grammars\textbackslash{}\+Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_ab7c1c99788419090f6de83bce49c2b11}
+Set the query grammar used by the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 916 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Read\+Pdo@{set\+Read\+Pdo}}
+\index{set\+Read\+Pdo@{set\+Read\+Pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Read\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}set\+Read\+Pdo (
+\begin{DoxyParamCaption}
+\item[{}]{\$pdo}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a80356ef580225cab06c78757ce0f2b05}
+Set the P\+D\+O connection used for reading.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+P\+D\+O | null & {\em \$pdo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 849 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Reconnector@{set\+Reconnector}}
+\index{set\+Reconnector@{set\+Reconnector}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Reconnector}]{\setlength{\rightskip}{0pt plus 5cm}set\+Reconnector (
+\begin{DoxyParamCaption}
+\item[{callable}]{\$reconnector}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a0cb6999b25712de7192ab594001843bc}
+Set the reconnect instance on the connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$reconnector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$this 
+\end{DoxyReturn}
+
+
+Definition at line 862 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Schema\+Grammar@{set\+Schema\+Grammar}}
+\index{set\+Schema\+Grammar@{set\+Schema\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Schema\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}set\+Schema\+Grammar (
+\begin{DoxyParamCaption}
+\item[{{\bf Schema\textbackslash{}\+Grammars\textbackslash{}\+Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a20f8122c3e0c80a39916a0b687debb34}
+Set the schema grammar used by the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 937 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!set\+Table\+Prefix@{set\+Table\+Prefix}}
+\index{set\+Table\+Prefix@{set\+Table\+Prefix}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{set\+Table\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}set\+Table\+Prefix (
+\begin{DoxyParamCaption}
+\item[{}]{\$prefix}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a7c772d6ec3e6b8df8404cb1dc35f7760}
+Set the table prefix in use by the connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 1102 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!statement@{statement}}
+\index{statement@{statement}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{statement}]{\setlength{\rightskip}{0pt plus 5cm}statement (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a5349d8607e576266a3f1d35774133fa4}
+Execute an S\+Q\+L statement and return the boolean result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a5349d8607e576266a3f1d35774133fa4}.
+
+
+
+Definition at line 350 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!table@{table}}
+\index{table@{table}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}table (
+\begin{DoxyParamCaption}
+\item[{}]{\$table}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_ac75e84037cdcbeddba0a74fdbcd376d0}
+Begin a fluent query against a database table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_ac75e84037cdcbeddba0a74fdbcd376d0}.
+
+
+
+Definition at line 225 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!transaction@{transaction}}
+\index{transaction@{transaction}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{transaction}]{\setlength{\rightskip}{0pt plus 5cm}transaction (
+\begin{DoxyParamCaption}
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af16a0b9e5bdeeca32d8c19fbd77aa44f}
+Execute a Closure within a transaction.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_af16a0b9e5bdeeca32d8c19fbd77aa44f}.
+
+
+
+Definition at line 438 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!transaction\+Level@{transaction\+Level}}
+\index{transaction\+Level@{transaction\+Level}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{transaction\+Level}]{\setlength{\rightskip}{0pt plus 5cm}transaction\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_ace1710b5493841ba99ab1d9c04383ebe}
+Get the number of active transactions.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_ace1710b5493841ba99ab1d9c04383ebe}.
+
+
+
+Definition at line 522 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!try\+Again\+If\+Caused\+By\+Lost\+Connection@{try\+Again\+If\+Caused\+By\+Lost\+Connection}}
+\index{try\+Again\+If\+Caused\+By\+Lost\+Connection@{try\+Again\+If\+Caused\+By\+Lost\+Connection}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{try\+Again\+If\+Caused\+By\+Lost\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}try\+Again\+If\+Caused\+By\+Lost\+Connection (
+\begin{DoxyParamCaption}
+\item[{{\bf Query\+Exception}}]{\$e, }
+\item[{}]{\$query, }
+\item[{}]{\$bindings, }
+\item[{Closure}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a5a5be735bd487c890468aef84ce98c3f}
+Handle a query exception that occurred during query execution.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Query\+Exception & {\em \$e} & \\
+\hline
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\textbackslash{}\+Closure & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 639 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!unprepared@{unprepared}}
+\index{unprepared@{unprepared}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{unprepared}]{\setlength{\rightskip}{0pt plus 5cm}unprepared (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a81fff0450e42c5b7b3695743b21a45e2}
+Run a raw, unprepared query against the P\+D\+O connection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_a81fff0450e42c5b7b3695743b21a45e2}.
+
+
+
+Definition at line 392 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!update@{update}}
+\index{update@{update}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}update (
+\begin{DoxyParamCaption}
+\item[{}]{\$query, }
+\item[{}]{\$bindings = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af6d94b12d746510d725aade894a24039}
+Run an update statement against the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & \\
+\hline
+array & {\em \$bindings} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements {\bf Connection\+Interface} \doxyref{}{p.}{interface_illuminate_1_1_database_1_1_connection_interface_af6d94b12d746510d725aade894a24039}.
+
+
+
+Definition at line 326 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!use\+Default\+Post\+Processor@{use\+Default\+Post\+Processor}}
+\index{use\+Default\+Post\+Processor@{use\+Default\+Post\+Processor}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{use\+Default\+Post\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}use\+Default\+Post\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a38c8b35664be12b4fc1cc8d0d60f00c9}
+Set the query post processor to the default implementation.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!use\+Default\+Query\+Grammar@{use\+Default\+Query\+Grammar}}
+\index{use\+Default\+Query\+Grammar@{use\+Default\+Query\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{use\+Default\+Query\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}use\+Default\+Query\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af5a9b4b48dc41db9a4ca8426211f1180}
+Set the query grammar to the default implementation.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!use\+Default\+Schema\+Grammar@{use\+Default\+Schema\+Grammar}}
+\index{use\+Default\+Schema\+Grammar@{use\+Default\+Schema\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{use\+Default\+Schema\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}use\+Default\+Schema\+Grammar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_a109a19eda0a315bc8703554f17a3538c}
+Set the schema grammar to the default implementation.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!with\+Table\+Prefix@{with\+Table\+Prefix}}
+\index{with\+Table\+Prefix@{with\+Table\+Prefix}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{with\+Table\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}with\+Table\+Prefix (
+\begin{DoxyParamCaption}
+\item[{{\bf Grammar}}]{\$grammar}
+\end{DoxyParamCaption}
+)}\label{class_illuminate_1_1_database_1_1_connection_af6923a750e11e88879c5b925e0c82466}
+Set the table prefix and return the grammar.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Grammar & {\em \$grammar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 1115 of file Connection.\+php.
+
+
+
+\subsection{Field Documentation}
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$config@{\$config}}
+\index{\$config@{\$config}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$config}]{\setlength{\rightskip}{0pt plus 5cm}\$config = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a49c7011be9c979d9174c52a8b83e5d8e}
+
+
+Definition at line 118 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$database@{\$database}}
+\index{\$database@{\$database}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$database}]{\setlength{\rightskip}{0pt plus 5cm}\$database\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a7691c0162d89de0b6ba47edcd8ba8878}
+
+
+Definition at line 104 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$events@{\$events}}
+\index{\$events@{\$events}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$events}]{\setlength{\rightskip}{0pt plus 5cm}\$events\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a1bcec9bbd34255927faaf155bf3a940a}
+
+
+Definition at line 62 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$fetch\+Mode@{\$fetch\+Mode}}
+\index{\$fetch\+Mode@{\$fetch\+Mode}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$fetch\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}\$fetch\+Mode = P\+D\+O\+::\+F\+E\+T\+C\+H\+\_\+\+A\+S\+S\+O\+C\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a8a36d99d5877710a580e1a384341825d}
+
+
+Definition at line 69 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$logging\+Queries@{\$logging\+Queries}}
+\index{\$logging\+Queries@{\$logging\+Queries}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$logging\+Queries}]{\setlength{\rightskip}{0pt plus 5cm}\$logging\+Queries = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_aedea221a1265145b40bd8fdd6ad22ea7}
+
+
+Definition at line 90 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$pdo@{\$pdo}}
+\index{\$pdo@{\$pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$pdo}]{\setlength{\rightskip}{0pt plus 5cm}\$pdo\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a5766efd703cef0e00bfc06b3f3acbe0e}
+
+
+Definition at line 20 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$post\+Processor@{\$post\+Processor}}
+\index{\$post\+Processor@{\$post\+Processor}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$post\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}\$post\+Processor\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_abd8de0e358bd6b60c6c2ef681ccc2576}
+
+
+Definition at line 55 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$pretending@{\$pretending}}
+\index{\$pretending@{\$pretending}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$pretending}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf pretending} = false\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a25834abe279a366b29fc0dc99bf655de}
+
+
+Definition at line 97 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$query\+Grammar@{\$query\+Grammar}}
+\index{\$query\+Grammar@{\$query\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$query\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}\$query\+Grammar\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_ab1ccba654e7a139d3554c6d5bf32c70c}
+
+
+Definition at line 41 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$query\+Log@{\$query\+Log}}
+\index{\$query\+Log@{\$query\+Log}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$query\+Log}]{\setlength{\rightskip}{0pt plus 5cm}\$query\+Log = array()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a704b6cc0c36d489ca1eb440bc173cf61}
+
+
+Definition at line 83 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$read\+Pdo@{\$read\+Pdo}}
+\index{\$read\+Pdo@{\$read\+Pdo}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$read\+Pdo}]{\setlength{\rightskip}{0pt plus 5cm}\$read\+Pdo\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a1740f3b3f37de1cec12ccb58f81bf354}
+
+
+Definition at line 27 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$reconnector@{\$reconnector}}
+\index{\$reconnector@{\$reconnector}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$reconnector}]{\setlength{\rightskip}{0pt plus 5cm}\$reconnector\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a52e65291172ac09a0cff7937e2401a8a}
+
+
+Definition at line 34 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$schema\+Grammar@{\$schema\+Grammar}}
+\index{\$schema\+Grammar@{\$schema\+Grammar}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$schema\+Grammar}]{\setlength{\rightskip}{0pt plus 5cm}\$schema\+Grammar\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a215788ca4c38b951d6e24976d0c8942a}
+
+
+Definition at line 48 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$table\+Prefix@{\$table\+Prefix}}
+\index{\$table\+Prefix@{\$table\+Prefix}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$table\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}\$table\+Prefix = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_a061ded67e1c12c266312830d080f46a7}
+
+
+Definition at line 111 of file Connection.\+php.
+
+\index{Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}!\$transactions@{\$transactions}}
+\index{\$transactions@{\$transactions}!Illuminate\+::\+Database\+::\+Connection@{Illuminate\+::\+Database\+::\+Connection}}
+\subsubsection[{\$transactions}]{\setlength{\rightskip}{0pt plus 5cm}\$transactions = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_illuminate_1_1_database_1_1_connection_acf491548539fb3e48517eae4df476304}
+
+
+Definition at line 76 of file Connection.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/laravel/framework/src/\+Illuminate/\+Database/{\bf Connection.\+php}\end{DoxyCompactItemize}

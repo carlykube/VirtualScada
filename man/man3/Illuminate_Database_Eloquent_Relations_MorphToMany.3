@@ -1,0 +1,225 @@
+.TH "MorphToMany" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MorphToMany \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBBelongsToMany\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBBuilder\fP $query, \fBModel\fP $parent, $\fBname\fP, $table, $foreignKey, $otherKey, $relationName=null, $inverse=false)"
+.br
+.ti -1c
+.RI "\fBgetRelationCountQuery\fP (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+.br
+.ti -1c
+.RI "\fBaddEagerConstraints\fP (array $\fBmodels\fP)"
+.br
+.ti -1c
+.RI "\fBnewPivot\fP (array $attributes=array(), $exists=false)"
+.br
+.ti -1c
+.RI "\fBgetMorphType\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMorphClass\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetWhere\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateAttachRecord\fP ($id, $timed)"
+.br
+.ti -1c
+.RI "\fBnewPivotQuery\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$morphType\fP"
+.br
+.ti -1c
+.RI "\fB$morphClass\fP"
+.br
+.ti -1c
+.RI "\fB$inverse\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file MorphToMany\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBBuilder\fP $query, \fBModel\fP $parent,  $name,  $table,  $foreignKey,  $otherKey,  $relationName = \fCnull\fP,  $inverse = \fCfalse\fP)"
+Create a new morph to many relationship instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.br
+\fI$name\fP 
+.br
+\fI$table\fP 
+.br
+\fI$foreignKey\fP 
+.br
+\fI$otherKey\fP 
+.br
+\fI$relationName\fP 
+.br
+\fI$inverse\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file MorphToMany\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addEagerConstraints (array $models)"
+Set the constraints for an eager load of the relation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$models\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file MorphToMany\&.php\&.
+.SS "createAttachRecord ( $id,  $timed)\fC [protected]\fP"
+Create a new pivot attachment record\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$id\fP 
+.br
+\fI$timed\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file MorphToMany\&.php\&.
+.SS "getMorphClass ()"
+Get the class name of the parent model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file MorphToMany\&.php\&.
+.SS "getMorphType ()"
+Get the foreign key 'type' name\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file MorphToMany\&.php\&.
+.SS "getRelationCountQuery (\fBBuilder\fP $query, \fBBuilder\fP $parent)"
+Add the constraints for a relationship count query\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$query\fP 
+.br
+\fI$parent\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 74 of file MorphToMany\&.php\&.
+.SS "newPivot (array $attributes = \fCarray()\fP,  $exists = \fCfalse\fP)"
+Create a new pivot model instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$attributes\fP 
+.br
+\fI$exists\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 127 of file MorphToMany\&.php\&.
+.SS "newPivotQuery ()\fC [protected]\fP"
+Create a new query builder for the pivot table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 113 of file MorphToMany\&.php\&.
+.SS "setWhere ()\fC [protected]\fP"
+Set the where clause for the relation query\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file MorphToMany\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$inverse\fC [protected]\fP"
+
+.PP
+Definition at line 29 of file MorphToMany\&.php\&.
+.SS "$morphClass\fC [protected]\fP"
+
+.PP
+Definition at line 20 of file MorphToMany\&.php\&.
+.SS "$morphType\fC [protected]\fP"
+
+.PP
+Definition at line 13 of file MorphToMany\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

@@ -1,0 +1,5 @@
+var namespacespec_1_1_prophecy_1_1_exception_1_1_prophecy =
+[
+    [ "MethodProphecyExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_prophecy_1_1_method_prophecy_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_prophecy_1_1_method_prophecy_exception_spec" ],
+    [ "ObjectProphecyExceptionSpec", "classspec_1_1_prophecy_1_1_exception_1_1_prophecy_1_1_object_prophecy_exception_spec.html", "classspec_1_1_prophecy_1_1_exception_1_1_prophecy_1_1_object_prophecy_exception_spec" ]
+];

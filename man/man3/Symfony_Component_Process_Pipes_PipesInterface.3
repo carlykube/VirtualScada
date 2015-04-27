@@ -1,0 +1,115 @@
+.TH "PipesInterface" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PipesInterface \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAbstractPipes\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetDescriptors\fP ()"
+.br
+.ti -1c
+.RI "\fBgetFiles\fP ()"
+.br
+.ti -1c
+.RI "\fBreadAndWrite\fP ($blocking, $\fBclose\fP=false)"
+.br
+.ti -1c
+.RI "\fBareOpen\fP ()"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBCHUNK_SIZE\fP = 16384"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBPipesInterface\fP manages descriptors and pipes for the use of proc_open\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Romain Neutron imprec@gmail.com 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file PipesInterface\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "areOpen ()"
+Returns if the current state has open file handles or pipes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Implemented in \fBUnixPipes\fP, and \fBWindowsPipes\fP\&.
+.SS "close ()"
+Closes file handles and pipes\&. 
+.PP
+Implemented in \fBWindowsPipes\fP, and \fBAbstractPipes\fP\&.
+.SS "getDescriptors ()"
+Returns an array of descriptors for the use of proc_open\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Implemented in \fBWindowsPipes\fP, and \fBUnixPipes\fP\&.
+.SS "getFiles ()"
+Returns an array of filenames indexed by their related stream in case these pipes use temporary files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string[] 
+.RE
+.PP
+
+.PP
+Implemented in \fBWindowsPipes\fP, and \fBUnixPipes\fP\&.
+.SS "readAndWrite ( $blocking,  $close = \fCfalse\fP)"
+Reads data in file handles and pipes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$blocking\fP Whether to use blocking calls or not\&. 
+.br
+\fI$close\fP Whether to close pipes if they've reached EOF\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string[] An array of read data indexed by their fd\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBWindowsPipes\fP, and \fBUnixPipes\fP\&.
+.SH "Field Documentation"
+.PP 
+.SS "const CHUNK_SIZE = 16384"
+
+.PP
+Definition at line 23 of file PipesInterface\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.

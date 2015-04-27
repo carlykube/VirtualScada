@@ -1,0 +1,107 @@
+\subsection*{Installation}
+
+First, pull in the package through \doxyref{Composer}{p.}{namespace_composer}.
+
+```js \char`\"{}require\char`\"{}\+: \{ \char`\"{}laracasts/flash\char`\"{}\+: \char`\"{}$\sim$1.\+3\char`\"{} \} ```
+
+And then, if using \doxyref{Laravel}{p.}{namespace_laravel} 5, include the service provider within {\ttfamily app/config/app.\+php}.
+
+```php \textquotesingle{}providers\textquotesingle{} =$>$ [ \textquotesingle{}\doxyref{Laracasts}{p.}{namespace_laracasts}\textquotesingle{} ]; ```
+
+And, for convenience, add a facade alias to this same file at the bottom\+:
+
+```php \textquotesingle{}aliases\textquotesingle{} =$>$ [ \textquotesingle{}Flash\textquotesingle{} =$>$ \textquotesingle{}\doxyref{Laracasts}{p.}{namespace_laracasts}\textquotesingle{} ]; ```
+
+\subsection*{Usage}
+
+Within your controllers, before you perform a redirect...
+
+```php public function store() \{ Flash\+::message(\textquotesingle{}Welcome Aboard!\textquotesingle{});
+
+return \doxyref{Redirect\+::home()}{p.}{class_redirect_ac8c270ba90e738a891bdae4e423cb6c7}; \} ```
+
+You may also do\+:
+
+
+\begin{DoxyItemize}
+\item `\+Flash\+::info(\textquotesingle{}Message\textquotesingle{}){\ttfamily  -\/}Flash\+::success(\textquotesingle{}Message\textquotesingle{}){\ttfamily  -\/}Flash\+::error(\textquotesingle{}Message\textquotesingle{}){\ttfamily  -\/}Flash\+::warning(\textquotesingle{}Message\textquotesingle{}){\ttfamily  -\/}Flash\+::overlay(\textquotesingle{}Modal Message\textquotesingle{}, \textquotesingle{}Modal Title\textquotesingle{})`
+\end{DoxyItemize}
+
+Again, if using \doxyref{Laravel}{p.}{namespace_laravel}, this will set a few keys in the session\+:
+
+
+\begin{DoxyItemize}
+\item \textquotesingle{}flash\+\_\+notification.\+message\textquotesingle{} -\/ The message you\textquotesingle{}re flashing
+\item \textquotesingle{}flash\+\_\+notification.\+level\textquotesingle{} -\/ \doxyref{A}{p.}{class_a} string that represents the type of notification (good for applying \doxyref{H\+T\+M\+L}{p.}{class_h_t_m_l} class names)
+\end{DoxyItemize}
+
+Alternatively, again, if you\textquotesingle{}re using \doxyref{Laravel}{p.}{namespace_laravel}, you may reference the {\ttfamily flash()} helper function, instead of the facade. Here\textquotesingle{}s an example\+:
+
+``` /$\ast$$\ast$
+\begin{DoxyItemize}
+\item Destroy the user\textquotesingle{}s session (logout).
+\item 
+\item \begin{DoxyReturn}{Returns}
+\doxyref{Response}{p.}{class_response} $\ast$/ public function destroy() \{ \doxyref{Auth\+::logout()}{p.}{class_auth_a1e34160e903835a43123f538e93457a2};
+\end{DoxyReturn}
+flash()-\/$>$info(\textquotesingle{}You have been logged out.\textquotesingle{});
+
+return home(); \} ```
+\end{DoxyItemize}
+
+With this message flashed to the session, you may now display it in your view(s). Maybe something like\+:
+
+{\ttfamily html }
+
+\begin{quote}
+Note that this package is optimized for use with Twitter Bootstrap. \end{quote}
+
+
+Because flash messages and overlays are so common, if you want, you may use (or modify) the views that are included with this package. Simply append to your layout view\+:
+
+```html \textquotesingle{}flash\+::message\textquotesingle{}) ```
+
+\subsection*{Example}
+
+```html $<$!\+D\+O\+C\+T\+Y\+P\+E html$>$ $<$html lang=\char`\"{}en\char`\"{}$>$ $<$head$>$ $<$meta charset=\char`\"{}\+U\+T\+F-\/8\char`\"{}$>$ $<$title$>$Document$<$/title$>$ $<$link rel=\char`\"{}stylesheet\char`\"{} href=\char`\"{}//maxcdn.\+bootstrapcdn.\+com/bootstrap/3.\+2.\+0/css/bootstrap.\+min.\+css\char`\"{}$>$ $<$/head$>$ $<$body$>$
+
+ \textquotesingle{}flash\+::message\textquotesingle{})
+
+ 
+
+Welcome to my website...
+
+ 
+
+$<$script src=\char`\"{}//code.\+jquery.\+com/jquery.\+js\char`\"{}$>$$<$/script$>$ $<$script src=\char`\"{}//maxcdn.\+bootstrapcdn.\+com/bootstrap/3.\+2.\+0/js/bootstrap.\+min.\+js\char`\"{}$>$$<$/script$>$
+
+$<$script$>$ \$(\textquotesingle{}\#flash-\/overlay-\/modal\textquotesingle{}).modal(); $<$/script$>$
+
+$<$/body$>$ $<$/html$>$ ```
+
+If you need to modify the flash message partials, you can run\+:
+
+```bash php artisan view\+:publish laracasts/flash ```
+
+The two package views will now be located in the `app/views/packages/laracasts/flash/\textquotesingle{} directory.
+
+```php Flash\+::message(\textquotesingle{}Welcome aboard!\textquotesingle{});
+
+return \doxyref{Redirect\+::home()}{p.}{class_redirect_ac8c270ba90e738a891bdae4e423cb6c7}; ```
+
+
+
+```php Flash\+::error(\textquotesingle{}Sorry Please try again.\textquotesingle{});
+
+return \doxyref{Redirect\+::home()}{p.}{class_redirect_ac8c270ba90e738a891bdae4e423cb6c7}; ```
+
+
+
+```php Flash\+::overlay(\textquotesingle{}You are now a \doxyref{Laracasts}{p.}{namespace_laracasts} member!\textquotesingle{});
+
+return \doxyref{Redirect\+::home()}{p.}{class_redirect_ac8c270ba90e738a891bdae4e423cb6c7}; ```
+
+
+
+\begin{quote}
+{\tt Learn exactly how to build this very package on Laracasts!}\end{quote}

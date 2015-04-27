@@ -1,0 +1,117 @@
+.TH "md_vendor_laracasts_flash_readme" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_vendor_laracasts_flash_readme \- Easy Flash Messages 
+
+.SS "Installation"
+.PP
+First, pull in the package through \fBComposer\fP\&.
+.PP
+```js 'require': { 'laracasts/flash': '~1\&.3' } ```
+.PP
+And then, if using \fBLaravel\fP 5, include the service provider within \fCapp/config/app\&.php\fP\&.
+.PP
+```php 'providers' => [ '\fBLaracasts\fP' ]; ```
+.PP
+And, for convenience, add a facade alias to this same file at the bottom:
+.PP
+```php 'aliases' => [ 'Flash' => '\fBLaracasts\fP' ]; ```
+.PP
+.SS "Usage"
+.PP
+Within your controllers, before you perform a redirect\&.\&.\&.
+.PP
+```php public function store() { Flash::message('Welcome Aboard!');
+.PP
+return \fBRedirect::home()\fP; } ```
+.PP
+You may also do:
+.PP
+.IP "\(bu" 2
+`Flash::info('Message')\fC -\fPFlash::success('Message')\fC -\fPFlash::error('Message')\fC -\fPFlash::warning('Message')\fC -\fPFlash::overlay('Modal Message', 'Modal Title')`
+.PP
+.PP
+Again, if using \fBLaravel\fP, this will set a few keys in the session:
+.PP
+.IP "\(bu" 2
+'flash_notification\&.message' - The message you're flashing
+.IP "\(bu" 2
+'flash_notification\&.level' - \fBA\fP string that represents the type of notification (good for applying \fBHTML\fP class names)
+.PP
+.PP
+Alternatively, again, if you're using \fBLaravel\fP, you may reference the \fCflash()\fP helper function, instead of the facade\&. Here's an example:
+.PP
+``` /**
+.IP "\(bu" 2
+Destroy the user's session (logout)\&.
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBReturns:\fP
+.RS 4
+\fBResponse\fP */ public function destroy() { \fBAuth::logout()\fP;
+.RE
+.PP
+flash()->info('You have been logged out\&.');
+.PP
+return home(); } ```
+.PP
+.PP
+With this message flashed to the session, you may now display it in your view(s)\&. Maybe something like:
+.PP
+\fChtml \fP
+.PP
+.RS 4
+Note that this package is optimized for use with Twitter Bootstrap\&. 
+.RE
+.PP
+.PP
+Because flash messages and overlays are so common, if you want, you may use (or modify) the views that are included with this package\&. Simply append to your layout view:
+.PP
+```html 'flash::message') ```
+.PP
+.SS "Example"
+.PP
+```html <!DOCTYPE html> <html lang='en'> <head> <meta charset='UTF-8'> <title>Document</title> <link rel='stylesheet' href='//maxcdn\&.bootstrapcdn\&.com/bootstrap/3\&.2\&.0/css/bootstrap\&.min\&.css'> </head> <body>
+.PP
+ 'flash::message')
+.PP
+ 
+.PP
+Welcome to my website\&.\&.\&.
+.PP
+ 
+.PP
+<script src='//code\&.jquery\&.com/jquery\&.js'></script> <script src='//maxcdn\&.bootstrapcdn\&.com/bootstrap/3\&.2\&.0/js/bootstrap\&.min\&.js'></script>
+.PP
+<script> $('#flash-overlay-modal')\&.modal(); </script>
+.PP
+</body> </html> ```
+.PP
+If you need to modify the flash message partials, you can run:
+.PP
+```bash php artisan view:publish laracasts/flash ```
+.PP
+The two package views will now be located in the `app/views/packages/laracasts/flash/' directory\&.
+.PP
+```php Flash::message('Welcome aboard!');
+.PP
+return \fBRedirect::home()\fP; ```
+.PP
+.PP
+```php Flash::error('Sorry Please try again\&.');
+.PP
+return \fBRedirect::home()\fP; ```
+.PP
+.PP
+```php Flash::overlay('You are now a \fBLaracasts\fP member!');
+.PP
+return \fBRedirect::home()\fP; ```
+.PP
+.PP
+.RS 4
+\fCLearn exactly how to build this very package on Laracasts!\fP
+.RE
+.PP
+

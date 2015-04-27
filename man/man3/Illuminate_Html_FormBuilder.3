@@ -1,0 +1,1177 @@
+.TH "FormBuilder" 3 "Tue Apr 14 2015" "Version 1.0" "VirtualSCADA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FormBuilder \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP (\fBHtmlBuilder\fP $\fBhtml\fP, \fBUrlGenerator\fP $\fBurl\fP, $csrfToken)"
+.br
+.ti -1c
+.RI "\fBopen\fP (array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBmodel\fP ($model, array $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBsetModel\fP ($\fBmodel\fP)"
+.br
+.ti -1c
+.RI "\fBclose\fP ()"
+.br
+.ti -1c
+.RI "\fBtoken\fP ()"
+.br
+.ti -1c
+.RI "\fBlabel\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBinput\fP ($type, $\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBtext\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBpassword\fP ($\fBname\fP, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBhidden\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBemail\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBurl\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBfile\fP ($\fBname\fP, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBtextarea\fP ($\fBname\fP, $value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBselect\fP ($\fBname\fP, $list=array(), $selected=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBselectRange\fP ($\fBname\fP, $begin, $end, $selected=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBselectYear\fP ()"
+.br
+.ti -1c
+.RI "\fBselectMonth\fP ($\fBname\fP, $selected=null, $\fBoptions\fP=array(), $\fBformat\fP= '%B')"
+.br
+.ti -1c
+.RI "\fBgetSelectOption\fP ($display, $value, $selected)"
+.br
+.ti -1c
+.RI "\fBcheckbox\fP ($\fBname\fP, $value=1, $checked=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBradio\fP ($\fBname\fP, $value=null, $checked=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBreset\fP ($value, $attributes=array())"
+.br
+.ti -1c
+.RI "\fBimage\fP ($\fBurl\fP, $\fBname\fP=null, $attributes=array())"
+.br
+.ti -1c
+.RI "\fBsubmit\fP ($value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBbutton\fP ($value=null, $\fBoptions\fP=array())"
+.br
+.ti -1c
+.RI "\fBgetIdAttribute\fP ($\fBname\fP, $attributes)"
+.br
+.ti -1c
+.RI "\fBgetValueAttribute\fP ($\fBname\fP, $value=null)"
+.br
+.ti -1c
+.RI "\fBold\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBoldInputIsEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSessionStore\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSessionStore\fP (\fBSession\fP $session)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBformatLabel\fP ($\fBname\fP, $value)"
+.br
+.ti -1c
+.RI "\fBsetTextAreaSize\fP ($\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBsetQuickTextAreaSize\fP ($\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBoptionGroup\fP ($list, $\fBlabel\fP, $selected)"
+.br
+.ti -1c
+.RI "\fBoption\fP ($display, $value, $selected)"
+.br
+.ti -1c
+.RI "\fBgetSelectedValue\fP ($value, $selected)"
+.br
+.ti -1c
+.RI "\fBcheckable\fP ($type, $\fBname\fP, $value, $checked, $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetCheckedState\fP ($type, $\fBname\fP, $value, $checked)"
+.br
+.ti -1c
+.RI "\fBgetCheckboxCheckedState\fP ($\fBname\fP, $value, $checked)"
+.br
+.ti -1c
+.RI "\fBgetRadioCheckedState\fP ($\fBname\fP, $value, $checked)"
+.br
+.ti -1c
+.RI "\fBmissingOldAndModel\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBgetMethod\fP ($method)"
+.br
+.ti -1c
+.RI "\fBgetAction\fP (array $\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetUrlAction\fP ($\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetRouteAction\fP ($\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetControllerAction\fP ($\fBoptions\fP)"
+.br
+.ti -1c
+.RI "\fBgetAppendage\fP ($method)"
+.br
+.ti -1c
+.RI "\fBgetModelValueAttribute\fP ($\fBname\fP)"
+.br
+.ti -1c
+.RI "\fBtransformKey\fP ($key)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$html\fP"
+.br
+.ti -1c
+.RI "\fB$url\fP"
+.br
+.ti -1c
+.RI "\fB$csrfToken\fP"
+.br
+.ti -1c
+.RI "\fB$session\fP"
+.br
+.ti -1c
+.RI "\fB$model\fP"
+.br
+.ti -1c
+.RI "\fB$labels\fP = array()"
+.br
+.ti -1c
+.RI "\fB$reserved\fP = array('method', '\fBurl\fP', 'route', 'action', 'files')"
+.br
+.ti -1c
+.RI "\fB$spoofedMethods\fP = array('DELETE', 'PATCH', 'PUT')"
+.br
+.ti -1c
+.RI "\fB$skipValueTypes\fP = array('\fBfile\fP', '\fBpassword\fP', '\fBcheckbox\fP', '\fBradio\fP')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file FormBuilder\&.php\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct (\fBHtmlBuilder\fP $html, \fBUrlGenerator\fP $url,  $csrfToken)"
+Create a new form builder instance\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$html\fP 
+.br
+\fI$csrfToken\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file FormBuilder\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "button ( $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a button element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 722 of file FormBuilder\&.php\&.
+.SS "checkable ( $type,  $name,  $value,  $checked,  $options)\fC [protected]\fP"
+Create a checkable input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 598 of file FormBuilder\&.php\&.
+.SS "checkbox ( $name,  $value = \fC1\fP,  $checked = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a checkbox input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 567 of file FormBuilder\&.php\&.
+.SS "close ()"
+Close the current form\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file FormBuilder\&.php\&.
+.SS "email ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create an e-mail input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 296 of file FormBuilder\&.php\&.
+.SS "file ( $name,  $options = \fCarray()\fP)"
+Create a file input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file FormBuilder\&.php\&.
+.SS "formatLabel ( $name,  $value)\fC [protected]\fP"
+Format the label value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file FormBuilder\&.php\&.
+.SS "getAction (array $options)\fC [protected]\fP"
+Get the form action from the options\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 751 of file FormBuilder\&.php\&.
+.SS "getAppendage ( $method)\fC [protected]\fP"
+Get the form appendage for the given method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 831 of file FormBuilder\&.php\&.
+.SS "getCheckboxCheckedState ( $name,  $value,  $checked)\fC [protected]\fP"
+Get the check state for a checkbox input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 639 of file FormBuilder\&.php\&.
+.SS "getCheckedState ( $type,  $name,  $value,  $checked)\fC [protected]\fP"
+Get the check state for a checkable input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 616 of file FormBuilder\&.php\&.
+.SS "getControllerAction ( $options)\fC [protected]\fP"
+Get the action for an 'action' option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 815 of file FormBuilder\&.php\&.
+.SS "getIdAttribute ( $name,  $attributes)"
+Get the ID attribute for a field name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 861 of file FormBuilder\&.php\&.
+.SS "getMethod ( $method)\fC [protected]\fP"
+Parse the form action method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 738 of file FormBuilder\&.php\&.
+.SS "getModelValueAttribute ( $name)\fC [protected]\fP"
+Get the model value that should be assigned to the field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 904 of file FormBuilder\&.php\&.
+.SS "getRadioCheckedState ( $name,  $value,  $checked)\fC [protected]\fP"
+Get the check state for a radio input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 658 of file FormBuilder\&.php\&.
+.SS "getRouteAction ( $options)\fC [protected]\fP"
+Get the action for a 'route' option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 799 of file FormBuilder\&.php\&.
+.SS "getSelectedValue ( $value,  $selected)\fC [protected]\fP"
+Determine if the value is selected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$selected\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 548 of file FormBuilder\&.php\&.
+.SS "getSelectOption ( $display,  $value,  $selected)"
+Get the select option for the given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$display\fP 
+.br
+\fI$value\fP 
+.br
+\fI$selected\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 494 of file FormBuilder\&.php\&.
+.SS "getSessionStore ()"
+Get the session store implementation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+$session 
+.RE
+.PP
+
+.PP
+Definition at line 956 of file FormBuilder\&.php\&.
+.SS "getUrlAction ( $options)\fC [protected]\fP"
+Get the action for a 'url' option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 783 of file FormBuilder\&.php\&.
+.SS "getValueAttribute ( $name,  $value = \fCnull\fP)"
+Get the value that should be assigned to the field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 881 of file FormBuilder\&.php\&.
+.SS "hidden ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a hidden input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 283 of file FormBuilder\&.php\&.
+.SS "image ( $url,  $name = \fCnull\fP,  $attributes = \fCarray()\fP)"
+Create a \fBHTML\fP image input element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.br
+\fI$name\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 696 of file FormBuilder\&.php\&.
+.SS "input ( $type,  $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a form input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$type\fP 
+.br
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file FormBuilder\&.php\&.
+.SS "label ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a form label element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file FormBuilder\&.php\&.
+.SS "missingOldAndModel ( $name)\fC [protected]\fP"
+Determine if old input or model input exists for a key\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 671 of file FormBuilder\&.php\&.
+.SS "model ( $model, array $options = \fCarray()\fP)"
+Create a new model based form builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file FormBuilder\&.php\&.
+.SS "old ( $name)"
+Get a value from the session's old input\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 922 of file FormBuilder\&.php\&.
+.SS "oldInputIsEmpty ()"
+Determine if the old input is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Definition at line 935 of file FormBuilder\&.php\&.
+.SS "open (array $options = \fCarray()\fP)"
+Open up a new \fBHTML\fP form\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file FormBuilder\&.php\&.
+.SS "option ( $display,  $value,  $selected)\fC [protected]\fP"
+Create a select element option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$display\fP 
+.br
+\fI$value\fP 
+.br
+\fI$selected\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 532 of file FormBuilder\&.php\&.
+.SS "optionGroup ( $list,  $label,  $selected)\fC [protected]\fP"
+Create an option group form element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$list\fP 
+.br
+\fI$label\fP 
+.br
+\fI$selected\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 512 of file FormBuilder\&.php\&.
+.SS "password ( $name,  $options = \fCarray()\fP)"
+Create a password input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 270 of file FormBuilder\&.php\&.
+.SS "radio ( $name,  $value = \fCnull\fP,  $checked = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a radio button input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$checked\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 581 of file FormBuilder\&.php\&.
+.SS "reset ( $value,  $attributes = \fCarray()\fP)"
+Create a \fBHTML\fP reset input element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$attributes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 683 of file FormBuilder\&.php\&.
+.SS "select ( $name,  $list = \fCarray()\fP,  $selected = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a select box field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$list\fP 
+.br
+\fI$selected\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file FormBuilder\&.php\&.
+.SS "selectMonth ( $name,  $selected = \fCnull\fP,  $options = \fCarray()\fP,  $format = \fC'%B'\fP)"
+Create a select month field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$selected\fP 
+.br
+\fI$options\fP 
+.br
+\fI$format\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 474 of file FormBuilder\&.php\&.
+.SS "selectRange ( $name,  $begin,  $end,  $selected = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a select range field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$begin\fP 
+.br
+\fI$end\fP 
+.br
+\fI$selected\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 443 of file FormBuilder\&.php\&.
+.SS "selectYear ()"
+Create a select year field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$begin\fP 
+.br
+\fI$end\fP 
+.br
+\fI$selected\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 460 of file FormBuilder\&.php\&.
+.SS "setModel ( $model)"
+Set the model instance on the form builder\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$model\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file FormBuilder\&.php\&.
+.SS "setQuickTextAreaSize ( $options)\fC [protected]\fP"
+Set the text area size using the quick 'size' attribute\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file FormBuilder\&.php\&.
+.SS "setSessionStore (\fBSession\fP $session)"
+Set the session store implementation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$session\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$this 
+.RE
+.PP
+
+.PP
+Definition at line 967 of file FormBuilder\&.php\&.
+.SS "setTextAreaSize ( $options)\fC [protected]\fP"
+Set the text area size on the attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.PP
+Definition at line 363 of file FormBuilder\&.php\&.
+.SS "submit ( $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a submit button element\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 710 of file FormBuilder\&.php\&.
+.SS "text ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a text input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 258 of file FormBuilder\&.php\&.
+.SS "textarea ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a textarea input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 334 of file FormBuilder\&.php\&.
+.SS "token ()"
+Generate a hidden field with the current CSRF token\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 179 of file FormBuilder\&.php\&.
+.SS "transformKey ( $key)\fC [protected]\fP"
+Transform key from array to dot syntax\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 946 of file FormBuilder\&.php\&.
+.SS "url ( $name,  $value = \fCnull\fP,  $options = \fCarray()\fP)"
+Create a url input field\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP 
+.br
+\fI$value\fP 
+.br
+\fI$options\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 309 of file FormBuilder\&.php\&.
+.SH "Field Documentation"
+.PP 
+.SS "$csrfToken\fC [protected]\fP"
+
+.PP
+Definition at line 30 of file FormBuilder\&.php\&.
+.SS "$\fBhtml\fP\fC [protected]\fP"
+
+.PP
+Definition at line 16 of file FormBuilder\&.php\&.
+.SS "$labels = array()\fC [protected]\fP"
+
+.PP
+Definition at line 51 of file FormBuilder\&.php\&.
+.SS "$\fBmodel\fP\fC [protected]\fP"
+
+.PP
+Definition at line 44 of file FormBuilder\&.php\&.
+.SS "$reserved = array('method', '\fBurl\fP', 'route', 'action', 'files')\fC [protected]\fP"
+
+.PP
+Definition at line 58 of file FormBuilder\&.php\&.
+.SS "$session\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file FormBuilder\&.php\&.
+.SS "$skipValueTypes = array('\fBfile\fP', '\fBpassword\fP', '\fBcheckbox\fP', '\fBradio\fP')\fC [protected]\fP"
+
+.PP
+Definition at line 72 of file FormBuilder\&.php\&.
+.SS "$spoofedMethods = array('DELETE', 'PATCH', 'PUT')\fC [protected]\fP"
+
+.PP
+Definition at line 65 of file FormBuilder\&.php\&.
+.SS "Illuminate Routing \fBUrlGenerator\fP $\fBurl\fP\fC [protected]\fP"
+The \fBURL\fP generator instance\&. 
+.PP
+Definition at line 23 of file FormBuilder\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VirtualSCADA from the source code\&.
