@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div id="container-fluid" class="container" style="margin-top:10%">
+<div id="container-fluid" class="container">
     <!-- @include('flash::message') -->
     <!-- Taking this out to replace with main project dashboard
 	<div>
@@ -58,7 +58,7 @@
         </div>
 	</div>
     End takeout-->
-    <div class="panel panel-default">
+    <div class="panel panel-default projectpanel">
         <p>Putting stuff in here</p>
     </div>
 </div>
