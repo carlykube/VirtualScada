@@ -62,6 +62,7 @@
         <div class="col-sm-10 col-sm-offset-1 projectpanel">
             <div class="row">
             <div class="col-md-3 left-side">
+
                 <div class-"panel-group" id="left-accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -107,7 +108,14 @@
             <div style="height: 100%" class="col-md-6 centerproj">
             </div>
             <div class="col-md-3 right-side">
-                And the side
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">Properties</a></li>
+                    <li><a href="#">Links</a></li>
+                    <li><a href="#">Output</a></li>
+                </ul>
+                <div id="right-content">
+                    content things go in here
+                </div>
             </div>
         </div>
         </div>
