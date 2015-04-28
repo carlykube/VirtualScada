@@ -1,5 +1,4 @@
 $(document).ready( function() {
-	console.log("Found JS file");
 	/*$('#left-accordion .panel-title').click( function() {
 		var icon = $(this).find('i');
 		if(icon.hasClass('fa-arrow-left')) {
@@ -20,5 +19,29 @@ $(document).ready( function() {
 		var icon = $(this).parent().find('.panel-heading i');
 		icon.removeClass('fa-arrow-left');
 		icon.addClass('fa-arrow-down');
+	});
+
+	$("#screenOneLink").click(function() {
+		$("#right-content .screen").hide();
+		$("#screenTwoLink").removeClass("active");
+		$("#screenThreeLink").removeClass("active");
+		$(this).addClass('active');
+		$("#right-content .screenOne").show();
+	});
+
+	$("#screenTwoLink").click(function() {
+		$("#right-content .screen").hide();
+		$("#screenOneLink").removeClass("active");
+		$("#screenThreeLink").removeClass("active");
+		$(this).addClass('active');
+		$("#right-content .screenTwo").show();
+	});
+
+	$("#screenThreeLink").click(function() {
+		$("#right-content .screen").hide();
+		$("#screenTwoLink").removeClass("active");
+		$("#screenOneLink").removeClass("active");
+		$(this).addClass('active');
+		$("#right-content .screenThree").show();
 	});
 });

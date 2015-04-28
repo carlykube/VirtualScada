@@ -117,16 +117,17 @@
 
                 </div>
             </div>
-            <div style="height: 100%" class="col-md-6 centerproj">
+            <div id="messagebox" class="col-md-4 col-md-offset-1">
+                You have added an RTU module to the project.
             </div>
-            <div class="col-md-3 right-side">
+            <div class="col-md-3 pull-right right-side">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#">Properties</a></li>
-                    <li><a href="#">Links</a></li>
-                    <li><a href="#">Output</a></li>
+                    <li id="screenOneLink" class="active"><a href="#">Properties</a></li>
+                    <li id="screenTwoLink"><a href="#">Links</a></li>
+                    <li id="screenThreeLink"><a href="#">Output</a></li>
                 </ul>
                 <div id="right-content">
-                    <div class="row">
+                    <div class="screen screenOne row">
                         <div class="label-group col-xs-12">
                             <span class="label col-xs-3">Name:</span>
                             <input type="text" class="col-xs-8 col-xs-offset-1">
@@ -150,6 +151,25 @@
                         <div class="label-group col-xs-12">
                             <span class="label col-xs-3">Linked To:</span>
                             <input type="text" class="col-xs-2 col-xs-offset-1" disabled>
+                        </div>
+                    </div>
+                    <div style="display: none;" class="screen screenTwo row">
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Linked To:</span>
+                            <input type="text" class="col-xs-8 col-xs-offset-1" disabled>
+                        </div>
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Linked To:</span>
+                            <input type="text" class="col-xs-8 col-xs-offset-1" disabled>
+                        </div>
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Linked To:</span>
+                            <input type="text" class="col-xs-8 col-xs-offset-1" disabled>
+                        </div>
+                    </div>
+                    <div style="display: none;" class="screen screenThree row">
+                        <div class="label-group col-xs-12">
+                            <textarea rows="25" class="col-xs-10 col-xs-offset-1" disabled></textarea>
                         </div>
                     </div>
                 </div>
