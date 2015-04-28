@@ -175,6 +175,9 @@
                 </div>
             </div>
         </div>
+        <div class="draggable ui-widget-content">
+                <p id="draggable5" class="ui-widget-header">This is in the header.</p>
+            </div>
         </div>
     </div>
 </div>

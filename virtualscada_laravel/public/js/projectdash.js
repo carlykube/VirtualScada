@@ -44,4 +44,6 @@ $(document).ready( function() {
 		$(this).addClass('active');
 		$("#right-content .screenThree").show();
 	});
+
+	$('#draggable5').draggable({containment: '.projectpanel', scroll: false, grid: [30, 30]});
 });
