@@ -68,6 +68,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title" data-toggle="collapse" data-target="#collapseOne" data-parent="#left-accordion">
                                 HMI Modules
+                                <i class="fa fa-arrow-down pull-right"></i>
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in">
@@ -81,6 +82,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title" data-toggle="collapse" data-target="#collapseTwo" data-parent="#left-accordion">
                                 RTU Modules
+                                <i class="fa fa-arrow-left pull-right"></i>
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
@@ -94,6 +96,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title" data-toggle="collapse" data-target="#collapseThree" data-parent="#left-accordion">
                                 PLC Modules
+                                <i class="fa fa-arrow-left pull-right"></i>
                             </h4>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
@@ -121,5 +124,11 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('footerscr')
+
+<script src="{{ asset('/js/projectdash.js') }}"></script>
 
 @endsection

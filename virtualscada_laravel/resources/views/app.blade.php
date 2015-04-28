@@ -132,5 +132,8 @@
             }
         });
     </script>
+
+    @yield('footerscr')
+
 </body>
 </html>
