@@ -126,7 +126,32 @@
                     <li><a href="#">Output</a></li>
                 </ul>
                 <div id="right-content">
-                    content things go in here
+                    <div class="row">
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Name:</span>
+                            <input type="text" class="col-xs-8 col-xs-offset-1">
+                        </div>
+
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Vendor:</span>
+                            <input type="text" class="col-xs-8 col-xs-offset-1" disabled>
+                        </div>
+
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-4">Date Added:</span>
+                            <input type="text" class="col-xs-8" disabled>
+                        </div>
+
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-5">Last Test Result:</span>
+                            <input type="text" class="col-xs-7" disabled>
+                        </div>
+
+                        <div class="label-group col-xs-12">
+                            <span class="label col-xs-3">Linked To:</span>
+                            <input type="text" class="col-xs-2 col-xs-offset-1" disabled>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
