@@ -58,14 +58,15 @@
         </div>
 	</div>
     End takeout-->
-    <div class="panel panel-default projectpanel">
-        <div class="row">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 projectpanel">
+            <div class="row">
             <div class="col-md-3 left-side">
                 <div class-"panel-group" id="left-accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseOne">HMI Modules</a>
+                            <h4 class="panel-title" data-toggle="collapse" data-target="#collapseOne" data-parent="#left-accordion">
+                                HMI Modules
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in">
@@ -77,8 +78,8 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseTwo">RTU Modules</a>
+                            <h4 class="panel-title" data-toggle="collapse" data-target="#collapseTwo" data-parent="#left-accordion">
+                                RTU Modules
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
@@ -90,11 +91,11 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseThree">PLC Modules</a>
+                            <h4 class="panel-title" data-toggle="collapse" data-target="#collapseThree" data-parent="#left-accordion">
+                                PLC Modules
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <p>This is where we put our PLCs</p>
                             </div>
@@ -108,6 +109,7 @@
             <div class="col-md-3 right-side">
                 And the side
             </div>
+        </div>
         </div>
     </div>
 </div>
