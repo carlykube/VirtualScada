@@ -68,12 +68,15 @@
                         <div class="panel-heading">
                             <h4 class="panel-title" data-toggle="collapse" data-target="#collapseOne" data-parent="#left-accordion">
                                 HMI Modules
-                                <i class="fa fa-arrow-down pull-right"></i>
+                                <i class="fa fa-arrow-left pull-right"></i>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
+                        <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p>This is where we put our HMIs</p>
+                                <div class="module col-md-4 col-md-offset-1">
+                                </div>
+                                <div class="module col-md-4 col-md-offset-right-1 pull-right">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +90,10 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p>This is where we put our RTUs</p>
+                                <div class="module col-md-4 col-md-offset-1">
+                                </div>
+                                <div class="module col-md-4 col-md-offset-right-1 pull-right">
+                                </div>
                             </div>
                         </div>
                     </div> 
@@ -101,7 +107,10 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p>This is where we put our PLCs</p>
+                                <div class="module col-md-4 col-md-offset-1">
+                                </div>
+                                <div class="module col-md-4 col-md-offset-right-1 pull-right">
+                                </div>
                             </div>
                         </div>
                     </div> 
