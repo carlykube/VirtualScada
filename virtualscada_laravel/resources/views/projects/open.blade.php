@@ -61,7 +61,47 @@
     <div class="panel panel-default projectpanel">
         <div class="row">
             <div class="col-md-3 left-side">
-                Hello world
+                <div class-"panel-group" id="left-accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseOne">HMI Modules</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>This is where we put our HMIs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseTwo">RTU Modules</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>This is where we put our RTUs</p>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#left-accordion" href="collapseThree">PLC Modules</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>This is where we put our PLCs</p>
+                            </div>
+                        </div>
+                    </div> 
+
+                </div>
             </div>
             <div style="height: 100%" class="col-md-6 centerproj">
             </div>
