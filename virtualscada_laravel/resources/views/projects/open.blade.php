@@ -59,7 +59,16 @@
 	</div>
     End takeout-->
     <div class="panel panel-default projectpanel">
-        <p>Putting stuff in here</p>
+        <div class="row">
+            <div class="col-md-3 left-side">
+                Hello world
+            </div>
+            <div style="height: 100%" class="col-md-6 centerproj">
+            </div>
+            <div class="col-md-3 right-side">
+                And the side
+            </div>
+        </div>
     </div>
 </div>
 
